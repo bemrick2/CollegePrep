@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 46,
+  "bank_version": 47,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -8420,6 +8420,181 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Compare triangles that share a height."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000431",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 subtracts 16 from 25 without counting both endpoints.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "16",
+          "rationale": "16 is the least possible value of x, not the number of values.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Her pay is 16.50x + 12(40 − x) = 480 + 4.5x. Earning at least $552 requires 4.5x ≥ 72, so x ≥ 16. With x ≤ 25, the possible values are 16, 17, …, 25, which is 25 − 16 + 1 = 10 values.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write her weekly pay in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the lower bound, then count up to 25."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000432",
+      "correct_answer": "C",
+      "explanation": "Without the snack, the gas cost 49.00 − 3.25 = $45.75. So 12.5(p − 0.12) = 45.75, which gives p − 0.12 = 3.66 and p = $3.78.",
+      "distractor_explanations": {
+        "A": "$3.54 subtracts the discount from $3.66 instead of adding it back.",
+        "B": "$3.66 is the member price per gallon.",
+        "D": "$3.92 divides $49 by 12.5, ignoring the snack and the discount."
+      },
+      "hints": [
+        "How much of the $49.00 was for gas?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Remove the snack, then undo the discount."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000433",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "-8",
+          "rationale": "−8 is b − c, the reverse difference.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "4",
+          "rationale": "4 drops the minus sign in −x: 6 + b = 2 + c.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "At x = 2 the two functions are equal: 3(2) + b = −2 + c, so 6 + b = −2 + c and c − b = 8. Neither b nor c can be found on its own, but their difference is fixed.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is true of f(2) and g(2)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(2) equal to g(2)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000434",
+      "correct_answer": "B",
+      "explanation": "f(2) = −3 and f(10) = 21, so their average is 9. Then 3x − 9 = 9 gives x = 6. (For a linear function, the average of two outputs is the output at the average of the inputs: (2 + 10)/2 = 6.)",
+      "distractor_explanations": {
+        "A": "3 solves 3x = 9, dropping the −9.",
+        "C": "7 uses half the difference, 12, as the target output.",
+        "D": "9 is the average output, not the input."
+      },
+      "hints": [
+        "Find f(2) and f(10)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Average the outputs, then solve f(x) = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000435",
+      "correct_answer": "A",
+      "explanation": "Factor: −2x² + 25x − 63 = −(2x² − 25x + 63) = −(2x − 7)(x − 9). The profit is 0 when x = 7/2 = 3.5 or x = 9, so the lowest such price is $3.50.",
+      "distractor_explanations": {
+        "B": "6.25 is the price that maximizes profit, 25/4.",
+        "C": "7 reads the zero from the factor 2x − 7 as 7 instead of 7/2.",
+        "D": "9 is the greater zero, not the lowest price."
+      },
+      "hints": [
+        "Factor the quadratic."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set each factor equal to 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000436",
+      "correct_answer": "A",
+      "explanation": "f(g(a)) = 9 means g(a) is the input of f with output 9. The table shows f(3) = 9 and no other input gives 9, so g(a) = 3. Then 3a − 3 = 3 and a = 2.",
+      "distractor_explanations": {
+        "B": "3 is g(a), not a.",
+        "C": "4 solves g(a) = 9, ignoring f.",
+        "D": "5 reverses the order of composition: g(f(a)) = 9 gives f(a) = 4 and a = 5."
+      },
+      "hints": [
+        "Which input of f gives 9?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Work from the outside function inward."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000437",
+      "correct_answer": "B",
+      "explanation": "For 30 people the recipe needs 1.5 × (30/12) = 3.75 pounds. That is 3.75 ÷ 2.2 kilograms, which costs (3.75 ÷ 2.2) × 8.80 = 3.75 × 4 = $15.00.",
+      "distractor_explanations": {
+        "A": "$6.00 converts the 1.5 pounds but does not scale to 30 people.",
+        "C": "$33.00 treats the 3.75 pounds as kilograms.",
+        "D": "$72.60 multiplies by 2.2 instead of dividing."
+      },
+      "hints": [
+        "How many pounds are needed for 30 people?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale, convert, then price."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000438",
+      "correct_answer": "A",
+      "explanation": "The interquartile ranges are 31 − 20 = 11 for A and 35 − 18 = 17 for B, so B's is greater. The ranges are 48 − 12 = 36 for A and 40 − 15 = 25 for B, so B's is smaller.",
+      "distractor_explanations": {
+        "B": "B's range, 25, is smaller than A's range, 36.",
+        "C": "This swaps the comparisons of IQR and range.",
+        "D": "B's IQR, 17, is greater than A's, 11."
+      },
+      "hints": [
+        "Compute each IQR and each range."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "IQR = Q3 − Q1; range = maximum − minimum."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000439",
+      "correct_answer": "C",
+      "explanation": "The shorter diagonal splits the rhombus into two equilateral triangles with side 10. Each has area (√3/4)(10²) = 25√3, so the rhombus has area 50√3. (Equivalently, the longer diagonal is 10√3 and the area is (1/2)(10)(10√3).)",
+      "distractor_explanations": {
+        "A": "25√3 is the area of only one of the two equilateral triangles.",
+        "B": "50 treats the rhombus as a square with diagonal 10.",
+        "D": "100√3 multiplies the diagonals without halving."
+      },
+      "hints": [
+        "What kind of triangles does the shorter diagonal form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the rhombus and its shorter diagonal."
       }
     }
   ]

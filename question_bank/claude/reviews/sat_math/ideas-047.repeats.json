@@ -1,0 +1,414 @@
+{
+ "ideas": "generated set 6 (AA/AB/AC/AD)",
+ "results": {
+  "AA01": [
+   {
+    "other_id": "CLD-ACT-M-000141",
+    "severity": "template",
+    "why": "ACT-141: tax 8% and tip 20% both on the same $60 base, find the total ($76.80; trap $77.76 compounds). AA01 is the same setup run in reverse: tax 8% and tip 18% both on the menu price, total given, find the base (63/1.26). Same additive-percents-on-one-base structure and the same compounding trap (B)."
+   }
+  ],
+  "AA02": [],
+  "AA03": [
+   {
+    "other_id": "CLD-SAT-M-000117",
+    "severity": "template",
+    "why": "SAT-117: line with negative slope through (2, 5), x- and y-intercepts equal, find the slope. AA03: line with negative slope through (3, 4), y-intercept 5 more than x-intercept, find the slope. Same setup (point + relation between intercepts + negative-slope condition used to discard a case) and same asked slope; the quadratic is a numeric variation, not a new template."
+   },
+   {
+    "other_id": "GEN03:J12",
+    "severity": "close",
+    "why": "J12: negative-slope line through a point, locate the x-intercept by sign reasoning; shares the setup only."
+   }
+  ],
+  "AA04": [],
+  "AA05": [
+   {
+    "other_id": "CLD-SAT-M-000164",
+    "severity": "close",
+    "why": "SAT-164: y = mx + 2 meets y = 3x − 4 at x = 2, find m. Same two lines meeting at a given x-coordinate; AA05 asks the determined combination c − b with both constants unknown, which changes the reasoning."
+   }
+  ],
+  "AA06": [
+   {
+    "other_id": "CLD-ACT-M-000196",
+    "severity": "close",
+    "why": "ACT-196: two rental companies (fee + per-mile), least miles for A to be cheaper. AA06 adds a third plan and asks a two-sided interval; break-even inequalities are shared."
+   }
+  ],
+  "AA07": [],
+  "AA08": [
+   {
+    "other_id": "CLD-SAT-M-000362",
+    "severity": "close",
+    "why": "SAT-362: |2x − a| < b has solutions exactly −1 < x < 5; find a. Same 'solution set is exactly …, recover constants' framing, but linear with a sign flip instead of absolute value."
+   },
+   {
+    "other_id": "CLD-SAT-M-000328",
+    "severity": "close",
+    "why": "SAT-328 / GEN02:J02: constant bounded by a non-solution of a linear inequality; same family only."
+   }
+  ],
+  "AA09": [
+   {
+    "other_id": "CLD-SAT-M-000299",
+    "severity": "close",
+    "why": "SAT-299: slope of linear f from how a shift moves an intercept. AA09 uses a horizontal shift moving a point; same family, different mechanism."
+   }
+  ],
+  "AA10": [
+   {
+    "other_id": "CLD-SAT-M-000399",
+    "severity": "close",
+    "why": "SAT-399 (= GEN05:U04): least integer parameter from a strict condition on a system's solution. AA10 is the one-equation version (solution > 7 → least integer a). Same asked quantity type, simpler setup."
+   },
+   {
+    "other_id": "GEN04:N09",
+    "severity": "close",
+    "why": "N09: 5x − 2 = 3x + k with a condition on how the solution changes; same equation shape, different asked quantity."
+   }
+  ],
+  "AA11": [
+   {
+    "other_id": "CLD-SAT-M-000410",
+    "severity": "close",
+    "why": "SAT-410 (= GEN05:U08): linear f with f(2) + f(6) given; U08's explanation uses the same 'average of outputs = output at average input' insight that is AA11's whole point."
+   }
+  ],
+  "AA12": [],
+  "AA13": [
+   {
+    "other_id": "CLD-SAT-M-000410",
+    "severity": "close",
+    "why": "SAT-410: linear f, two outputs given in disguised form (sum and difference), find f(0). AA13: linear f, second point hidden in f(f(2)), find f(0). Same asked f(0) from two disguised points; disguise differs."
+   },
+   {
+    "other_id": "GEN05:U02",
+    "severity": "close",
+    "why": "U02: linear f with f(3) = k and f(k) = 3 — an output reused as an input, as in f(f(2))."
+   }
+  ],
+  "AB01": [],
+  "AB02": [
+   {
+    "other_id": "CLD-SAT-M-000326",
+    "severity": "close",
+    "why": "SAT-326: f defined only for x = 1…5, table gives all values, solve g(x) = f(x + 1) − 2 = 6. AB02 uses the same 'defined only for … table gives all of its values' table format and solves for an inner input, but the inner function is a formula (composition f(g(a)))."
+   },
+   {
+    "other_id": "CLD-ACT-M-000072",
+    "severity": "close",
+    "why": "ACT-072: composition from tables; same skill only."
+   }
+  ],
+  "AB03": [
+   {
+    "other_id": "CLD-SAT-M-000071",
+    "severity": "close",
+    "why": "SAT-071: zeros of g(x) = f(x − 3). AB03 uses the same g(x) = f(x − 3) but asks the y-intercept, which needs the leading coefficient."
+   }
+  ],
+  "AB04": [
+   {
+    "other_id": "CLD-SAT-M-000026",
+    "severity": "close",
+    "why": "SAT-026: P(t) = 8,000(1.05)^(t/2), interpret the per-2-year growth. AB04 rewrites a (base)^(t/2) model to an annual base; same t/2 exponent device."
+   },
+   {
+    "other_id": "CLD-SAT-M-000345",
+    "severity": "close",
+    "why": "SAT-345: compares 0.95^t with 0.9^(t/2) per year; needs the same square-root-of-base step."
+   }
+  ],
+  "AB05": [
+   {
+    "other_id": "CLD-ACT-M-000312",
+    "severity": "close",
+    "why": "ACT-312: 50·2^(t/3) = 400, solve using the doubling period. AB05 is the halving version with a vertical offset (+22) that must be subtracted first."
+   }
+  ],
+  "AB06": [
+   {
+    "other_id": "CLD-ACT-M-000061",
+    "severity": "template",
+    "why": "ACT-061: x² − 6x + c = 0 has two different real solutions both greater than 1; describe all c (5 < c < 9). AB06: (x − 1)(x − 5) = k, i.e. x² − 6x + (5 − k) = 0, two distinct positive solutions; count integer k (−4 < k < 5). Same quadratic x² − 6x + const, same 'two distinct roots both beyond a bound' condition (discriminant + endpoint value), asked as a count instead of an interval."
+   },
+   {
+    "other_id": "CLD-SAT-M-000259",
+    "severity": "close",
+    "why": "SAT-259: count inputs for a given output; same family only."
+   }
+  ],
+  "AB07": [
+   {
+    "other_id": "CLD-ACT-M-000162",
+    "severity": "close",
+    "why": "ACT-162: solve x^(2/3) = 16. AB07 solves x^(5/2) = 32 and then applies a second, negative rational exponent."
+   }
+  ],
+  "AB08": [
+   {
+    "other_id": "CLD-ACT-M-000716",
+    "severity": "close",
+    "why": "ACT-716: P(x) = −2(x − 15)² + 450, what does 15 represent. Same 'what does the number represent in a quadratic model' format; different form and context."
+   }
+  ],
+  "AB09": [
+   {
+    "other_id": "CLD-SAT-M-000079",
+    "severity": "close",
+    "why": "SAT-079: savings first below $500 after constant weekly withdrawals (linear, first whole week below a threshold). AB09 is the percent-decay version, with the linear reading as its main trap."
+   },
+   {
+    "other_id": "CLD-SAT-M-000331",
+    "severity": "close",
+    "why": "SAT-331: first whole hour one exponential exceeds another; same first-whole-period search."
+   }
+  ],
+  "AB10": [
+   {
+    "other_id": "CLD-SAT-M-000004",
+    "severity": "close",
+    "why": "SAT-004: expand (2x − 3)² − (x + 1)². AB10 runs a similar difference of squares containing (2x − 3)² in the factoring direction with y² as the subtracted square."
+   }
+  ],
+  "AB11": [
+   {
+    "other_id": "CLD-SAT-M-000255",
+    "severity": "close",
+    "why": "SAT-255: sum of the solutions of |2x − 3| = 7. AB11 has two such two-solution equations and pairs extremes; same family."
+   }
+  ],
+  "AB12": [
+   {
+    "other_id": "CLD-SAT-M-000320",
+    "severity": "close",
+    "why": "SAT-320 (= GEN02:H15): drug concentration rational model C(t) = 60t/(t² + 9), find the maximum. AB12 uses the same context and model type but solves for a given output."
+   }
+  ],
+  "AB13": [
+   {
+    "other_id": "CLD-SAT-M-000034",
+    "severity": "template",
+    "why": "SAT-034: g(x) = a(x − 3)(x + 5), maximum 32, find a. AB13: f(x) = −5(x + 1)(x − 7), find the maximum. Same setup run in reverse (leading coefficient ↔ maximum, vertex midway between the factored-form zeros)."
+   },
+   {
+    "other_id": "CLD-ACT-M-000330",
+    "severity": "template",
+    "why": "ACT-330: f(x) = (x − 2)(x − 8), find the minimum value. AB13 is the same task (extremum of a quadratic in intercept form via the midpoint of the zeros) with a = −5."
+   }
+  ],
+  "AC01": [
+   {
+    "other_id": "CLD-ACT-M-000207",
+    "severity": "close",
+    "why": "ACT-207: scale a recipe (4 → 30 servings) and convert grams to kilograms. AC01 chains the same scaling and a unit conversion (lb → kg) and then multiplies by a price."
+   },
+   {
+    "other_id": "CLD-ACT-M-000326",
+    "severity": "close",
+    "why": "ACT-326: pounds to kilograms with 2.2 lb per kg; same conversion direction trap."
+   }
+  ],
+  "AC02": [
+   {
+    "other_id": "CLD-SAT-M-000161",
+    "severity": "template",
+    "why": "SAT-161: 40% of customers are members; members spend $60, nonmembers $40; what percent of revenue comes from members? (50). AC02: 25% live far; 60% of far vs 20% of near carpool; what percent of carpoolers live far? (50). Same computation (group share × group rate over the weighted total) and same asked quantity (one group's share of the combined total), even the same answer 50; only the context differs."
+   },
+   {
+    "other_id": "CLD-SAT-M-000045",
+    "severity": "close",
+    "why": "SAT-045: counts from a percent within each of two groups; same percent-of-percent structure."
+   }
+  ],
+  "AC03": [
+   {
+    "other_id": "CLD-ACT-M-000244",
+    "severity": "close",
+    "why": "ACT-244: effect of correcting one data value on the mean and the median. AC03 changes every value by two amounts and compares the two shifts; same mean-vs-median sensitivity idea."
+   }
+  ],
+  "AC04": [
+   {
+    "other_id": "CLD-SAT-M-000055",
+    "severity": "close",
+    "why": "SAT-055: random sample of a gym's members, to which population the result generalizes. AC04 also uses a gym frame and the frame-vs-population issue, but asks the direction of the bias."
+   },
+   {
+    "other_id": "CLD-ACT-M-000205",
+    "severity": "close",
+    "why": "ACT-205: which sampling method is unbiased (the 'students in the library' choice is the biased frame). Same concept, different asked quantity."
+   }
+  ],
+  "AC05": [
+   {
+    "other_id": "CLD-ACT-M-000025",
+    "severity": "close",
+    "why": "ACT-025 / SAT-315: conditional probabilities from a two-way table. AC05 compares two row-conditionals as a ratio; same skill, different asked quantity."
+   }
+  ],
+  "AC06": [],
+  "AC07": [],
+  "AD01": [
+   {
+    "other_id": "CLD-ACT-M-000221",
+    "severity": "close",
+    "why": "ACT-221: rhombus area from a side and a diagonal. AD01 gets the second diagonal from a 60° angle; same area-from-diagonals finish."
+   }
+  ],
+  "AD02": [
+   {
+    "other_id": "CLD-SAT-M-000187",
+    "severity": "close",
+    "why": "SAT-187: hypotenuse 2 longer than a leg. AD02: square diagonal 3 longer than a side; same 'one length exceeds another by k' setup, but in a 45-45-90 with rationalizing."
+   }
+  ],
+  "AD03": [
+   {
+    "other_id": "CLD-ACT-M-000406",
+    "severity": "close",
+    "why": "ACT-406: regular octagon formed by cutting corners, find area. AD03 cuts isosceles right triangles from a rectangle and asks the perimeter."
+   }
+  ],
+  "AD04": [
+   {
+    "other_id": "CLD-ACT-M-000194",
+    "severity": "close",
+    "why": "ACT-194: cone volume from slant height (height by Pythagorean theorem, then 1/3·B·h). AD04 is the pyramid analogue with a lateral edge and half the base diagonal."
+   },
+   {
+    "other_id": "CLD-ACT-M-000309",
+    "severity": "close",
+    "why": "ACT-309: pyramid volume with height given."
+   }
+  ],
+  "AD05": [
+   {
+    "other_id": "CLD-ACT-M-000511",
+    "severity": "close",
+    "why": "ACT-511: radius from a chord (16) and its distance from the center (6). AD05 runs the chord–radius–distance triangle the other way (chord 24, radius 13 → distance 5) inside a coordinate frame and asks the larger center y-coordinate; the perpendicular-bisector and two-center steps keep it from being a straight reverse."
+   },
+   {
+    "other_id": "CLD-ACT-M-000114",
+    "severity": "close",
+    "why": "ACT-114: distances of two chords from the center by the same right triangle."
+   }
+  ],
+  "AD06": [
+   {
+    "other_id": "CLD-SAT-M-000186",
+    "severity": "close",
+    "why": "SAT-186: area between concentric circles (full ring) gives r. AD06 takes a 60° sector of the ring and asks k; same ring-area difference."
+   }
+  ],
+  "AD07": [
+   {
+    "other_id": "CLD-ACT-M-000074",
+    "severity": "close",
+    "why": "ACT-074: cube space diagonal. AD07 measures to a face center with offsets 6, 3, 3; same 3-D Pythagorean theorem."
+   }
+  ]
+ },
+ "within_list_cues": [
+  {
+   "ids": [
+    "AA09",
+    "AB03"
+   ],
+   "why": "Both hinge on evaluating y = f(x − h) by moving the point h units (AB03: g(0) = f(−3); AA09: the point (5, −3) on f(x − 4) means f(1) = −3). Shown together, AB03's worked step gives away AA09's shift-direction trap and vice versa."
+  },
+  {
+   "ids": [
+    "AB06",
+    "AB13"
+   ],
+   "why": "Both find a parabola's extremum at the midpoint of the zeros in factored form (AB06: (x − 1)(x − 5) minimum at x = 3; AB13: −5(x + 1)(x − 7) at x = 3). One cues the method for the other."
+  },
+  {
+   "ids": [
+    "AA11",
+    "AA13",
+    "AA12"
+   ],
+   "why": "Three linear-function-from-disguised-data items; AA11's midpoint/average insight and AA13's 'second point hidden in the input' are mild method cues for each other. Not answer-giving; avoid placing in the same set if possible."
+  }
+ ],
+ "answer_errors": [
+  {
+   "id": "none",
+   "note": "All stated keys recompute correctly (AA01 50.00; AA02 10; AA03 −2; AA04 3.78; AA05 8; AA06 400 < p < 500; AA07 41.75; AA08 (2, 1); AA09 6; AA10 10; AA11 6; AA12 4; AA13 −1; AB01 3.5; AB02 2; AB03 −4.5; AB04 2,000(1.04)^t; AB05 20; AB06 8; AB07 1/8; AB08 sum of length and width; AB09 17 (0.96^16 ≈ 0.520, 0.96^17 ≈ 0.4996); AB10 (2x − y − 3)(2x + y − 3); AB11 12; AB12 6; AB13 80; AC01 $15.00; AC02 50%; AC03 2; AC04 overestimate; AC05 2.5; AC06 IQR 11 vs 17, range 36 vs 25; AC07 4.05; AD01 50√3; AD02 6 + 3√2; AD03 20 + 16√2; AD04 192; AD05 7; AD06 10.5; AD07 3√6). Every MC distractor's stated error produces its stated value."
+  },
+  {
+   "id": "AA13",
+   "note": "Minor (SPR trap note only): '14/5 from treating f(f(2)) as a product' is not a coherent derivation (f(2)·f(2) = 25); drop or restate the trap."
+  },
+  {
+   "id": "AB09",
+   "note": "Not an error, but the key depends on 0.96^17 ≈ 0.4996 being just under 0.5 (margin 0.0004); calculator needed and rounding 0.96^17 to 0.50 makes 17 look wrong. Consider a rate with a wider margin."
+  }
+ ],
+ "cues_or_overdetermined": [
+  {
+   "id": "AB10",
+   "why": "All three wrong choices fail one shared quick check: the product of their constant terms is −9, while the expression's constant is +9 (only the key has (−3)(−3)). Checking the constant term (or the x-term, −12x) eliminates B, C and D at once."
+  },
+  {
+   "id": "AA01",
+   "why": "Key $50.00 is the only round whole-dollar value among $46.62, $49.44, $53.39; a menu price is expected to be round, so the format points to the key."
+  },
+  {
+   "id": "AA09",
+   "why": "Key 6 is the only positive choice (−6, −2, −6/7, 6); alone on one side of the sign boundary, and A/D form a ± pair that also flags it."
+  },
+  {
+   "id": "AB01",
+   "why": "The stem asks for the 'lowest price' and the key 3.5 is the smallest choice; a student can pick the least value without solving. Mild — consider a distractor below 3.5 (e.g. −3.5 or 2.25)."
+  },
+  {
+   "id": "AC04",
+   "why": "C and D both claim 'unbiased'; once the student sees that gym leavers are a biased frame (obvious from the stem), both drop together and only the direction remains (A vs B), which is also obvious."
+  }
+ ],
+ "grid_problems": [],
+ "likely_easier_than_labeled": [
+  {
+   "id": "AB02",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "One table lookup (f(x) = 9 only at x = 3) then a one-step linear equation."
+  },
+  {
+   "id": "AB08",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "w + (50 − w) = 50 is read off at once; the perimeter trap is standard."
+  },
+  {
+   "id": "AC04",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Sampling only gym leavers is a transparent, one-direction bias."
+  },
+  {
+   "id": "AD04",
+   "labeled": "hard",
+   "likely": "medium-hard",
+   "why": "6-8-10 base diagonal and 5-12-13 are both familiar triples; the only steps are half-diagonal, height, 1/3·B·h."
+  }
+ ],
+ "official_sat_mirrors": [
+  {
+   "id": "AC04",
+   "note": "Mirrors the well-known released SAT format of a survey taken at a location tied to the measured behavior, asking about bias/generalization."
+  },
+  {
+   "id": "AB04",
+   "note": "Mirrors the released SAT 'which equivalent form shows the annual growth factor' format with a t/2 exponent; numbers differ."
+  },
+  {
+   "id": "AA07",
+   "note": "Temperature-drop-per-1,000-feet linear model resembles familiar official SAT lapse-rate items; the non-intercept known point is the variation."
+  }
+ ]
+}

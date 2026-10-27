@@ -1,0 +1,461 @@
+{
+ "bank": "sat_math",
+ "batch": 47,
+ "plan": "SAT Math batch 47: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 3 student-produced responses. Ideas AA02, AA04, AA05, AA11, AB01, AB02, AB05, AC01, AC06, AD01 from generated set 6 (independently pre-checked: no copies; templates AA01, AA03, AB06, AB13, AC02 dropped; AB04, AB09, AB10, AC04, AA09, AD07 dropped for cues, narrow keys, official formats or scope). Relabelled to the blind solver's rating where it was lower: Q047-01 hard→medium, Q047-06 hard→medium.",
+ "candidates": [
+  {
+   "cand": "Q047-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Counting whole-number values between a derived lower bound and a stated cap",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Mia works exactly 40 hours each week: x hours tutoring at $16.50 per hour and the rest at a café at $12 per hour. She wants to earn at least $552 each week, and the tutoring center allows her to tutor at most 25 hours per week. How many different whole-number values of x are possible?",
+   "explanation": "Her pay is 16.50x + 12(40 − x) = 480 + 4.5x. Earning at least $552 requires 4.5x ≥ 72, so x ≥ 16. With x ≤ 25, the possible values are 16, 17, …, 25, which is 25 − 16 + 1 = 10 values.",
+   "hints": [
+    "Write her weekly pay in terms of x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the lower bound, then count up to 25."
+   },
+   "remember": "Counting integers from a to b inclusive gives b − a + 1.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 subtracts 16 from 25 without counting both endpoints.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "16",
+     "rationale": "16 is the least possible value of x, not the number of values.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q047-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Regular price from a per-unit discount and an add-on",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A gas station takes $0.12 off the regular price of each gallon for members. A member bought 12.5 gallons of gas and a $3.25 snack and paid $49.00 in all. What is the regular price of a gallon of gas?",
+   "explanation": "Without the snack, the gas cost 49.00 − 3.25 = $45.75. So 12.5(p − 0.12) = 45.75, which gives p − 0.12 = 3.66 and p = $3.78.",
+   "hints": [
+    "How much of the $49.00 was for gas?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Remove the snack, then undo the discount."
+   },
+   "remember": "Undo the steps in reverse order.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$3.54",
+    "B": "$3.66",
+    "C": "$3.78",
+    "D": "$3.92"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "$3.54 subtracts the discount from $3.66 instead of adding it back.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "$3.66 is the member price per gallon.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "$3.92 divides $49 by 12.5, ignoring the snack and the discount.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q047-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Difference of two constants fixed by an intersection x-coordinate",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The functions f(x) = 3x + b and g(x) = −x + c, where b and c are constants, have graphs that intersect at a point with an x-coordinate of 2. What is the value of c − b ?",
+   "explanation": "At x = 2 the two functions are equal: 3(2) + b = −2 + c, so 6 + b = −2 + c and c − b = 8. Neither b nor c can be found on its own, but their difference is fixed.",
+   "hints": [
+    "What is true of f(2) and g(2)?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set f(2) equal to g(2)."
+   },
+   "remember": "At an intersection the two outputs are equal.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "-8",
+     "rationale": "−8 is b − c, the reverse difference.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "4",
+     "rationale": "4 drops the minus sign in −x: 6 + b = 2 + c.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q047-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Input whose output is the average of two outputs of a linear function",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "For the function f(x) = 3x − 9, what value of x satisfies f(x) = (f(2) + f(10))/2 ?",
+   "explanation": "f(2) = −3 and f(10) = 21, so their average is 9. Then 3x − 9 = 9 gives x = 6. (For a linear function, the average of two outputs is the output at the average of the inputs: (2 + 10)/2 = 6.)",
+   "hints": [
+    "Find f(2) and f(10)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Average the outputs, then solve f(x) = 9."
+   },
+   "remember": "For linear functions, average inputs give average outputs.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "6",
+    "C": "7",
+    "D": "9"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3 solves 3x = 9, dropping the −9.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "7 uses half the difference, 12, as the target output.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "9 is the average output, not the input.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q047-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Lesser zero of a quadratic profit model with a non-monic leading coefficient",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A shop's weekly profit, in hundreds of dollars, when an item is priced at x dollars is modeled by P(x) = −2x² + 25x − 63. What is the lowest price, in dollars, at which the profit is $0 ?",
+   "explanation": "Factor: −2x² + 25x − 63 = −(2x² − 25x + 63) = −(2x − 7)(x − 9). The profit is 0 when x = 7/2 = 3.5 or x = 9, so the lowest such price is $3.50.",
+   "hints": [
+    "Factor the quadratic."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set each factor equal to 0."
+   },
+   "remember": "A factor ax − b gives the zero b/a.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3.5",
+    "B": "6.25",
+    "C": "7",
+    "D": "9"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "6.25 is the price that maximizes profit, 25/4.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "7 reads the zero from the factor 2x − 7 as 7 instead of 7/2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "9 is the greater zero, not the lowest price.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q047-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a composition of a table function and a formula",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Every input-output pair of the function f is listed below; f has no other inputs.\nx | 1 | 3 | 5 | 7 | 9\nf(x) | 7 | 9 | 4 | 5 | 1\nIf g(x) = 3x − 3 and f(g(a)) = 9, what is the value of a ?",
+   "explanation": "f(g(a)) = 9 means g(a) is the input of f with output 9. The table shows f(3) = 9 and no other input gives 9, so g(a) = 3. Then 3a − 3 = 3 and a = 2.",
+   "hints": [
+    "Which input of f gives 9?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Work from the outside function inward."
+   },
+   "remember": "f(g(a)): apply g first, then f.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "5"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "3 is g(a), not a.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "4 solves g(a) = 9, ignoring f.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "5 reverses the order of composition: g(f(a)) = 9 gives f(a) = 4 and a = 5.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q047-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Cost from a scaled recipe and a mass unit conversion",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A recipe that serves 12 people uses 1.5 pounds of beef. Beef costs $8.80 per kilogram, and 1 kilogram = 2.2 pounds. What is the cost of the beef needed to serve 30 people?",
+   "explanation": "For 30 people the recipe needs 1.5 × (30/12) = 3.75 pounds. That is 3.75 ÷ 2.2 kilograms, which costs (3.75 ÷ 2.2) × 8.80 = 3.75 × 4 = $15.00.",
+   "hints": [
+    "How many pounds are needed for 30 people?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale, convert, then price."
+   },
+   "remember": "Check the direction of each unit conversion.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$6.00",
+    "B": "$15.00",
+    "C": "$33.00",
+    "D": "$72.60"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "$6.00 converts the 1.5 pounds but does not scale to 30 people.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "$33.00 treats the 3.75 pounds as kilograms.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$72.60 multiplies by 2.2 instead of dividing.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q047-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Comparing two measures of spread from five-number summaries",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Daily sales at two stores are summarized below.\nStore A: minimum 12, first quartile 20, median 26, third quartile 31, maximum 48\nStore B: minimum 15, first quartile 18, median 27, third quartile 35, maximum 40\nWhich statement is true?",
+   "explanation": "The interquartile ranges are 31 − 20 = 11 for A and 35 − 18 = 17 for B, so B's is greater. The ranges are 48 − 12 = 36 for A and 40 − 15 = 25 for B, so B's is smaller.",
+   "hints": [
+    "Compute each IQR and each range."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "IQR = Q3 − Q1; range = maximum − minimum."
+   },
+   "remember": "Different measures of spread can disagree.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "Store B's interquartile range is greater, and store B's range is smaller.",
+    "B": "Store B's interquartile range is greater, and store B's range is greater.",
+    "C": "Store B's interquartile range is smaller, and store B's range is greater.",
+    "D": "Store B's interquartile range is smaller, and store B's range is smaller."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "B's range, 25, is smaller than A's range, 36.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This swaps the comparisons of IQR and range.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "B's IQR, 17, is greater than A's, 11.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q047-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area of a rhombus with a 60° angle from its shorter diagonal",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A rhombus has an interior angle of 60°, and its shorter diagonal has a length of 10. What is the area of the rhombus?",
+   "explanation": "The shorter diagonal splits the rhombus into two equilateral triangles with side 10. Each has area (√3/4)(10²) = 25√3, so the rhombus has area 50√3. (Equivalently, the longer diagonal is 10√3 and the area is (1/2)(10)(10√3).)",
+   "hints": [
+    "What kind of triangles does the shorter diagonal form?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the rhombus and its shorter diagonal."
+   },
+   "remember": "Rhombus area = (1/2) × diagonal₁ × diagonal₂.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "25√3",
+    "B": "50",
+    "C": "50√3",
+    "D": "100√3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "25√3 is the area of only one of the two equilateral triangles.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "50 treats the rhombus as a square with diagonal 10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "100√3 multiplies the diagonals without halving.",
+     "trap": null
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q047-07",
+   "reason": "blind solve: wrong units - in °F the room would be 22°F (below freezing); the numbers fit Celsius. Resubmitted in °C in batch 48.",
+   "item": {
+    "cand": "Q047-07",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Time from a cooling model after isolating the exponential part",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "The temperature, in degrees Fahrenheit, of a cup of tea t minutes after it is poured is modeled by T(t) = 22 + 64(0.5)^(t/10). How many minutes after it is poured is the tea at 38°F ?",
+    "explanation": "Set 22 + 64(0.5)^(t/10) = 38, so 64(0.5)^(t/10) = 16 and (0.5)^(t/10) = 1/4 = (0.5)². Then t/10 = 2 and t = 20 minutes.",
+    "hints": [
+     "Subtract 22 first."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Isolate the exponential part, then match powers of 0.5."
+    },
+    "remember": "Isolate the exponential term before comparing powers.",
+    "expected_time_seconds": 70,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "format": "spr",
+    "answer": "20",
+    "accepted_answers": [
+     "20"
+    ],
+    "common_errors": [
+     {
+      "value": "10",
+      "rationale": "10 is one halving period; the difference must halve twice.",
+      "trap": "partial_answer"
+     },
+     {
+      "value": "30",
+      "rationale": "30 is the time for 64 to halve three times, to 8.",
+      "trap": null
+     }
+    ]
+   }
+  }
+ ]
+}

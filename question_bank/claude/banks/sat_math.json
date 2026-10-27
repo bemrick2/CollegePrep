@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 46,
-  "updated_at": "2026-10-27T05:18:20+00:00",
+  "version": 47,
+  "updated_at": "2026-10-27T05:49:09+00:00",
   "passages": [],
   "questions": [
     {
@@ -31005,6 +31005,651 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-046.review.json",
         "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000431",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Counting whole-number values between a derived lower bound and a stated cap",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Mia works exactly 40 hours each week: x hours tutoring at $16.50 per hour and the rest at a café at $12 per hour. She wants to earn at least $552 each week, and the tutoring center allows her to tutor at most 25 hours per week. How many different whole-number values of x are possible?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 subtracts 16 from 25 without counting both endpoints.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "16",
+          "rationale": "16 is the least possible value of x, not the number of values.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Her pay is 16.50x + 12(40 − x) = 480 + 4.5x. Earning at least $552 requires 4.5x ≥ 72, so x ≥ 16. With x ≤ 25, the possible values are 16, 17, …, 25, which is 25 − 16 + 1 = 10 values.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write her weekly pay in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the lower bound, then count up to 25."
+      },
+      "remember": "Counting integers from a to b inclusive gives b − a + 1.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-01",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000432",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Regular price from a per-unit discount and an add-on",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A gas station takes $0.12 off the regular price of each gallon for members. A member bought 12.5 gallons of gas and a $3.25 snack and paid $49.00 in all. What is the regular price of a gallon of gas?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$3.54",
+        "B": "$3.66",
+        "C": "$3.78",
+        "D": "$3.92"
+      },
+      "correct_answer": "C",
+      "explanation": "Without the snack, the gas cost 49.00 − 3.25 = $45.75. So 12.5(p − 0.12) = 45.75, which gives p − 0.12 = 3.66 and p = $3.78.",
+      "distractor_explanations": {
+        "A": "$3.54 subtracts the discount from $3.66 instead of adding it back.",
+        "B": "$3.66 is the member price per gallon.",
+        "D": "$3.92 divides $49 by 12.5, ignoring the snack and the discount."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How much of the $49.00 was for gas?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Remove the snack, then undo the discount."
+      },
+      "remember": "Undo the steps in reverse order.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-02",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000433",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Difference of two constants fixed by an intersection x-coordinate",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f(x) = 3x + b and g(x) = −x + c, where b and c are constants, have graphs that intersect at a point with an x-coordinate of 2. What is the value of c − b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "-8",
+          "rationale": "−8 is b − c, the reverse difference.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "4",
+          "rationale": "4 drops the minus sign in −x: 6 + b = 2 + c.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "At x = 2 the two functions are equal: 3(2) + b = −2 + c, so 6 + b = −2 + c and c − b = 8. Neither b nor c can be found on its own, but their difference is fixed.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is true of f(2) and g(2)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(2) equal to g(2)."
+      },
+      "remember": "At an intersection the two outputs are equal.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-03",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000434",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Input whose output is the average of two outputs of a linear function",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the function f(x) = 3x − 9, what value of x satisfies f(x) = (f(2) + f(10))/2 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "7",
+        "D": "9"
+      },
+      "correct_answer": "B",
+      "explanation": "f(2) = −3 and f(10) = 21, so their average is 9. Then 3x − 9 = 9 gives x = 6. (For a linear function, the average of two outputs is the output at the average of the inputs: (2 + 10)/2 = 6.)",
+      "distractor_explanations": {
+        "A": "3 solves 3x = 9, dropping the −9.",
+        "C": "7 uses half the difference, 12, as the target output.",
+        "D": "9 is the average output, not the input."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find f(2) and f(10)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Average the outputs, then solve f(x) = 9."
+      },
+      "remember": "For linear functions, average inputs give average outputs.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-04",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: because f is linear, x is just the midpoint of 2 and 10 (6), so students can skip evaluating f; that's a legitimate insight, not a flaw"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000435",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Lesser zero of a quadratic profit model with a non-monic leading coefficient",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A shop's weekly profit, in hundreds of dollars, when an item is priced at x dollars is modeled by P(x) = −2x² + 25x − 63. What is the lowest price, in dollars, at which the profit is $0 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3.5",
+        "B": "6.25",
+        "C": "7",
+        "D": "9"
+      },
+      "correct_answer": "A",
+      "explanation": "Factor: −2x² + 25x − 63 = −(2x² − 25x + 63) = −(2x − 7)(x − 9). The profit is 0 when x = 7/2 = 3.5 or x = 9, so the lowest such price is $3.50.",
+      "distractor_explanations": {
+        "B": "6.25 is the price that maximizes profit, 25/4.",
+        "C": "7 reads the zero from the factor 2x − 7 as 7 instead of 7/2.",
+        "D": "9 is the greater zero, not the lowest price."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Factor the quadratic."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set each factor equal to 0."
+      },
+      "remember": "A factor ax − b gives the zero b/a.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-05",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000436",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a composition of a table function and a formula",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Every input-output pair of the function f is listed below; f has no other inputs.\nx | 1 | 3 | 5 | 7 | 9\nf(x) | 7 | 9 | 4 | 5 | 1\nIf g(x) = 3x − 3 and f(g(a)) = 9, what is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct_answer": "A",
+      "explanation": "f(g(a)) = 9 means g(a) is the input of f with output 9. The table shows f(3) = 9 and no other input gives 9, so g(a) = 3. Then 3a − 3 = 3 and a = 2.",
+      "distractor_explanations": {
+        "B": "3 is g(a), not a.",
+        "C": "4 solves g(a) = 9, ignoring f.",
+        "D": "5 reverses the order of composition: g(f(a)) = 9 gives f(a) = 4 and a = 5."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Which input of f gives 9?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Work from the outside function inward."
+      },
+      "remember": "f(g(a)): apply g first, then f.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-06",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000437",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Cost from a scaled recipe and a mass unit conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A recipe that serves 12 people uses 1.5 pounds of beef. Beef costs $8.80 per kilogram, and 1 kilogram = 2.2 pounds. What is the cost of the beef needed to serve 30 people?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$6.00",
+        "B": "$15.00",
+        "C": "$33.00",
+        "D": "$72.60"
+      },
+      "correct_answer": "B",
+      "explanation": "For 30 people the recipe needs 1.5 × (30/12) = 3.75 pounds. That is 3.75 ÷ 2.2 kilograms, which costs (3.75 ÷ 2.2) × 8.80 = 3.75 × 4 = $15.00.",
+      "distractor_explanations": {
+        "A": "$6.00 converts the 1.5 pounds but does not scale to 30 people.",
+        "C": "$33.00 treats the 3.75 pounds as kilograms.",
+        "D": "$72.60 multiplies by 2.2 instead of dividing."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "How many pounds are needed for 30 people?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale, convert, then price."
+      },
+      "remember": "Check the direction of each unit conversion.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-08",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000438",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing two measures of spread from five-number summaries",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Daily sales at two stores are summarized below.\nStore A: minimum 12, first quartile 20, median 26, third quartile 31, maximum 48\nStore B: minimum 15, first quartile 18, median 27, third quartile 35, maximum 40\nWhich statement is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Store B's interquartile range is greater, and store B's range is smaller.",
+        "B": "Store B's interquartile range is greater, and store B's range is greater.",
+        "C": "Store B's interquartile range is smaller, and store B's range is greater.",
+        "D": "Store B's interquartile range is smaller, and store B's range is smaller."
+      },
+      "correct_answer": "A",
+      "explanation": "The interquartile ranges are 31 − 20 = 11 for A and 35 − 18 = 17 for B, so B's is greater. The ranges are 48 − 12 = 36 for A and 40 − 15 = 25 for B, so B's is smaller.",
+      "distractor_explanations": {
+        "B": "B's range, 25, is smaller than A's range, 36.",
+        "C": "This swaps the comparisons of IQR and range.",
+        "D": "B's IQR, 17, is greater than A's, 11."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Compute each IQR and each range."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "IQR = Q3 − Q1; range = maximum − minimum."
+      },
+      "remember": "Different measures of spread can disagree.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-09",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000439",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of a rhombus with a 60° angle from its shorter diagonal",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rhombus has an interior angle of 60°, and its shorter diagonal has a length of 10. What is the area of the rhombus?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25√3",
+        "B": "50",
+        "C": "50√3",
+        "D": "100√3"
+      },
+      "correct_answer": "C",
+      "explanation": "The shorter diagonal splits the rhombus into two equilateral triangles with side 10. Each has area (√3/4)(10²) = 25√3, so the rhombus has area 50√3. (Equivalently, the longer diagonal is 10√3 and the area is (1/2)(10)(10√3).)",
+      "distractor_explanations": {
+        "A": "25√3 is the area of only one of the two equilateral triangles.",
+        "B": "50 treats the rhombus as a square with diagonal 10.",
+        "D": "100√3 multiplies the diagonals without halving."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What kind of triangles does the shorter diagonal form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the rhombus and its shorter diagonal."
+      },
+      "remember": "Rhombus area = (1/2) × diagonal₁ × diagonal₂.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "Q047-10",
+      "created_at": "2026-10-27T05:49:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-047.review.json",
+        "computation": "checks/sat_math/batch_047.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

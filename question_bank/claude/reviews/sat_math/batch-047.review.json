@@ -1,0 +1,229 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 47,
+  "reviewed_at": "2026-10-27T05:49:09+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 47
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000431",
+    "CLD-SAT-M-000432",
+    "CLD-SAT-M-000433",
+    "CLD-SAT-M-000434",
+    "CLD-SAT-M-000435",
+    "CLD-SAT-M-000436",
+    "CLD-SAT-M-000437",
+    "CLD-SAT-M-000438",
+    "CLD-SAT-M-000439"
+  ],
+  "results": [
+    {
+      "cand": "Q047-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "10",
+      "computed_answer": "10",
+      "blind_answer": "10",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "16.5x + 12(40-x) >= 552 -> 4.5x >= 72 -> x >= 16; with x <= 25, x = 16..25 gives 10 values. Off-by-one trap (25-16 = 9) and inequality direction add difficulty.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000431"
+    },
+    {
+      "cand": "Q047-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "12.5(p-0.12) + 3.25 = 49 -> p - 0.12 = 3.66 -> p = 3.78. Distractors: 3.66 (discounted price), 3.54 (subtracted the discount instead), 3.92 (49/12.5, ignores snack and discount). Good distractors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000432"
+    },
+    {
+      "cand": "Q047-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f(2) = g(2): 6 + b = -2 + c -> c - b = 8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000433"
+    },
+    {
+      "cand": "Q047-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        "minor: because f is linear, x is just the midpoint of 2 and 10 (6), so students can skip evaluating f; that's a legitimate insight, not a flaw"
+      ],
+      "blind_notes": "f(2) = -3, f(10) = 21, mean 9; 3x - 9 = 9 -> x = 6. D (9) is the target output value, a good trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000434"
+    },
+    {
+      "cand": "Q047-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "2x^2 - 25x + 63 = 0 -> (2x - 7)(x - 9) = 0 -> x = 3.5 or 9; the lowest is 3.5. 6.25 is the vertex and 9 is the other zero. Students can get it quickly by graphing.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000435"
+    },
+    {
+      "cand": "Q047-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f(x) = 9 only at x = 3, so g(a) = 3 -> 3a - 3 = 3 -> a = 2. B (3) traps students who stop at g(a); C (4) gives g = 9, confusing input and output.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000436"
+    },
+    {
+      "cand": "Q047-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "1.5 * 30/12 = 3.75 lb; 3.75/2.2 kg * 8.80 = 15.00. Distractors: 6.00 (didn't scale to 30 people), 33.00 (treated pounds as kg), 72.60 (multiplied by 2.2). Good distractors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000437"
+    },
+    {
+      "cand": "Q047-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "A: IQR 11, range 36. B: IQR 17, range 25. So B's IQR is greater and B's range is smaller. The 2x2 choice structure is fine.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000438"
+    },
+    {
+      "cand": "Q047-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "A 60° angle splits the rhombus into two equilateral triangles, so the short diagonal equals the side, 10. Long diagonal = 10√3; area = (10)(10√3)/2 = 50√3. Distractors: 25√3 (one triangle), 100√3 (forgot to halve), 50.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000439"
+    }
+  ]
+}
