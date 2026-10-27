@@ -1,0 +1,569 @@
+{
+ "bank": "sat_math",
+ "batch": 79,
+ "plan": "SAT Math batch 79: 12 items from idea set 22 (QA03, QA06, QA09, QA14, QA16, QC04, QC06, QC07, QC09, QC10, QC12, QC14; pre-checked in ideas-071.repeats.json). Fixes: QC07 impossible distractor 3/20 replaced with 3/25 (sign error); QA14 stem reworded so it does not presuppose a solution; QC09 stem tidied and trap 500 rationale corrected; QA03 choice D changed to c > -2 and QA16 choice B to 27n + 160 to remove shared-feature cues. Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q079-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Moving point and a strict linear inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, line ℓ passes through the points (0, −2) and (3, 4). The solutions of an inequality are all the points that lie strictly below line ℓ. For which values of c is the point (c, c) a solution of the inequality?",
+   "explanation": "Line ℓ is y = 2x − 2, and strictly below it means y < 2x − 2. For (c, c): c < 2c − 2, so c > 2.",
+   "hints": [
+    "Write the equation of ℓ first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test c = 3 and c = 0 against the line."
+   },
+   "remember": "Below a line means y is less than the line's expression.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The point moves along y = x, so the answer is a solution set for c."
+   },
+   "choices": {
+    "A": "c < −4",
+    "B": "c > 2",
+    "C": "c < 2",
+    "D": "c > −2"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This uses run over rise for the slope, y = x/2 − 2, and then solves c < c/2 − 2.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This subtracts 2c and divides by −1 without reversing the inequality.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This uses the y-intercept −2 as the boundary instead of solving c < 2c − 2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear function that swaps two values",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "For the linear function f, f(a) = b and f(b) = a, where a and b are constants and a ≠ b. Which of the following must be true?",
+   "explanation": "The slope is (a − b)/(b − a) = −1, so f(x) = −x + k. From f(a) = b, k = a + b, so f(x) = −x + a + b and f(0) = a + b.",
+   "hints": [
+    "Find the slope from the two points (a, b) and (b, a)."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a = 1 and b = 3: f(1) = 3 and f(3) = 1."
+   },
+   "remember": "Slope between (a, b) and (b, a) is always −1.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The slope and intercept must be found symbolically from the swap."
+   },
+   "choices": {
+    "A": "f(0) = a + b",
+    "B": "f(0) = 0",
+    "C": "The slope of the graph of f is 1.",
+    "D": "f(a + b) = a + b"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This assumes swapping inputs and outputs means the graph passes through the origin.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This confuses f with y = x; the slope is −1.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This extends the pattern; in fact f(a + b) = 0.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Chain of fractions ending in an equation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A tour group set out from a museum entrance. After the first exhibit, half of the people in the group left. After the second exhibit, 1/3 of the people still in the group left. Then 12 people joined the group, and the group had 8 fewer people than it had at the start. How many people were in the group at the start?",
+   "explanation": "After both departures, (1/2)(2/3)x = x/3 people remain. Then x/3 + 12 = x − 8, so 2x/3 = 20 and x = 30. Check: 30, then 15, then 10, then 22 = 30 − 8.",
+   "hints": [
+    "What fraction of the group remains after both departures?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each choice through the sequence of changes."
+   },
+   "remember": "A fraction of the remainder is not a fraction of the start.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12",
+    "B": "24",
+    "C": "30",
+    "D": "60"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This leaves out the 12 people who joined: x/3 = x − 8.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This takes 1/3 of the starting group instead of the people still in the group.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This multiplies 20 by 3 but does not divide by 2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Equation that reduces to a false statement",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "Which of the following describes the values of x for which the mean of 2x + 1, 3x − 4, and x + 9 is equal to 2x + 3 ?",
+   "explanation": "The mean is (6x + 6)/3 = 2x + 2. The equation 2x + 2 = 2x + 3 is false for every x, so there are no such values.",
+   "hints": [
+    "Simplify the mean before comparing."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the mean, simplify, and compare."
+   },
+   "remember": "If the variable cancels and a false statement remains, there is no solution.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The equation reduces to a false statement, which students often misread."
+   },
+   "choices": {
+    "A": "There are no such values of x.",
+    "B": "x = −3/4 only",
+    "C": "x = 0 only",
+    "D": "All real numbers"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This does not divide the sum by 3: 6x + 6 = 2x + 3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This divides the sum by 2: 3x + 3 = 2x + 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This sees 2x on both sides and decides the sides are the same.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Changing one parameter of a linear model",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A box of marbles has a total weight of W grams, where W = 18n + 240 and n is the number of marbles in the box. A second box of the same kind is filled with glass marbles, each of which weighs 1.5 times as much as a marble in the first box. Which equation gives the total weight W, in grams, of the second box when it holds n glass marbles?",
+   "explanation": "The empty box still weighs 240 grams, and each glass marble weighs 1.5 × 18 = 27 grams, so W = 27n + 240.",
+   "hints": [
+    "What does each part of W = 18n + 240 represent?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Change only the weight per marble."
+   },
+   "remember": "Interpret each constant before changing a model.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "W = 27n + 360",
+    "B": "W = 27n + 160",
+    "C": "W = 19.5n + 240",
+    "D": "W = 27n + 240"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This multiplies the whole equation by 1.5, including the box.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This scales the marbles correctly but changes the box's weight.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This adds 1.5 grams to each marble instead of multiplying by 1.5.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-06",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Estimates from samples drawn at different rates",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A school has 600 underclassmen and 400 upperclassmen. To estimate how many students would join a new club, the school surveyed a random sample of 60 underclassmen and a separate random sample of 80 upperclassmen. Of the students surveyed, 18 underclassmen and 32 upperclassmen said they would join. Based on these samples, what is the best estimate of the number of students at the school who would join the club?",
+   "explanation": "Underclassmen: 18/60 = 30% of 600 = 180. Upperclassmen: 32/80 = 40% of 400 = 160. The estimate is 180 + 160 = 340.",
+   "hints": [
+    "Were the two groups sampled at the same rate?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale each sample proportion to its own group."
+   },
+   "remember": "Scale each sample to the group it came from.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Pooling the samples is tempting but wrong because the sampling rates differ."
+   },
+   "format": "spr",
+   "answer": "340",
+   "accepted_answers": [
+    "340"
+   ],
+   "common_errors": [
+    {
+     "value": "357",
+     "rationale": "357 pools the samples as 50/140 of 1,000, though upperclassmen were sampled at twice the rate.",
+     "trap": null
+    },
+    {
+     "value": "350",
+     "rationale": "350 averages 30% and 40%.",
+     "trap": null
+    },
+    {
+     "value": "360",
+     "rationale": "360 applies each rate to the other group.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q079-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Repeated stops in a production schedule",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A bottling machine fills 40 bottles per minute while it runs. It runs for 10 minutes, stops for 2 minutes, runs for 10 minutes, stops for 2 minutes, and continues in this pattern. If the machine starts running at time 0, how many minutes after it starts will it have filled 1,800 bottles?",
+   "explanation": "Each 10-minute run fills 400 bottles. After 4 runs (1,600 bottles), the time is 4(10) + 3(2) = 46 minutes. The 4th stop ends at 48 minutes, and the last 200 bottles take 5 more minutes, so the total is 53 minutes.",
+   "hints": [
+    "How many full runs are needed before the last partial run?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Make a timeline of runs and stops."
+   },
+   "remember": "Average rates fail when a process ends partway through a cycle.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The final partial run must be handled separately; the average rate gives a wrong answer."
+   },
+   "format": "spr",
+   "answer": "53",
+   "accepted_answers": [
+    "53"
+   ],
+   "common_errors": [
+    {
+     "value": "45",
+     "rationale": "45 divides 1,800 by 40 and ignores the stops.",
+     "trap": null
+    },
+    {
+     "value": "54",
+     "rationale": "54 uses the average rate of 400 bottles per 12 minutes.",
+     "trap": null
+    },
+    {
+     "value": "51",
+     "rationale": "51 leaves out the stop before the last run.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q079-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Probability from an inequality and a parity condition",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "An integer n is chosen at random from the integers 1 through 50, inclusive. What is the probability that 3n + 4 is both greater than 110 and even?",
+   "explanation": "3n + 4 > 110 gives n > 35 1/3, so n = 36 through 50, which is 15 integers. 3n + 4 is even exactly when n is even: 36, 38, …, 50, which is 8 integers. The probability is 8/50 = 4/25.",
+   "hints": [
+    "When is 3n + 4 even?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the inequality, then count the even values."
+   },
+   "remember": "3n + 4 has the same parity as n.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3/25",
+    "B": "7/50",
+    "C": "4/25",
+    "D": "3/10"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This adds 4 instead of subtracting it: 3n > 114 gives n > 38, and the even values 40 to 50 are 6 of 50.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "This counts the odd values of n, 37 through 49.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This leaves out the \"even\" condition.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q079-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Restoring a ratio when one ingredient is in excess",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A recipe uses flour, sugar, and butter in the ratio 5 : 2 : 3 by weight. A baker making a batch with 500 grams of flour and 300 grams of butter accidentally added 300 grams of sugar instead of 200 grams. To restore the ratio 5 : 2 : 3 without removing any sugar, the baker will add only more flour and more butter. How many grams of flour and butter combined must be added?",
+   "explanation": "With 300 grams of sugar, the ratio requires 750 grams of flour and 450 grams of butter. The baker must add 750 − 500 = 250 grams of flour and 450 − 300 = 150 grams of butter, 400 grams in all.",
+   "hints": [
+    "What amounts of flour and butter match 300 grams of sugar?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale the ratio to the sugar, then subtract what is there."
+   },
+   "remember": "Scale a ratio to the ingredient that cannot change.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "400",
+   "accepted_answers": [
+    "400"
+   ],
+   "common_errors": [
+    {
+     "value": "100",
+     "rationale": "100 is the extra sugar.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "250",
+     "rationale": "250 is the flour that must be added, without the butter.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "500",
+     "rationale": "500 scales the whole 1,000-gram planned batch by 1.5 and subtracts 1,000.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q079-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Percent tolerance of an unknown base",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A bathroom scale's reading is always within 2% of the true weight of the person on it; that is, the reading differs from the true weight by at most 2% of the true weight. A person's reading is 49.0 kilograms. Which of the following gives all possible values of the person's true weight w, in kilograms, rounded to the nearest hundredth?",
+   "explanation": "The condition is 0.98w ≤ 49 ≤ 1.02w, so 49/1.02 ≤ w ≤ 49/0.98, which is 48.04 ≤ w ≤ 50.00.",
+   "hints": [
+    "Is the 2% a percent of the reading or of the true weight?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the two inequalities with w as the base."
+   },
+   "remember": "Check which quantity a percent is taken of.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The percent is of the unknown, so the interval is not centered on the reading."
+   },
+   "choices": {
+    "A": "48.02 ≤ w ≤ 49.98",
+    "B": "48.04 ≤ w ≤ 50.00",
+    "C": "48.04 ≤ w ≤ 49.98",
+    "D": "47.00 ≤ w ≤ 51.00"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This takes 2% of the reading, 0.98 kilogram, instead of 2% of the true weight.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This uses the true weight as the base for one bound and the reading for the other.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This treats 2% as 2 kilograms.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-11",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Chained percent comparisons with changing bases",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Quantity A is 25% greater than quantity B, and quantity B is 30% less than quantity C. Quantity C is approximately what percent greater than quantity A?",
+   "explanation": "B = 0.7C and A = 1.25B = 0.875C, so C = A/0.875 ≈ 1.143A. C is about 14.3% greater than A.",
+   "hints": [
+    "Write A and B in terms of C."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let C = 100."
+   },
+   "remember": "\"Percent greater than A\" uses A as the base.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two comparisons with different bases must be chained, and the answer uses a third base."
+   },
+   "choices": {
+    "A": "5%",
+    "B": "12.5%",
+    "C": "14.3%",
+    "D": "17.9%"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This combines the percents as 30 − 25.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This finds that A is 12.5% less than C, using C as the base instead of A.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This finds C − A ≈ 0.179B and divides by B instead of A.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q079-12",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Testing tables for proportionality",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "In which of the following tables is y proportional to x ?",
+   "explanation": "In table B, y/x = 6/2 = 15/5 = 24/8 = 3 in every row, so y = 3x and y is proportional to x. No other table has a constant ratio.",
+   "hints": [
+    "Is y/x the same in every row?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Compute y/x for each row of each table."
+   },
+   "remember": "Proportional means y/x is constant.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x: 2, 4, 6; y: 7, 11, 15",
+    "B": "x: 2, 5, 8; y: 6, 15, 24",
+    "C": "x: 1, 2, 4; y: 3, 6, 9",
+    "D": "x: 2, 4, 8; y: 3, 9, 27"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This is linear, y = 2x + 3, but has a nonzero intercept, so it is not proportional.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This works for the first two rows, but 9/4 ≠ 3.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Both quantities grow by multiplying, but y/x is not constant.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}

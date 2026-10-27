@@ -1,665 +1,665 @@
 {
- "bank": "sat_math",
- "batch": 78,
- "plan": "SAT Math batch 78: 14 items from idea set 22 (QA01, QA02, QA05, QA08, QA10, QA11, QA12, QA15, QC01, QC02, QC03, QC05, QC11, QC13; pre-checked in ideas-071.repeats.json). QA04, QA07, QA13, QC08 dropped as templates. Fixes: QC11 grid-in percent instruction added; QA02 and QC05 choices reordered for key balance. Keep-apart pairs honored (QA03/QA08, QA05/QA14, QC01/QC04, QC03/QC07, QA01 vs QC06/QA09, QA10/QC09). Difficulty provisional.",
- "candidates": [
-  {
-   "cand": "Q078-01",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Symmetric combination from a two-equation system",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
-   "stem": "Printers A and B each print pages at their own constant rate. On Monday, printer A ran for 3 minutes and printer B ran for 5 minutes, and together they printed 410 pages. On Tuesday, printer A ran for 5 minutes and printer B ran for 3 minutes, and together they printed 390 pages. How many pages will the two printers print in all if both run for 10 minutes?",
-   "explanation": "Adding 3a + 5b = 410 and 5a + 3b = 390 gives 8a + 8b = 800, so a + b = 100 pages per minute. In 10 minutes the printers print 10 × 100 = 1,000 pages. (Solving fully gives a = 45 and b = 55.)",
-   "hints": [
-    "What happens if you add the two equations?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Add the equations to find a + b directly."
-   },
-   "remember": "Look for a combination before solving for each variable.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "1000",
-   "accepted_answers": [
-    "1000"
-   ],
-   "common_errors": [
+  "bank": "sat_math",
+  "batch": 78,
+  "plan": "SAT Math batch 78: 14 items from idea set 22 (QA01, QA02, QA05, QA08, QA10, QA11, QA12, QA15, QC01, QC02, QC03, QC05, QC11, QC13; pre-checked in ideas-071.repeats.json). QA04, QA07, QA13, QC08 dropped as templates. Fixes: QC11 grid-in percent instruction added; QA02 and QC05 choices reordered for key balance. Keep-apart pairs honored (QA03/QA08, QA05/QA14, QC01/QC04, QC03/QC07, QA01 vs QC06/QA09, QA10/QC09). Difficulty provisional.",
+  "candidates": [
     {
-     "value": "100",
-     "rationale": "100 is the combined rate per minute, not the 10-minute total.",
-     "trap": "partial_answer"
+      "cand": "Q078-01",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Symmetric combination from a two-equation system",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "Printers A and B each print pages at their own constant rate. On Monday, printer A ran for 3 minutes and printer B ran for 5 minutes, and together they printed 410 pages. On Tuesday, printer A ran for 5 minutes and printer B ran for 3 minutes, and together they printed 390 pages. How many pages will the two printers print in all if both run for 10 minutes?",
+      "explanation": "Adding 3a + 5b = 410 and 5a + 3b = 390 gives 8a + 8b = 800, so a + b = 100 pages per minute. In 10 minutes the printers print 10 × 100 = 1,000 pages. (Solving fully gives a = 45 and b = 55.)",
+      "hints": [
+        "What happens if you add the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations to find a + b directly."
+      },
+      "remember": "Look for a combination before solving for each variable.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "1000",
+      "accepted_answers": [
+        "1000"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the combined rate per minute, not the 10-minute total.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "800",
+          "rationale": "800 adds the two days' totals.",
+          "trap": null
+        },
+        {
+          "value": "450",
+          "rationale": "450 is 10 minutes of printer A only.",
+          "trap": "partial_answer"
+        }
+      ]
     },
     {
-     "value": "800",
-     "rationale": "800 adds the two days' totals.",
-     "trap": null
+      "cand": "Q078-02",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Two translations that give the same line",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "The function f is linear. In the xy-plane, the graph of y = f(x) + 3 is the same line as the graph of y = f(x + 2). What is the slope of the graph of y = f(x) ?",
+      "explanation": "With f(x) = mx + b, f(x + 2) = mx + 2m + b and f(x) + 3 = mx + b + 3. These are the same line when 2m = 3, so m = 3/2. Geometrically, moving 2 units right and 3 units up stays on the line.",
+      "hints": [
+        "Write f(x) = mx + b and compare the two expressions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(x + 2) equal to f(x) + 3."
+      },
+      "remember": "Slope is rise over run.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two different translations of a line must be compared to find its slope."
+      },
+      "choices": {
+        "A": "−3/2",
+        "B": "2/3",
+        "C": "3/2",
+        "D": "3"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This pairs the left shift (a run of −2) with the rise of 3.",
+          "trap": "sign_error"
+        },
+        "B": {
+          "rationale": "This inverts rise and run.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This treats the vertical shift of 3 as the change per unit of x.",
+          "trap": null
+        }
+      }
     },
     {
-     "value": "450",
-     "rationale": "450 is 10 minutes of printer A only.",
-     "trap": "partial_answer"
+      "cand": "Q078-03",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Bounded scores with a required total",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "Ana's mean score on her first 4 tests was 80. She will take 2 more tests, and each test is scored from 0 to 100. If the mean of all 6 of her test scores is to be at least 85, what is the least possible score she could earn on the lower-scoring of the 2 remaining tests?",
+      "explanation": "The 6 scores must total at least 6 × 85 = 510, and the first 4 total 320, so the last 2 must total at least 190. The higher score is at most 100, so the lower score is at least 90, reached with 90 and 100.",
+      "hints": [
+        "What must the last two scores add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the required total, then use the cap of 100."
+      },
+      "remember": "To minimize one value, maximize the others.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The 100-point cap on one score sets the bound on the other."
+      },
+      "format": "spr",
+      "answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "95",
+          "rationale": "95 splits the required 190 evenly, which gives the least possible higher score.",
+          "trap": null
+        },
+        {
+          "value": "85",
+          "rationale": "85 is the target mean.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "190",
+          "rationale": "190 is the required total of the two tests.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q078-04",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Compound inequality with a negative coefficient",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "Which of the following describes all solutions of the inequality −7 ≤ 3 − 2x < 7 ?",
+      "explanation": "Subtracting 3 gives −10 ≤ −2x < 4. Dividing by −2 reverses both signs: 5 ≥ x > −2, which is −2 < x ≤ 5.",
+      "hints": [
+        "What happens to the inequality signs when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 5 and x = −2 in the original inequality."
+      },
+      "remember": "Dividing by a negative reverses inequality signs.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "There is no value of x that satisfies the inequality.",
+        "B": "−2 ≤ x < 5",
+        "C": "x < −2 or x ≥ 5",
+        "D": "−2 < x ≤ 5"
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "This divides by −2 without reversing the signs, getting 5 ≤ x < −2.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This orders the endpoints but leaves each strict or inclusive sign in its original position.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This thinks reversing the signs turns \"between\" into \"outside.\"",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-05",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equation with fractions and a leftover amount",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "easy",
+      "stem": "Each batch of a muffin recipe uses 2/3 cup of sugar. Lena started with 5 cups of sugar. After she made some batches, she had 1/3 cup of sugar left. How many batches did she make?",
+      "explanation": "If she made n batches, she used (2/3)n cups, so 5 − (2/3)n = 1/3. Then (2/3)n = 14/3, and n = 7 batches.",
+      "hints": [
+        "How much sugar did she use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write an equation for the sugar used."
+      },
+      "remember": "Subtract the leftover before dividing by the amount per batch.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 divides 5 by 2/3 without accounting for the leftover sugar.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 rounds 7.5 up.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q078-06",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Finding the first error in a solution",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "easy",
+      "stem": "A student solved the equation 4 − 2(x − 3) = 10 as follows.\nStep 1: 4 − 2x − 6 = 10\nStep 2: −2x − 2 = 10\nStep 3: −2x = 12\nStep 4: x = −6\nIn which step did the student first make an error?",
+      "explanation": "Distributing −2 over (x − 3) gives −2x + 6, so Step 1 should be 4 − 2x + 6 = 10. Steps 2 through 4 follow correctly from Step 1. (The correct solution is x = 0.)",
+      "hints": [
+        "What is −2 times −3?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each step against the one before it."
+      },
+      "remember": "Distribute a negative to every term inside the parentheses.",
+      "expected_time_seconds": 50,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "Step 1",
+        "B": "Step 2",
+        "C": "Step 3",
+        "D": "Step 4"
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "Step 2 correctly combines 4 − 6 from Step 1; the error came earlier.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "Step 3 correctly adds 2 to both sides of Step 2.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "Step 4 correctly divides by −2; the answer is wrong only because of the earlier error.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-07",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Line from an area and a sign condition",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, a line with a negative slope passes through the point (−3, 0). The line and the two coordinate axes form a triangle with an area of 12. What is the slope of the line?",
+      "explanation": "If the y-intercept is b, the triangle has legs 3 and |b|, so (1/2)(3)|b| = 12 and |b| = 8. The slope is (b − 0)/(0 − (−3)) = b/3, which is negative only for b = −8, so the slope is −8/3.",
+      "hints": [
+        "What are the legs of the triangle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both possible lines and pick the one with a negative slope."
+      },
+      "remember": "Area conditions often give two cases; use the other condition to choose.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The area gives two lines, and the sign of the slope selects one."
+      },
+      "format": "spr",
+      "answer": "-8/3",
+      "accepted_answers": [
+        "-8/3",
+        "-2.666",
+        "-2.667"
+      ],
+      "common_errors": [
+        {
+          "value": "8/3",
+          "rationale": "8/3 uses the y-intercept 8, which gives a positive slope.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3/8",
+          "rationale": "−3/8 is run over rise.",
+          "trap": null
+        },
+        {
+          "value": "-4/3",
+          "rationale": "−4/3 leaves out the 1/2 in the area formula.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q078-08",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Recovering a constant from a miscopied equation",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "In the equation 7x − 12 = 3x + k, k is a constant. A student copied the equation incorrectly as x − 12 = 3x + k, leaving out the 7, and correctly found that the solution of the copied equation is x = −5. What is the solution of the original equation?",
+      "explanation": "Substituting x = −5 into the copied equation: −5 − 12 = 3(−5) + k, so k = −2. Then 7x − 12 = 3x − 2 gives 4x = 10 and x = 5/2.",
+      "hints": [
+        "Use the copied equation and its solution to find k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k first, then solve the original equation."
+      },
+      "remember": "A known solution can reveal an unknown constant.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "5/2",
+      "accepted_answers": [
+        "5/2",
+        "2.5"
+      ],
+      "common_errors": [
+        {
+          "value": "-2",
+          "rationale": "−2 is the value of k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-5",
+          "rationale": "−5 is the solution of the copied equation.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 uses k = 2, a sign slip.",
+          "trap": "sign_error"
+        }
+      ]
+    },
+    {
+      "cand": "Q078-09",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Moving an overlap between two bases",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "At a school, 30% of the students are in the band. Of the students in the band, 40% are also in the choir, and these students make up 25% of the students in the choir. What percent of the students at the school are in the choir?",
+      "explanation": "Students in both are 0.30 × 0.40 = 12% of the school. They are 25% of the choir, so the choir is 12% ÷ 0.25 = 48% of the school.",
+      "hints": [
+        "What percent of the school is in both groups?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Assume the school has 1,000 students."
+      },
+      "remember": "A percent is always a percent of some base; track which one.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The same group is a percent of two different bases."
+      },
+      "choices": {
+        "A": "12%",
+        "B": "18.75%",
+        "C": "48%",
+        "D": "70%"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This stops at the students who are in both groups.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This computes 30% × 25% ÷ 40%, using the ratio upside down.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This adds 30% and 40%.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-10",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Guaranteed counts from five-number summaries",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "hard",
+      "stem": "The scores of two classes on the same test are summarized below.\nClass A (40 students): minimum 55, first quartile 68, median 75, third quartile 84, maximum 98\nClass B (20 students): minimum 60, first quartile 72, median 80, third quartile 86, maximum 95\nWhich of the following must be true?",
+      "explanation": "Class A's median is 75, so at least 20 of its 40 scores are 75 or lower. Class B's median is 80, so at least 10 of its 20 scores are 80 or higher, which leaves at most 10 scores of 75 or lower. So class A has more scores of 75 or lower. The other statements can be true or false for data that fit the summaries.",
+      "hints": [
+        "What does each median guarantee about the number of scores below or above it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a statement forced by the medians and class sizes."
+      },
+      "remember": "A median guarantees at least half the data on each side.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Summaries must be turned into guaranteed counts for classes of different sizes."
+      },
+      "choices": {
+        "A": "The mean score of class B is greater than the mean score of class A.",
+        "B": "More students in class B than in class A scored 86 or higher.",
+        "C": "More students in class A than in class B scored 80 or higher.",
+        "D": "More students in class A than in class B scored 75 or lower."
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "Medians and quartiles do not determine means; data fitting both summaries can give either class the higher mean.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "Class B's higher third quartile does not mean more students; class A can have 10 scores of 86 or higher when class B has only 5.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "Class A is larger, but data fitting the summaries can give class B more scores of 80 or higher.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-11",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Probability for a person from a household table",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "hard",
+      "stem": "In a survey of all the households in a town, 25% of the households had 1 person, 35% had 2 people, 20% had 3 people, 15% had 4 people, and 5% had 5 people. No household had more than 5 people. If one person who lives in these households is chosen at random, what is the probability that the person lives in a household of 4 or more people?",
+      "explanation": "For every 100 households there are 25 + 70 + 60 + 60 + 25 = 240 people. Of these, 60 + 25 = 85 live in households of 4 or 5, so the probability is 85/240 = 17/48.",
+      "hints": [
+        "Is a household or a person being chosen?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Assume there are 100 households and count the people."
+      },
+      "remember": "Weight each row by its size when choosing an individual.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The table counts households, but a person is chosen, so rows must be weighted by size."
+      },
+      "choices": {
+        "A": "1/5",
+        "B": "17/48",
+        "C": "2/5",
+        "D": "17/20"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This is the fraction of households, not of people.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This counts 2 of the 5 household sizes.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This counts 85 people but divides by 100 households.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-12",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Choosing a confounding variable",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "Researchers selected 30 hospitals at random from all the hospitals in a state. They found that hospitals with more intensive care unit (ICU) beds tended to have higher death rates, measured as deaths per 100 patients. Which of the following, if true, gives the best explanation for this association other than that having more ICU beds causes more deaths?",
+      "explanation": "If hospitals with more ICU beds receive the most seriously ill patients, how sick the patients are could explain both the number of ICU beds and the higher death rates.",
+      "hints": [
+        "What could be linked to both ICU beds and death rates?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a variable connected to both."
+      },
+      "remember": "A confounding variable is related to both variables in an association.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "The 30 hospitals were selected at random from all the hospitals in the state.",
+        "B": "Hospitals with more ICU beds tend to receive the most seriously ill patients from other hospitals.",
+        "C": "A few hospitals with few ICU beds had higher death rates than some hospitals with many ICU beds.",
+        "D": "Hospitals with more ICU beds also treat more patients in all."
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "Random selection supports generalizing the association but does not explain it.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "An exception to a trend does not explain the trend.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "The death rate is already per 100 patients, so hospital size alone does not explain it.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q078-13",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Two successive dilutions",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A stock solution is 30% dye by volume. A technician mixes 1 milliliter of the stock solution with 9 milliliters of water. Then the technician mixes 1 milliliter of this mixture with 4 milliliters of water. What percent of the final mixture, by volume, is dye? (Disregard the % sign when entering your answer. For example, if your answer is 42.1%, enter 42.1)",
+      "explanation": "The first mixture is 1/10 stock, so it is 30% × 1/10 = 3% dye. The second mixture is 1/5 first mixture, so it is 3% × 1/5 = 0.6% dye.",
+      "hints": [
+        "What fraction of each mixture is the liquid added before it?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by the part-to-whole fraction at each step."
+      },
+      "remember": "Dilution fractions use the total volume, not the water added.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two dilutions multiply, and each must use part-to-whole fractions."
+      },
+      "format": "spr",
+      "answer": "0.6",
+      "accepted_answers": [
+        "0.6",
+        ".6",
+        "3/5"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the percent after the first dilution only.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.14",
+          "rationale": "2.14 treats it as one dilution of 1 milliliter into 14 milliliters.",
+          "trap": null
+        },
+        {
+          "value": "0.83",
+          "rationale": "0.83 uses stock-to-water ratios, 1/9 and 1/4, instead of part-to-whole fractions.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q078-14",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent-of-capacity change from net counts",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A parking garage was 80% full. Then 30 cars left the garage and 12 cars entered, and the garage was 74% full. How many parking spaces does the garage have?",
+      "explanation": "The net change is 30 − 12 = 18 fewer cars, which equals 80% − 74% = 6% of the spaces. So 0.06S = 18 and S = 300.",
+      "hints": [
+        "What is the net change in cars?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Match the net change in cars to the change in percent."
+      },
+      "remember": "A percentage-point change of capacity equals a count change.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "300",
+      "accepted_answers": [
+        "300"
+      ],
+      "common_errors": [
+        {
+          "value": "500",
+          "rationale": "500 uses only the 30 cars that left.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "700",
+          "rationale": "700 adds 30 and 12 instead of subtracting.",
+          "trap": null
+        },
+        {
+          "value": "225",
+          "rationale": "225 divides 18 by 0.08.",
+          "trap": null
+        }
+      ]
     }
-   ]
-  },
-  {
-   "cand": "Q078-02",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Two translations that give the same line",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "The function f is linear. In the xy-plane, the graph of y = f(x) + 3 is the same line as the graph of y = f(x + 2). What is the slope of the graph of y = f(x) ?",
-   "explanation": "With f(x) = mx + b, f(x + 2) = mx + 2m + b and f(x) + 3 = mx + b + 3. These are the same line when 2m = 3, so m = 3/2. Geometrically, moving 2 units right and 3 units up stays on the line.",
-   "hints": [
-    "Write f(x) = mx + b and compare the two expressions."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Set f(x + 2) equal to f(x) + 3."
-   },
-   "remember": "Slope is rise over run.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Two different translations of a line must be compared to find its slope."
-   },
-   "choices": {
-    "A": "−3/2",
-    "B": "2/3",
-    "C": "3/2",
-    "D": "3"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This pairs the left shift (a run of −2) with the rise of 3.",
-     "trap": "sign_error"
-    },
-    "B": {
-     "rationale": "This inverts rise and run.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This treats the vertical shift of 3 as the change per unit of x.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-03",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Bounded scores with a required total",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "Ana's mean score on her first 4 tests was 80. She will take 2 more tests, and each test is scored from 0 to 100. If the mean of all 6 of her test scores is to be at least 85, what is the least possible score she could earn on the lower-scoring of the 2 remaining tests?",
-   "explanation": "The 6 scores must total at least 6 × 85 = 510, and the first 4 total 320, so the last 2 must total at least 190. The higher score is at most 100, so the lower score is at least 90, reached with 90 and 100.",
-   "hints": [
-    "What must the last two scores add up to?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Find the required total, then use the cap of 100."
-   },
-   "remember": "To minimize one value, maximize the others.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The 100-point cap on one score sets the bound on the other."
-   },
-   "format": "spr",
-   "answer": "90",
-   "accepted_answers": [
-    "90"
-   ],
-   "common_errors": [
-    {
-     "value": "95",
-     "rationale": "95 splits the required 190 evenly, which gives the least possible higher score.",
-     "trap": null
-    },
-    {
-     "value": "85",
-     "rationale": "85 is the target mean.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "190",
-     "rationale": "190 is the required total of the two tests.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q078-04",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Compound inequality with a negative coefficient",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "Which of the following describes all solutions of the inequality −7 ≤ 3 − 2x < 7 ?",
-   "explanation": "Subtracting 3 gives −10 ≤ −2x < 4. Dividing by −2 reverses both signs: 5 ≥ x > −2, which is −2 < x ≤ 5.",
-   "hints": [
-    "What happens to the inequality signs when you divide by a negative number?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Test x = 5 and x = −2 in the original inequality."
-   },
-   "remember": "Dividing by a negative reverses inequality signs.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "There is no value of x that satisfies the inequality.",
-    "B": "−2 ≤ x < 5",
-    "C": "x < −2 or x ≥ 5",
-    "D": "−2 < x ≤ 5"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "This divides by −2 without reversing the signs, getting 5 ≤ x < −2.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This orders the endpoints but leaves each strict or inclusive sign in its original position.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This thinks reversing the signs turns \"between\" into \"outside.\"",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-05",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Equation with fractions and a leftover amount",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "easy",
-   "stem": "Each batch of a muffin recipe uses 2/3 cup of sugar. Lena started with 5 cups of sugar. After she made some batches, she had 1/3 cup of sugar left. How many batches did she make?",
-   "explanation": "If she made n batches, she used (2/3)n cups, so 5 − (2/3)n = 1/3. Then (2/3)n = 14/3, and n = 7 batches.",
-   "hints": [
-    "How much sugar did she use?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Write an equation for the sugar used."
-   },
-   "remember": "Subtract the leftover before dividing by the amount per batch.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "7",
-   "accepted_answers": [
-    "7"
-   ],
-   "common_errors": [
-    {
-     "value": "7.5",
-     "rationale": "7.5 divides 5 by 2/3 without accounting for the leftover sugar.",
-     "trap": null
-    },
-    {
-     "value": "8",
-     "rationale": "8 rounds 7.5 up.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q078-06",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Finding the first error in a solution",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "easy",
-   "stem": "A student solved the equation 4 − 2(x − 3) = 10 as follows.\nStep 1: 4 − 2x − 6 = 10\nStep 2: −2x − 2 = 10\nStep 3: −2x = 12\nStep 4: x = −6\nIn which step did the student first make an error?",
-   "explanation": "Distributing −2 over (x − 3) gives −2x + 6, so Step 1 should be 4 − 2x + 6 = 10. Steps 2 through 4 follow correctly from Step 1. (The correct solution is x = 0.)",
-   "hints": [
-    "What is −2 times −3?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Check each step against the one before it."
-   },
-   "remember": "Distribute a negative to every term inside the parentheses.",
-   "expected_time_seconds": 50,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "Step 1",
-    "B": "Step 2",
-    "C": "Step 3",
-    "D": "Step 4"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "Step 2 correctly combines 4 − 6 from Step 1; the error came earlier.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "Step 3 correctly adds 2 to both sides of Step 2.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "Step 4 correctly divides by −2; the answer is wrong only because of the earlier error.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-07",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Line from an area and a sign condition",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, a line with a negative slope passes through the point (−3, 0). The line and the two coordinate axes form a triangle with an area of 12. What is the slope of the line?",
-   "explanation": "If the y-intercept is b, the triangle has legs 3 and |b|, so (1/2)(3)|b| = 12 and |b| = 8. The slope is (b − 0)/(0 − (−3)) = b/3, which is negative only for b = −8, so the slope is −8/3.",
-   "hints": [
-    "What are the legs of the triangle?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch both possible lines and pick the one with a negative slope."
-   },
-   "remember": "Area conditions often give two cases; use the other condition to choose.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The area gives two lines, and the sign of the slope selects one."
-   },
-   "format": "spr",
-   "answer": "-8/3",
-   "accepted_answers": [
-    "-8/3",
-    "-2.666",
-    "-2.667"
-   ],
-   "common_errors": [
-    {
-     "value": "8/3",
-     "rationale": "8/3 uses the y-intercept 8, which gives a positive slope.",
-     "trap": "sign_error"
-    },
-    {
-     "value": "-3/8",
-     "rationale": "−3/8 is run over rise.",
-     "trap": null
-    },
-    {
-     "value": "-4/3",
-     "rationale": "−4/3 leaves out the 1/2 in the area formula.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q078-08",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Recovering a constant from a miscopied equation",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
-   "stem": "In the equation 7x − 12 = 3x + k, k is a constant. A student copied the equation incorrectly as x − 12 = 3x + k, leaving out the 7, and correctly found that the solution of the copied equation is x = −5. What is the solution of the original equation?",
-   "explanation": "Substituting x = −5 into the copied equation: −5 − 12 = 3(−5) + k, so k = −2. Then 7x − 12 = 3x − 2 gives 4x = 10 and x = 5/2.",
-   "hints": [
-    "Use the copied equation and its solution to find k."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Find k first, then solve the original equation."
-   },
-   "remember": "A known solution can reveal an unknown constant.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "5/2",
-   "accepted_answers": [
-    "5/2",
-    "2.5"
-   ],
-   "common_errors": [
-    {
-     "value": "-2",
-     "rationale": "−2 is the value of k.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "-5",
-     "rationale": "−5 is the solution of the copied equation.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "3.5",
-     "rationale": "3.5 uses k = 2, a sign slip.",
-     "trap": "sign_error"
-    }
-   ]
-  },
-  {
-   "cand": "Q078-09",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Moving an overlap between two bases",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "At a school, 30% of the students are in the band. Of the students in the band, 40% are also in the choir, and these students make up 25% of the students in the choir. What percent of the students at the school are in the choir?",
-   "explanation": "Students in both are 0.30 × 0.40 = 12% of the school. They are 25% of the choir, so the choir is 12% ÷ 0.25 = 48% of the school.",
-   "hints": [
-    "What percent of the school is in both groups?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Assume the school has 1,000 students."
-   },
-   "remember": "A percent is always a percent of some base; track which one.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The same group is a percent of two different bases."
-   },
-   "choices": {
-    "A": "12%",
-    "B": "18.75%",
-    "C": "48%",
-    "D": "70%"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This stops at the students who are in both groups.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "This computes 30% × 25% ÷ 40%, using the ratio upside down.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This adds 30% and 40%.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-10",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Guaranteed counts from five-number summaries",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "The scores of two classes on the same test are summarized below.\nClass A (40 students): minimum 55, first quartile 68, median 75, third quartile 84, maximum 98\nClass B (20 students): minimum 60, first quartile 72, median 80, third quartile 86, maximum 95\nWhich of the following must be true?",
-   "explanation": "Class A's median is 75, so at least 20 of its 40 scores are 75 or lower. Class B's median is 80, so at least 10 of its 20 scores are 80 or higher, which leaves at most 10 scores of 75 or lower. So class A has more scores of 75 or lower. The other statements can be true or false for data that fit the summaries.",
-   "hints": [
-    "What does each median guarantee about the number of scores below or above it?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Look for a statement forced by the medians and class sizes."
-   },
-   "remember": "A median guarantees at least half the data on each side.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Summaries must be turned into guaranteed counts for classes of different sizes."
-   },
-   "choices": {
-    "A": "The mean score of class B is greater than the mean score of class A.",
-    "B": "More students in class B than in class A scored 86 or higher.",
-    "C": "More students in class A than in class B scored 80 or higher.",
-    "D": "More students in class A than in class B scored 75 or lower."
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "Medians and quartiles do not determine means; data fitting both summaries can give either class the higher mean.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "Class B's higher third quartile does not mean more students; class A can have 10 scores of 86 or higher when class B has only 5.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "Class A is larger, but data fitting the summaries can give class B more scores of 80 or higher.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-11",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Probability for a person from a household table",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "In a survey of all the households in a town, 25% of the households had 1 person, 35% had 2 people, 20% had 3 people, 15% had 4 people, and 5% had 5 people. No household had more than 5 people. If one person who lives in these households is chosen at random, what is the probability that the person lives in a household of 4 or more people?",
-   "explanation": "For every 100 households there are 25 + 70 + 60 + 60 + 25 = 240 people. Of these, 60 + 25 = 85 live in households of 4 or 5, so the probability is 85/240 = 17/48.",
-   "hints": [
-    "Is a household or a person being chosen?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Assume there are 100 households and count the people."
-   },
-   "remember": "Weight each row by its size when choosing an individual.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The table counts households, but a person is chosen, so rows must be weighted by size."
-   },
-   "choices": {
-    "A": "1/5",
-    "B": "17/48",
-    "C": "2/5",
-    "D": "17/20"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This is the fraction of households, not of people.",
-     "trap": "wrong_quantity"
-    },
-    "C": {
-     "rationale": "This counts 2 of the 5 household sizes.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This counts 85 people but divides by 100 households.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-12",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Choosing a confounding variable",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "Researchers selected 30 hospitals at random from all the hospitals in a state. They found that hospitals with more intensive care unit (ICU) beds tended to have higher death rates, measured as deaths per 100 patients. Which of the following, if true, gives the best explanation for this association other than that having more ICU beds causes more deaths?",
-   "explanation": "If hospitals with more ICU beds receive the most seriously ill patients, how sick the patients are could explain both the number of ICU beds and the higher death rates.",
-   "hints": [
-    "What could be linked to both ICU beds and death rates?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Look for a variable connected to both."
-   },
-   "remember": "A confounding variable is related to both variables in an association.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "The 30 hospitals were selected at random from all the hospitals in the state.",
-    "B": "Hospitals with more ICU beds tend to receive the most seriously ill patients from other hospitals.",
-    "C": "A few hospitals with few ICU beds had higher death rates than some hospitals with many ICU beds.",
-    "D": "Hospitals with more ICU beds also treat more patients in all."
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "Random selection supports generalizing the association but does not explain it.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "An exception to a trend does not explain the trend.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "The death rate is already per 100 patients, so hospital size alone does not explain it.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q078-13",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Two successive dilutions",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A stock solution is 30% dye by volume. A technician mixes 1 milliliter of the stock solution with 9 milliliters of water. Then the technician mixes 1 milliliter of this mixture with 4 milliliters of water. What percent of the final mixture, by volume, is dye? (Disregard the % sign when entering your answer. For example, if your answer is 42.1%, enter 42.1)",
-   "explanation": "The first mixture is 1/10 stock, so it is 30% × 1/10 = 3% dye. The second mixture is 1/5 first mixture, so it is 3% × 1/5 = 0.6% dye.",
-   "hints": [
-    "What fraction of each mixture is the liquid added before it?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Multiply by the part-to-whole fraction at each step."
-   },
-   "remember": "Dilution fractions use the total volume, not the water added.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Two dilutions multiply, and each must use part-to-whole fractions."
-   },
-   "format": "spr",
-   "answer": "0.6",
-   "accepted_answers": [
-    "0.6",
-    ".6",
-    "3/5"
-   ],
-   "common_errors": [
-    {
-     "value": "3",
-     "rationale": "3 is the percent after the first dilution only.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "2.14",
-     "rationale": "2.14 treats it as one dilution of 1 milliliter into 14 milliliters.",
-     "trap": null
-    },
-    {
-     "value": "0.83",
-     "rationale": "0.83 uses stock-to-water ratios, 1/9 and 1/4, instead of part-to-whole fractions.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q078-14",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Percent-of-capacity change from net counts",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A parking garage was 80% full. Then 30 cars left the garage and 12 cars entered, and the garage was 74% full. How many parking spaces does the garage have?",
-   "explanation": "The net change is 30 − 12 = 18 fewer cars, which equals 80% − 74% = 6% of the spaces. So 0.06S = 18 and S = 300.",
-   "hints": [
-    "What is the net change in cars?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Match the net change in cars to the change in percent."
-   },
-   "remember": "A percentage-point change of capacity equals a count change.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "300",
-   "accepted_answers": [
-    "300"
-   ],
-   "common_errors": [
-    {
-     "value": "500",
-     "rationale": "500 uses only the 30 cars that left.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "700",
-     "rationale": "700 adds 30 and 12 instead of subtracting.",
-     "trap": null
-    },
-    {
-     "value": "225",
-     "rationale": "225 divides 18 by 0.08.",
-     "trap": null
-    }
-   ]
-  }
- ]
+  ]
 }

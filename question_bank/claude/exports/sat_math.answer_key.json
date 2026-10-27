@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 77,
+  "bank_version": 78,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -18022,6 +18022,356 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the parallel lines, the transversal, and both bisectors."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000862",
+      "correct_answer": "1000",
+      "accepted_answers": [
+        "1000"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the combined rate per minute, not the 10-minute total.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "800",
+          "rationale": "800 adds the two days' totals.",
+          "trap": null
+        },
+        {
+          "value": "450",
+          "rationale": "450 is 10 minutes of printer A only.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Adding 3a + 5b = 410 and 5a + 3b = 390 gives 8a + 8b = 800, so a + b = 100 pages per minute. In 10 minutes the printers print 10 × 100 = 1,000 pages. (Solving fully gives a = 45 and b = 55.)",
+      "distractor_explanations": {},
+      "hints": [
+        "What happens if you add the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations to find a + b directly."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000863",
+      "correct_answer": "C",
+      "explanation": "With f(x) = mx + b, f(x + 2) = mx + 2m + b and f(x) + 3 = mx + b + 3. These are the same line when 2m = 3, so m = 3/2. Geometrically, moving 2 units right and 3 units up stays on the line.",
+      "distractor_explanations": {
+        "A": "This pairs the left shift (a run of −2) with the rise of 3.",
+        "B": "This inverts rise and run.",
+        "D": "This treats the vertical shift of 3 as the change per unit of x."
+      },
+      "hints": [
+        "Write f(x) = mx + b and compare the two expressions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(x + 2) equal to f(x) + 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000864",
+      "correct_answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "95",
+          "rationale": "95 splits the required 190 evenly, which gives the least possible higher score.",
+          "trap": null
+        },
+        {
+          "value": "85",
+          "rationale": "85 is the target mean.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "190",
+          "rationale": "190 is the required total of the two tests.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The 6 scores must total at least 6 × 85 = 510, and the first 4 total 320, so the last 2 must total at least 190. The higher score is at most 100, so the lower score is at least 90, reached with 90 and 100.",
+      "distractor_explanations": {},
+      "hints": [
+        "What must the last two scores add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the required total, then use the cap of 100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000865",
+      "correct_answer": "D",
+      "explanation": "Subtracting 3 gives −10 ≤ −2x < 4. Dividing by −2 reverses both signs: 5 ≥ x > −2, which is −2 < x ≤ 5.",
+      "distractor_explanations": {
+        "A": "This divides by −2 without reversing the signs, getting 5 ≤ x < −2.",
+        "B": "This orders the endpoints but leaves each strict or inclusive sign in its original position.",
+        "C": "This thinks reversing the signs turns \"between\" into \"outside.\""
+      },
+      "hints": [
+        "What happens to the inequality signs when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 5 and x = −2 in the original inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000866",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 divides 5 by 2/3 without accounting for the leftover sugar.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 rounds 7.5 up.",
+          "trap": null
+        }
+      ],
+      "explanation": "If she made n batches, she used (2/3)n cups, so 5 − (2/3)n = 1/3. Then (2/3)n = 14/3, and n = 7 batches.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much sugar did she use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write an equation for the sugar used."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000867",
+      "correct_answer": "A",
+      "explanation": "Distributing −2 over (x − 3) gives −2x + 6, so Step 1 should be 4 − 2x + 6 = 10. Steps 2 through 4 follow correctly from Step 1. (The correct solution is x = 0.)",
+      "distractor_explanations": {
+        "B": "Step 2 correctly combines 4 − 6 from Step 1; the error came earlier.",
+        "C": "Step 3 correctly adds 2 to both sides of Step 2.",
+        "D": "Step 4 correctly divides by −2; the answer is wrong only because of the earlier error."
+      },
+      "hints": [
+        "What is −2 times −3?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each step against the one before it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000868",
+      "correct_answer": "-8/3",
+      "accepted_answers": [
+        "-8/3",
+        "-2.666",
+        "-2.667"
+      ],
+      "common_errors": [
+        {
+          "value": "8/3",
+          "rationale": "8/3 uses the y-intercept 8, which gives a positive slope.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3/8",
+          "rationale": "−3/8 is run over rise.",
+          "trap": null
+        },
+        {
+          "value": "-4/3",
+          "rationale": "−4/3 leaves out the 1/2 in the area formula.",
+          "trap": null
+        }
+      ],
+      "explanation": "If the y-intercept is b, the triangle has legs 3 and |b|, so (1/2)(3)|b| = 12 and |b| = 8. The slope is (b − 0)/(0 − (−3)) = b/3, which is negative only for b = −8, so the slope is −8/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "What are the legs of the triangle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both possible lines and pick the one with a negative slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000869",
+      "correct_answer": "5/2",
+      "accepted_answers": [
+        "5/2",
+        "2.5"
+      ],
+      "common_errors": [
+        {
+          "value": "-2",
+          "rationale": "−2 is the value of k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-5",
+          "rationale": "−5 is the solution of the copied equation.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 uses k = 2, a sign slip.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Substituting x = −5 into the copied equation: −5 − 12 = 3(−5) + k, so k = −2. Then 7x − 12 = 3x − 2 gives 4x = 10 and x = 5/2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the copied equation and its solution to find k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k first, then solve the original equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000870",
+      "correct_answer": "C",
+      "explanation": "Students in both are 0.30 × 0.40 = 12% of the school. They are 25% of the choir, so the choir is 12% ÷ 0.25 = 48% of the school.",
+      "distractor_explanations": {
+        "A": "This stops at the students who are in both groups.",
+        "B": "This computes 30% × 25% ÷ 40%, using the ratio upside down.",
+        "D": "This adds 30% and 40%."
+      },
+      "hints": [
+        "What percent of the school is in both groups?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Assume the school has 1,000 students."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000871",
+      "correct_answer": "D",
+      "explanation": "Class A's median is 75, so at least 20 of its 40 scores are 75 or lower. Class B's median is 80, so at least 10 of its 20 scores are 80 or higher, which leaves at most 10 scores of 75 or lower. So class A has more scores of 75 or lower. The other statements can be true or false for data that fit the summaries.",
+      "distractor_explanations": {
+        "A": "Medians and quartiles do not determine means; data fitting both summaries can give either class the higher mean.",
+        "B": "Class B's higher third quartile does not mean more students; class A can have 10 scores of 86 or higher when class B has only 5.",
+        "C": "Class A is larger, but data fitting the summaries can give class B more scores of 80 or higher."
+      },
+      "hints": [
+        "What does each median guarantee about the number of scores below or above it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a statement forced by the medians and class sizes."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000872",
+      "correct_answer": "B",
+      "explanation": "For every 100 households there are 25 + 70 + 60 + 60 + 25 = 240 people. Of these, 60 + 25 = 85 live in households of 4 or 5, so the probability is 85/240 = 17/48.",
+      "distractor_explanations": {
+        "A": "This is the fraction of households, not of people.",
+        "C": "This counts 2 of the 5 household sizes.",
+        "D": "This counts 85 people but divides by 100 households."
+      },
+      "hints": [
+        "Is a household or a person being chosen?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Assume there are 100 households and count the people."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000873",
+      "correct_answer": "B",
+      "explanation": "If hospitals with more ICU beds receive the most seriously ill patients, how sick the patients are could explain both the number of ICU beds and the higher death rates.",
+      "distractor_explanations": {
+        "A": "Random selection supports generalizing the association but does not explain it.",
+        "C": "An exception to a trend does not explain the trend.",
+        "D": "The death rate is already per 100 patients, so hospital size alone does not explain it."
+      },
+      "hints": [
+        "What could be linked to both ICU beds and death rates?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a variable connected to both."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000874",
+      "correct_answer": "0.6",
+      "accepted_answers": [
+        "0.6",
+        ".6",
+        "3/5"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the percent after the first dilution only.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.14",
+          "rationale": "2.14 treats it as one dilution of 1 milliliter into 14 milliliters.",
+          "trap": null
+        },
+        {
+          "value": "0.83",
+          "rationale": "0.83 uses stock-to-water ratios, 1/9 and 1/4, instead of part-to-whole fractions.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first mixture is 1/10 stock, so it is 30% × 1/10 = 3% dye. The second mixture is 1/5 first mixture, so it is 3% × 1/5 = 0.6% dye.",
+      "distractor_explanations": {},
+      "hints": [
+        "What fraction of each mixture is the liquid added before it?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by the part-to-whole fraction at each step."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000875",
+      "correct_answer": "300",
+      "accepted_answers": [
+        "300"
+      ],
+      "common_errors": [
+        {
+          "value": "500",
+          "rationale": "500 uses only the 30 cars that left.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "700",
+          "rationale": "700 adds 30 and 12 instead of subtracting.",
+          "trap": null
+        },
+        {
+          "value": "225",
+          "rationale": "225 divides 18 by 0.08.",
+          "trap": null
+        }
+      ],
+      "explanation": "The net change is 30 − 12 = 18 fewer cars, which equals 80% − 74% = 6% of the spaces. So 0.06S = 18 and S = 300.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the net change in cars?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Match the net change in cars to the change in percent."
       }
     }
   ]
