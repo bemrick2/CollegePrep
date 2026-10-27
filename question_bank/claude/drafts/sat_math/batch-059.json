@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 59,
- "plan": "SAT Math batch 59: 21 new items from generated idea set 11 (pre-checked in ideas-059.repeats.json) plus 6 batch-58 items resubmitted as revision 2 (wording/grid fixes only). Dropped from set 11: FC02, FC04, FC05 (templates of CLD-SAT-M-000383, CLD-ACT-M-000097, CLD-ACT-M-000308), FB04 (reused pizzeria context), FD05 (over-used altitude figure), FA01 (cue and classroom classic), FA02 (one test eliminates every distractor), FA05 (a wrong method gives the key), FA07 (only realistic speed is the key). Fixes: FB08 numbers changed so all choices are integers; FB09 distractors moved below 1,200 so growth alone does not eliminate them; FC03 trip length removed (it cancelled) and the item asks for the length-independent ratio; FB01 asks to the nearest tenth of a percent; FA04 explanation corrected; easier-than-labeled ideas labeled medium.",
+ "plan": "SAT Math batch 59: 21 new items from generated idea set 11 (pre-checked in ideas-059.repeats.json) plus 6 batch-58 items resubmitted as revision 2 (wording/grid fixes only). Dropped from set 11: FC02, FC04, FC05 (templates of CLD-SAT-M-000383, CLD-ACT-M-000097, CLD-ACT-M-000308), FB04 (reused pizzeria context), FD05 (over-used altitude figure), FA01 (cue and classroom classic), FA02 (one test eliminates every distractor), FA05 (a wrong method gives the key), FA07 (only realistic speed is the key). Fixes: FB08 numbers changed so all choices are integers; FB09 distractors moved below 1,200 so growth alone does not eliminate them; FC03 trip length removed (it cancelled) and the item asks for the length-independent ratio; FB01 asks to the nearest tenth of a percent; FA04 explanation corrected; easier-than-labeled ideas labeled medium. Relabelled to the lower of authored and blind difficulty: 10 items hard→medium (Q059-01, Q059-04, Q059-05, Q059-06, Q059-07, Q059-11, Q059-12, Q059-21, Q059-22, Q059-24).",
  "candidates": [
   {
    "cand": "Q059-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "First whole year past a threshold under linear depreciation with salvage value",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A company buys a machine for $48,000 and depreciates it linearly: its book value drops by the same amount each year until it reaches its salvage value of $6,000 at the end of 12 years. At the end of how many whole years will the book value first be less than half of the purchase price?",
    "explanation": "The value drops by (48,000 − 6,000)/12 = $3,500 per year. Half the purchase price is $24,000, and 48,000 − 3,500t < 24,000 gives t > 6.86. After 6 years the value is $27,000; after 7 years it is $23,500. So the answer is 7.",
    "hints": [
@@ -130,7 +130,7 @@
    "skill": "Algebra",
    "subskill": "Order amount that matches a free-shipping threshold",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "An online store charges shipping of $5 plus 8% of the order amount on orders under $75 and ships orders of $75 or more for free. To the nearest cent, what order amount under $75 has the same total cost (order amount plus shipping) as a $75 order?",
    "explanation": "For an order of x dollars under $75, the total cost is x + 5 + 0.08x = 1.08x + 5. Setting this equal to 75 gives 1.08x = 70, so x = 70/1.08 ≈ 64.81.",
    "hints": [
@@ -177,7 +177,7 @@
    "skill": "Advanced Math",
    "subskill": "Ratio of two exponential models (real purchasing power)",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "From 2010 to 2020, Ana's salary increased by 2% each year, and the prices of the goods she buys increased by 6% each year. The purchasing power of her salary (the amount of goods it can buy) in 2020 was what percent of its purchasing power in 2010, to the nearest tenth of a percent?",
    "explanation": "Purchasing power is salary divided by prices. After 10 years it is (1.02)¹⁰/(1.06)¹⁰ = (1.02/1.06)¹⁰ ≈ 0.6807 times its 2010 value, or about 68.1%.",
    "hints": [
@@ -224,7 +224,7 @@
    "skill": "Advanced Math",
    "subskill": "Maximum gap between a linear and a quadratic position",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A car traveling at a constant 24 meters per second passes a parked police car. At that moment the police car starts from rest, and t seconds later it has traveled 1.5t² meters. What is the greatest distance, in meters, between the two cars before the police car catches up?",
    "explanation": "The gap is 24t − 1.5t². This quadratic is greatest at t = −24/(2(−1.5)) = 8, where the gap is 24(8) − 1.5(64) = 192 − 96 = 96 meters.",
    "hints": [
@@ -272,7 +272,7 @@
    "skill": "Advanced Math",
    "subskill": "Per-unit rate under a fractional power law",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "According to one model, an animal's daily energy need is proportional to m^(3/4), where m is the animal's mass. Animal B has 81 times the mass of animal A. According to the model, animal B's daily energy need per kilogram of body mass is what fraction of animal A's?",
    "explanation": "B's total need is 81^(3/4) = 27 times A's. Spread over 81 times the mass, B's need per kilogram is 27/81 = 1/3 of A's.",
    "hints": [
@@ -453,7 +453,7 @@
    "skill": "Advanced Math",
    "subskill": "Meeting time of a growing and a decaying population",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The number of plants of an invasive species in a wetland doubles every 2 years, while the number of plants of a native species halves every 6 years. Currently, the native species is 16 times as numerous as the invasive species. If these trends continue, in how many years will the two species be equally numerous?",
    "explanation": "Let the invasive count be N now; the native count is 16N. After t years: N · 2^(t/2) = 16N · 2^(−t/6). So 2^(t/2 + t/6) = 2⁴, which gives 2t/3 = 4 and t = 6.",
    "hints": [
@@ -500,7 +500,7 @@
    "skill": "Advanced Math",
    "subskill": "Initial value of an exponential model with a shifted input",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The number of subscribers to an app t months after its launch is modeled by S(t) = 1,200(1.15)^(t − 4), for 0 ≤ t ≤ 24. According to the model, to the nearest whole number, how many subscribers did the app have at launch?",
    "explanation": "At launch, t = 0, so S(0) = 1,200(1.15)⁻⁴ = 1,200/1.15⁴ ≈ 686.1, or 686. The 1,200 is the number of subscribers 4 months after launch.",
    "hints": [
@@ -909,7 +909,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Second isosceles triangle with equal legs and equal area",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "An isosceles triangle with two sides of length 5 and a base of length 6 has the same area as a different isosceles triangle whose two equal sides also have length 5. What is the length of the base of the second triangle?",
    "explanation": "The first triangle has height √(25 − 9) = 4 and area (1/2)(6)(4) = 12. For base b, the height is √(25 − b²/4), so (1/2)b√(25 − b²/4) = 12. Squaring gives b²(100 − b²) = 2,304, so b² = 36 or b² = 64. The other triangle has base 8 (height 3): two 3-4-5 right triangles placed back to back along the side of length 3.",
    "hints": [
@@ -952,7 +952,7 @@
    "skill": "Algebra",
    "subskill": "Counting equal step heights between two inclusive bounds",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A staircase must rise a total of 108 inches, and every step (riser) must be the same height. The building code requires each riser to be at least 6 inches and at most 7.5 inches high. How many different numbers of steps are possible?",
    "explanation": "With n steps, each riser is 108/n inches, so 6 ≤ 108/n ≤ 7.5. This gives 14.4 ≤ n ≤ 18. The whole numbers in that range are 15, 16, 17 and 18, so 4 numbers of steps are possible (18 steps give risers of exactly 6 inches, which the code allows).",
    "hints": [
@@ -1057,7 +1057,7 @@
    "skill": "Algebra",
    "subskill": "Fuel inequality with a reserve given as time",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A small airplane burns 8 gallons of fuel per hour in flight. Before one flight it holds 42 gallons. It uses 2 gallons while taxiing before takeoff, and it must land with enough fuel for at least 45 more minutes of flight. What is the greatest possible flight time, in minutes?",
    "explanation": "The 45-minute reserve is 0.75(8) = 6 gallons. With flight time t hours, 42 − 2 − 8t ≥ 6, so 8t ≤ 34 and t ≤ 4.25 hours. That is 4.25(60) = 255 minutes.",
    "hints": [

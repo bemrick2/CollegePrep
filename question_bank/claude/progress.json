@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T14:04:28+00:00",
+  "updated_at": "2026-10-27T14:06:21+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 349,
     "act_reading": 346,
     "sat_reading_writing": 372,
-    "sat_math": 538
+    "sat_math": 563
   },
   "review_totals": {
     "act_math": {
@@ -53,11 +53,11 @@
       "passed_after_revision": 32
     },
     "sat_math": {
-      "PASS": 568,
-      "REVISE": 8,
-      "REJECT": 0,
-      "candidates": 576,
-      "passed_after_revision": 10
+      "PASS": 593,
+      "REVISE": 9,
+      "REJECT": 1,
+      "candidates": 603,
+      "passed_after_revision": 16
     }
   },
   "sections": {
@@ -1584,13 +1584,13 @@
       "passages": 399
     },
     "sat_math": {
-      "accepted": 538,
+      "accepted": 563,
       "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 183,
-        "Algebra": 172,
-        "Geometry and Trigonometry": 94,
-        "Problem-Solving and Data Analysis": 89
+        "Advanced Math": 193,
+        "Algebra": 179,
+        "Geometry and Trigonometry": 100,
+        "Problem-Solving and Data Analysis": 91
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1601,6 +1601,7 @@
         "Angle in nested isosceles triangles": 1,
         "Angle sum of a quadrilateral": 1,
         "Angles of an isosceles triangle from a ratio": 1,
+        "Angles of two pulleys linked by a belt": 1,
         "Annual percent growth from two values two years apart": 1,
         "Another solution of a linear equation from two known solutions": 1,
         "Apex angle of an isosceles triangle from parallel lines": 1,
@@ -1617,6 +1618,7 @@
         "Area of a triangle formed by a parabola's intercepts": 1,
         "Area of a triangle formed by two radii and a chord": 1,
         "Area of a triangle that is a right triangle": 1,
+        "Area of a triangle with an obtuse included angle": 1,
         "Area of an isosceles triangle with 30° base angles": 1,
         "Area of the square formed by changing a rectangle’s sides": 1,
         "Area ratio of circles from equal arcs at different central angles": 1,
@@ -1663,6 +1665,7 @@
         "Comparing volumes of a sphere and a cylinder": 1,
         "Comparing yearly percent decrease of models with different periods": 1,
         "Complementary angles and the sine-cosine relationship": 1,
+        "Composing a sphere volume with a linearly growing radius": 1,
         "Compound growth run backward to an earlier value": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for two real solutions": 1,
@@ -1671,6 +1674,7 @@
         "Conditional probability with a complement after finding an overlap": 1,
         "Conditions for a linear equation to have no solution": 1,
         "Cone and sphere with equal volumes": 1,
+        "Cone volume from a height and the slope angle": 1,
         "Constant for which a point lies inside a circle": 1,
         "Constant from a condition relating two solutions": 1,
         "Constant from an identity between a rational expression and a linear expression": 1,
@@ -1692,6 +1696,7 @@
         "Cosine from two sides of a right triangle": 1,
         "Cost from a scaled recipe and a mass unit conversion": 1,
         "Count of x-intercepts after a constant creates a repeated zero": 1,
+        "Counting equal step heights between two inclusive bounds": 1,
         "Counting from a conditional percent": 1,
         "Counting integer production levels with positive quadratic profit": 1,
         "Counting integers in the overlap of two absolute value inequalities": 1,
@@ -1705,6 +1710,7 @@
         "Difference of two constants fixed by an intersection x-coordinate": 1,
         "Difference of two function values": 1,
         "Difference of two heights from two angles of elevation": 1,
+        "Direction of error for a miscalibrated odometer": 1,
         "Distance fallen during a one-second window": 1,
         "Distance from a chord endpoint to the midpoint of its arc": 1,
         "Distance from a pace and a time": 1,
@@ -1745,8 +1751,10 @@
         "Exponential function through two points": 1,
         "Exponential function with an added constant through two points": 1,
         "Exponential model from a rebound percent": 1,
+        "Exponential outputs from a product of two outputs": 1,
         "Exponents with related bases forming a linear system": 1,
         "Expression for a cost with a rate change after a threshold": 1,
+        "Extra fuel cost per hour saved, independent of trip length": 1,
         "Extreme x-value in a system of two linear inequalities": 1,
         "Factor theorem fixes a constant, then the remaining zeros": 1,
         "Factored form of a quadratic given in vertex form": 1,
@@ -1760,9 +1768,11 @@
         "Finding and correcting the one entry that breaks linearity": 1,
         "First integer at which exponential growth overtakes linear growth": 1,
         "First whole hour one exponential model exceeds another": 1,
+        "First whole year past a threshold under linear depreciation with salvage value": 1,
         "Fixed-area pen against a wall: choosing between two roots": 1,
         "Flight duration and time-zone offset from two trips": 1,
         "Fraction of a triangle’s area from a ratio on one side and a midpoint": 1,
+        "Fuel inequality with a reserve given as time": 1,
         "Fuel remaining after a trip": 1,
         "Gap from a corner to a circle tangent to both walls": 1,
         "Greatest center y-coordinate from two points and a radius": 1,
@@ -1857,6 +1867,7 @@
         "Mass of a product needed to raise a concentration": 1,
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
+        "Maximum gap between a linear and a quadratic position": 1,
         "Maximum height after finding a constant from the landing time": 1,
         "Maximum of a quadratic built from two equal values": 1,
         "Maximum of a quadratic model after finding a coefficient from the vertex": 1,
@@ -1868,6 +1879,7 @@
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
         "Median from a frequency table with an unknown frequency": 1,
+        "Meeting time of a growing and a decaying population": 1,
         "Minimum count to meet a score under a count limit": 1,
         "Minimum of a horizontally shifted quadratic": 1,
         "Minimum of a sum of absolute values": 1,
@@ -1883,6 +1895,7 @@
         "Number of solutions of a circle-parabola system": 1,
         "Number of zeros from the signs of a and c": 1,
         "Opposite endpoint of a diameter from a circle equation": 1,
+        "Order amount that matches a free-shipping threshold": 1,
         "Original price from a discount, a coupon and the final share": 1,
         "Original price when a price rise and a sales drop leave revenue unchanged": 1,
         "Original total from probabilities before and after a removal": 1,
@@ -1892,6 +1905,7 @@
         "Parameter that makes a linear equation an identity": 1,
         "Parameter that makes a rational equation have no solution": 1,
         "Part from a part-to-part ratio and a difference": 1,
+        "Per-unit rate under a fractional power law": 1,
         "Percent cap on total payments after a unit conversion": 1,
         "Percent change in a density when both quantities change": 1,
         "Percent change in area from changes in two dimensions": 1,
@@ -1935,6 +1949,8 @@
         "Quadratic from a minimum stated as an inequality": 1,
         "Quadratic from a symmetry identity and a minimum value": 1,
         "Quadratic in a linear expression; sum of solutions in x": 1,
+        "Quotient of exponential expressions in context": 1,
+        "Quotient of rational expressions that collapses to a constant": 1,
         "Radius from an arc length and a radian angle": 1,
         "Radius from the area between concentric circles": 1,
         "Radius of a cylinder from its volume and a height relationship": 1,
@@ -1946,8 +1962,10 @@
         "Rate of rise of a level in a cylinder with a unit conversion": 1,
         "Rate problem with a unit conversion": 1,
         "Ratio applied after excluding a group": 1,
+        "Ratio of distances on a number line with two cases": 1,
         "Ratio of remaining masses for two half-lives": 1,
         "Ratio of two conditional probabilities from a table without totals": 1,
+        "Ratio of two exponential models (real purchasing power)": 1,
         "Ratio of variables from a homogeneous linear equation": 1,
         "Ratio of volumes of the two cylinders rolled from one sheet": 1,
         "Re-expressing a linear model with a new base year": 1,
@@ -1968,11 +1986,15 @@
         "Rewriting a product of exponential expressions with one base": 1,
         "Rewriting exponential expressions with a common base": 1,
         "Right triangle with algebraic legs": 1,
+        "Right-triangle sides from a cosine and a difference": 1,
         "Right-triangle trigonometry with a given ratio": 1,
         "Round-trip time against a current as a rational expression": 1,
         "Rule of a function from its value at a shifted input": 1,
         "Same-side interior angles with algebra": 1,
+        "Same-slope linear formulas: what equal outputs imply about inputs": 1,
         "Scale model with a unit conversion": 1,
+        "Scaled-input equation that reduces to a linear equation": 1,
+        "Second isosceles triangle with equal legs and equal area": 1,
         "Second time two walkers are a given distance apart": 1,
         "Sector area from a radian angle and the sector perimeter": 1,
         "Segment length from similar triangles with a non-obvious correspondence": 1,
@@ -2048,6 +2070,7 @@
         "Sum of the constants in a factored trinomial": 1,
         "Sum of the solutions of an absolute value equation": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
+        "Sum-and-difference system with three exclusive groups": 1,
         "Surface area of a fixed-volume cylinder as a function of radius": 1,
         "System from two shared resources": 1,
         "System of equations for time at two speeds": 1,
@@ -2076,6 +2099,8 @@
         "Translating a verbal equation with grouping": 1,
         "Translating a verbal statement into a linear equation": 1,
         "Triangle area from an arc length": 1,
+        "Trigonometric ratios with an extraneous root": 1,
+        "Two chained round-ups from a ratio and a capacity": 1,
         "Two constants of a rational function from two values": 1,
         "Two counts from the effect of swapped prices": 1,
         "Two speeds from meeting and catch-up conditions": 1,
@@ -2134,24 +2159,24 @@
       },
       "by_difficulty_author": {
         "easy": 82,
-        "hard": 62,
-        "medium": 394
+        "hard": 66,
+        "medium": 415
       },
       "by_difficulty_calibrated": {
         "easy": 133,
-        "hard": 49,
-        "medium": 356
+        "hard": 53,
+        "medium": 377
       },
       "calibrated_share": {
-        "easy": 0.247,
-        "hard": 0.091,
-        "medium": 0.662
+        "easy": 0.236,
+        "hard": 0.094,
+        "medium": 0.67
       },
       "answer_key_balance": {
         "-1": 3,
         "-12": 1,
         "-2": 1,
-        "-4": 1,
+        "-4": 2,
         "-9": 2,
         "0.58": 1,
         "1": 2,
@@ -2161,6 +2186,7 @@
         "1/2": 1,
         "10": 10,
         "10.5": 1,
+        "1000": 1,
         "11": 3,
         "11/3": 1,
         "110": 1,
@@ -2197,7 +2223,7 @@
         "25": 2,
         "26": 2,
         "29": 1,
-        "3": 9,
+        "3": 10,
         "3.54": 1,
         "30": 3,
         "313": 1,
@@ -2206,14 +2232,14 @@
         "36": 4,
         "37.5": 1,
         "39": 1,
-        "4": 10,
+        "4": 11,
         "4.05": 1,
         "4.2": 1,
         "40": 5,
         "41.4": 1,
         "436": 1,
         "44": 2,
-        "5": 5,
+        "5": 6,
         "5.4": 1,
         "5/13": 1,
         "5/2": 1,
@@ -2226,26 +2252,28 @@
         "64": 1,
         "640": 1,
         "67": 1,
-        "7": 7,
+        "7": 8,
         "7.2": 2,
         "748": 1,
-        "8": 6,
+        "8": 7,
         "8.5": 1,
+        "8/15": 1,
         "80": 2,
         "81": 1,
         "81/4": 1,
         "84": 1,
-        "9": 2,
+        "9": 3,
         "9/17": 1,
         "9/2": 1,
         "90": 1,
-        "A": 76,
-        "B": 116,
-        "C": 96,
-        "D": 57
+        "96": 1,
+        "A": 81,
+        "B": 119,
+        "C": 101,
+        "D": 59
       },
-      "modeling_items": 198,
-      "spr_items": 193,
+      "modeling_items": 212,
+      "spr_items": 203,
       "passages": 0
     }
   },
@@ -2254,7 +2282,7 @@
     "act_english": 39,
     "act_reading": 45,
     "sat_reading_writing": 43,
-    "sat_math": 58
+    "sat_math": 59
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2286,30 +2314,38 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 59,
+    "next_batch": 60,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 19.8,
-      "Advanced Math": 8.8,
-      "Problem-Solving and Data Analysis": -6.8,
-      "Geometry and Trigonometry": -11.8
+      "Algebra": 21.5,
+      "Advanced Math": 7.5,
+      "Problem-Solving and Data Analysis": -5.0,
+      "Geometry and Trigonometry": -14.0
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 4.0,
-      "medium": -82.0,
-      "hard": 88.0
+      "easy": 10.2,
+      "medium": -90.5,
+      "hard": 90.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 26.8,
-      "B": -13.2,
-      "C": 6.8,
-      "D": 45.8
+      "A": 26.4,
+      "B": -11.6,
+      "C": 6.4,
+      "D": 48.4
     },
-    "spr_items": 193,
+    "spr_items": 203,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 40,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 40.4,
+        "Knowledge of Language": 12.6,
+        "Conventions of Standard English": -37.6
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 44,
       "skill_gap_for_next_10": {
@@ -2325,14 +2361,6 @@
         "Key Ideas and Details": 48.9,
         "Craft and Structure": -16.0,
         "Integration of Knowledge and Ideas": -22.9
-      }
-    },
-    "act_english": {
-      "next_batch": 40,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 40.4,
-        "Knowledge of Language": 12.6,
-        "Conventions of Standard English": -37.6
       }
     }
   },
@@ -2359,12 +2387,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 538,
-      "share_of_target": 0.538
+      "accepted": 563,
+      "share_of_target": 0.563
     }
   },
   "total_target": 3841,
-  "total_accepted": 2379,
+  "total_accepted": 2404,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -143106,7 +143134,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 58,
+      "bank_version": 59,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -143232,7 +143260,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T14:04:28+00:00",
+    "heartbeat_at": "2026-10-27T14:06:20+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

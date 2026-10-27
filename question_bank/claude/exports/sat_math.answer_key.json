@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 58,
+  "bank_version": 59,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -11308,6 +11308,543 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the circle, the tangent line and the radius, and find the right triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000569",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes half the useful life gives half the value, which ignores the $6,000 salvage value.",
+          "trap": null
+        }
+      ],
+      "explanation": "The value drops by (48,000 − 6,000)/12 = $3,500 per year. Half the purchase price is $24,000, and 48,000 − 3,500t < 24,000 gives t > 6.86. After 6 years the value is $27,000; after 7 years it is $23,500. So the answer is 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much does the value drop each year?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the yearly drop from the two endpoint values, then solve the inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000570",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 ignores the adults (180/50 = 3.6) and rounds up, or rounds 203/50 = 4.06 down.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "At least 180/8 = 22.5 adults are needed, so at least 23 adults. That makes at least 203 people, and 203/50 = 4.06, so 5 buses are needed. Five buses, each with 36 students and at least 5 adults, satisfy every condition.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many adults are needed?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the least number of adults, add the students, then divide by the bus capacity."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000571",
+      "correct_answer": "C",
+      "explanation": "The satisfied and dissatisfied percents add to 100 − 15 = 85 and differ by 41. So s + d = 85 and s − d = 41, which give s = 63.",
+      "distractor_explanations": {
+        "A": "22 is the dissatisfied percent, not the satisfied percent.",
+        "B": "56 adds the 15% neutral to the 41-point gap.",
+        "D": "70.5 is (100 + 41)/2, which forgets to remove the neutral group."
+      },
+      "hints": [
+        "What do the satisfied and dissatisfied percents add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write a sum equation and a difference equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000572",
+      "correct_answer": "C",
+      "explanation": "For an order of x dollars under $75, the total cost is x + 5 + 0.08x = 1.08x + 5. Setting this equal to 75 gives 1.08x = 70, so x = 70/1.08 ≈ 64.81.",
+      "distractor_explanations": {
+        "A": "$64.00 takes 8% of $75 instead of 8% of the unknown amount: 75 − 5 − 6.",
+        "B": "$64.44 divides 75 by 1.08 before subtracting the $5 fee.",
+        "D": "$70.00 ignores the 8% part of the shipping charge."
+      },
+      "hints": [
+        "Write the total cost of an order of x dollars under $75."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 1.08x + 5 equal to 75."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000573",
+      "correct_answer": "C",
+      "explanation": "Purchasing power is salary divided by prices. After 10 years it is (1.02)¹⁰/(1.06)¹⁰ = (1.02/1.06)¹⁰ ≈ 0.6807 times its 2010 value, or about 68.1%.",
+      "distractor_explanations": {
+        "A": "60.0% subtracts the 4-point yearly gap 10 times without compounding.",
+        "B": "66.5% compounds the gap as a 4% yearly loss, 0.96¹⁰, but dividing by 1.06 is not the same as multiplying by 0.96 after the salary increase.",
+        "D": "75.0% treats both increases as simple growth: 1.20/1.60."
+      },
+      "hints": [
+        "Write each quantity as a starting value times a growth factor raised to 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the two exponential models."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000574",
+      "correct_answer": "96",
+      "accepted_answers": [
+        "96"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 is the time, in seconds, when the police car catches up.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "384",
+          "rationale": "384 is the distance each car has traveled when the police car catches up.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "8",
+          "rationale": "8 is the time of the greatest gap, not the gap.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The gap is 24t − 1.5t². This quadratic is greatest at t = −24/(2(−1.5)) = 8, where the gap is 24(8) − 1.5(64) = 192 − 96 = 96 meters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the distance between the cars as a function of t."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two positions and find the vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000575",
+      "correct_answer": "B",
+      "explanation": "B's total need is 81^(3/4) = 27 times A's. Spread over 81 times the mass, B's need per kilogram is 27/81 = 1/3 of A's.",
+      "distractor_explanations": {
+        "A": "1/27 inverts the power: 81^(−3/4).",
+        "C": "3 divides the wrong way: 81/27.",
+        "D": "27 is the ratio of total energy needs, ignoring \"per kilogram.\""
+      },
+      "hints": [
+        "How many times as much total energy does B need?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try masses 1 and 81: total needs are 1 and 27."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000576",
+      "correct_answer": "1000",
+      "accepted_answers": [
+        "1000"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 is the difference in decibels, not the ratio of intensities.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the difference of the exponents, without raising 10 to that power.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The ratio is 10^((100 − 120)/10) ÷ 10^((70 − 120)/10) = 10⁻² ÷ 10⁻⁵ = 10³ = 1,000.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each intensity as a power of 10."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide powers of 10 by subtracting exponents."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000577",
+      "correct_answer": "B",
+      "explanation": "Factor: (x² − 9)/(x² + 6x + 9) = (x − 3)(x + 3)/(x + 3)² = (x − 3)/(x + 3). Dividing by (x − 3)/(2(x + 3)) means multiplying by 2(x + 3)/(x − 3), which gives 2.",
+      "distractor_explanations": {
+        "A": "1/2 inverts the first fraction instead of the second.",
+        "C": "2(x − 3)/(x + 3) factors x² − 9 as (x − 3)².",
+        "D": "(x − 3)²/(2(x + 3)²) multiplies by the second fraction instead of dividing."
+      },
+      "hints": [
+        "Factor every numerator and denominator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 5: (16/64) ÷ (2/16) = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000578",
+      "correct_answer": "A",
+      "explanation": "Let the invasive count be N now; the native count is 16N. After t years: N · 2^(t/2) = 16N · 2^(−t/6). So 2^(t/2 + t/6) = 2⁴, which gives 2t/3 = 4 and t = 6.",
+      "distractor_explanations": {
+        "B": "8 ignores the native species' decline: t/2 = 4.",
+        "C": "12 subtracts the exponent rates instead of adding them: t/2 − t/6 = 4.",
+        "D": "24 ignores the invasive species' growth: t/6 = 4."
+      },
+      "hints": [
+        "Write both counts as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two models equal and compare exponents."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000579",
+      "correct_answer": "D",
+      "explanation": "f(2x) = 4x² + 6x and 4f(x) − 18 = 4x² + 12x − 18. Setting them equal: 6x = 12x − 18, so x = 3.",
+      "distractor_explanations": {
+        "A": "−6 writes 4f(x) as 4x² + 3x, multiplying only the first term by 4.",
+        "B": "−3 makes a sign slip: 6x = 12x + 18.",
+        "C": "2 writes f(2x) as 4x² + 3x, doubling the input only in the squared term."
+      },
+      "hints": [
+        "Write f(2x) by replacing every x with 2x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand both sides; the x² terms cancel."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000580",
+      "correct_answer": "C",
+      "explanation": "After t seconds the radius is r = 2t centimeters, so V = (4/3)πr³ = (4/3)π(2t)³ = (4/3)π(8t³) = (32/3)πt³.",
+      "distractor_explanations": {
+        "A": "(8/3)πt³ cubes t but not the 2.",
+        "B": "16πt² uses the surface-area formula 4πr².",
+        "D": "32πt³ drops the 1/3 from 4/3."
+      },
+      "hints": [
+        "Write the radius in terms of t."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute r = 2t into V = (4/3)πr³."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000581",
+      "correct_answer": "-4",
+      "accepted_answers": [
+        "-4"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 finds only the point between 1 and 10.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-8",
+          "rationale": "-8 finds only the point to the left of 1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "|x − 10| = 2|x − 1|. Between 1 and 10: 10 − x = 2(x − 1), so x = 4. Left of 1: 10 − x = 2(1 − x), so x = −8. Right of 10: x − 10 = 2(x − 1) gives x = −8, which is not right of 10. The sum is 4 + (−8) = −4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Could P be outside the segment from 1 to 10?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the number line and test each region."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000582",
+      "correct_answer": "C",
+      "explanation": "Each turn of a 26-inch tire covers 26/25 as far as the odometer assumes. So the actual distance is 100 × 26/25 = 104.0 miles.",
+      "distractor_explanations": {
+        "A": "96.0 takes 4% off instead of adding it.",
+        "B": "96.2 inverts the ratio: 100 × 25/26.",
+        "D": "108.2 squares the ratio, as if comparing areas."
+      },
+      "hints": [
+        "Does a larger tire cover more or less ground per turn?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the distance by the ratio of circumferences."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000583",
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "10.8",
+          "rationale": "10.8 is the extra fuel cost for a 360-mile trip, not the cost per hour saved.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0.03",
+          "rationale": "0.03 is the extra fuel cost per mile, not per hour saved.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Per mile, the extra fuel is 1/24 − 1/30 = 1/120 gallon, costing 3.60/120 = $0.03. Per mile, the time saved is 1/60 − 1/75 = 1/300 hour. So each hour saved costs 0.03 × 300 = $9. (For example, a 300-mile trip uses 2.5 extra gallons, $9.00, and saves 1 hour.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Pick a convenient trip length."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a 300-mile trip: compare gallons and hours at each speed."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000584",
+      "correct_answer": "B",
+      "explanation": "The radius r satisfies tan 30° = 3/r, so r = 3/tan 30° = 3√3. Then V = (1/3)π(3√3)²(3) = (1/3)π(27)(3) = 27π.",
+      "distractor_explanations": {
+        "A": "3π uses r = 3 · tan 30° = √3, swapping the legs.",
+        "C": "36π uses the slant height 3/sin 30° = 6 as the radius.",
+        "D": "81π drops the 1/3 in the cone volume formula."
+      },
+      "hints": [
+        "Draw the right triangle formed by the height, the radius and the slant side."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the 30° angle at the ground."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000585",
+      "correct_answer": "A",
+      "explanation": "The altitude from C to line AB falls outside the triangle. It makes a 30° angle (the supplement of 150°) with line AB, so its length is 10 sin 30° = 5. The area is (1/2)(8)(5) = 20.",
+      "distractor_explanations": {
+        "B": "20√3 uses the height 10 sin 60° = 5√3.",
+        "C": "40 forgets the factor 1/2.",
+        "D": "40√3 makes both errors."
+      },
+      "hints": [
+        "Extend side AB and drop the altitude from C."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the obtuse triangle and the outside altitude."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000586",
+      "correct_answer": "A",
+      "explanation": "With hypotenuse h, AC = 0.6h and BC = 0.8h, so the shorter leg is 0.6h. Then h − 0.6h = 10, so h = 25, and the legs are 15 and 20. The area is (1/2)(15)(20) = 150.",
+      "distractor_explanations": {
+        "B": "187.5 multiplies half the hypotenuse by the shorter leg: (1/2)(25)(15).",
+        "C": "300 forgets the factor 1/2.",
+        "D": "600 takes 0.8h as the shorter leg, so h = 50 and the legs are 30 and 40."
+      },
+      "hints": [
+        "Write each leg in terms of the hypotenuse."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use cos A = adjacent/hypotenuse to write the legs as 0.6h and 0.8h."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000587",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the base of the first triangle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the height of the first triangle.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The first triangle has height √(25 − 9) = 4 and area (1/2)(6)(4) = 12. For base b, the height is √(25 − b²/4), so (1/2)b√(25 − b²/4) = 12. Squaring gives b²(100 − b²) = 2,304, so b² = 36 or b² = 64. The other triangle has base 8 (height 3): two 3-4-5 right triangles placed back to back along the side of length 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the first triangle's area?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split each triangle into two right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000588",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 subtracts the endpoints, 18 − 15, instead of counting 15, 16, 17 and 18.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 rounds 108/7.5 = 14.4 down and counts 14 through 18, but 14 steps would make each riser 7.71 inches.",
+          "trap": null
+        }
+      ],
+      "explanation": "With n steps, each riser is 108/n inches, so 6 ≤ 108/n ≤ 7.5. This gives 14.4 ≤ n ≤ 18. The whole numbers in that range are 15, 16, 17 and 18, so 4 numbers of steps are possible (18 steps give risers of exactly 6 inches, which the code allows).",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the riser height in terms of the number of steps n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 6 ≤ 108/n ≤ 7.5 for n; dividing flips which bound is which."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000589",
+      "correct_answer": "A",
+      "explanation": "If the sizes are equal, 3Lₘ − 22 = 3L_w − 20.5, so 3(Lₘ − L_w) = 1.5 and Lₘ − L_w = 0.5. The man's foot is 0.5 inch longer, whatever the size.",
+      "distractor_explanations": {
+        "B": "1.5 inches is the difference of the constants; it must still be divided by 3.",
+        "C": "This reverses the direction: subtracting more (22) means the man needs a longer foot for the same size.",
+        "D": "This both reverses the direction and forgets to divide by 3."
+      },
+      "hints": [
+        "Set the two sizes equal."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try size S = 8: the man's foot is 10 inches and the woman's is 9.5 inches."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000590",
+      "correct_answer": "A",
+      "explanation": "The 45-minute reserve is 0.75(8) = 6 gallons. With flight time t hours, 42 − 2 − 8t ≥ 6, so 8t ≤ 34 and t ≤ 4.25 hours. That is 4.25(60) = 255 minutes.",
+      "distractor_explanations": {
+        "B": "265 reads 4.25 hours as 4 hours 25 minutes.",
+        "C": "270 forgets the 2 gallons used while taxiing: 8t ≤ 36 gives 4.5 hours.",
+        "D": "300 forgets the reserve: 8t ≤ 40 gives 5 hours."
+      },
+      "hints": [
+        "How many gallons does 45 minutes of flight use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write fuel at landing ≥ reserve fuel and solve for t."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000591",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is f(2), not f(1).",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1.5",
+          "rationale": "1.5 is a, which is f(0).",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is f(3).",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "f(2) · f(4) = ab² · ab⁴ = (ab³)² = f(3)², and f(3) > 0, so f(3) = 12. Then f(5)/f(3) = b² = 48/12 = 4, so b = 2. Finally f(1) = f(3)/b² = 12/4 = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write f(2) · f(4) using a and b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the two expressions and look for a perfect square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000592",
+      "correct_answer": "D",
+      "explanation": "The belt moves the same arc length on both pulleys: 30(2π/3) = 20π centimeters. On the smaller pulley this arc corresponds to 20π/12 = 5π/3 radians.",
+      "distractor_explanations": {
+        "A": "4π/15 multiplies by 12/30 instead of 30/12.",
+        "B": "2π/3 assumes both pulleys turn through the same angle.",
+        "C": "5π/6 divides the arc length by the diameter, 24, instead of the radius."
+      },
+      "hints": [
+        "What distance does the belt move?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use arc length = radius × angle on each pulley."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000593",
+      "correct_answer": "8/15",
+      "accepted_answers": [
+        "8/15",
+        ".5333",
+        ".5334"
+      ],
+      "common_errors": [
+        {
+          "value": "15/8",
+          "rationale": "15/8 inverts the ratio: cos A/sin A.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "11",
+          "rationale": "11 is the value of x, not tan A.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Since sin²A + cos²A = 1, (x − 3)² + (x + 4)² = 289, so 2x² + 2x + 25 = 289, x² + x − 132 = 0, and x = 11 or x = −12. If x = −12, sin A and cos A are both negative, which is impossible for an acute angle, so x = 11. Then sin A = 8/17, cos A = 15/17, and tan A = 8/15.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use sin²A + cos²A = 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the resulting quadratic and keep the root that makes both ratios positive."
       }
     }
   ]

@@ -1,0 +1,706 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 59,
+  "reviewed_at": "2026-10-27T14:05:57+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 59
+  },
+  "counts": {
+    "PASS": 25,
+    "REVISE": 1,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000569",
+    "CLD-SAT-M-000570",
+    "CLD-SAT-M-000571",
+    "CLD-SAT-M-000572",
+    "CLD-SAT-M-000573",
+    "CLD-SAT-M-000574",
+    "CLD-SAT-M-000575",
+    "CLD-SAT-M-000576",
+    "CLD-SAT-M-000577",
+    "CLD-SAT-M-000578",
+    "CLD-SAT-M-000579",
+    "CLD-SAT-M-000580",
+    "CLD-SAT-M-000581",
+    "CLD-SAT-M-000582",
+    "CLD-SAT-M-000583",
+    "CLD-SAT-M-000584",
+    "CLD-SAT-M-000585",
+    "CLD-SAT-M-000586",
+    "CLD-SAT-M-000587",
+    "CLD-SAT-M-000588",
+    "CLD-SAT-M-000589",
+    "CLD-SAT-M-000590",
+    "CLD-SAT-M-000591",
+    "CLD-SAT-M-000592",
+    "CLD-SAT-M-000593"
+  ],
+  "results": [
+    {
+      "cand": "Q059-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Drop (48000-6000)/12=3500/yr; 48000-3500n<24000 -> n>6.86 -> 7 (yr6 27000, yr7 23500).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The \"halfway\" intuition gives 6; students must compute the rate from two endpoints and round up past the threshold."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000569"
+    },
+    {
+      "cand": "Q059-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: unclear whether the 1:8 ratio applies overall or per bus; answer is 5 either way (5 buses of 36 students + 5 adults = 41 each)"
+      ],
+      "blind_notes": "Adults >= ceil(180/8)=23; 203 people / 50 -> 5 buses. Trap: 180/50 -> 4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000570"
+    },
+    {
+      "cand": "Q059-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "S+D=85, S-D=41 -> S=63. A=dissatisfied (22), B=41+15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000571"
+    },
+    {
+      "cand": "Q059-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "1.08x+5=75 -> x=64.8148 -> $64.81. D ignores the 8%.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must model a piecewise cost and apply the percent to the unknown; the $64.00 and $64.44 traps are strong."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000572"
+    },
+    {
+      "cand": "Q059-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "(1.02/1.06)^10=0.6807 -> 68.1%. B = 0.96^10 (subtract-rates trap), A = 1-0.4 (linear).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The 0.96¹⁰ shortcut is close but wrong; students must divide the two growth factors."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000573"
+    },
+    {
+      "cand": "Q059-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "96",
+      "computed_answer": "96",
+      "blind_answer": "96",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Gap 24t-1.5t^2, vertex t=8 -> 192-96=96.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must build a new quadratic for the gap; the catch-up time and distance are tempting wrong quantities."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000574"
+    },
+    {
+      "cand": "Q059-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [
+        "minor: 'what fraction of' makes answers C and D (greater than 1) easy to eliminate for a student who sees per-kg need should drop"
+      ],
+      "blind_notes": "Per kg ~ m^(-1/4); 81^(-1/4)=1/3. A=81^(-3/4), D=81^(3/4).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must apply a fractional exponent and then convert to a per-unit rate, which reverses the comparison."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000575"
+    },
+    {
+      "cand": "Q059-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f is odd: f(-a)=2^-a-2^a=-f(a)=-3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000220",
+          "similarity": 0.67
+        },
+        {
+          "with": "CLD-ACT-M-000330",
+          "similarity": 0.67
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q059-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "1000",
+      "computed_answer": "1000",
+      "blind_answer": "1000",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "10^(-2)/10^(-5)=10^3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000576"
+    },
+    {
+      "cand": "Q059-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(x-3)(x+3)/(x+3)^2 * 2(x+3)/(x-3) = 2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000577"
+    },
+    {
+      "cand": "Q059-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "2^(t/2)=16*2^(-t/6) -> 2t/3=4 -> t=6 (invasive 8I, native 8I). Graphable.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must write both models with base 2 and combine the exponents; ignoring one trend gives a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000578"
+    },
+    {
+      "cand": "Q059-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "S(0)=1200/1.15^4=686.1. D=1200/1.15, A=1200(1-0.6).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must recognize that the coefficient is not the initial value and evaluate a negative exponent."
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q059-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "4x^2+6x = 4x^2+12x-18 -> x=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000579"
+    },
+    {
+      "cand": "Q059-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "r=2t, V=(4/3)pi(8t^3)=(32/3)pi t^3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000580"
+    },
+    {
+      "cand": "Q059-15",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-4",
+      "computed_answer": "-4",
+      "blind_answer": "-4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "|x-10|=2|x-1| -> x=4 or x=-8; sum -4. Trap: only finding 4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Most students find only the point between 1 and 10; the second solution lies outside the segment."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000581"
+    },
+    {
+      "cand": "Q059-16",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Actual = 100*26/25 = 104. B = inverted ratio, D = squared ratio.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000582"
+    },
+    {
+      "cand": "Q059-17",
+      "revision": 1,
+      "revision_history": [],
+      "key": "9",
+      "computed_answer": "9",
+      "blind_answer": "9",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [],
+      "blind_notes": "Per d miles: extra fuel d/24-d/30=d/120 gal = $0.03d; time saved d/60-d/75=d/300 h; ratio $9/h.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must form a ratio of two differences; computing only the extra cost or the time saved is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000583"
+    },
+    {
+      "cand": "Q059-18",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "tan30=3/r -> r=3sqrt3, r^2=27; V=(1/3)pi*27*3=27pi. A from r=3tan30, D omits 1/3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000584"
+    },
+    {
+      "cand": "Q059-19",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(1/2)(8)(10)sin150=20. B uses sqrt3/2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000585"
+    },
+    {
+      "cand": "Q059-20",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "3-4-5 scaling: 5k-3k=10 -> k=5, legs 15 and 20, area 150. C omits 1/2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000586"
+    },
+    {
+      "cand": "Q059-21",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "First: height 4, area 12. Second: (b/2)sqrt(25-b^2/4)=12 -> b=8 (height 3); b=6 excluded by 'different'.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must set up a quadratic in b² or see the other arrangement of the 3-4-5 triangles."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000587"
+    },
+    {
+      "cand": "Q059-22",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-01",
+          "status": "REVISE",
+          "reason": "remember is over 16 words"
+        }
+      ],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "6<=108/n<=7.5 -> 14.4<=n<=18 -> n=15,16,17,18.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The bounds flip when solving for n, and one endpoint is exactly an integer while the other must be rounded up."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000588"
+    },
+    {
+      "cand": "Q059-23",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-03",
+          "status": "REVISE",
+          "reason": "remember is over 16 words"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: common published approximations use 3L-21 for women; 20.5 is acceptable for a model but not standard"
+      ],
+      "blind_notes": "3Lm-22=3Lw-20.5 -> Lm-Lw=0.5. B = 1.5 not divided by 3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000589"
+    },
+    {
+      "cand": "Q059-24",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-06",
+          "status": "REVISE",
+          "reason": "remember is over 16 words"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: distractor 265 has no evident error source"
+      ],
+      "blind_notes": "42-2-6 (45-min reserve)=34 gal -> 4.25 h = 255 min. C ignores taxi, D ignores reserve.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The reserve is given in time and must be converted to fuel, the taxi fuel comes off first, and decimal hours must be converted to minutes."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000590"
+    },
+    {
+      "cand": "Q059-25",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-17",
+          "status": "REVISE",
+          "reason": "remember is over 16 words; hint may give the answer away: 'Write f(2) · f(4) in terms of a and b and compare it with f(3).'"
+        }
+      ],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "a^2b^6=144 -> ab^3=12; ab^5=48 -> b=2, a=1.5; f(1)=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students cannot find a and b from the product alone; they must see that the product is f(3)² and then use the ratio of outputs."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000591"
+    },
+    {
+      "cand": "Q059-26",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-25",
+          "status": "REVISE",
+          "reason": "remember is over 16 words"
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Arc 30(2pi/3)=20pi; 20pi/12=5pi/3. A uses the inverted ratio.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000592"
+    },
+    {
+      "cand": "Q059-27",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q058-29",
+          "status": "REVISE",
+          "reason": "accepted answer '0.5333' does not fit the SAT grid"
+        }
+      ],
+      "key": "8/15",
+      "computed_answer": "8/15",
+      "blind_answer": "8/15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "(x-3)^2+(x+4)^2=289 -> x^2+x-132=0 -> x=11 (x=-12 gives negative sin/cos, rejected). sin 8/17, cos 15/17, tan 8/15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Neither ratio is given numerically; students must solve a quadratic from the Pythagorean identity and reject the extraneous root."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000593"
+    }
+  ]
+}
