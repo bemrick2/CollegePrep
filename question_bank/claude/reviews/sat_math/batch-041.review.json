@@ -1,0 +1,304 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 41,
+  "reviewed_at": "2026-10-27T04:42:57+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 41
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000362",
+    "CLD-SAT-M-000363",
+    "CLD-SAT-M-000364",
+    "CLD-SAT-M-000365",
+    "CLD-SAT-M-000366",
+    "CLD-SAT-M-000367",
+    "CLD-SAT-M-000368",
+    "CLD-SAT-M-000369",
+    "CLD-SAT-M-000370",
+    "CLD-SAT-M-000371",
+    "CLD-SAT-M-000372",
+    "CLD-SAT-M-000373"
+  ],
+  "results": [
+    {
+      "cand": "Q041-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "-b < 2x-a < b -> (a-b)/2 < x < (a+b)/2; a-b=-2, a+b=10 -> a=4, b=6. Unique.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000362"
+    },
+    {
+      "cand": "Q041-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "slope (-1-5)/3=-2, f(x)=-2x+7; -2x+7=x -> x=7/3. Distractors: 7 = intercept, 7/2 = zero of f, -7/3 sign error; all plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000363"
+    },
+    {
+      "cand": "Q041-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "17",
+      "computed_answer": "17",
+      "blind_answer": "17",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "d=q+5, 0.25q - 0.10d = 1.30 -> 15q=180, q=12, d=17. Trap: reporting quarters (12) or reversing the value difference.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000364"
+    },
+    {
+      "cand": "Q041-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(k-4)/2 = (2k-k)/4 -> 2k-8=k -> k=8; f(x)=2x+2 gives 4, 8, 16. D (16)=2k is a value-confusion distractor; reasonable.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000365"
+    },
+    {
+      "cand": "Q041-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "20",
+      "computed_answer": "20",
+      "blind_answer": "20",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [
+        "minor: classic textbook rational-equation word problem (well-worn template, not a specific official SAT item)",
+        "minor: 'could buy 2 more shirts' implicitly assumes 120 is divisible by both prices; true for p=20 (6 vs 8 shirts)"
+      ],
+      "blind_notes": "120/(p-5) - 120/p = 2 -> p^2-5p-300=0 -> (p-20)(p+15)=0 -> p=20. Requires setting up rational equation; guess-and-check possible but no choices to test.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must model the count as a rational expression and solve the resulting quadratic; testing divisors of 120 is a shortcut but must be noticed."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000366"
+    },
+    {
+      "cand": "Q041-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "1/x+1/y=(x+y)/(xy); reciprocal = xy/(x+y). D is the unreciprocated sum, B is the naive exponent-distribution error. Plug-in numbers works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000367"
+    },
+    {
+      "cand": "Q041-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "2^(2x)=8 -> x=3/2, b=2^(3/2)=2sqrt2 ~2.83. Graphing gives intersection (1.5, 2.83) directly. Distractors 4/8/sqrt2 plausible-ish.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000368"
+    },
+    {
+      "cand": "Q041-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Let t=x-1: f(t)=(t+1)^2+2(t+1)=t^2+4t+3. A = wrong-direction substitution (x-1), B = (x+1)^2 trap; check f(-1)=0 rules out C only, so plug-in needs two points.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000369"
+    },
+    {
+      "cand": "Q041-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: symmetric frequency tables make equal means visible at a glance; standard-deviation comparison by inspection is a very common official SAT item type"
+      ],
+      "blind_notes": "Both symmetric about 3, mean 3. Set B concentrated at extremes 1 and 5 -> larger SD.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000370"
+    },
+    {
+      "cand": "Q041-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7.2",
+      "computed_answer": "7.2",
+      "blind_answer": "7.2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "V=1000/2.7=370.37 cm^3; edge = cube root = 7.18 -> 7.2. Traps: forgetting kg->g (edge 0.7) or multiplying by density.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000371"
+    },
+    {
+      "cand": "Q041-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: radius (5) is not needed; (1,3) verified on circle so item is consistent"
+      ],
+      "blind_notes": "Complete squares: (x-4)^2+(y+1)^2=25, center (4,-1). Other endpoint = 2*center - (1,3) = (7,-5). B is the center (good distractor); A from wrong signs.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000372"
+    },
+    {
+      "cand": "Q041-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "81",
+      "computed_answer": "81",
+      "blind_answer": "81",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Arc = 2r, perimeter 2r+2r=4r=36 -> r=9; area = (1/2)r^2*theta = 81 (or (2/(2pi))*pi*81). Trap: ignoring the radii (r=18 -> 324). In domain (radians/arc length).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000373"
+    }
+  ]
+}

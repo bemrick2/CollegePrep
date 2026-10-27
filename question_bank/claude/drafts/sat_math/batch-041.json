@@ -1,0 +1,540 @@
+{
+ "bank": "sat_math",
+ "batch": 41,
+ "plan": "SAT Math batch 41: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas N01-N04, P01-P04, R01, R03, T01, T02 from generated set 4 (independently pre-checked: no copy or template matches). Fixes from the pre-check: N04 and R01 distractor rationales corrected; P03 choices changed so the key is not the only radical; T01 no longer states that the point lies on the circle. P07, T04 (templates) and R02 (cue, official format) dropped. Relabelled to the blind solver's rating where it was lower: Q041-01 hard→medium, Q041-08 hard→medium, Q041-09 hard→easy, Q041-12 hard→medium.",
+ "candidates": [
+  {
+   "cand": "Q041-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Recovering constants inside an absolute value inequality from its solution interval",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the inequality |2x − a| < b, a and b are positive constants. The solutions of the inequality are exactly the values of x with −1 < x < 5. What is the value of a ?",
+   "explanation": "|2x − a| < b means −b < 2x − a < b, so (a − b)/2 < x < (a + b)/2. Matching the endpoints gives a − b = −2 and a + b = 10. Adding, 2a = 8, so a = 4 (and b = 6).",
+   "hints": [
+    "Rewrite the absolute value inequality as a compound inequality."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for x and match the endpoints."
+   },
+   "remember": "|u| < b means −b < u < b.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "2",
+     "rationale": "2 is the center of the interval, which equals a/2, not a.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "6",
+     "rationale": "6 is the value of b.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q041-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Input at which a linear function equals its input",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The linear function f satisfies f(1) = 5 and f(4) = −1. For what value of x is f(x) = x ?",
+   "explanation": "The slope is (−1 − 5)/(4 − 1) = −2, so f(x) = −2x + b with −2 + b = 5, giving b = 7 and f(x) = −2x + 7. Setting −2x + 7 = x gives 3x = 7, so x = 7/3.",
+   "hints": [
+    "Find a rule for f first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write f(x) = mx + b, then solve f(x) = x."
+   },
+   "remember": "f(x) = x is where the graph meets the line y = x.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−7/3",
+    "B": "7/3",
+    "C": "7/2",
+    "D": "7"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−7/3 makes a sign error when collecting the x terms (−3x = 7).",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "7/2 solves f(x) = 0 instead of f(x) = x.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "7 is f(0), the y-intercept.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q041-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Coin counts from a count difference and an opposite value difference",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A jar holds only quarters and dimes. There are 5 more dimes than quarters, but the total value of the dimes is $1.30 less than the total value of the quarters. How many dimes are in the jar?",
+   "explanation": "Let q be the number of quarters, so there are q + 5 dimes. The values satisfy 0.25q − 0.10(q + 5) = 1.30, so 0.15q − 0.50 = 1.30, 0.15q = 1.80 and q = 12. There are 12 + 5 = 17 dimes. Check: quarters are worth $3.00 and dimes $1.70.",
+   "hints": [
+    "Write the number of dimes in terms of the number of quarters."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract the dimes' value from the quarters' value."
+   },
+   "remember": "Count and value can differ in opposite directions.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "17",
+   "accepted_answers": [
+    "17"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 is the number of quarters.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "5",
+     "rationale": "5 is the difference in the counts.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q041-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Unknown entries of a table forced by linearity with unequal steps",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The table shows three values of the linear function f.\nx | 1 | 3 | 7\nf(x) | 4 | k | 2k\nWhat is the value of k ?",
+   "explanation": "A linear function has the same slope between any two points: (k − 4)/(3 − 1) = (2k − k)/(7 − 3), so (k − 4)/2 = k/4. Then 2k − 8 = k, giving k = 8. Check: the values 4, 8, 16 at x = 1, 3, 7 have slope 2 throughout.",
+   "hints": [
+    "The x-values are not equally spaced. What must be equal?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two slopes equal."
+   },
+   "remember": "Linear means constant slope, not constant differences per column.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "12",
+    "D": "16"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "4 assumes f(3) = f(1), as if f were constant.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "12 assumes f is proportional, so f(3) = 3f(1).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 is f(7) = 2k, not k.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q041-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Price from a fixed budget and a change in the number of items",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "With $120, a shopper could buy 2 more shirts if each shirt cost $5 less. What is the price of one shirt, in dollars?",
+   "explanation": "If the price is p dollars, the shopper can buy 120/p shirts, or 120/(p − 5) at the lower price. So 120/(p − 5) = 120/p + 2. Multiplying by p(p − 5) gives 120p = 120(p − 5) + 2p(p − 5), so 2p² − 10p − 600 = 0 and p² − 5p − 300 = 0. Then (p − 20)(p + 15) = 0, so p = 20. Check: 6 shirts at $20, 8 at $15.",
+   "hints": [
+    "Write the number of shirts as 120 divided by the price."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test prices that divide 120 evenly."
+   },
+   "remember": "Number of items = budget ÷ price.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must model the count as a rational expression and solve the resulting quadratic; testing divisors of 120 is a shortcut but must be noticed."
+   },
+   "format": "spr",
+   "answer": "20",
+   "accepted_answers": [
+    "20"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 is the reduced price.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "6",
+     "rationale": "6 is the number of shirts at the original price.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q041-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Negative exponent applied to a sum",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For all positive values of x and y, which of the following is equivalent to (x⁻¹ + y⁻¹)⁻¹ ?",
+   "explanation": "x⁻¹ + y⁻¹ = 1/x + 1/y = (x + y)/(xy). Raising to the −1 power takes the reciprocal: (x⁻¹ + y⁻¹)⁻¹ = xy/(x + y). Check with x = y = 2: (1/2 + 1/2)⁻¹ = 1 and xy/(x + y) = 4/4 = 1.",
+   "hints": [
+    "Rewrite x⁻¹ and y⁻¹ as fractions."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = y = 2 and test each choice."
+   },
+   "remember": "A negative exponent does not distribute over a sum.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "xy/(x + y)",
+    "B": "x + y",
+    "C": "xy",
+    "D": "(x + y)/(xy)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "x + y distributes the outer exponent over the sum, which is not allowed.",
+     "trap": "overextend_trend"
+    },
+    "C": {
+     "rationale": "xy treats the sum of reciprocals as a product of reciprocals.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "(x + y)/(xy) adds the reciprocals but forgets the outer −1 exponent.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q041-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Y-coordinate of the intersection of two exponential graphs",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graphs of y = 2ˣ and y = 8 · 2⁻ˣ intersect at the point (a, b). What is the value of b ?",
+   "explanation": "At the intersection, 2ˣ = 8 · 2⁻ˣ, so 2²ˣ = 8 = 2³ and x = 3/2. Then b = 2^(3/2) = 2√2. Check: 8 · 2^(−3/2) = 8/(2√2) = 2√2.",
+   "hints": [
+    "Set the two expressions equal and multiply by 2ˣ."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write both sides as powers of 2."
+   },
+   "remember": "2^(3/2) = 2 · 2^(1/2).",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "√2",
+    "B": "2√2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "√2 solves 2²ˣ = 2, forgetting that 8 = 2³.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4 sets 2ˣ = 8/2, treating 2⁻ˣ as 1/2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 is b², the value of 2²ˣ.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q041-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Rule of a function from its value at a shifted input",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f satisfies f(x − 1) = x² + 2x for all values of x. Which of the following defines f ?",
+   "explanation": "Let u = x − 1, so x = u + 1. Then f(u) = (u + 1)² + 2(u + 1) = u² + 2u + 1 + 2u + 2 = u² + 4u + 3. So f(x) = x² + 4x + 3. Check: f(0) should equal f(1 − 1) = 1 + 2 = 3.",
+   "hints": [
+    "Let u = x − 1. What is x in terms of u?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check each choice at x = 0: f(0) must equal 3."
+   },
+   "remember": "To undo an input shift, substitute the opposite shift.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(x) = x² − 1",
+    "B": "f(x) = x² + 2x + 1",
+    "C": "f(x) = x² + 4x + 1",
+    "D": "f(x) = x² + 4x + 3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "x² − 1 substitutes x − 1 into x² + 2x instead of x + 1.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "x² + 2x + 1 adds 1 to the output to undo the shift.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "x² + 4x + 1 replaces x with x + 1 only in the squared term.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q041-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Comparing means and standard deviations from frequency tables",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "Two data sets each contain 10 values, using only the values 1, 2, 3, 4, and 5. The frequency tables give all of the data.\nValue | 1 | 2 | 3 | 4 | 5\nSet A frequency | 1 | 2 | 4 | 2 | 1\nSet B frequency | 4 | 1 | 0 | 1 | 4\nWhich of the following is true?",
+   "explanation": "Both tables are symmetric about 3, so each mean is 3. Set B has most of its values at 1 and 5, far from the mean, while set A has most of its values near 3. So set B has the greater standard deviation.",
+   "hints": [
+    "Where is each set centered? Where are most values?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch a dot plot of each set."
+   },
+   "remember": "Standard deviation measures distance from the mean, not range.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The means are equal, and the standard deviation of set A is greater.",
+    "B": "The mean of set B is greater, and the standard deviation of set B is greater.",
+    "C": "The means are equal, and the standard deviations are equal.",
+    "D": "The means are equal, and the standard deviation of set B is greater."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Set A is concentrated near the mean, so its spread is smaller.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "Set B is symmetric about 3, so its mean is 3, the same as A's.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The sets use the same values and range, but B's values lie farther from the mean.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q041-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Edge of a cube from mass and density",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A solid cube is made of aluminum, which has a density of 2.7 grams per cubic centimeter. The mass of the cube is 1 kilogram. To the nearest tenth of a centimeter, what is the length of an edge of the cube?",
+   "explanation": "The mass is 1,000 grams, so the volume is 1,000 ÷ 2.7 ≈ 370.4 cubic centimeters. The edge length is the cube root: ∛370.4 ≈ 7.18, or 7.2 centimeters.",
+   "hints": [
+    "Convert the mass to grams."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Volume = mass ÷ density, then take the cube root."
+   },
+   "remember": "Density = mass ÷ volume.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "7.2",
+   "accepted_answers": [
+    "7.2"
+   ],
+   "common_errors": [
+    {
+     "value": "13.9",
+     "rationale": "13.9 multiplies 1,000 by 2.7 instead of dividing.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "0.7",
+     "rationale": "0.7 uses a mass of 1 gram instead of 1,000 grams.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q041-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Opposite endpoint of a diameter from a circle equation",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a circle has the equation x² + y² − 8x + 2y − 8 = 0. The point (1, 3) is one endpoint of a diameter of the circle. What are the coordinates of the other endpoint of that diameter?",
+   "explanation": "Completing the square gives (x − 4)² + (y + 1)² = 25, so the center is (4, −1). The center is the midpoint of the diameter, so the other endpoint is (2·4 − 1, 2·(−1) − 3) = (7, −5).",
+   "hints": [
+    "Find the center of the circle."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Complete the square, then use the midpoint."
+   },
+   "remember": "The center is the midpoint of every diameter.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(−9, −1)",
+    "B": "(4, −1)",
+    "C": "(5, 2)",
+    "D": "(7, −5)"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "(−9, −1) uses the center (−4, 1), a sign error, then reflects.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "(4, −1) is the center, not the endpoint.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "(5, 2) adds the center to (1, 3) instead of reflecting (1, 3) through the center.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q041-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Sector area from a radian angle and the sector perimeter",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A sector of a circle has a central angle of 2 radians. The perimeter of the sector, which consists of two radii and an arc, is 36. What is the area of the sector?",
+   "explanation": "The arc length is rθ = 2r, so the perimeter is r + r + 2r = 4r = 36 and r = 9. The area of the sector is (1/2)r²θ = (1/2)(81)(2) = 81.",
+   "hints": [
+    "Write the arc length in terms of r."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Perimeter = 2r + rθ."
+   },
+   "remember": "Sector area = (1/2)r²θ with θ in radians.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "81",
+   "accepted_answers": [
+    "81"
+   ],
+   "common_errors": [
+    {
+     "value": "324",
+     "rationale": "324 treats 36 as the arc length alone, giving r = 18.",
+     "trap": null
+    },
+    {
+     "value": "162",
+     "rationale": "162 uses r²θ for the area without the factor 1/2.",
+     "trap": "partial_answer"
+    }
+   ]
+  }
+ ]
+}

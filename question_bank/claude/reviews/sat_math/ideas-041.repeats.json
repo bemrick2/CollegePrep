@@ -1,0 +1,234 @@
+{
+ "ideas": "generated set 4 (N/P/R/T)",
+ "results": {
+  "N01": [
+   {
+    "other_id": "CLD-ACT-M-000512",
+    "severity": "close",
+    "why": "Same |2x − c| < d to interval relationship run in reverse (interval given, constants recovered); the center/half-width reasoning is the same one ACT-512 tests."
+   }
+  ],
+  "N02": [],
+  "N03": [],
+  "N04": [],
+  "N05": [
+   {
+    "other_id": "CLD-SAT-M-000319",
+    "severity": "close",
+    "why": "Both ask for a linear expression valid only past a threshold (n ≥ 3 / t ≥ 30) built from a shifted start; N05 adds a seconds/minutes conversion. Also ideas-gen-02 H10 (same item)."
+   }
+  ],
+  "N06": [
+   {
+    "other_id": "fixture act-math-09",
+    "severity": "close",
+    "why": "Fixture asks how many integers satisfy |x − 4| − 3 < 0; N06 counts integers satisfying an absolute value inequality too, but intersects two conditions with mixed strict/inclusive endpoints."
+   }
+  ],
+  "N07": [],
+  "N08": [],
+  "N09": [],
+  "N10": [
+   {
+    "other_id": "CLD-SAT-M-000169",
+    "severity": "close",
+    "why": "Line determined by its x-intercept 4 plus one other point, then another value read off; N10 hides the x-intercept and slope sign in 'f(x) > 0 exactly when x > 4'. Also near CLD-SAT-M-000299 (slope from intercepts)."
+   }
+  ],
+  "N11": [],
+  "N12": [],
+  "N13": [],
+  "P01": [],
+  "P02": [],
+  "P03": [],
+  "P04": [
+   {
+    "other_id": "CLD-ACT-M-000749",
+    "severity": "close",
+    "why": "ACT-749 gives f(x + 1) = 2x + 5 and asks f(3); P04 gives f(x − 1) = x² + 2x and asks the rule for f. Same substitution u = x ± 1; asked quantity differs (rule vs value)."
+   }
+  ],
+  "P05": [
+   {
+    "other_id": "CLD-SAT-M-000309",
+    "severity": "close",
+    "why": "Cubic with one unknown constant fixed by a single condition, then the zeros examined (SAT-309: p(3) = 20 then count intercepts; P05: factor theorem then greatest zero). Also near CLD-ACT-M-000070 (x³ + kx² ... with remainder)."
+   }
+  ],
+  "P06": [
+   {
+    "other_id": "CLD-ACT-M-000278",
+    "severity": "close",
+    "why": "Second half of P06 (x-intercepts of a|x − 3| + 8) is ACT-278's task (x-intercepts of |x − 2| − 3); P06 adds finding a from a point."
+   }
+  ],
+  "P07": [
+   {
+    "other_id": "fixture sat-math-10",
+    "severity": "template",
+    "why": "Fixture: 500 cells triple every 4 hours, expression after t days (500·3^(6t)). P07: 200 people triple every 4 years, expression after m months (200·3^(m/48)). Same setup, same asked expression, same multiply-vs-divide distractor pattern; only the units are swapped."
+   },
+   {
+    "other_id": "CLD-SAT-M-000061",
+    "severity": "close",
+    "why": "Writing an exponential model with a time-unit change (monthly rate)."
+   }
+  ],
+  "P08": [],
+  "P09": [],
+  "P10": [],
+  "P11": [],
+  "P12": [
+   {
+    "other_id": "CLD-SAT-M-000202",
+    "severity": "close",
+    "why": "x² + bx + c with a given minimum value; P12 hides b in f(x) = f(6 − x) and asks f(−1) instead of c. Symmetry step also echoes CLD-SAT-M-000289 (f(a) = f(a + 2))."
+   }
+  ],
+  "P13": [
+   {
+    "other_id": "CLD-ACT-M-000313",
+    "severity": "close",
+    "why": "ACT-313: minimum of 2x² − 12x + 7. P13 uses the same quadratic 2x² − 12x + k and asks f(0) − minimum (k cancels). Same expression also in CLD-SAT-M-000077 (2x² − 12x + k discriminant) and fixture sat-math-07 (minimum of 3x² − 12x + 7)."
+   }
+  ],
+  "R01": [],
+  "R02": [
+   {
+    "other_id": "CLD-ACT-M-000792",
+    "severity": "close",
+    "why": "Observational survey with an association; asks which conclusion is supported (association, not causation). R02 adds the random-sampling/generalization dimension."
+   },
+   {
+    "other_id": "CLD-SAT-M-000018",
+    "severity": "close",
+    "why": "Same opening ('Researchers selected N adults at random from a city's residents') and the same 2x2 choice grid (causation vs. association x city vs. sample only); differs only in that SAT-018 has random assignment. Used together, each signals the other's key."
+   }
+  ],
+  "R03": [],
+  "R04": [],
+  "R05": [],
+  "R06": [],
+  "R07": [],
+  "T01": [
+   {
+    "other_id": "CLD-ACT-M-000014",
+    "severity": "close",
+    "why": "Diameter endpoints and center via midpoint; ACT-014 goes endpoints to equation, T01 goes equation plus one endpoint to the other endpoint (completing the square is ACT-400)."
+   }
+  ],
+  "T02": [],
+  "T03": [
+   {
+    "other_id": "CLD-SAT-M-000010",
+    "severity": "close",
+    "why": "Two angle expressions at parallel lines cut by a transversal, set supplementary, report one angle. T03's only new step is getting 'supplementary' from 'not congruent'. Also near CLD-ACT-M-000272."
+   }
+  ],
+  "T04": [
+   {
+    "other_id": "CLD-ACT-M-000175",
+    "severity": "template",
+    "why": "ACT-175: radius increased 50%, percent increase in area (1.5² → 125%). T04: each edge increased 20%, percent increase in volume (1.2³ → 72.8%). Same setup and asked quantity; it only adds a third dimension, and the reasoning is the same."
+   }
+  ],
+  "T05": [],
+  "T06": [],
+  "T07": []
+ },
+ "within_list_cues": [
+  {
+   "pair": [
+    "N01",
+    "N06"
+   ],
+   "why": "Both convert absolute value inequalities to intervals by center ± half-width (N06 shows |x − 5| < 4 → 1 < x < 9 directly), which primes N01's reverse step. Mild; keep apart in one set."
+  },
+  {
+   "pair": [
+    "P12",
+    "P13"
+   ],
+   "why": "Both upward quadratics with axis x = 3 and a vertex-form step; P13's insight (only the vertex form matters) helps P12. Mild."
+  }
+ ],
+ "answer_errors": [
+  {
+   "id": "N04",
+   "issue": "The rationale for distractor 4 is wrong: 'k − 4 = 2k − k' simplifies to −4 = 0 (no solution), not k = 4. Give the 4 a different source (e.g., it equals f(1), or comes from equal slopes with x-gaps 2 and 2), or replace it."
+  },
+  {
+   "id": "P06",
+   "issue": "The rationale for distractor 13/3 is muddled: 'adding 8' to 2a + 8 = 4 gives 2a = 12 and a = 6, which produces no x-intercepts. 13/3 comes from a = −6, i.e., 2a = −4 − 8 = −12. Rewrite the trap story."
+  },
+  {
+   "id": "R01",
+   "issue": "The rationale for the 4th choice ('B has more total data') is false: both frequency lists total 10 (1+2+4+2+1 = 4+1+0+1+4 = 10). Revise that distractor's justification."
+  }
+ ],
+ "cues_or_overdetermined": [
+  {
+   "id": "P03",
+   "issue": "The key 2√2 is the only radical among 3/2, 4 and 8, so it stands out by format. Add radical distractors, e.g. √2 (from x = 1/2) or 4√2 (from x = 5/2)."
+  },
+  {
+   "id": "R02",
+   "issue": "The key is the longest and only hedged choice ('...but cause and effect cannot be concluded'), so it stands out by length and wording. Balance the lengths."
+  },
+  {
+   "id": "N12",
+   "issue": "Minor: the key 90 is the largest choice, and 30/60/90 are the difference, the slower speed and the key, so one guess picks the top. Consider 120 (the slower speed + the difference, doubled) or 150 (the sum) as a distractor."
+  },
+  {
+   "id": "T01",
+   "issue": "Minor over-specification: the stem states that (1, 3) lies on the circle, which is not needed (it can be checked); harmless, but it can be dropped."
+  }
+ ],
+ "grid_problems": [],
+ "official_format_mirrors": [
+  {
+   "id": "R02",
+   "why": "The random-sample-without-assignment conclusion question with a 2x2 causation/generalization choice grid is a staple released official SAT format."
+  },
+  {
+   "id": "P08",
+   "why": "Matching coefficients after expanding squares, (ax + b)² identities, mirrors a common official SAT format; the content is distinct."
+  },
+  {
+   "id": "T03",
+   "why": "Parallel lines with algebraic angle expressions is a frequent official SAT/PSAT format."
+  }
+ ],
+ "likely_easier_than_labeled": [
+  {
+   "id": "P02",
+   "label": "hard",
+   "why": "Plug in x = y = 1 (or recall the harmonic form); about medium."
+  },
+  {
+   "id": "R01",
+   "label": "hard",
+   "why": "The U-shaped vs. mound-shaped frequencies make the SD comparison visual, and symmetry gives equal means at a glance; medium-hard."
+  },
+  {
+   "id": "T05",
+   "label": "hard",
+   "why": "One cofunction substitution gives a linear equation; medium-hard."
+  },
+  {
+   "id": "T03",
+   "label": "hard",
+   "why": "Supplementary is the only option once 'not congruent' is read; one linear equation; medium-hard."
+  },
+  {
+   "id": "N06",
+   "label": "hard",
+   "why": "Two routine interval conversions and a count of 3 integers; medium-hard."
+  },
+  {
+   "id": "T04",
+   "label": "medium-hard",
+   "why": "1.2³ is a familiar scaling fact; about medium."
+  }
+ ]
+}
