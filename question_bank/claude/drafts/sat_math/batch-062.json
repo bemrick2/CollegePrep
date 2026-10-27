@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 62,
- "plan": "SAT Math batch 62: 22 items from generated idea set 14 (Algebra and PSDA; pre-checked in ideas-062.repeats.json). Dropped from set 14: IA06, IA13, IC04 (templates of CLD-SAT-M-000271, CLD-SAT-M-000377, CLD-ACT-M-000076), IC09 (Bayes urn beyond usual SAT scope; near CLD-ACT-M-000468), IA08 and IA10 (distractors eliminable at a glance), IC11 (loaded question wording cues the key), IC06 (textbook IV-drip rate). Fixes: IC01 distractor now also mentions the greenhouse; IC07 choices say 'It is plausible that'; IA12 mislabelled 121.4 trap removed; IA07 wording; IA04, IA12, IC01, IC10 labeled medium; IA15 labeled easy.",
+ "plan": "SAT Math batch 62: 22 items from generated idea set 14 (Algebra and PSDA; pre-checked in ideas-062.repeats.json). Dropped from set 14: IA06, IA13, IC04 (templates of CLD-SAT-M-000271, CLD-SAT-M-000377, CLD-ACT-M-000076), IC09 (Bayes urn beyond usual SAT scope; near CLD-ACT-M-000468), IA08 and IA10 (distractors eliminable at a glance), IC11 (loaded question wording cues the key), IC06 (textbook IV-drip rate). Fixes: IC01 distractor now also mentions the greenhouse; IC07 choices say 'It is plausible that'; IA12 mislabelled 121.4 trap removed; IA07 wording; IA04, IA12, IC01, IC10 labeled medium; IA15 labeled easy. Relabelled to the lower of authored and blind difficulty: Q062-03 hard→medium, Q062-05 hard→medium, Q062-06 hard→medium, Q062-10 hard→medium, Q062-15 medium→easy, Q062-16 medium→easy, Q062-19 hard→medium, Q062-22 hard→medium.",
  "candidates": [
   {
    "cand": "Q062-01",
@@ -95,7 +95,7 @@
    "skill": "Algebra",
    "subskill": "Interpreting a coefficient nested in a product of two inputs",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A community center charges C dollars to rent its hall for h hours for an event with p guests, where C = 150 + h(40 + 2p). What is the best interpretation of 2 in this context?",
    "explanation": "The hourly charge is 40 + 2p dollars, which increases by $2 for each additional guest. That hourly charge is then multiplied by the number of hours.",
    "hints": [
@@ -189,7 +189,7 @@
    "skill": "Algebra",
    "subskill": "Round-trip battery limit with different rates on each leg",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A delivery drone flies at 0.8 kilometer per minute. While carrying a package, it uses 3% of its full battery charge per minute, and without a package it uses 2% per minute. It leaves fully charged, flies straight to a customer with a package, leaves the package, and flies straight back. It must return with at least 20% of its charge. What is the greatest possible distance, in kilometers, from the base to the customer?",
    "explanation": "Each leg takes t minutes. The trip uses 3t + 2t = 5t percent of the charge, and 5t ≤ 100 − 20 = 80, so t ≤ 16. The greatest distance is 0.8 × 16 = 12.8 kilometers.",
    "hints": [
@@ -236,7 +236,7 @@
    "skill": "Algebra",
    "subskill": "Working back through a tiered price from a bill ratio",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A city charges for water at $3.00 per 1,000 gallons for the first 5,000 gallons used in a month and $5.00 per 1,000 gallons for usage beyond 5,000 gallons; partial thousands are billed proportionally. One household used 8,000 gallons in a month. A second household's bill for the month was exactly twice the first household's bill. How many gallons did the second household use?",
    "explanation": "The first bill is 5($3.00) + 3($5.00) = $30. The second bill is $60: $15 for the first 5,000 gallons plus $45 at $5.00 per 1,000, or 9,000 more gallons. The second household used 14,000 gallons.",
    "hints": [
@@ -409,7 +409,7 @@
    "skill": "Algebra",
    "subskill": "Break-even sales between a plan with and without a threshold",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A salesperson can choose between two monthly pay plans. Plan A pays $2,400 plus 3% of all sales. Plan B pays $2,000 plus 7% of the amount of sales above $10,000. What is the least amount of monthly sales, in dollars, for which plan B pays at least as much as plan A ?",
    "explanation": "For sales s above $10,000, plan B pays 2,000 + 0.07(s − 10,000) = 0.07s + 1,300, and plan A pays 2,400 + 0.03s. Plan B pays at least as much when 0.07s + 1,300 ≥ 0.03s + 2,400, so 0.04s ≥ 1,100 and s ≥ 27,500.",
    "hints": [
@@ -634,7 +634,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Before-and-after comparison without a control group",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A school started a new reading program in September. The mean score of its eighth graders on the state reading test was 68 the spring before the program began and 74 the spring after. Which is the best reason this result does not show that the program caused the increase?",
    "explanation": "The two years involve different students, different conditions and possibly a different test form. With no comparison group that did not get the program, any of these could explain the rise, so the result does not show causation.",
    "hints": [
@@ -680,7 +680,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Self-selected large sample versus small random sample",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A TV station invited viewers to vote on its website about whether the city should build a new stadium; 12,400 people voted, and 71% voted yes. A polling firm surveyed 600 city residents selected at random; 48% said yes, with a margin of error of 4 percentage points. Which conclusion is most appropriate?",
    "explanation": "The website vote is self-selected, so it may not represent residents, no matter how large it is. The random poll supports a plausible range of 48% ± 4%, or about 44% to 52%.",
    "hints": [
@@ -818,7 +818,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Total percent change weighted by share, not by count",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Last year a shop earned all its revenue from 40 products, and its 10 premium products accounted for 60% of that revenue. This year, revenue from the premium products increased by 10%, and revenue from the other 30 products decreased by 5%. By what percent did the shop's total revenue change?",
    "explanation": "Weighting by share of revenue: 0.6(1.10) + 0.4(0.95) = 0.66 + 0.38 = 1.04, an increase of 4%.",
    "hints": [
@@ -953,7 +953,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Difference of residuals from differences in data",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "For a group of workers, the line of best fit y = 1.6x + 18 relates a worker's hourly wage y, in dollars, to the worker's years of experience x. Worker A has 5 more years of experience than worker B and earns $2 more per hour. What is worker A's residual minus worker B's residual?",
    "explanation": "A residual is actual minus predicted. The actual wages differ by 2, and the predicted wages differ by 1.6 × 5 = 8. So A's residual minus B's residual is 2 − 8 = −6.",
    "hints": [

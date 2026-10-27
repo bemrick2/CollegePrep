@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 61,
+  "bank_version": 62,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -12836,6 +12836,501 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Eliminate reasons that do not address who actually responded."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000638",
+      "correct_answer": "-21/5",
+      "accepted_answers": [
+        "-21/5",
+        "-4.2"
+      ],
+      "common_errors": [
+        {
+          "value": "-3",
+          "rationale": "-3 substitutes x = 6 into the first equation with b = 5, which is the value that would give infinitely many solutions.",
+          "trap": null
+        },
+        {
+          "value": "39/5",
+          "rationale": "39/5 takes b = −5 from a sign slip.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The first equation, 5x − 5a = bx + 15, has no solution only if the x-coefficients are equal, so b = 5 (and −5a ≠ 15). The second equation is then 5(x − a) = 6x + 15. Substituting x = 6: 30 − 5a = 51, so a = −21/5.",
+      "distractor_explanations": {},
+      "hints": [
+        "When does a linear equation have no solution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b from the no-solution condition, then use x = 6 in the second equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000639",
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 adds the same 20 points before multiplying.",
+          "trap": null
+        },
+        {
+          "value": "16",
+          "rationale": "16 multiplies 20 by 0.8 instead of dividing.",
+          "trap": null
+        }
+      ],
+      "explanation": "Mr. Lee's method gives 0.8(s + k) = 0.8s + 0.8k. For this to equal 0.8s + 20 for every s, 0.8k = 20, so k = 25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write Mr. Lee's method as an expression in s and k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand and match the constant terms."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000640",
+      "correct_answer": "A",
+      "explanation": "The hourly charge is 40 + 2p dollars, which increases by $2 for each additional guest. That hourly charge is then multiplied by the number of hours.",
+      "distractor_explanations": {
+        "B": "This ignores that 2p is multiplied by h; the per-guest charge applies each hour.",
+        "C": "The total increases by 40 + 2p dollars for each additional hour, not by 2.",
+        "D": "The hourly charge with no guests is 40 dollars, not 2."
+      },
+      "hints": [
+        "What does 40 + 2p represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Interpret the inner expression first, then the multiplication by h."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000641",
+      "correct_answer": "23",
+      "accepted_answers": [
+        "23"
+      ],
+      "common_errors": [
+        {
+          "value": "22",
+          "rationale": "22 rounds 22.5 down, which leaves less than 60%.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "9",
+          "rationale": "9 is 60% of 15.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 treats the 15 vendors as 60% of the total.",
+          "trap": null
+        }
+      ],
+      "explanation": "With L local-food vendors, L ≥ 0.6(L + 15), so 0.4L ≥ 9 and L ≥ 22.5. The least whole number is 23 (23 of 38 vendors is about 60.5%).",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the total number of vendors in terms of L?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the percent condition with L on both sides."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000642",
+      "correct_answer": "C",
+      "explanation": "Each leg takes t minutes. The trip uses 3t + 2t = 5t percent of the charge, and 5t ≤ 100 − 20 = 80, so t ≤ 16. The greatest distance is 0.8 × 16 = 12.8 kilometers.",
+      "distractor_explanations": {
+        "A": "9.6 subtracts the 20% reserve twice: 5t ≤ 60.",
+        "B": "10.7 uses 3% per minute for both legs: 6t ≤ 80.",
+        "D": "16.0 ignores the 20% reserve: 5t ≤ 100."
+      },
+      "hints": [
+        "How much charge does each leg use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write total use ≤ 80% with t minutes per leg."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000643",
+      "correct_answer": "14000",
+      "accepted_answers": [
+        "14000"
+      ],
+      "common_errors": [
+        {
+          "value": "16000",
+          "rationale": "16,000 doubles the usage instead of the bill.",
+          "trap": null
+        },
+        {
+          "value": "12000",
+          "rationale": "12,000 charges all usage at $5.00 per 1,000 gallons.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first bill is 5($3.00) + 3($5.00) = $30. The second bill is $60: $15 for the first 5,000 gallons plus $45 at $5.00 per 1,000, or 9,000 more gallons. The second household used 14,000 gallons.",
+      "distractor_explanations": {},
+      "hints": [
+        "What was the first household's bill?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the bill, double it, then work back through the tiers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000644",
+      "correct_answer": "D",
+      "explanation": "During the sale, 5 boxes of screws cost 5(0.8s) = 4s, so 3n + 4s = 39.00. Subtracting 3n + 2s = 25.50 gives 2s = 13.50, so s = $6.75.",
+      "distractor_explanations": {
+        "A": "$4.00 is the price of a box of nails.",
+        "B": "$4.50 ignores the discount: 3s = 13.50.",
+        "C": "$5.40 is the sale price of a box of screws."
+      },
+      "hints": [
+        "What do 5 boxes of screws cost at 20% off?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write both purchases as equations and subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000645",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the shared solution x, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-49",
+          "rationale": "-49 comes from a sign slip when substituting k = 27 − 4x.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "From the second equation, k = 27 − 4x. Substituting into the first: 5x − 8 = 2x + 27 − 4x, so 7x = 35 and x = 5. Then k = 27 − 20 = 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve one equation for k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute to get one equation in x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000646",
+      "correct_answer": "94",
+      "accepted_answers": [
+        "94"
+      ],
+      "common_errors": [
+        {
+          "value": "82",
+          "rationale": "82 is the required test average, not the fourth score.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "106",
+          "rationale": "106 ignores the homework weight: 4(85) − 234.",
+          "trap": null
+        }
+      ],
+      "explanation": "The grade is 0.7T + 0.3(92) = 0.7T + 27.6 ≥ 85, so the test average T must be at least 82. The four tests must total 4(82) = 328, and the first three total 3(78) = 234, so the fourth score must be at least 94.",
+      "distractor_explanations": {},
+      "hints": [
+        "What test average does Kai need?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the needed test average first, then the needed total."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000647",
+      "correct_answer": "27500",
+      "accepted_answers": [
+        "27500"
+      ],
+      "common_errors": [
+        {
+          "value": "10000",
+          "rationale": "10,000 drops the threshold: 0.04s ≥ 400.",
+          "trap": null
+        },
+        {
+          "value": "20000",
+          "rationale": "20,000 applies the $10,000 threshold to plan A's commission too.",
+          "trap": null
+        }
+      ],
+      "explanation": "For sales s above $10,000, plan B pays 2,000 + 0.07(s − 10,000) = 0.07s + 1,300, and plan A pays 2,400 + 0.03s. Plan B pays at least as much when 0.07s + 1,300 ≥ 0.03s + 2,400, so 0.04s ≥ 1,100 and s ≥ 27,500.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each plan's pay for sales above $10,000."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set plan B ≥ plan A and solve."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000648",
+      "correct_answer": "A",
+      "explanation": "D = 600 − 8t decreases by 8 meters for each minute, because hiker A descends 8 meters per minute faster than hiker B (12 − 4 = 8).",
+      "distractor_explanations": {
+        "B": "The minus sign shows the difference decreases, not increases.",
+        "C": "The hikers descend 16 meters per minute combined; 8 is the difference of their rates.",
+        "D": "The hikers reach the same elevation after 600/8 = 75 minutes, not 8."
+      },
+      "hints": [
+        "What happens to D when t increases by 1?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Interpret the slope as the change per minute."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000649",
+      "correct_answer": "A",
+      "explanation": "Every fertilized seedling was in greenhouse 1 and every unfertilized seedling was in greenhouse 2, so any difference between the greenhouses (light, temperature, soil) is mixed up with the effect of the fertilizer. The design cannot show that the fertilizer caused the increase.",
+      "distractor_explanations": {
+        "B": "Random selection affects generalization, not whether the fertilizer caused the difference in this study.",
+        "C": "Separating the treatments by greenhouse is exactly what makes the greenhouse a confounding variable.",
+        "D": "Random assignment was undone because each group was also confined to its own greenhouse."
+      },
+      "hints": [
+        "What else differed between the two groups besides the fertilizer?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a second difference between the groups."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000650",
+      "correct_answer": "95",
+      "accepted_answers": [
+        "95"
+      ],
+      "common_errors": [
+        {
+          "value": "115",
+          "rationale": "115 applies the 2 : 1 ratio to mass instead of volume.",
+          "trap": null
+        },
+        {
+          "value": "100",
+          "rationale": "100 is the hardener's volume in milliliters, not its mass.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "230 grams of resin is 230/1.15 = 200 milliliters. The ratio requires 100 milliliters of hardener, which has a mass of 100 × 0.95 = 95 grams.",
+      "distractor_explanations": {},
+      "hints": [
+        "Convert the resin's mass to volume."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use density to convert mass to volume and back."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000651",
+      "correct_answer": "62.5",
+      "accepted_answers": [
+        "62.5"
+      ],
+      "common_errors": [
+        {
+          "value": "25",
+          "rationale": "25 is the percent of all seeds that never germinate.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "37.5",
+          "rationale": "37.5 is the share that germinated but died.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "20",
+          "rationale": "20 is the death rate among germinated seeds.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Survivors are 0.75 × 0.80 = 60% of the seeds, so 40% do not survive. The 25% that never germinated are part of that 40%, so the answer is 25/40 = 62.5%.",
+      "distractor_explanations": {},
+      "hints": [
+        "What percent of all seeds do not survive?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Start with 100 seeds and count each group."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000652",
+      "correct_answer": "D",
+      "explanation": "The two years involve different students, different conditions and possibly a different test form. With no comparison group that did not get the program, any of these could explain the rise, so the result does not show causation.",
+      "distractor_explanations": {
+        "A": "The size of a difference does not decide whether it was caused by the program.",
+        "B": "Random selection concerns generalizing to other students, not whether the program caused the change.",
+        "C": "Switching to medians would not solve the lack of a comparison group."
+      },
+      "hints": [
+        "What would you compare the program students to?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate reasons that do not address causation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000653",
+      "correct_answer": "B",
+      "explanation": "The website vote is self-selected, so it may not represent residents, no matter how large it is. The random poll supports a plausible range of 48% ± 4%, or about 44% to 52%.",
+      "distractor_explanations": {
+        "A": "A large self-selected sample can be biased; size does not fix the selection method.",
+        "C": "Averaging a biased result with an unbiased one does not give a valid estimate.",
+        "D": "The random poll still supports an estimate; the website vote is the result to set aside."
+      },
+      "hints": [
+        "Which survey used random selection?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate conclusions based on the self-selected vote."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000654",
+      "correct_answer": "C",
+      "explanation": "The shared part is 0.4 × 2,160 = $864, or $288 each. The rest, $1,296, is split by area: 1,296 × 14/36 = $504. The total is 288 + 504 = $792.",
+      "distractor_explanations": {
+        "A": "$720 splits the whole rent equally.",
+        "B": "$768 swaps the rules: 40% by area and 60% equally.",
+        "D": "$840 splits the whole rent by area."
+      },
+      "hints": [
+        "How much of the rent is split equally?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Split the rent into its two parts, then apply each rule."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000655",
+      "correct_answer": "C",
+      "explanation": "The combined mean is 75, and every score is now also 5 points away from it on average because of the gap between the section means. That added spread makes the combined standard deviation greater than 4 (it is √(16 + 25) ≈ 6.4).",
+      "distractor_explanations": {
+        "A": "Combining more data does not by itself reduce spread.",
+        "B": "Equal spreads combine to the same spread only if the means are equal.",
+        "D": "The comparison with 4 can be made without the individual scores."
+      },
+      "hints": [
+        "How far is each section's mean from the combined mean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compare the spread around the combined mean with the spread within each section."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000656",
+      "correct_answer": "C",
+      "explanation": "Weighting by share of revenue: 0.6(1.10) + 0.4(0.95) = 0.66 + 0.38 = 1.04, an increase of 4%.",
+      "distractor_explanations": {
+        "A": "−1.25% weights the changes by the number of products: (10 × 10 − 30 × 5)/40.",
+        "B": "2.5% takes the simple average of +10% and −5%.",
+        "D": "5% subtracts the percents."
+      },
+      "hints": [
+        "Which weights apply to each percent change?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use total revenue 100 last year."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000657",
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "16.3",
+          "rationale": "16.3 treats the photo as a square: √24,000,000/300.",
+          "trap": null
+        },
+        {
+          "value": "13.3",
+          "rationale": "13.3 uses the height instead of the width.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With width 3k and height 2k, 6k² = 24,000,000, so k = 2,000. The photo is 6,000 by 4,000 pixels, and the printed width is 6,000/300 = 20 inches.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the width and height in terms of one variable."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the ratio and the pixel count to find the width in pixels."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000658",
+      "correct_answer": "B",
+      "explanation": "The added prices are below the mean, so the mean decreases (to $391,250). They equal the median, so the middle values of the larger data set are still $350,000 and the median stays the same.",
+      "distractor_explanations": {
+        "A": "Values equal to the median do not lower the median.",
+        "C": "Adding values below the mean lowers the mean.",
+        "D": "The added values are below the mean, so the mean changes."
+      },
+      "hints": [
+        "Are the added prices above or below the mean?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Consider the mean and the median separately."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000659",
+      "correct_answer": "B",
+      "explanation": "A residual is actual minus predicted. The actual wages differ by 2, and the predicted wages differ by 1.6 × 5 = 8. So A's residual minus B's residual is 2 − 8 = −6.",
+      "distractor_explanations": {
+        "A": "−10 subtracts the predicted difference from −2.",
+        "C": "2 is only the difference in actual wages.",
+        "D": "6 uses predicted minus actual instead of actual minus predicted."
+      },
+      "hints": [
+        "How much more is A's predicted wage than B's?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each residual as actual minus predicted and subtract."
       }
     }
   ]
