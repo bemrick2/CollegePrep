@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 39,
-  "updated_at": "2026-10-27T13:13:28+00:00",
+  "version": 40,
+  "updated_at": "2026-10-27T15:08:46+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -421,6 +421,17 @@
       "word_count": 216,
       "text": "{{1|Cookies are one of the most popular desserts in the United States.}} In the version most people have heard, Ruth Wakefield ran the Toll House Inn in Whitman, Massachusetts, {{2|which}} she cooked meals for travelers. One day in the 1930s, the story goes, she ran out of baking chocolate, chopped up a chocolate bar instead, and stirred the pieces into her cookie dough, expecting them to melt. They didn't, and a classic was born.\n\nThe story is charming, but historians doubt it. Wakefield was a trained dietitian and a careful cook{{3| who had written a popular cookbook}}, and the recipes she served were {{4|suppose to}} turn out the same way every time. She later said that she had set out on purpose to make something new for her guests. {{5|Because}} the accident story is appealing, it does not fit what is known about how she worked.\n\nWhatever its origin, the cookie was an immediate hit. {{6|Lots of people liked it.}} The number of people buying Nestlé's semisweet chocolate bars {{7|were}} soon rising sharply, and the company began printing the recipe on its wrappers. Bakers who {{8|use to}} chop chocolate bars by hand were relieved when Nestlé introduced ready-made chocolate morsels in 1939.\n\nIn return for the recipe, Wakefield{{9|, reportedly,}} received a lifetime supply of Nestlé chocolate. {{10|}}",
       "batch": 38,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000040",
+      "title": "The Snowflake Man",
+      "genre": "informative essay",
+      "word_count": 337,
+      "text": "[1] Wilson Bentley grew up on a farm in Jericho, Vermont, where winters were long and snow fell for months at a time. [2] When he was fifteen, his mother gave him an old microscope, and he spent the next winter peering at snowflakes. [3] {{1|The crystals melted, however, before he could draw them, so he could never finish a sketch.}}\n\n[4] Bentley decided that a camera might succeed where his pencil had failed. [5] He persuaded his parents to buy a bellows camera{{2|, which}} he attached to the microscope. [6] {{3|Working outdoors in an unheated shed, his breath had to be held}} so that its warmth would not melt the crystal on the slide. [7] He handled each flake with a feather {{4|and also moved it carefully with a thin wooden splint, both tools}} that would not melt the ice. [8] On January 15, 1885, after many failed attempts, he made the first known photograph of a single snow crystal.\n\n[9] Over the next forty-six years, Bentley photographed more than five thousand snowflakes. [10] Some of {{5|his neighbors, who}} considered the project a waste of time, laughed at the farmer who stood in storms with a camera. [11] Scientists, {{6|however found}} his images valuable. [12] The photographs showed that each crystal's six arms grew in step with one another, a pattern that later researchers linked to the temperature and humidity the crystal passed through as it fell. {{7|}}\n\n[13] In 1931, Bentley and the meteorologist William Humphreys published *Snow Crystals*, a book of more than two thousand of {{8|Bentley's}} images. [14] The collection of photographs that filled its pages {{9|were}} soon used by designers of textiles and jewelry as well as by scientists. [15] That December, Bentley walked six miles home through a blizzard, developed pneumonia, and died.\n\n[16] {{10|Today, the shed where Bentley worked no longer stands, but the Jericho Historical Society keeps a collection of his glass-plate negatives.}} [17] Visitors can see the {{11|negatives which}} still preserve flakes that melted more than a century ago.",
+      "batch": 40,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -27583,6 +27594,723 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-039.review.json",
         "computation": "checks/act_english/batch_039.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000384",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (eliminating a redundant clause)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 1,
+      "evidence": "he spent the next winter peering at snowflakes",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "The crystals melted, however, before he could draw them, which meant his sketches stayed unfinished.",
+        "C": "The crystals melted, however, before he could finish a drawing.",
+        "D": "However, the crystals, before he could draw them, melted, so no sketch was ever finished."
+      },
+      "correct_answer": "C",
+      "explanation": "Choice C says once that the crystals melted before he could finish a drawing; every other choice says the same thing twice.",
+      "distractor_explanations": {
+        "A": "\"So he could never finish a sketch\" repeats what \"melted before he could draw them\" already says.",
+        "B": "The added clause repeats the idea that he could not finish drawing.",
+        "D": "This repeats the idea and breaks the sentence with an awkward interruption."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Does any part of the sentence repeat another part?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Cross out choices that state the same idea twice."
+      },
+      "remember": "If two parts of a sentence say the same thing, keep one.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-01",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: key is the shortest choice, a standard conciseness cue"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000385",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma before a nonessential clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 2,
+      "evidence": "he attached to the microscope",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": " which",
+        "C": "; which",
+        "D": ". Which"
+      },
+      "correct_answer": "A",
+      "explanation": "The clause adds information about a camera already identified, so it is nonessential and is set off with a comma before \"which.\"",
+      "distractor_explanations": {
+        "B": "Without a comma, \"which he attached to the microscope\" is not set off as extra information about the camera.",
+        "C": "A semicolon cannot introduce a dependent clause.",
+        "D": "\"Which he attached to the microscope\" cannot stand alone as a sentence."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can the sentence stand without the \"which\" clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether the clause is essential."
+      },
+      "remember": "Use \", which\" for extra, nonessential information.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-02",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: B (no comma) is arguably acceptable as a restrictive clause in loose usage, but ACT convention treats this as nonrestrictive, so A stands"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000386",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 3,
+      "evidence": "so that its warmth would not melt the crystal on the slide",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Working outdoors in an unheated shed, holding his breath was necessary",
+        "C": "Working outdoors in an unheated shed, it was necessary for his breath to be held",
+        "D": "Working outdoors in an unheated shed, he had to hold his breath"
+      },
+      "correct_answer": "D",
+      "explanation": "The introductory phrase \"Working outdoors in an unheated shed\" must be followed immediately by the person who worked: \"he.\"",
+      "distractor_explanations": {
+        "A": "\"Working outdoors\" must describe the person doing the work, but the sentence makes it describe \"his breath.\"",
+        "B": "The opening phrase now describes \"holding his breath,\" which cannot work in a shed.",
+        "C": "The opening phrase now describes \"it,\" not Bentley."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier"
+      },
+      "hints": [
+        "Who was working outdoors?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check what noun follows the opening phrase."
+      },
+      "remember": "An opening modifier describes the noun right after the comma.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-03",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000387",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (wordy compound phrase)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 4,
+      "evidence": "that would not melt the ice",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and a thin wooden splint, tools",
+        "C": "as well as additionally with a thin wooden splint, both of them tools",
+        "D": "and with a thin wooden splint too, both being some tools"
+      },
+      "correct_answer": "B",
+      "explanation": "\"He handled each flake with a feather and a thin wooden splint, tools that would not melt the ice\" is clear and concise.",
+      "distractor_explanations": {
+        "A": "\"And also moved it carefully\" repeats the idea of handling the flake and adds wordiness.",
+        "C": "\"As well as\" and \"additionally\" mean the same thing.",
+        "D": "\"Too\" and \"both being some tools\" add words without adding meaning."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice says the same thing in the fewest words?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Prefer the shortest choice that keeps the meaning."
+      },
+      "remember": "Cut words that repeat an idea already stated.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-04",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000388",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 5,
+      "evidence": "considered the project a waste of time, laughed",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "his neighbors who",
+        "C": "his neighbors, whom",
+        "D": "his neighbors; who"
+      },
+      "correct_answer": "A",
+      "explanation": "The clause \"who considered the project a waste of time\" is set off by a comma before \"who\" and the comma after \"time,\" and \"who\" is correct as the subject of \"considered.\"",
+      "distractor_explanations": {
+        "B": "Without a comma, the clause restricts \"neighbors\" but the closing comma after \"time\" is left unpaired.",
+        "C": "\"Whom\" is an object pronoun, but the clause needs a subject for \"considered.\"",
+        "D": "A semicolon cannot introduce a dependent clause."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "nearest_noun_agreement",
+        "D": null
+      },
+      "hints": [
+        "Look for the comma that closes the clause."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the comma after \"time\" with one before \"who.\""
+      },
+      "remember": "Nonessential clauses take commas on both sides.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-05",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000389",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a conjunctive adverb",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 6,
+      "evidence": "his images valuable",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "however, found",
+        "C": "however, found,",
+        "D": "however; found"
+      },
+      "correct_answer": "B",
+      "explanation": "\"However\" interrupts the clause \"Scientists found his images valuable,\" so it takes a comma on each side.",
+      "distractor_explanations": {
+        "A": "\"However\" interrupts the clause, so it needs a comma after it as well as before it.",
+        "C": "A comma between the verb \"found\" and its object separates them.",
+        "D": "A semicolon cannot separate a verb from its subject."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"however\" interrupting the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check both sides of the interrupter."
+      },
+      "remember": "An interrupting \"however\" takes a pair of commas.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-06",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000390",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 8,
+      "evidence": "a book of more than two thousand of",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Bentleys'",
+        "C": "Bentleys",
+        "D": "Bentley is"
+      },
+      "correct_answer": "A",
+      "explanation": "The images belong to one person, Bentley, so the singular possessive \"Bentley's\" is correct.",
+      "distractor_explanations": {
+        "B": "This is a plural possessive; there is only one Bentley.",
+        "C": "A possessive needs an apostrophe.",
+        "D": "The sentence needs a possessive, not a subject and verb."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many people own the images?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide singular or plural, then possessive."
+      },
+      "remember": "For one owner, add 's.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-08",
+      "created_at": "2026-10-27T15:08:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000391",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (intervening phrase)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 9,
+      "evidence": "soon used by designers of textiles and jewelry",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "have been",
+        "C": "was",
+        "D": "are"
+      },
+      "correct_answer": "C",
+      "explanation": "The subject is \"collection\" (\"The collection of photographs that filled its pages\"), so the verb must be singular: \"was.\"",
+      "distractor_explanations": {
+        "A": "The subject is \"collection,\" which is singular; \"photographs\" is part of an intervening phrase.",
+        "B": "The plural verb disagrees with the singular subject \"collection.\"",
+        "D": "The plural present-tense verb disagrees with the singular subject and shifts tense."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject of the verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out the phrase between the subject and the verb."
+      },
+      "remember": "Find the true subject before matching the verb.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-09",
+      "created_at": "2026-10-27T15:08:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000392",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that echoes the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 10,
+      "evidence": "Wilson Bentley grew up on a farm in Jericho, Vermont",
+      "figure": null,
+      "stem": "Which choice most effectively connects the final paragraph to the essay's opening?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Today, the Jericho Historical Society keeps a collection of the glass-plate negatives Bentley made on the farm where he first studied snowflakes.",
+        "C": "Today, many photographers use digital cameras attached to microscopes, which makes the work far easier.",
+        "D": "Today, scientists know that snow crystals form in many shapes besides six-armed stars."
+      },
+      "correct_answer": "B",
+      "explanation": "The essay opens with Bentley on the Jericho farm studying snowflakes; choice B returns to that farm and that study.",
+      "distractor_explanations": {
+        "A": "This mentions Jericho, but it emphasizes the missing shed rather than linking back to the farm and the boy with the microscope.",
+        "C": "This shifts to modern photography and does not connect to the opening.",
+        "D": "This is a general fact about snow, not a link to the essay's opening."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What details does the essay open with?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the choice that returns to the opening's place and activity."
+      },
+      "remember": "A strong conclusion can echo the opening's setting.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-10",
+      "created_at": "2026-10-27T15:08:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: the key is the longest choice",
+          "minor: A also mentions Jericho through 'Jericho Historical Society', but it connects only to the shed in paragraph 2. B explicitly returns to the farm in the opening, so the distinction holds."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000393",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma before a nonessential clause (second instance)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 11,
+      "evidence": "still preserve flakes that melted",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "negatives; which",
+        "C": "negatives, which",
+        "D": "negatives. Which"
+      },
+      "correct_answer": "C",
+      "explanation": "The clause adds information about the negatives already named, so a comma before \"which\" sets it off.",
+      "distractor_explanations": {
+        "A": "Without a comma, the \"which\" clause is not set off as extra information about the negatives already named.",
+        "B": "A semicolon cannot introduce a dependent clause.",
+        "D": "\"Which still preserve flakes...\" cannot stand alone as a sentence."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the \"which\" clause extra information?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether the clause is essential."
+      },
+      "remember": "Use \", which\" for nonessential information.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 40,
+      "draft_candidate": "E040-11",
+      "created_at": "2026-10-27T15:08:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-040.review.json",
+        "computation": "checks/act_english/batch_040.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

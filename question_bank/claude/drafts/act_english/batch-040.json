@@ -1,7 +1,7 @@
 {
  "bank": "act_english",
  "batch": 40,
- "plan": "Informative essay (CLD-P-ACT-E-000040) on Wilson Bentley's snowflake photographs; topic checked against every ACT, SAT and ChatGPT verbal record (no matches). Eleven items: redundancy, nonessential clauses, dangling modifier, wordy compound, conjunctive adverb, adding a sentence, possessive, intervening-phrase agreement, conclusion echoing the opening. Difficulty provisional.",
+ "plan": "Informative essay (CLD-P-ACT-E-000040) on Wilson Bentley's snowflake photographs; topic checked against every ACT, SAT and ChatGPT verbal record (no matches). Eleven items: redundancy, nonessential clauses, dangling modifier, wordy compound, conjunctive adverb, adding a sentence, possessive, intervening-phrase agreement, conclusion echoing the opening. Difficulty provisional. E040-07 withdrawn before review (factual looseness flagged by both solvers; resubmitted corrected). Relabelled to the lower blind rating: E040-01 hard→medium, E040-02 medium→easy, E040-03 hard→medium, E040-05 hard→medium, E040-06 medium→easy, E040-09 hard→medium, E040-10 hard→medium.",
  "passages": [
   {
    "passage_id": "CLD-P-ACT-E-000040",
@@ -20,7 +20,7 @@
    "skill": "Knowledge of Language",
    "subskill": "Concision (eliminating a redundant clause)",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -69,7 +69,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Comma before a nonessential clause",
    "repo_skill_key": "act_punctuation",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -118,7 +118,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Dangling modifier",
    "repo_skill_key": "act_sentence_structure",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -216,7 +216,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Commas around a nonessential clause",
    "repo_skill_key": "act_punctuation",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -265,7 +265,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Commas around a conjunctive adverb",
    "repo_skill_key": "act_punctuation",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -299,55 +299,6 @@
    },
    "remember": "An interrupting \"however\" takes a pair of commas.",
    "expected_time_seconds": 25,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced"
-   }
-  },
-  {
-   "cand": "E040-07",
-   "passage_id": "CLD-P-ACT-E-000040",
-   "underline": 7,
-   "reporting_category": "Production of Writing",
-   "skill": "Production of Writing",
-   "subskill": "Adding a sentence (relevance)",
-   "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
-   "stem": "At this point, the writer is considering adding the following sentence:\nA crystal that drifts through warmer, wetter air tends to grow broader, more feathery arms.\nShould the writer make this addition here?",
-   "choices": {
-    "A": "Yes, because it explains why Bentley's neighbors considered his project a waste of time.",
-    "B": "No, because it contradicts the claim that the crystal's six arms grew in step with one another.",
-    "C": "Yes, because it gives an example of the link between weather conditions and crystal shape described in the preceding sentence.",
-    "D": "No, because it shifts the focus from Bentley's photographs to the history of the microscope."
-   },
-   "answer": "C",
-   "evidence": "linked to the temperature and humidity the crystal passed through as it fell",
-   "explanation": "Sentence 12 says researchers linked crystal patterns to temperature and humidity; the added sentence gives a specific example of that link, so it fits here.",
-   "distractors": {
-    "A": {
-     "rationale": "The sentence says nothing about the neighbors' opinion.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "Broader arms on all six sides would still grow in step; the sentence does not contradict the claim.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "The sentence is about crystal growth, not microscopes.",
-     "trap": null
-    }
-   },
-   "hints": [
-    "What does the sentence before the addition describe?"
-   ],
-   "strategy": {
-    "key": "read_question_first",
-    "explanation": "Check whether the reason in each choice is accurate."
-   },
-   "remember": "An addition belongs if it develops the point right before it.",
-   "expected_time_seconds": 45,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -412,7 +363,7 @@
    "skill": "Conventions of Standard English",
    "subskill": "Subject-verb agreement (intervening phrase)",
    "repo_skill_key": "act_usage",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice is best for the underlined portion?",
    "choices": {
     "A": "NO CHANGE",
@@ -461,7 +412,7 @@
    "skill": "Production of Writing",
    "subskill": "Conclusion that echoes the opening",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice most effectively connects the final paragraph to the essay's opening?",
    "choices": {
     "A": "NO CHANGE",
@@ -550,6 +501,58 @@
     "single_correct": true,
     "choice_lengths": "balanced"
    }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "E040-07",
+   "passage_id": "CLD-P-ACT-E-000040",
+   "underline": 7,
+   "reporting_category": "Production of Writing",
+   "skill": "Production of Writing",
+   "subskill": "Adding a sentence (relevance)",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "hard",
+   "stem": "At this point, the writer is considering adding the following sentence:\nA crystal that drifts through warmer, wetter air tends to grow broader, more feathery arms.\nShould the writer make this addition here?",
+   "choices": {
+    "A": "Yes, because it explains why Bentley's neighbors considered his project a waste of time.",
+    "B": "No, because it contradicts the claim that the crystal's six arms grew in step with one another.",
+    "C": "Yes, because it gives an example of the link between weather conditions and crystal shape described in the preceding sentence.",
+    "D": "No, because it shifts the focus from Bentley's photographs to the history of the microscope."
+   },
+   "answer": "C",
+   "evidence": "linked to the temperature and humidity the crystal passed through as it fell",
+   "explanation": "Sentence 12 says researchers linked crystal patterns to temperature and humidity; the added sentence gives a specific example of that link, so it fits here.",
+   "distractors": {
+    "A": {
+     "rationale": "The sentence says nothing about the neighbors' opinion.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "Broader arms on all six sides would still grow in step; the sentence does not contradict the claim.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The sentence is about crystal growth, not microscopes.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does the sentence before the addition describe?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Check whether the reason in each choice is accurate."
+   },
+   "remember": "An addition belongs if it develops the point right before it.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "withdrawn_reason": "Both blind solvers: the added sentence's claim that warmer, wetter air grows feathery arms is inaccurate (feathery branching depends mainly on high humidity near -15 C). Resubmitted with a corrected sentence in a later batch."
   }
  ]
 }
