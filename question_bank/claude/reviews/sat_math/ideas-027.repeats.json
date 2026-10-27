@@ -1,0 +1,32 @@
+{
+  "ideas": "batch 27",
+  "results": {
+    "DD01": [
+      {"other_id": "CLD-SAT-M-000135", "severity": "close", "why": "Same setup (ax + by = c for hourly earnings at two jobs) but asks a trade-off (fewer mowing hours for 6 more painting hours), not the meaning of the x-intercept."}
+    ],
+    "DD02": [
+      {"other_id": "CLD-ACT-M-000020", "severity": "close", "why": "Same count-plus-total-cost setup (two item prices, total count, total dollars), but ACT-020 asks you to solve for one count; DD02 asks which system models it."}
+    ],
+    "DD05": [
+      {"other_id": "CLD-SAT-M-000041", "severity": "close", "why": "Also asks for the product of a quadratic's solutions, but SAT-041 has fixed numbers and can be solved directly; DD05 has an unknown k, so it needs Vieta (c/a)."}
+    ],
+    "DD07": [
+      {"other_id": "CLD-ACT-M-000541", "severity": "close", "why": "Same key move (solve (x + h)^2 = k by taking square roots), but ACT-541 asks for the sum of solutions of a bare equation; DD07 asks for the x-intercepts of a negated vertex-form function."},
+      {"other_id": "CLD-SAT-M-000182", "severity": "close", "why": "Vertex form a(x-h)^2 + k with a difference-of-squares structure, but SAT-182 asks for an equivalent factored form, not the intercepts."}
+    ],
+    "DD13": [
+      {"other_id": "CLD-ACT-M-000659", "severity": "close", "why": "A trig ratio of an angle in standard position from a point, but ACT-659 gives both coordinates and asks for cos; DD13 first needs y from x^2 + y^2 = 100 and asks for tan."}
+    ],
+    "DD16": [
+      {"other_id": "CLD-ACT-M-000569", "severity": "template", "why": "Same template: 'What value of x satisfies [linear expression] = [linear expression]' with x on both sides; only the numbers change."},
+      {"other_id": "act-math-02 (demo fixture)", "severity": "template", "why": "The demo fixture 'If 4x − 7 = 2x + 9, what is the value of x?' is the same one-variable linear equation with x on both sides and a new-numbers swap."}
+    ],
+    "DD18": [
+      {"other_id": "CLD-ACT-M-000580", "severity": "close", "why": "Same asked quantity (vertex of a translated parabola), but ACT-580 states the shifts in words; DD18 has to read them from g(x) = f(x − 2) + 3."},
+      {"other_id": "CLD-SAT-M-000155", "severity": "close", "why": "g defined as a horizontal shift of f, asking for the minimum point. SAT-155 needs completing the square on a general f with a horizontal shift only; DD18 uses f = x^2 with both shifts."}
+    ],
+    "DD20": [
+      {"other_id": "CLD-SAT-M-000063", "severity": "close", "why": "Finds an unknown exponent with the product rule (x^(1/2)·x^(1/3) = x^k), but DD20 chains the product and power rules across two equations and asks for the second unknown."}
+    ]
+  }
+}
