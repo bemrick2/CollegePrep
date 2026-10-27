@@ -1,0 +1,19 @@
+{
+  "ideas": "batch 30",
+  "results": {
+    "GG04": [
+      {"other_id": "CLD-SAT-M-000001", "severity": "template", "why": "Same template: a two-variable linear equation with one variable's value given, solve for the other (4x + 3y = 60 with x = 6, find y). GG04's 'system' has one trivial equation (y = 4), so 3x + 2(4) = 20 is the same substitute-and-solve step, minus the context."},
+      {"other_id": "CLD-SAT-M-000192", "severity": "template", "why": "Same template again: 0.25x + 0.10y = 4.70 with x = 12, find y. Substitute the known value into the linear equation and solve for the other variable."}
+    ],
+    "GG05": [
+      {"other_id": "CLD-ACT-M-000267", "severity": "template", "why": "Same setup: a/b is given as a fraction and the question asks for the value of a ratio expression built from a and b ((a + b)/(a − b) vs (a − b)/b). Both are solved by dividing by b (or setting a = 5k, b = 2k) and substituting. Only the target expression and the numbers change."}
+    ],
+    "GG07": [],
+    "GG08": [
+      {"other_id": "CLD-ACT-M-000113", "severity": "template", "why": "Same template: evaluate an exponential decay model a(b)^t at a small whole-number input (V(t) = 24,000(0.85)^t at t = 3 vs f(x) = 50(0.9)^x at x = 2). GG08 only drops the context and uses different numbers."}
+    ],
+    "GG19": [],
+    "GG21": [],
+    "GG26": []
+  }
+}

@@ -1,0 +1,191 @@
+{
+ "bank": "sat_math",
+ "batch": 30,
+ "plan": "SAT Math batch 30 (4 items): Advanced Math 2, Geometry and Trigonometry 2. Ideas pre-checked (reviews/sat_math/ideas-030.repeats.json): three templates (SAT 001/192, ACT 267, ACT 113) dropped. Short batch: the supply of non-repeating SAT Math ideas is now the bottleneck.",
+ "candidates": [
+  {
+   "cand": "Q030-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Effect of scaling the input of a quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The variables x and y are related by y = 3x². If the value of x is tripled, the value of y is multiplied by what number?",
+   "explanation": "If x becomes 3x, then y becomes 3(3x)² = 3 · 9x² = 9(3x²). So y is multiplied by 3² = 9. The coefficient 3 does not change the factor.",
+   "hints": [
+    "Replace x with 3x."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compare y at x = 1 and x = 3."
+   },
+   "remember": "For y = kx², multiplying x by c multiplies y by c².",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "9",
+    "C": "27",
+    "D": "81"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3 assumes y changes in the same proportion as x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "27 multiplies the factor 9 by the coefficient 3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "81 squares 9, as if x were squared twice.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q030-02",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Square on the radius of a circle with a given area",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A circle has an area of 50π square units. A square has sides equal in length to the radius of the circle. What is the area of the square, in square units?",
+   "explanation": "πr² = 50π gives r² = 50. A square with side r has area r² = 50. There is no need to find r itself.",
+   "hints": [
+    "What is r² for this circle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Area of the square = r²."
+   },
+   "remember": "Look for the quantity the question needs (here r²) rather than r.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "5√2",
+    "B": "50",
+    "C": "50π",
+    "D": "200"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "5√2 is the side length r, not the area.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "50π is the circle's area; the square's area has no π.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "200 uses the diameter, 2r, as the side: (2r)² = 4r².",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q030-03",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Third angle when two angles are complementary",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "easy",
+   "stem": "In a triangle, two of the angles are complementary. What is the measure of the third angle?",
+   "explanation": "Complementary angles add to 90°. The three angles of a triangle add to 180°, so the third angle measures 180° − 90° = 90°. The triangle is a right triangle.",
+   "hints": [
+    "What do complementary angles add up to?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "180° − 90°."
+   },
+   "remember": "Complementary: sum to 90°. Triangle: angles sum to 180°.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0°",
+    "B": "45°",
+    "C": "90°",
+    "D": "180°"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "A triangle cannot have an angle of 0°.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "45° assumes the two complementary angles are equal and gives one of them.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "180° is the sum of all three angles.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q030-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exponential equation with a squared exponent",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the product of all real values of x that satisfy 2^(x²) = 16 ?",
+   "explanation": "16 = 2⁴, so x² = 4. This gives x = 2 or x = −2, and both check: 2^((±2)²) = 2⁴ = 16. Their product is 2 × (−2) = −4.",
+   "hints": [
+    "Write 16 as a power of 2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the exponents equal: x² = 4."
+   },
+   "remember": "x² = k (k > 0) has two solutions, ±√k.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−4",
+    "B": "−2",
+    "C": "2",
+    "D": "4"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−2 is one of the solutions, not their product.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2 is the other solution alone; it forgets x = −2.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4 is the value of x², or the product with a sign error.",
+     "trap": "sign_error"
+    }
+   }
+  }
+ ]
+}
