@@ -1,0 +1,458 @@
+{
+ "bank": "act_math",
+ "batch": 72,
+ "plan": "Thin areas checked against the subskill list: congruence criteria, unit vector, singular matrix, bounding a logarithm, complex product (hard), geometric insertion, congruent-triangle correspondence, sine phase shift, log domain, vertex in context. Day-of-week and segment-ratio ideas dropped as existing.",
+ "candidates": [
+  {
+   "cand": "B072-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Conditions that do not guarantee congruence",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Which of the following pieces of information is NOT enough, by itself, to guarantee that two triangles are congruent?",
+   "choices": {
+    "A": "Two sides and an angle that is not between them are congruent to the corresponding parts.",
+    "B": "All three pairs of corresponding sides are congruent.",
+    "C": "Two sides and the angle between them are congruent to the corresponding parts.",
+    "D": "Two angles and the side between them are congruent to the corresponding parts."
+   },
+   "answer": "A",
+   "explanation": "SSS, SAS and ASA each guarantee congruence. Two sides and a non-included angle (SSA) do not: the same SSA information can produce two different triangles.",
+   "distractors": {
+    "B": {
+     "rationale": "This is SSS, which does guarantee congruence.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This is SAS, which does guarantee congruence.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This is ASA, which does guarantee congruence.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Name each choice with S and A letters."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate SSS, SAS and ASA."
+   },
+   "remember": "SSS, SAS, ASA and AAS work; SSA does not.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Unit vector in a given direction",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Which of the following is the unit vector (vector of length 1) that points in the same direction as ⟨6, −8⟩ ?",
+   "choices": {
+    "A": "⟨6/14, −8/14⟩",
+    "B": "⟨1, −1⟩",
+    "C": "⟨−3/5, 4/5⟩",
+    "D": "⟨3/5, −4/5⟩"
+   },
+   "answer": "D",
+   "explanation": "The length of ⟨6, −8⟩ is √(36 + 64) = 10. Dividing each component by 10 gives ⟨3/5, −4/5⟩.",
+   "distractors": {
+    "A": {
+     "rationale": "⟨6/14, −8/14⟩ divides by 6 + 8 = 14 instead of by the length, 10.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "⟨1, −1⟩ has length √2 and a different direction.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "⟨−3/5, 4/5⟩ has length 1 but points in the opposite direction.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "What is the length of ⟨6, −8⟩ ?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the vector by its magnitude."
+   },
+   "remember": "Unit vector = vector ÷ its magnitude.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Value that makes a matrix singular",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "The determinant of the matrix with first row 2, k and second row 3, 6 is 2 · 6 − 3k. For what value of k does the matrix have a determinant of 0 ?",
+   "choices": {
+    "A": "4",
+    "B": "9",
+    "C": "−4",
+    "D": "1/4"
+   },
+   "answer": "A",
+   "explanation": "Set 12 − 3k = 0, so k = 4.",
+   "distractors": {
+    "B": {
+     "rationale": "9 sets 2k − 18 = 0, multiplying the wrong entries.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−4 makes a sign error when solving 12 − 3k = 0.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "1/4 inverts the correct value.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Set the determinant expression equal to 0."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 12 − 3k = 0."
+   },
+   "remember": "A 2 × 2 determinant is ad − bc.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Bounding a logarithm between integers",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "The value of log₂ 50 lies between which two consecutive integers?",
+   "choices": {
+    "A": "2 and 3",
+    "B": "6 and 7",
+    "C": "24 and 25",
+    "D": "5 and 6"
+   },
+   "answer": "D",
+   "explanation": "2⁵ = 32 and 2⁶ = 64. Since 32 < 50 < 64, log₂ 50 is between 5 and 6.",
+   "distractors": {
+    "A": {
+     "rationale": "2 and 3 would mean 50 lies between 4 and 8.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6 and 7 would mean 50 lies between 64 and 128.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "24 and 25 come from halving 50 instead of taking a logarithm.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which powers of 2 are just below and just above 50?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "List powers of 2 until you pass 50."
+   },
+   "remember": "log₂ x asks: 2 to what power gives x?",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Making a complex product real",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "For i = √(−1), the product (a + 2i)(3 − i), where a is a real number, is a real number. What is the value of a ?",
+   "choices": {
+    "A": "−2/3",
+    "B": "2/3",
+    "C": "−6",
+    "D": "6"
+   },
+   "answer": "D",
+   "explanation": "(a + 2i)(3 − i) = 3a − ai + 6i − 2i² = (3a + 2) + (6 − a)i. The product is real when the imaginary part is 0: 6 − a = 0, so a = 6.",
+   "distractors": {
+    "A": {
+     "rationale": "−2/3 makes the real part 0, which makes the product purely imaginary.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "2/3 makes a sign error while setting the real part to 0.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−6 makes a sign error in the imaginary part.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Expand and group the terms with i."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the coefficient of i equal to 0."
+   },
+   "remember": "A complex number is real when its imaginary part is 0.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must expand with i² = −1, separate real and imaginary parts, and then set the correct part to zero; −2/3 catches those who zero the real part."
+   }
+  },
+  {
+   "cand": "B072-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Terms inserted into a geometric sequence",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "Two numbers are inserted between 2 and 54 so that the four numbers form a geometric sequence: 2, __, __, 54. What is the sum of the two inserted numbers?",
+   "choices": {
+    "A": "24",
+    "B": "56",
+    "C": "36",
+    "D": "18"
+   },
+   "answer": "A",
+   "explanation": "If the common ratio is r, then 2r³ = 54, so r³ = 27 and r = 3. The inserted numbers are 6 and 18, whose sum is 24.",
+   "distractors": {
+    "B": {
+     "rationale": "56 is the sum of the inserted terms of an arithmetic sequence (common difference 52/3), not a geometric one.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "36 uses 18 + 18, doubling the third term.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18 is only the larger inserted number.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "How many times is the ratio applied to get from 2 to 54?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 2r³ = 54."
+   },
+   "remember": "From term 1 to term 4, multiply by the ratio three times.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Corresponding angles of congruent triangles",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "Triangle PQR is congruent to triangle XYZ, with the vertices listed in corresponding order. The measure of ∠P is 50° and the measure of ∠Y is 70°. What is the measure of ∠R ?",
+   "choices": {
+    "A": "50°",
+    "B": "60°",
+    "C": "70°",
+    "D": "110°"
+   },
+   "answer": "B",
+   "explanation": "Vertex Q corresponds to Y, so ∠Q = 70°. Then ∠R = 180° − 50° − 70° = 60°.",
+   "distractors": {
+    "A": {
+     "rationale": "50° is ∠P, which corresponds to ∠X, not ∠R.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "70° is ∠Y, which corresponds to ∠Q, not ∠R.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "110° subtracts only one angle from 180°.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Which angle of PQR corresponds to ∠Y ?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Match P to X, Q to Y and R to Z."
+   },
+   "remember": "Congruence statements list corresponding vertices in order.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Horizontal shift of a sine graph",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "Compared with the graph of y = sin x, the graph of y = sin(x − π/3) is:",
+   "choices": {
+    "A": "shifted π/3 units to the left.",
+    "B": "shifted π/3 units up.",
+    "C": "shifted π/3 units to the right.",
+    "D": "stretched vertically by a factor of π/3."
+   },
+   "answer": "C",
+   "explanation": "Replacing x with x − h shifts a graph h units to the right, so y = sin(x − π/3) is y = sin x shifted π/3 units to the right.",
+   "distractors": {
+    "A": {
+     "rationale": "Left would be sin(x + π/3).",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "An upward shift would add π/3 outside the sine: sin x + π/3.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A vertical stretch would multiply the sine by a constant.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where does y = sin(x − π/3) equal 0 for the first time with x ≥ 0 ?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Find the x-value that gives sin 0 in each graph."
+   },
+   "remember": "f(x − h) moves the graph h units right.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Domain of a logarithmic function",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "What is the domain of the function f(x) = log(5 − x) ?",
+   "choices": {
+    "A": "x > 5",
+    "B": "x ≥ 5",
+    "C": "x ≤ 5",
+    "D": "x < 5"
+   },
+   "answer": "D",
+   "explanation": "A logarithm is defined only for positive inputs: 5 − x > 0, so x < 5.",
+   "distractors": {
+    "A": {
+     "rationale": "x > 5 reverses the inequality when solving 5 − x > 0.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "x ≥ 5 reverses the inequality and includes 5, where the input is 0.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "x ≤ 5 includes 5, but log 0 is undefined.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Which inputs can a logarithm accept?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 5 and x = 6."
+   },
+   "remember": "The argument of a logarithm must be positive.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B072-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Interpreting the vertex of a quadratic model",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A store's weekly profit P, in dollars, from selling a scarf at a price of x dollars is modeled by P(x) = −2(x − 15)² + 450. What does the number 15 represent in this context?",
+   "choices": {
+    "A": "The greatest weekly profit, in dollars",
+    "B": "The number of scarves sold each week",
+    "C": "The price, in dollars, that gives the greatest weekly profit",
+    "D": "The amount the profit drops for each $1 increase in price"
+   },
+   "answer": "C",
+   "explanation": "In vertex form a(x − h)² + k with a < 0, the maximum value k occurs at x = h. Here h = 15 is the price that maximizes profit, and k = 450 is the maximum profit.",
+   "distractors": {
+    "A": {
+     "rationale": "The greatest profit is 450, not 15.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "The model does not give the number of scarves sold.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The profit does not drop at a constant rate; the model is quadratic.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What do h and k mean in y = a(x − h)² + k ?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Identify which number is the input and which is the output at the vertex."
+   },
+   "remember": "In vertex form, h is the input and k the output at the vertex.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}
