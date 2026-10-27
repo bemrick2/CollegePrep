@@ -1,0 +1,302 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 56,
+  "reviewed_at": "2026-10-27T17:58:58+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 56
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000470",
+    "CLD-ACT-R-000471",
+    "CLD-ACT-R-000472",
+    "CLD-ACT-R-000473",
+    "CLD-ACT-R-000474",
+    "CLD-ACT-R-000475",
+    "CLD-ACT-R-000476",
+    "CLD-ACT-R-000477",
+    "CLD-ACT-R-000478"
+  ],
+  "results": [
+    {
+      "cand": "R056-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "B covers both halves: courtship code (P1-2) and Photuris exploitation plus male response (P3-5). A: light chemistry never discussed; the only chemicals are defensive ones. C: P4 presents deliberate choice as disputed, so the passage does not argue for it. D: birds and spiders are mentioned only once, as fireflies' predators.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000470"
+    },
+    {
+      "cand": "R056-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "D ('repeats his own flash pattern exactly and immediately') is meant to be ruled out by 'immediately', but an immediate reply is also a reply at the wrong interval, since females answer 'after a precise delay'. A careful student could argue D also describes a reply that makes a male keep flying. A is the direct paraphrase and clearly best. Consider changing D to something that cannot be read as a timing mismatch."
+        }
+      ],
+      "blind_notes": "P2: 'A male who sees a flash at the wrong interval is likely to keep flying.' B: brightness is never mentioned. C: perching on a leaf below is the normal position of a correct female, so it is not a reason to keep flying. D: pattern repetition is not discussed; see flag.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "D says 'exactly and immediately.' An immediate reply is almost by definition at the wrong delay, so a reader could argue the male keeps flying in D's case too. A is the direct paraphrase of 'flash at the wrong interval' and stays the best answer. Consider dropping 'and immediately' from D, or making D's trap something that does not touch timing."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"D ('repeats his own flash pattern exactly and immediately') is meant to be ruled out by 'immediately', but an immediate reply is also a reply at the wrong interval, since females answer 'after a precise delay'. A careful student could argue D also describes a reply that makes a male keep flying. A is the direct paraphrase and clearly best. Consider changing D to something that cannot be read as a timing mismatch.\"}; {'severity': 'nonblocking', 'note': \"D says 'exactly and immediately.' An immediate reply is almost by definition at the wrong delay, so a reader could argue the male keeps flying in D's case too. A is the direct paraphrase of 'flash at the wrong interval' and stays the best answer. Consider dropping 'and immediately' from D, or making D's trap something that does not touch timing.\"}"
+    },
+    {
+      "cand": "R056-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "P3: 'Because the code is so specific, it can be exploited'; males respond to 'the right response at the right delay.' A: males do see females below (P2). B: contradicted, because males ignore wrong-interval replies. D: males are deceived; they do not prefer Photuris females.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "The tempting distractor overstates the males' gullibility, which paragraph 2 contradicts."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000471"
+    },
+    {
+      "cand": "R056-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P3: the prey carry defensive chemicals that make fireflies distasteful to spiders and birds, and Photuris females take them in. A: the mimicry is not acquired by eating. B: pigments are not mentioned. C: eggs are not mentioned.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000472"
+    },
+    {
+      "cand": "R056-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "The detail explains why the prey is their source of chemical defense. B: nothing says they are easier to catch, and the point is that they gain protection. C: relatedness is not discussed. D: misapplies 'these chemicals' to light production; the females clearly do flash.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must link the inability to the benefit claimed earlier in the sentence."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000473"
+    },
+    {
+      "cand": "R056-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "P4: the cautious biologists say switching may be 'less a matter of deliberate choice than of a simple rule.' A: both groups accept that the switching happens. C: the eating is not disputed. D: male discrimination is not part of this disagreement.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must separate an agreed observation from a disputed interpretation."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000474"
+    },
+    {
+      "cand": "R056-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "'Exploited' means taken advantage of or used for one's own ends; 'manipulated' is the closest choice, since Photuris uses the code to deceive. A (explored) and D (explained) are neutral senses that do not fit. B (destroyed): the code continues to function. 'Manipulated' is a slightly loose synonym, but it is clearly the best of the four.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000475"
+    },
+    {
+      "cand": "R056-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "P5 sets up a tradeoff: fast approach means finding mates sooner but a higher risk of being eaten, so slow testing trades mating speed for safety. A: they are testing replies, which is the opposite of being unable to recognize them. B: there is no imitation by males. C: interest in mating is not the explanation; caution is.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must apply a stated tradeoff to explain a behavior."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000476"
+    },
+    {
+      "cand": "R056-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "'As if' signals an interpretation, not an established fact. B: 'prove' overstates. C: no laboratory experiment is described ('in some populations'). D: confusing the females is not suggested; the males are checking the reply.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000477"
+    },
+    {
+      "cand": "R056-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "The final sentence echoes the opening 'apparent randomness' and sums up courtship, deception, appetite, and caution. A: the items listed were all discussed earlier. B: intelligence is not compared. D: it says the randomness only seems to be there, which is the opposite of admitting the flashes are random.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000478"
+    }
+  ]
+}
