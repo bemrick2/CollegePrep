@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 49,
- "plan": "SAT Math batch 49: Algebra 2, Advanced Math 2, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 3; 6 student-produced responses. Ideas AA10, AA13, AB08, AB12, AC05, AD04, AD05, AD06 from generated set 6 (independently pre-checked: no copy or template matches). AA13's trap note replaced.",
+ "plan": "SAT Math batch 49: Algebra 2, Advanced Math 2, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 3; 6 student-produced responses. Ideas AA10, AA13, AB08, AB12, AC05, AD04, AD05, AD06 from generated set 6 (independently pre-checked: no copy or template matches). AA13's trap note replaced. Relabelled to the blind solver's rating where it was lower: Q049-04 medium→easy, Q049-05 hard→medium, Q049-06 hard→medium.",
  "candidates": [
   {
    "cand": "Q049-01",
@@ -139,7 +139,7 @@
    "skill": "Advanced Math",
    "subskill": "Time at which a rational concentration model reaches a value",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The concentration of a drug in a patient's blood t hours after a dose is modeled by C(t) = 50t/(t + 4) milligrams per liter, for t ≥ 0. At what time t, in hours, is the concentration 30 milligrams per liter?",
    "explanation": "Set 50t/(t + 4) = 30. Multiplying by t + 4 gives 50t = 30t + 120, so 20t = 120 and t = 6 hours. Check: C(6) = 300/10 = 30.",
    "hints": [
@@ -181,7 +181,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Ratio of two conditional probabilities from a table without totals",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A gym classified each of its members by plan and preferred workout time. The table gives all the members.\nPlan | Morning | Afternoon | Evening\nA | 20 | 35 | 45\nB | 30 | 18 | 12\nThe probability that a randomly chosen Plan B member prefers morning is how many times the probability that a randomly chosen Plan A member prefers morning?",
    "explanation": "Plan B has 30 + 18 + 12 = 60 members, so P(morning | B) = 30/60 = 0.5. Plan A has 20 + 35 + 45 = 100 members, so P(morning | A) = 20/100 = 0.2. The ratio is 0.5/0.2 = 2.5.",
    "hints": [
@@ -197,8 +197,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "No totals are shown; students must form two conditionals with different denominators, and comparing counts directly is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "2.5",
@@ -225,7 +224,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Volume of a pyramid whose height comes from a lateral edge",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A pyramid has a rectangular base that is 8 by 6, and each of its four slanted edges (from a base vertex to the top) has length 13. What is the volume of the pyramid?",
    "explanation": "The top is directly above the center of the base. Half of the base diagonal is (1/2)√(8² + 6²) = 5, so the height is √(13² − 5²) = 12. The volume is (1/3)(8 × 6)(12) = 192.",
    "hints": [
@@ -241,8 +240,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find the height inside the solid from a lateral edge and half the base diagonal."
+    "single_correct": true
    },
    "choices": {
     "A": "192",

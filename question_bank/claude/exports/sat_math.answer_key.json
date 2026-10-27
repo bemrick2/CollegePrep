@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 48,
+  "bank_version": 49,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -8854,6 +8854,210 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Isolate the exponential part, then match powers of 0.5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000452",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 makes the solution exactly 7, which is not greater than 7.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "21",
+          "rationale": "21 is the bound on 12 + a, not on a.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Solving gives 3x = 12 + a, so x = (12 + a)/3. The condition x > 7 means 12 + a > 21, so a > 9. The least integer greater than 9 is 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve for x in terms of a."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the solution in terms of a, then apply the inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000453",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "11",
+          "rationale": "11 adds 2 × 3 to f(2) instead of subtracting.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "5",
+          "rationale": "5 is f(2), not f(0).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Since f(2) = 5, f(f(2)) = f(5) = 14. The slope is (14 − 5)/(5 − 2) = 3, so f(0) = f(2) − 2(3) = 5 − 6 = −1.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is f(f(2)) when f(2) = 5?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the nested value into a second point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000454",
+      "correct_answer": "A",
+      "explanation": "Area = width × length, so the length is 50 − w. Then length + width = (50 − w) + w = 50. The perimeter is 2(50) = 100 meters, and the greatest area is A(25) = 625 square meters.",
+      "distractor_explanations": {
+        "B": "The perimeter is twice the sum: 2(50) = 100 meters.",
+        "C": "The greatest area is A(25) = 625, not 50.",
+        "D": "The length is 50 − w, not 50."
+      },
+      "hints": [
+        "Which factor is the length?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write length + width from the factors."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000455",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "0.6",
+          "rationale": "0.6 divides 30 by 50, ignoring the denominator t + 4.",
+          "trap": null
+        },
+        {
+          "value": "2.4",
+          "rationale": "2.4 solves 50t = 30(4), dropping the 30t term.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Set 50t/(t + 4) = 30. Multiplying by t + 4 gives 50t = 30t + 120, so 20t = 120 and t = 6 hours. Check: C(6) = 300/10 = 30.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by t + 4."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear the denominator and solve the linear equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000456",
+      "correct_answer": "2.5",
+      "accepted_answers": [
+        "2.5",
+        "5/2"
+      ],
+      "common_errors": [
+        {
+          "value": "1.5",
+          "rationale": "1.5 compares the counts 30 and 20 without the group sizes.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "0.6",
+          "rationale": "0.6 is 30/50, the probability that a morning member has Plan B.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Plan B has 30 + 18 + 12 = 60 members, so P(morning | B) = 30/60 = 0.5. Plan A has 20 + 35 + 45 = 100 members, so P(morning | A) = 20/100 = 0.2. The ratio is 0.5/0.2 = 2.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find each plan's total first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each conditional probability with its own denominator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000457",
+      "correct_answer": "A",
+      "explanation": "The top is directly above the center of the base. Half of the base diagonal is (1/2)√(8² + 6²) = 5, so the height is √(13² − 5²) = 12. The volume is (1/3)(8 × 6)(12) = 192.",
+      "distractor_explanations": {
+        "B": "208 uses the slanted edge, 13, as the height.",
+        "C": "576 omits the factor 1/3.",
+        "D": "624 omits the 1/3 and uses 13 as the height."
+      },
+      "hints": [
+        "Where is the top of the pyramid above the base?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the right triangle formed by the height, half the diagonal and an edge."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000458",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "-3",
+          "rationale": "−3 is the center below the chord, the lesser possibility.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 assumes the segment between the points is a diameter.",
+          "trap": null
+        }
+      ],
+      "explanation": "The center is on the perpendicular bisector of the chord, x = 8. Half the chord is 12, so the center is √(13² − 12²) = 5 units above or below y = 2. The greatest possible y-coordinate is 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where is the center relative to the chord?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the chord, its perpendicular bisector and a radius."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000459",
+      "correct_answer": "10.5",
+      "accepted_answers": [
+        "10.5",
+        "21/2"
+      ],
+      "common_errors": [
+        {
+          "value": "1.5",
+          "rationale": "1.5 squares the 3-unit difference in the radii.",
+          "trap": null
+        },
+        {
+          "value": "63",
+          "rationale": "63 omits the 60/360 fraction.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The region is the 60° sector of the large circle minus the 60° sector of the small circle: (60/360)(π · 12² − π · 9²) = (1/6)(144 − 81)π = 10.5π. So k = 10.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "What fraction of a full circle is 60°?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two sector areas."
       }
     }
   ]
