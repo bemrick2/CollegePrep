@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 5,
+ "plan": "SAT Math batch 5: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; one hard item. Ideas that matched ACT 456/519 (f(x + 2) ratio), 017 (median from frequency table), 027 (rational proportion) and 521 (√(x + 7) = x − 5) were dropped before drafting. Q005-05 relabelled medium after the blind solver rated it medium (graphing the choices shortcuts the discriminant setup).",
+ "candidates": [
+  {
+   "cand": "Q005-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear inequality in function notation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The function f is defined by f(x) = 7 − 2x. For which values of x is f(x) < 1 ?",
+   "explanation": "f(x) < 1 means 7 − 2x < 1, so −2x < −6. Dividing by −2 reverses the inequality: x > 3.",
+   "hints": [
+    "Write 7 − 2x < 1 and solve for x."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 4: f(4) = −1, which is less than 1."
+   },
+   "remember": "Dividing an inequality by a negative number reverses it.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x < 3",
+    "B": "x < −3",
+    "C": "x > −3",
+    "D": "x > 3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "x < 3 forgets to reverse the inequality when dividing by −2.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "x < −3 drops the negative sign on −6 and does not reverse the inequality.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "x > −3 reverses the inequality but loses the sign of −6 / −2.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q005-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation with a fractional coefficient",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "(2/3)(x + 6) = 10\nWhat value of x satisfies the equation above?",
+   "explanation": "Multiplying both sides by 3/2 gives x + 6 = 15, so x = 9.",
+   "hints": [
+    "Multiply both sides by 3/2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Clear the fraction first, then subtract 6."
+   },
+   "remember": "Undo the fraction before solving for x.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "9",
+   "accepted_answers": [
+    "9"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 is the value of x + 6.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "1/3",
+     "rationale": "1/3 multiplies 10 by 2/3 instead of dividing.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q005-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Intercepts of a line in standard form",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of 2x + 5y = 20 crosses the x-axis at (a, 0) and the y-axis at (0, b). What is the value of a − b ?",
+   "explanation": "Setting y = 0 gives 2x = 20, so a = 10. Setting x = 0 gives 5y = 20, so b = 4. Then a − b = 10 − 4 = 6.",
+   "hints": [
+    "Set y = 0 to find a and x = 0 to find b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find each intercept separately."
+   },
+   "remember": "At an x-intercept y = 0; at a y-intercept x = 0.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−6",
+    "B": "6",
+    "C": "10",
+    "D": "14"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−6 swaps the intercepts, computing b − a.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "10 is the value of a alone.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "14 is a + b, not a − b.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q005-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Product of the solutions of a quadratic equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the product of the solutions to the equation x(x + 2) = 2x + 9 ?",
+   "explanation": "Expanding gives x² + 2x = 2x + 9, so x² = 9 and x = 3 or x = −3. Their product is −9.",
+   "hints": [
+    "Expand the left side and collect terms."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Simplify to x² = 9."
+   },
+   "remember": "Collect like terms before solving; the x-terms may cancel.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "-9",
+   "accepted_answers": [
+    "-9"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 drops the sign: the solutions are 3 and −3.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "3",
+     "rationale": "3 is only the positive solution.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q005-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Condition for a line to meet a parabola once",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of y = 2x + k, where k is a constant, intersects the graph of y = x² at exactly one point. What is the value of k ?",
+   "explanation": "Setting x² = 2x + k gives x² − 2x − k = 0. There is exactly one solution when the discriminant is zero: (−2)² − 4(1)(−k) = 4 + 4k = 0, so k = −1. Check: x² − 2x + 1 = (x − 1)² = 0.",
+   "hints": [
+    "Set the two expressions for y equal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Exactly one intersection means the resulting quadratic has a discriminant of 0."
+   },
+   "remember": "One intersection point ↔ discriminant = 0.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−1",
+    "B": "0",
+    "C": "1",
+    "D": "4"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "With k = 0 the line y = 2x meets the parabola at (0, 0) and (2, 4).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1 comes from solving 4 − 4k = 0, using the wrong sign for c.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "4 is the value of b² alone.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q005-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Constant term from the distance between zeros",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x² − 8x + c, where c is a constant. The graph of y = f(x) has two x-intercepts that are 6 units apart. What is the value of c ?",
+   "explanation": "The axis of symmetry is x = 4, so the x-intercepts are 3 units on each side: x = 1 and x = 7. Then f(x) = (x − 1)(x − 7) = x² − 8x + 7, so c = 7.",
+   "hints": [
+    "Where is the axis of symmetry?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Place the two zeros 3 units on either side of x = 4."
+   },
+   "remember": "Zeros are symmetric about the vertex's x-coordinate.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "7",
+    "B": "12",
+    "C": "16",
+    "D": "25"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "12 treats 6 as one of the zeros: 36 − 48 + c = 0.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "16 gives a single x-intercept at x = 4.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "25 adds 9 to 16 instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q005-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Population density after a change",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A county has an area of 840 square miles and a population density of 125 people per square mile. If the population increases by 21,000 people and the area does not change, what will the population density be, in people per square mile?",
+   "explanation": "The current population is 125 × 840 = 105,000. The new population is 126,000, and 126,000 ÷ 840 = 150 people per square mile.",
+   "hints": [
+    "Find the current population first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Population = density × area."
+   },
+   "remember": "Density = population ÷ area.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "25",
+    "B": "125",
+    "C": "150",
+    "D": "1,500"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "25 is the density of the added people alone.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "125 is the current density.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "1,500 misplaces the decimal point.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q005-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Counting from a conditional percent",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In a survey of 250 people, 140 owned a bicycle. Of the people who owned a bicycle, 60% also owned a car. Of the people who did not own a bicycle, 30 owned a car. How many of the people surveyed owned a car?",
+   "explanation": "Of the 140 bicycle owners, 0.60 × 140 = 84 own a car. Adding the 30 non-owners who own a car gives 84 + 30 = 114.",
+   "hints": [
+    "How many bicycle owners own a car?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Make a two-way table: bicycle / no bicycle by car / no car."
+   },
+   "remember": "Apply a percent to the group it describes.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "114",
+   "accepted_answers": [
+    "114"
+   ],
+   "common_errors": [
+    {
+     "value": "84",
+     "rationale": "84 counts only the bicycle owners who own a car.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "170",
+     "rationale": "170 adds 140 and 30, counting all bicycle owners.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q005-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Cosine from two sides of a right triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle RST, angle T is the right angle, RS = 20, and ST = 12. What is the value of cos R ?",
+   "explanation": "RS is the hypotenuse. By the Pythagorean theorem, RT = √(20² − 12²) = 16. cos R = adjacent/hypotenuse = RT/RS = 16/20 = 4/5.",
+   "hints": [
+    "Which side is adjacent to angle R?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle and find RT first."
+   },
+   "remember": "cos = adjacent / hypotenuse.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3/5",
+    "B": "3/4",
+    "C": "4/5",
+    "D": "5/4"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "3/5 is sin R = 12/20.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "3/4 is tan R = 12/16.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "5/4 inverts the ratio, giving hypotenuse/adjacent.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q005-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Hypotenuse from area and a leg ratio",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "The lengths of the legs of a right triangle are 3x and 4x, where x is positive. The area of the triangle is 150 square units. What is the length of the hypotenuse, in units?",
+   "explanation": "Area = (1/2)(3x)(4x) = 6x² = 150, so x² = 25 and x = 5. The legs are 15 and 20, and the hypotenuse is 5x = 25.",
+   "hints": [
+    "Write the area in terms of x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 6x² = 150, then use the 3-4-5 pattern."
+   },
+   "remember": "Area of a right triangle = (1/2)(leg)(leg).",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "5",
+    "B": "15",
+    "C": "20",
+    "D": "25"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "5 is the value of x.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "15 is the shorter leg.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "20 is the longer leg.",
+     "trap": "wrong_quantity"
+    }
+   }
+  }
+ ]
+}

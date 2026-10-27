@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 4,
+  "bank_version": 5,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -761,6 +761,209 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Compute both counts, then subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000038",
+      "correct_answer": "D",
+      "explanation": "f(x) < 1 means 7 − 2x < 1, so −2x < −6. Dividing by −2 reverses the inequality: x > 3.",
+      "distractor_explanations": {
+        "A": "x < 3 forgets to reverse the inequality when dividing by −2.",
+        "B": "x < −3 drops the negative sign on −6 and does not reverse the inequality.",
+        "C": "x > −3 reverses the inequality but loses the sign of −6 / −2."
+      },
+      "hints": [
+        "Write 7 − 2x < 1 and solve for x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 4: f(4) = −1, which is less than 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000039",
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is the value of x + 6.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1/3",
+          "rationale": "1/3 multiplies 10 by 2/3 instead of dividing.",
+          "trap": null
+        }
+      ],
+      "explanation": "Multiplying both sides by 3/2 gives x + 6 = 15, so x = 9.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by 3/2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear the fraction first, then subtract 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000040",
+      "correct_answer": "B",
+      "explanation": "Setting y = 0 gives 2x = 20, so a = 10. Setting x = 0 gives 5y = 20, so b = 4. Then a − b = 10 − 4 = 6.",
+      "distractor_explanations": {
+        "A": "−6 swaps the intercepts, computing b − a.",
+        "C": "10 is the value of a alone.",
+        "D": "14 is a + b, not a − b."
+      },
+      "hints": [
+        "Set y = 0 to find a and x = 0 to find b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each intercept separately."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000041",
+      "correct_answer": "-9",
+      "accepted_answers": [
+        "-9"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 drops the sign: the solutions are 3 and −3.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "3",
+          "rationale": "3 is only the positive solution.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Expanding gives x² + 2x = 2x + 9, so x² = 9 and x = 3 or x = −3. Their product is −9.",
+      "distractor_explanations": {},
+      "hints": [
+        "Expand the left side and collect terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify to x² = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000042",
+      "correct_answer": "A",
+      "explanation": "Setting x² = 2x + k gives x² − 2x − k = 0. There is exactly one solution when the discriminant is zero: (−2)² − 4(1)(−k) = 4 + 4k = 0, so k = −1. Check: x² − 2x + 1 = (x − 1)² = 0.",
+      "distractor_explanations": {
+        "B": "With k = 0 the line y = 2x meets the parabola at (0, 0) and (2, 4).",
+        "C": "1 comes from solving 4 − 4k = 0, using the wrong sign for c.",
+        "D": "4 is the value of b² alone."
+      },
+      "hints": [
+        "Set the two expressions for y equal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Exactly one intersection means the resulting quadratic has a discriminant of 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000043",
+      "correct_answer": "A",
+      "explanation": "The axis of symmetry is x = 4, so the x-intercepts are 3 units on each side: x = 1 and x = 7. Then f(x) = (x − 1)(x − 7) = x² − 8x + 7, so c = 7.",
+      "distractor_explanations": {
+        "B": "12 treats 6 as one of the zeros: 36 − 48 + c = 0.",
+        "C": "16 gives a single x-intercept at x = 4.",
+        "D": "25 adds 9 to 16 instead of subtracting it."
+      },
+      "hints": [
+        "Where is the axis of symmetry?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Place the two zeros 3 units on either side of x = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000044",
+      "correct_answer": "C",
+      "explanation": "The current population is 125 × 840 = 105,000. The new population is 126,000, and 126,000 ÷ 840 = 150 people per square mile.",
+      "distractor_explanations": {
+        "A": "25 is the density of the added people alone.",
+        "B": "125 is the current density.",
+        "D": "1,500 misplaces the decimal point."
+      },
+      "hints": [
+        "Find the current population first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Population = density × area."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000045",
+      "correct_answer": "114",
+      "accepted_answers": [
+        "114"
+      ],
+      "common_errors": [
+        {
+          "value": "84",
+          "rationale": "84 counts only the bicycle owners who own a car.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "170",
+          "rationale": "170 adds 140 and 30, counting all bicycle owners.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Of the 140 bicycle owners, 0.60 × 140 = 84 own a car. Adding the 30 non-owners who own a car gives 84 + 30 = 114.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many bicycle owners own a car?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a two-way table: bicycle / no bicycle by car / no car."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000046",
+      "correct_answer": "C",
+      "explanation": "RS is the hypotenuse. By the Pythagorean theorem, RT = √(20² − 12²) = 16. cos R = adjacent/hypotenuse = RT/RS = 16/20 = 4/5.",
+      "distractor_explanations": {
+        "A": "3/5 is sin R = 12/20.",
+        "B": "3/4 is tan R = 12/16.",
+        "D": "5/4 inverts the ratio, giving hypotenuse/adjacent."
+      },
+      "hints": [
+        "Which side is adjacent to angle R?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and find RT first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000047",
+      "correct_answer": "D",
+      "explanation": "Area = (1/2)(3x)(4x) = 6x² = 150, so x² = 25 and x = 5. The legs are 15 and 20, and the hypotenuse is 5x = 25.",
+      "distractor_explanations": {
+        "A": "5 is the value of x.",
+        "B": "15 is the shorter leg.",
+        "C": "20 is the longer leg."
+      },
+      "hints": [
+        "Write the area in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 6x² = 150, then use the 3-4-5 pattern."
       }
     }
   ]
