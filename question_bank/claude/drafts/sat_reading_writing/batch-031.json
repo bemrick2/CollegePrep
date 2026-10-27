@@ -1,6 +1,12 @@
 {
  "bank": "sat_reading_writing",
  "batch": 31,
+ "revision_log": [
+  {
+   "round": 2,
+   "reason": "Round-1 blind solves matched every key with no substantive flags but noted cues: S031-02's 'only if' nearly defined the key, S031-03's key was the only hedged choice, S031-05's key was the only choice comparing seasons, and S031-01's distractors were weak. Reworded 02's text and one distractor, hedged 03's distractors, made one 05 distractor a seasonal comparison, replaced two 01 distractors, and changed 'Arctic voyage' to 'North Atlantic voyage' in 09. Whole batch re-solved blind."
+  }
+ ],
  "plan": "Ten new items; topics checked against bank titles, avoiding the bank's over-used tone-of-statement WIC keys (diplomatic, equivocal, noncommittal, measured): faithful to/conditional WIC, tortoise alternative-cause inference, crow-park weakening evidence, solar-panel cleaning two-difference data, sea-monster maps cross-text, qanat synthesis with definition trap, Hunga Tonga 'Instead,', semicolon series, finite verb after long subject.",
  "passages": [
   {
@@ -14,8 +20,8 @@
    "passage_id": "CLD-P-SAT-RW-000292",
    "title": "Returning the collection",
    "genre": "museums",
-   "word_count": 34,
-   "text": "The museum's offer to return the carved masks to the community that made them was ______: it would take effect only if the community could show that it had climate-controlled storage for the masks."
+   "word_count": 32,
+   "text": "The museum's offer to return the carved masks to the community that made them was ______: the museum would send the masks only after the community had built climate-controlled storage for them."
   },
   {
    "passage_id": "CLD-P-SAT-RW-000293",
@@ -63,8 +69,8 @@
    "passage_id": "CLD-P-SAT-RW-000299",
    "title": "Three stops",
    "genre": "travel",
-   "word_count": 17,
-   "text": "The research vessel's three stops on its Arctic voyage were Reykjavík, ______ Nuuk, Greenland; and Iqaluit, Canada."
+   "word_count": 18,
+   "text": "The research vessel's three stops on its North Atlantic voyage were Reykjavík, ______ Nuuk, Greenland; and Iqaluit, Canada."
   },
   {
    "passage_id": "CLD-P-SAT-RW-000300",
@@ -87,8 +93,8 @@
    "choices": {
     "A": "a departure from",
     "B": "faithful to",
-    "C": "superior to",
-    "D": "indifferent to"
+    "C": "an improvement on",
+    "D": "a simplification of"
    },
    "answer": "B",
    "evidence": "reproduced the painted ceiling and gilded balconies exactly",
@@ -99,11 +105,11 @@
      "trap": null
     },
     "C": {
-     "rationale": "Nothing suggests the restoration improves on the original; the point is how closely it matches.",
+     "rationale": "Nothing suggests the restoration improves on the original's appearance; the point is how closely it matches.",
      "trap": null
     },
     "D": {
-     "rationale": "A building cannot be indifferent, and the careful copying shows the opposite of indifference.",
+     "rationale": "Reproducing the ceiling and balconies exactly is the opposite of simplifying them.",
      "trap": null
     }
    },
@@ -134,19 +140,19 @@
    "choices": {
     "A": "conditional",
     "B": "irrevocable",
-    "C": "anonymous",
+    "C": "immediate",
     "D": "unprecedented"
    },
    "answer": "A",
-   "evidence": "it would take effect only if",
-   "explanation": "The offer depends on a requirement (\"only if\"), so it is \"conditional.\"",
+   "evidence": "only after the community had built",
+   "explanation": "The return depends on a requirement being met first (storage must be built), so the offer is \"conditional.\"",
    "distractors": {
     "B": {
      "rationale": "An offer that depends on a requirement being met can still fail to take effect, so it is not irrevocable.",
      "trap": null
     },
     "C": {
-     "rationale": "The offer comes from the named museum.",
+     "rationale": "The masks would be sent only after storage was built, so the offer was not immediate.",
      "trap": null
     },
     "D": {
@@ -155,13 +161,13 @@
     }
    },
    "hints": [
-    "What does \"only if\" tell you about the offer?"
+    "What must happen before the masks are sent?"
    ],
    "strategy": {
     "key": "predict_then_match",
     "explanation": "Predict \"depending on something.\""
    },
-   "remember": "\"Only if\" introduces a condition.",
+   "remember": "An offer that depends on a requirement is conditional.",
    "expected_time_seconds": 35,
    "modeling": false,
    "author_checklist": {
@@ -179,9 +185,9 @@
    "difficulty": "medium",
    "stem": "Which choice most logically completes the text?",
    "choices": {
-    "A": "shows that the drier climate was caused by human activity on the island.",
-    "B": "proves that the tortoises died out because their food plants declined.",
-    "C": "suggests that the tortoises had disappeared before humans arrived.",
+    "A": "suggests that the drier climate was probably caused by human activity on the island.",
+    "B": "indicates that the tortoises most likely died out because their food plants declined.",
+    "C": "suggests that the tortoises may have disappeared well before humans arrived.",
     "D": "does not establish that humans were responsible for the tortoises' extinction."
    },
    "answer": "D",
@@ -193,7 +199,7 @@
      "trap": "out_of_scope"
     },
     "B": {
-     "rationale": "The text raises the climate as a possibility; it does not prove it was the cause.",
+     "rationale": "The text raises the climate as a possibility; it does not judge it the more likely cause.",
      "trap": "extreme_language"
     },
     "C": {
@@ -274,7 +280,7 @@
    "stem": "Which choice best describes data from the table that support the researchers' conclusion?",
    "choices": {
     "A": "Without cleaning, output fell 21 points from weekly levels in the dry season but only 4 in the rainy season.",
-    "B": "Panels cleaned weekly produced 96% of maximum output in the dry season and 97% in the rainy season.",
+    "B": "Weekly cleaning produced 1 point less output in the dry season than in the rainy season, 96% compared with 97%.",
     "C": "Panels that were never cleaned produced the lowest output of the three schedules in both seasons.",
     "D": "Weekly cleaning produced the highest output of the three schedules in the rainy season, 97% of maximum."
    },
