@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 44,
-  "updated_at": "2026-10-27T15:18:27+00:00",
+  "version": 45,
+  "updated_at": "2026-10-27T15:19:44+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-SAT-RW-000001",
@@ -4447,6 +4447,28 @@
       "word_count": 79,
       "text": "For decades, historians described the town's 1890s building boom as the work of outside investors who arrived with the railroad. Historian Imani Torres questions this account. Examining property records, she found that more than half of the new buildings were financed by local families who had lived in the town since before the railroad came. Torres does not deny that the railroad mattered; rather, she argues that it gave existing residents a reason to invest in their own town.",
       "batch": 44,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000416",
+      "title": "Three venues",
+      "genre": "arts",
+      "word_count": 32,
+      "text": "This year's festival used three ______ a converted grain mill, which hosted the film screenings; a riverside tent, which held the evening concerts; and the town library, which housed the poetry readings.",
+      "batch": 45,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000419",
+      "title": "Notes on a bridge",
+      "genre": "engineering history",
+      "word_count": 83,
+      "text": "While researching a topic, a student has taken the following notes:\n- The Tacoma Narrows Bridge in Washington State opened in July 1940.\n- Its deck was unusually narrow and shallow for its length.\n- In November 1940, a steady wind of about 40 miles per hour set the deck twisting.\n- The twisting grew until the main span collapsed; no people were killed.\n- After the collapse, testing scale models in wind tunnels became a standard step in designing long suspension bridges.",
+      "batch": 45,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -33175,6 +33197,150 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_reading_writing/batch-044.review.json",
         "computation": "checks/sat_reading_writing/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000405",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Colon before a list",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000416",
+      "underline": null,
+      "evidence": "a converted grain mill, which hosted the film screenings",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "venues;",
+        "B": "venues:",
+        "C": "venues",
+        "D": "venues, such as:"
+      },
+      "correct_answer": "B",
+      "explanation": "An independent clause (\"This year's festival used three venues\") introduces a list, so a colon is correct.",
+      "distractor_explanations": {
+        "A": "A semicolon must separate two independent clauses or items in a complex list; it cannot introduce the list.",
+        "C": "Without punctuation, the list runs directly into the clause it explains.",
+        "D": "A colon cannot come directly after \"such as,\" which must lead straight into its examples."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the first part of the sentence a complete clause?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check what comes before and after the blank."
+      },
+      "remember": "A colon follows a complete clause and introduces a list or explanation.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "S045-01",
+      "created_at": "2026-10-27T15:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_reading_writing/batch-045.review.json",
+        "computation": "checks/sat_reading_writing/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000406",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Rhetorical synthesis (explaining a consequence)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000419",
+      "underline": null,
+      "evidence": "testing scale models in wind tunnels became a standard step",
+      "figure": null,
+      "stem": "The student wants to explain how the collapse influenced later bridge design. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The Tacoma Narrows Bridge opened in July 1940 and collapsed in November of the same year, although no people were killed.",
+        "B": "After the Tacoma Narrows Bridge twisted apart in a steady wind in 1940, wind-tunnel testing of scale models became standard for long bridges.",
+        "C": "The deck of the Tacoma Narrows Bridge, which opened in July 1940, was unusually narrow and shallow for the length of its main span.",
+        "D": "A steady wind of about 40 miles per hour set the deck of the Tacoma Narrows Bridge twisting until it fell."
+      },
+      "correct_answer": "B",
+      "explanation": "The goal is the collapse's influence on later design. Only this choice links the collapse to wind-tunnel testing becoming a standard step in bridge design.",
+      "distractor_explanations": {
+        "A": "This gives the dates and outcome of the collapse but not its influence on later design.",
+        "C": "This describes the bridge's design, not how the collapse changed later designs.",
+        "D": "This explains the collapse but not its influence on later bridge design."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which note describes what happened afterward?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the choice that connects the event to its later effect."
+      },
+      "remember": "Synthesis choices must address the stated goal.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 45,
+      "draft_candidate": "S045-02",
+      "created_at": "2026-10-27T15:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: B says 'long bridges' where the notes say 'long suspension bridges'; acceptable but slightly less precise"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_reading_writing/batch-045.review.json",
+        "computation": "checks/sat_reading_writing/batch_045.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

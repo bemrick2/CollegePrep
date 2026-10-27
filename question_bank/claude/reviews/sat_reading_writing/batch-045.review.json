@@ -1,0 +1,89 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 45,
+  "reviewed_at": "2026-10-27T15:19:43+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 45
+  },
+  "counts": {
+    "PASS": 2,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000405",
+    "CLD-SAT-RW-000406"
+  ],
+  "results": [
+    {
+      "cand": "S045-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "S044-04",
+          "status": "WITHDRAWN",
+          "reason": "Both solvers: choice D (\"venues, which were\") is arguably grammatical, giving two defensible answers."
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Inserted each choice. B: colon after the complete independent clause 'This year's festival used three venues' correctly introduces the list, whose items contain commas and are separated by semicolons. A: a semicolon would leave the list as a fragment after it. C: no punctuation creates a run-together 'three venues a converted grain mill'. D: a colon after 'such as' is nonstandard, and 'such as' wrongly suggests a partial list when the text says exactly three venues. Only B works.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000405"
+    },
+    {
+      "cand": "S045-02",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "S044-07",
+          "status": "WITHDRAWN",
+          "reason": "Solver 1: scale-model studies of the bridge had begun shortly before the collapse, so \"afterward began\" is inexact."
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: B says 'long bridges' where the notes say 'long suspension bridges'; acceptable but slightly less precise"
+      ],
+      "blind_notes": "The goal is the collapse's influence on later design, and only B links the 1940 collapse to wind-tunnel testing of scale models becoming standard. A, C and D give dates, structure or the cause of failure without saying anything about later design. The facts check out: the bridge opened July 1940 and collapsed November 7, 1940 in winds of about 40-42 mph; no people died (a dog did); and wind-tunnel testing of scale models became standard practice for suspension bridges afterward.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: B says 'long bridges' while notes say 'long suspension bridges'; slight generalization but does not create a defensible alternative.",
+        "minor: notes say 'no people were killed' — accurate (a dog died), wording is careful and fine."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000406"
+    }
+  ]
+}
