@@ -1,0 +1,548 @@
+{
+ "bank": "sat_math",
+ "batch": 44,
+ "plan": "SAT Math batch 44: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2 (with the 2 resubmissions); 9 student-produced responses. Ideas U02-U05, V01-V03, W01, Y01, Y02 from generated set 5 (independently pre-checked: no copy or template matches; U01, U06, W04 templates dropped; Y05, W03, U11, V10 dropped for cues), plus revised resubmissions of Q043-06 and Q043-11. Relabelled to the blind solver's rating where it was lower: Q044-06 hard→medium, Q044-08 hard→medium, Q044-09 hard→medium.",
+ "candidates": [
+  {
+   "cand": "Q044-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope forced by two points with swapped coordinates",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "The linear function f satisfies f(0) = 10, f(3) = k, and f(k) = 3, where k is a constant and k ≠ 3. What is the value of k ?",
+   "explanation": "The points (3, k) and (k, 3) are both on the graph, so the slope is (3 − k)/(k − 3) = −1 (since k ≠ 3). With f(0) = 10, f(x) = 10 − x, and k = f(3) = 7. Check: f(7) = 3.",
+   "hints": [
+    "What is the slope between (3, k) and (k, 3)?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute the slope from the two points with swapped coordinates."
+   },
+   "remember": "Swapped coordinates give a slope of −1.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that swapped coordinates force a slope of −1; setting up two unknowns without that insight stalls most solvers."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "10",
+     "rationale": "10 is f(0), the y-intercept.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "13",
+     "rationale": "13 assumes a slope of 1, so f(3) = 10 + 3.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q044-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solution of a system that does not depend on an unknown coefficient",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the system of equations 3x + 5y = 11 and 6x + ky = 22, k is a constant and k ≠ 10. What is the value of x in the solution (x, y) of the system?",
+   "explanation": "Doubling the first equation gives 6x + 10y = 22. Subtracting it from the second gives (k − 10)y = 0, and since k ≠ 10, y = 0. Then 3x = 11 and x = 11/3, whatever the value of k.",
+   "hints": [
+    "Compare the second equation with twice the first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Eliminate x by doubling the first equation."
+   },
+   "remember": "Sometimes an unknown coefficient drops out.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must notice that the constants are in the same ratio, so y = 0 for every allowed k; many try to find k first."
+   },
+   "format": "spr",
+   "answer": "11/3",
+   "accepted_answers": [
+    "11/3",
+    "3.666",
+    "3.667"
+   ],
+   "common_errors": [
+    {
+     "value": "0",
+     "rationale": "0 is the value of y, not x.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "2",
+     "rationale": "2 assumes y = 1 without solving.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q044-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Least integer parameter from a condition on a system solution",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the system of equations x + y = 10 and x − y = k, k is a constant. If the solution (x, y) of the system satisfies x > 2y, what is the least possible integer value of k ?",
+   "explanation": "Adding and subtracting the equations gives x = (10 + k)/2 and y = (10 − k)/2. The condition x > 2y becomes 10 + k > 20 − 2k, so 3k > 10 and k > 10/3. The least integer greater than 10/3 is 4.",
+   "hints": [
+    "Solve the system for x and y in terms of k."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute the solution into x > 2y."
+   },
+   "remember": "A strict inequality excludes its boundary.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 rounds 10/3 down instead of up.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "6",
+     "rationale": "6 doubles 10 − k as 20 − k, giving k > 5.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q044-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Additional time at a constant drain rate from fractions of an unknown amount",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The water in a tank drains at a constant rate. Ten minutes after draining starts, the tank holds 3/4 of the water it started with. How many more minutes will it take until the tank holds 2/5 of the water it started with?",
+   "explanation": "In 10 minutes the tank loses 1/4 of its starting amount, so it drains 1/40 of the starting amount per minute. From 3/4 to 2/5 it must lose 3/4 − 2/5 = 7/20 more, which takes (7/20) ÷ (1/40) = 14 minutes.",
+   "hints": [
+    "What fraction of the starting amount drains each minute?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Pretend the tank starts with 120 liters."
+   },
+   "remember": "Pick a convenient starting amount when none is given.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "14",
+   "accepted_answers": [
+    "14"
+   ],
+   "common_errors": [
+    {
+     "value": "24",
+     "rationale": "24 is the total time from the start, not the additional time.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "30",
+     "rationale": "30 is the time to empty the tank after the first 10 minutes.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q044-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum of a quadratic model after finding a coefficient from the vertex",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The height, in feet, of a fountain's stream is modeled by h(x) = −0.5x² + bx + 2, where x is the horizontal distance, in feet, from the nozzle and b is a constant. The stream is highest at x = 4. What is the greatest height of the stream, in feet?",
+   "explanation": "The vertex is at x = −b/(2 · (−0.5)) = b, so b = 4. Then h(4) = −0.5(16) + 4(4) + 2 = −8 + 16 + 2 = 10 feet.",
+   "hints": [
+    "Use the vertex formula x = −b/(2a)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find b, then evaluate h at the vertex."
+   },
+   "remember": "The vertex gives both where and how high the maximum is.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "8",
+    "D": "10"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "2 is h(0), the height at the nozzle.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "4 is the value of b and the x-coordinate of the vertex.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "8 leaves out the constant term 2.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q044-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Linear versus exponential models through the same two points",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A linear function L and an exponential function E, where E(x) = a · bˣ with b > 0, satisfy L(0) = E(0) = 50 and L(2) = E(2) = 98. What is the value of L(1) − E(1) ?",
+   "explanation": "L(1) is halfway between 50 and 98, so L(1) = 74. For E, a = 50 and b² = 98/50 = 1.96, so b = 1.4 and E(1) = 70. The difference is 74 − 70 = 4.",
+   "hints": [
+    "Find L(1) and E(1) separately."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the midpoint for L and b² = 98/50 for E."
+   },
+   "remember": "Linear: equal differences. Exponential: equal ratios.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "0",
+     "rationale": "0 assumes the models agree between the two points.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "74",
+     "rationale": "74 is L(1), not the difference.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q044-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Change in height from a radical model solved twice",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The distance d, in miles, to the horizon for an observer h feet above the ground is approximately d = √(1.5h). An observer at a lookout sees the horizon 6 miles away. About how many feet higher must the observer climb to see the horizon 9 miles away?",
+   "explanation": "Solving for h gives h = d²/1.5. For 6 miles, h = 36/1.5 = 24 feet; for 9 miles, h = 81/1.5 = 54 feet. The observer must climb 54 − 24 = 30 feet.",
+   "hints": [
+    "Solve the model for h."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find both heights, then subtract."
+   },
+   "remember": "Square both sides to undo a square root.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6",
+    "B": "30",
+    "C": "54",
+    "D": "67.5"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6 squares the 3-mile change: 3²/1.5.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "54 is the height needed for 9 miles, not the extra climb.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "67.5 uses h = 1.5d²: 121.5 − 54.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q044-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Unknown input from two residuals sharing an actual value",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A line of best fit for a data set is y = 1.8x + 12. The data point with x = 15 has a residual of 4. Another data point has the same y-value as that point and a residual of −5. What is the x-value of the second data point?",
+   "explanation": "The first point's predicted value is 1.8(15) + 12 = 39, and its residual is 4, so its actual y-value is 43. For the second point, actual − predicted = −5, so the predicted value is 43 + 5 = 48. Then 1.8x + 12 = 48 and x = 20.",
+   "hints": [
+    "Residual = actual − predicted."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the shared actual y-value first."
+   },
+   "remember": "A negative residual means the point is below the line.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "20",
+   "accepted_answers": [
+    "20"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 assumes the second point has the same x-value.",
+     "trap": null
+    },
+    {
+     "value": "14.44",
+     "rationale": "14.44 subtracts 5 instead of adding it: 1.8x + 12 = 38.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q044-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inner arc length from the difference of two concentric arcs",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Two runners run counterclockwise on circular paths with the same center, one with radius 30 meters and the other with radius 36 meters. Both start on the same ray from the center and stop on another such ray, so both sweep through the same central angle. The runner on the outer path runs 12 meters farther than the runner on the inner path. How many meters does the runner on the inner path run?",
+   "explanation": "With central angle θ in radians, the distances are 30θ and 36θ. Then 36θ − 30θ = 6θ = 12, so θ = 2, and the inner runner runs 30 × 2 = 60 meters.",
+   "hints": [
+    "Write each distance as radius × angle."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract the two arc lengths."
+   },
+   "remember": "Arc length = rθ with θ in radians.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "60",
+   "accepted_answers": [
+    "60"
+   ],
+   "common_errors": [
+    {
+     "value": "2",
+     "rationale": "2 is the central angle in radians, not a distance.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "72",
+     "rationale": "72 is the distance run on the outer path.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q044-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inscribed angle that intercepts the major arc",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Points A, B, and C lie on a circle with center O. Central angle AOB measures 110°, and point C lies on minor arc AB. What is the measure of angle ACB ?",
+   "explanation": "Since C is on minor arc AB, angle ACB intercepts the major arc AB, which measures 360° − 110° = 250°. An inscribed angle is half its intercepted arc, so angle ACB = 125°.",
+   "hints": [
+    "Which arc does angle ACB intercept?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Place C on the short arc and draw the angle."
+   },
+   "remember": "An inscribed angle is half of the arc it intercepts.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that C on the minor arc means the angle intercepts the major arc; half of 110° is a strong trap."
+   },
+   "choices": {
+    "A": "55°",
+    "B": "70°",
+    "C": "110°",
+    "D": "125°"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "55° is half of 110°, which is correct only if C is on the major arc.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "70° takes the supplement of the central angle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "110° sets the inscribed angle equal to the central angle.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q044-11",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Original total from probabilities before and after a removal",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A bag contains only red and blue marbles. The probability of drawing a red marble at random is 2/5. After 6 red marbles are removed, the probability of drawing a red marble at random is 1/4. How many marbles were in the bag originally?",
+   "explanation": "Let n be the original number of marbles, so 0.4n are red. After the removal, (0.4n − 6)/(n − 6) = 1/4, so 1.6n − 24 = n − 6, 0.6n = 18 and n = 30. Check: 12 red of 30, then 6 red of 24.",
+   "hints": [
+    "Write the number of red marbles in terms of n."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Remember the total also drops by 6."
+   },
+   "remember": "Removing items changes the denominator too.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "answer": "30",
+   "format": "spr",
+   "accepted_answers": [
+    "30"
+   ],
+   "common_errors": [
+    {
+     "value": "40",
+     "rationale": "40 keeps the total unchanged: (0.4n − 6)/n = 1/4.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "12",
+     "rationale": "12 is the original number of red marbles.",
+     "trap": "wrong_quantity"
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q043-11",
+     "status": "withdrawn after blind solve",
+     "reason": "blind solve: answer cue - P(red) = 2/5 forces the total to be a multiple of 5 and only the key (30) is; resubmitted as a student-produced response as Q044-11."
+    }
+   ]
+  },
+  {
+   "cand": "Q044-12",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Positive solution of a quadratic with an irrational coefficient",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the positive solution to the equation x² − 2√3x − 9 = 0 ?",
+   "explanation": "Completing the square: x² − 2√3x + 3 = 12, so (x − √3)² = 12 and x − √3 = ±2√3. The solutions are 3√3 and −√3, and the positive one is 3√3.",
+   "hints": [
+    "Complete the square."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add 3 to both sides to complete the square."
+   },
+   "remember": "Completing the square works with irrational coefficients too.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "√3",
+    "B": "2√3",
+    "C": "3√3",
+    "D": "6√3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "√3 is the absolute value of the negative solution −√3.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2√3 is √12; it forgets to add √3.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "6√3 uses the quadratic formula without dividing by 2.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q043-06",
+     "status": "withdrawn after blind solve",
+     "reason": "blind solve: eliminable choice - the negative choice −√3 is ruled out by \"positive solution\"; resubmitted with 6√3 in its place."
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 43,
+  "bank_version": 44,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -7759,6 +7759,300 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch both cases."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000397",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is f(0), the y-intercept.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "13",
+          "rationale": "13 assumes a slope of 1, so f(3) = 10 + 3.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The points (3, k) and (k, 3) are both on the graph, so the slope is (3 − k)/(k − 3) = −1 (since k ≠ 3). With f(0) = 10, f(x) = 10 − x, and k = f(3) = 7. Check: f(7) = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the slope between (3, k) and (k, 3)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute the slope from the two points with swapped coordinates."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000398",
+      "correct_answer": "11/3",
+      "accepted_answers": [
+        "11/3",
+        "3.666",
+        "3.667"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 is the value of y, not x.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 assumes y = 1 without solving.",
+          "trap": null
+        }
+      ],
+      "explanation": "Doubling the first equation gives 6x + 10y = 22. Subtracting it from the second gives (k − 10)y = 0, and since k ≠ 10, y = 0. Then 3x = 11 and x = 11/3, whatever the value of k.",
+      "distractor_explanations": {},
+      "hints": [
+        "Compare the second equation with twice the first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate x by doubling the first equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000399",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 rounds 10/3 down instead of up.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6",
+          "rationale": "6 doubles 10 − k as 20 − k, giving k > 5.",
+          "trap": null
+        }
+      ],
+      "explanation": "Adding and subtracting the equations gives x = (10 + k)/2 and y = (10 − k)/2. The condition x > 2y becomes 10 + k > 20 − 2k, so 3k > 10 and k > 10/3. The least integer greater than 10/3 is 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve the system for x and y in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute the solution into x > 2y."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000400",
+      "correct_answer": "14",
+      "accepted_answers": [
+        "14"
+      ],
+      "common_errors": [
+        {
+          "value": "24",
+          "rationale": "24 is the total time from the start, not the additional time.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is the time to empty the tank after the first 10 minutes.",
+          "trap": null
+        }
+      ],
+      "explanation": "In 10 minutes the tank loses 1/4 of its starting amount, so it drains 1/40 of the starting amount per minute. From 3/4 to 2/5 it must lose 3/4 − 2/5 = 7/20 more, which takes (7/20) ÷ (1/40) = 14 minutes.",
+      "distractor_explanations": {},
+      "hints": [
+        "What fraction of the starting amount drains each minute?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Pretend the tank starts with 120 liters."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000401",
+      "correct_answer": "D",
+      "explanation": "The vertex is at x = −b/(2 · (−0.5)) = b, so b = 4. Then h(4) = −0.5(16) + 4(4) + 2 = −8 + 16 + 2 = 10 feet.",
+      "distractor_explanations": {
+        "A": "2 is h(0), the height at the nozzle.",
+        "B": "4 is the value of b and the x-coordinate of the vertex.",
+        "C": "8 leaves out the constant term 2."
+      },
+      "hints": [
+        "Use the vertex formula x = −b/(2a)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b, then evaluate h at the vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000402",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 assumes the models agree between the two points.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "74",
+          "rationale": "74 is L(1), not the difference.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "L(1) is halfway between 50 and 98, so L(1) = 74. For E, a = 50 and b² = 98/50 = 1.96, so b = 1.4 and E(1) = 70. The difference is 74 − 70 = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find L(1) and E(1) separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the midpoint for L and b² = 98/50 for E."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000403",
+      "correct_answer": "B",
+      "explanation": "Solving for h gives h = d²/1.5. For 6 miles, h = 36/1.5 = 24 feet; for 9 miles, h = 81/1.5 = 54 feet. The observer must climb 54 − 24 = 30 feet.",
+      "distractor_explanations": {
+        "A": "6 squares the 3-mile change: 3²/1.5.",
+        "C": "54 is the height needed for 9 miles, not the extra climb.",
+        "D": "67.5 uses h = 1.5d²: 121.5 − 54."
+      },
+      "hints": [
+        "Solve the model for h."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both heights, then subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000404",
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 assumes the second point has the same x-value.",
+          "trap": null
+        },
+        {
+          "value": "14.44",
+          "rationale": "14.44 subtracts 5 instead of adding it: 1.8x + 12 = 38.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The first point's predicted value is 1.8(15) + 12 = 39, and its residual is 4, so its actual y-value is 43. For the second point, actual − predicted = −5, so the predicted value is 43 + 5 = 48. Then 1.8x + 12 = 48 and x = 20.",
+      "distractor_explanations": {},
+      "hints": [
+        "Residual = actual − predicted."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the shared actual y-value first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000405",
+      "correct_answer": "60",
+      "accepted_answers": [
+        "60"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the central angle in radians, not a distance.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "72",
+          "rationale": "72 is the distance run on the outer path.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "With central angle θ in radians, the distances are 30θ and 36θ. Then 36θ − 30θ = 6θ = 12, so θ = 2, and the inner runner runs 30 × 2 = 60 meters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each distance as radius × angle."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two arc lengths."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000406",
+      "correct_answer": "D",
+      "explanation": "Since C is on minor arc AB, angle ACB intercepts the major arc AB, which measures 360° − 110° = 250°. An inscribed angle is half its intercepted arc, so angle ACB = 125°.",
+      "distractor_explanations": {
+        "A": "55° is half of 110°, which is correct only if C is on the major arc.",
+        "B": "70° takes the supplement of the central angle.",
+        "C": "110° sets the inscribed angle equal to the central angle."
+      },
+      "hints": [
+        "Which arc does angle ACB intercept?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Place C on the short arc and draw the angle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000407",
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 keeps the total unchanged: (0.4n − 6)/n = 1/4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the original number of red marbles.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let n be the original number of marbles, so 0.4n are red. After the removal, (0.4n − 6)/(n − 6) = 1/4, so 1.6n − 24 = n − 6, 0.6n = 18 and n = 30. Check: 12 red of 30, then 6 red of 24.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the number of red marbles in terms of n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Remember the total also drops by 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000408",
+      "correct_answer": "C",
+      "explanation": "Completing the square: x² − 2√3x + 3 = 12, so (x − √3)² = 12 and x − √3 = ±2√3. The solutions are 3√3 and −√3, and the positive one is 3√3.",
+      "distractor_explanations": {
+        "A": "√3 is the absolute value of the negative solution −√3.",
+        "B": "2√3 is √12; it forgets to add √3.",
+        "D": "6√3 uses the quadratic formula without dividing by 2."
+      },
+      "hints": [
+        "Complete the square."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add 3 to both sides to complete the square."
       }
     }
   ]

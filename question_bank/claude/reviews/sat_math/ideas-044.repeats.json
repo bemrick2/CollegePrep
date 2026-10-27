@@ -1,0 +1,329 @@
+{
+ "ideas": "generated set 5 (U/V/W/Y)",
+ "results": {
+  "U01": [
+   {
+    "other_id": "CLD-SAT-M-000029",
+    "severity": "template",
+    "why": "SAT-029: 'ax + 3 = 2x + b has no solution; which must be true?' with choices a = 2 and b = 3 / a = 2 and b ≠ 3 / a ≠ 2 / b = 3. U01's 'graphs of y = dx + c and y = 15x + 60 have no common point' is the same equation dx + c = 15x + 60 with no solution. Same asked condition pair (equal slope, unequal constant) and the same 2-clause choice design; the cost wrapper adds nothing. Also mirrors the released official SAT 'no solution, which must be true' format."
+   },
+   {
+    "other_id": "CLD-ACT-M-000161",
+    "severity": "close",
+    "why": "ACT-161: kx + 3 = 4x − 7 with no solution (k = 4). Same idea, one parameter."
+   }
+  ],
+  "U02": [],
+  "U03": [],
+  "U04": [],
+  "U05": [
+   {
+    "other_id": "CLD-SAT-M-000104",
+    "severity": "close",
+    "why": "SAT-104: 3/4 of a tank in 18 minutes, so a rate in fraction-per-minute, then the time for the whole. U05 also gets a rate from a fraction and an elapsed time, but asks the extra time between two fractions, so the asked quantity differs."
+   }
+  ],
+  "U06": [
+   {
+    "other_id": "CLD-ACT-M-000003",
+    "severity": "template",
+    "why": "ACT-003: 4x − 6y = 10, 6x + ky = 15, with the constants already in ratio; find k for infinitely many solutions. U06 is 3r + 4t = 27, 9r + kt = 81 (81 = 3·27); find k so the prices are not determined. Same setup and asked k, with only a context wrapper and the phrase 'not enough to find' to translate."
+   },
+   {
+    "other_id": "CLD-SAT-M-000080",
+    "severity": "close",
+    "why": "Infinitely-many-solutions system with unknown coefficients (asks a + b); the idea already names it."
+   }
+  ],
+  "U07": [],
+  "U08": [
+   {
+    "other_id": "CLD-SAT-M-000136",
+    "severity": "close",
+    "why": "Two values of a linear function, then another value (m + b = f(1) there, f(0) here). U08 only adds a 2×2 sum/difference step to get f(2) and f(6)."
+   }
+  ],
+  "U09": [],
+  "U10": [],
+  "U11": [],
+  "U12": [],
+  "U13": [
+   {
+    "other_id": "CLD-SAT-M-000306",
+    "severity": "close",
+    "why": "SAT-306 / batch-036 Q036-01 / ideas-gen-02 H04: a fixed fee plus a rate found from two totals. U13 asks for the fixed fee and turns one total into an average first. The core two-point linear fit is the same; the average step and the asked quantity differ."
+   }
+  ],
+  "V01": [
+   {
+    "other_id": "CLD-ACT-M-000531",
+    "severity": "close",
+    "why": "ACT-531: the maximum of −5t² + 30t + 2 with every coefficient given. V01 first recovers b from the vertex location, then finds the same maximum."
+   }
+  ],
+  "V02": [],
+  "V03": [],
+  "V04": [
+   {
+    "other_id": "CLD-SAT-M-000066",
+    "severity": "close",
+    "why": "SAT-066: a cylinder with h = 2r and a given volume. V04 uses the same h = 2r shape but sets volume = surface area (ACT-736 is the surface-area formula). The asked quantity is the same (r), but the equation differs."
+   }
+  ],
+  "V05": [
+   {
+    "other_id": "CLD-SAT-M-000016",
+    "severity": "close",
+    "why": "Line–parabola intersection, choosing one of two roots. V05 picks the root by context (falling) and asks for the height there."
+   }
+  ],
+  "V06": [],
+  "V07": [],
+  "V08": [],
+  "V09": [],
+  "V10": [],
+  "V11": [
+   {
+    "other_id": "CLD-ACT-M-000337",
+    "severity": "close",
+    "why": "ACT-337: ball dropped from 10 ft that rebounds to 3/5 of its height (asks the infinite total distance). V11 uses the same 10 and 60% setup but asks for the exponential model h(n). The asked quantity differs; consider changing the numbers. Also related: ACT-164 (bounce, half height)."
+   }
+  ],
+  "V12": [],
+  "V13": [
+   {
+    "other_id": "CLD-ACT-M-000658",
+    "severity": "close",
+    "why": "ACT-658: remaining mass after 3 half-lives (15 yr / 5 yr). V13 does the same computation twice (3 and 2 half-lives) and takes a ratio."
+   }
+  ],
+  "W01": [],
+  "W02": [],
+  "W03": [
+   {
+    "other_id": "CLD-ACT-M-000137",
+    "severity": "close",
+    "why": "ACT-137 merges two towns' data, a weighted combination where averaging the rates is the trap. W03 has the same weighted-vs-unweighted trap with sample percents. Different context and asked count."
+   }
+  ],
+  "W04": [
+   {
+    "other_id": "CLD-ACT-M-000028",
+    "severity": "template",
+    "why": "ACT-028: 6 L of 10% acid; how many liters of 40% to add to reach 20%? W04: 15 L of mix B (20% blue); how many liters of mix A (40% blue) to reach 1/3 blue? Same two-concentration mixture with one amount known and the other amount asked. The only new step is turning ratios into percents."
+   }
+  ],
+  "W05": [],
+  "W06": [
+   {
+    "other_id": "CLD-ACT-M-000048",
+    "severity": "close",
+    "why": "ACT-048: a trip split into highway and city miles with different fuel rates, computing the fuel or cost forward. W06 runs it in reverse (total fuel given, split asked), which needs a linear equation, so it is not a template."
+   }
+  ],
+  "W07": [],
+  "Y01": [],
+  "Y02": [
+   {
+    "other_id": "CLD-SAT-M-000056",
+    "severity": "close",
+    "why": "Inscribed/central angle relation (the idea names it). Y02's twist is the opposite arc; not a template."
+   }
+  ],
+  "Y03": [],
+  "Y04": [
+   {
+    "other_id": "CLD-ACT-M-000045",
+    "severity": "close",
+    "why": "ACT-045: the same figure (DE ∥ BC, triangle ADE and quadrilateral DBCE), from sides to the quadrilateral's area. Y04 runs it in reverse, from the triangle and quadrilateral areas to DB. Same figure and relation run backward; the idea already names it."
+   }
+  ],
+  "Y05": [
+   {
+    "other_id": "CLD-SAT-M-000239",
+    "severity": "close",
+    "why": "Triangle-inequality items: SAT-239 (possible third side for 5 and 9) and ACT-209. Y05 applies the inequality to choose between isosceles cases. It is also a very well-known textbook classic (isosceles with sides 4 and 9)."
+   }
+  ],
+  "Y06": [
+   {
+    "other_id": "CLD-ACT-M-000669",
+    "severity": "close",
+    "why": "Same two-tangents-from-P figure (ACT-669 uses equal tangent lengths). Y06 asks a different quantity (the angle sum in OAPB), so it is not a template. It is a standard textbook item."
+   }
+  ],
+  "Y07": [
+   {
+    "other_id": "CLD-ACT-M-000446",
+    "severity": "close",
+    "why": "ACT-446: D on BC with BD = 6 and DC = 9 (the same 2 : 3), and the area of ABD as a share of ABC. Y07 is that item plus a midpoint halving step. Its distractor 2/5 is exactly ACT-446's answer."
+   }
+  ]
+ },
+ "within_list_cues": [
+  {
+   "ids": [
+    "U03",
+    "U06"
+   ],
+   "why": "U03's 'k ≠ 10' exclusion (the second equation is exactly 2× the first) tells the student that the dependent case is the coefficient that makes the second equation a multiple of the first. That is U06's whole solution (k = 12 because 81 = 3·27). Do not use them together."
+  },
+  {
+   "ids": [
+    "U01",
+    "U06"
+   ],
+   "why": "Both hinge on number-of-solutions conditions for two lines. U01's choices spell out 'equal slopes, equal intercepts = identical lines', which cues U06's infinitely-many reading. A mild cue."
+  },
+  {
+   "ids": [
+    "Y04",
+    "Y07"
+   ],
+   "why": "Both are triangle area-ratio items in the same figure (A, D on a side); Y04's 'quadrilateral = whole − triangle' and Y07's base-ratio share are separate methods. A mild cue only; avoid them back-to-back."
+  },
+  {
+   "ids": [
+    "V11",
+    "V13"
+   ],
+   "why": "Both are exponential decay by a repeated factor (×0.6 per bounce, ×1/2 per half-life). They are not answer-cueing but would read as repetitive."
+  }
+ ],
+ "answer_errors": [],
+ "cues_or_overdetermined": [
+  {
+   "id": "U01",
+   "issue": "The cost context ('repair service... flat fee c... d per hour') adds nothing and conflicts with 'for all real x' (negative hours). The stem is the abstract no-solution condition with a context wrapper."
+  },
+  {
+   "id": "U04",
+   "issue": "'Least possible integer value of k' with ascending integer choices 3, 4, 6, 7: plug in 3 (x = 6.5, y = 3.5, fails) then 4 (7 > 6, works), and the key falls out in two checks with no inequality work. Distractor 7 ('x when k = 4') is an off-type value that few would choose."
+  },
+  {
+   "id": "U11",
+   "issue": "Choice D is the only quantity in liters; the t-intercept is a value of t (minutes), so a units check removes it. Choices B and C are fine."
+  },
+  {
+   "id": "V07",
+   "issue": "Plugging x = 0 (the original is −16/−2 = 8) removes B and C together, since both have constant term −8. Then x = 1 (value 15) removes D (9). It is a quick numeric elimination of every distractor."
+  },
+  {
+   "id": "V09",
+   "issue": "One numeric check (C = 2π, so r = 1 and A = π) removes all three distractors (1, 2π, 4π). This is typical of expression-choice items, so it is a minor note."
+  },
+  {
+   "id": "V10",
+   "issue": "300 : 240 = 5 : 4, so the speeds are 5 : 4 with a 10 mph difference, giving 50 and 40 by inspection. Choice 6 is a time, not a speed (units check). The key is the obvious member of the 40/50 pair that fits '10 mph greater'."
+  },
+  {
+   "id": "V13",
+   "issue": "A decays faster, so A : B must be less than 1. That property removes choice 2 at once."
+  },
+  {
+   "id": "W03",
+   "issue": "The estimate must lie strictly between 30% and 40% of 20,000 (6,000 and 8,000), which removes both end distractors for the same reason (one boundary). Of 6,800 and 7,000, the larger North weight pulls the answer below the midpoint, so the key follows by reasoning with no arithmetic."
+  },
+  {
+   "id": "W07",
+   "issue": "Households with both a dog and a cat cannot exceed dog households (1,600). That removes 2,700, and 1,600 itself is the all-dog count, so two distractors fall to one 'subset ≤ set' check."
+  },
+  {
+   "id": "Y05",
+   "issue": "Two distractors break stated conditions: 13 is the sum of only two sides (not a triangle's perimeter), and 27 (9, 9, 9) has no side of length 4. Only 17 against 22 needs thought."
+  }
+ ],
+ "grid_problems": [],
+ "likely_easier_than_labeled": [
+  {
+   "id": "U01",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "Parallel distinct lines means equal slope and different intercept, a standard fact."
+  },
+  {
+   "id": "U04",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Backsolving from the smallest choices takes two quick checks."
+  },
+  {
+   "id": "U08",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "The sum and difference give f(2) and f(6) at once; then a routine slope."
+  },
+  {
+   "id": "U10",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Setting x = 10 gives y = 50 directly; a common interpretation format."
+  },
+  {
+   "id": "V10",
+   "labeled": "medium",
+   "likely": "easy-medium",
+   "why": "The 5 : 4 distance ratio gives the speeds by inspection."
+  },
+  {
+   "id": "V13",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Whole numbers of half-lives (3 and 2) and a simple ratio."
+  },
+  {
+   "id": "W03",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "Two direct percent-of computations and a sum; the bounds argument also finds the key."
+  },
+  {
+   "id": "W05",
+   "labeled": "hard",
+   "likely": "medium-hard",
+   "why": "A standard Venn count (inclusion–exclusion) followed by a direct conditional."
+  },
+  {
+   "id": "Y05",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "A well-known triangle-inequality classic, and two distractors fall to the stated conditions."
+  },
+  {
+   "id": "Y06",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "A standard textbook tangent-quadrilateral fact (the angles at P and O are supplementary)."
+  }
+ ],
+ "official_format_notes": [
+  {
+   "id": "U01",
+   "note": "Closely mirrors the released SAT 'no solution — which must be true' equation/system items (and the bank's SAT-029)."
+  },
+  {
+   "id": "U06",
+   "note": "Released SAT has context systems asking for the constant that gives infinitely many solutions; same format."
+  },
+  {
+   "id": "U10",
+   "note": "Standard SAT 'best interpretation of [constant] in this context' format; fine."
+  },
+  {
+   "id": "V06",
+   "note": "Standard SAT linear-vs-exponential comparison format; fine."
+  },
+  {
+   "id": "V03",
+   "note": "d = √(1.5h) is the well-known horizon-distance textbook model."
+  },
+  {
+   "id": "V08",
+   "note": "The thin-lens equation is a common textbook context."
+  },
+  {
+   "id": "Y05",
+   "note": "The isosceles-with-sides-4-and-9 perimeter problem is a widely circulated classic."
+  }
+ ]
+}

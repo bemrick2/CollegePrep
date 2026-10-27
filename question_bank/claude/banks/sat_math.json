@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 43,
-  "updated_at": "2026-10-27T04:47:09+00:00",
+  "version": 44,
+  "updated_at": "2026-10-27T05:14:51+00:00",
   "passages": [],
   "questions": [
     {
@@ -28547,6 +28547,882 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-043.review.json",
         "computation": "checks/sat_math/batch_043.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000397",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope forced by two points with swapped coordinates",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The linear function f satisfies f(0) = 10, f(3) = k, and f(k) = 3, where k is a constant and k ≠ 3. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is f(0), the y-intercept.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "13",
+          "rationale": "13 assumes a slope of 1, so f(3) = 10 + 3.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The points (3, k) and (k, 3) are both on the graph, so the slope is (3 − k)/(k − 3) = −1 (since k ≠ 3). With f(0) = 10, f(x) = 10 − x, and k = f(3) = 7. Check: f(7) = 3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the slope between (3, k) and (k, 3)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute the slope from the two points with swapped coordinates."
+      },
+      "remember": "Swapped coordinates give a slope of −1.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-01",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000398",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solution of a system that does not depend on an unknown coefficient",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the system of equations 3x + 5y = 11 and 6x + ky = 22, k is a constant and k ≠ 10. What is the value of x in the solution (x, y) of the system?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "11/3",
+      "accepted_answers": [
+        "11/3",
+        "3.666",
+        "3.667"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 is the value of y, not x.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 assumes y = 1 without solving.",
+          "trap": null
+        }
+      ],
+      "explanation": "Doubling the first equation gives 6x + 10y = 22. Subtracting it from the second gives (k − 10)y = 0, and since k ≠ 10, y = 0. Then 3x = 11 and x = 11/3, whatever the value of k.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Compare the second equation with twice the first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate x by doubling the first equation."
+      },
+      "remember": "Sometimes an unknown coefficient drops out.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-02",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "11/3",
+        "blind_answer": "11/3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: this setup (second equation is twice the first except for the y-coefficient, so y=0) is a common official-SAT pattern; check that it does not closely mirror a released item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000399",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Least integer parameter from a condition on a system solution",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the system of equations x + y = 10 and x − y = k, k is a constant. If the solution (x, y) of the system satisfies x > 2y, what is the least possible integer value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 rounds 10/3 down instead of up.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6",
+          "rationale": "6 doubles 10 − k as 20 − k, giving k > 5.",
+          "trap": null
+        }
+      ],
+      "explanation": "Adding and subtracting the equations gives x = (10 + k)/2 and y = (10 − k)/2. The condition x > 2y becomes 10 + k > 20 − 2k, so 3k > 10 and k > 10/3. The least integer greater than 10/3 is 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Solve the system for x and y in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute the solution into x > 2y."
+      },
+      "remember": "A strict inequality excludes its boundary.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-03",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000400",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Additional time at a constant drain rate from fractions of an unknown amount",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The water in a tank drains at a constant rate. Ten minutes after draining starts, the tank holds 3/4 of the water it started with. How many more minutes will it take until the tank holds 2/5 of the water it started with?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "14",
+      "accepted_answers": [
+        "14"
+      ],
+      "common_errors": [
+        {
+          "value": "24",
+          "rationale": "24 is the total time from the start, not the additional time.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is the time to empty the tank after the first 10 minutes.",
+          "trap": null
+        }
+      ],
+      "explanation": "In 10 minutes the tank loses 1/4 of its starting amount, so it drains 1/40 of the starting amount per minute. From 3/4 to 2/5 it must lose 3/4 − 2/5 = 7/20 more, which takes (7/20) ÷ (1/40) = 14 minutes.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What fraction of the starting amount drains each minute?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Pretend the tank starts with 120 liters."
+      },
+      "remember": "Pick a convenient starting amount when none is given.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-04",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "14",
+        "blind_answer": "14",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000401",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Maximum of a quadratic model after finding a coefficient from the vertex",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The height, in feet, of a fountain's stream is modeled by h(x) = −0.5x² + bx + 2, where x is the horizontal distance, in feet, from the nozzle and b is a constant. The stream is highest at x = 4. What is the greatest height of the stream, in feet?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "10"
+      },
+      "correct_answer": "D",
+      "explanation": "The vertex is at x = −b/(2 · (−0.5)) = b, so b = 4. Then h(4) = −0.5(16) + 4(4) + 2 = −8 + 16 + 2 = 10 feet.",
+      "distractor_explanations": {
+        "A": "2 is h(0), the height at the nozzle.",
+        "B": "4 is the value of b and the x-coordinate of the vertex.",
+        "C": "8 leaves out the constant term 2."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Use the vertex formula x = −b/(2a)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b, then evaluate h at the vertex."
+      },
+      "remember": "The vertex gives both where and how high the maximum is.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-05",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000402",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Linear versus exponential models through the same two points",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A linear function L and an exponential function E, where E(x) = a · bˣ with b > 0, satisfy L(0) = E(0) = 50 and L(2) = E(2) = 98. What is the value of L(1) − E(1) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 assumes the models agree between the two points.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "74",
+          "rationale": "74 is L(1), not the difference.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "L(1) is halfway between 50 and 98, so L(1) = 74. For E, a = 50 and b² = 98/50 = 1.96, so b = 1.4 and E(1) = 70. The difference is 74 − 70 = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find L(1) and E(1) separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the midpoint for L and b² = 98/50 for E."
+      },
+      "remember": "Linear: equal differences. Exponential: equal ratios.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-06",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000403",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Change in height from a radical model solved twice",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The distance d, in miles, to the horizon for an observer h feet above the ground is approximately d = √(1.5h). An observer at a lookout sees the horizon 6 miles away. About how many feet higher must the observer climb to see the horizon 9 miles away?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6",
+        "B": "30",
+        "C": "54",
+        "D": "67.5"
+      },
+      "correct_answer": "B",
+      "explanation": "Solving for h gives h = d²/1.5. For 6 miles, h = 36/1.5 = 24 feet; for 9 miles, h = 81/1.5 = 54 feet. The observer must climb 54 − 24 = 30 feet.",
+      "distractor_explanations": {
+        "A": "6 squares the 3-mile change: 3²/1.5.",
+        "C": "54 is the height needed for 9 miles, not the extra climb.",
+        "D": "67.5 uses h = 1.5d²: 121.5 − 54."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Solve the model for h."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both heights, then subtract."
+      },
+      "remember": "Square both sides to undo a square root.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-07",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: the logic behind distractor D (67.5) is unclear, so it is weak"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000404",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Unknown input from two residuals sharing an actual value",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A line of best fit for a data set is y = 1.8x + 12. The data point with x = 15 has a residual of 4. Another data point has the same y-value as that point and a residual of −5. What is the x-value of the second data point?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 assumes the second point has the same x-value.",
+          "trap": null
+        },
+        {
+          "value": "14.44",
+          "rationale": "14.44 subtracts 5 instead of adding it: 1.8x + 12 = 38.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The first point's predicted value is 1.8(15) + 12 = 39, and its residual is 4, so its actual y-value is 43. For the second point, actual − predicted = −5, so the predicted value is 43 + 5 = 48. Then 1.8x + 12 = 48 and x = 20.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Residual = actual − predicted."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the shared actual y-value first."
+      },
+      "remember": "A negative residual means the point is below the line.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-08",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "20",
+        "blind_answer": "20",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000405",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inner arc length from the difference of two concentric arcs",
+      "modeling": true,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two runners run counterclockwise on circular paths with the same center, one with radius 30 meters and the other with radius 36 meters. Both start on the same ray from the center and stop on another such ray, so both sweep through the same central angle. The runner on the outer path runs 12 meters farther than the runner on the inner path. How many meters does the runner on the inner path run?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "60",
+      "accepted_answers": [
+        "60"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 is the central angle in radians, not a distance.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "72",
+          "rationale": "72 is the distance run on the outer path.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "With central angle θ in radians, the distances are 30θ and 36θ. Then 36θ − 30θ = 6θ = 12, so θ = 2, and the inner runner runs 30 × 2 = 60 meters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each distance as radius × angle."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two arc lengths."
+      },
+      "remember": "Arc length = rθ with θ in radians.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-09",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "60",
+        "blind_answer": "60",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000406",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed angle that intercepts the major arc",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Points A, B, and C lie on a circle with center O. Central angle AOB measures 110°, and point C lies on minor arc AB. What is the measure of angle ACB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "55°",
+        "B": "70°",
+        "C": "110°",
+        "D": "125°"
+      },
+      "correct_answer": "D",
+      "explanation": "Since C is on minor arc AB, angle ACB intercepts the major arc AB, which measures 360° − 110° = 250°. An inscribed angle is half its intercepted arc, so angle ACB = 125°.",
+      "distractor_explanations": {
+        "A": "55° is half of 110°, which is correct only if C is on the major arc.",
+        "B": "70° takes the supplement of the central angle.",
+        "C": "110° sets the inscribed angle equal to the central angle."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which arc does angle ACB intercept?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Place C on the short arc and draw the angle."
+      },
+      "remember": "An inscribed angle is half of the arc it intercepts.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-10",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000407",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Original total from probabilities before and after a removal",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bag contains only red and blue marbles. The probability of drawing a red marble at random is 2/5. After 6 red marbles are removed, the probability of drawing a red marble at random is 1/4. How many marbles were in the bag originally?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 keeps the total unchanged: (0.4n − 6)/n = 1/4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the original number of red marbles.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let n be the original number of marbles, so 0.4n are red. After the removal, (0.4n − 6)/(n − 6) = 1/4, so 1.6n − 24 = n − 6, 0.6n = 18 and n = 30. Check: 12 red of 30, then 6 red of 24.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the number of red marbles in terms of n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Remember the total also drops by 6."
+      },
+      "remember": "Removing items changes the denominator too.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-11",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "30",
+        "blind_answer": "30",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000408",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Positive solution of a quadratic with an irrational coefficient",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the positive solution to the equation x² − 2√3x − 9 = 0 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "√3",
+        "B": "2√3",
+        "C": "3√3",
+        "D": "6√3"
+      },
+      "correct_answer": "C",
+      "explanation": "Completing the square: x² − 2√3x + 3 = 12, so (x − √3)² = 12 and x − √3 = ±2√3. The solutions are 3√3 and −√3, and the positive one is 3√3.",
+      "distractor_explanations": {
+        "A": "√3 is the absolute value of the negative solution −√3.",
+        "B": "2√3 is √12; it forgets to add √3.",
+        "D": "6√3 uses the quadratic formula without dividing by 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Complete the square."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add 3 to both sides to complete the square."
+      },
+      "remember": "Completing the square works with irrational coefficients too.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 44,
+      "draft_candidate": "Q044-12",
+      "created_at": "2026-10-27T05:14:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: students can substitute each choice back or graph to solve it quickly; A (sqrt3) is the absolute value of the negative root, a reasonable trap"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-044.review.json",
+        "computation": "checks/sat_math/batch_044.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

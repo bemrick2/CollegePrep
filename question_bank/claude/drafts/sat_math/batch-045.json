@@ -1,0 +1,594 @@
+{
+ "bank": "sat_math",
+ "batch": 45,
+ "plan": "SAT Math batch 45: Algebra 4, Advanced Math 5, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas U07-U10, V04-V07, V13, W02, W05, Y03, Y04 from generated set 5 (independently pre-checked: no copy or template matches). V13's eliminable choice 2 replaced with 1/4; Y04 and Y07 kept in different batches, as are V11 and V13.",
+ "candidates": [
+  {
+   "cand": "Q045-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Original price from a discount, a coupon and the final share",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A store takes 15% off the original price of a coat and then subtracts a $6 coupon. The final price is 80% of the original price. What was the original price, in dollars?",
+   "explanation": "Let p be the original price. The final price is 0.85p − 6, and it equals 0.8p. So 0.05p = 6 and p = 120. Check: 0.85(120) − 6 = 96 = 0.8(120).",
+   "hints": [
+    "Write the final price two ways."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set 0.85p − 6 equal to 0.8p."
+   },
+   "remember": "Apply discounts in the order stated.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "30",
+    "B": "40",
+    "C": "102",
+    "D": "120"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "30 treats the 20% gap between 100% and 80% as if the coupon were the whole of it: 6/0.20.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "40 treats the coupon as the whole 15% discount: 6/0.15.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "102 applies the coupon first: 0.85(p − 6) = 0.8p.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q045-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear function value from a sum and a difference of outputs",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "For the linear function f, f(6) − f(2) = 10 and f(2) + f(6) = 30. What is the value of f(0) ?",
+   "explanation": "Adding the equations gives 2f(6) = 40, so f(6) = 20 and f(2) = 10. The slope is 10/4 = 2.5, so f(0) = f(2) − 2(2.5) = 10 − 5 = 5.",
+   "hints": [
+    "Find f(2) and f(6) first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add and subtract the two equations."
+   },
+   "remember": "Sum and difference equations give each value.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2.5",
+    "B": "5",
+    "C": "7.5",
+    "D": "15"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2.5 is the slope, not f(0).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "7.5 steps back from f(2) by only one slope instead of two.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "15 is f(4), the average of the two outputs.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Parameter from the area of a triangle formed by two lines and a vertical line",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the lines y = 2x + 1 and y = −x + 7 and the vertical line x = k, where k > 2, form a triangle with an area of 24 square units. What is the value of k ?",
+   "explanation": "The lines meet at (2, 5). At x = k the vertical side runs from −k + 7 to 2k + 1, a length of 3k − 6 = 3(k − 2). The height from (2, 5) to the vertical line is k − 2. So the area is (1/2)(3)(k − 2)² = 24, giving (k − 2)² = 16 and k − 2 = 4. So k = 6.",
+   "hints": [
+    "Where do the two slanted lines meet?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the lines and the vertical side."
+   },
+   "remember": "When both base and height depend on k, the area is quadratic in k.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must express both the base and the height in terms of k, which leads to a quadratic."
+   },
+   "choices": {
+    "A": "2 + 2√2",
+    "B": "6",
+    "C": "10",
+    "D": "18"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2 + 2√2 leaves out the 1/2 in the area formula.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "10 sets the vertical side 3(k − 2) equal to 24.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18 solves (k − 2)² = 16 as k − 2 = 16.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting the point in point-slope form in context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The number of members y of a club x weeks after it was formed is modeled by the equation y − 50 = 4(x − 10). What is the best interpretation of 50 in this context?",
+   "explanation": "The equation is in point-slope form, so it passes through (10, 50): when x = 10, y = 50. So 50 is the number of members 10 weeks after the club was formed. (At x = 0, y = 10, so the club started with 10 members.)",
+   "hints": [
+    "Which point is visible in point-slope form?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute x = 10 and x = 0."
+   },
+   "remember": "In y − y₁ = m(x − x₁), the point is (x₁, y₁).",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The number of members 10 weeks after the club was formed",
+    "B": "The number of members when the club was formed",
+    "C": "The number of members gained during the first 10 weeks",
+    "D": "The number of members gained each week"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The starting number is y at x = 0, which is 10, not 50.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "The members gained in 10 weeks is 4 × 10 = 40.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The number gained each week is the slope, 4.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q045-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Cylinder whose volume equals its surface area",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A closed right circular cylinder has a height equal to its diameter. The number of cubic units in its volume equals the number of square units in its total surface area. What is the radius of the cylinder?",
+   "explanation": "With h = 2r, the volume is πr²(2r) = 2πr³ and the total surface area is 2πr² + 2πr(2r) = 6πr². Setting 2πr³ = 6πr² and dividing by 2πr² gives r = 3.",
+   "hints": [
+    "Write the height in terms of the radius."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the volume formula equal to the surface area formula."
+   },
+   "remember": "Total surface area includes both bases.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "No measurement is given; students must build and solve a cubic equation from two formulas."
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 takes the height as r instead of 2r: πr³ = 4πr².",
+     "trap": null
+    },
+    {
+     "value": "2",
+     "rationale": "2 leaves the two circular bases out of the surface area.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q045-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Height where a falling ball passes a rising drone",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A ball's height, in meters, t seconds after it is thrown upward is h(t) = −5t² + 30t. A drone that is 20 meters high at t = 0 rises at 5 meters per second, so its height is 5t + 20 meters. At what height, in meters, does the ball pass the drone while the ball is falling?",
+   "explanation": "Setting −5t² + 30t = 5t + 20 gives 5t² − 25t + 20 = 0, so t² − 5t + 4 = 0 and t = 1 or t = 4. The ball peaks at t = 3, so it is falling at t = 4. The height then is 5(4) + 20 = 40 meters.",
+   "hints": [
+    "When does the ball reach its peak?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the heights equal and choose the correct time."
+   },
+   "remember": "Use the context to choose between two solutions.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find both crossing times and use the peak time to choose the falling one; the asked quantity is a height, not a time."
+   },
+   "format": "spr",
+   "answer": "40",
+   "accepted_answers": [
+    "40"
+   ],
+   "common_errors": [
+    {
+     "value": "25",
+     "rationale": "25 is the height where the ball passes the drone while rising (t = 1).",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "45",
+     "rationale": "45 is the ball's maximum height.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q045-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing linear and percent increases in successive years",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Towns A and B each have 12,500 residents now. Town A's population will increase by 500 people each year, and town B's population will increase by 4% each year. Which statement correctly compares the two towns' increases during the next year and during the year after it?",
+   "explanation": "In the first year, town B grows by 0.04 × 12,500 = 500, the same as town A. In the second year, town B grows by 0.04 × 13,000 = 520, which is greater than town A's 500.",
+   "hints": [
+    "What is 4% of 12,500?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute each town's increase for two years."
+   },
+   "remember": "Percent growth compounds on a larger base.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "During the first year, the increases are equal; during the second year, town B's increase is greater.",
+    "B": "During the first year, the increases are equal; during the second year, the increases are equal again.",
+    "C": "During the first year, town B's increase is greater; during the second year, town B's increase is greater.",
+    "D": "During the first year, town A's increase is greater; during the second year, town A's increase is greater."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "A percent increase grows as the base grows, so B's second increase is larger.",
+     "trap": "overextend_trend"
+    },
+    "C": {
+     "rationale": "In the first year 4% of 12,500 is exactly 500.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This takes 4% of 12,500 as 50.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying a rational expression by factoring twice",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x ≠ 2, which of the following is equivalent to (x⁴ − 16)/(x − 2) ?",
+   "explanation": "x⁴ − 16 = (x² − 4)(x² + 4) = (x − 2)(x + 2)(x² + 4). Dividing by x − 2 leaves (x + 2)(x² + 4) = x³ + 2x² + 4x + 8.",
+   "hints": [
+    "Factor x⁴ − 16 as a difference of squares."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 1: the expression equals 15."
+   },
+   "remember": "A difference of squares may factor more than once.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x³ + 2x² + 4x + 8",
+    "B": "x³ + 2x² − 4x − 8",
+    "C": "x³ − 2x² + 4x − 8",
+    "D": "x³ + 8"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This factors x⁴ − 16 as (x² − 4)² before cancelling.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This cancels x + 2 instead of x − 2.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This divides term by term: x⁴/x and −16/−2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Ratio of remaining masses for two half-lives",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Substance A has a half-life of 4 hours, and substance B has a half-life of 6 hours. Two samples, one of each substance, start with equal masses. After 12 hours, what is the ratio of the mass of substance A remaining to the mass of substance B remaining?",
+   "explanation": "In 12 hours, A goes through 3 half-lives and keeps (1/2)³ = 1/8 of its mass, and B goes through 2 half-lives and keeps (1/2)² = 1/4. The ratio is (1/8)/(1/4) = 1/2.",
+   "hints": [
+    "How many half-lives does each substance go through?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find each remaining fraction, then divide."
+   },
+   "remember": "Each half-life halves the mass.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1/8",
+    "B": "1/4",
+    "C": "1/2",
+    "D": "2/3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1/8 is the fraction of A remaining, not the ratio.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1/4 is the fraction of B remaining.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "2/3 is the ratio of the half-lives.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Percent change in predictions from a line of best fit",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A line of best fit y = 1.5x + 30 models a plant's height y, in centimeters, x days after a study began. According to the model, by approximately what percent does the predicted height increase from day 10 to day 20 ?",
+   "explanation": "The predicted heights are 1.5(10) + 30 = 45 and 1.5(20) + 30 = 60 centimeters. The increase is 15 on a base of 45, which is 15/45 ≈ 33%.",
+   "hints": [
+    "Find both predicted heights."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Percent change = change ÷ starting value."
+   },
+   "remember": "A nonzero intercept makes changes non-proportional.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "15%",
+    "B": "25%",
+    "C": "33%",
+    "D": "100%"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "15% gives the increase in centimeters as a percent.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "25% divides the increase by the new value, 60.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "100% assumes doubling x doubles y, ignoring the intercept.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q045-11",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Conditional probability with a complement after finding an overlap",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Of the 80 students in a grade, 30 take chemistry, 45 take biology, and 10 take neither. If a student who does not take biology is selected at random, what is the probability that the student takes chemistry?",
+   "explanation": "70 students take at least one subject, so 30 + 45 − 70 = 5 take both. 80 − 45 = 35 students do not take biology; of the 30 chemistry students, 30 − 5 = 25 are among them. The probability is 25/35 = 5/7.",
+   "hints": [
+    "How many students take both subjects?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw a Venn diagram."
+   },
+   "remember": "The condition sets the denominator.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find the overlap and then condition on a complement; several traps use the wrong denominator or numerator."
+   },
+   "choices": {
+    "A": "5/16",
+    "B": "3/8",
+    "C": "5/7",
+    "D": "6/7"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "5/16 is 25/80, the joint probability.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "3/8 is 30/80, which ignores the condition.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "6/7 is 30/35, which includes the 5 who also take biology.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q045-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Angle in nested isosceles triangles",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In triangle ABC, AB = AC and the measure of angle C is 40°. Point D lies on side BC so that AD = BD. What is the measure, in degrees, of angle DAC ?",
+   "explanation": "Since AB = AC, angle B = angle C = 40°, so angle BAC = 100°. Since AD = BD, triangle ABD is isosceles with angle BAD = angle B = 40°. So angle DAC = 100° − 40° = 60°.",
+   "hints": [
+    "Which angles are equal in each isosceles triangle?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle and mark equal sides."
+   },
+   "remember": "Equal sides are opposite equal angles.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "60",
+   "accepted_answers": [
+    "60"
+   ],
+   "common_errors": [
+    {
+     "value": "40",
+     "rationale": "40 is the measure of angle BAD.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "100",
+     "rationale": "100 is the measure of angle BAC.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q045-13",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Side length from areas of a triangle and a trapezoid cut by a parallel",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. The area of triangle ADE is 9 square units, the area of quadrilateral DBCE is 16 square units, and AB = 25. What is the length of segment DB ?",
+   "explanation": "Triangle ABC has area 9 + 16 = 25. Triangles ADE and ABC are similar, so the ratio of their sides is √(9/25) = 3/5. Then AD = (3/5)(25) = 15 and DB = 25 − 15 = 10.",
+   "hints": [
+    "What is the area of the whole triangle ABC?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Areas scale with the square of the side ratio."
+   },
+   "remember": "Side ratio = square root of area ratio.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must combine two regions into the whole triangle and take a square root of the area ratio; using 9 : 16 directly is a strong trap."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 is the length of AD, not DB.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "6.25",
+     "rationale": "6.25 treats 9 : 16 as the area ratio of triangle ADE to triangle ABC.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}
