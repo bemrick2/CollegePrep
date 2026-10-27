@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T19:08:10+00:00",
+  "updated_at": "2026-10-27T19:08:42+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -20,7 +20,7 @@
     "act_math": 774,
     "act_english": 471,
     "act_reading": 484,
-    "sat_reading_writing": 490,
+    "sat_reading_writing": 496,
     "sat_math": 857
   },
   "review_totals": {
@@ -46,10 +46,10 @@
       "passed_after_revision": 40
     },
     "sat_reading_writing": {
-      "PASS": 517,
-      "REVISE": 38,
+      "PASS": 523,
+      "REVISE": 40,
       "REJECT": 7,
-      "candidates": 562,
+      "candidates": 570,
       "passed_after_revision": 46
     },
     "sat_math": {
@@ -1524,13 +1524,13 @@
       "passages": 59
     },
     "sat_reading_writing": {
-      "accepted": 490,
+      "accepted": 496,
       "retired_after_audit": 27,
       "by_skill": {
-        "Craft and Structure": 138,
+        "Craft and Structure": 140,
         "Expression of Ideas": 104,
-        "Information and Ideas": 147,
-        "Standard English Conventions": 101
+        "Information and Ideas": 149,
+        "Standard English Conventions": 103
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -1551,7 +1551,7 @@
         "Comma with a coordinating conjunction": 1,
         "Command of evidence: quantitative": 29,
         "Command of evidence: quantitative (comparing differences)": 2,
-        "Command of evidence: quantitative (computed values)": 2,
+        "Command of evidence: quantitative (computed values)": 3,
         "Command of evidence: quantitative (interaction)": 1,
         "Command of evidence: quantitative (isolating a cause)": 2,
         "Command of evidence: quantitative (percent change)": 3,
@@ -1582,7 +1582,7 @@
         "Function of a quotation": 1,
         "Function of a sentence": 10,
         "Function of a sentence (literary)": 4,
-        "Inferences": 42,
+        "Inferences": 43,
         "Inferences (alternative explanation)": 3,
         "Inferences (base rates)": 1,
         "Inferences (literary)": 5,
@@ -1593,7 +1593,7 @@
         "Logical comparison (\"that of\")": 1,
         "Main purpose": 4,
         "Main purpose (literary)": 1,
-        "Modifier placement": 5,
+        "Modifier placement": 6,
         "Modifier placement (introductory phrase)": 2,
         "No comma between a subject and its verb": 1,
         "No punctuation between a verb and its that-clause": 1,
@@ -1660,7 +1660,7 @@
         "Semicolons in a series with internal commas": 1,
         "Sentence boundaries with a subordinate clause": 1,
         "Subject-verb agreement": 1,
-        "Subject-verb agreement (\"a number of\")": 1,
+        "Subject-verb agreement (\"a number of\")": 2,
         "Subject-verb agreement (\"along with\")": 1,
         "Subject-verb agreement (\"each of\")": 1,
         "Subject-verb agreement (\"the number of\")": 1,
@@ -1713,33 +1713,33 @@
         "Verb tense in a past counterfactual": 2,
         "Verb tense with \"since\"": 1,
         "Who versus whom": 1,
-        "Words in context": 76,
+        "Words in context": 78,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 187,
+        "easy": 190,
         "hard": 32,
-        "medium": 271
+        "medium": 274
       },
       "by_difficulty_calibrated": {
-        "easy": 273,
+        "easy": 276,
         "hard": 9,
-        "medium": 208
+        "medium": 211
       },
       "calibrated_share": {
-        "easy": 0.557,
+        "easy": 0.556,
         "hard": 0.018,
-        "medium": 0.424
+        "medium": 0.425
       },
       "answer_key_balance": {
-        "A": 121,
-        "B": 122,
-        "C": 124,
-        "D": 123
+        "A": 122,
+        "B": 123,
+        "C": 126,
+        "D": 125
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 517
+      "passages": 523
     },
     "sat_math": {
       "accepted": 857,
@@ -2785,7 +2785,7 @@
     "act_math": 80,
     "act_english": 54,
     "act_reading": 60,
-    "sat_reading_writing": 59,
+    "sat_reading_writing": 60,
     "sat_math": 79
   },
   "next_batch_guidance": {
@@ -2842,21 +2842,21 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 61,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 1.7,
+        "Information and Ideas": -17.4,
+        "Standard English Conventions": 28.6,
+        "Expression of Ideas": -2.8
+      }
+    },
     "act_english": {
       "next_batch": 55,
       "skill_gap_for_next_10": {
         "Production of Writing": 55.8,
         "Knowledge of Language": 17.6,
         "Conventions of Standard English": -56.2
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 60,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 2.0,
-        "Information and Ideas": -17.0,
-        "Standard English Conventions": 29.0,
-        "Expression of Ideas": -4.0
       }
     },
     "act_reading": {
@@ -2886,8 +2886,8 @@
     },
     "sat_reading_writing": {
       "target": 694,
-      "accepted": 490,
-      "share_of_target": 0.706
+      "accepted": 496,
+      "share_of_target": 0.715
     },
     "sat_math": {
       "target": 1000,
@@ -2896,7 +2896,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3076,
+  "total_accepted": 3082,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540034,7 +540034,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 59,
+      "bank_version": 60,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -540167,7 +540167,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T19:08:09+00:00",
+    "heartbeat_at": "2026-10-27T19:08:41+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
