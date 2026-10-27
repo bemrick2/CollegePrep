@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 65,
-  "updated_at": "2026-10-27T22:58:12+00:00",
+  "version": 66,
+  "updated_at": "2026-10-27T23:04:21+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -718,6 +718,17 @@
       "word_count": 348,
       "text": "Along the mangrove coasts of Southeast Asia and northern Australia, the archerfish hunts by spitting. When it spots an insect on a leaf above the water, it presses its tongue against a groove in the roof of its mouth, snaps its gill covers shut, and fires a jet of water that can knock the insect into the water, where the fish quickly snatches it.\n\nThis is harder than it sounds. Light bends as it passes from air into water, so an insect seen from below is not where it appears to be. Yet archerfish routinely hit targets while looking up at a slant, correcting for the bending. Young archerfish miss often, and their accuracy improves with practice, which suggests that the correction is at least partly learned.\n\nResearchers who filmed the jets at high speed found another refinement. The fish does not release its water at a steady speed. It pushes the rear of the jet out faster than the front, so that the back catches up with the front and the water gathers into a single large drop just before it reaches the target. By adjusting this timing to the distance of its prey, the fish delivers much of its force at the moment of impact.\n\nArcherfish can also improve by watching. In one experiment, fish that observed a skilled shooter hitting moving targets later hit such targets more often than fish that had not watched, even though the observers had not practiced on moving targets themselves.\n\nPerhaps the most surprising finding came in 2016, when a team of researchers trained archerfish to spit at one particular human face shown on a screen. Offered that face among many unfamiliar ones, the fish chose correctly far more often than chance would predict, even though fish lack the part of the brain that primates use to recognize faces.\n\nFindings like these are a reminder that sophisticated skill does not require a large brain. With a mouth, a pair of eyes, and a modest nervous system, the archerfish solves problems that scientists once associated only with far more complex animals.",
       "batch": 66,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000067",
+      "title": "The Feeling of Knowing",
+      "genre": "social science",
+      "word_count": 348,
+      "text": "In the 1880s, the German psychologist Hermann Ebbinghaus became his own experimental subject. He memorized long lists of nonsense syllables, such as \"dax\" and \"bok,\" chosen so that no meaning or association could help him, and then tested himself after intervals ranging from minutes to a month. Most of what he learned slipped away within the first day, and the loss then slowed. He also found that lists he relearned on several separate days stayed with him far longer than lists he crammed in a single sitting.\n\nA century later, researchers began asking a related question: what kind of studying best slows forgetting? In one well-known experiment, students read a short passage and then either read it again or tried to write down as much of it as they could remember, with no feedback. Five minutes later, the students who had reread the passage remembered slightly more. A week later, the pattern had reversed: the students who had practiced recalling the passage remembered far more than those who had reread it.\n\nThe most striking result, however, concerned the students' own predictions. Asked how well they expected to remember the passage, the rereaders were more confident than the students who had practiced recall. Rereading had made the material feel familiar, and the students mistook that familiarity for learning.\n\nPsychologists now describe this mistake as an illusion of fluency. Material that has just been reread is processed easily, and that ease feels like mastery. Trying to recall material, by contrast, is effortful and often frustrating; a student who struggles to remember a passage may conclude that the method is not working, even as the struggle is strengthening the memory.\n\nNone of this means that rereading is useless or that every struggle is productive. Effort that leads nowhere, such as attempting a test on material one has never seen, does little good. But the research suggests that the comfort many students seek in their study habits may be a poor guide to what those habits accomplish. The methods that feel least effective in the moment are sometimes the ones that last.",
+      "batch": 67,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -41955,6 +41966,645 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-066.review.json",
         "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000578",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "The methods that feel least effective in the moment are sometimes the ones that last",
+      "figure": null,
+      "stem": "The main idea of the passage is that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Ebbinghaus proved that nonsense syllables are harder to remember than real words.",
+        "B": "the study methods that feel most effective are not always the ones that last.",
+        "C": "rereading is useless, and students should never reread what they study.",
+        "D": "students forget most of what they learn because they do not study enough."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage moves from Ebbinghaus's forgetting curve to evidence that effortful recall beats rereading over time, despite students' confidence in rereading.",
+      "distractor_explanations": {
+        "A": "The passage does not compare nonsense syllables with real words.",
+        "C": "The author says rereading is not useless.",
+        "D": "The passage is about how students study, not how much."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does the last paragraph conclude?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then combine."
+      },
+      "remember": "A main-idea answer must fit the whole passage, including its qualifications.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-01",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000579",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "chosen so that no meaning or association could help him",
+      "figure": null,
+      "stem": "According to the passage, Ebbinghaus chose nonsense syllables so that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "he could memorize the lists more quickly.",
+        "B": "other researchers could easily repeat his experiments.",
+        "C": "meaning or associations could not help him remember them.",
+        "D": "the lists would be the same length each time."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage says the syllables were chosen so that no meaning or association could help him.",
+      "distractor_explanations": {
+        "A": "The passage does not say speed was the reason.",
+        "B": "The passage does not mention other researchers' use of his lists.",
+        "D": "The passage does not mention list length as a reason."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Find the word \"chosen\" in paragraph 1."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the clause after \"chosen so that.\""
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-02",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000580",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "the rereaders were more confident than the students who had practiced recall",
+      "figure": null,
+      "stem": "The main function of the third paragraph is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "explain how Ebbinghaus measured forgetting over a month.",
+        "B": "argue that rereading should be banned from classrooms.",
+        "C": "introduce a new experiment that contradicts the one in paragraph 2.",
+        "D": "describe a gap between students' confidence and their results."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 3 reports that rereaders felt more confident even though they later remembered less, a mismatch between confidence and results.",
+      "distractor_explanations": {
+        "A": "Ebbinghaus is discussed in paragraph 1, not paragraph 3.",
+        "B": "The author does not argue for banning rereading.",
+        "C": "Paragraph 3 reports more results from the same experiment."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "C": null
+      },
+      "hints": [
+        "What do the students predict, and what happens?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize the paragraph in a phrase."
+      },
+      "remember": "Identify a paragraph's job in the passage's argument.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-04",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000581",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "Material that has just been reread is processed easily, and that ease feels like mastery",
+      "figure": null,
+      "stem": "As it is used in paragraph 4, the word fluency most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "skill at speaking a language.",
+        "B": "speed of reading aloud.",
+        "C": "ease of processing.",
+        "D": "accuracy of memory."
+      },
+      "correct_answer": "C",
+      "explanation": "The next sentence defines the illusion: reread material is processed easily, and that ease feels like mastery, so \"fluency\" means ease of processing.",
+      "distractor_explanations": {
+        "A": "This familiar meaning does not fit; the passage is about how easily material is processed.",
+        "B": "The passage does not discuss reading aloud.",
+        "D": "The point is that fluency feels like mastery but is not the same as accurate memory."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "How does the next sentence explain the term?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use the definition the passage supplies."
+      },
+      "remember": "Look for a definition in the sentences around a term.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-05",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000582",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (author's qualification)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "Effort that leads nowhere",
+      "figure": null,
+      "stem": "The author mentions \"attempting a test on material one has never seen\" (paragraph 5) mainly to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "show that not every kind of effort helps memory.",
+        "B": "suggest that students should test themselves before studying anything.",
+        "C": "prove that rereading is more effective than recall in every case.",
+        "D": "describe a method that Ebbinghaus used in his experiments."
+      },
+      "correct_answer": "A",
+      "explanation": "The example illustrates the author's qualification that effort that leads nowhere does little good, so not every struggle is productive.",
+      "distractor_explanations": {
+        "B": "The author gives this as an example of effort that does little good.",
+        "C": "The example concerns unproductive effort, not the value of rereading.",
+        "D": "Ebbinghaus's methods are described in paragraph 1 and do not include this."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What claim does the example support?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence the example belongs to."
+      },
+      "remember": "Examples often illustrate a qualification of the main claim.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-06",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000583",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (comparison)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "stayed with him far longer than lists he crammed in a single sitting",
+      "figure": null,
+      "stem": "According to the passage, Ebbinghaus found that lists he relearned on several separate days:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "were forgotten more quickly than lists he learned once.",
+        "B": "outlasted lists he crammed in a single sitting.",
+        "C": "took less time to learn than lists of real words.",
+        "D": "were remembered perfectly after a month."
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says lists relearned on several separate days stayed with him far longer than crammed lists.",
+      "distractor_explanations": {
+        "A": "He found the opposite.",
+        "C": "The passage does not compare nonsense syllables with real words.",
+        "D": "The passage does not claim perfect memory."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "Find the last sentence of paragraph 1."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Scan for \"relearned.\""
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-07",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000584",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (application)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "even as the struggle is strengthening the memory",
+      "figure": null,
+      "stem": "Based on the passage, a student preparing for an exam a week away who feels frustrated while trying to recall notes without looking at them should most likely conclude that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "the method is not working and rereading would be better.",
+        "B": "the frustration proves the material has been fully learned.",
+        "C": "recall is useful only for tests given within five minutes.",
+        "D": "the frustration does not mean the method is failing."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 4 says students who struggle may wrongly conclude the method is failing even as the struggle strengthens memory.",
+      "distractor_explanations": {
+        "A": "The author says this is exactly the mistaken conclusion students draw.",
+        "B": "The passage does not say struggle proves mastery.",
+        "C": "Recall's advantage appeared after a week, not at five minutes."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "C": null
+      },
+      "hints": [
+        "What does paragraph 4 say about struggling?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Apply paragraph 4 to the student's situation."
+      },
+      "remember": "Apply the author's reasoning to a new case.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-08",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000585",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "the comfort many students seek in their study habits may be a poor guide",
+      "figure": null,
+      "stem": "The author's attitude toward students' preference for comfortable study habits is best described as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "cautious, because comfort may be a poor guide.",
+        "B": "approving, because comfort shows the habits are working.",
+        "C": "dismissive, because students never know how they learn.",
+        "D": "neutral, because the passage does not discuss study habits."
+      },
+      "correct_answer": "A",
+      "explanation": "The author warns that comfort \"may be a poor guide,\" a cautious, qualified criticism rather than dismissal or approval.",
+      "distractor_explanations": {
+        "B": "The author says comfort may be a poor guide.",
+        "C": "The author does not say students never know.",
+        "D": "The passage discusses study habits throughout."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "Find the author's comment on comfort."
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for hedged evaluative language."
+      },
+      "remember": "Hedged language signals a cautious attitude.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-09",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000586",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Organization of the passage",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000067",
+      "underline": null,
+      "evidence": "None of this means that rereading is useless",
+      "figure": null,
+      "stem": "Which choice best describes the organization of the passage?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A theory, several objections to it, and a rejection of the theory",
+        "B": "A personal story, a definition, and a list of study tips",
+        "C": "An early study, a modern experiment, an explanation, and a qualification",
+        "D": "A problem, a proposed solution, and evidence that the solution failed"
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 describes Ebbinghaus, paragraph 2 a modern experiment, paragraphs 3 and 4 explain its key result, and paragraph 5 qualifies the conclusion.",
+      "distractor_explanations": {
+        "A": "The passage does not reject any theory.",
+        "B": "The passage does not tell a personal story or list tips.",
+        "D": "The passage does not report a failed solution."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does each paragraph do?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each paragraph."
+      },
+      "remember": "Track structure by labeling each paragraph's job.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 67,
+      "draft_candidate": "R067-10",
+      "created_at": "2026-10-27T23:04:21+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-067.review.json",
+        "computation": "checks/act_reading/batch_067.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

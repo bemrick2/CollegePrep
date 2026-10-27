@@ -1,0 +1,301 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 67,
+  "reviewed_at": "2026-10-27T23:04:21+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 67
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000578",
+    "CLD-ACT-R-000579",
+    "CLD-ACT-R-000580",
+    "CLD-ACT-R-000581",
+    "CLD-ACT-R-000582",
+    "CLD-ACT-R-000583",
+    "CLD-ACT-R-000584",
+    "CLD-ACT-R-000585",
+    "CLD-ACT-R-000586"
+  ],
+  "results": [
+    {
+      "cand": "R067-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "B restates the closing claim (comfort a poor guide; methods that feel least effective sometimes last). A: passage never compares nonsense syllables with real words. C: contradicted by P5 'None of this means that rereading is useless.' D: passage is about method, not amount of study; P1 forgetting curve is not attributed to insufficient study.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000578"
+    },
+    {
+      "cand": "R067-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [],
+      "blind_notes": "P1: syllables 'chosen so that no meaning or association could help him.' A: speed of memorizing not mentioned (and the aim was the opposite of making it easier). B: replication not mentioned. D: list length not mentioned.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000579"
+    },
+    {
+      "cand": "R067-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Stem asks which 'result' would have misled the researcher, but the choices are conclusions (A is the mistaken conclusion the five-minute result would support). Consider 'which conclusion would a researcher who tested students only five minutes after studying most likely have drawn mistakenly?' Key is still clear."
+        }
+      ],
+      "blind_notes": "At five minutes rereaders remembered slightly more, so a five-minute-only test would suggest rereading beats recall, the reverse of the one-week finding. B: the one-week finding, which such a researcher would never see. C: Ebbinghaus's finding, not this experiment, and not visible at five minutes. D: reverses P3; rereaders were more confident.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Wording: the stem asks which 'result' would have misled a researcher, but the choices are conclusions ('That rereading ... produces better memory'). A clearer stem: 'would most likely have led a researcher who tested students only five minutes after studying to conclude that:'. There is still one clear key."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "requires reasoning about what a partial test would show"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"Stem asks which 'result' would have misled the researcher, but the choices are conclusions (A is the mistaken conclusion the five-minute result would support). Consider 'which conclusion would a researcher who tested students only five minutes after studying most likely have drawn mistakenly?' Key is still clear.\"}; {'severity': 'nonblocking', 'note': \"Wording: the stem asks which 'result' would have misled a researcher, but the choices are conclusions ('That rereading ... produces better memory'). A clearer stem: 'would most likely have led a researcher who tested students only five minutes after studying to conclude that:'. There is still one clear key.\"}"
+    },
+    {
+      "cand": "R067-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P3: rereaders were more confident but (per P2) remembered less after a week. A: Ebbinghaus is P1. B: no banning argument, and P5 says rereading isn't useless. C: P3 has no new experiment; it reports another result (predictions) from the same study and doesn't contradict it.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000580"
+    },
+    {
+      "cand": "R067-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P4 defines it right away: material 'is processed easily, and that ease feels like mastery.' A/B: common senses of fluency (language, reading aloud) that don't fit the context. D: the illusion is that fluency is mistaken for accurate memory, so fluency itself can't mean accurate memory.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000581"
+    },
+    {
+      "cand": "R067-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "The example illustrates 'Effort that leads nowhere... does little good,' qualifying 'not every struggle is productive.' B: the example is offered as unhelpful, the opposite of a recommendation. C: overstates; nothing says rereading beats recall 'in every case.' D: not linked to Ebbinghaus.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "qualification rather than main claim"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000582"
+    },
+    {
+      "cand": "R067-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [],
+      "blind_notes": "P1: relearned lists 'stayed with him far longer than lists he crammed in a single sitting.' A: reverses it. C: no comparison with real words. D: 'perfectly' is unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000583"
+    },
+    {
+      "cand": "R067-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P4: a struggling student 'may conclude that the method is not working, even as the struggle is strengthening the memory.' A: the very mistake the passage warns against. B: overstates; struggle strengthens memory but doesn't prove full learning. C: contradicts P2, where recall's advantage showed up at one week.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "application with a tempting reversal"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000584"
+    },
+    {
+      "cand": "R067-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P5: comfort 'may be a poor guide to what those habits accomplish.' The hedged wording ('may,' 'sometimes') fits 'cautious.' B: reverses the author's view. C: 'never' is too extreme and not 'dismissive' in tone. D: the passage does discuss study habits.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000585"
+    },
+    {
+      "cand": "R067-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "P1 Ebbinghaus (early study); P2-3 modern experiment; P4 explanation (illusion of fluency); P5 qualification ('None of this means...'). A: no theory is rejected. B: Ebbinghaus's work isn't a personal story, and there is no list of tips. D: no solution is shown to fail.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000586"
+    }
+  ]
+}
