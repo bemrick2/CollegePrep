@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T04:18:27+00:00",
+  "updated_at": "2026-10-27T04:19:16+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 327
+    "sat_math": 339
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 349,
+      "PASS": 361,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 351,
+      "candidates": 363,
       "passed_after_revision": 5
     }
   },
@@ -1397,16 +1397,17 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 327,
+      "accepted": 339,
       "retired_after_audit": 22,
       "by_skill": {
-        "Advanced Math": 117,
-        "Algebra": 100,
-        "Geometry and Trigonometry": 58,
-        "Problem-Solving and Data Analysis": 52
+        "Advanced Math": 120,
+        "Algebra": 104,
+        "Geometry and Trigonometry": 61,
+        "Problem-Solving and Data Analysis": 54
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
+        "Altitude to the hypotenuse from a sine value": 1,
         "Angle formed by two angle bisectors in a triangle": 1,
         "Angle sum of a quadrilateral": 1,
         "Angles of an isosceles triangle from a ratio": 1,
@@ -1422,6 +1423,7 @@
         "Area of a triangle formed by two radii and a chord": 1,
         "Area of a triangle that is a right triangle": 1,
         "Area of an isosceles triangle with 30° base angles": 1,
+        "Area ratio of circles from equal arcs at different central angles": 1,
         "Bound on a constant from a value that is not a solution": 1,
         "Bounding the median of two combined lists": 1,
         "Center of a circle from a point and its radius": 1,
@@ -1466,6 +1468,7 @@
         "Count of x-intercepts after a constant creates a repeated zero": 1,
         "Counting from a conditional percent": 1,
         "Difference of two function values": 1,
+        "Difference of two heights from two angles of elevation": 1,
         "Distance from a chord endpoint to the midpoint of its arc": 1,
         "Distance from a pace and a time": 1,
         "Distance from a round trip at two speeds and a total time": 1,
@@ -1473,6 +1476,7 @@
         "Distance recovered from a three-part linear fare, then a speed": 1,
         "Distributing a monomial over a binomial": 1,
         "Dividing a polynomial by a monomial": 1,
+        "Doubling time from an exponential model with base 4": 1,
         "Effect of replacing a value on the mean": 1,
         "Effect of sample size on the margin of error": 1,
         "Effect of scaling the input of a quadratic": 1,
@@ -1495,6 +1499,7 @@
         "Expanding and combining polynomial expressions": 1,
         "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
+        "Exponential function with an added constant through two points": 1,
         "Exponents with related bases forming a linear system": 1,
         "Expression for a cost with a rate change after a threshold": 1,
         "Extreme x-value in a system of two linear inequalities": 1,
@@ -1509,6 +1514,7 @@
         "First integer at which exponential growth overtakes linear growth": 1,
         "First whole hour one exponential model exceeds another": 1,
         "Fuel remaining after a trip": 1,
+        "Greatest probability bounded by the position of the median": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
         "Group size from a joint and a conditional probability": 1,
         "Height of a rectangular prism from its volume": 1,
@@ -1523,6 +1529,7 @@
         "Inscribed and central angles with algebra": 1,
         "Intercepts of a line in standard form": 1,
         "Interpreting a change in a linear conversion formula": 1,
+        "Interpreting a constant that divides the variable in a linear model": 1,
         "Interpreting a linear equation in two variables": 1,
         "Interpreting an exponential growth factor": 1,
         "Interpreting an intercept of a linear equation in context": 1,
@@ -1555,6 +1562,7 @@
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
         "Maximum of a rational model by graphing": 1,
+        "Maximum profit from a linear price model and a linear cost": 1,
         "Maximum value from the range and the minimum": 1,
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
@@ -1604,6 +1612,7 @@
         "Radius from the area between concentric circles": 1,
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Radius of an externally tangent circle from the distance between centers": 1,
+        "Range of an expression from two linear inequalities": 1,
         "Rate of change hidden in a standard-form model": 1,
         "Rate problem with a unit conversion": 1,
         "Ratio applied after excluding a group": 1,
@@ -1632,6 +1641,7 @@
         "Simplifying an expression with negative exponents": 1,
         "Sine of a base angle in an isosceles triangle": 1,
         "Slope from a point and an x-intercept": 1,
+        "Slope hidden in a constant-difference condition": 1,
         "Slope of a line through a given intersection point": 1,
         "Slope of a line through the origin meeting a line where x = y": 1,
         "Slope of a line through two points with a parameter": 1,
@@ -1664,6 +1674,7 @@
         "Square with a perimeter equal to a circle's circumference": 1,
         "Square with the same perimeter as an equilateral triangle": 1,
         "Squaring a product with a fractional exponent": 1,
+        "Study design for a causal conclusion about a whole population": 1,
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
         "Sum of parameter values that make two lines perpendicular": 1,
@@ -1685,6 +1696,7 @@
         "Time for a projectile to reach the ground": 1,
         "Time for a whole job from a partial job": 1,
         "Time to empty a tank with inflow and outflow": 1,
+        "Total amount from two transfer conditions": 1,
         "Trade-off between two variables in a linear equation": 1,
         "Translating a comparison of fractional parts": 1,
         "Translating a verbal equation with grouping": 1,
@@ -1735,19 +1747,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 69,
-        "hard": 25,
-        "medium": 233
+        "easy": 70,
+        "hard": 27,
+        "medium": 242
       },
       "by_difficulty_calibrated": {
-        "easy": 119,
-        "hard": 20,
-        "medium": 188
+        "easy": 120,
+        "hard": 22,
+        "medium": 197
       },
       "calibrated_share": {
-        "easy": 0.364,
-        "hard": 0.061,
-        "medium": 0.575
+        "easy": 0.354,
+        "hard": 0.065,
+        "medium": 0.581
       },
       "answer_key_balance": {
         "-1": 2,
@@ -1762,6 +1774,7 @@
         "114": 1,
         "115": 1,
         "12": 4,
+        "12/25": 1,
         "13.5": 1,
         "1480": 1,
         "15": 4,
@@ -1793,6 +1806,7 @@
         "50": 3,
         "6": 6,
         "60": 1,
+        "600": 1,
         "63": 1,
         "7": 3,
         "8": 4,
@@ -1800,13 +1814,13 @@
         "9": 2,
         "9/17": 1,
         "90": 1,
-        "A": 41,
-        "B": 75,
-        "C": 66,
-        "D": 36
+        "A": 44,
+        "B": 77,
+        "C": 68,
+        "D": 39
       },
-      "modeling_items": 94,
-      "spr_items": 109,
+      "modeling_items": 98,
+      "spr_items": 111,
       "passages": 0
     }
   },
@@ -1815,7 +1829,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 39
+    "sat_math": 40
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1847,27 +1861,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 40,
+    "next_batch": 41,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 17.9,
-      "Advanced Math": 0.9,
-      "Problem-Solving and Data Analysis": -1.5,
-      "Geometry and Trigonometry": -7.5
+      "Algebra": 18.1,
+      "Advanced Math": 2.1,
+      "Problem-Solving and Data Analysis": -1.6,
+      "Geometry and Trigonometry": -8.6
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -34.8,
-      "medium": -19.5,
-      "hard": 64.2
+      "easy": -32.8,
+      "medium": -22.5,
+      "hard": 65.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 22.2,
-      "B": -11.8,
-      "C": -2.8,
-      "D": 27.2
+      "A": 21.4,
+      "B": -11.6,
+      "C": -2.6,
+      "D": 26.4
     },
-    "spr_items": 109,
+    "spr_items": 111,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1879,6 +1893,14 @@
         "Integration of Knowledge and Ideas": -10.5
       }
     },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1886,14 +1908,6 @@
         "Information and Ideas": -1.6,
         "Standard English Conventions": 12.4,
         "Expression of Ideas": -2.6
-      }
-    },
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
       }
     }
   },
@@ -1920,12 +1934,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 327,
-      "share_of_target": 0.327
+      "accepted": 339,
+      "share_of_target": 0.339
     }
   },
   "total_target": 3841,
-  "total_accepted": 1838,
+  "total_accepted": 1850,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49388,7 +49402,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 39,
+      "bank_version": 40,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49514,7 +49528,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T04:18:26+00:00",
+    "heartbeat_at": "2026-10-27T04:19:16+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

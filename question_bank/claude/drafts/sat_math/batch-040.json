@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 40,
- "plan": "SAT Math batch 40: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 3; 2 student-produced responses. Ideas J09-J11, J13, K01, K12, K13, L03, L07, M05, M06, M07 from generated set 3 (independently pre-checked: no copy or template matches). L03's choices balanced so the key is not the longest; K01 and M05 choices reordered so keys land at A (answer-letter balance). K02, K09, L06 and J12 dropped after the pre-check.",
+ "plan": "SAT Math batch 40: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 3; 2 student-produced responses. Ideas J09-J11, J13, K01, K12, K13, L03, L07, M05, M06, M07 from generated set 3 (independently pre-checked: no copy or template matches). L03's choices balanced so the key is not the longest; K01 and M05 choices reordered so keys land at A (answer-letter balance). K02, K09, L06 and J12 dropped after the pre-check. Relabelled to the blind solver's rating where it was lower: Q040-01 medium→easy, Q040-11 hard→medium.",
  "candidates": [
   {
    "cand": "Q040-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Interpreting a constant that divides the variable in a linear model",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The amount of fuel G, in gallons, left in a car's tank after the car is driven m miles on a trip is given by G = 15 − m/28. What is the best interpretation of 28 in this context?",
    "explanation": "Rewrite the model as G = 15 − (1/28)m: the fuel decreases by 1/28 gallon for each mile, so the car travels 28 miles for each gallon used. The tank starts with 15 gallons, and it is empty after 15 × 28 = 420 miles.",
    "hints": [
@@ -464,7 +464,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Area ratio of circles from equal arcs at different central angles",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A 40° arc of circle P has the same length as a 30° arc of circle Q. What is the ratio of the area of circle Q to the area of circle P ?",
    "explanation": "Arc length is proportional to the radius times the angle, so 40 r_P = 30 r_Q and r_Q/r_P = 4/3. Areas scale with the square of the radius, so the ratio of the areas is (4/3)² = 16/9.",
    "hints": [
@@ -480,8 +480,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must get the radius ratio the right way round and then square it; both inversion and forgetting to square are traps."
+    "single_correct": true
    },
    "choices": {
     "A": "9/16",
