@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 52,
-  "updated_at": "2026-10-27T18:40:26+00:00",
+  "version": 53,
+  "updated_at": "2026-10-27T18:51:07+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -553,6 +553,17 @@
       "word_count": 205,
       "text": "[1] In 1940, Frank Zamboni and two of his relatives opened Iceland, an ice rink in Paramount, California. [2] Smoothing the ice between sessions was slow work. [3] A team of workers had to scrape the surface, spray it with water, and squeegee it dry, a process that took more than an hour. [4] Skaters, many of {{1|who}} had paid for a full evening, spent that hour waiting.\n\n[5] Zamboni, who had worked as an electrician and in refrigeration, decided to build a machine that could do the job {{2|alone. Spending}} most of the 1940s on the problem. [6] His first successful {{3|model which he finished in 1949 combined}} three {{4|tasks: shaving}} the ice, washing it, and leaving behind a thin, smooth layer of water. [7] {{5|The machine did the job faster.}}\n\n[8] In 1950, the figure {{8|skater Sonja Henie}} saw the machine at Iceland and ordered two for her touring ice show. [9] Within a few years, rinks across the country were placing orders. [10] Each of the rinks that bought a machine {{6|were}} able to shorten the breaks between skating sessions. [11] Today, the name Zamboni is so familiar that many people use it for any ice resurfacer{{7|, regardless of who made it}}.",
       "batch": 52,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000053",
+      "title": "Drawing the Future",
+      "genre": "informative essay",
+      "word_count": 197,
+      "text": "[1] After serving in the U.S. Navy during the Civil War, Lewis Latimer was hired at a Boston patent law firm as an office {{1|boy, his duties}} were mostly running errands. [2] Watching the firm's draftsmen prepare drawings for patent applications, {{2|Latimer taught himself the craft}} at night. [3] His skill eventually earned him a promotion to head draftsman. [4] In 1876, he prepared the drawings {{3|that}} accompanied Alexander Graham Bell's application for a telephone patent.\n\n[5] Latimer then turned to electric lighting. [6] Early incandescent bulbs used carbon filaments that burned out quickly, and manufacturing them {{4|were}} slow and unreliable. [7] In 1882, Latimer patented an improved process for making carbon {{5|filaments, the process}} yielded filaments that were cheaper to produce. [8] {{6|However,}} he supervised the installation of electric lighting systems in several cities, including New York and Philadelphia.\n\n[9] In 1884, Latimer joined Thomas Edison's company, where he {{7|worked and was employed}} as a draftsman and as an expert witness in patent cases. [10] He was later the only Black member of the Edison Pioneers, a group of {{8|Edisons}} earliest associates. [11] Latimer, who also wrote poetry and taught drafting to immigrants, {{9|died in 1928.}}",
+      "batch": 53,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -35323,6 +35334,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-052.review.json",
         "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000491",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 1,
+      "evidence": "were mostly running errands",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "boy; his duties",
+        "C": "boy his duties",
+        "D": "boy, whose duties being"
+      },
+      "correct_answer": "B",
+      "explanation": "Both parts are independent clauses, so a semicolon correctly joins them.",
+      "distractor_explanations": {
+        "A": "A comma alone joins two independent clauses, creating a comma splice.",
+        "C": "Without punctuation, the two independent clauses run together.",
+        "D": "\"Whose duties being\" leaves the clause without a main verb, so the sentence does not work."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "Join two independent clauses with a semicolon or a period.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-01",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000492",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Modifier placement",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 2,
+      "evidence": "Watching the firm's draftsmen prepare drawings",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "the craft was taught by Latimer to himself",
+        "C": "it was the craft that Latimer taught himself",
+        "D": "Latimer's craft was self-taught"
+      },
+      "correct_answer": "A",
+      "explanation": "The person who watched the draftsmen is Latimer, so \"Latimer\" must come right after the opening phrase, as it does now.",
+      "distractor_explanations": {
+        "B": "The opening phrase would describe \"the craft,\" which did not watch the draftsmen.",
+        "C": "The opening phrase would describe \"it,\" not Latimer.",
+        "D": "The opening phrase would describe \"craft,\" which cannot watch anyone."
+      },
+      "distractor_traps": {
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "Who was watching the draftsmen?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put the doer right after the comma."
+      },
+      "remember": "An opening modifier describes the noun that follows it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-02",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000493",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative pronoun",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 3,
+      "evidence": "accompanied Alexander Graham Bell's application",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "who",
+        "C": "whom",
+        "D": "what"
+      },
+      "correct_answer": "A",
+      "explanation": "\"That\" correctly introduces the clause describing which drawings he prepared.",
+      "distractor_explanations": {
+        "B": "\"Who\" refers to people, not to drawings.",
+        "C": "\"Whom\" refers to people and is an object pronoun.",
+        "D": "\"What\" cannot introduce a clause that describes a noun."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the pronoun refer to people or things?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether each pronoun can refer to drawings."
+      },
+      "remember": "Use \"that\" or \"which\" for things.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-03",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000494",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 5,
+      "evidence": "yielded filaments that were cheaper to produce",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "filaments the process",
+        "C": "filaments, and, the process",
+        "D": "filaments. The process"
+      },
+      "correct_answer": "D",
+      "explanation": "Each part is an independent clause, so a period correctly separates them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "Without punctuation, the two independent clauses run together.",
+        "C": "The comma after \"and\" wrongly separates the conjunction from the clause it introduces."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where does the first complete sentence end?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the two subject-verb pairs."
+      },
+      "remember": "Separate two independent clauses with a period or semicolon.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-05",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000495",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 6,
+      "evidence": "he supervised the installation of electric lighting systems",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "In addition,",
+        "C": "Instead,",
+        "D": "Therefore,"
+      },
+      "correct_answer": "B",
+      "explanation": "Sentence 8 adds another of Latimer's contributions to electric lighting, so an additive transition fits.",
+      "distractor_explanations": {
+        "A": "\"However\" signals a contrast, but supervising installations adds to his work on lighting.",
+        "C": "Nothing suggests that installing lighting replaced his work on filaments.",
+        "D": "The patent did not cause him to supervise installations."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does sentence 8 relate to sentence 7?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship before choosing."
+      },
+      "remember": "Choose a transition that matches the logic between sentences.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-06",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000496",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (redundancy)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 7,
+      "evidence": "as a draftsman and as an expert witness",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "worked, being employed",
+        "C": "worked",
+        "D": "was employed and worked"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Worked\" alone says what is needed without repetition.",
+      "distractor_explanations": {
+        "A": "\"Worked\" and \"was employed\" say the same thing.",
+        "B": "\"Being employed\" repeats \"worked.\"",
+        "D": "This reverses the order but keeps the repetition."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any two words mean the same thing?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Cross out words that repeat an idea."
+      },
+      "remember": "Cut words that repeat meaning.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-07",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000497",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 8,
+      "evidence": "earliest associates",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Edisons'",
+        "C": "Edison is",
+        "D": "Edison's"
+      },
+      "correct_answer": "D",
+      "explanation": "The associates belonged to one person, Edison, so the singular possessive \"Edison's\" is needed.",
+      "distractor_explanations": {
+        "A": "\"Edisons\" lacks the apostrophe needed to show possession.",
+        "B": "\"Edisons'\" is a plural possessive, but there is one Edison.",
+        "C": "\"Edison is\" creates a verb where a possessive is needed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How many Edisons are there?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check number, then possession."
+      },
+      "remember": "Singular possessive: add 's.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-08",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000498",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence (emphasizing the essay's main point)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 9,
+      "evidence": "prepared the drawings",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by emphasizing the main point of the essay?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "helped bring both the telephone and the electric light into daily life.",
+        "C": "spent his final years living with his family in New York.",
+        "D": "is remembered more for his poetry than for his drawings."
+      },
+      "correct_answer": "B",
+      "explanation": "The essay traces Latimer's work on the telephone patent drawings and on electric lighting; choice B sums up those contributions.",
+      "distractor_explanations": {
+        "A": "The date of his death does not emphasize the essay's main point about his contributions.",
+        "C": "This adds a personal detail rather than summing up his contributions.",
+        "D": "The essay focuses on his drafting and inventions, and nothing supports this claim."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the essay mostly describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the first sentence of each paragraph."
+      },
+      "remember": "A strong conclusion restates the essay's main point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-09",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000499",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": null,
+      "evidence": "Latimer taught himself the craft at night",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe how a self-taught worker contributed to major technologies of his time. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it focuses mainly on how Bell and Edison developed their inventions.",
+        "B": "No, because Latimer did not invent either the telephone or the electric light himself.",
+        "C": "Yes, because it shows a self-taught Latimer aiding work on the telephone and electric light.",
+        "D": "No, because the essay focuses mostly on Latimer's poetry and his teaching of immigrants."
+      },
+      "correct_answer": "C",
+      "explanation": "The essay shows Latimer teaching himself drafting and then contributing to the telephone patent and to electric lighting, which matches the stated purpose.",
+      "distractor_explanations": {
+        "A": "The essay focuses on Latimer, not on Bell and Edison.",
+        "B": "The purpose is to show a contribution to these technologies, not that he invented them.",
+        "D": "Poetry and teaching are mentioned only in the last sentence."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Does the purpose require that Latimer invented the technologies?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the essay with the exact wording of the purpose."
+      },
+      "remember": "Read the stated goal precisely before judging.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-10",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000500",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Effect of deleting a phrase",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 7,
+      "evidence": "many people use it for any ice resurfacer",
+      "figure": null,
+      "stem": "If the writer were to delete the underlined portion (adjusting the punctuation as needed), the sentence would primarily lose:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "an explanation of how Zamboni's company named its later models",
+        "B": "a detail suggesting that Zamboni's machines were better than any others",
+        "C": "evidence that Zamboni's company eventually stopped making resurfacers",
+        "D": "a clarification that the name is used even for other companies' machines"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Regardless of who made it\" makes clear that people call even other companies' machines \"Zambonis,\" which shows how familiar the name has become.",
+      "distractor_explanations": {
+        "A": "The phrase is about how the public uses the name, not how models were named.",
+        "B": "The phrase says nothing about quality; it notes who made the machine.",
+        "C": "Nothing in the phrase suggests the company stopped making machines."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the phrase add about how the name is used?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence without the phrase and compare."
+      },
+      "remember": "Ask what a reader would not know without the phrase.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 53,
+      "draft_candidate": "E053-11",
+      "created_at": "2026-10-27T18:51:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-053.review.json",
+        "computation": "checks/act_english/batch_053.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
