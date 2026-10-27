@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 79,
+  "bank_version": 80,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -13303,6 +13303,159 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Evaluate the expression at x = 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000787",
+      "correct_answer": "A",
+      "explanation": "A radius drawn to the point of tangency is perpendicular to the tangent, so triangle OTP has a right angle at T. Then PT = √(13² − 5²) = √144 = 12.",
+      "distractor_explanations": {
+        "B": "8 subtracts the radius from the distance, 13 − 5.",
+        "C": "18 adds the distance and the radius.",
+        "D": "√194 adds the squares instead of subtracting them."
+      },
+      "hints": [
+        "What angle does a radius make with a tangent line at the point of tangency?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radius to T and the segment from the center to P."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000788",
+      "correct_answer": "B",
+      "explanation": "Combine the left side: 2/(2x) + 1/(2x) = 3/(2x). Then 3/(2x) = 3/4, so 2x = 4 and x = 2.",
+      "distractor_explanations": {
+        "A": "1/2 inverts the solution.",
+        "C": "4 is the value of 2x, not x.",
+        "D": "3 adds the numerators and stops."
+      },
+      "hints": [
+        "Rewrite both fractions with denominator 2x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check x = 2: 1/2 + 1/4 = 3/4."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000789",
+      "correct_answer": "C",
+      "explanation": "Let P = (x, 0). Then (x − 1)² + 9 = (x − 5)² + 1, so x² − 2x + 10 = x² − 10x + 26, giving 8x = 16 and x = 2.",
+      "distractor_explanations": {
+        "A": "(3, 0) uses the midpoint's x-coordinate, which is not equidistant here because the points have different heights.",
+        "B": "(0, 2) is on the y-axis, not the x-axis.",
+        "D": "(4, 0) is 5 units from (1, 3) but only √2 units from (5, 1)."
+      },
+      "hints": [
+        "Write the two distances using P = (x, 0)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the squared distances equal."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000790",
+      "correct_answer": "D",
+      "explanation": "A rectangle is determined by choosing 2 of the 4 vertical grid lines and 2 of the 3 horizontal grid lines: 6 × 3 = 18.",
+      "distractor_explanations": {
+        "A": "6 counts only the small squares.",
+        "B": "12 counts only the 1-by-1 and 1-by-2 rectangles (6 + 6), missing larger ones.",
+        "C": "17 leaves out the large outer rectangle."
+      },
+      "hints": [
+        "How many vertical and horizontal grid lines are there?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Pick two vertical lines and two horizontal lines."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000791",
+      "correct_answer": "B",
+      "explanation": "g(3) = 8, and x² − 1 = 8 gives x = ±3. The other value is −3.",
+      "distractor_explanations": {
+        "A": "1/3 is the reciprocal of 3.",
+        "C": "8 is the output g(3), not an input.",
+        "D": "−8 negates the output."
+      },
+      "hints": [
+        "What is g(3) ?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test each choice in x² − 1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000792",
+      "correct_answer": "C",
+      "explanation": "A survey shows an association. Other factors (sleep, family routines) could explain both, so the survey cannot establish that breakfast causes higher scores.",
+      "distractor_explanations": {
+        "A": "This claims causation, which an observational survey cannot establish.",
+        "B": "Nothing in the survey supports this.",
+        "D": "The survey did find a relationship."
+      },
+      "hints": [
+        "Did the survey assign students to eat breakfast?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out claims the survey cannot support."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000793",
+      "correct_answer": "D",
+      "explanation": "x³ − x = x(x − 1)(x + 1) = 0, so x = 0, 1 or −1: three solutions.",
+      "distractor_explanations": {
+        "A": "1 finds only x = 1.",
+        "B": "2 divides both sides by x and loses the solution x = 0.",
+        "C": "0 assumes a cubic and a line cannot cross, but x = 1 clearly works."
+      },
+      "hints": [
+        "What happens if you divide both sides by x ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Move everything to one side and factor."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000794",
+      "correct_answer": "C",
+      "explanation": "The common difference is 4, and a₁ = 7 = 4(1) + 3, so aₙ = 4n + 3.",
+      "distractor_explanations": {
+        "A": "7n gives 7, 14, 21, ...",
+        "B": "4n + 7 gives 11 as the first term.",
+        "D": "3n + 4 has the wrong common difference."
+      },
+      "hints": [
+        "What is the common difference?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test n = 1 and n = 2 in each formula."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000795",
+      "correct_answer": "A",
+      "explanation": "x² = −9, so x = ±√(−9) = ±3i.",
+      "distractor_explanations": {
+        "B": "±3 solves x² = 9, not x² = −9.",
+        "C": "±9i forgets to take the square root of 9.",
+        "D": "This leaves out the negative solution."
+      },
+      "hints": [
+        "What is √(−9) ?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Isolate x², then take square roots."
       }
     }
   ]

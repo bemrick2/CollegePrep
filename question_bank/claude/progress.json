@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T01:11:13+00:00",
+  "updated_at": "2026-10-27T01:13:19+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 765,
+    "act_math": 774,
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263
   },
   "review_totals": {
     "act_math": {
-      "PASS": 786,
+      "PASS": 795,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 791,
+      "candidates": 800,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 765,
+      "accepted": 774,
       "retired_after_audit": 21,
       "by_skill": {
-        "Algebra": 135,
-        "Functions": 124,
-        "Geometry": 193,
+        "Algebra": 137,
+        "Functions": 126,
+        "Geometry": 195,
         "Integrating Essential Skills": 93,
-        "Number & Quantity": 106,
-        "Statistics & Probability": 114
+        "Number & Quantity": 108,
+        "Statistics & Probability": 115
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -128,6 +128,7 @@
         "Arithmetic series in context": 1,
         "Arrangements with a restriction": 1,
         "Arrangements with repeated letters": 1,
+        "Association versus causation": 1,
         "Asymptotes of a hyperbola": 1,
         "At least two of three independent events": 1,
         "Average cost with a fixed cost": 1,
@@ -252,6 +253,7 @@
         "Counting perfect squares in a range": 1,
         "Counting positive integer solutions of a linear equation": 1,
         "Counting primes in an interval": 1,
+        "Counting rectangles in a grid": 1,
         "Counting solutions of a trigonometric equation": 1,
         "Counting solutions of f(f(x)) = 0": 1,
         "Counting square tiles to cover a rectangle": 1,
@@ -353,6 +355,7 @@
         "Expected count from a probability": 1,
         "Expected value": 1,
         "Experimental probability": 1,
+        "Explicit formula for an arithmetic sequence": 1,
         "Exponent rules with different bases": 1,
         "Exponent substitution": 1,
         "Exponential decay models": 1,
@@ -407,6 +410,7 @@
         "Identifying a function from ordered pairs": 1,
         "Identifying a function type from a table": 1,
         "Identifying a prime number": 1,
+        "Imaginary solutions of a quadratic": 1,
         "Incircle of a rhombus": 1,
         "Incircle of a right triangle": 1,
         "Inclusion–exclusion with divisibility": 1,
@@ -456,6 +460,7 @@
         "Least number with a given remainder": 1,
         "Leg of a 45°-45°-90° triangle from its hypotenuse": 1,
         "Length of a moving object passing a platform": 1,
+        "Length of a tangent segment": 1,
         "Length of the major axis of an ellipse": 1,
         "Limiting ingredient in batches": 1,
         "Line tangent to a parabola": 1,
@@ -534,6 +539,7 @@
         "Order of operations with an exponent": 1,
         "Order of operations with negative signs": 1,
         "Ordered selections (permutations)": 1,
+        "Other input with the same output": 1,
         "Overflow from a submerged sphere": 1,
         "Overlapping groups (Venn reasoning with percents)": 1,
         "Overtime pay": 1,
@@ -566,6 +572,7 @@
         "Piecewise functions": 1,
         "Point dividing a segment in a ratio": 1,
         "Point on a circle from its equation": 1,
+        "Point on an axis equidistant from two points": 1,
         "Point one-third of the way along a number line": 1,
         "Polynomial from its zeros": 1,
         "Polynomial remainder theorem": 1,
@@ -698,12 +705,14 @@
         "Slope from two points": 1,
         "Slope with an unknown coordinate": 1,
         "Solid of revolution (cone)": 1,
+        "Solutions lost by dividing by a variable": 1,
         "Solving a basic trigonometric equation": 1,
         "Solving a formula for a variable": 1,
         "Solving a monthly bill for usage": 1,
         "Solving a proportion": 1,
         "Solving a proportion between two variables": 1,
         "Solving a reciprocal formula for a variable": 1,
+        "Solving a simple rational equation": 1,
         "Solving a system by elimination": 1,
         "Solving a system for a difference of variables": 1,
         "Solving a system, then evaluating an expression": 1,
@@ -829,25 +838,25 @@
         "y-intercept of an exponential function": 1
       },
       "by_difficulty_author": {
-        "easy": 192,
-        "hard": 218,
-        "medium": 355
+        "easy": 194,
+        "hard": 219,
+        "medium": 361
       },
       "by_difficulty_calibrated": {
-        "easy": 257,
-        "hard": 93,
-        "medium": 415
+        "easy": 263,
+        "hard": 94,
+        "medium": 417
       },
       "calibrated_share": {
-        "easy": 0.336,
-        "hard": 0.122,
-        "medium": 0.542
+        "easy": 0.34,
+        "hard": 0.121,
+        "medium": 0.539
       },
       "answer_key_balance": {
-        "A": 181,
-        "B": 204,
-        "C": 202,
-        "D": 178
+        "A": 183,
+        "B": 206,
+        "C": 205,
+        "D": 180
       },
       "modeling_items": 140,
       "passages": 0
@@ -1379,49 +1388,41 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 79,
+    "act_math": 80,
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 80,
+      "next_batch": 81,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -20.8,
-        "Algebra": 8.4,
-        "Functions": 19.4,
-        "Geometry": -49.6,
-        "Statistics & Probability": -9.4,
-        "Integrating Essential Skills": 62.0
+        "Number & Quantity": -21.8,
+        "Algebra": 8.0,
+        "Functions": 19.0,
+        "Geometry": -50.0,
+        "Statistics & Probability": -9.2,
+        "Integrating Essential Skills": 63.8
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -63.2,
-        "medium": -27.5,
-        "hard": 100.8
+        "easy": -67.0,
+        "medium": -25.0,
+        "hard": 102.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 12.8,
-        "B": -10.2,
-        "C": -8.2,
-        "D": 15.8
+        "A": 13.0,
+        "B": -10.0,
+        "C": -9.0,
+        "D": 16.0
       }
     }
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1438,13 +1439,21 @@
         "Knowledge of Language": 18.8,
         "Conventions of Standard English": -33.8
       }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 765,
-      "share_of_target": 0.383
+      "accepted": 774,
+      "share_of_target": 0.387
     },
     "act_english": {
       "target": 700,
@@ -1463,7 +1472,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1509,
+  "total_accepted": 1518,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_reading",
   "audits": [
@@ -48273,7 +48282,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 79,
+      "bank_version": 80,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -48420,7 +48429,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T01:11:13+00:00",
+    "heartbeat_at": "2026-10-27T01:13:19+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
