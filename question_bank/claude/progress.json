@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:18:33+00:00",
+  "updated_at": "2026-10-27T03:19:09+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 245
+    "sat_math": 250
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 255,
+      "PASS": 260,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 257,
+      "candidates": 262,
       "passed_after_revision": 2
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 245,
+      "accepted": 250,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 84,
-        "Algebra": 74,
+        "Advanced Math": 86,
+        "Algebra": 76,
         "Geometry and Trigonometry": 48,
-        "Problem-Solving and Data Analysis": 39
+        "Problem-Solving and Data Analysis": 40
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1459,12 +1459,14 @@
         "Equal earnings at two hourly rates": 1,
         "Equation of a circle with an unknown constant": 1,
         "Equation of a proportional line from its slope": 1,
+        "Equivalent form of a linear equation with fractions": 1,
         "Evaluating a cubic function at two inputs": 1,
         "Evaluating a linear function after finding its intercept": 1,
         "Evaluating a linear function at a related input": 1,
         "Evaluating a linear function given by a table": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
         "Evaluating a related exponential expression": 1,
+        "Evaluating a related quadratic expression": 1,
         "Evaluating an exponential function at a fractional input": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
@@ -1496,6 +1498,7 @@
         "Interpreting a linear equation in two variables": 1,
         "Interpreting an exponential growth factor": 1,
         "Interpreting an intercept of a linear equation in context": 1,
+        "Interpreting standard deviation": 1,
         "Interpreting the initial value of an exponential model": 1,
         "Intersection of a line and a parabola": 1,
         "Intersection of a line in point-slope form with a horizontal line": 1,
@@ -1520,6 +1523,7 @@
         "Minimum of a horizontally shifted quadratic": 1,
         "Minimum of a sum of absolute values": 1,
         "Multiplying powers with fractional exponents": 1,
+        "Number of inputs with a given output": 1,
         "Number of real solutions of a quadratic equation": 1,
         "Overlapping groups from two conditional percents": 1,
         "Part from a part-to-part ratio and a difference": 1,
@@ -1572,6 +1576,7 @@
         "Slope from a point and an x-intercept": 1,
         "Slope of a line through a given intersection point": 1,
         "Slope of a line through the origin meeting a line where x = y": 1,
+        "Slope of a linear function from a relationship between outputs": 1,
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
         "Solving a factorable quadratic equation": 1,
@@ -1653,19 +1658,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 62,
+        "easy": 65,
         "hard": 11,
-        "medium": 172
+        "medium": 174
       },
       "by_difficulty_calibrated": {
-        "easy": 106,
+        "easy": 109,
         "hard": 6,
-        "medium": 133
+        "medium": 135
       },
       "calibrated_share": {
-        "easy": 0.433,
+        "easy": 0.436,
         "hard": 0.024,
-        "medium": 0.543
+        "medium": 0.54
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1698,7 +1703,7 @@
         "5": 2,
         "5.4": 1,
         "50": 2,
-        "6": 4,
+        "6": 5,
         "60": 1,
         "63": 1,
         "7": 3,
@@ -1707,12 +1712,12 @@
         "9": 2,
         "90": 1,
         "A": 38,
-        "B": 52,
-        "C": 50,
+        "B": 54,
+        "C": 52,
         "D": 31
       },
-      "modeling_items": 67,
-      "spr_items": 74,
+      "modeling_items": 68,
+      "spr_items": 75,
       "passages": 0
     }
   },
@@ -1721,7 +1726,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 28
+    "sat_math": 29
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1753,27 +1758,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 29,
+    "next_batch": 30,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 15.2,
-      "Advanced Math": 5.2,
-      "Problem-Solving and Data Analysis": -0.8,
-      "Geometry and Trigonometry": -9.8
+      "Algebra": 15.0,
+      "Advanced Math": 5.0,
+      "Problem-Solving and Data Analysis": -1.0,
+      "Geometry and Trigonometry": -9.0
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -42.2,
-      "medium": -5.5,
-      "hard": 57.8
+      "easy": -44.0,
+      "medium": -5.0,
+      "hard": 59.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 9.8,
-      "B": -4.2,
-      "C": -2.2,
-      "D": 16.8
+      "A": 10.8,
+      "B": -5.2,
+      "C": -3.2,
+      "D": 17.8
     },
-    "spr_items": 74,
+    "spr_items": 75,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1786,20 +1791,20 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
-      }
-    },
     "act_reading": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 31.9,
         "Craft and Structure": -11.4,
         "Integration of Knowledge and Ideas": -10.5
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
       }
     }
   },
@@ -1826,12 +1831,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 245,
-      "share_of_target": 0.245
+      "accepted": 250,
+      "share_of_target": 0.25
     }
   },
   "total_target": 3841,
-  "total_accepted": 1756,
+  "total_accepted": 1761,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49003,7 +49008,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 28,
+      "bank_version": 29,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49129,7 +49134,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:18:33+00:00",
+    "heartbeat_at": "2026-10-27T03:19:09+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

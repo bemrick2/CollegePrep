@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 29,
- "plan": "SAT Math batch 29 (6 items): Algebra 2, Advanced Math 3, Problem-Solving and Data Analysis 1; 2 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-029.repeats.json): one template (SAT 072) dropped; a rectangle-diagonal idea dropped as close to SAT Q013-09 (legs differing by a constant).",
+ "plan": "SAT Math batch 29 (6 items): Algebra 2, Advanced Math 3, Problem-Solving and Data Analysis 1; 2 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-029.repeats.json): one template (SAT 072) dropped; a rectangle-diagonal idea dropped as close to SAT Q013-09 (legs differing by a constant). Q029-04 withdrawn after the blind solve (mirrors a released official SAT item). Relabelled to the blind solver's rating where it was lower: Q029-01 hard→easy, Q029-06 medium→easy.",
  "candidates": [
   {
    "cand": "Q029-01",
@@ -9,7 +9,7 @@
    "skill": "Advanced Math",
    "subskill": "Evaluating a related quadratic expression",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "If x > 0 and x² + x = 12, what is the value of x² − x ?",
    "explanation": "x² + x − 12 = 0 factors as (x + 4)(x − 3) = 0, so x = 3 (since x > 0). Then x² − x = 9 − 3 = 6. (Equivalently, x² − x = (x² + x) − 2x = 12 − 6.)",
    "hints": [
@@ -25,8 +25,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must solve a quadratic and then evaluate a different expression; reporting x or reusing 12 are common traps."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "6",
@@ -139,49 +138,6 @@
    }
   },
   {
-   "cand": "Q029-04",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Evaluating a quotient of powers from a linear relation",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "If 3x − 2y = 7, what is the value of 8ˣ / 4ʸ ?",
-   "explanation": "Write both bases as powers of 2: 8ˣ = 2^(3x) and 4ʸ = 2^(2y). Then 8ˣ / 4ʸ = 2^(3x − 2y) = 2⁷ = 128.",
-   "hints": [
-    "Write 8 and 4 as powers of 2."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Choose x = 3 and y = 1, which satisfy 3x − 2y = 7: 512/4 = 128."
-   },
-   "remember": "Rewrite with a common base; dividing powers subtracts exponents.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students cannot solve for x and y; they must rewrite both bases as powers of 2 and recognise 3x − 2y in the exponent."
-   },
-   "format": "spr",
-   "answer": "128",
-   "accepted_answers": [
-    "128"
-   ],
-   "common_errors": [
-    {
-     "value": "7",
-     "rationale": "7 is the exponent 3x − 2y, not the value of the quotient.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "64",
-     "rationale": "64 is 2⁶, from an off-by-one exponent.",
-     "trap": null
-    }
-   ]
-  },
-  {
    "cand": "Q029-05",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
@@ -233,7 +189,7 @@
    "skill": "Algebra",
    "subskill": "Equivalent form of a linear equation with fractions",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which of the following equations is equivalent to x/3 + y/2 = 1 ?",
    "explanation": "Multiplying every term by 6 clears the fractions: 6(x/3) + 6(y/2) = 6(1), so 2x + 3y = 6.",
    "hints": [
@@ -271,6 +227,55 @@
      "rationale": "This uses the denominators as coefficients and does not multiply the right side.",
      "trap": null
     }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q029-04",
+   "reason": "blind solver: structure closely mirrors a well-known released official SAT item (8^x / 2^y given 3x − y = 12); withdrawn as an originality and rights risk",
+   "item": {
+    "cand": "Q029-04",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Evaluating a quotient of powers from a linear relation",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "hard",
+    "stem": "If 3x − 2y = 7, what is the value of 8ˣ / 4ʸ ?",
+    "explanation": "Write both bases as powers of 2: 8ˣ = 2^(3x) and 4ʸ = 2^(2y). Then 8ˣ / 4ʸ = 2^(3x − 2y) = 2⁷ = 128.",
+    "hints": [
+     "Write 8 and 4 as powers of 2."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Choose x = 3 and y = 1, which satisfy 3x − 2y = 7: 512/4 = 128."
+    },
+    "remember": "Rewrite with a common base; dividing powers subtracts exponents.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students cannot solve for x and y; they must rewrite both bases as powers of 2 and recognise 3x − 2y in the exponent."
+    },
+    "format": "spr",
+    "answer": "128",
+    "accepted_answers": [
+     "128"
+    ],
+    "common_errors": [
+     {
+      "value": "7",
+      "rationale": "7 is the exponent 3x − 2y, not the value of the quotient.",
+      "trap": "partial_answer"
+     },
+     {
+      "value": "64",
+      "rationale": "64 is 2⁶, from an off-by-one exponent.",
+      "trap": null
+     }
+    ]
    }
   }
  ]

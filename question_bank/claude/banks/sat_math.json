@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 28,
-  "updated_at": "2026-10-27T03:16:38+00:00",
+  "version": 29,
+  "updated_at": "2026-10-27T03:19:07+00:00",
   "passages": [],
   "questions": [
     {
@@ -18345,6 +18345,369 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-028.review.json",
         "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000256",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating a related quadratic expression",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x > 0 and x² + x = 12, what is the value of x² − x ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the value of x, not x² − x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the value of x² + x.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "x² + x − 12 = 0 factors as (x + 4)(x − 3) = 0, so x = 3 (since x > 0). Then x² − x = 9 − 3 = 6. (Equivalently, x² − x = (x² + x) − 2x = 12 − 6.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find x first, using x > 0."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try small positive integers in x² + x = 12."
+      },
+      "remember": "Solve for the variable, then evaluate the new expression.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "Q029-01",
+      "created_at": "2026-10-27T03:19:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: x > 0 condition correctly excludes x = -4 (which would give 20); fine as written"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-029.review.json",
+        "computation": "checks/sat_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000257",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope of a linear function from a relationship between outputs",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the linear function g, g(0) = 4 and g(3) = 2 · g(1). What is the slope of the graph of g ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0",
+        "B": "4",
+        "C": "8",
+        "D": "16"
+      },
+      "correct_answer": "B",
+      "explanation": "Write g(x) = mx + 4. Then g(3) = 3m + 4 and g(1) = m + 4, so 3m + 4 = 2(m + 4) = 2m + 8. Solving gives m = 4. Check: g(1) = 8 and g(3) = 16 = 2 × 8.",
+      "distractor_explanations": {
+        "A": "0 drops the intercept from both sides: 3m = 2m.",
+        "C": "8 is the value of g(1).",
+        "D": "16 is the value of g(3)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write g(x) = mx + b and use g(0) to find b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3m + 4 = 2(m + 4)."
+      },
+      "remember": "A linear function is determined by its slope and its value at 0.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "Q029-02",
+      "created_at": "2026-10-27T03:19:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-029.review.json",
+        "computation": "checks/sat_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000258",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Interpreting standard deviation",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The scores of the students in class A on a test have a mean of 75 and a standard deviation of 5. The scores of the students in class B on the same test have a mean of 75 and a standard deviation of 12. Which statement must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Class A's scores are more spread out than class B's.",
+        "B": "Class B's scores are more spread out than class A's.",
+        "C": "Class B has a higher median score than class A.",
+        "D": "Every score in class B is higher than every score in class A."
+      },
+      "correct_answer": "B",
+      "explanation": "Standard deviation measures how spread out data are around the mean. Class B's standard deviation (12) is larger than class A's (5), so class B's scores are more spread out. The means are equal, and nothing is given about the medians.",
+      "distractor_explanations": {
+        "A": "A smaller standard deviation means less spread.",
+        "C": "The standard deviation gives no information about the median.",
+        "D": "The means are equal, so this cannot be true."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does standard deviation measure?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate statements about center when only spread differs."
+      },
+      "remember": "Larger standard deviation → more spread around the mean.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "Q029-03",
+      "created_at": "2026-10-27T03:19:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: easy elimination - C and D are clearly unsupported (equal means say nothing about median; D contradicts equal means), and A/B are direct opposites, so the item reduces to recalling what SD measures"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-029.review.json",
+        "computation": "checks/sat_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000259",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Number of inputs with a given output",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² − 3x + 2. For how many values of x is f(x) = f(1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "Infinitely many"
+      },
+      "correct_answer": "C",
+      "explanation": "f(1) = 1 − 3 + 2 = 0. So f(x) = 0 means x² − 3x + 2 = 0, or (x − 1)(x − 2) = 0, which has two solutions: x = 1 and x = 2.",
+      "distractor_explanations": {
+        "A": "x = 1 is itself a solution, so there is at least one.",
+        "B": "1 counts only x = 1 and misses x = 2.",
+        "D": "A quadratic takes each output value at most twice."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Compute f(1) first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve f(x) = 0 by factoring."
+      },
+      "remember": "A parabola takes most output values at two inputs.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "Q029-05",
+      "created_at": "2026-10-27T03:19:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: trap choice B (only x = 1) is the intended distractor; distractors A and D are weak"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-029.review.json",
+        "computation": "checks/sat_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000260",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equivalent form of a linear equation with fractions",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following equations is equivalent to x/3 + y/2 = 1 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2x + 3y = 1",
+        "B": "3x + 2y = 6",
+        "C": "2x + 3y = 6",
+        "D": "3x + 2y = 1"
+      },
+      "correct_answer": "C",
+      "explanation": "Multiplying every term by 6 clears the fractions: 6(x/3) + 6(y/2) = 6(1), so 2x + 3y = 6.",
+      "distractor_explanations": {
+        "A": "This multiplies the left side by 6 but not the right side.",
+        "B": "This uses the denominators as the coefficients.",
+        "D": "This uses the denominators as coefficients and does not multiply the right side."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply every term by 6."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "The point (3, 0) satisfies the original equation; test it."
+      },
+      "remember": "Multiply every term, including the constant, by the common denominator.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "Q029-06",
+      "created_at": "2026-10-27T03:19:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-029.review.json",
+        "computation": "checks/sat_math/batch_029.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
