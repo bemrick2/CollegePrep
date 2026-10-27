@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 72,
+  "bank_version": 73,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -16391,6 +16391,303 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Rewrite 3 − x as −(x − 3)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000794",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the value of k, not the solution.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1",
+          "rationale": "1 makes a sign error solving (x + 1)² = 0.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The discriminant is (k − 2)² − 4(k − 3) = k² − 8k + 16 = (k − 4)², which is 0 only when k = 4. Then the equation is x² + 2x + 1 = 0, so x = −1. (In fact, x = −1 satisfies the equation for every k, since 1 − (k − 2) + k − 3 = 0.)",
+      "distractor_explanations": {},
+      "hints": [
+        "When is the discriminant zero?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k from the discriminant, then solve."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000795",
+      "correct_answer": "9/2",
+      "accepted_answers": [
+        "9/2",
+        "4.5"
+      ],
+      "common_errors": [
+        {
+          "value": "3.6",
+          "rationale": "3.6 treats DE as parallel to AC: 6 · 6/10.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 matches the wrong sides, DE/BC = BD/AC.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of BE, not DE.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "AB = 10, so BD = 6. Triangles BDE and BCA share angle B and have right angles at D and C, so they are similar with DE/CA = BD/BC. Then DE = 6 · 6/8 = 9/2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which two triangles share angle B and a right angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the right angles at C and D."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000796",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 swaps base and height in the proportion: s/10 = (10 − s)/15.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of the midsegment, which is not where the square's top lies.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 is half the height.",
+          "trap": null
+        }
+      ],
+      "explanation": "The square's top side cuts off a triangle similar to the whole triangle, with height 10 − s and base s. So s/15 = (10 − s)/10, which gives 10s = 150 − 15s and s = 6.",
+      "distractor_explanations": {},
+      "hints": [
+        "What triangle sits above the square?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square and the small triangle above it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000797",
+      "correct_answer": "B",
+      "explanation": "Draw the altitude AD to side BC. Triangle ABD is a 45°-45°-90° triangle with hypotenuse 6√2, so AD = BD = 6. Triangle ADC is a 30°-60°-90° triangle with the side opposite 30° equal to 6, so DC = 6√3. Then BC = 6 + 6√3, and the area is (1/2)(6 + 6√3)(6) = 18 + 18√3.",
+      "distractor_explanations": {
+        "A": "This uses DC = AD/√3, the wrong leg ratio for the 30° angle.",
+        "C": "This uses (1/2)(AB)(AC) as if angle A were a right angle.",
+        "D": "This forgets the factor 1/2."
+      },
+      "hints": [
+        "Where should you draw an altitude?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the triangle into two special right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000798",
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "20.8",
+          "rationale": "20.8 uses the ratio 2 : 3 for the areas.",
+          "trap": null
+        },
+        {
+          "value": "36",
+          "rationale": "36 is the area of the larger triangle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "26",
+          "rationale": "26 splits the sum equally.",
+          "trap": null
+        }
+      ],
+      "explanation": "The ratio of areas is the square of the ratio of perimeters, 4 : 9. The smaller area is 4/13 of 52, which is 16.",
+      "distractor_explanations": {},
+      "hints": [
+        "How does the ratio of areas relate to the ratio of perimeters?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the ratio, then split the total."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000799",
+      "correct_answer": "C",
+      "explanation": "cos θ = −1/2 at θ = 2π/3 and θ = 4π/3. Since sin θ < 0, θ is in Quadrant III, so θ = 4π/3.",
+      "distractor_explanations": {
+        "A": "2π/3 has cos θ = −1/2 but sin θ > 0.",
+        "B": "7π/6 is where sin θ = −1/2, not cos θ.",
+        "D": "5π/3 has cos θ = 1/2, not −1/2."
+      },
+      "hints": [
+        "Which quadrants have cos θ < 0 and sin θ < 0?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the unit circle and mark the quadrant."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000800",
+      "correct_answer": "C",
+      "explanation": "cos(θ + π/2) = −sin θ = −0.8 and sin(θ + π/2) = cos θ = −0.6, so Q = (−0.8, −0.6). (A quarter turn counterclockwise sends (x, y) to (−y, x).)",
+      "distractor_explanations": {
+        "A": "This adds π instead of π/2.",
+        "B": "This reflects P across the x-axis instead of rotating it.",
+        "D": "This uses sin(θ + π/2) = −cos θ."
+      },
+      "hints": [
+        "What does a quarter turn counterclockwise do to (x, y)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot P and rotate it 90 degrees."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000801",
+      "correct_answer": "A",
+      "explanation": "sin A = cos B = sin(90° − B), and both angles are acute, so A = 90° − B and angle C is a right angle. Then AB is the hypotenuse, AC = √(100 − 36) = 8, and the area is (1/2)(8)(6) = 24.",
+      "distractor_explanations": {
+        "B": "30 takes AB and BC as the legs, putting the right angle at B.",
+        "C": "48 forgets the factor 1/2.",
+        "D": "60 makes both errors."
+      },
+      "hints": [
+        "What does sin A = cos B tell you about angles A and B?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the cofunction identity, then the Pythagorean theorem."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000802",
+      "correct_answer": "1.24",
+      "accepted_answers": [
+        "1.24",
+        "31/25"
+      ],
+      "common_errors": [
+        {
+          "value": "0.56",
+          "rationale": "0.56 treats both terms as equal to cos x°.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 uses 1 − 0.28 for sin x° instead of √(1 − 0.28²).",
+          "trap": null
+        },
+        {
+          "value": "1.92",
+          "rationale": "1.92 treats both terms as equal to sin x°.",
+          "trap": null
+        }
+      ],
+      "explanation": "sin(90 − x)° = cos x° = 0.28, and cos(90 − x)° = sin x° = √(1 − 0.28²) = √0.9216 = 0.96. The sum is 1.24.",
+      "distractor_explanations": {},
+      "hints": [
+        "Rewrite each term using cofunctions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find sin x° from sin² + cos² = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000803",
+      "correct_answer": "D",
+      "explanation": "Completing the squares, (x + 3)² + (y − 2)² = 3 + 9 + 4, so the center is (−3, 2). A circle with this center through the origin has r² = 3² + 2² = 13: (x + 3)² + (y − 2)² = 13.",
+      "distractor_explanations": {
+        "A": "16 is the original circle's radius squared, not one through the origin.",
+        "B": "This takes the center as (3, −2).",
+        "C": "3 is the constant from the original equation, not a radius squared."
+      },
+      "hints": [
+        "What is the center of the given circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square, then use the origin to find r²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000804",
+      "correct_answer": "B",
+      "explanation": "The cylinder's length is 20 − 2(3) = 14 meters, so its volume is π(3²)(14) = 126π. The two hemispheres form a sphere with volume (4/3)π(3³) = 36π. The total is 162π.",
+      "distractor_explanations": {
+        "A": "126π leaves out the hemispheres.",
+        "C": "180π uses 20 as the cylinder's length and ignores the hemispheres.",
+        "D": "216π uses 20 as the cylinder's length and then adds the sphere."
+      },
+      "hints": [
+        "How long is the cylindrical part?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the tank and label the parts of its length."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000805",
+      "correct_answer": "158",
+      "accepted_answers": [
+        "158"
+      ],
+      "common_errors": [
+        {
+          "value": "150",
+          "rationale": "150 assumes the surface area does not change.",
+          "trap": null
+        },
+        {
+          "value": "142",
+          "rationale": "142 subtracts the two removed squares without adding the newly exposed faces.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "166",
+          "rationale": "166 adds the four exposed faces without subtracting the removed squares.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The original surface area is 6(5²) = 150. The notch removes two 2-by-2 squares (8 square centimeters) from the outside and exposes four new 2-by-2 faces (16 square centimeters). The new total is 150 − 8 + 16 = 158.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which faces of the small cube become exposed?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the notch and count the faces it adds and removes."
       }
     }
   ]

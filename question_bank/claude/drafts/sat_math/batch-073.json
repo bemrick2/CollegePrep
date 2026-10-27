@@ -1,616 +1,616 @@
 {
- "bank": "sat_math",
- "batch": 73,
- "plan": "SAT Math batch 73: 13 items from idea set 21 (PB09, PB15, PD01-PD08, PD10-PD12; pre-checked in ideas-068.repeats.json). PD09 dropped (template). Fixes: PD02 says acute and the 7.5 trap rationale is corrected; PD06 adds a Quadrant III distractor (reflection across the x-axis) so a quadrant check alone does not decide it; PD07 renumbered (10, 6, area 24) away from the 5-12-13 triple; PD10 choices in center-radius form to remove the constant-term shortcut; PD12 cut moved to the middle of an edge (key 158) because the corner cut's key equaled the uncut cube; PB15 bad trap rationale dropped. Difficulty provisional.",
- "candidates": [
-  {
-   "cand": "Q073-01",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Conditions for two positive solutions",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "In the equation x² − 6x + c = 0, c is a constant. The equation has two distinct positive real solutions. Which of the following describes all possible values of c ?",
-   "explanation": "Two distinct real solutions require the discriminant 36 − 4c > 0, so c < 9. The solutions add to 6 (positive), and their product, c, must be positive for both to be positive, so c > 0. Together, 0 < c < 9.",
-   "hints": [
-    "What do the sum and product of the solutions tell you?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Combine the discriminant condition with the product condition."
-   },
-   "remember": "Two positive roots need a positive discriminant, sum, and product.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine the discriminant with the signs of the sum and product."
-   },
-   "choices": {
-    "A": "c < 9",
-    "B": "0 < c < 9",
-    "C": "0 < c ≤ 9",
-    "D": "c > 0"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This checks only the discriminant; c = −7 gives the solutions 7 and −1.",
-     "trap": "partial_answer"
+  "bank": "sat_math",
+  "batch": 73,
+  "plan": "SAT Math batch 73: 13 items from idea set 21 (PB09, PB15, PD01-PD08, PD10-PD12; pre-checked in ideas-068.repeats.json). PD09 dropped (template). Fixes: PD02 says acute and the 7.5 trap rationale is corrected; PD06 adds a Quadrant III distractor (reflection across the x-axis) so a quadrant check alone does not decide it; PD07 renumbered (10, 6, area 24) away from the 5-12-13 triple; PD10 choices in center-radius form to remove the constant-term shortcut; PD12 cut moved to the middle of an edge (key 158) because the corner cut's key equaled the uncut cube; PB15 bad trap rationale dropped. Difficulty provisional.",
+  "candidates": [
+    {
+      "cand": "Q073-01",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Conditions for two positive solutions",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "In the equation x² − 6x + c = 0, c is a constant. The equation has two distinct positive real solutions. Which of the following describes all possible values of c ?",
+      "explanation": "Two distinct real solutions require the discriminant 36 − 4c > 0, so c < 9. The solutions add to 6 (positive), and their product, c, must be positive for both to be positive, so c > 0. Together, 0 < c < 9.",
+      "hints": [
+        "What do the sum and product of the solutions tell you?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the discriminant condition with the product condition."
+      },
+      "remember": "Two positive roots need a positive discriminant, sum, and product.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must combine the discriminant with the signs of the sum and product."
+      },
+      "choices": {
+        "A": "c < 9",
+        "B": "0 < c < 9",
+        "C": "0 < c ≤ 9",
+        "D": "c > 0"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This checks only the discriminant; c = −7 gives the solutions 7 and −1.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "c = 9 gives the single solution 3, not two distinct solutions.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This checks only the product; c = 10 gives no real solutions.",
+          "trap": "partial_answer"
+        }
+      }
     },
-    "C": {
-     "rationale": "c = 9 gives the single solution 3, not two distinct solutions.",
-     "trap": null
+    {
+      "cand": "Q073-02",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "The one solution shared by a family of quadratics",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "In the equation x² + (k − 2)x + k − 3 = 0, k is a constant. The equation has exactly one real solution. What is that solution?",
+      "explanation": "The discriminant is (k − 2)² − 4(k − 3) = k² − 8k + 16 = (k − 4)², which is 0 only when k = 4. Then the equation is x² + 2x + 1 = 0, so x = −1. (In fact, x = −1 satisfies the equation for every k, since 1 − (k − 2) + k − 3 = 0.)",
+      "hints": [
+        "When is the discriminant zero?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k from the discriminant, then solve."
+      },
+      "remember": "Exactly one real solution means the discriminant is zero.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The parameter is only a step, and the discriminant is itself a perfect square."
+      },
+      "format": "spr",
+      "answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the value of k, not the solution.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1",
+          "rationale": "1 makes a sign error solving (x + 1)² = 0.",
+          "trap": "sign_error"
+        }
+      ]
     },
-    "D": {
-     "rationale": "This checks only the product; c = 10 gives no real solutions.",
-     "trap": "partial_answer"
+    {
+      "cand": "Q073-03",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Similar triangles with a perpendicular from the hypotenuse",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "In right triangle ABC, angle C is the right angle, AC = 6, and BC = 8. Point D lies on hypotenuse AB so that AD = 4. The line through D perpendicular to AB intersects side BC at point E. What is the length of DE ?",
+      "explanation": "AB = 10, so BD = 6. Triangles BDE and BCA share angle B and have right angles at D and C, so they are similar with DE/CA = BD/BC. Then DE = 6 · 6/8 = 9/2.",
+      "hints": [
+        "Which two triangles share angle B and a right angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the right angles at C and D."
+      },
+      "remember": "Match corresponding vertices by their angles, not by position.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The similar triangles are not in parallel position, so corresponding sides must be matched by angles."
+      },
+      "format": "spr",
+      "answer": "9/2",
+      "accepted_answers": [
+        "9/2",
+        "4.5"
+      ],
+      "common_errors": [
+        {
+          "value": "3.6",
+          "rationale": "3.6 treats DE as parallel to AC: 6 · 6/10.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 matches the wrong sides, DE/BC = BD/AC.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of BE, not DE.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q073-04",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square inscribed on a side of a triangle",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "An acute triangle has a side of length 15, and the height to that side is 10. A square is drawn inside the triangle so that one side of the square lies on the side of length 15 and the other two vertices of the square lie on the other two sides of the triangle. What is the side length of the square?",
+      "explanation": "The square's top side cuts off a triangle similar to the whole triangle, with height 10 − s and base s. So s/15 = (10 − s)/10, which gives 10s = 150 − 15s and s = 6.",
+      "hints": [
+        "What triangle sits above the square?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square and the small triangle above it."
+      },
+      "remember": "A segment parallel to a side cuts off a similar triangle.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must set up a proportion between the small triangle's base and height and the large triangle's."
+      },
+      "format": "spr",
+      "answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 swaps base and height in the proportion: s/10 = (10 − s)/15.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of the midsegment, which is not where the square's top lies.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 is half the height.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q073-05",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area from two special right triangles",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "In triangle ABC, the measure of angle B is 45°, the measure of angle C is 30°, and AB = 6√2. What is the area of triangle ABC ?",
+      "explanation": "Draw the altitude AD to side BC. Triangle ABD is a 45°-45°-90° triangle with hypotenuse 6√2, so AD = BD = 6. Triangle ADC is a 30°-60°-90° triangle with the side opposite 30° equal to 6, so DC = 6√3. Then BC = 6 + 6√3, and the area is (1/2)(6 + 6√3)(6) = 18 + 18√3.",
+      "hints": [
+        "Where should you draw an altitude?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the triangle into two special right triangles."
+      },
+      "remember": "Split an oblique triangle into right triangles with an altitude.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both special triangles are needed, and their pieces must be added to form the base."
+      },
+      "choices": {
+        "A": "18 + 6√3",
+        "B": "18 + 18√3",
+        "C": "36√2",
+        "D": "36 + 36√3"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This uses DC = AD/√3, the wrong leg ratio for the 30° angle.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This uses (1/2)(AB)(AC) as if angle A were a right angle.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This forgets the factor 1/2.",
+          "trap": "partial_answer"
+        }
+      }
+    },
+    {
+      "cand": "Q073-06",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of similar triangles from a sum",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "easy",
+      "stem": "Two triangles are similar, and the ratio of their perimeters is 2 : 3. The sum of their areas is 52 square units. What is the area of the smaller triangle, in square units?",
+      "explanation": "The ratio of areas is the square of the ratio of perimeters, 4 : 9. The smaller area is 4/13 of 52, which is 16.",
+      "hints": [
+        "How does the ratio of areas relate to the ratio of perimeters?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the ratio, then split the total."
+      },
+      "remember": "Areas of similar figures are in the square of the length ratio.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "20.8",
+          "rationale": "20.8 uses the ratio 2 : 3 for the areas.",
+          "trap": null
+        },
+        {
+          "value": "36",
+          "rationale": "36 is the area of the larger triangle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "26",
+          "rationale": "26 splits the sum equally.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q073-07",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle from a cosine value and a sign",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "easy",
+      "stem": "If 0 ≤ θ < 2π, cos θ = −1/2, and sin θ < 0, what is the value of θ ?",
+      "explanation": "cos θ = −1/2 at θ = 2π/3 and θ = 4π/3. Since sin θ < 0, θ is in Quadrant III, so θ = 4π/3.",
+      "hints": [
+        "Which quadrants have cos θ < 0 and sin θ < 0?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the unit circle and mark the quadrant."
+      },
+      "remember": "Use the signs of sine and cosine to choose the quadrant.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "2π/3",
+        "B": "7π/6",
+        "C": "4π/3",
+        "D": "5π/3"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "2π/3 has cos θ = −1/2 but sin θ > 0.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "7π/6 is where sin θ = −1/2, not cos θ.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "5π/3 has cos θ = 1/2, not −1/2.",
+          "trap": "sign_error"
+        }
+      }
+    },
+    {
+      "cand": "Q073-08",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Quarter turn on the unit circle",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, the point P(−0.6, 0.8) lies on the unit circle, and θ is the radian measure of the angle from the positive x-axis to ray OP, where O is the origin. Point Q lies on the unit circle so that the angle from the positive x-axis to ray OQ measures θ + π/2 radians. What are the coordinates of Q ?",
+      "explanation": "cos(θ + π/2) = −sin θ = −0.8 and sin(θ + π/2) = cos θ = −0.6, so Q = (−0.8, −0.6). (A quarter turn counterclockwise sends (x, y) to (−y, x).)",
+      "hints": [
+        "What does a quarter turn counterclockwise do to (x, y)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot P and rotate it 90 degrees."
+      },
+      "remember": "A 90° counterclockwise rotation sends (x, y) to (−y, x).",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "θ is not a standard angle, so the rotation must be done from the coordinates."
+      },
+      "choices": {
+        "A": "(0.6, −0.8)",
+        "B": "(−0.6, −0.8)",
+        "C": "(−0.8, −0.6)",
+        "D": "(−0.8, 0.6)"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This adds π instead of π/2.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This reflects P across the x-axis instead of rotating it.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This uses sin(θ + π/2) = −cos θ.",
+          "trap": "sign_error"
+        }
+      }
+    },
+    {
+      "cand": "Q073-09",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Using a cofunction relation to find a right angle",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "In triangle ABC, angles A and B are acute and sin A = cos B. If AB = 10 and BC = 6, what is the area of triangle ABC ?",
+      "explanation": "sin A = cos B = sin(90° − B), and both angles are acute, so A = 90° − B and angle C is a right angle. Then AB is the hypotenuse, AC = √(100 − 36) = 8, and the area is (1/2)(8)(6) = 24.",
+      "hints": [
+        "What does sin A = cos B tell you about angles A and B?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the cofunction identity, then the Pythagorean theorem."
+      },
+      "remember": "sin A = cos B for acute angles means A and B are complementary.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The triangle is not stated to be right; the cofunction relation must be used to show it."
+      },
+      "choices": {
+        "A": "24",
+        "B": "30",
+        "C": "48",
+        "D": "60"
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "30 takes AB and BC as the legs, putting the right angle at B.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "48 forgets the factor 1/2.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "60 makes both errors.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q073-10",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Converting both cofunctions",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "For an acute angle with measure x°, cos x° = 0.28. What is the value of sin(90 − x)° + cos(90 − x)° ?",
+      "explanation": "sin(90 − x)° = cos x° = 0.28, and cos(90 − x)° = sin x° = √(1 − 0.28²) = √0.9216 = 0.96. The sum is 1.24.",
+      "hints": [
+        "Rewrite each term using cofunctions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find sin x° from sin² + cos² = 1."
+      },
+      "remember": "sin(90 − x)° = cos x° and cos(90 − x)° = sin x°.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "1.24",
+      "accepted_answers": [
+        "1.24",
+        "31/25"
+      ],
+      "common_errors": [
+        {
+          "value": "0.56",
+          "rationale": "0.56 treats both terms as equal to cos x°.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 uses 1 − 0.28 for sin x° instead of √(1 − 0.28²).",
+          "trap": null
+        },
+        {
+          "value": "1.92",
+          "rationale": "1.92 treats both terms as equal to sin x°.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q073-11",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle with a shared center through the origin",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, a circle has the same center as the circle x² + y² + 6x − 4y = 3 and passes through the origin. Which of the following is an equation of this circle?",
+      "explanation": "Completing the squares, (x + 3)² + (y − 2)² = 3 + 9 + 4, so the center is (−3, 2). A circle with this center through the origin has r² = 3² + 2² = 13: (x + 3)² + (y − 2)² = 13.",
+      "hints": [
+        "What is the center of the given circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square, then use the origin to find r²."
+      },
+      "remember": "Complete the square to find a circle's center.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "(x + 3)² + (y − 2)² = 16",
+        "B": "(x − 3)² + (y + 2)² = 13",
+        "C": "(x + 3)² + (y − 2)² = 3",
+        "D": "(x + 3)² + (y − 2)² = 13"
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "16 is the original circle's radius squared, not one through the origin.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This takes the center as (3, −2).",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "3 is the constant from the original equation, not a radius squared.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q073-12",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Volume of a cylinder with hemispherical ends",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "A storage tank is a right circular cylinder with a hemisphere attached to each end. The tank has a radius of 3 meters, and its total length, from the tip of one hemisphere to the tip of the other, is 20 meters. What is the volume of the tank, in cubic meters?",
+      "explanation": "The cylinder's length is 20 − 2(3) = 14 meters, so its volume is π(3²)(14) = 126π. The two hemispheres form a sphere with volume (4/3)π(3³) = 36π. The total is 162π.",
+      "hints": [
+        "How long is the cylindrical part?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the tank and label the parts of its length."
+      },
+      "remember": "Subtract the caps from the total length before finding the cylinder's volume.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "126π",
+        "B": "162π",
+        "C": "180π",
+        "D": "216π"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "126π leaves out the hemispheres.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "180π uses 20 as the cylinder's length and ignores the hemispheres.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "216π uses 20 as the cylinder's length and then adds the sphere.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q073-13",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Surface area after cutting a notch from an edge",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "A solid cube has edges of length 5 centimeters. A cube with edges of length 2 centimeters is cut out from the middle of one edge of the large cube, so that two faces of the small cube lie on two faces of the large cube. What is the total surface area of the remaining solid, in square centimeters?",
+      "explanation": "The original surface area is 6(5²) = 150. The notch removes two 2-by-2 squares (8 square centimeters) from the outside and exposes four new 2-by-2 faces (16 square centimeters). The new total is 150 − 8 + 16 = 158.",
+      "hints": [
+        "Which faces of the small cube become exposed?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the notch and count the faces it adds and removes."
+      },
+      "remember": "When cutting a solid, track both removed and newly exposed surfaces.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must count exposed faces carefully; the removed and added areas do not balance."
+      },
+      "format": "spr",
+      "answer": "158",
+      "accepted_answers": [
+        "158"
+      ],
+      "common_errors": [
+        {
+          "value": "150",
+          "rationale": "150 assumes the surface area does not change.",
+          "trap": null
+        },
+        {
+          "value": "142",
+          "rationale": "142 subtracts the two removed squares without adding the newly exposed faces.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "166",
+          "rationale": "166 adds the four exposed faces without subtracting the removed squares.",
+          "trap": "partial_answer"
+        }
+      ]
     }
-   }
-  },
-  {
-   "cand": "Q073-02",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "The one solution shared by a family of quadratics",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "In the equation x² + (k − 2)x + k − 3 = 0, k is a constant. The equation has exactly one real solution. What is that solution?",
-   "explanation": "The discriminant is (k − 2)² − 4(k − 3) = k² − 8k + 16 = (k − 4)², which is 0 only when k = 4. Then the equation is x² + 2x + 1 = 0, so x = −1. (In fact, x = −1 satisfies the equation for every k, since 1 − (k − 2) + k − 3 = 0.)",
-   "hints": [
-    "When is the discriminant zero?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Find k from the discriminant, then solve."
-   },
-   "remember": "Exactly one real solution means the discriminant is zero.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The parameter is only a step, and the discriminant is itself a perfect square."
-   },
-   "format": "spr",
-   "answer": "-1",
-   "accepted_answers": [
-    "-1"
-   ],
-   "common_errors": [
-    {
-     "value": "4",
-     "rationale": "4 is the value of k, not the solution.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "1",
-     "rationale": "1 makes a sign error solving (x + 1)² = 0.",
-     "trap": "sign_error"
-    }
-   ]
-  },
-  {
-   "cand": "Q073-03",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Similar triangles with a perpendicular from the hypotenuse",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In right triangle ABC, angle C is the right angle, AC = 6, and BC = 8. Point D lies on hypotenuse AB so that AD = 4. The line through D perpendicular to AB intersects side BC at point E. What is the length of DE ?",
-   "explanation": "AB = 10, so BD = 6. Triangles BDE and BCA share angle B and have right angles at D and C, so they are similar with DE/CA = BD/BC. Then DE = 6 · 6/8 = 9/2.",
-   "hints": [
-    "Which two triangles share angle B and a right angle?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Mark the right angles at C and D."
-   },
-   "remember": "Match corresponding vertices by their angles, not by position.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The similar triangles are not in parallel position, so corresponding sides must be matched by angles."
-   },
-   "format": "spr",
-   "answer": "9/2",
-   "accepted_answers": [
-    "9/2",
-    "4.5"
-   ],
-   "common_errors": [
-    {
-     "value": "3.6",
-     "rationale": "3.6 treats DE as parallel to AC: 6 · 6/10.",
-     "trap": null
-    },
-    {
-     "value": "8",
-     "rationale": "8 matches the wrong sides, DE/BC = BD/AC.",
-     "trap": null
-    },
-    {
-     "value": "7.5",
-     "rationale": "7.5 is the length of BE, not DE.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q073-04",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Square inscribed on a side of a triangle",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "An acute triangle has a side of length 15, and the height to that side is 10. A square is drawn inside the triangle so that one side of the square lies on the side of length 15 and the other two vertices of the square lie on the other two sides of the triangle. What is the side length of the square?",
-   "explanation": "The square's top side cuts off a triangle similar to the whole triangle, with height 10 − s and base s. So s/15 = (10 − s)/10, which gives 10s = 150 − 15s and s = 6.",
-   "hints": [
-    "What triangle sits above the square?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw the square and the small triangle above it."
-   },
-   "remember": "A segment parallel to a side cuts off a similar triangle.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must set up a proportion between the small triangle's base and height and the large triangle's."
-   },
-   "format": "spr",
-   "answer": "6",
-   "accepted_answers": [
-    "6"
-   ],
-   "common_errors": [
-    {
-     "value": "4",
-     "rationale": "4 swaps base and height in the proportion: s/10 = (10 − s)/15.",
-     "trap": null
-    },
-    {
-     "value": "7.5",
-     "rationale": "7.5 is the length of the midsegment, which is not where the square's top lies.",
-     "trap": null
-    },
-    {
-     "value": "5",
-     "rationale": "5 is half the height.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q073-05",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Area from two special right triangles",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In triangle ABC, the measure of angle B is 45°, the measure of angle C is 30°, and AB = 6√2. What is the area of triangle ABC ?",
-   "explanation": "Draw the altitude AD to side BC. Triangle ABD is a 45°-45°-90° triangle with hypotenuse 6√2, so AD = BD = 6. Triangle ADC is a 30°-60°-90° triangle with the side opposite 30° equal to 6, so DC = 6√3. Then BC = 6 + 6√3, and the area is (1/2)(6 + 6√3)(6) = 18 + 18√3.",
-   "hints": [
-    "Where should you draw an altitude?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Split the triangle into two special right triangles."
-   },
-   "remember": "Split an oblique triangle into right triangles with an altitude.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Both special triangles are needed, and their pieces must be added to form the base."
-   },
-   "choices": {
-    "A": "18 + 6√3",
-    "B": "18 + 18√3",
-    "C": "36√2",
-    "D": "36 + 36√3"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This uses DC = AD/√3, the wrong leg ratio for the 30° angle.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This uses (1/2)(AB)(AC) as if angle A were a right angle.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This forgets the factor 1/2.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q073-06",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Areas of similar triangles from a sum",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "Two triangles are similar, and the ratio of their perimeters is 2 : 3. The sum of their areas is 52 square units. What is the area of the smaller triangle, in square units?",
-   "explanation": "The ratio of areas is the square of the ratio of perimeters, 4 : 9. The smaller area is 4/13 of 52, which is 16.",
-   "hints": [
-    "How does the ratio of areas relate to the ratio of perimeters?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Square the ratio, then split the total."
-   },
-   "remember": "Areas of similar figures are in the square of the length ratio.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "16",
-   "accepted_answers": [
-    "16"
-   ],
-   "common_errors": [
-    {
-     "value": "20.8",
-     "rationale": "20.8 uses the ratio 2 : 3 for the areas.",
-     "trap": null
-    },
-    {
-     "value": "36",
-     "rationale": "36 is the area of the larger triangle.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "26",
-     "rationale": "26 splits the sum equally.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q073-07",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Angle from a cosine value and a sign",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "If 0 ≤ θ < 2π, cos θ = −1/2, and sin θ < 0, what is the value of θ ?",
-   "explanation": "cos θ = −1/2 at θ = 2π/3 and θ = 4π/3. Since sin θ < 0, θ is in Quadrant III, so θ = 4π/3.",
-   "hints": [
-    "Which quadrants have cos θ < 0 and sin θ < 0?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the unit circle and mark the quadrant."
-   },
-   "remember": "Use the signs of sine and cosine to choose the quadrant.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "2π/3",
-    "B": "7π/6",
-    "C": "4π/3",
-    "D": "5π/3"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "2π/3 has cos θ = −1/2 but sin θ > 0.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "7π/6 is where sin θ = −1/2, not cos θ.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "5π/3 has cos θ = 1/2, not −1/2.",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
-   "cand": "Q073-08",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Quarter turn on the unit circle",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, the point P(−0.6, 0.8) lies on the unit circle, and θ is the radian measure of the angle from the positive x-axis to ray OP, where O is the origin. Point Q lies on the unit circle so that the angle from the positive x-axis to ray OQ measures θ + π/2 radians. What are the coordinates of Q ?",
-   "explanation": "cos(θ + π/2) = −sin θ = −0.8 and sin(θ + π/2) = cos θ = −0.6, so Q = (−0.8, −0.6). (A quarter turn counterclockwise sends (x, y) to (−y, x).)",
-   "hints": [
-    "What does a quarter turn counterclockwise do to (x, y)?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Plot P and rotate it 90 degrees."
-   },
-   "remember": "A 90° counterclockwise rotation sends (x, y) to (−y, x).",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "θ is not a standard angle, so the rotation must be done from the coordinates."
-   },
-   "choices": {
-    "A": "(0.6, −0.8)",
-    "B": "(−0.6, −0.8)",
-    "C": "(−0.8, −0.6)",
-    "D": "(−0.8, 0.6)"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This adds π instead of π/2.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This reflects P across the x-axis instead of rotating it.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This uses sin(θ + π/2) = −cos θ.",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
-   "cand": "Q073-09",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Using a cofunction relation to find a right angle",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In triangle ABC, angles A and B are acute and sin A = cos B. If AB = 10 and BC = 6, what is the area of triangle ABC ?",
-   "explanation": "sin A = cos B = sin(90° − B), and both angles are acute, so A = 90° − B and angle C is a right angle. Then AB is the hypotenuse, AC = √(100 − 36) = 8, and the area is (1/2)(8)(6) = 24.",
-   "hints": [
-    "What does sin A = cos B tell you about angles A and B?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use the cofunction identity, then the Pythagorean theorem."
-   },
-   "remember": "sin A = cos B for acute angles means A and B are complementary.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The triangle is not stated to be right; the cofunction relation must be used to show it."
-   },
-   "choices": {
-    "A": "24",
-    "B": "30",
-    "C": "48",
-    "D": "60"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "30 takes AB and BC as the legs, putting the right angle at B.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "48 forgets the factor 1/2.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "60 makes both errors.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q073-10",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Converting both cofunctions",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "For an acute angle with measure x°, cos x° = 0.28. What is the value of sin(90 − x)° + cos(90 − x)° ?",
-   "explanation": "sin(90 − x)° = cos x° = 0.28, and cos(90 − x)° = sin x° = √(1 − 0.28²) = √0.9216 = 0.96. The sum is 1.24.",
-   "hints": [
-    "Rewrite each term using cofunctions."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Find sin x° from sin² + cos² = 1."
-   },
-   "remember": "sin(90 − x)° = cos x° and cos(90 − x)° = sin x°.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "1.24",
-   "accepted_answers": [
-    "1.24",
-    "31/25"
-   ],
-   "common_errors": [
-    {
-     "value": "0.56",
-     "rationale": "0.56 treats both terms as equal to cos x°.",
-     "trap": null
-    },
-    {
-     "value": "1",
-     "rationale": "1 uses 1 − 0.28 for sin x° instead of √(1 − 0.28²).",
-     "trap": null
-    },
-    {
-     "value": "1.92",
-     "rationale": "1.92 treats both terms as equal to sin x°.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q073-11",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Circle with a shared center through the origin",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "In the xy-plane, a circle has the same center as the circle x² + y² + 6x − 4y = 3 and passes through the origin. Which of the following is an equation of this circle?",
-   "explanation": "Completing the squares, (x + 3)² + (y − 2)² = 3 + 9 + 4, so the center is (−3, 2). A circle with this center through the origin has r² = 3² + 2² = 13: (x + 3)² + (y − 2)² = 13.",
-   "hints": [
-    "What is the center of the given circle?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Complete the square, then use the origin to find r²."
-   },
-   "remember": "Complete the square to find a circle's center.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "(x + 3)² + (y − 2)² = 16",
-    "B": "(x − 3)² + (y + 2)² = 13",
-    "C": "(x + 3)² + (y − 2)² = 3",
-    "D": "(x + 3)² + (y − 2)² = 13"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "16 is the original circle's radius squared, not one through the origin.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This takes the center as (3, −2).",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "3 is the constant from the original equation, not a radius squared.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q073-12",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Volume of a cylinder with hemispherical ends",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "A storage tank is a right circular cylinder with a hemisphere attached to each end. The tank has a radius of 3 meters, and its total length, from the tip of one hemisphere to the tip of the other, is 20 meters. What is the volume of the tank, in cubic meters?",
-   "explanation": "The cylinder's length is 20 − 2(3) = 14 meters, so its volume is π(3²)(14) = 126π. The two hemispheres form a sphere with volume (4/3)π(3³) = 36π. The total is 162π.",
-   "hints": [
-    "How long is the cylindrical part?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the tank and label the parts of its length."
-   },
-   "remember": "Subtract the caps from the total length before finding the cylinder's volume.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "126π",
-    "B": "162π",
-    "C": "180π",
-    "D": "216π"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "126π leaves out the hemispheres.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "180π uses 20 as the cylinder's length and ignores the hemispheres.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "216π uses 20 as the cylinder's length and then adds the sphere.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q073-13",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Surface area after cutting a notch from an edge",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "A solid cube has edges of length 5 centimeters. A cube with edges of length 2 centimeters is cut out from the middle of one edge of the large cube, so that two faces of the small cube were on two faces of the large cube. What is the total surface area of the remaining solid, in square centimeters?",
-   "explanation": "The original surface area is 6(5²) = 150. The notch removes two 2-by-2 squares (8 square centimeters) from the outside and exposes four new 2-by-2 faces (16 square centimeters). The new total is 150 − 8 + 16 = 158.",
-   "hints": [
-    "Which faces of the small cube become exposed?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the notch and count the faces it adds and removes."
-   },
-   "remember": "When cutting a solid, track both removed and newly exposed surfaces.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must count exposed faces carefully; the removed and added areas do not balance."
-   },
-   "format": "spr",
-   "answer": "158",
-   "accepted_answers": [
-    "158"
-   ],
-   "common_errors": [
-    {
-     "value": "150",
-     "rationale": "150 assumes the surface area does not change.",
-     "trap": null
-    },
-    {
-     "value": "142",
-     "rationale": "142 subtracts the two removed squares without adding the newly exposed faces.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "166",
-     "rationale": "166 adds the four exposed faces without subtracting the removed squares.",
-     "trap": "partial_answer"
-    }
-   ]
-  }
- ]
+  ]
 }

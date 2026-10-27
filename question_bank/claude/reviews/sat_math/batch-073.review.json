@@ -1,0 +1,327 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 73,
+  "reviewed_at": "2026-10-27T18:09:47+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": "blind-sonnet-independent",
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000794",
+    "CLD-SAT-M-000795",
+    "CLD-SAT-M-000796",
+    "CLD-SAT-M-000797",
+    "CLD-SAT-M-000798",
+    "CLD-SAT-M-000799",
+    "CLD-SAT-M-000800",
+    "CLD-SAT-M-000801",
+    "CLD-SAT-M-000802",
+    "CLD-SAT-M-000803",
+    "CLD-SAT-M-000804",
+    "CLD-SAT-M-000805"
+  ],
+  "results": [
+    {
+      "cand": "Q073-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "disc>0 c<9, product>0 c>0; C includes double root, A allows negative, D allows c>=9",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must combine the discriminant with the signs of the sum and product."
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000077",
+          "similarity": 0.63
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q073-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-1",
+      "computed_answer": "-1",
+      "blind_answer": "-1",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "disc=(k-4)^2, k=4, x=-1",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The parameter is only a step, and the discriminant is itself a perfect square."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000794"
+    },
+    {
+      "cand": "Q073-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "9/2",
+      "computed_answer": "9/2",
+      "blind_answer": "9/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "coords: D(3.2,3.6), E(0.5,0), DE=4.5",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The similar triangles are not in parallel position, so corresponding sides must be matched by angles."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000795"
+    },
+    {
+      "cand": "Q073-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "s=bh/(b+h)=150/25",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must set up a proportion between the small triangle's base and height and the large triangle's."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000796"
+    },
+    {
+      "cand": "Q073-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "AC=12, area=1/2*6√2*12*sin105=18+18√3",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both special triangles are needed, and their pieces must be added to form the base."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000797"
+    },
+    {
+      "cand": "Q073-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "areas 4:9, 4/13*52",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000798"
+    },
+    {
+      "cand": "Q073-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "4π/3 (cos -1/2, sin<0)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000799"
+    },
+    {
+      "cand": "Q073-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "rotate 90: (-y,x)=(-0.8,-0.6)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "θ is not a standard angle, so the rotation must be done from the coordinates."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000800"
+    },
+    {
+      "cand": "Q073-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "A+B=90 so C right; legs 6,8; area 24",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The triangle is not stated to be right; the cofunction relation must be used to show it."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000801"
+    },
+    {
+      "cand": "Q073-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "1.24",
+      "computed_answer": "1.24",
+      "blind_answer": "1.24",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "cos x+sin x=0.28+0.96",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000802"
+    },
+    {
+      "cand": "Q073-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "center(-3,2), through origin r^2=13; A is original r^2=16 trap",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000803"
+    },
+    {
+      "cand": "Q073-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "cyl height 14: 126π+36π=162π",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000804"
+    },
+    {
+      "cand": "Q073-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "158",
+      "computed_answer": "158",
+      "blind_answer": "158",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "150-8+16; interpretation: notch along edge middle, 4 exposed faces",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must count exposed faces carefully; the removed and added areas do not balance."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000805"
+    }
+  ]
+}

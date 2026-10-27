@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 72,
-  "updated_at": "2026-10-27T18:06:52+00:00",
+  "version": 73,
+  "updated_at": "2026-10-27T18:09:47+00:00",
   "passages": [],
   "questions": [
     {
@@ -57421,6 +57421,897 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-072.review.json",
         "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000794",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "The one solution shared by a family of quadratics",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation x² + (k − 2)x + k − 3 = 0, k is a constant. The equation has exactly one real solution. What is that solution?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the value of k, not the solution.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1",
+          "rationale": "1 makes a sign error solving (x + 1)² = 0.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The discriminant is (k − 2)² − 4(k − 3) = k² − 8k + 16 = (k − 4)², which is 0 only when k = 4. Then the equation is x² + 2x + 1 = 0, so x = −1. (In fact, x = −1 satisfies the equation for every k, since 1 − (k − 2) + k − 3 = 0.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "When is the discriminant zero?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k from the discriminant, then solve."
+      },
+      "remember": "Exactly one real solution means the discriminant is zero.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-02",
+      "created_at": "2026-10-27T18:09:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-1",
+        "blind_answer": "-1",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000795",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Similar triangles with a perpendicular from the hypotenuse",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, AC = 6, and BC = 8. Point D lies on hypotenuse AB so that AD = 4. The line through D perpendicular to AB intersects side BC at point E. What is the length of DE ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "9/2",
+      "accepted_answers": [
+        "9/2",
+        "4.5"
+      ],
+      "common_errors": [
+        {
+          "value": "3.6",
+          "rationale": "3.6 treats DE as parallel to AC: 6 · 6/10.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 matches the wrong sides, DE/BC = BD/AC.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of BE, not DE.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "AB = 10, so BD = 6. Triangles BDE and BCA share angle B and have right angles at D and C, so they are similar with DE/CA = BD/BC. Then DE = 6 · 6/8 = 9/2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which two triangles share angle B and a right angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the right angles at C and D."
+      },
+      "remember": "Match corresponding vertices by their angles, not by position.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-03",
+      "created_at": "2026-10-27T18:09:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "9/2",
+        "blind_answer": "9/2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000796",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square inscribed on a side of a triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An acute triangle has a side of length 15, and the height to that side is 10. A square is drawn inside the triangle so that one side of the square lies on the side of length 15 and the other two vertices of the square lie on the other two sides of the triangle. What is the side length of the square?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 swaps base and height in the proportion: s/10 = (10 − s)/15.",
+          "trap": null
+        },
+        {
+          "value": "7.5",
+          "rationale": "7.5 is the length of the midsegment, which is not where the square's top lies.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 is half the height.",
+          "trap": null
+        }
+      ],
+      "explanation": "The square's top side cuts off a triangle similar to the whole triangle, with height 10 − s and base s. So s/15 = (10 − s)/10, which gives 10s = 150 − 15s and s = 6.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What triangle sits above the square?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square and the small triangle above it."
+      },
+      "remember": "A segment parallel to a side cuts off a similar triangle.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-04",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000797",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area from two special right triangles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, the measure of angle B is 45°, the measure of angle C is 30°, and AB = 6√2. What is the area of triangle ABC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18 + 6√3",
+        "B": "18 + 18√3",
+        "C": "36√2",
+        "D": "36 + 36√3"
+      },
+      "correct_answer": "B",
+      "explanation": "Draw the altitude AD to side BC. Triangle ABD is a 45°-45°-90° triangle with hypotenuse 6√2, so AD = BD = 6. Triangle ADC is a 30°-60°-90° triangle with the side opposite 30° equal to 6, so DC = 6√3. Then BC = 6 + 6√3, and the area is (1/2)(6 + 6√3)(6) = 18 + 18√3.",
+      "distractor_explanations": {
+        "A": "This uses DC = AD/√3, the wrong leg ratio for the 30° angle.",
+        "C": "This uses (1/2)(AB)(AC) as if angle A were a right angle.",
+        "D": "This forgets the factor 1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Where should you draw an altitude?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the triangle into two special right triangles."
+      },
+      "remember": "Split an oblique triangle into right triangles with an altitude.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-05",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000798",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of similar triangles from a sum",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two triangles are similar, and the ratio of their perimeters is 2 : 3. The sum of their areas is 52 square units. What is the area of the smaller triangle, in square units?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "20.8",
+          "rationale": "20.8 uses the ratio 2 : 3 for the areas.",
+          "trap": null
+        },
+        {
+          "value": "36",
+          "rationale": "36 is the area of the larger triangle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "26",
+          "rationale": "26 splits the sum equally.",
+          "trap": null
+        }
+      ],
+      "explanation": "The ratio of areas is the square of the ratio of perimeters, 4 : 9. The smaller area is 4/13 of 52, which is 16.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How does the ratio of areas relate to the ratio of perimeters?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the ratio, then split the total."
+      },
+      "remember": "Areas of similar figures are in the square of the length ratio.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-06",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "16",
+        "blind_answer": "16",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000799",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle from a cosine value and a sign",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 0 ≤ θ < 2π, cos θ = −1/2, and sin θ < 0, what is the value of θ ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2π/3",
+        "B": "7π/6",
+        "C": "4π/3",
+        "D": "5π/3"
+      },
+      "correct_answer": "C",
+      "explanation": "cos θ = −1/2 at θ = 2π/3 and θ = 4π/3. Since sin θ < 0, θ is in Quadrant III, so θ = 4π/3.",
+      "distractor_explanations": {
+        "A": "2π/3 has cos θ = −1/2 but sin θ > 0.",
+        "B": "7π/6 is where sin θ = −1/2, not cos θ.",
+        "D": "5π/3 has cos θ = 1/2, not −1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Which quadrants have cos θ < 0 and sin θ < 0?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the unit circle and mark the quadrant."
+      },
+      "remember": "Use the signs of sine and cosine to choose the quadrant.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-07",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000800",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Quarter turn on the unit circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the point P(−0.6, 0.8) lies on the unit circle, and θ is the radian measure of the angle from the positive x-axis to ray OP, where O is the origin. Point Q lies on the unit circle so that the angle from the positive x-axis to ray OQ measures θ + π/2 radians. What are the coordinates of Q ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(0.6, −0.8)",
+        "B": "(−0.6, −0.8)",
+        "C": "(−0.8, −0.6)",
+        "D": "(−0.8, 0.6)"
+      },
+      "correct_answer": "C",
+      "explanation": "cos(θ + π/2) = −sin θ = −0.8 and sin(θ + π/2) = cos θ = −0.6, so Q = (−0.8, −0.6). (A quarter turn counterclockwise sends (x, y) to (−y, x).)",
+      "distractor_explanations": {
+        "A": "This adds π instead of π/2.",
+        "B": "This reflects P across the x-axis instead of rotating it.",
+        "D": "This uses sin(θ + π/2) = −cos θ."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "What does a quarter turn counterclockwise do to (x, y)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot P and rotate it 90 degrees."
+      },
+      "remember": "A 90° counterclockwise rotation sends (x, y) to (−y, x).",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-08",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000801",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Using a cofunction relation to find a right angle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, angles A and B are acute and sin A = cos B. If AB = 10 and BC = 6, what is the area of triangle ABC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "24",
+        "B": "30",
+        "C": "48",
+        "D": "60"
+      },
+      "correct_answer": "A",
+      "explanation": "sin A = cos B = sin(90° − B), and both angles are acute, so A = 90° − B and angle C is a right angle. Then AB is the hypotenuse, AC = √(100 − 36) = 8, and the area is (1/2)(8)(6) = 24.",
+      "distractor_explanations": {
+        "B": "30 takes AB and BC as the legs, putting the right angle at B.",
+        "C": "48 forgets the factor 1/2.",
+        "D": "60 makes both errors."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What does sin A = cos B tell you about angles A and B?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the cofunction identity, then the Pythagorean theorem."
+      },
+      "remember": "sin A = cos B for acute angles means A and B are complementary.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-09",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000802",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Converting both cofunctions",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For an acute angle with measure x°, cos x° = 0.28. What is the value of sin(90 − x)° + cos(90 − x)° ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1.24",
+      "accepted_answers": [
+        "1.24",
+        "31/25"
+      ],
+      "common_errors": [
+        {
+          "value": "0.56",
+          "rationale": "0.56 treats both terms as equal to cos x°.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 uses 1 − 0.28 for sin x° instead of √(1 − 0.28²).",
+          "trap": null
+        },
+        {
+          "value": "1.92",
+          "rationale": "1.92 treats both terms as equal to sin x°.",
+          "trap": null
+        }
+      ],
+      "explanation": "sin(90 − x)° = cos x° = 0.28, and cos(90 − x)° = sin x° = √(1 − 0.28²) = √0.9216 = 0.96. The sum is 1.24.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Rewrite each term using cofunctions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find sin x° from sin² + cos² = 1."
+      },
+      "remember": "sin(90 − x)° = cos x° and cos(90 − x)° = sin x°.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-10",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1.24",
+        "blind_answer": "1.24",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000803",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle with a shared center through the origin",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle has the same center as the circle x² + y² + 6x − 4y = 3 and passes through the origin. Which of the following is an equation of this circle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(x + 3)² + (y − 2)² = 16",
+        "B": "(x − 3)² + (y + 2)² = 13",
+        "C": "(x + 3)² + (y − 2)² = 3",
+        "D": "(x + 3)² + (y − 2)² = 13"
+      },
+      "correct_answer": "D",
+      "explanation": "Completing the squares, (x + 3)² + (y − 2)² = 3 + 9 + 4, so the center is (−3, 2). A circle with this center through the origin has r² = 3² + 2² = 13: (x + 3)² + (y − 2)² = 13.",
+      "distractor_explanations": {
+        "A": "16 is the original circle's radius squared, not one through the origin.",
+        "B": "This takes the center as (3, −2).",
+        "C": "3 is the constant from the original equation, not a radius squared."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "What is the center of the given circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square, then use the origin to find r²."
+      },
+      "remember": "Complete the square to find a circle's center.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-11",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000804",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Volume of a cylinder with hemispherical ends",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A storage tank is a right circular cylinder with a hemisphere attached to each end. The tank has a radius of 3 meters, and its total length, from the tip of one hemisphere to the tip of the other, is 20 meters. What is the volume of the tank, in cubic meters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "126π",
+        "B": "162π",
+        "C": "180π",
+        "D": "216π"
+      },
+      "correct_answer": "B",
+      "explanation": "The cylinder's length is 20 − 2(3) = 14 meters, so its volume is π(3²)(14) = 126π. The two hemispheres form a sphere with volume (4/3)π(3³) = 36π. The total is 162π.",
+      "distractor_explanations": {
+        "A": "126π leaves out the hemispheres.",
+        "C": "180π uses 20 as the cylinder's length and ignores the hemispheres.",
+        "D": "216π uses 20 as the cylinder's length and then adds the sphere."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How long is the cylindrical part?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the tank and label the parts of its length."
+      },
+      "remember": "Subtract the caps from the total length before finding the cylinder's volume.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-12",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000805",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Surface area after cutting a notch from an edge",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A solid cube has edges of length 5 centimeters. A cube with edges of length 2 centimeters is cut out from the middle of one edge of the large cube, so that two faces of the small cube lie on two faces of the large cube. What is the total surface area of the remaining solid, in square centimeters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "158",
+      "accepted_answers": [
+        "158"
+      ],
+      "common_errors": [
+        {
+          "value": "150",
+          "rationale": "150 assumes the surface area does not change.",
+          "trap": null
+        },
+        {
+          "value": "142",
+          "rationale": "142 subtracts the two removed squares without adding the newly exposed faces.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "166",
+          "rationale": "166 adds the four exposed faces without subtracting the removed squares.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The original surface area is 6(5²) = 150. The notch removes two 2-by-2 squares (8 square centimeters) from the outside and exposes four new 2-by-2 faces (16 square centimeters). The new total is 150 − 8 + 16 = 158.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which faces of the small cube become exposed?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the notch and count the faces it adds and removes."
+      },
+      "remember": "When cutting a solid, track both removed and newly exposed surfaces.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "Q073-13",
+      "created_at": "2026-10-27T18:09:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "158",
+        "blind_answer": "158",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-073.review.json",
+        "computation": "checks/sat_math/batch_073.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
