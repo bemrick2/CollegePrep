@@ -1,0 +1,459 @@
+{
+ "bank": "act_math",
+ "batch": 77,
+ "plan": "Mostly modeling and less-used contexts after a saturation check: commission (IES), tiered electricity (IES), percent symmetry, grid squares (hard), clock-tip arc, inverse variation, odd-digit count, sine ratio, calories (IES), difference of absolute values (hard).",
+ "candidates": [
+  {
+   "cand": "B077-01",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Weekly pay with a commission threshold",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A salesperson earns $500 per week plus a 6% commission on the amount of her weekly sales above $5,000. One week her sales total $12,000. What are her total earnings for that week?",
+   "choices": {
+    "A": "$1,220",
+    "B": "$920",
+    "C": "$420",
+    "D": "$720"
+   },
+   "answer": "B",
+   "explanation": "Commission applies only to sales above $5,000: 0.06 × (12,000 − 5,000) = $420. Total earnings are $500 + $420 = $920.",
+   "distractors": {
+    "A": {
+     "rationale": "$1,220 applies the commission to all $12,000 of sales.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$420 is the commission alone, without the $500 base pay.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "$720 is 6% of all sales, with no base pay.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "On what amount is the commission paid?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract $5,000 first, then take 6%."
+   },
+   "remember": "Read thresholds carefully: \"above $5,000\" excludes the first $5,000.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-02",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Tiered pricing",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "An electric company charges $0.12 per kilowatt-hour (kWh) for the first 500 kWh used in a month and $0.18 per kWh for each kWh after that. What is the charge for a month in which 800 kWh are used?",
+   "choices": {
+    "A": "$144",
+    "B": "$96",
+    "C": "$54",
+    "D": "$114"
+   },
+   "answer": "D",
+   "explanation": "The first 500 kWh cost 500 × $0.12 = $60, and the remaining 300 kWh cost 300 × $0.18 = $54. The total is $114.",
+   "distractors": {
+    "A": {
+     "rationale": "$144 charges all 800 kWh at $0.18.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "$96 charges all 800 kWh at $0.12.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$54 is only the charge for the kWh above 500.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Split the 800 kWh into the two price tiers."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Price each tier separately, then add."
+   },
+   "remember": "Tiered rates apply each price only to its own range.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Commutative property of percents",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the value of (40% of 60) − (60% of 40) ?",
+   "choices": {
+    "A": "0",
+    "B": "12",
+    "C": "−12",
+    "D": "48"
+   },
+   "answer": "A",
+   "explanation": "40% of 60 = 0.4 × 60 = 24, and 60% of 40 = 0.6 × 40 = 24. The difference is 0. In general, a% of b equals b% of a, since both equal ab/100.",
+   "distractors": {
+    "B": {
+     "rationale": "12 computes (60% − 40%) of 60 instead of the given expression.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−12 reverses the sign of that same incorrect computation.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "48 adds the two products instead of subtracting them.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Compute each percent separately."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write each as a product: 0.4 × 60 and 0.6 × 40."
+   },
+   "remember": "a% of b equals b% of a.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Counting squares of all sizes in a grid",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "A large square is divided into a 3-by-3 grid of 9 small congruent squares. Counting squares of every size whose sides lie along the grid lines, how many squares are in the figure?",
+   "choices": {
+    "A": "9",
+    "B": "10",
+    "C": "14",
+    "D": "13"
+   },
+   "answer": "C",
+   "explanation": "There are 9 squares of size 1 × 1, 4 of size 2 × 2 and 1 of size 3 × 3, for a total of 14.",
+   "distractors": {
+    "A": {
+     "rationale": "9 counts only the small squares.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "10 adds only the large outer square to the 9 small ones.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "13 counts the 1 × 1 and 2 × 2 squares but leaves out the outer square.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many 2-by-2 squares can you find?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Count each size of square separately."
+   },
+   "remember": "Count shapes systematically, size by size.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Most students count the 9 small squares and the outer square; finding the four overlapping 2-by-2 squares takes a systematic count."
+   }
+  },
+  {
+   "cand": "B077-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance traveled by the tip of a clock hand",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "The minute hand of a clock is 10 centimeters long. How far, in centimeters, does the tip of the minute hand travel in 15 minutes?",
+   "choices": {
+    "A": "10π",
+    "B": "5π",
+    "C": "2.5π",
+    "D": "15π"
+   },
+   "answer": "B",
+   "explanation": "In 15 minutes the minute hand turns 1/4 of a full circle. The tip travels 1/4 of the circumference: (1/4)(2π · 10) = 5π.",
+   "distractors": {
+    "A": {
+     "rationale": "10π is half the circumference, the distance in 30 minutes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2.5π uses one-eighth of the circumference.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "15π treats 15 minutes as 15/20 of the circumference.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What fraction of an hour is 15 minutes?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Take that fraction of 2πr."
+   },
+   "remember": "Arc length = fraction of the turn × circumference.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Inverse variation in a physical law",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "At a constant temperature, the pressure P of a gas varies inversely with its volume V. A sample of gas occupies 6 liters at a pressure of 4 atmospheres. What volume, in liters, will it occupy at a pressure of 3 atmospheres?",
+   "choices": {
+    "A": "8",
+    "B": "4.5",
+    "C": "2",
+    "D": "12"
+   },
+   "answer": "A",
+   "explanation": "Inverse variation means PV is constant: 4 × 6 = 24. At P = 3, V = 24/3 = 8 liters.",
+   "distractors": {
+    "B": {
+     "rationale": "4.5 treats the variation as direct (V = 6 × 3/4).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2 divides 6 by 3, ignoring the original pressure.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12 doubles the volume without using the pressures.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What stays constant when two quantities vary inversely?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set P₁V₁ = P₂V₂."
+   },
+   "remember": "Inverse variation: the product stays constant.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Counting numbers with restricted digits",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Using only the digits 1, 3, 5, 7 and 9, with repetition allowed, how many different three-digit numbers can be formed?",
+   "choices": {
+    "A": "500",
+    "B": "450",
+    "C": "60",
+    "D": "125"
+   },
+   "answer": "D",
+   "explanation": "Each of the three digits can be 1, 3, 5, 7 or 9, so there are 5 × 5 × 5 = 125 such integers.",
+   "distractors": {
+    "A": {
+     "rationale": "500 requires only the first digit to be odd (5 × 10 × 10).",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "450 takes half of all 900 three-digit numbers, which counts odd numbers, not numbers built only from odd digits.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "60 = 5 × 4 × 3 requires the three odd digits to be different.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many odd digits are there?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the choices for each place."
+   },
+   "remember": "Multiply the options for each independent position.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Sine in a right triangle",
+   "repo_skill_key": "act_functions",
+   "difficulty": "easy",
+   "stem": "In a right triangle, the legs have lengths 8 and 15. What is the sine of the angle opposite the leg of length 8 ?",
+   "choices": {
+    "A": "15/17",
+    "B": "8/15",
+    "C": "8/17",
+    "D": "17/8"
+   },
+   "answer": "C",
+   "explanation": "The hypotenuse is √(8² + 15²) = 17. Sine = opposite/hypotenuse = 8/17.",
+   "distractors": {
+    "A": {
+     "rationale": "15/17 is the cosine of that angle.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "8/15 is the tangent of that angle.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "17/8 is the cosecant (the reciprocal of the sine).",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find the hypotenuse first."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label opposite, adjacent and hypotenuse."
+   },
+   "remember": "SOH: sine = opposite ÷ hypotenuse.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-09",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Number & Quantity",
+   "subskill": "Scaling a nutrition label",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "A 30-gram serving of a cereal contains 120 calories. At the same rate, how many calories are in 75 grams of the cereal?",
+   "choices": {
+    "A": "195",
+    "B": "300",
+    "C": "180",
+    "D": "360"
+   },
+   "answer": "B",
+   "explanation": "The cereal has 120/30 = 4 calories per gram, so 75 grams contain 4 × 75 = 300 calories.",
+   "distractors": {
+    "A": {
+     "rationale": "195 adds 75 to 120 instead of scaling.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "180 multiplies by 1.5, but 75 grams is 2.5 servings.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "360 rounds 2.5 servings up to 3.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many calories are in 1 gram?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the unit rate, then multiply."
+   },
+   "remember": "Use a unit rate to scale a proportion.",
+   "expected_time_seconds": 25,
+   "modeling": true,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B077-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Maximum of a difference of absolute values",
+   "repo_skill_key": "act_functions",
+   "difficulty": "hard",
+   "stem": "What is the greatest possible value of f(x) = |x − 3| − |x + 1| ?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "0",
+    "D": "4"
+   },
+   "answer": "D",
+   "explanation": "For x ≤ −1, f(x) = (3 − x) − (−x − 1) = 4. For −1 < x < 3, f(x) = 2 − 2x, which is less than 4. For x ≥ 3, f(x) = −4. The greatest value is 4. (Geometrically, the difference of the distances from x to 3 and to −1 is at most the distance between 3 and −1.)",
+   "distractors": {
+    "A": {
+     "rationale": "2 is f(0), a single value, not the maximum.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3 is f(−0.5).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "0 is f(1), where the two distances are equal.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Try several values of x, including very negative ones."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate f at −5, −1, 0, 3 and 5."
+   },
+   "remember": "Split absolute values at the points where their insides change sign.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students usually test a few convenient values like 0 or 1 and pick that output; finding that f is constant at 4 for all x ≤ −1 requires casework or the distance interpretation."
+   }
+  }
+ ]
+}

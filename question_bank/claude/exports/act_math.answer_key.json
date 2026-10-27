@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 76,
+  "bank_version": 77,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -12793,6 +12793,176 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Test x = 0: only B gives 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000757",
+      "correct_answer": "B",
+      "explanation": "Commission applies only to sales above $5,000: 0.06 × (12,000 − 5,000) = $420. Total earnings are $500 + $420 = $920.",
+      "distractor_explanations": {
+        "A": "$1,220 applies the commission to all $12,000 of sales.",
+        "C": "$420 is the commission alone, without the $500 base pay.",
+        "D": "$720 is 6% of all sales, with no base pay."
+      },
+      "hints": [
+        "On what amount is the commission paid?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract $5,000 first, then take 6%."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000758",
+      "correct_answer": "D",
+      "explanation": "The first 500 kWh cost 500 × $0.12 = $60, and the remaining 300 kWh cost 300 × $0.18 = $54. The total is $114.",
+      "distractor_explanations": {
+        "A": "$144 charges all 800 kWh at $0.18.",
+        "B": "$96 charges all 800 kWh at $0.12.",
+        "C": "$54 is only the charge for the kWh above 500."
+      },
+      "hints": [
+        "Split the 800 kWh into the two price tiers."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Price each tier separately, then add."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000759",
+      "correct_answer": "A",
+      "explanation": "40% of 60 = 0.4 × 60 = 24, and 60% of 40 = 0.6 × 40 = 24. The difference is 0. In general, a% of b equals b% of a, since both equal ab/100.",
+      "distractor_explanations": {
+        "B": "12 computes (60% − 40%) of 60 instead of the given expression.",
+        "C": "−12 reverses the sign of that same incorrect computation.",
+        "D": "48 adds the two products instead of subtracting them."
+      },
+      "hints": [
+        "Compute each percent separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each as a product: 0.4 × 60 and 0.6 × 40."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000760",
+      "correct_answer": "C",
+      "explanation": "There are 9 squares of size 1 × 1, 4 of size 2 × 2 and 1 of size 3 × 3, for a total of 14.",
+      "distractor_explanations": {
+        "A": "9 counts only the small squares.",
+        "B": "10 adds only the large outer square to the 9 small ones.",
+        "D": "13 counts the 1 × 1 and 2 × 2 squares but leaves out the outer square."
+      },
+      "hints": [
+        "How many 2-by-2 squares can you find?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Count each size of square separately."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000761",
+      "correct_answer": "B",
+      "explanation": "In 15 minutes the minute hand turns 1/4 of a full circle. The tip travels 1/4 of the circumference: (1/4)(2π · 10) = 5π.",
+      "distractor_explanations": {
+        "A": "10π is half the circumference, the distance in 30 minutes.",
+        "C": "2.5π uses one-eighth of the circumference.",
+        "D": "15π treats 15 minutes as 15/20 of the circumference."
+      },
+      "hints": [
+        "What fraction of an hour is 15 minutes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take that fraction of 2πr."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000762",
+      "correct_answer": "A",
+      "explanation": "Inverse variation means PV is constant: 4 × 6 = 24. At P = 3, V = 24/3 = 8 liters.",
+      "distractor_explanations": {
+        "B": "4.5 treats the variation as direct (V = 6 × 3/4).",
+        "C": "2 divides 6 by 3, ignoring the original pressure.",
+        "D": "12 doubles the volume without using the pressures."
+      },
+      "hints": [
+        "What stays constant when two quantities vary inversely?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set P₁V₁ = P₂V₂."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000763",
+      "correct_answer": "D",
+      "explanation": "Each of the three digits can be 1, 3, 5, 7 or 9, so there are 5 × 5 × 5 = 125 such integers.",
+      "distractor_explanations": {
+        "A": "500 requires only the first digit to be odd (5 × 10 × 10).",
+        "B": "450 takes half of all 900 three-digit numbers, which counts odd numbers, not numbers built only from odd digits.",
+        "C": "60 = 5 × 4 × 3 requires the three odd digits to be different."
+      },
+      "hints": [
+        "How many odd digits are there?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the choices for each place."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000764",
+      "correct_answer": "C",
+      "explanation": "The hypotenuse is √(8² + 15²) = 17. Sine = opposite/hypotenuse = 8/17.",
+      "distractor_explanations": {
+        "A": "15/17 is the cosine of that angle.",
+        "B": "8/15 is the tangent of that angle.",
+        "D": "17/8 is the cosecant (the reciprocal of the sine)."
+      },
+      "hints": [
+        "Find the hypotenuse first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label opposite, adjacent and hypotenuse."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000765",
+      "correct_answer": "B",
+      "explanation": "The cereal has 120/30 = 4 calories per gram, so 75 grams contain 4 × 75 = 300 calories.",
+      "distractor_explanations": {
+        "A": "195 adds 75 to 120 instead of scaling.",
+        "C": "180 multiplies by 1.5, but 75 grams is 2.5 servings.",
+        "D": "360 rounds 2.5 servings up to 3."
+      },
+      "hints": [
+        "How many calories are in 1 gram?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the unit rate, then multiply."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000766",
+      "correct_answer": "D",
+      "explanation": "For x ≤ −1, f(x) = (3 − x) − (−x − 1) = 4. For −1 < x < 3, f(x) = 2 − 2x, which is less than 4. For x ≥ 3, f(x) = −4. The greatest value is 4. (Geometrically, the difference of the distances from x to 3 and to −1 is at most the distance between 3 and −1.)",
+      "distractor_explanations": {
+        "A": "2 is f(0), a single value, not the maximum.",
+        "B": "3 is f(−0.5).",
+        "C": "0 is f(1), where the two distances are equal."
+      },
+      "hints": [
+        "Try several values of x, including very negative ones."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f at −5, −1, 0, 3 and 5."
       }
     }
   ]
