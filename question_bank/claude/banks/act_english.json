@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 28,
-  "updated_at": "2026-10-27T07:44:39+00:00",
+  "version": 29,
+  "updated_at": "2026-10-27T08:26:53+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -311,6 +311,17 @@
       "word_count": 240,
       "text": "On January 15, 1919, people in Boston's North End heard a sound like machine-gun fire. The rivets of a huge steel tank near the harbor were popping loose. The tank {{1|held: well over}} two million gallons of molasses, and within seconds all of it was pouring into the streets.\n\nThe molasses belonged to a company that turned it into industrial alcohol{{2|. Which was used}} to make explosives. The tank, about fifty feet tall, {{3|has leaked}} almost from the day it was first filled. Neighbors had collected the dripping molasses for their kitchens, and the company had simply painted the tank brown so that the leaks would be harder to see.{{4|}}\n\nBecause the day was unusually {{5|warm the}} molasses flowed more freely than it would have in colder weather. A wave of it, in places about twenty-five feet high, {{6|moved through the neighborhood}}. When the molasses reached the elevated railway, {{7|it buckled its steel supports}}. The flood killed twenty-one people, injured about 150 others, and {{8|it also flattened}} several buildings.\n\n[1] The company claimed that someone had blown up the tank on purpose. [2] A court-appointed investigator then heard testimony from thousands of witnesses over several years. [3] In 1925, he found the company responsible {{9|for}} the disaster, concluding that the tank had been too weak to hold its load. [4] The case helped persuade Massachusetts to require that plans for such structures be checked and signed by a licensed engineer. {{10|}}",
       "batch": 28,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000029",
+      "title": "Clearing the Glass",
+      "genre": "informative essay",
+      "word_count": 242,
+      "text": "In the winter of 1902, Mary Anderson, a visitor from Alabama, rode a streetcar through New York City during a snowstorm. The driver, she noticed, could barely see. Every few minutes he {{1|opened}} the front window, reached outside, and {{2|wiping}} the snow from the glass by hand. Each time, cold air and snow blew in, and the passengers shivered.\n\nAnderson sketched a solution {{3|before returning home; a}} rubber blade mounted outside the glass and connected to a lever inside the car. With it, a driver could clear the windshield without ever opening a window. {{4|}} In 1903 she received a patent for her \"window cleaning device.\"\n\nAnderson then offered the rights to her invention to a Canadian firm. The {{5|firms'}} reply, which arrived some {{6|weeks later was}} discouraging: its engineers saw no commercial value in the device. Others worried that a blade sweeping back and forth in front of a driver {{7|would end up being more of a distraction to the driver than it would end up being a help}}. In those early years of the automobile, the idea struck many people as more likely to cause accidents than to prevent them.\n\nAnderson's patent expired in 1920 without earning her any money. By then, {{8|therefore,}} automobiles had multiplied, and mechanical wipers were becoming common. Today it is hard to imagine a car without them, though few drivers {{9|knows}} the name of the woman who first noticed what a streetcar driver could not see. {{10|}}",
+      "batch": 29,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -20264,6 +20275,720 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-028.review.json",
         "computation": "checks/act_english/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000283",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 1,
+      "evidence": "reached outside",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "has opened",
+        "C": "would have opened",
+        "D": "opening"
+      },
+      "correct_answer": "A",
+      "explanation": "The series \"opened ..., reached ..., and wiped\" is in the simple past, matching the rest of the paragraph, so \"opened\" is correct.",
+      "distractor_explanations": {
+        "B": "The present perfect does not fit a story told in the past tense.",
+        "C": "This suggests something that did not happen, but the driver did open the window.",
+        "D": "Without a finite verb, \"he opening\" is not a complete clause."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What tense are the other verbs in the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the surrounding tense."
+      },
+      "remember": "Keep verbs in the same tense unless the time changes.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-01",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: the error in the same series (item 02, 'wiping') is visible while solving 01; students still easily keep 'opened' parallel with 'reached'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000284",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Parallel structure in a series",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 2,
+      "evidence": "opened the front window, reached outside",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "wiped",
+        "C": "had wiped",
+        "D": "wipes"
+      },
+      "correct_answer": "B",
+      "explanation": "The three actions in the series must share a form: opened, reached, wiped.",
+      "distractor_explanations": {
+        "A": "\"Wiping\" breaks the series \"opened ..., reached ..., and ___.\"",
+        "C": "The past perfect does not match \"opened\" and \"reached.\"",
+        "D": "The present tense does not match the other verbs in the series."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What form do the first two verbs take?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match each item in the series."
+      },
+      "remember": "Items in a series should share the same grammatical form.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-02",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000285",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon introducing an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 3,
+      "evidence": "Anderson sketched a solution",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "before returning home, a",
+        "C": "before returning home: a",
+        "D": "before returning home a"
+      },
+      "correct_answer": "C",
+      "explanation": "The phrase after the underlined portion describes the solution; a colon after a complete clause correctly introduces that explanation.",
+      "distractor_explanations": {
+        "A": "A semicolon must join two independent clauses, and \"a rubber blade on a swinging arm...\" is not one.",
+        "B": "A comma here makes the phrase seem to describe \"home,\" not the solution.",
+        "D": "With no punctuation, the description runs straight into \"home.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Can the part after the semicolon stand alone?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether a semicolon has a clause on each side."
+      },
+      "remember": "Use a colon after a complete clause to introduce an explanation or description.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-03",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000286",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 4,
+      "evidence": "connected to a lever inside the car",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\n\nPulling the lever swung the blade back and forth across the glass.\n\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why the Canadian firm later rejected the device.",
+        "B": "No, because it repeats information already given about the rubber blade.",
+        "C": "No, because it shifts the focus from Anderson to the streetcar driver.",
+        "D": "Yes, because it explains how the lever made the device work."
+      },
+      "correct_answer": "D",
+      "explanation": "The preceding sentence says only that the blade was connected to a lever; the added sentence is the first to say what the lever did (swing the blade across the glass), and the next sentence ('With it, a driver could clear the windshield') builds on that.",
+      "distractor_explanations": {
+        "A": "The sentence describes how the device worked, not why it was rejected.",
+        "B": "The previous sentence says only that the blade was connected to a lever, not that pulling it swung the blade.",
+        "C": "The sentence is about the device, not the driver."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wordy_redundant",
+        "C": null
+      },
+      "hints": [
+        "What does the previous sentence leave unexplained?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentences before and after the insertion point."
+      },
+      "remember": "Add a sentence when it fills a gap the surrounding sentences leave.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-04",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000287",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 5,
+      "evidence": "a Canadian firm",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "firms",
+        "C": "firm's",
+        "D": "firm"
+      },
+      "correct_answer": "C",
+      "explanation": "The reply belongs to one firm, so the singular possessive \"firm's\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Firms'\" is plural, but Anderson wrote to one firm.",
+        "B": "A possessive is needed: the reply belonged to the firm.",
+        "D": "A possessive is needed: the reply belonged to the firm."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many firms are there, and does the reply belong to one?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count the owners, then place the apostrophe."
+      },
+      "remember": "Singular owner: add 's.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-05",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000288",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 6,
+      "evidence": "which arrived some",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "weeks later, was",
+        "C": "weeks, later was",
+        "D": "weeks later; was"
+      },
+      "correct_answer": "B",
+      "explanation": "The nonessential clause \"which arrived some weeks later\" interrupts the subject (\"reply\") and verb (\"was\"); it needs a comma on each side.",
+      "distractor_explanations": {
+        "A": "The clause \"which arrived some weeks later\" opened with a comma, so it must close with one before \"was.\"",
+        "C": "This comma splits \"weeks later\" and still leaves the clause unclosed.",
+        "D": "A semicolon cannot separate a subject from its verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does the clause that begins with \"which\" end?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the opening comma with a closing comma."
+      },
+      "remember": "A nonessential clause is set off by a pair of commas.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-06",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000289",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (wordiness)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 7,
+      "evidence": "Others worried that a blade sweeping back and forth in front of a driver",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "would end up distracting the driver more than it would be of help to the driver",
+        "C": "would distract more then it helped",
+        "D": "would distract more than it helped"
+      },
+      "correct_answer": "D",
+      "explanation": "The concise version says the same thing with no repeated words: the blade would distract more than it helped.",
+      "distractor_explanations": {
+        "A": "This repeats \"would end up being\" and \"the driver\" without adding meaning.",
+        "B": "This is shorter than the original but still repeats \"the driver\" needlessly.",
+        "C": "\"Then\" refers to time; a comparison needs \"than.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": null
+      },
+      "hints": [
+        "Which version says the most with the fewest words?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest version that keeps the meaning."
+      },
+      "remember": "Cut repeated words and empty phrases.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-07",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: answer cue - key is the shortest option and A/B are obviously wordy; C (then/than) is the only real distractor"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000290",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 8,
+      "evidence": "Anderson's patent expired in 1920 without earning her any money",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "however,",
+        "C": "for example,",
+        "D": "similarly,"
+      },
+      "correct_answer": "B",
+      "explanation": "Anderson earned nothing, yet by then her kind of device was becoming common: a contrast, signaled by \"however.\"",
+      "distractor_explanations": {
+        "A": "Anderson's earning nothing did not cause cars to multiply.",
+        "C": "Cars multiplying is not an example of the patent expiring.",
+        "D": "Wipers becoming common is a contrast with Anderson's earning nothing, not a similar point."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Is the second sentence a result of, an example of, or a contrast with the first?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship first."
+      },
+      "remember": "Use \"however\" for a contrast, not a cause.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-08",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000291",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 9,
+      "evidence": "though few drivers",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is knowing",
+        "C": "has known",
+        "D": "know"
+      },
+      "correct_answer": "D",
+      "explanation": "The subject \"few drivers\" is plural, so the verb is \"know.\"",
+      "distractor_explanations": {
+        "A": "\"Few drivers\" is plural and needs the plural verb \"know.\"",
+        "B": "This is singular and uses an unnatural progressive form.",
+        "C": "This is singular; \"few drivers\" needs a plural verb."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is \"few drivers\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the subject and match its number."
+      },
+      "remember": "Plural subjects take plural verbs.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-09",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000292",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000029",
+      "underline": 10,
+      "evidence": "she noticed, could barely see",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe how an ordinary observation led to a useful invention. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it traces Anderson's device to what she saw on a snowy streetcar ride.",
+        "B": "Yes, because it explains how electric wipers replaced Anderson's hand-operated design.",
+        "C": "No, because it focuses mainly on why the Canadian firm rejected Anderson's device.",
+        "D": "No, because it does not say whether Anderson ever drove a car herself."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay begins with Anderson noticing the driver's problem and follows that observation to her design and patent, which fulfills the stated purpose.",
+      "distractor_explanations": {
+        "B": "The essay never describes electric wipers or how they replaced her design.",
+        "C": "The rejection is one paragraph; the essay's arc runs from the streetcar to the invention.",
+        "D": "Whether she drove is irrelevant to how the observation led to the invention."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does the essay say the idea came from?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide yes or no, then check the reason against the essay."
+      },
+      "remember": "A goal question needs the right yes/no and the right reason.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "E029-10",
+      "created_at": "2026-10-27T08:26:53+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-029.review.json",
+        "computation": "checks/act_english/batch_029.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

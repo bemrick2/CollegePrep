@@ -1,6 +1,6 @@
 {
   "bank": "act_english",
-  "bank_version": 28,
+  "bank_version": 29,
   "answers": [
     {
       "id": "CLD-ACT-E-000001",
@@ -4831,6 +4831,176 @@
       "strategy": {
         "key": "read_question_first",
         "explanation": "Find the claim the new sentence opposes."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000283",
+      "correct_answer": "A",
+      "explanation": "The series \"opened ..., reached ..., and wiped\" is in the simple past, matching the rest of the paragraph, so \"opened\" is correct.",
+      "distractor_explanations": {
+        "B": "The present perfect does not fit a story told in the past tense.",
+        "C": "This suggests something that did not happen, but the driver did open the window.",
+        "D": "Without a finite verb, \"he opening\" is not a complete clause."
+      },
+      "hints": [
+        "What tense are the other verbs in the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the surrounding tense."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000284",
+      "correct_answer": "B",
+      "explanation": "The three actions in the series must share a form: opened, reached, wiped.",
+      "distractor_explanations": {
+        "A": "\"Wiping\" breaks the series \"opened ..., reached ..., and ___.\"",
+        "C": "The past perfect does not match \"opened\" and \"reached.\"",
+        "D": "The present tense does not match the other verbs in the series."
+      },
+      "hints": [
+        "What form do the first two verbs take?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match each item in the series."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000285",
+      "correct_answer": "C",
+      "explanation": "The phrase after the underlined portion describes the solution; a colon after a complete clause correctly introduces that explanation.",
+      "distractor_explanations": {
+        "A": "A semicolon must join two independent clauses, and \"a rubber blade on a swinging arm...\" is not one.",
+        "B": "A comma here makes the phrase seem to describe \"home,\" not the solution.",
+        "D": "With no punctuation, the description runs straight into \"home.\""
+      },
+      "hints": [
+        "Can the part after the semicolon stand alone?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether a semicolon has a clause on each side."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000286",
+      "correct_answer": "D",
+      "explanation": "The preceding sentence says only that the blade was connected to a lever; the added sentence is the first to say what the lever did (swing the blade across the glass), and the next sentence ('With it, a driver could clear the windshield') builds on that.",
+      "distractor_explanations": {
+        "A": "The sentence describes how the device worked, not why it was rejected.",
+        "B": "The previous sentence says only that the blade was connected to a lever, not that pulling it swung the blade.",
+        "C": "The sentence is about the device, not the driver."
+      },
+      "hints": [
+        "What does the previous sentence leave unexplained?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentences before and after the insertion point."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000287",
+      "correct_answer": "C",
+      "explanation": "The reply belongs to one firm, so the singular possessive \"firm's\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Firms'\" is plural, but Anderson wrote to one firm.",
+        "B": "A possessive is needed: the reply belonged to the firm.",
+        "D": "A possessive is needed: the reply belonged to the firm."
+      },
+      "hints": [
+        "How many firms are there, and does the reply belong to one?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count the owners, then place the apostrophe."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000288",
+      "correct_answer": "B",
+      "explanation": "The nonessential clause \"which arrived some weeks later\" interrupts the subject (\"reply\") and verb (\"was\"); it needs a comma on each side.",
+      "distractor_explanations": {
+        "A": "The clause \"which arrived some weeks later\" opened with a comma, so it must close with one before \"was.\"",
+        "C": "This comma splits \"weeks later\" and still leaves the clause unclosed.",
+        "D": "A semicolon cannot separate a subject from its verb."
+      },
+      "hints": [
+        "Where does the clause that begins with \"which\" end?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the opening comma with a closing comma."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000289",
+      "correct_answer": "D",
+      "explanation": "The concise version says the same thing with no repeated words: the blade would distract more than it helped.",
+      "distractor_explanations": {
+        "A": "This repeats \"would end up being\" and \"the driver\" without adding meaning.",
+        "B": "This is shorter than the original but still repeats \"the driver\" needlessly.",
+        "C": "\"Then\" refers to time; a comparison needs \"than.\""
+      },
+      "hints": [
+        "Which version says the most with the fewest words?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the shortest version that keeps the meaning."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000290",
+      "correct_answer": "B",
+      "explanation": "Anderson earned nothing, yet by then her kind of device was becoming common: a contrast, signaled by \"however.\"",
+      "distractor_explanations": {
+        "A": "Anderson's earning nothing did not cause cars to multiply.",
+        "C": "Cars multiplying is not an example of the patent expiring.",
+        "D": "Wipers becoming common is a contrast with Anderson's earning nothing, not a similar point."
+      },
+      "hints": [
+        "Is the second sentence a result of, an example of, or a contrast with the first?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship first."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000291",
+      "correct_answer": "D",
+      "explanation": "The subject \"few drivers\" is plural, so the verb is \"know.\"",
+      "distractor_explanations": {
+        "A": "\"Few drivers\" is plural and needs the plural verb \"know.\"",
+        "B": "This is singular and uses an unnatural progressive form.",
+        "C": "This is singular; \"few drivers\" needs a plural verb."
+      },
+      "hints": [
+        "Is \"few drivers\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the subject and match its number."
+      }
+    },
+    {
+      "id": "CLD-ACT-E-000292",
+      "correct_answer": "A",
+      "explanation": "The essay begins with Anderson noticing the driver's problem and follows that observation to her design and patent, which fulfills the stated purpose.",
+      "distractor_explanations": {
+        "B": "The essay never describes electric wipers or how they replaced her design.",
+        "C": "The rejection is one paragraph; the essay's arc runs from the streetcar to the invention.",
+        "D": "Whether she drove is irrelevant to how the observation led to the invention."
+      },
+      "hints": [
+        "Where does the essay say the idea came from?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide yes or no, then check the reason against the essay."
       }
     }
   ]
