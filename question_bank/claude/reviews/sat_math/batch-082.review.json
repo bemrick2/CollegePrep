@@ -1,0 +1,313 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 82,
+  "reviewed_at": "2026-10-27T19:33:40+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 82
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000910",
+    "CLD-SAT-M-000911",
+    "CLD-SAT-M-000912",
+    "CLD-SAT-M-000913",
+    "CLD-SAT-M-000914",
+    "CLD-SAT-M-000915",
+    "CLD-SAT-M-000916",
+    "CLD-SAT-M-000917",
+    "CLD-SAT-M-000918",
+    "CLD-SAT-M-000919",
+    "CLD-SAT-M-000920",
+    "CLD-SAT-M-000921"
+  ],
+  "results": [
+    {
+      "cand": "Q082-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: all three wrong choices fail for the same reason (each reduces to 3x + 2y = 180); the one non-proportional choice stands out once a student checks one, though this is the concept being tested"
+      ],
+      "blind_notes": "15x+10y=900 gives 3x+2y=180. A: 2x+3y=170 is independent, so x=40, y=30. B: 3x+2y=180 is the same equation. C: 6x+4y=360 is the same equation. D: 18x+12y=1080 is the same equation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Three facts are disguised multiples of the given equation."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000910"
+    },
+    {
+      "cand": "Q082-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "10",
+      "computed_answer": "10",
+      "blind_answer": "10",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "a+b=60 and a+2b=75, so A=45% and B=15%. 45x+15(12-x)=480 gives 30x=300, so x=10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The component concentrations must first be recovered from two trial mixtures."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000911"
+    },
+    {
+      "cand": "Q082-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "48",
+      "computed_answer": "48",
+      "blind_answer": "48",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "The extra 10% discount is 0.10P = 33.60-28.80 = 4.80, so P=48 (p=30, and 0.7*48=33.6 checks).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000912"
+    },
+    {
+      "cand": "Q082-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "21",
+      "computed_answer": "21",
+      "blind_answer": "21",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "L+H<=50 and H>=L+8, so 2L+8<=50 and L<=21 (bags of 21 and 29 kg).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000913"
+    },
+    {
+      "cand": "Q082-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [
+        "minor: the family of SAT items on 'cx + a = bx + d' with no or infinitely many solutions is familiar, but this item does not closely copy a known released question"
+      ],
+      "blind_notes": "(c-3)x = 4(c-3). Exactly one solution requires c != 3, so x=4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students often try to find c first; the solution does not depend on c."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000914"
+    },
+    {
+      "cand": "Q082-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "209",
+      "computed_answer": "209",
+      "blind_answer": "209",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: summing an arithmetic series is not an explicit digital SAT skill, although students can add 11 values by brute force or use 11*f(6)"
+      ],
+      "blind_notes": "The slope is 18/6=3, so f(x)=3x+1. The sum is 11*f(6) = 11*19 = 209.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000915"
+    },
+    {
+      "cand": "Q082-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: 0.035 hospitals per thousand people (35 per million) is about twice the real US rate, which is high but tolerable"
+      ],
+      "blind_notes": "1.2 million people is 1200 thousand, and 0.035*1200 = 42. Trap choices: A uses 1.2 as the input, B uses y(1.2), and D adds the intercept.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000916"
+    },
+    {
+      "cand": "Q082-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "The x values are unevenly spaced. Per unit of x the increases are 2.6, 2.65, 2.5, 2.7 and 2.7, so the data are linear with a slope of about 2.6. C (3.7) is the change per row, 18.5/5. B is the trap of ignoring the x gaps. A is wrong because the ratios fall from 1.22 toward 1.10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Unequal spacing makes the raw differences alternate, hiding a constant rate."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000917"
+    },
+    {
+      "cand": "Q082-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: 'About 3.6' can be eliminated because a median of integer scores must be an integer or a half-integer"
+      ],
+      "blind_notes": "Combined counts for scores 1 to 5 are 7, 8, 5, 7 and 17, so the cumulative counts are 7, 15, 20, 27 and 44. The 22nd and 23rd values are both 4. Distractors: A is the average of the class medians (2 and 5), B is the weighted average of the medians (160/44), and D is class 2's median.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000918"
+    },
+    {
+      "cand": "Q082-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "45",
+      "computed_answer": "45",
+      "blind_answer": "45",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "In 8 parts of dough the water is 3 + 0.12*5 = 3.6, and 3.6/8 = 45%. The values are realistic (60% baker's hydration and about 12% flour moisture).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "One ingredient carries hidden water that must be added to the stated ratio."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000919"
+    },
+    {
+      "cand": "Q082-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Rent per square foot is 2.25, 1.85, 1.97, 1.90, 1.89, 2.10, 1.86 and 2.04. Five apartments are under $2.00, and two of them have 2 bedrooms (1800/950 and 1950/1050), so the probability is 2/5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000920"
+    },
+    {
+      "cand": "Q082-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: choices C and D both have a rate of 12 L/min (they tie), so neither can be the unique answer; this is an elimination shortcut"
+      ],
+      "blind_notes": "Rates are 90/5=18, 210/15=14, 120/10=12 and 180/15=12 L/min. B is the trap of picking the largest volume change.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000921"
+    }
+  ]
+}

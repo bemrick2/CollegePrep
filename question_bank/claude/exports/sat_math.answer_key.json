@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 81,
+  "bank_version": 82,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -19170,6 +19170,306 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Check the units of each interpretation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000910",
+      "correct_answer": "A",
+      "explanation": "Choice A gives 2x + 3y = 170, which is not a multiple of 15x + 10y = 900, so the system has one solution: x = 40 and y = 30. Each other fact is the original equation multiplied by a constant (1/5, 0.4, and 1.2), so it adds no new information.",
+      "distractor_explanations": {
+        "B": "3x + 2y = 180 is the given equation divided by 5, so it adds nothing.",
+        "C": "6x + 4y = 360 is 0.4 times the given equation.",
+        "D": "18x + 12y = 1,080 is 1.2 times the given equation."
+      },
+      "hints": [
+        "Is each new equation a multiple of 15x + 10y = 900?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each fact as an equation and compare coefficients."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000911",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 assumes the concentration changes linearly with the ratio of A to B.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the number of liters of B.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 splits the mixture evenly.",
+          "trap": null
+        }
+      ],
+      "explanation": "With a% and b% acid, (a + b)/2 = 30 and (a + 2b)/3 = 25, so a + b = 60 and a + 2b = 75, giving b = 15 and a = 45. Then 0.45x + 0.15(12 − x) = 0.40(12), so 0.30x = 3 and x = 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the acid percent of each solution first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write two equations from the trial mixtures."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000912",
+      "correct_answer": "48",
+      "accepted_answers": [
+        "48"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 is the value of p.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "288",
+          "rationale": "288 divides 28.80 by 0.10.",
+          "trap": null
+        },
+        {
+          "value": "4.80",
+          "rationale": "4.80 is the difference between the two prices.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The extra 10 percentage points of discount remove 10% of the original price, so 0.10P = 33.60 − 28.80 = 4.80 and P = 48. (Then p = 30.)",
+      "distractor_explanations": {},
+      "hints": [
+        "What do the extra 10 percentage points of discount remove?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the two sale prices."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000913",
+      "correct_answer": "21",
+      "accepted_answers": [
+        "21"
+      ],
+      "common_errors": [
+        {
+          "value": "17",
+          "rationale": "17 subtracts 8 twice: (50 − 16)/2.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 ignores the 8-kilogram condition.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "29",
+          "rationale": "29 is the least possible weight of the heavier bag.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With lighter bag L and heavier bag H, L + H ≤ 50 and H ≥ L + 8. So L + (L + 8) ≤ 50, which gives 2L ≤ 42 and L ≤ 21.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write two inequalities in L and H."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute the smallest possible H into the sum."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000914",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the value of c for which there is not exactly one solution.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes a sign slip in rearranging.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the constant term.",
+          "trap": null
+        }
+      ],
+      "explanation": "Rearranging gives cx − 3x = 4c − 12, so (c − 3)x = 4(c − 3). Exactly one solution requires c ≠ 3, and then x = 4 for any such c.",
+      "distractor_explanations": {},
+      "hints": [
+        "Collect the x-terms on one side and factor."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor both sides by (c − 3)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000915",
+      "correct_answer": "209",
+      "accepted_answers": [
+        "209"
+      ],
+      "common_errors": [
+        {
+          "value": "175",
+          "rationale": "175 sums only f(1) through f(10).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "190",
+          "rationale": "190 multiplies f(6) by 10.",
+          "trap": null
+        },
+        {
+          "value": "19",
+          "rationale": "19 is the middle output, f(6).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The slope is (28 − 10)/(9 − 3) = 3, so f(x) = 3x + 1. The 11 outputs are evenly spaced, so their sum is 11 times the middle output f(6) = 19, which is 209.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the rule for f first."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Use the middle value of evenly spaced outputs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000916",
+      "correct_answer": "C",
+      "explanation": "1.2 million people is 1,200 thousand, so the predicted difference is 0.035 × 1,200 = 42. The intercept cancels in a difference.",
+      "distractor_explanations": {
+        "A": "This uses x = 1.2 for 1.2 million.",
+        "B": "This substitutes 1.2 into the equation, including the intercept.",
+        "D": "This substitutes 1,200 into the equation and keeps the intercept in a difference."
+      },
+      "hints": [
+        "What is 1.2 million in thousands?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the slope by the change in x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000917",
+      "correct_answer": "D",
+      "explanation": "The x-values are not evenly spaced. Per unit of x, the increases are 2.6, 2.65, 2.5, 2.7, and 2.7, nearly constant, so a linear model with slope about 2.6 fits.",
+      "distractor_explanations": {
+        "A": "This computes row-to-row ratios without regard to the unequal steps in x.",
+        "B": "This reads the row-to-row differences without noticing that the steps in x alternate between 1 and 2.",
+        "C": "This divides the total increase of 18.5 by the 5 row steps instead of by the change of 7 in x."
+      },
+      "hints": [
+        "Are the x-values evenly spaced?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Compute the change in y per unit of x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000918",
+      "correct_answer": "C",
+      "explanation": "The combined counts are 7, 8, 5, 7, and 17 for scores 1 to 5. The 22nd and 23rd scores are the middle values; 20 scores are 3 or less and 27 are 4 or less, so both are 4, and the median is 4.",
+      "distractor_explanations": {
+        "A": "This averages the two class medians, 2 and 5.",
+        "B": "This weights the class medians by class size.",
+        "D": "This is the median of the larger class."
+      },
+      "hints": [
+        "Combine the two tables first."
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the 22nd and 23rd scores in the combined data."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000919",
+      "correct_answer": "45",
+      "accepted_answers": [
+        "45"
+      ],
+      "common_errors": [
+        {
+          "value": "37.5",
+          "rationale": "37.5 ignores the water in the flour.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "49.5",
+          "rationale": "49.5 adds 12 percentage points to 37.5.",
+          "trap": null
+        },
+        {
+          "value": "42",
+          "rationale": "42 raises 37.5 by 12% of itself.",
+          "trap": null
+        }
+      ],
+      "explanation": "In 8 kilograms of dough, 3 kilograms is added water and 0.12 × 5 = 0.6 kilogram is water in the flour, for 3.6 kilograms of water. That is 3.6/8 = 45% of the dough.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much water is inside the flour?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Assume 8 kilograms of dough."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000920",
+      "correct_answer": "B",
+      "explanation": "The rents per square foot are about 2.25, 1.85, 1.97, 1.90, 1.89, 2.10, 1.86, and 2.04 dollars. Five apartments are under $2.00, and 2 of them have 2 bedrooms, so the probability is 2/5.",
+      "distractor_explanations": {
+        "A": "This divides the 2 qualifying 2-bedroom apartments by all 8 apartments.",
+        "C": "This ignores the condition: 4 of the 8 apartments have 2 bedrooms.",
+        "D": "This is the probability that an apartment qualifies."
+      },
+      "hints": [
+        "Which apartments rent for less than $2.00 per square foot?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compute each rent per square foot first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000921",
+      "correct_answer": "A",
+      "explanation": "The average rates are 90/5 = 18, 210/15 = 14, 120/10 = 12, and 180/15 = 12 liters per minute, so the greatest is from t = 0 to t = 5.",
+      "distractor_explanations": {
+        "B": "This interval has the greatest volume pumped, but over a longer time.",
+        "C": "This compares volumes as if the intervals were equal.",
+        "D": "This interval ends with the greatest total, not the greatest rate."
+      },
+      "hints": [
+        "Divide each change in volume by its change in time."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each interval's rate."
       }
     }
   ]
