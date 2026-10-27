@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 49,
-  "updated_at": "2026-10-27T05:52:05+00:00",
+  "version": 50,
+  "updated_at": "2026-10-27T06:18:59+00:00",
   "passages": [],
   "questions": [
     {
@@ -33100,6 +33100,729 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-049.review.json",
         "computation": "checks/sat_math/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000460",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equal values of two linear models with different reference years",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The number of members of club A is modeled by A(t) = 320 + 12t, where t is the number of years after 2010. The number of members of club B is modeled by B(u) = 500 − 8u, where u is the number of years after 2015. In what year do the two clubs have the same number of members?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2017",
+        "B": "2019",
+        "C": "2021",
+        "D": "2024"
+      },
+      "correct_answer": "C",
+      "explanation": "Measure both from 2010: u = t − 5, so B = 500 − 8(t − 5) = 540 − 8t. Setting 320 + 12t = 540 − 8t gives 20t = 220 and t = 11, so the year is 2010 + 11 = 2021. Check: A = 452 and, with u = 6, B = 452.",
+      "distractor_explanations": {
+        "A": "2017 substitutes u = t + 5, shifting the wrong way.",
+        "B": "2019 sets 320 + 12x = 500 − 8x, ignoring the different reference years, and adds x = 9 to 2010.",
+        "D": "2024 uses the same x = 9 but adds it to 2015."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "overextend_trend",
+        "D": null
+      },
+      "hints": [
+        "Are t and u measured from the same year?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite B in terms of t before setting the models equal."
+      },
+      "remember": "Check that both variables start from the same reference point.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-01",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000461",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Capacity from a percent relation inside a volume total",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A large bottle holds 50% more than a small bottle. Four small bottles and three large bottles together hold 6.8 liters. How many liters does one large bottle hold?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1.2",
+      "accepted_answers": [
+        "1.2",
+        "6/5"
+      ],
+      "common_errors": [
+        {
+          "value": "0.8",
+          "rationale": "0.8 is the capacity of a small bottle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1.36",
+          "rationale": "1.36 treats the small bottle as 50% less than the large one.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "If the large bottle holds L liters, the small bottle holds L/1.5 = (2/3)L. Then 4(2/3)L + 3L = (8/3 + 9/3)L = (17/3)L = 6.8, so L = 6.8 × 3/17 = 1.2 liters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the small bottle's capacity in terms of the large bottle's."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by 1.5 to undo '50% more'."
+      },
+      "remember": "50% more: divide by 1.5 to go back.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-02",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1.2",
+        "blind_answer": "1.2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000462",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Ratio of variables from a homogeneous linear equation",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 3(2a − b) = 4(a + b) and b ≠ 0, what is the value of a/b ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2/7",
+        "B": "1",
+        "C": "7/2",
+        "D": "7"
+      },
+      "correct_answer": "C",
+      "explanation": "Expanding gives 6a − 3b = 4a + 4b. Collecting terms gives 2a = 7b, and dividing both sides by 2b gives a/b = 7/2.",
+      "distractor_explanations": {
+        "A": "2/7 is b/a, the reciprocal.",
+        "B": "1 does not distribute: 6a − b = 4a + b gives a = b.",
+        "D": "7 reads 2a = 7b as a = 7b."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Expand both sides and collect a and b terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Get all a-terms on one side, b-terms on the other."
+      },
+      "remember": "From pa = qb, a/b = q/p.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-03",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000463",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear relation between two temperature scales from two fixed points",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On thermometer scale A, water freezes at 20° and boils at 180°. On scale B, water freezes at −10° and boils at 90°. Readings on the two scales are related linearly. When scale B reads 0°, what does scale A read?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "20°",
+        "B": "26.25°",
+        "C": "30°",
+        "D": "36°"
+      },
+      "correct_answer": "D",
+      "explanation": "Scale B's 0° is 10 degrees above freezing on a 100-degree range, which is 10/100 of the way to boiling. Scale A's range is 160 degrees, so the reading is 20 + 0.1(160) = 36°.",
+      "distractor_explanations": {
+        "A": "20° treats 0° on scale B as the freezing point.",
+        "B": "26.25° uses the slope 100/160 in the wrong direction: 20 + 10(0.625).",
+        "C": "30° adds the same 10 degrees on scale A."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "What fraction of the way from freezing to boiling is 0° on scale B?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the two fixed points to build the linear relation."
+      },
+      "remember": "A linear relation is fixed by two points.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-04",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000464",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Inverting a power-law proportion",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For planets orbiting a star, the square of a planet's orbital period is proportional to the cube of its average distance from the star. Planet Q's orbital period is 8 times planet P's. Planet Q's average distance from the star is how many times planet P's?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "8",
+        "D": "64"
+      },
+      "correct_answer": "B",
+      "explanation": "If T² is proportional to d³, then (T_Q/T_P)² = (d_Q/d_P)³. With a period ratio of 8, (d_Q/d_P)³ = 8² = 64, so d_Q/d_P = ∛64 = 4.",
+      "distractor_explanations": {
+        "A": "2 takes the cube root of 8 without squaring it first.",
+        "C": "8 treats the relationship as direct proportion.",
+        "D": "64 squares 8 but forgets the cube root."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write the proportion as a relation between ratios."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the period ratio, then take the cube root."
+      },
+      "remember": "Proportional powers: compare ratios raised to those powers.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-05",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: Kepler's third law context; the relationship is stated in the stem, so no outside science is required"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000465",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Recovering an exponential function from successive differences",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = a · bˣ, where a and b are positive constants. If f(0) − f(1) = 12 and f(1) − f(2) = 9, what is the value of f(3) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "81/4",
+      "accepted_answers": [
+        "81/4",
+        "20.25"
+      ],
+      "common_errors": [
+        {
+          "value": "21",
+          "rationale": "21 assumes the differences fall by 3 each time, as if f were quadratic.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "27",
+          "rationale": "27 is f(2), not f(3).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "f(0) − f(1) = a(1 − b) = 12 and f(1) − f(2) = ab(1 − b) = 9. Dividing gives b = 9/12 = 3/4, and then a(1/4) = 12, so a = 48. So f(3) = 48(3/4)³ = 48 · 27/64 = 81/4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Divide the second difference by the first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor each difference to expose b."
+      },
+      "remember": "Differences of an exponential function are also exponential.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-06",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "81/4",
+        "blind_answer": "81/4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000466",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Squaring a binomial with opposite half exponents",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equal to (√x + 1/√x)² for all positive values of x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x + 1/x",
+        "B": "x + 1 + 1/x",
+        "C": "x + 2 + 1/x",
+        "D": "x² + 2 + 1/x²"
+      },
+      "correct_answer": "C",
+      "explanation": "(u + v)² = u² + 2uv + v² with u = √x and v = 1/√x: u² = x, v² = 1/x, and 2uv = 2(√x)(1/√x) = 2. So the expression is x + 2 + 1/x.",
+      "distractor_explanations": {
+        "A": "x + 1/x drops the cross term.",
+        "B": "x + 1 + 1/x counts the cross term once instead of twice.",
+        "D": "x² + 2 + 1/x² treats √x as x."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Expand (u + v)² with u = √x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square, double the product, square."
+      },
+      "remember": "√x · (1/√x) = 1.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-07",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000467",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Signed residuals: where the line overestimates most",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A line of best fit for a data set is y = −1.5x + 40. For which of the following data points does the line overestimate the actual y-value by the greatest amount?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(4, 36)",
+        "B": "(8, 25)",
+        "C": "(12, 24.5)",
+        "D": "(16, 15)"
+      },
+      "correct_answer": "B",
+      "explanation": "The predicted values are 34, 28, 22 and 16. The residuals (actual − predicted) are +2, −3, +2.5 and −1. The line overestimates where the residual is negative, and most at (8, 25), where it predicts 28 for an actual 25.",
+      "distractor_explanations": {
+        "A": "(4, 36) is above the line; the line underestimates it by 2.",
+        "C": "(12, 24.5) has the largest residual, but it is positive, so the line underestimates.",
+        "D": "(16, 15) is overestimated, but only by 1."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Find the predicted value at each x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute actual − predicted for each point."
+      },
+      "remember": "Overestimate means the prediction is above the actual value.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-09",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000468",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "New water depth when a solid sticks out of the water",
+      "modeling": true,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular tank has a base that is 50 centimeters by 40 centimeters and contains water 15 centimeters deep. A solid metal cube with edges of 20 centimeters is placed flat on the bottom of the tank. What is the new depth of the water, in centimeters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "18.75",
+      "accepted_answers": [
+        "18.75",
+        "75/4"
+      ],
+      "common_errors": [
+        {
+          "value": "19",
+          "rationale": "19 assumes the cube is fully under water: 15 + 8,000/2,000.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "15",
+          "rationale": "15 assumes the depth does not change.",
+          "trap": null
+        }
+      ],
+      "explanation": "The water's volume is 50 × 40 × 15 = 30,000 cubic centimeters. If the new depth h is less than 20, the cube takes up 20 × 20 = 400 square centimeters of the base, so the water fills (2,000 − 400)h = 1,600h = 30,000, giving h = 18.75. Since 18.75 < 20, the cube sticks out, as assumed.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Will the cube be completely under water?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Check whether the new depth is below the cube's top."
+      },
+      "remember": "A solid that sticks out displaces only the water up to the new depth.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-10",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "18.75",
+        "blind_answer": "18.75",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000469",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Apex angle of an isosceles triangle from parallel lines",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Lines ℓ and m are parallel. Point A lies on line ℓ, and points B and C lie on line m. In triangle ABC, AB = AC, and one of the angles formed by line ℓ and segment AB measures 55°. What is the measure of angle BAC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "55°",
+        "B": "62.5°",
+        "C": "70°",
+        "D": "125°"
+      },
+      "correct_answer": "C",
+      "explanation": "The angles between line ℓ and segment AB are 55° and 125°. By alternate interior angles, angle ABC equals one of them, and as a base angle of an isosceles triangle it must be acute, so angle ABC = 55°. Then angle ACB = 55° and angle BAC = 180° − 110° = 70°.",
+      "distractor_explanations": {
+        "A": "55° is a base angle, not angle BAC.",
+        "B": "62.5° treats 55° as the apex angle.",
+        "D": "125° uses the obtuse angle between ℓ and AB."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which angle at B matches an angle at A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parallel lines and the triangle."
+      },
+      "remember": "Base angles of an isosceles triangle are equal and acute.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 50,
+      "draft_candidate": "Q050-11",
+      "created_at": "2026-10-27T06:18:59+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: 'one of the angles formed' allows 55 or 125 as the angle at A, but the base angles of an isosceles triangle must be acute, so angle ABC = 55 (alternate interior angles) is forced; this is defensible but relies on an implicit step. A figure would help."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-050.review.json",
+        "computation": "checks/sat_math/batch_050.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

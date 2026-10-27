@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 49,
+  "bank_version": 50,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -9058,6 +9058,212 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Subtract the two sector areas."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000460",
+      "correct_answer": "C",
+      "explanation": "Measure both from 2010: u = t − 5, so B = 500 − 8(t − 5) = 540 − 8t. Setting 320 + 12t = 540 − 8t gives 20t = 220 and t = 11, so the year is 2010 + 11 = 2021. Check: A = 452 and, with u = 6, B = 452.",
+      "distractor_explanations": {
+        "A": "2017 substitutes u = t + 5, shifting the wrong way.",
+        "B": "2019 sets 320 + 12x = 500 − 8x, ignoring the different reference years, and adds x = 9 to 2010.",
+        "D": "2024 uses the same x = 9 but adds it to 2015."
+      },
+      "hints": [
+        "Are t and u measured from the same year?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite B in terms of t before setting the models equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000461",
+      "correct_answer": "1.2",
+      "accepted_answers": [
+        "1.2",
+        "6/5"
+      ],
+      "common_errors": [
+        {
+          "value": "0.8",
+          "rationale": "0.8 is the capacity of a small bottle.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1.36",
+          "rationale": "1.36 treats the small bottle as 50% less than the large one.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "If the large bottle holds L liters, the small bottle holds L/1.5 = (2/3)L. Then 4(2/3)L + 3L = (8/3 + 9/3)L = (17/3)L = 6.8, so L = 6.8 × 3/17 = 1.2 liters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the small bottle's capacity in terms of the large bottle's."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by 1.5 to undo '50% more'."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000462",
+      "correct_answer": "C",
+      "explanation": "Expanding gives 6a − 3b = 4a + 4b. Collecting terms gives 2a = 7b, and dividing both sides by 2b gives a/b = 7/2.",
+      "distractor_explanations": {
+        "A": "2/7 is b/a, the reciprocal.",
+        "B": "1 does not distribute: 6a − b = 4a + b gives a = b.",
+        "D": "7 reads 2a = 7b as a = 7b."
+      },
+      "hints": [
+        "Expand both sides and collect a and b terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Get all a-terms on one side, b-terms on the other."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000463",
+      "correct_answer": "D",
+      "explanation": "Scale B's 0° is 10 degrees above freezing on a 100-degree range, which is 10/100 of the way to boiling. Scale A's range is 160 degrees, so the reading is 20 + 0.1(160) = 36°.",
+      "distractor_explanations": {
+        "A": "20° treats 0° on scale B as the freezing point.",
+        "B": "26.25° uses the slope 100/160 in the wrong direction: 20 + 10(0.625).",
+        "C": "30° adds the same 10 degrees on scale A."
+      },
+      "hints": [
+        "What fraction of the way from freezing to boiling is 0° on scale B?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the two fixed points to build the linear relation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000464",
+      "correct_answer": "B",
+      "explanation": "If T² is proportional to d³, then (T_Q/T_P)² = (d_Q/d_P)³. With a period ratio of 8, (d_Q/d_P)³ = 8² = 64, so d_Q/d_P = ∛64 = 4.",
+      "distractor_explanations": {
+        "A": "2 takes the cube root of 8 without squaring it first.",
+        "C": "8 treats the relationship as direct proportion.",
+        "D": "64 squares 8 but forgets the cube root."
+      },
+      "hints": [
+        "Write the proportion as a relation between ratios."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the period ratio, then take the cube root."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000465",
+      "correct_answer": "81/4",
+      "accepted_answers": [
+        "81/4",
+        "20.25"
+      ],
+      "common_errors": [
+        {
+          "value": "21",
+          "rationale": "21 assumes the differences fall by 3 each time, as if f were quadratic.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "27",
+          "rationale": "27 is f(2), not f(3).",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "f(0) − f(1) = a(1 − b) = 12 and f(1) − f(2) = ab(1 − b) = 9. Dividing gives b = 9/12 = 3/4, and then a(1/4) = 12, so a = 48. So f(3) = 48(3/4)³ = 48 · 27/64 = 81/4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Divide the second difference by the first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor each difference to expose b."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000466",
+      "correct_answer": "C",
+      "explanation": "(u + v)² = u² + 2uv + v² with u = √x and v = 1/√x: u² = x, v² = 1/x, and 2uv = 2(√x)(1/√x) = 2. So the expression is x + 2 + 1/x.",
+      "distractor_explanations": {
+        "A": "x + 1/x drops the cross term.",
+        "B": "x + 1 + 1/x counts the cross term once instead of twice.",
+        "D": "x² + 2 + 1/x² treats √x as x."
+      },
+      "hints": [
+        "Expand (u + v)² with u = √x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square, double the product, square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000467",
+      "correct_answer": "B",
+      "explanation": "The predicted values are 34, 28, 22 and 16. The residuals (actual − predicted) are +2, −3, +2.5 and −1. The line overestimates where the residual is negative, and most at (8, 25), where it predicts 28 for an actual 25.",
+      "distractor_explanations": {
+        "A": "(4, 36) is above the line; the line underestimates it by 2.",
+        "C": "(12, 24.5) has the largest residual, but it is positive, so the line underestimates.",
+        "D": "(16, 15) is overestimated, but only by 1."
+      },
+      "hints": [
+        "Find the predicted value at each x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute actual − predicted for each point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000468",
+      "correct_answer": "18.75",
+      "accepted_answers": [
+        "18.75",
+        "75/4"
+      ],
+      "common_errors": [
+        {
+          "value": "19",
+          "rationale": "19 assumes the cube is fully under water: 15 + 8,000/2,000.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "15",
+          "rationale": "15 assumes the depth does not change.",
+          "trap": null
+        }
+      ],
+      "explanation": "The water's volume is 50 × 40 × 15 = 30,000 cubic centimeters. If the new depth h is less than 20, the cube takes up 20 × 20 = 400 square centimeters of the base, so the water fills (2,000 − 400)h = 1,600h = 30,000, giving h = 18.75. Since 18.75 < 20, the cube sticks out, as assumed.",
+      "distractor_explanations": {},
+      "hints": [
+        "Will the cube be completely under water?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Check whether the new depth is below the cube's top."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000469",
+      "correct_answer": "C",
+      "explanation": "The angles between line ℓ and segment AB are 55° and 125°. By alternate interior angles, angle ABC equals one of them, and as a base angle of an isosceles triangle it must be acute, so angle ABC = 55°. Then angle ACB = 55° and angle BAC = 180° − 110° = 70°.",
+      "distractor_explanations": {
+        "A": "55° is a base angle, not angle BAC.",
+        "B": "62.5° treats 55° as the apex angle.",
+        "D": "125° uses the obtuse angle between ℓ and AB."
+      },
+      "hints": [
+        "Which angle at B matches an angle at A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parallel lines and the triangle."
       }
     }
   ]
