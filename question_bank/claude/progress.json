@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:24:34+00:00",
+  "updated_at": "2026-10-27T00:27:42+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
     "act_math": 688,
     "act_english": 232,
     "act_reading": 199,
-    "sat_reading_writing": 227
+    "sat_reading_writing": 235
   },
   "review_totals": {
     "act_math": {
@@ -43,10 +43,10 @@
       "passed_after_revision": 16
     },
     "sat_reading_writing": {
-      "PASS": 232,
+      "PASS": 240,
       "REVISE": 20,
       "REJECT": 1,
-      "candidates": 253,
+      "candidates": 261,
       "passed_after_revision": 18
     }
   },
@@ -1116,13 +1116,13 @@
       "passages": 25
     },
     "sat_reading_writing": {
-      "accepted": 227,
+      "accepted": 235,
       "retired_after_audit": 5,
       "by_skill": {
-        "Craft and Structure": 61,
-        "Expression of Ideas": 49,
-        "Information and Ideas": 62,
-        "Standard English Conventions": 55
+        "Craft and Structure": 64,
+        "Expression of Ideas": 50,
+        "Information and Ideas": 64,
+        "Standard English Conventions": 57
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -1144,7 +1144,7 @@
         "Command of evidence: quantitative (interaction)": 1,
         "Command of evidence: quantitative (isolating a cause)": 1,
         "Command of evidence: quantitative (percent change)": 1,
-        "Command of evidence: quantitative (two-part claim)": 1,
+        "Command of evidence: quantitative (two-part claim)": 2,
         "Command of evidence: quantitative (weaken)": 1,
         "Command of evidence: textual (quotation)": 4,
         "Command of evidence: textual (support a hypothesis)": 1,
@@ -1162,7 +1162,7 @@
         "Function of a quotation": 1,
         "Function of a sentence": 5,
         "Function of a sentence (literary)": 2,
-        "Inferences": 17,
+        "Inferences": 18,
         "Inferences (alternative explanation)": 2,
         "Inferences (base rates)": 1,
         "Inferences (literary)": 4,
@@ -1177,9 +1177,10 @@
         "Modifier placement (introductory phrase)": 1,
         "No comma between a subject and its verb": 1,
         "No punctuation between a verb and its that-clause": 1,
-        "Overall text structure": 6,
+        "Overall text structure": 7,
         "Paired dashes": 2,
         "Parallel structure in a series": 1,
+        "Participial phrase as a modifier": 1,
         "Plural possessives": 2,
         "Pronoun-antecedent agreement": 1,
         "Punctuating a quotation followed by an appositive": 1,
@@ -1210,6 +1211,7 @@
         "Rhetorical synthesis (presenting a finding)": 1,
         "Rhetorical synthesis (significance for a new audience)": 1,
         "Rhetorical synthesis (similarity)": 1,
+        "Rhetorical synthesis (specifying a location)": 1,
         "Rhetorical synthesis (two-part comparison)": 1,
         "Semicolons in a complex series": 1,
         "Sentence boundaries with a subordinate clause": 1,
@@ -1225,6 +1227,7 @@
         "Subject-verb agreement (inverted order)": 2,
         "Subject-verb agreement (long subject)": 2,
         "Subject-verb agreement (neither/nor)": 1,
+        "Subject-verb agreement (title as subject)": 1,
         "Transitions": 1,
         "Transitions (addition)": 2,
         "Transitions (concession)": 3,
@@ -1247,39 +1250,39 @@
         "Verb tense (past perfect)": 1,
         "Verb tense with \"since\"": 1,
         "Who versus whom": 1,
-        "Words in context": 31,
+        "Words in context": 33,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 29,
+        "easy": 30,
         "hard": 31,
-        "medium": 167
+        "medium": 174
       },
       "by_difficulty_calibrated": {
-        "easy": 115,
+        "easy": 121,
         "hard": 9,
-        "medium": 103
+        "medium": 105
       },
       "calibrated_share": {
-        "easy": 0.507,
-        "hard": 0.04,
-        "medium": 0.454
+        "easy": 0.515,
+        "hard": 0.038,
+        "medium": 0.447
       },
       "answer_key_balance": {
-        "A": 58,
-        "B": 56,
-        "C": 56,
-        "D": 57
+        "A": 59,
+        "B": 58,
+        "C": 59,
+        "D": 59
       },
       "modeling_items": 0,
-      "passages": 232
+      "passages": 240
     }
   },
   "last_completed_batch": {
     "act_math": 71,
     "act_english": 23,
     "act_reading": 25,
-    "sat_reading_writing": 25
+    "sat_reading_writing": 26
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1328,12 +1331,12 @@
       }
     },
     "sat_reading_writing": {
-      "next_batch": 26,
+      "next_batch": 27,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 5.4,
-        "Information and Ideas": -0.4,
-        "Standard English Conventions": 6.6,
-        "Expression of Ideas": -1.6
+        "Craft and Structure": 4.6,
+        "Information and Ideas": -0.3,
+        "Standard English Conventions": 6.7,
+        "Expression of Ideas": -1.0
       }
     }
   },
@@ -1355,14 +1358,14 @@
     },
     "sat_reading_writing": {
       "target": 700,
-      "accepted": 227,
-      "share_of_target": 0.324
+      "accepted": 235,
+      "share_of_target": 0.336
     }
   },
   "total_target": 4000,
-  "total_accepted": 1346,
+  "total_accepted": 1354,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "sat_reading_writing",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -48191,7 +48194,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 25,
+      "bank_version": 26,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -48307,7 +48310,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:24:34+00:00",
+    "heartbeat_at": "2026-10-27T00:27:42+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
