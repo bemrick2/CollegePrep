@@ -1,7 +1,7 @@
 {
  "bank": "act_reading",
  "batch": 49,
- "plan": "Social-science passage (CLD-P-ACT-R-000049) on the jam study and later research on choice overload (Iyengar and Lepper 2000; a later synthesis of about fifty experiments finding an average effect near zero); topic checked against every ACT Reading, SAT R&W, ACT English and ChatGPT verbal passage (no choice-overload passage; the decoy effect is covered elsewhere and avoided). Ten questions, three aimed at hard (interpreting an average near zero, applying stated conditions to new cases, an author's attitude mixing 'less dramatic' and 'more useful'). Difficulty provisional.",
+ "plan": "Social-science passage (CLD-P-ACT-R-000049) on the jam study and later research on choice overload (Iyengar and Lepper 2000; a later synthesis of about fifty experiments finding an average effect near zero); topic checked against every ACT Reading, SAT R&W, ACT English and ChatGPT verbal passage (no choice-overload passage; the decoy effect is covered elsewhere and avoided). Ten questions, three aimed at hard (interpreting an average near zero, applying stated conditions to new cases, an author's attitude mixing 'less dramatic' and 'more useful'). Difficulty provisional. R049-10 withdrawn (overlap and cue). Relabelled to the lower blind rating: R049-01 medium→easy, R049-03 medium→easy, R049-04 hard→medium, R049-06 hard→easy, R049-07 medium→easy, R049-08 hard→easy. Neither solver rated any item hard.",
  "passages": [
   {
    "passage_id": "CLD-P-ACT-R-000049",
@@ -19,7 +19,7 @@
    "skill": "Key Ideas and Details",
    "subskill": "Main idea of a passage",
    "repo_skill_key": "act_main_idea",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which of the following statements best expresses the main idea of the passage?",
    "choices": {
     "A": "Offering shoppers fewer products is always the best way for stores to increase sales.",
@@ -115,7 +115,7 @@
    "skill": "Integration of Knowledge and Ideas",
    "subskill": "Assumption challenged by a finding",
    "repo_skill_key": "act_inference",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The \"common assumption\" mentioned in the second paragraph is best described as the belief that:",
    "choices": {
     "A": "having more options cannot make a shopper worse off.",
@@ -163,7 +163,7 @@
    "skill": "Integration of Knowledge and Ideas",
    "subskill": "Interpreting a summary result",
    "repo_skill_key": "act_inference",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Based on the passage, the finding that the average effect across fifty experiments was \"close to zero\" most likely means that:",
    "choices": {
     "A": "most of the fifty experiments were poorly designed and should not be counted.",
@@ -260,7 +260,7 @@
    "skill": "Integration of Knowledge and Ideas",
    "subskill": "Applying a stated condition to a new case",
    "repo_skill_key": "act_inference",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "Based on the conditions described in the fourth paragraph, which shopper would be LEAST likely to be discouraged by a large assortment?",
    "choices": {
     "A": "A shopper choosing a first laptop who must compare dozens of models with different features.",
@@ -309,7 +309,7 @@
    "skill": "Craft and Structure",
    "subskill": "Word in context",
    "repo_skill_key": "act_vocabulary_in_context",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "As it is used in the last paragraph, the word \"striking\" most nearly means:",
    "choices": {
     "A": "hitting.",
@@ -357,7 +357,7 @@
    "skill": "Integration of Knowledge and Ideas",
    "subskill": "Author's attitude toward later research",
    "repo_skill_key": "act_author_purpose",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "The author's attitude toward the later, less dramatic findings about choice overload is best described as:",
    "choices": {
     "A": "approving, because they make the idea more useful.",
@@ -446,7 +446,9 @@
     "single_correct": true,
     "choice_lengths": "balanced"
    }
-  },
+  }
+ ],
+ "withdrawn": [
   {
    "cand": "R049-10",
    "passage_id": "CLD-P-ACT-R-000049",
@@ -493,7 +495,8 @@
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced"
-   }
+   },
+   "withdrawn_reason": "Both solvers: overlaps R049-01 (same refinement point) and its key reuses \"striking\", the word tested in R049-07. Dropped."
   }
  ]
 }
