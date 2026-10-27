@@ -1,6 +1,12 @@
 {
  "bank": "sat_reading_writing",
  "batch": 32,
+ "revision_log": [
+  {
+   "round": 2,
+   "reason": "Round-1 blind solves (both matched every key) flagged S032-05: its key was the only choice using the conclusion's word 'gap' and did the subtraction for the student. Rewrote the conclusion (youngest vs oldest) and all four choices as raw percentages, with wrong choices giving one measure or one group. Also added a training-time note so S032-07's key is not the only choice with a time span, and corrected S032-09 choice A to 'peat cutters'. Whole batch re-solved blind."
+  }
+ ],
  "plan": "Ten new items; topics checked against all verbal bank passages (a migration-timing inference was dropped because 'Songbird migration notes' already covers it). fragmentary/galvanized WIC, Great Wall sentence function, salmon-nitrogen inference, museum two-gap data, uptalk cross-text, raven planning synthesis (time gap), electric-car concession, Tollund Man modifier, semicolon with 'however'.",
  "passages": [
   {
@@ -35,8 +41,8 @@
    "passage_id": "CLD-P-SAT-RW-000305",
    "title": "Two kinds of visits",
    "genre": "museums / data",
-   "word_count": 72,
-   "text": "A museum surveyed visitors in four age groups about how they had experienced its collection in the past year.\nAge group | Visited in person | Took a virtual tour\n18–29 | 45% | 38%\n30–49 | 52% | 31%\n50–64 | 48% | 22%\n65 and older | 55% | 14%\nA researcher concluded that the gap between in-person visits and virtual tours grows wider in each successively older age group."
+   "word_count": 75,
+   "text": "A museum surveyed visitors in four age groups about how they had experienced its collection in the past year.\nAge group | Visited in person | Took a virtual tour\n18–29 | 45% | 38%\n30–49 | 52% | 31%\n50–64 | 48% | 22%\n65 and older | 55% | 14%\nA researcher concluded that the gap between in-person visits and virtual tours is much wider among the oldest visitors than among the youngest."
   },
   {
    "passage_id": "CLD-P-SAT-RW-000306",
@@ -49,8 +55,8 @@
    "passage_id": "CLD-P-SAT-RW-000307",
    "title": "A raven's plan",
    "genre": "animal cognition / notes",
-   "word_count": 87,
-   "text": "While researching a topic, a student has taken the following notes:\n• In a 2017 study, researchers taught ravens to use a stone tool to open a box containing food.\n• Later, with the box out of sight, each raven was offered the tool among several useless objects.\n• Most ravens picked the tool and kept it.\n• When the box was returned, as much as 17 hours later, the ravens used the tool to open it.\n• Planning for a future need is rare among animals."
+   "word_count": 103,
+   "text": "While researching a topic, a student has taken the following notes:\n• In a 2017 study, researchers taught ravens to use a stone tool to open a box containing food.\n• Later, with the box out of sight, each raven was offered the tool among several useless objects.\n• Most ravens picked the tool and kept it.\n• The researchers tested delays of 15 minutes and of 17 hours before returning the box.\n• When the box was returned, as much as 17 hours later, the ravens used the tool to open it.\n• Planning for a future need is rare among animals."
   },
   {
    "passage_id": "CLD-P-SAT-RW-000308",
@@ -273,25 +279,25 @@
    "difficulty": "hard",
    "stem": "Which choice best describes data from the table that support the researcher's conclusion?",
    "choices": {
-    "A": "Virtual tours fell from 38% among 18–29-year-olds to 14% among those 65 and older.",
-    "B": "In-person visits were highest, at 55%, among visitors 65 and older.",
-    "C": "In every age group, more visitors went in person than took a virtual tour.",
-    "D": "The gap rises from 7 points (ages 18–29) to 21, 26 and 41 points in older groups."
+    "A": "Virtual tours were taken by 38% of those 18–29 but only 14% of those 65 and older.",
+    "B": "In-person visits were made by 45% of those 18–29 and 55% of those 65 and older.",
+    "C": "Ages 50–64: 48% visited in person and 22% took a virtual tour of the museum.",
+    "D": "Ages 18–29: 45% in person and 38% virtual; ages 65 and older: 55% and 14%."
    },
    "answer": "D",
-   "evidence": "the gap between in-person visits and virtual tours grows wider",
-   "explanation": "The gaps are 45-38 = 7, 52-31 = 21, 48-22 = 26 and 55-14 = 41 points, widening in each older group, as the conclusion states.",
+   "evidence": "is much wider among the oldest visitors than among the youngest",
+   "explanation": "Only D gives both measures for both the youngest and oldest groups. From D, the gap is 45 - 38 = 7 points for ages 18-29 and 55 - 14 = 41 points for 65 and older, much wider among the oldest.",
    "distractors": {
     "A": {
      "rationale": "This tracks only one of the two measures; the conclusion concerns the gap between them.",
      "trap": "partial_answer"
     },
     "B": {
-     "rationale": "A single value does not show how the gap changes across groups.",
-     "trap": "true_but_irrelevant"
+     "rationale": "This tracks only in-person visits; the gap needs both measures.",
+     "trap": "partial_answer"
     },
     "C": {
-     "rationale": "This shows a gap exists in each group, not that it widens with age.",
+     "rationale": "This gives the gap for one group only, so it cannot show a difference between the youngest and oldest.",
      "trap": "true_but_irrelevant"
     }
    },
@@ -300,7 +306,7 @@
    ],
    "strategy": {
     "key": "read_question_first",
-    "explanation": "Compute the gap for each row."
+    "explanation": "Find the choice that lets you compute both gaps."
    },
    "remember": "A claim about a gap needs both measures in every group.",
    "expected_time_seconds": 80,
@@ -367,7 +373,7 @@
    "difficulty": "hard",
    "stem": "The student wants to emphasize how long the ravens waited between choosing the tool and using it. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
    "choices": {
-    "A": "In a 2017 study, ravens learned to open a box of food by using a stone tool.",
+    "A": "In some trials, ravens waited only 15 minutes before the box came back to them.",
     "B": "Most ravens picked the useful tool from among several useless objects.",
     "C": "Ravens that chose the tool with no box in sight used it up to 17 hours later.",
     "D": "Planning for a future need, as these ravens did, is rare among animals."
@@ -377,7 +383,7 @@
    "explanation": "The goal is the length of the wait. Only C states both events (choosing the tool and using it) and the gap of up to 17 hours between them.",
    "distractors": {
     "A": {
-     "rationale": "This describes the training, not the delay.",
+     "rationale": "This gives the shortest delay, which understates how long the ravens could wait.",
      "trap": "partial_answer"
     },
     "B": {
@@ -461,7 +467,7 @@
    "difficulty": "hard",
    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
    "choices": {
-    "A": "investigators found the Tollund Man's body",
+    "A": "peat cutters found the Tollund Man's body",
     "B": "the Tollund Man's body was",
     "C": "there was the Tollund Man's body,",
     "D": "the people who found the Tollund Man's body thought it was"
