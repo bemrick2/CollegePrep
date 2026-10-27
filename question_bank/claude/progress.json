@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:30:08+00:00",
+  "updated_at": "2026-10-27T02:33:35+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 141
+    "sat_math": 150
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 151,
+      "PASS": 160,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 152,
+      "candidates": 161,
       "passed_after_revision": 1
     }
   },
@@ -1401,13 +1401,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 141,
+      "accepted": 150,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 43,
-        "Algebra": 43,
-        "Geometry and Trigonometry": 29,
-        "Problem-Solving and Data Analysis": 26
+        "Advanced Math": 46,
+        "Algebra": 44,
+        "Geometry and Trigonometry": 31,
+        "Problem-Solving and Data Analysis": 29
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
@@ -1422,6 +1422,7 @@
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
+        "Comparing volumes of a sphere and a cylinder": 1,
         "Complementary angles and the sine-cosine relationship": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for two real solutions": 1,
@@ -1440,18 +1441,21 @@
         "Distance from a pace and a time": 1,
         "Dividing a polynomial by a monomial": 1,
         "Effect of replacing a value on the mean": 1,
+        "Effect of sample size on the margin of error": 1,
         "Equation of a circle with an unknown constant": 1,
         "Evaluating a linear function given by a table": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
         "Exponential function through two points": 1,
+        "Exterior angle of a triangle": 1,
         "Finding a coefficient from part of a system's solution": 1,
         "Finding a constant from a given solution": 1,
         "Finding a constant from the sum of a line's intercepts": 1,
         "Finding a coordinate on a line through two points": 1,
         "Finding a percent of a group": 1,
         "Finding a whole from a percent": 1,
+        "Fuel remaining after a trip": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
         "Height of a rectangular prism from its volume": 1,
         "Horizontal shift that matches an exponential function": 1,
@@ -1475,9 +1479,11 @@
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
         "Median after finding a missing value from the mean": 1,
+        "Minimum of a horizontally shifted quadratic": 1,
         "Multiplying powers with fractional exponents": 1,
         "Number of real solutions of a quadratic equation": 1,
         "Overlapping groups from two conditional percents": 1,
+        "Part from a part-to-part ratio and a difference": 1,
         "Percent change in area from changes in two dimensions": 1,
         "Percent growth over a multi-year period": 1,
         "Percent of a group after new members join": 1,
@@ -1508,9 +1514,11 @@
         "Share of a total after two different percent changes": 1,
         "Similar triangles with an algebraic side length": 1,
         "Simplifying a difference of rational expressions": 1,
+        "Simplifying a product of conjugates plus a constant": 1,
         "Simplifying a rational expression": 1,
         "Simplifying an expression with negative exponents": 1,
         "Sine of a base angle in an isosceles triangle": 1,
+        "Slope from a point and an x-intercept": 1,
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
         "Solving a formula for one of its variables": 1,
@@ -1527,6 +1535,7 @@
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
+        "Sum of zeros from two values of a factored quadratic": 1,
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
@@ -1553,24 +1562,25 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 24,
+        "easy": 26,
         "hard": 9,
-        "medium": 108
+        "medium": 115
       },
       "by_difficulty_calibrated": {
-        "easy": 60,
+        "easy": 64,
         "hard": 4,
-        "medium": 77
+        "medium": 82
       },
       "calibrated_share": {
-        "easy": 0.426,
-        "hard": 0.028,
-        "medium": 0.546
+        "easy": 0.427,
+        "hard": 0.027,
+        "medium": 0.547
       },
       "answer_key_balance": {
         "-1": 1,
         "-12": 1,
         "-9": 2,
+        "1": 1,
         "1.5": 1,
         "10": 1,
         "11": 2,
@@ -1584,6 +1594,7 @@
         "2": 3,
         "20/3": 1,
         "200": 1,
+        "24": 1,
         "240": 1,
         "3": 3,
         "30": 2,
@@ -1593,18 +1604,18 @@
         "50": 1,
         "6": 2,
         "60": 1,
-        "7": 1,
+        "7": 2,
         "8": 2,
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 24,
-        "B": 27,
-        "C": 27,
-        "D": 19
+        "A": 26,
+        "B": 28,
+        "C": 29,
+        "D": 20
       },
-      "modeling_items": 38,
-      "spr_items": 44,
+      "modeling_items": 41,
+      "spr_items": 47,
       "passages": 0
     }
   },
@@ -1613,7 +1624,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 16
+    "sat_math": 17
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1645,26 +1656,26 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 17,
+    "next_batch": 18,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 9.8,
-      "Advanced Math": 9.8,
-      "Problem-Solving and Data Analysis": -3.4,
-      "Geometry and Trigonometry": -6.4
+      "Algebra": 12.0,
+      "Advanced Math": 10.0,
+      "Problem-Solving and Data Analysis": -5.0,
+      "Geometry and Trigonometry": -7.0
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -22.2,
-      "medium": -1.5,
-      "hard": 33.8
+      "easy": -24.0,
+      "medium": -2.0,
+      "hard": 36.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 4.3,
-      "B": 1.3,
-      "C": 1.3,
-      "D": 9.3
+      "A": 4.0,
+      "B": 2.0,
+      "C": 1.0,
+      "D": 10.0
     },
-    "spr_items": 44,
+    "spr_items": 47,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1717,12 +1728,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 141,
-      "share_of_target": 0.201
+      "accepted": 150,
+      "share_of_target": 0.214
     }
   },
   "total_target": 4700,
-  "total_accepted": 1659,
+  "total_accepted": 1668,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48677,7 +48688,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 16,
+      "bank_version": 17,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48803,7 +48814,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:30:07+00:00",
+    "heartbeat_at": "2026-10-27T02:33:34+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

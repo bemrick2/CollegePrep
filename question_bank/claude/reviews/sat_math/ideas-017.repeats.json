@@ -1,0 +1,93 @@
+{
+  "ideas": "batch 17",
+  "results": {
+    "I01": [
+      {
+        "other_id": "CLD-ACT-M-000678",
+        "severity": "close",
+        "why": "Slope from two points; the x-intercept (6,0) just supplies the second point, so the reasoning is the same two-point slope computation."
+      }
+    ],
+    "I02": [
+      {
+        "other_id": "CLD-ACT-M-000131",
+        "severity": "template",
+        "why": "Same template: quadratic given three values including f(0) and f(1), find one more value (f(2) there, f(3) here)."
+      }
+    ],
+    "I03": [],
+    "I04": [
+      {
+        "other_id": "CLD-SAT-M-000072",
+        "severity": "template",
+        "why": "Same template: solve b^(x+k) = N by rewriting N as a power of b (SAT-72 adds only a divide-by-3 first step)."
+      }
+    ],
+    "I05": [],
+    "I06": [
+      {
+        "other_id": "CLD-ACT-M-000302",
+        "severity": "template",
+        "why": "Same template: exponential decay a(0.9)^t, where the base means a 10% decrease per unit. Here it asks for the percent directly instead of as a statement."
+      }
+    ],
+    "I07": [
+      {
+        "other_id": "CLD-ACT-M-000078",
+        "severity": "template",
+        "why": "Same catch-up template: one mover starts 30 min later from the same point, same direction, faster; find the clock time of catch-up. Only numbers/context changed."
+      }
+    ],
+    "I08": [],
+    "I09": [],
+    "I10": [
+      {
+        "other_id": "CLD-ACT-M-000750",
+        "severity": "close",
+        "why": "Part-to-part ratio 3:5 with part units; that item gives the total and asks the difference, while this one gives the difference and asks a part (reverse direction)."
+      }
+    ],
+    "I11": [
+      {
+        "other_id": "CLD-ACT-M-000774",
+        "severity": "template",
+        "why": "Chord length when the subtended central angle is 60 degrees (equilateral triangle, so chord = r); here it adds only the inscribed-to-central doubling step."
+      }
+    ],
+    "I12": [
+      {
+        "other_id": "CLD-ACT-M-000261",
+        "severity": "close",
+        "why": "Exterior angle theorem in a triangle; that item uses algebra to find the exterior angle, while this one finds a remote interior angle from numbers."
+      }
+    ],
+    "I13": [
+      {
+        "other_id": "CLD-SAT-M-000095",
+        "severity": "close",
+        "why": "Compares sphere volume with another solid of the same radius; that item solves cone height for equal volumes, while this one asks the sphere:cylinder volume ratio."
+      }
+    ],
+    "I14": [
+      {
+        "other_id": "CLD-ACT-M-000496",
+        "severity": "template",
+        "why": "Same template: circle with a given center through a given point; get the radius by distance (a 5-12-13 triple here) and report a circle measure (area there, circumference here)."
+      }
+    ],
+    "I15": [
+      {
+        "other_id": "CLD-ACT-M-000340",
+        "severity": "copy",
+        "why": "Identical: triangle ABC, DE parallel to BC, AD = 4, DB = 6, DE = 5, find BC. Same numbers and same answer."
+      }
+    ],
+    "I16": [
+      {
+        "other_id": "CLD-SAT-M-000071",
+        "severity": "close",
+        "why": "Quadratic shifted by g(x) = f(x +/- 3); that item asks for the zeros of g, while this one asks for the minimum and its location."
+      }
+    ]
+  }
+}

@@ -1,0 +1,409 @@
+{
+ "bank": "sat_math",
+ "batch": 17,
+ "plan": "SAT Math batch 17 (9 items): Algebra 1, Advanced Math 3, Problem-Solving and Data Analysis 3, Geometry and Trigonometry 2; 3 student-produced responses; 1 item labelled hard. Ideas were pre-checked (reviews/sat_math/ideas-017.repeats.json): one copy (ACT 340) and five templates (ACT 131, SAT 072, ACT 302, ACT 078, ACT 774) and one more template (ACT 496) were dropped; nothing replaced them, so the batch has 9 items. Q017-02 relabelled medium after the blind solver rated them medium.",
+ "candidates": [
+  {
+   "cand": "Q017-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope from a point and an x-intercept",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a line with slope m passes through the point (2, −1) and crosses the x-axis at x = 6. What is the value of m ?",
+   "explanation": "The x-intercept is the point (6, 0). The slope between (2, −1) and (6, 0) is (0 − (−1))/(6 − 2) = 1/4. A positive slope makes sense: the line rises from y = −1 to y = 0 as x increases.",
+   "hints": [
+    "Write the x-intercept as a point."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the slope formula with (2, −1) and (6, 0)."
+   },
+   "remember": "An x-intercept is a point with y = 0.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−4",
+    "B": "−1/4",
+    "C": "1/4",
+    "D": "4"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−4 inverts the slope and uses the wrong sign.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "−1/4 subtracts the y-values in the wrong order.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "4 inverts the slope: run over rise.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q017-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sum of zeros from two values of a factored quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function p is defined by p(x) = (x − a)(x − b), where a and b are constants. If p(0) = 12 and p(1) = 6, what is the value of a + b ?",
+   "explanation": "Expanding gives p(x) = x² − (a + b)x + ab. p(0) = ab = 12, and p(1) = 1 − (a + b) + ab = 6. Substituting ab = 12 gives 13 − (a + b) = 6, so a + b = 7. (The zeros are 3 and 4.)",
+   "hints": [
+    "Expand p(x) in terms of a + b and ab."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use p(0) to find ab, then use p(1)."
+   },
+   "remember": "Expanded, (x − a)(x − b) = x² − (a + b)x + ab.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 is the value of ab, not a + b.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "-7",
+     "rationale": "−7 makes a sign error when solving 1 − (a + b) + 12 = 6.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q017-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying a product of conjugates plus a constant",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "Which of the following is equivalent to (x + 5)(x − 5) + 25 ?",
+   "explanation": "(x + 5)(x − 5) = x² − 25, and adding 25 gives x². The middle terms +5x and −5x cancel when the conjugates are multiplied.",
+   "hints": [
+    "Multiply the conjugates first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 1: (6)(−4) + 25 = 1 = 1²."
+   },
+   "remember": "(a + b)(a − b) = a² − b².",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x²",
+    "B": "x² + 10x",
+    "C": "x² + 50",
+    "D": "x² − 50"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This expands (x + 5)(x − 5) as if the middle terms did not cancel.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This uses (x + 5)(x − 5) = x² + 25.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This subtracts 25 instead of adding it.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q017-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Minimum of a horizontally shifted quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x² − 4x + 7, and g(x) = f(x + 3). Which of the following gives the minimum value of g and the value of x at which it occurs?",
+   "explanation": "f(x) = (x − 2)² + 3 has its minimum 3 at x = 2. g(x) = f(x + 3) shifts the graph 3 units to the left, so g has the same minimum value, 3, at x = 2 − 3 = −1.",
+   "hints": [
+    "Write f in vertex form first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check g(−1) = f(2) = 3."
+   },
+   "remember": "f(x + h) shifts left by h; the minimum value is unchanged.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "Minimum 3 at x = −1",
+    "B": "Minimum 3 at x = 5",
+    "C": "Minimum 7 at x = −1",
+    "D": "Minimum 6 at x = 2"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This shifts the graph 3 units to the right instead of left.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "7 is f(0), the y-intercept of f, not a minimum.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "This adds 3 to the minimum value instead of shifting the input.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q017-05",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Effect of sample size on the margin of error",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "A polling organization surveyed a random sample of 400 voters and reported a margin of error of 5 percentage points. Suppose it had instead surveyed a random sample of 1,600 voters chosen in the same way. Which of the following is most likely true about the margin of error for the larger sample?",
+   "explanation": "A larger random sample gives a more precise estimate of the population value, so the margin of error decreases. With 4 times as many voters chosen the same way, the margin of error would be smaller than 5 percentage points.",
+   "hints": [
+    "Does more data make an estimate more or less precise?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate any choice where precision gets worse with more data."
+   },
+   "remember": "Larger random samples give smaller margins of error.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "It would be larger than 5 percentage points.",
+    "B": "It would be exactly 5 percentage points.",
+    "C": "It would be exactly 20 percentage points.",
+    "D": "It would be smaller than 5 percentage points."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "A larger random sample makes the estimate more precise, not less.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "The margin of error depends on the sample size, so it would change.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Multiplying the sample size does not multiply the margin of error.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q017-06",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Fuel remaining after a trip",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A car's 14-gallon fuel tank is full. The car uses 1 gallon of fuel for every 32 miles it travels. How many gallons of fuel remain in the tank after the car travels 200 miles?",
+   "explanation": "The car uses 200 ÷ 32 = 6.25 gallons on the trip, so 14 − 6.25 = 7.75 gallons remain in the tank.",
+   "hints": [
+    "How many gallons does the trip use?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Fuel used = miles ÷ miles per gallon."
+   },
+   "remember": "Remaining = starting amount − amount used.",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6.25",
+    "B": "7.75",
+    "C": "13.84",
+    "D": "20.25"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6.25 is the fuel used, not the fuel remaining.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "13.84 divides 32 by 200 instead of 200 by 32.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "20.25 adds the fuel used to the full tank.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q017-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Part from a part-to-part ratio and a difference",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "At a school, the ratio of the number of students who walk to school to the number who ride the bus is 2 to 3. There are 12 more students who ride the bus than students who walk. How many students walk to school?",
+   "explanation": "Let the groups be 2k (walk) and 3k (bus). The difference is 3k − 2k = k = 12, so 2k = 24 students walk to school (and 36 ride the bus).",
+   "hints": [
+    "Write each group as a multiple of the same number k."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "The difference of 3k and 2k is k."
+   },
+   "remember": "One part of a ratio equals the given difference here.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "24",
+   "accepted_answers": [
+    "24"
+   ],
+   "common_errors": [
+    {
+     "value": "36",
+     "rationale": "36 is the number of students who ride the bus.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "60",
+     "rationale": "60 is the total of the two groups.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q017-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Exterior angle of a triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In triangle ABC, the exterior angle at vertex C measures 115°, and the measure of angle A is 48°. What is the measure of angle B ?",
+   "explanation": "An exterior angle of a triangle equals the sum of the two remote interior angles, so 115° = 48° + m∠B and m∠B = 67°. (The interior angle at C is 65°, and 48° + 67° + 65° = 180°.)",
+   "hints": [
+    "How does an exterior angle relate to the two remote interior angles?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 48 + B = 115."
+   },
+   "remember": "Exterior angle = sum of the two remote interior angles.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "17°",
+    "B": "65°",
+    "C": "67°",
+    "D": "132°"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "17° subtracts 48° from the interior angle at C.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "65° is the interior angle at C.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "132° is the supplement of angle A.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q017-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Comparing volumes of a sphere and a cylinder",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A sphere and a right circular cylinder each have a radius of 3 centimeters, and the cylinder is 4 centimeters tall. The volume of the sphere is k times the volume of the cylinder. What is the value of k ?",
+   "explanation": "The sphere's volume is (4/3)π(3³) = 36π, and the cylinder's volume is π(3²)(4) = 36π. So k = 36π ÷ 36π = 1.",
+   "hints": [
+    "Compute each volume using the reference sheet."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find both volumes, then divide."
+   },
+   "remember": "Write both volumes in terms of π before comparing.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "1",
+   "accepted_answers": [
+    "1"
+   ],
+   "common_errors": [
+    {
+     "value": "4/3",
+     "rationale": "4/3 compares (4/3)πr³ with πr³, ignoring the cylinder's height.",
+     "trap": null
+    },
+    {
+     "value": "3",
+     "rationale": "3 uses the cone formula (1/3)πr²h for the cylinder.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}
