@@ -253,55 +253,6 @@
    }
   },
   {
-   "cand": "R027-06",
-   "passage_id": "CLD-P-ACT-R-000027",
-   "reporting_category": "Integration of Knowledge and Ideas",
-   "skill": "Integration of Knowledge and Ideas",
-   "subskill": "Function of an example",
-   "repo_skill_key": "act_author_purpose",
-   "difficulty": "hard",
-   "stem": "In Passage B, the example of the library that owns three copies of a new bestseller mainly serves to show that:",
-   "choices": {
-    "A": "most borrowers return popular books late when there are no fines.",
-    "B": "a few borrowers who keep items long can burden many others even if most return on time.",
-    "C": "libraries should buy more copies of popular books instead of charging fines.",
-    "D": "fine-free libraries lend fewer books than libraries that charge fines."
-   },
-   "answer": "B",
-   "evidence": "one patron who keeps a copy for an extra six weeks makes dozens of others wait longer",
-   "explanation": "The example follows the point about \"the small share of borrowers who keep popular items for months\": even a single such borrower imposes delays on many others, a cost an average return rate can hide.",
-   "distractors": {
-    "A": {
-     "rationale": "Passage B does not dispute that most borrowers return items on time; it focuses on a small share.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "The author does not propose buying more copies.",
-     "trap": "out_of_scope"
-    },
-    "D": {
-     "rationale": "Nothing compares the number of books lent.",
-     "trap": null
-    }
-   },
-   "hints": [
-    "Which borrowers does the sentence before the example discuss?"
-   ],
-   "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Connect the example to the sentence just before it."
-   },
-   "remember": "An example usually illustrates the claim right before it.",
-   "expected_time_seconds": 50,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced",
-    "hardness": "Choice A sounds like the author's skepticism but overstates it: Passage B concedes that most borrowers return items on time and objects only that a small, costly minority goes unmeasured."
-   }
-  },
-  {
    "cand": "R027-07",
    "passage_id": "CLD-P-ACT-R-000027",
    "reporting_category": "Integration of Knowledge and Ideas",
@@ -311,10 +262,10 @@
    "difficulty": "hard",
    "stem": "Based on the passages, both authors would most likely agree that:",
    "choices": {
-    "A": "fines make up a negligible share of the budget of every library.",
-    "B": "fine-free policies have been shown to cause no harm to libraries.",
-    "C": "libraries should keep modest fines for adult borrowers.",
-    "D": "overdue fines can discourage children from poorer families from using the library."
+    "A": "fines make up a negligible share of the budget of every public library.",
+    "B": "fine-free policies have been clearly shown to cause no harm to libraries.",
+    "C": "libraries should keep modest fines in place for their adult borrowers.",
+    "D": "overdue fines can keep children from poorer families away from the library."
    },
    "answer": "D",
    "evidence": "a suspended card can keep a child away from the library",
@@ -360,10 +311,10 @@
    "difficulty": "hard",
    "stem": "The author of Passage B would most likely respond to Passage A's report that \"most borrowers continued to return items on time\" by:",
    "choices": {
-    "A": "arguing that most borrowers in fact began returning items late.",
-    "B": "agreeing that it proves fine-free policies cause no harm.",
-    "C": "accepting it while noting that it overlooks the few borrowers who keep popular items for months.",
-    "D": "pointing out that it applies only to children's books."
+    "A": "arguing that most borrowers in fact began returning their items late once fines ended.",
+    "B": "agreeing that it proves fine-free policies cause no harm to libraries at all.",
+    "C": "accepting it but noting that it ignores the few who keep popular items for months.",
+    "D": "pointing out that the report applies only to the return of children's books."
    },
    "answer": "C",
    "evidence": "Few systems have tracked what happens to the small share of borrowers who keep popular items for months",
@@ -409,10 +360,10 @@
    "difficulty": "medium",
    "stem": "Passage B's suggestion of \"forgiving children's fines while keeping modest charges for adults\" relates to the concerns raised in Passage A in that it:",
    "choices": {
-    "A": "addresses Passage A's main concern about children while keeping some incentive to return items.",
-    "B": "rejects Passage A's concern about children as exaggerated.",
-    "C": "adopts Passage A's view that fines should be removed for everyone.",
-    "D": "shows that Passage A's budget figures were incorrect."
+    "A": "meets Passage A's concern about children but keeps an incentive for adults.",
+    "B": "rejects Passage A's concern about children as greatly exaggerated.",
+    "C": "adopts Passage A's view that fines should be removed for every borrower.",
+    "D": "shows that the budget figures given in Passage A were incorrect."
    },
    "answer": "A",
    "evidence": "forgiving children's fines while keeping modest charges for adults",
@@ -445,6 +396,61 @@
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced"
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "R027-06",
+   "reason": "withdrawn before review: both blind solvers noted it tests the same idea as R027-08 (a few borrowers who keep popular items burden many), and its key wording ('even if most return on time') nearly gives away R027-08's answer; solver B also rated this hard-labelled item easy. Not resubmitted: R027-08 covers the idea.",
+   "item": {
+    "cand": "R027-06",
+    "passage_id": "CLD-P-ACT-R-000027",
+    "reporting_category": "Integration of Knowledge and Ideas",
+    "skill": "Integration of Knowledge and Ideas",
+    "subskill": "Function of an example",
+    "repo_skill_key": "act_author_purpose",
+    "difficulty": "hard",
+    "stem": "In Passage B, the example of the library that owns three copies of a new bestseller mainly serves to show that:",
+    "choices": {
+     "A": "most borrowers return popular books late when there are no fines.",
+     "B": "a few borrowers who keep items long can burden many others even if most return on time.",
+     "C": "libraries should buy more copies of popular books instead of charging fines.",
+     "D": "fine-free libraries lend fewer books than libraries that charge fines."
+    },
+    "answer": "B",
+    "evidence": "one patron who keeps a copy for an extra six weeks makes dozens of others wait longer",
+    "explanation": "The example follows the point about \"the small share of borrowers who keep popular items for months\": even a single such borrower imposes delays on many others, a cost an average return rate can hide.",
+    "distractors": {
+     "A": {
+      "rationale": "Passage B does not dispute that most borrowers return items on time; it focuses on a small share.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "The author does not propose buying more copies.",
+      "trap": "out_of_scope"
+     },
+     "D": {
+      "rationale": "Nothing compares the number of books lent.",
+      "trap": null
+     }
+    },
+    "hints": [
+     "Which borrowers does the sentence before the example discuss?"
+    ],
+    "strategy": {
+     "key": "locate_evidence",
+     "explanation": "Connect the example to the sentence just before it."
+    },
+    "remember": "An example usually illustrates the claim right before it.",
+    "expected_time_seconds": 50,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced",
+     "hardness": "Choice A sounds like the author's skepticism but overstates it: Passage B concedes that most borrowers return items on time and objects only that a small, costly minority goes unmeasured."
+    }
    }
   }
  ]

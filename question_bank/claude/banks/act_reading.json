@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 26,
-  "updated_at": "2026-10-27T00:38:09+00:00",
+  "version": 27,
+  "updated_at": "2026-10-27T00:47:06+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -289,6 +289,17 @@
       "word_count": 363,
       "text": "Before the early nineteenth century, a composer who wanted to tell performers how fast to play a piece had only words to work with. Italian terms such as allegro (literally \"cheerful,\" and by extension \"fast\") and adagio (\"at ease,\" and so \"slow\") described a general character but no exact speed, and the same word could mean different things in different cities, or to different players in the same orchestra.\n\nThe metronome promised to end that uncertainty. Patented by Johann Maelzel in 1815, the device used a weighted pendulum to tick at a steady, adjustable rate, so that a composer could specify, for example, eighty beats per minute. Ludwig van Beethoven was among its earliest champions. In 1817 he published metronome markings for his first eight symphonies, and in a letter that year he remarked that he had long thought of giving up the traditional Italian terms altogether.\n\nThe numbers did not settle the matter. Many of Beethoven's markings are startlingly fast; the one at the opening of his Hammerklavier Sonata strikes many pianists as nearly unplayable. Scholars have proposed explanations ranging from a faulty metronome to the composer's deafness to errors in copying. The most revealing explanation may be the simplest, however: a tempo that sounds right in a composer's head, with no instrument to resist the fingers and no hall to swallow the sound, may not sound right anywhere else.\n\nPerformers have always adjusted tempo to circumstances. A large, echoing church blurs fast passages that would ring clearly in a small room, so organists in such spaces often slow down. A piano with a heavy action, a singer who needs to breathe, an audience of restless children: each pulls the music toward a different speed. A number on a page cannot anticipate any of these, while a word such as adagio at least invites the performer to judge.\n\nNone of this means that metronome markings are useless. They record something real: the tempo a composer imagined, at one moment, for one ideal performance. Treated as evidence of that imagining, they are valuable. Treated as a law, they become what the old Italian words never were: a promise the music cannot always keep.",
       "batch": 26,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000027",
+      "title": "Ending Library Fines (paired passages)",
+      "genre": "social science / paired passages",
+      "word_count": 555,
+      "text": "SOCIAL SCIENCE: Passage A is from an essay by a librarian; Passage B is from an essay by a city budget analyst. Both are original texts written for this practice set.\n\nPassage A\n\nFor most of the twentieth century, the overdue fine seemed as natural a part of the public library as the card catalog. A few cents a day, the reasoning went, would remind borrowers that a book belonged to everyone. Over the past decade, however, many library systems in the United States have stopped charging fines, and the results have persuaded a number of librarians that the old reasoning was backward.\n\nThe first surprise was who had been paying. When library systems examined their records, they often found that blocked accounts (cards suspended because of unpaid fines) were concentrated in the poorest neighborhoods. A child who owed eight dollars could not check out another book until the debt was paid, and many such children simply stopped coming. The fine had not taught responsibility; it had taught some families that the library was not for them.\n\nThe second surprise was what happened to the books. Many systems that ended fines reported that most borrowers continued to return items on time, and several saw long-overdue materials come back as patrons who had stayed away for years returned. Without the embarrassment of an unpayable bill, bringing back a late book became an ordinary errand rather than a confession.\n\nNor were fines ever a large part of library budgets. In most systems they brought in less than one percent of revenue, and collecting them took staff time at the desk that could have been spent helping readers. Measured against the library's mission, fines were expensive.\n\nPassage B\n\nAdvocates of ending library fines have assembled an appealing story, and parts of it are true. Fines do fall hardest on families with the least money, and a suspended card can keep a child away from the library at exactly the age when reading habits form. Any library that blocks children's accounts over a few dollars should rethink that policy.\n\nBut the evidence that fine-free policies cause no harm is thinner than the story suggests. Most of the reports come from the libraries themselves, typically comparing a single year before the change with a single year after it. Circulation, staffing, and the local economy all shift from year to year, and a library that has just made a well-publicized change has every reason to emphasize good news. Few systems have tracked what happens to the small share of borrowers who keep popular items for months, and those are precisely the borrowers a fine was meant to influence. When a library owns only three copies of a new bestseller, one patron who keeps a copy for an extra six weeks makes dozens of others wait longer.\n\nNor is the budget question as simple as it sounds. Fines may amount to less than one percent of a large system's revenue, but in a small rural library the same few thousand dollars may be a meaningful share of the money available for new books. A policy that works in a city of a million people may not transfer to a town of four thousand.\n\nNone of this is an argument for keeping fines exactly as they were. It is an argument for measuring carefully before declaring victory, and for designing policies, such as forgiving children's fines while keeping modest charges for adults, that address the real harms without assuming that removing fines costs nothing.",
+      "batch": 27,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -15132,6 +15143,500 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-026.review.json",
         "computation": "checks/act_reading/batch_026.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000209",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of one passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "the results have persuaded a number of librarians that the old reasoning was backward",
+      "figure": null,
+      "stem": "The main purpose of Passage A is to:",
+      "choices": {
+        "A": "argue that ending overdue fines has served libraries and their patrons well.",
+        "B": "explain how library fines were calculated in the twentieth century.",
+        "C": "propose forgiving children's fines while keeping charges for adults.",
+        "D": "show that most library patrons returned books late when fines existed."
+      },
+      "correct_answer": "A",
+      "explanation": "Passage A presents two \"surprises\" and a budget point, all supporting the claim that ending fines has worked.",
+      "distractor_explanations": {
+        "B": "The passage mentions \"a few cents a day\" only in passing.",
+        "C": "This compromise is proposed in Passage B, not Passage A.",
+        "D": "Passage A makes no such claim."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does each paragraph of Passage A add to the author's case?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize Passage A in one sentence."
+      },
+      "remember": "Keep the two passages' claims separate.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-01",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: C is lifted from Passage B's conclusion (wrong-passage distractor) - legitimate but obvious to anyone who notices which passage it came from"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000210",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Interpreting a figurative statement",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "rather than a confession",
+      "figure": null,
+      "stem": "In Passage A, the statement that returning a late book had been \"a confession\" suggests that, when fines existed, returning an overdue book:",
+      "choices": {
+        "A": "was a chance for borrowers to explain why they were late.",
+        "B": "required borrowers to sign a statement at the desk.",
+        "C": "felt like admitting a wrong that would bring a penalty.",
+        "D": "was easier than it became after fines were ended."
+      },
+      "correct_answer": "C",
+      "explanation": "Paired with \"the embarrassment of an unpayable bill,\" \"confession\" suggests returning a late book meant admitting fault and facing a penalty.",
+      "distractor_explanations": {
+        "A": "Nothing suggests borrowers explained themselves.",
+        "B": "The word is figurative; no literal statement is described.",
+        "D": "The passage says it became easier, \"an ordinary errand,\" after fines ended."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What does the sentence contrast \"confession\" with?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict what a confession involves, then match."
+      },
+      "remember": "Read figurative words alongside the phrase they are contrasted with.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-02",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000211",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "Nor were fines ever a large part of library budgets.",
+      "figure": null,
+      "stem": "The last paragraph of Passage A mainly serves to:",
+      "choices": {
+        "A": "show that libraries spent fine revenue on children's programs.",
+        "B": "answer a likely objection that libraries need the money fines bring in.",
+        "C": "explain why patrons stopped visiting libraries that charged fines.",
+        "D": "introduce a new problem that ending fines has created."
+      },
+      "correct_answer": "B",
+      "explanation": "After presenting benefits, the author addresses the obvious counterargument (lost revenue) by noting that fines were a tiny share of revenue and cost staff time to collect.",
+      "distractor_explanations": {
+        "A": "The paragraph does not say how fine revenue was spent.",
+        "C": "That is the subject of the second paragraph.",
+        "D": "The paragraph supports ending fines; it raises no new problem."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What objection might a reader raise after paragraphs 2 and 3?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what doubt the paragraph puts to rest."
+      },
+      "remember": "A paragraph about cost often answers an objection.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-03",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000212",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "parts of it are true",
+      "figure": null,
+      "stem": "The author of Passage B regards the case made by advocates of ending fines as:",
+      "choices": {
+        "A": "entirely mistaken about the effects of fines on poor families.",
+        "B": "fully proven by the reports libraries have published.",
+        "C": "irrelevant to small rural libraries.",
+        "D": "partly convincing but resting on evidence weaker than they suggest."
+      },
+      "correct_answer": "D",
+      "explanation": "Passage B grants that parts of the story are true but says \"the evidence that fine-free policies cause no harm is thinner than the story suggests.\"",
+      "distractor_explanations": {
+        "A": "Passage B agrees that fines fall hardest on families with the least money.",
+        "B": "Passage B questions those reports.",
+        "C": "Passage B says small libraries need separate consideration, not that the case is irrelevant to them."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the author of Passage B accept, and what does the author doubt?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out choices that are all-or-nothing."
+      },
+      "remember": "Attitude answers must match both what an author accepts and what the author doubts.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-04",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000213",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "typically comparing a single year before the change with a single year after it",
+      "figure": null,
+      "stem": "According to Passage B, one reason the libraries' own reports may be unreliable is that the reports:",
+      "choices": {
+        "A": "were written before any library had actually ended fines.",
+        "B": "counted only the books returned by children.",
+        "C": "often compare only one year before the change with one year after it.",
+        "D": "came from libraries that later restored their fines."
+      },
+      "correct_answer": "C",
+      "explanation": "Passage B notes that the reports typically compare one year before with one year after, while other factors change from year to year.",
+      "distractor_explanations": {
+        "A": "The reports describe results after the change.",
+        "B": "Nothing says the reports counted only children's returns.",
+        "D": "The passage says nothing about libraries restoring fines."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Reread the start of Passage B's second paragraph."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence about how the reports were made."
+      },
+      "remember": "Detail questions about one passage stay inside that passage.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-05",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000214",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Points of agreement across paired passages",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "a suspended card can keep a child away from the library",
+      "figure": null,
+      "stem": "Based on the passages, both authors would most likely agree that:",
+      "choices": {
+        "A": "fines make up a negligible share of the budget of every public library.",
+        "B": "fine-free policies have been clearly shown to cause no harm to libraries.",
+        "C": "libraries should keep modest fines in place for their adult borrowers.",
+        "D": "overdue fines can keep children from poorer families away from the library."
+      },
+      "correct_answer": "D",
+      "explanation": "Passage A describes children who \"simply stopped coming\" because of fines, and Passage B agrees that fines \"fall hardest on families with the least money\" and can keep a child away.",
+      "distractor_explanations": {
+        "A": "Passage B argues that in small rural libraries fine revenue can matter.",
+        "B": "Passage B says this evidence is thin.",
+        "C": "Only Passage B proposes this."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does Passage B concede in its first paragraph?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate any choice one author would reject."
+      },
+      "remember": "Agreement answers must be supported by both passages.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-07",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: 09-A's 'Passage A's concern about children' reinforces the answer here"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000215",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Relating a proposal to the other passage",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "forgiving children's fines while keeping modest charges for adults",
+      "figure": null,
+      "stem": "Passage B's suggestion of \"forgiving children's fines while keeping modest charges for adults\" relates to the concerns raised in Passage A in that it:",
+      "choices": {
+        "A": "meets Passage A's concern about children but keeps an incentive for adults.",
+        "B": "rejects Passage A's concern about children as greatly exaggerated.",
+        "C": "adopts Passage A's view that fines should be removed for every borrower.",
+        "D": "shows that the budget figures given in Passage A were incorrect."
+      },
+      "correct_answer": "A",
+      "explanation": "Passage A's central example is children kept away by fines; Passage B's compromise removes those fines while keeping a modest incentive for adults.",
+      "distractor_explanations": {
+        "B": "Passage B agrees with that concern.",
+        "C": "Passage B would keep modest charges for adults.",
+        "D": "The proposal says nothing about Passage A's figures."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Whose fines would the proposal forgive, and why does that matter to Passage A?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the proposal with Passage A's second paragraph."
+      },
+      "remember": "Cross-passage questions ask how one passage's idea bears on the other's.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "R027-09",
+      "created_at": "2026-10-27T00:47:06+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-027.review.json",
+        "computation": "checks/act_reading/batch_027.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
