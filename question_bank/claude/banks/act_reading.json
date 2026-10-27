@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 64,
-  "updated_at": "2026-10-27T22:36:56+00:00",
+  "version": 65,
+  "updated_at": "2026-10-27T22:58:12+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -707,6 +707,17 @@
       "word_count": 410,
       "text": "The typewriter arrived in a cardboard box that still smelled of my great-aunt Vesna's apartment: lemon oil and radiator dust. My mother had wanted to give it away. I had asked for it before I knew why, and now that it sat on my desk, heavy and green and faintly ridiculous beside my laptop, I was not sure I could explain myself.\n\nThe machine worked, mostly. The e stuck. Every time I struck it, the type bar rose, kissed the paper, and hung there a beat too long, so that the next letter landed on top of it unless I waited. Typing a sentence was like walking beside someone who kept stopping to look in shop windows.\n\nMr. Pellerin's repair shop was a single room above a dry cleaner. He lifted the cover, peered inside, and pressed the e with one thick finger. \"Sixty years of oil and dust,\" he said. \"I can clean it. Or I can replace the whole linkage, new spring and new bar, and it will never stick again.\" He named two prices. The second was three times the first.\n\nI chose the second without much thought. Fixing a thing properly seemed like the respectful choice. Mr. Pellerin nodded, but before I left he rolled a sheet of paper into the machine and typed a line, slowly, letting each e come home. He tore the sheet out and handed it to me. \"For comparison,\" he said. \"Afterward.\"\n\nThat night I found Vesna's letters at the bottom of the box: forty years of carbon copies, one for every letter she had sent. I had never read them. I read them now, and halfway through the first one I stopped, because I recognized the e's. Each one sat a hair higher than its neighbors, a small lift in every word, as if the page were breathing. I laid Mr. Pellerin's line beside hers. The same lift. The machine had been doing this for longer than I had been alive.\n\nI called the shop in the morning. Mr. Pellerin did not sound surprised. \"Cleaning only, then,\" he said. \"It will still stick a little. You'll learn the rhythm.\" I said I would. What I did not say, because I did not yet have the words for it, was that I had not really been asking him to fix a machine. I had been asking him to help me keep someone, and I had nearly paid him to erase her.",
       "batch": 65,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000066",
+      "title": "The Spitting Hunter",
+      "genre": "natural science",
+      "word_count": 348,
+      "text": "Along the mangrove coasts of Southeast Asia and northern Australia, the archerfish hunts by spitting. When it spots an insect on a leaf above the water, it presses its tongue against a groove in the roof of its mouth, snaps its gill covers shut, and fires a jet of water that can knock the insect into the water, where the fish quickly snatches it.\n\nThis is harder than it sounds. Light bends as it passes from air into water, so an insect seen from below is not where it appears to be. Yet archerfish routinely hit targets while looking up at a slant, correcting for the bending. Young archerfish miss often, and their accuracy improves with practice, which suggests that the correction is at least partly learned.\n\nResearchers who filmed the jets at high speed found another refinement. The fish does not release its water at a steady speed. It pushes the rear of the jet out faster than the front, so that the back catches up with the front and the water gathers into a single large drop just before it reaches the target. By adjusting this timing to the distance of its prey, the fish delivers much of its force at the moment of impact.\n\nArcherfish can also improve by watching. In one experiment, fish that observed a skilled shooter hitting moving targets later hit such targets more often than fish that had not watched, even though the observers had not practiced on moving targets themselves.\n\nPerhaps the most surprising finding came in 2016, when a team of researchers trained archerfish to spit at one particular human face shown on a screen. Offered that face among many unfamiliar ones, the fish chose correctly far more often than chance would predict, even though fish lack the part of the brain that primates use to recognize faces.\n\nFindings like these are a reminder that sophisticated skill does not require a large brain. With a mouth, a pair of eyes, and a modest nervous system, the archerfish solves problems that scientists once associated only with far more complex animals.",
+      "batch": 66,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -41234,6 +41245,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-065.review.json",
         "computation": "checks/act_reading/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000568",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "sophisticated skill does not require a large brain",
+      "figure": null,
+      "stem": "The main idea of the passage is that the archerfish:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "hunts more successfully than any other fish in mangrove waters.",
+        "B": "relies mainly on instinct and cannot improve its aim over time.",
+        "C": "is studied mostly because its jet could inspire new engineering designs.",
+        "D": "shows complex hunting and learning abilities despite a modest brain."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage describes the archerfish's aiming, jet shaping, learning by watching, and face recognition, and concludes that such skill does not require a large brain.",
+      "distractor_explanations": {
+        "A": "The passage makes no comparison with other fish.",
+        "B": "The passage says its accuracy improves with practice and by watching.",
+        "C": "The passage does not mention engineering applications."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What does the final paragraph conclude?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then combine."
+      },
+      "remember": "A main-idea answer must fit every paragraph and the conclusion.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-01",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000569",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "the water gathers into a single large drop just before it reaches the target",
+      "figure": null,
+      "stem": "According to the passage, the water in the archerfish's jet gathers into a single large drop:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "just before it reaches the target.",
+        "B": "as soon as it leaves the fish's mouth.",
+        "C": "only when the target is very close.",
+        "D": "after it bounces off the leaf."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 3 says the water gathers into a single drop just before it reaches the target.",
+      "distractor_explanations": {
+        "B": "The drop forms near the target, after the rear catches up with the front.",
+        "C": "The fish adjusts the timing to the target's distance.",
+        "D": "The drop forms before the jet reaches the target."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find where paragraph 3 describes the drop."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Scan paragraph 3."
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-02",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000570",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (evidence)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "their accuracy improves with practice, which suggests that the correction is at least partly learned",
+      "figure": null,
+      "stem": "The passage suggests that the archerfish's ability to correct for the bending of light is at least partly learned because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "adult fish hit targets from directly below without any correction.",
+        "B": "fish that watched a skilled shooter aimed better at moving targets.",
+        "C": "young fish miss often but become more accurate with practice.",
+        "D": "light bends whenever it passes from air into water."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 links improving accuracy in young fish to the conclusion that the correction is at least partly learned.",
+      "distractor_explanations": {
+        "A": "The passage says fish hit targets while looking up at a slant.",
+        "B": "This concerns learning by watching, not the correction for bending light.",
+        "D": "This explains why correction is needed, not why it is learned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What evidence does paragraph 2 give?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the reason the passage itself offers."
+      },
+      "remember": "Match the inference to the specific evidence the passage gives for it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-03",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000571",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "Light bends as it passes from air into water",
+      "figure": null,
+      "stem": "In the context of the passage, the sentence \"This is harder than it sounds\" (paragraph 2) mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "suggest that the archerfish often fails to catch insects.",
+        "B": "introduce the problem that refraction poses for the fish's aim.",
+        "C": "signal that the author doubts the accuracy of earlier reports.",
+        "D": "shift the focus from the fish's hunting to its learning by watching."
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence sets up the explanation that bending light makes the insect appear in the wrong place, which the fish must correct for.",
+      "distractor_explanations": {
+        "A": "The passage says the fish routinely hits its targets.",
+        "C": "The author does not question earlier reports.",
+        "D": "Learning by watching is not discussed until paragraph 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the rest of paragraph 2 explain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentences that follow it."
+      },
+      "remember": "A transitional sentence often introduces the next idea.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-04",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000572",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "snaps its gill covers shut",
+      "figure": null,
+      "stem": "As it is used in paragraph 1, the word snaps most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "breaks suddenly.",
+        "B": "speaks sharply.",
+        "C": "photographs.",
+        "D": "closes quickly."
+      },
+      "correct_answer": "D",
+      "explanation": "The fish closes its gill covers quickly to force out the jet, so \"snaps\" means \"closes quickly.\"",
+      "distractor_explanations": {
+        "A": "The gill covers are closed, not broken.",
+        "B": "\"Snaps\" in the sense of speaking angrily does not fit a fish's gills.",
+        "C": "\"Snaps\" as taking a picture does not fit the context."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "C": "familiar_meaning"
+      },
+      "hints": [
+        "What does the fish do to its gill covers?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute each choice into the sentence."
+      },
+      "remember": "Choose the meaning that fits the context, not the most common one.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-05",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000573",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (experiment)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "even though the observers had not practiced on moving targets themselves",
+      "figure": null,
+      "stem": "According to the passage, the fish that watched a skilled shooter in the experiment:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "improved at hitting moving targets without practicing on them first.",
+        "B": "hit moving targets less often than fish that had not watched.",
+        "C": "had already practiced extensively on moving targets.",
+        "D": "learned to recognize the skilled shooter's face."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 says the observers hit moving targets more often even though they had not practiced on them.",
+      "distractor_explanations": {
+        "B": "They hit moving targets more often.",
+        "C": "The passage says they had not practiced on moving targets.",
+        "D": "Face recognition is a separate study involving human faces."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"even though\" emphasize?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread paragraph 4."
+      },
+      "remember": "Watch for details introduced by \"even though.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-06",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000574",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (significance)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "even though fish lack the part of the brain that primates use to recognize faces",
+      "figure": null,
+      "stem": "The author mentions that fish \"lack the part of the brain that primates use to recognize faces\" (paragraph 5) mainly to emphasize that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "primates are poor at recognizing the faces of other species.",
+        "B": "the archerfish recognized faces without the brain structures primates use.",
+        "C": "the fish probably memorized the screen's position rather than the face.",
+        "D": "scientists have discovered the brain region fish use for faces."
+      },
+      "correct_answer": "B",
+      "explanation": "The detail makes the result surprising: the fish succeeded at face recognition without the brain region that primates rely on.",
+      "distractor_explanations": {
+        "A": "The passage says nothing about primates' recognition of other species.",
+        "C": "The passage presents the result as recognition of the face itself.",
+        "D": "The passage does not identify any such region in fish."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Why is the finding called surprising?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect the detail to \"most surprising.\""
+      },
+      "remember": "Details introduced by \"even though\" often explain why a result is surprising.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-07",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000575",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's claim",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "sophisticated skill does not require a large brain",
+      "figure": null,
+      "stem": "Based on the last paragraph, the author would most likely agree that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "only animals with large brains can solve difficult problems.",
+        "B": "the archerfish is more intelligent than most primates.",
+        "C": "complex skills can arise in animals with simple nervous systems.",
+        "D": "scientists should stop comparing fish with other animals."
+      },
+      "correct_answer": "C",
+      "explanation": "The author says sophisticated skill does not require a large brain and that the fish solves problems once associated with more complex animals.",
+      "distractor_explanations": {
+        "A": "The author argues the opposite.",
+        "B": "The author does not compare the fish's intelligence with primates'.",
+        "D": "The author draws a comparison rather than rejecting comparisons."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does the author say about brains and skill?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Paraphrase the final paragraph."
+      },
+      "remember": "An author's view is usually stated most directly in the conclusion.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-08",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000576",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (mechanism)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "By adjusting this timing to the distance of its prey",
+      "figure": null,
+      "stem": "Based on the passage, if an archerfish fired at a target farther away than usual, it would most likely:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "fire the jet at a steady speed so the water would not break apart.",
+        "B": "swim directly beneath the target so the light would not bend.",
+        "C": "wait for another fish to fire so it could learn the correct aim.",
+        "D": "adjust its jet's timing so the drop forms near the farther target."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 3 says the fish adjusts the timing of its jet to the distance of its prey, so a more distant target would call for different timing.",
+      "distractor_explanations": {
+        "A": "The passage says the fish does not release water at a steady speed.",
+        "B": "The passage says the fish hits targets while looking up at a slant.",
+        "C": "Learning by watching improves later aim; it is not how the fish handles a single shot."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the fish adjust according to distance?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Apply the mechanism in paragraph 3 to the new case."
+      },
+      "remember": "Apply a described process to a slightly different situation.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-09",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000577",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Organization of the passage",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000066",
+      "underline": null,
+      "evidence": "Archerfish can also improve by watching",
+      "figure": null,
+      "stem": "Which choice best describes the order in which the passage presents the archerfish's abilities?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Aiming, shaping the jet, learning by watching, and recognizing faces",
+        "B": "Recognizing faces, aiming, learning by watching, and shaping the jet",
+        "C": "Shaping the jet, aiming, recognizing faces, and learning by watching",
+        "D": "Aiming, learning by watching, shaping the jet, and recognizing faces"
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraphs 2 through 5 cover aiming, the shaped jet, learning by watching, and face recognition, in that order.",
+      "distractor_explanations": {
+        "B": "Face recognition comes last, not first.",
+        "C": "Aiming comes before jet shaping, and watching before faces.",
+        "D": "Jet shaping (paragraph 3) comes before learning by watching (paragraph 4)."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does each middle paragraph cover?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each paragraph's topic."
+      },
+      "remember": "Track a passage's structure by labeling each paragraph.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "R066-10",
+      "created_at": "2026-10-27T22:58:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-066.review.json",
+        "computation": "checks/act_reading/batch_066.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
