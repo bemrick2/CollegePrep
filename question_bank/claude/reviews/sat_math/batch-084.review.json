@@ -1,0 +1,344 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 84,
+  "reviewed_at": "2026-10-27T19:57:24+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 84
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000932",
+    "CLD-SAT-M-000933",
+    "CLD-SAT-M-000934",
+    "CLD-SAT-M-000935",
+    "CLD-SAT-M-000936",
+    "CLD-SAT-M-000937",
+    "CLD-SAT-M-000938",
+    "CLD-SAT-M-000939",
+    "CLD-SAT-M-000940",
+    "CLD-SAT-M-000941",
+    "CLD-SAT-M-000942",
+    "CLD-SAT-M-000943"
+  ],
+  "results": [
+    {
+      "cand": "Q084-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Square both sides: T^2 = 4pi^2 L/g, so L = gT^2/(4pi^2). A forgets to square, C squares T but not 2pi, D inverts g. Routine literal-equation item.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000932"
+    },
+    {
+      "cand": "Q084-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        "minor: the wording 'strip trimmed from one long side' (which actually reduces the width) could confuse some readers for a moment, but the clause 'both the length and the width decrease by x' settles it"
+      ],
+      "blind_notes": "(30-x)(20-x)=336 gives x^2-50x+264=0 = (x-6)(x-44), and 44 is rejected. 24*14=336 checks.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000933"
+    },
+    {
+      "cand": "Q084-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "f(f(x)) = 1/(1-1/(1-x)) = (1-x)/(-x) = (x-1)/x. D is the sign-error distractor, B is f(x) with a sign change, and A squares the denominator. A numeric check (for example x=2 gives f(2)=-1 and f(-1)=1/2) settles it quickly.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires building and simplifying a compound fraction with a sign change."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000934"
+    },
+    {
+      "cand": "Q084-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-6",
+      "computed_answer": "-6",
+      "blind_answer": "-6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Vertex (-b/2, c-b^2/4), y-intercept (0,c). Slope = (-b^2/4)/(-b/2) = b/2 = -3, so b = -6, for any c. Needs a symbolic setup.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The solver must see that c cancels from the slope."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000935"
+    },
+    {
+      "cand": "Q084-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "f=a(x+1)(x-5) and f(0)=-5a=-5, so a=1. x^2-4x-5<-5 gives 0<x<4, so q=4. A symmetry shortcut also works: the axis is x=2 and the y-intercept mirrors to x=4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The threshold is −5, and the leading coefficient must be recovered first."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000936"
+    },
+    {
+      "cand": "Q084-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-2",
+      "computed_answer": "-2",
+      "blind_answer": "-2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [
+        "minor: Vieta-style 'roots equal the coefficients' setup is closer to a competition (AMC) style than a typical SAT item, though it is solvable by substitution"
+      ],
+      "blind_notes": "Sum: b+c=-b, so c=-2b. Product: bc=c, so b=1 (since c is nonzero) and c=-2. Check: x^2+x-2=(x-1)(x+2), roots 1 and -2. The answer is unique.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Coefficients double as roots; a spurious pair must be excluded."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000937"
+    },
+    {
+      "cand": "Q084-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Discriminant k^2-4(k+3) = k^2-4k-12 = (k-6)(k+2) < 0 gives -2<k<6. B is the complement, C has the signs swapped, D includes endpoints (where there is a double root). The distractors are well designed.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The discriminant is itself a quadratic inequality in k."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000938"
+    },
+    {
+      "cand": "Q084-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "External tangency gives center distances 3, 1+r, 2+r. The hypotenuse is 2+r, the longest side. 9+(1+r)^2=(2+r)^2 gives r=3 (a 3-4-5 triangle). The condition r>2 rules out the other leg/hypotenuse assignments.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Three tangencies give the sides; the correct hypotenuse must be chosen."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000939"
+    },
+    {
+      "cand": "Q084-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: the 3D space diagonal of a box is at the edge of SAT scope (still only Pythagorean theorem plus volume-figure familiarity)"
+      ],
+      "blind_notes": "a^2+b^2=13, b^2+c^2=40, a^2+c^2=45. The sum is 98, so a^2+b^2+c^2=49 and the diagonal is 7. Edges are 3, 2, 6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The sum counts each edge's square twice."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000940"
+    },
+    {
+      "cand": "Q084-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "36",
+      "computed_answer": "36",
+      "blind_answer": "36",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Sides a-d, a, a+d with the Pythagorean relation give a=4d, so the sides are 3d, 4d, 5d. Area 6d^2=54 gives d=3, sides 9, 12, 15, and perimeter 36. Students who know the 3-4-5 fact shortcut it.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The 3-4-5 shape must be derived, then scaled by area."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000941"
+    },
+    {
+      "cand": "Q084-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: choices are not in ascending order (3√2, 12, 36, 6); SAT orders numeric choices ascending"
+      ],
+      "blind_notes": "Angle C=90 degrees (Thales). With AB=2R: BC=R, AC=R√3, and area = R^2√3/2 = 18√3, so R=6. 12 is the diameter, 36 is R^2, and 3√2 comes from dropping the 1/2. Distractors are good.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000942"
+    },
+    {
+      "cand": "Q084-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "54",
+      "computed_answer": "54",
+      "blind_answer": "54",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "The cone radius at height h is 6-h/2. With cylinder radius s and height 2s: s=6-s, so s=3 and V = pi*9*6 = 54pi. Similar-triangle setup is required.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Combines similar triangles with the cylinder's shape condition."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000943"
+    },
+    {
+      "cand": "Q084-13",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "solver: distractors all overstated (exactly / not random / most), so the key could be found by elimination",
+          "change": "distractors rewritten as plausible misreadings without extreme wording"
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "answer cue: the key is the only hedged, reasonable-sounding choice; A ('should all give the same mean') and B ('must have made a measurement error') are implausible absolutes and easy to eliminate, leaving only C as a real distractor",
+        "minor: closely resembles standard official SAT items on sampling variability across repeated samples"
+      ],
+      "blind_notes": "Sample means vary by chance. 7.0 is the center of the means. C confuses the spread of sample means with the spread of individual values.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REJECT",
+      "reason": "Withdrawn after revision 2: blind solver again found an answer cue (key is the only hedged choice; two distractors are absolute claims), and the concept closely mirrors official sampling-variability items. Not resubmitted."
+    }
+  ]
+}

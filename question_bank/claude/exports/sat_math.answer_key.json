@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 83,
+  "bank_version": 84,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -19716,6 +19716,298 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Apply the 85% first, then the 40%."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000932",
+      "correct_answer": "B",
+      "explanation": "Divide both sides by 2π to get T/(2π) = √(L/g). Square both sides: T²/(4π²) = L/g. Multiply by g: L = gT²/(4π²). Check: with g = 9.8 and L = 1, T ≈ 2.007, and 9.8(2.007)²/(4π²) ≈ 1.",
+      "distractor_explanations": {
+        "A": "Isolates the radical but never squares it.",
+        "C": "Squares T but not the factor 2π.",
+        "D": "Divides by g instead of multiplying, undoing L/g in the wrong direction."
+      },
+      "hints": [
+        "Isolate the square root first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Undo each operation in reverse order."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000933",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "44",
+          "rationale": "44 is the second root of the quadratic, but the poster is only 20 inches wide.",
+          "trap": null
+        },
+        {
+          "value": "5.28",
+          "rationale": "5.28 treats the removed area as two full strips, 30x + 20x = 264, counting the corner twice.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The trimmed poster measures (30 − x) by (20 − x), so (30 − x)(20 − x) = 336. Expanding gives x² − 50x + 600 = 336, or x² − 50x + 264 = 0, which factors as (x − 6)(x − 44) = 0. Since the poster is only 20 inches wide, x = 6. Check: 24 × 14 = 336.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the new length and width in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the new dimensions and set the product equal to 336."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000934",
+      "correct_answer": "C",
+      "explanation": "f(f(x)) = 1/(1 − 1/(1 − x)). The denominator is ((1 − x) − 1)/(1 − x) = −x/(1 − x), so f(f(x)) = (1 − x)/(−x) = (x − 1)/x. Check x = 2: f(2) = −1 and f(−1) = 1/2, and (2 − 1)/2 = 1/2.",
+      "distractor_explanations": {
+        "A": "Multiplies f(x) by itself instead of composing.",
+        "B": "Simplifies the denominator to −x/(1 − x) but forgets to take the reciprocal.",
+        "D": "Drops the negative sign in (1 − x) − 1 = −x."
+      },
+      "hints": [
+        "Substitute f(x) for x in 1/(1 − x)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "After simplifying, check with x = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000935",
+      "correct_answer": "-6",
+      "accepted_answers": [
+        "-6"
+      ],
+      "common_errors": [
+        {
+          "value": "-3",
+          "rationale": "−3 takes b to be the slope.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 writes the vertex's x-coordinate as b/2 instead of −b/2, which flips the sign of the slope.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The vertex is (−b/2, c − b²/4) and the y-intercept is (0, c). The slope is (c − (c − b²/4))/(0 − (−b/2)) = (b²/4)/(b/2) = b/2, for every value of c. So b/2 = −3 and b = −6. Check with c = 0: y = x² − 6x has vertex (3, −9) and y-intercept (0, 0), and the slope is −9/3 = −3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write both points in terms of b and c."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Notice that c cancels, then check with c = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000936",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 solves f(x) < 0 instead of f(x) < −5.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the axis of symmetry.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "f(x) = a(x + 1)(x − 5) and f(0) = −5a = −5, so a = 1 and f(x) = x² − 4x − 5. Then f(x) < −5 means x² − 4x < 0, or x(x − 4) < 0, so 0 < x < 4 and q = 4. Equivalently, the point (0, −5) has a mirror image (4, −5) across the axis x = 2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the y-intercept to find the leading coefficient."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find where the graph is below the line y = −5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000937",
+      "correct_answer": "-2",
+      "accepted_answers": [
+        "-2"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 is the value of b.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-1/2",
+          "rationale": "−1/2 comes from the pair b = c = −1/2, which the condition b ≠ c rules out.",
+          "trap": null
+        }
+      ],
+      "explanation": "The sum of the solutions is −b, so b + c = −b, and their product is c, so bc = c. Since c ≠ 0, b = 1, and then c = −2b = −2. Check: x² + x − 2 = (x + 2)(x − 1) has solutions 1 = b and −2 = c.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the sum and product of the solutions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the sum and product into equations in b and c."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000938",
+      "correct_answer": "A",
+      "explanation": "There are no real solutions when the discriminant is negative: k² − 4(k + 3) < 0, so k² − 4k − 12 < 0, or (k − 6)(k + 2) < 0, which gives −2 < k < 6. Check: k = 0 gives x² + 3 = 0, which has no real solutions, and k = 6 gives (x + 3)² = 0, which has one.",
+      "distractor_explanations": {
+        "B": "Solves discriminant > 0, the condition for two real solutions.",
+        "C": "Factors k² − 4k − 12 as (k + 6)(k − 2).",
+        "D": "Includes k = −2 and k = 6, where the discriminant is 0 and there is one solution."
+      },
+      "hints": [
+        "When does a quadratic have no real solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the discriminant less than zero and solve for k."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000939",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the hypotenuse, 2 + r.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2.236",
+          "rationale": "2.236 is √5, from applying the Pythagorean theorem to the radii.",
+          "trap": null
+        }
+      ],
+      "explanation": "The distance between the centers of two externally tangent circles is the sum of their radii, so the sides are 1 + 2 = 3, 1 + r, and 2 + r. Since r > 2, the longest side is 2 + r, so 3² + (1 + r)² = (2 + r)², which gives 10 + 2r = 4 + 4r and r = 3. The triangle is 3-4-5.",
+      "distractor_explanations": {},
+      "hints": [
+        "How far apart are the centers of two tangent circles?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label each side of the triangle as a sum of radii."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000940",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "9.9",
+          "rationale": "9.9 is √98, which forgets that each edge appears in two face diagonals.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "11",
+          "rationale": "11 adds the edge lengths 2 + 3 + 6.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With edges a, b, and c, a² + b² = 13, a² + c² = 40, and b² + c² = 45. Adding gives 2(a² + b² + c²) = 98, so a² + b² + c² = 49 and the interior diagonal is √49 = 7. The edges are 2, 3, and 6.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each face diagonal's square in terms of the edges."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the three equations."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000941",
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "108",
+          "rationale": "108 sets 6d = 54, scaling the area linearly instead of by d².",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "15",
+          "rationale": "15 is the hypotenuse.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Write the sides as s − d, s, and s + d. Then (s − d)² + s² = (s + d)² gives s² = 4sd, so s = 4d and the sides are 3d, 4d, and 5d. The area is (1/2)(3d)(4d) = 6d² = 54, so d = 3, the sides are 9, 12, and 15, and the perimeter is 36.",
+      "distractor_explanations": {},
+      "hints": [
+        "Name the sides with a middle term and a common difference."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the Pythagorean theorem to find the shape first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000942",
+      "correct_answer": "D",
+      "explanation": "Angle ACB is a right angle because it is inscribed in a semicircle, so triangle ABC is a 30°-60°-90° triangle with hypotenuse AB = 2r. Then BC = r and AC = r√3, so the area is (1/2)(r)(r√3) = (√3/2)r² = 18√3. So r² = 36 and r = 6.",
+      "distractor_explanations": {
+        "A": "Forgets the 1/2 in the area formula, so r² = 18.",
+        "B": "Reports the diameter AB instead of the radius.",
+        "C": "Stops at r² = 36."
+      },
+      "hints": [
+        "What kind of angle is inscribed in a semicircle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the legs in terms of r."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000943",
+      "correct_answer": "54",
+      "accepted_answers": [
+        "54"
+      ],
+      "common_errors": [
+        {
+          "value": "18",
+          "rationale": "18 uses the cone formula (1/3)πr²h for the cylinder.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "64",
+          "rationale": "64 sets the height equal to the radius, so r = 6 − r/2 gives r = h = 4.",
+          "trap": null
+        }
+      ],
+      "explanation": "In a vertical cross section through the axis, the cone's radius at height h is 6 − h/2. The cylinder's radius r must equal this at h = 2r, so r = 6 − r, giving r = 3 and h = 6. The volume is π(3²)(6) = 54π, so k = 54.",
+      "distractor_explanations": {},
+      "hints": [
+        "Draw a cross section through the cone's axis."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Use similar triangles to find the cone's radius at a height."
       }
     }
   ]

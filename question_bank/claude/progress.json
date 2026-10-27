@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T19:56:10+00:00",
+  "updated_at": "2026-10-27T19:58:09+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 509,
     "act_reading": 522,
     "sat_reading_writing": 515,
-    "sat_math": 901
+    "sat_math": 913
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 48
     },
     "sat_math": {
-      "PASS": 931,
+      "PASS": 943,
       "REVISE": 29,
-      "REJECT": 11,
-      "candidates": 971,
+      "REJECT": 12,
+      "candidates": 984,
       "passed_after_revision": 33
     }
   },
@@ -1773,12 +1773,12 @@
       "passages": 542
     },
     "sat_math": {
-      "accepted": 901,
+      "accepted": 913,
       "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 286,
+        "Advanced Math": 293,
         "Algebra": 270,
-        "Geometry and Trigonometry": 171,
+        "Geometry and Trigonometry": 176,
         "Problem-Solving and Data Analysis": 174
       },
       "by_subskill": {
@@ -1912,6 +1912,7 @@
         "Comparing yearly percent decrease of models with different periods": 1,
         "Complementary angles and the sine-cosine relationship": 1,
         "Complementary-angle identity in context": 1,
+        "Composing a rational function with itself": 1,
         "Composing a reflection and a translation of a graph": 1,
         "Composing a sphere volume with a linearly growing radius": 1,
         "Composition that looks like an inverse": 1,
@@ -1979,6 +1980,7 @@
         "Counting whole-number values between a derived lower bound and a stated cap": 1,
         "Crossing height of two wires between poles": 1,
         "Cylinder height from a cone of equal volume with a scaled radius": 1,
+        "Cylinder inscribed in a cone": 1,
         "Cylinder inscribed in a sphere": 1,
         "Cylinder volume from its lateral area and height": 1,
         "Cylinder whose volume equals its surface area": 1,
@@ -1997,6 +1999,7 @@
         "Difference of two unknowns from a slope condition": 1,
         "Difference of two unknowns from subtracted equations, with unit conversion": 1,
         "Direction of error for a miscalibrated odometer": 1,
+        "Discriminant as a quadratic in a parameter": 1,
         "Distance between solutions of a perfect-square equation": 1,
         "Distance fallen during a one-second window": 1,
         "Distance from a chord endpoint to the midpoint of its arc": 1,
@@ -2137,12 +2140,14 @@
         "Inscribed angle, central angle, and tangent": 1,
         "Inscribed angles from equal chords": 1,
         "Inscribed angles on the same arc": 1,
+        "Inscribed right angle and a 30-60-90 triangle": 1,
         "Integer intersection fixing a slope": 1,
         "Intercept count after a translation": 1,
         "Intercept interval for an intersection in a given quadrant": 1,
         "Intercept of a linear model fit to later data": 1,
         "Intercepts of a line in standard form": 1,
         "Interior angles from a ratio of exterior angles": 1,
+        "Interior diagonal of a box from its face diagonals": 1,
         "Interpreting a change in a linear conversion formula": 1,
         "Interpreting a coefficient in an average-cost model": 1,
         "Interpreting a coefficient nested in a product of two inputs": 1,
@@ -2358,7 +2363,10 @@
         "Quadrants reached by a system of linear inequalities": 1,
         "Quadratic from a minimum stated as an inequality": 1,
         "Quadratic from a symmetry identity and a minimum value": 1,
+        "Quadratic from trimming two sides of a rectangle": 1,
         "Quadratic in a linear expression; sum of solutions in x": 1,
+        "Quadratic inequality at a nonzero threshold": 1,
+        "Quadratic whose coefficients are its own roots": 1,
         "Quarter turn on the unit circle": 1,
         "Quotient of exponential expressions in context": 1,
         "Quotient of rational expressions that collapses to a constant": 1,
@@ -2425,6 +2433,7 @@
         "Rhombus inscribed in a rectangle": 1,
         "Right triangle from a relation between tangents": 1,
         "Right triangle with algebraic legs": 1,
+        "Right triangle with sides in arithmetic sequence": 1,
         "Right-triangle sides from a cosine and a difference": 1,
         "Right-triangle trigonometry with a given ratio": 1,
         "Roots in a given ratio": 1,
@@ -2474,6 +2483,7 @@
         "Sine of a base angle in an isosceles triangle": 1,
         "Sliding-window average": 1,
         "Slope after swapping the axes": 1,
+        "Slope between the vertex and the y-intercept of a parabola": 1,
         "Slope forced by two points with swapped coordinates": 1,
         "Slope from a point and an x-intercept": 1,
         "Slope hidden in a constant-difference condition": 1,
@@ -2493,6 +2503,7 @@
         "Solutions of a linear inequality": 1,
         "Solving a factored quadratic set equal to a nonzero constant": 1,
         "Solving a formula for one of its variables": 1,
+        "Solving a formula with a radical for a variable": 1,
         "Solving a lens formula with linked variables": 1,
         "Solving a linear equation in a pricing context": 1,
         "Solving a linear equation in one variable": 1,
@@ -2575,6 +2586,7 @@
         "The one solution shared by a family of quadratics": 1,
         "Third angle of a triangle": 1,
         "Third zero of a cubic from its constant and leading coefficients": 1,
+        "Three mutually tangent circles forming a right triangle": 1,
         "Three unknowns from cyclic pair sums": 1,
         "Ticket counts when revenues, not counts, are in a given ratio": 1,
         "Time at which a rational concentration model reaches a value": 1,
@@ -2685,27 +2697,28 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 130,
-        "hard": 129,
-        "medium": 642
+        "easy": 131,
+        "hard": 134,
+        "medium": 648
       },
       "by_difficulty_calibrated": {
-        "easy": 173,
-        "hard": 126,
-        "medium": 602
+        "easy": 174,
+        "hard": 131,
+        "medium": 608
       },
       "calibrated_share": {
-        "easy": 0.192,
-        "hard": 0.14,
-        "medium": 0.668
+        "easy": 0.191,
+        "hard": 0.143,
+        "medium": 0.666
       },
       "answer_key_balance": {
         "-1": 6,
         "-12": 1,
-        "-2": 1,
+        "-2": 2,
         "-2.5": 1,
         "-21/5": 1,
         "-4": 2,
+        "-6": 1,
         "-7": 1,
         "-8/3": 1,
         "-9": 2,
@@ -2782,7 +2795,7 @@
         "27500": 1,
         "28": 1,
         "29": 1,
-        "3": 16,
+        "3": 17,
         "3.54": 1,
         "3.6": 1,
         "3/2": 1,
@@ -2794,12 +2807,12 @@
         "330": 1,
         "34": 1,
         "340": 1,
-        "36": 6,
+        "36": 7,
         "360": 1,
         "3600": 1,
         "37.5": 2,
         "39": 2,
-        "4": 22,
+        "4": 23,
         "4.05": 1,
         "4.2": 1,
         "4/3": 1,
@@ -2820,8 +2833,9 @@
         "50": 4,
         "52": 1,
         "53": 1,
+        "54": 1,
         "5760": 1,
-        "6": 12,
+        "6": 13,
         "60": 3,
         "600": 2,
         "62.25": 1,
@@ -2831,7 +2845,7 @@
         "64": 2,
         "640": 1,
         "67": 2,
-        "7": 12,
+        "7": 13,
         "7.2": 2,
         "72": 1,
         "748": 1,
@@ -2851,13 +2865,13 @@
         "94": 1,
         "95": 2,
         "96": 1,
-        "A": 119,
-        "B": 176,
-        "C": 164,
-        "D": 94
+        "A": 120,
+        "B": 177,
+        "C": 165,
+        "D": 95
       },
       "modeling_items": 252,
-      "spr_items": 348,
+      "spr_items": 356,
       "passages": 0
     }
   },
@@ -2866,7 +2880,7 @@
     "act_english": 58,
     "act_reading": 64,
     "sat_reading_writing": 62,
-    "sat_math": 83
+    "sat_math": 84
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2898,36 +2912,36 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 84,
+    "next_batch": 85,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 48.8,
-      "Advanced Math": 32.8,
-      "Problem-Solving and Data Analysis": -37.3,
-      "Geometry and Trigonometry": -34.3
+      "Algebra": 53.0,
+      "Advanced Math": 30.0,
+      "Problem-Solving and Data Analysis": -35.6,
+      "Geometry and Trigonometry": -37.6
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 54.8,
+      "easy": 56.8,
       "medium": -146.5,
-      "hard": 101.8
+      "hard": 99.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 51.8,
-      "B": -5.2,
-      "C": 6.8,
-      "D": 76.8
+      "A": 53.1,
+      "B": -3.9,
+      "C": 8.1,
+      "D": 78.1
     },
-    "spr_items": 348,
+    "spr_items": 356,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 65,
+    "act_english": {
+      "next_batch": 59,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 78.4,
-        "Craft and Structure": -27.1,
-        "Integration of Knowledge and Ideas": -41.3
+        "Production of Writing": 61.2,
+        "Knowledge of Language": 19.4,
+        "Conventions of Standard English": -62.8
       }
     },
     "sat_reading_writing": {
@@ -2939,12 +2953,12 @@
         "Expression of Ideas": -4.0
       }
     },
-    "act_english": {
-      "next_batch": 59,
+    "act_reading": {
+      "next_batch": 65,
       "skill_gap_for_next_10": {
-        "Production of Writing": 61.2,
-        "Knowledge of Language": 19.4,
-        "Conventions of Standard English": -62.8
+        "Key Ideas and Details": 78.4,
+        "Craft and Structure": -27.1,
+        "Integration of Knowledge and Ideas": -41.3
       }
     }
   },
@@ -2971,12 +2985,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 901,
-      "share_of_target": 0.901
+      "accepted": 913,
+      "share_of_target": 0.913
     }
   },
   "total_target": 3841,
-  "total_accepted": 3221,
+  "total_accepted": 3233,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540800,7 +540814,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 83,
+      "bank_version": 84,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -540926,7 +540940,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T19:56:09+00:00",
+    "heartbeat_at": "2026-10-27T19:58:08+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

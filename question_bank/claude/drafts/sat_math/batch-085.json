@@ -1,0 +1,623 @@
+{
+ "bank": "sat_math",
+ "batch": 85,
+ "plan": "SAT Math batch 85: 14 items from idea set 26 (UB05, UB06, UB09, UB14, UB16, UB17, UD04, UD05, UD06, UD07, UD10, UD11, UD12, UD13; pre-checked in ideas-074.repeats.json). Fixes: UD13 renumbered to a 17-foot ladder (8-15-17) to separate it from CLD-ACT-M-000241; UD07 unused side ST removed and distractors rebuilt; UB16 weak distractor 6 replaced with the sign error −3; UB05 SPR traps limited to reproducible values; MC keys moved for balance. Keep-apart pairs with batch 84 honored. Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q085-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Choosing a parameter so a lost root coincides",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the equation (x − 3)(x + 2) = k(x − 3), k is a constant. For what value of k does the equation have exactly one real solution?",
+   "explanation": "Moving every term to one side gives (x − 3)(x + 2 − k) = 0, so the solutions are x = 3 and x = k − 2. There is exactly one solution only when k − 2 = 3, so k = 5. Dividing both sides by x − 3 would lose the solution x = 3 and suggest one solution for every k.",
+   "hints": [
+    "Do not divide by x − 3; factor it out instead."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Move everything to one side and factor."
+   },
+   "remember": "Never divide by an expression that could be zero.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "5",
+   "accepted_answers": [
+    "5"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 sets k equal to the visible root.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "-2",
+     "rationale": "−2 makes the second factor's root x = −4 and still leaves two solutions; it comes from reading k off the factor x + 2.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q085-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a counting quadratic for the number of teams",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "In a league, each team plays every other team exactly once. If the league has n teams, the number of games played is n(n − 1)/2. In one season, 78 games were played. How many teams are in the league?",
+   "explanation": "Set n(n − 1)/2 = 78, so n(n − 1) = 156 and n² − n − 156 = 0, which factors as (n − 13)(n + 12) = 0. A number of teams cannot be negative, so n = 13. Check: 13 × 12/2 = 78.",
+   "hints": [
+    "Multiply both sides by 2 first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try values near √156 and check."
+   },
+   "remember": "Reject a negative root when counting objects.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "13",
+   "accepted_answers": [
+    "13"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 solves n(n + 1)/2 = 78 instead.",
+     "trap": null
+    },
+    {
+     "value": "39",
+     "rationale": "39 halves 78.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q085-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximizing a rectangle inscribed in a right triangle",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A right triangle has legs of lengths 8 and 10. A rectangle is drawn inside the triangle so that two of its sides lie along the legs and the vertex of the rectangle opposite the right angle lies on the hypotenuse. What is the greatest possible area of the rectangle?",
+   "explanation": "Place the right angle at the origin with the leg of length 10 on the x-axis and the leg of length 8 on the y-axis, so the hypotenuse is y = 8 − 0.8x. A rectangle of width x has area A(x) = x(8 − 0.8x) = −0.8x² + 8x, which is greatest at x = 5, where A = 5 × 4 = 20.",
+   "hints": [
+    "Write the rectangle's height in terms of its width."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Put the triangle on coordinate axes."
+   },
+   "remember": "A downward parabola's maximum is at its vertex.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires building a quadratic model from a geometric constraint."
+   },
+   "format": "spr",
+   "answer": "20",
+   "accepted_answers": [
+    "20"
+   ],
+   "common_errors": [
+    {
+     "value": "19.75",
+     "rationale": "19.75 assumes the largest rectangle is the inscribed square, with side 40/9 and area 1600/81 ≈ 19.75.",
+     "trap": null
+    },
+    {
+     "value": "40",
+     "rationale": "40 is the area of the triangle.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q085-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Combining exponential factors with different bases",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "If 2^(x + 1) · 3^(x − 1) = 16, what is the value of 6ˣ?",
+   "explanation": "2^(x + 1) = 2 · 2ˣ and 3^(x − 1) = 3ˣ/3, so the product is (2/3)(2ˣ · 3ˣ) = (2/3)6ˣ. Setting (2/3)6ˣ = 16 gives 6ˣ = 16 × 3/2 = 24.",
+   "hints": [
+    "Split off the constant factors from each power."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite each power as a constant times 2ˣ or 3ˣ."
+   },
+   "remember": "When the exponents match, 2ˣ · 3ˣ = 6ˣ.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "32/3",
+    "B": "16",
+    "C": "24",
+    "D": "96"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Treats 2^(x + 1) as 2ˣ/2 and 3^(x − 1) as 3 · 3ˣ, multiplying by 2/3 instead of dividing.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "Combines the bases and adds the shifts, +1 − 1 = 0, as if the product were 6ˣ.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Writes the product as 6^(x − 1), using the shift −1 for both factors.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q085-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Homogeneous quadratic in two variables",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "If x² − 5xy + 6y² = 0, where y ≠ 0 and x ≠ 2y, what is the value of x/y?",
+   "explanation": "The left side factors as (x − 2y)(x − 3y) = 0. Since x ≠ 2y, x = 3y, so x/y = 3. Equivalently, dividing by y² gives (x/y)² − 5(x/y) + 6 = 0, so x/y is 2 or 3, and 2 is excluded.",
+   "hints": [
+    "Factor the left side as you would x² − 5x + 6."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide by y² to get an equation in x/y."
+   },
+   "remember": "Use stated exclusions to choose between solutions.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−3",
+    "B": "1/3",
+    "C": "2",
+    "D": "3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Factors as (x + 2y)(x + 3y), losing the signs.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "Finds x = 3y but reports y/x.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Gives the ratio that the condition x ≠ 2y excludes.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q085-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Recovering a half-life from a fraction remaining",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "A sample of a radioactive substance decays so that the amount remaining is halved every h hours. After 10 hours, 1/32 of the original amount remains. What is the value of h?",
+   "explanation": "Since 1/32 = (1/2)⁵, the substance has gone through 5 half-lives in 10 hours, so each half-life is 10/5 = 2 hours.",
+   "hints": [
+    "Write 1/32 as a power of 1/2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Count the halvings, then divide the time."
+   },
+   "remember": "Count halvings by writing the fraction as a power of 1/2.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the number of half-lives, not their length.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "3.2",
+     "rationale": "3.2 divides 32 by 10.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q085-07",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Areas of semicircles on collinear diameters",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Point C lies on segment AB, where AB = 12 and AC = 4. Semicircles are drawn on the same side of line AB with diameters AB, AC, and CB. What is the area of the region that is inside the semicircle with diameter AB but outside the other two semicircles?",
+   "explanation": "The radii are 6, 2, and 4. The area is (1/2)π(6²) − (1/2)π(2²) − (1/2)π(4²) = 18π − 2π − 8π = 8π.",
+   "hints": [
+    "Find each radius first."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the three semicircles."
+   },
+   "remember": "A semicircle's area is half of πr², with r half the diameter.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "8π",
+    "B": "10π",
+    "C": "16π",
+    "D": "32π"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Subtracts only the semicircle on CB.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "Uses full-circle areas πr² throughout.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Uses the diameters 12, 4, and 8 as radii.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q085-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Volume scaling of similar solids",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "easy",
+   "stem": "A solid metal sphere with a radius of 6 centimeters is melted down, and all of the metal is used to make solid spheres that each have a radius of 2 centimeters. How many of the smaller spheres are made?",
+   "explanation": "Volumes of spheres scale with the cube of the radius, so the count is (6/2)³ = 27. Directly, (4/3)π(6³) ÷ (4/3)π(2³) = 288π ÷ (32π/3) = 27.",
+   "hints": [
+    "How does volume change when every length triples?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the large volume by the small one."
+   },
+   "remember": "Volume scales with the cube of the length ratio.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "9",
+    "C": "27",
+    "D": "54"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Compares the radii directly.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "Compares the squares of the radii, as for areas.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Computes the small sphere's volume with 2² instead of 2³.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q085-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Regular polygons meeting at a point",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "An equilateral triangle, a regular decagon (10 sides), and a regular polygon with n sides fit together around a point, each with one vertex at the point, so that they cover the region around the point with no gaps or overlaps. What is the value of n?",
+   "explanation": "The angles at the point sum to 360°. The triangle contributes 60° and the decagon's interior angle is 180(10 − 2)/10 = 144°, so the n-gon's interior angle is 360 − 60 − 144 = 156°. Its exterior angle is 24°, so n = 360/24 = 15.",
+   "hints": [
+    "What is the sum of the angles around a point?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the missing interior angle, then the exterior angle."
+   },
+   "remember": "A regular n-gon's exterior angle is 360/n.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "156",
+     "rationale": "156 is the interior angle, not the number of sides.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "18",
+     "rationale": "18 uses 140° for the decagon's interior angle.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q085-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Trigonometric ratio through similar triangles",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "easy",
+   "stem": "Right triangles PQR and STU are similar, with vertices P, Q, and R corresponding to S, T, and U, respectively. Angles R and U are right angles, PR = 24, and QR = 7. What is the value of cos T?",
+   "explanation": "PQ = √(24² + 7²) = 25. Corresponding angles of similar triangles are congruent, so cos T = cos Q = QR/PQ = 7/25.",
+   "hints": [
+    "Which angle in triangle PQR corresponds to angle T?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the sides around angle Q."
+   },
+   "remember": "Similar triangles have equal trigonometric ratios at corresponding angles.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "7/25",
+    "B": "7/24",
+    "C": "24/25",
+    "D": "24/7"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Uses adjacent over opposite, which is 1/tan Q.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Uses opposite over hypotenuse, which is sin Q.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Uses opposite over adjacent, which is tan Q.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q085-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Square inscribed in a square off the midpoints",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Square EFGH lies inside square ABCD, with E on side AB, F on side BC, G on side CD, and H on side DA. AE = 6, and the area of square EFGH is 100. What is the side length of square ABCD?",
+   "explanation": "The four corner triangles are congruent right triangles, so BF = AE = 6. In right triangle EBF, EF = 10, so EB² + 6² = 10² and EB = 8. Then AB = AE + EB = 6 + 8 = 14.",
+   "hints": [
+    "Which segment equals AE?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Mark the congruent corner triangles."
+   },
+   "remember": "Look for congruent right triangles in the corners.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12",
+    "B": "14",
+    "C": "10√2",
+    "D": "16"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Assumes E is the midpoint of AB, so AB = 2 × 6.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "Uses the diagonal of EFGH, which works only when the vertices are midpoints.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Adds AE to the side of EFGH, 6 + 10.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q085-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Circle through three points with a right angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a circle passes through the points (1, 2), (13, 2), and (1, 7). What is the radius of the circle?",
+   "explanation": "The segment from (1, 2) to (13, 2) is horizontal and the one from (1, 2) to (1, 7) is vertical, so the angle at (1, 2) is a right angle. An inscribed right angle intercepts a diameter, so the segment from (13, 2) to (1, 7), of length √(12² + 5²) = 13, is a diameter, and the radius is 6.5.",
+   "hints": [
+    "What kind of angle is at (1, 2)?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the three points."
+   },
+   "remember": "An inscribed right angle's opposite side is a diameter.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The right angle must be recognized to find a diameter."
+   },
+   "format": "spr",
+   "answer": "6.5",
+   "accepted_answers": [
+    "6.5",
+    "13/2"
+   ],
+   "common_errors": [
+    {
+     "value": "13",
+     "rationale": "13 is the diameter.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "6",
+     "rationale": "6 is half the horizontal chord, treating it as a diameter.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q085-13",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Segment through the intersection of trapezoid diagonals",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 15, and CD = 10. The diagonals AC and BD intersect at point P. A segment through P parallel to AB has one endpoint on leg AD and the other on leg BC. What is the length of this segment?",
+   "explanation": "Triangles CPD and APB are similar with ratio 10 : 15, so AP : PC = BP : PD = 3 : 2. In triangle ACD, the piece from AD to P is parallel to DC, so its length is (AP/AC)(CD) = (3/5)(10) = 6. In triangle BDC, the piece from P to BC is (BP/BD)(CD) = 6. The total is 12.",
+   "hints": [
+    "How do the diagonals divide each other?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Split the segment at P and use two pairs of similar triangles."
+   },
+   "remember": "The segment through the diagonals' intersection is not the midsegment.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Two similar-triangle steps; the familiar midsegment is a trap."
+   },
+   "format": "spr",
+   "answer": "12",
+   "accepted_answers": [
+    "12"
+   ],
+   "common_errors": [
+    {
+     "value": "12.5",
+     "rationale": "12.5 is the midsegment, the average of the bases.",
+     "trap": null
+    },
+    {
+     "value": "6",
+     "rationale": "6 is only one of the two pieces.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q085-14",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Ladder positions given by a sine and a cosine",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A 17-foot ladder leans against a vertical wall, with its base on level ground. At first, the ladder makes an angle of x° with the ground, where sin x° = 8/17. The base of the ladder is then moved toward the wall until the ladder makes an angle of y° with the ground, where cos y° = 8/17. How many feet higher up the wall does the top of the ladder reach after the move?",
+   "explanation": "At first, the top is 17 sin x° = 8 feet up. After the move, the base is 17 cos y° = 8 feet from the wall, so the top is √(17² − 8²) = 15 feet up. The top rises 15 − 8 = 7 feet.",
+   "hints": [
+    "Which side does each ratio give?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the ladder in both positions."
+   },
+   "remember": "Sine gives the side opposite the angle; cosine gives the adjacent side.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 is the new height, not the change.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "9",
+     "rationale": "9 subtracts 17 − 8, as if the ladder stood vertically after the move.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}
