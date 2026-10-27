@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T17:17:09+00:00",
+  "updated_at": "2026-10-27T17:19:16+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 404,
+    "act_english": 411,
     "act_reading": 405,
     "sat_reading_writing": 412,
     "sat_math": 697
@@ -32,11 +32,11 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 438,
-      "REVISE": 17,
+      "PASS": 445,
+      "REVISE": 22,
       "REJECT": 1,
-      "candidates": 456,
-      "passed_after_revision": 13
+      "candidates": 468,
+      "passed_after_revision": 14
     },
     "act_reading": {
       "PASS": 440,
@@ -873,12 +873,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 404,
+      "accepted": 411,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 215,
-        "Knowledge of Language": 70,
-        "Production of Writing": 119
+        "Conventions of Standard English": 219,
+        "Knowledge of Language": 71,
+        "Production of Writing": 121
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
@@ -912,6 +912,7 @@
         "Clear pronoun reference": 1,
         "Colon after a complete clause with a possessive": 1,
         "Colon before a list": 1,
+        "Colon before an explanatory noun phrase": 1,
         "Colon before an explanatory phrase": 1,
         "Colon introducing an explanation": 2,
         "Colon misuse after a verb": 1,
@@ -950,7 +951,7 @@
         "Commonly confused words (where / were)": 1,
         "Comparative adjectives (double comparative)": 1,
         "Comparative with two items": 1,
-        "Concision": 4,
+        "Concision": 5,
         "Concision (eliminating a redundant clause)": 1,
         "Concision (redundancy)": 4,
         "Concision (word choice)": 1,
@@ -982,6 +983,7 @@
         "Deleting a phrase (what would be lost)": 2,
         "Dividing a paragraph": 1,
         "Double negatives": 1,
+        "Effect of deleting a phrase": 1,
         "Effect of deleting a sentence": 1,
         "Effective conclusions": 1,
         "Evaluating whether an essay meets a goal": 12,
@@ -1007,7 +1009,7 @@
         "Irregular past tense": 1,
         "It's / its": 1,
         "Its / it's": 1,
-        "Its versus it's": 1,
+        "Its versus it's": 2,
         "Keeping or deleting a sentence": 5,
         "Less versus fewer": 1,
         "Lie versus lay": 1,
@@ -1015,11 +1017,13 @@
         "Logical comparison": 1,
         "Logical connection within a sentence (cause)": 1,
         "Logical order of sentences": 3,
+        "Logical placement of a sentence": 1,
         "Lose versus loose": 1,
         "Many versus much": 1,
         "Matching dashes around an interrupting phrase": 1,
         "Matching punctuation around a nonessential clause": 1,
         "Modal verb form (\"could of\")": 2,
+        "Modifier placement": 1,
         "No colon after \"such as\"": 1,
         "No colon between a verb and its object": 1,
         "No comma between a subject and its verb": 1,
@@ -1112,7 +1116,7 @@
         "Subordinating conjunctions (logic)": 1,
         "Supporting a claim with detail": 1,
         "Supporting a claim with specific detail": 1,
-        "Than versus then": 2,
+        "Than versus then": 3,
         "Their / there / they're": 3,
         "Then versus than": 1,
         "Topic sentence for a paragraph": 1,
@@ -1159,14 +1163,14 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 194,
+        "easy": 198,
         "hard": 22,
-        "medium": 188
+        "medium": 191
       },
       "by_difficulty_calibrated": {
-        "easy": 228,
+        "easy": 232,
         "hard": 4,
-        "medium": 172
+        "medium": 175
       },
       "calibrated_share": {
         "easy": 0.564,
@@ -1174,14 +1178,14 @@
         "medium": 0.426
       },
       "answer_key_balance": {
-        "A": 104,
+        "A": 107,
         "B": 102,
-        "C": 107,
-        "D": 91
+        "C": 109,
+        "D": 93
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 44
+      "passages": 45
     },
     "act_reading": {
       "accepted": 405,
@@ -2513,7 +2517,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 46,
+    "act_english": 47,
     "act_reading": 52,
     "sat_reading_writing": 49,
     "sat_math": 67
@@ -2572,14 +2576,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 53,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 55.2,
-        "Craft and Structure": -16.6,
-        "Integration of Knowledge and Ideas": -28.6
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 50,
       "skill_gap_for_next_10": {
@@ -2590,11 +2586,19 @@
       }
     },
     "act_english": {
-      "next_batch": 47,
+      "next_batch": 48,
       "skill_gap_for_next_10": {
-        "Production of Writing": 48.7,
-        "Knowledge of Language": 14.9,
-        "Conventions of Standard English": -47.3
+        "Production of Writing": 49.5,
+        "Knowledge of Language": 15.3,
+        "Conventions of Standard English": -48.5
+      }
+    },
+    "act_reading": {
+      "next_batch": 53,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 55.2,
+        "Craft and Structure": -16.6,
+        "Integration of Knowledge and Ideas": -28.6
       }
     }
   },
@@ -2606,8 +2610,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 404,
-      "share_of_target": 0.586
+      "accepted": 411,
+      "share_of_target": 0.597
     },
     "act_reading": {
       "target": 684,
@@ -2626,9 +2630,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2692,
+  "total_accepted": 2699,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_english",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -306684,7 +306688,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 46,
+      "bank_version": 47,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -306831,7 +306835,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T17:17:09+00:00",
+    "heartbeat_at": "2026-10-27T17:19:15+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 46,
-  "updated_at": "2026-10-27T17:09:21+00:00",
+  "version": 47,
+  "updated_at": "2026-10-27T17:18:35+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -487,6 +487,17 @@
       "word_count": 258,
       "text": "[1] In the early 1950s, Dan Robbins, a commercial artist at the Palmer Paint Company in Detroit, was looking for a way to sell more of the company's paint. [2] He remembered reading that Leonardo da Vinci had sometimes numbered sections of a sketch so that his apprentices would know which colors to apply. [3] Robbins applied the same idea to {{1|a kit, it contained}} a board printed with a numbered outline and small pots of matching paint.\n\n[4] The company's owner, Max Klein, was doubtful at first. [5] Early kits sold poorly, {{2|because}} store owners did not know where to display them. [6] Sales {{3|improved dramatically}} after a department store demonstration showed shoppers that anyone could finish a picture in a few evenings. [7] Within a few years, Palmer was selling millions of kits a year {{4|under the name Craft Master}}.\n\n[8] Not everyone approved. [9] Critics complained that the kits turned painting into a mechanical {{5|task; following}} instructions rather than expressing ideas. [10] {{6|To them, a picture that came with its own instructions could not really be called art.}} [11] Robbins, however, argued that the kits, along with the simple instructions included in each box, {{7|was}} a first step toward painting for many people who had never held a brush.\n\n[12] Today, paint-by-number pictures {{8|were}} sought by collectors, including some who once dismissed them. [13] In 2001 the Smithsonian Institution held an exhibition of the paintings, presenting them as a record of how ordinary Americans {{10|spent its}} leisure time in the years after World War II.",
       "batch": 46,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000047",
+      "title": "Bending the Light",
+      "genre": "informative essay",
+      "word_count": 211,
+      "text": "[1] Before the 1820s, most lighthouses used curved metal mirrors to aim the light of their lamps out to sea. [2] Even the best mirrors wasted much of that light, and keepers spent hours each day polishing away the soot that dimmed them.\n\n[3] The French physicist Augustin-Jean Fresnel, {{9|who had spent years studying how light bends,}} proposed a different {{1|approach: a lens}} that would bend the light rather than reflect it. [4] A single solid lens big enough for a lighthouse would have been {{2|extremely heavy in weight}} and difficult to cast. [5] Fresnel's solution was to divide the lens into many small glass prisms. [6] {{4|Arranged in rings around a central lens, each prism}} bent a portion of the light into one strong horizontal beam. [7] The finished lens was far lighter {{3|then}} a solid lens of the same width.\n\n[8] In 1823 the first Fresnel lens was installed in the Cordouan lighthouse in France. {{5|}} [9] The improvement was dramatic. [10] {{6|However,}} a light that had once been visible for only a few miles could now be seen from more than twenty miles away. [11] Within a few decades, Fresnel lenses {{7|has been installed}} in lighthouses around the world, and each lighthouse's lens was chosen to suit {{8|it's}} location.",
+      "batch": 47,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -31565,6 +31576,503 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-046.review.json",
         "computation": "checks/act_english/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000439",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon before an explanatory noun phrase",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 1,
+      "evidence": "that would bend the light rather than reflect it",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "approach; a lens",
+        "C": "approach. A lens",
+        "D": "approach, it was a lens"
+      },
+      "correct_answer": "A",
+      "explanation": "The colon follows a complete clause and introduces a phrase that explains what the different approach was.",
+      "distractor_explanations": {
+        "B": "A semicolon must be followed by an independent clause, but \"a lens that would bend the light\" is a phrase.",
+        "C": "This leaves \"A lens that would bend the light rather than reflect it\" as a sentence fragment.",
+        "D": "A comma alone joins two independent clauses, creating a comma splice."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "comma_splice"
+      },
+      "hints": [
+        "Is the part after the underline a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check what can follow a semicolon or a period."
+      },
+      "remember": "A colon after a complete clause can introduce a phrase that explains it.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-01",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000440",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 2,
+      "evidence": "and difficult to cast",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "extremely heavy and weighty",
+        "C": "extremely heavy",
+        "D": "heavy, extremely so in weight,"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Extremely heavy\" says it once; the other choices repeat the idea of weight.",
+      "distractor_explanations": {
+        "A": "\"Heavy\" already refers to weight, so \"in weight\" is redundant.",
+        "B": "\"Heavy\" and \"weighty\" mean the same thing.",
+        "D": "This is wordy and repeats the idea of weight."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any choices repeat an idea?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Pick the shortest version that keeps the meaning."
+      },
+      "remember": "Cut words that repeat what another word already says.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-02",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000441",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Than versus then",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 3,
+      "evidence": "far lighter",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "then that of",
+        "C": "as",
+        "D": "than"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Lighter\" makes a comparison, which is completed with \"than.\"",
+      "distractor_explanations": {
+        "A": "\"Then\" refers to time; a comparison needs \"than.\"",
+        "B": "This keeps the time word \"then\" and adds \"that of,\" which has nothing to refer to.",
+        "C": "\"Lighter as\" is not a standard comparison."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is the sentence about time or a comparison?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a comparative word such as \"lighter.\""
+      },
+      "remember": "Use \"than\" for comparisons and \"then\" for time.",
+      "expected_time_seconds": 15,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-03",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000442",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Modifier placement",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 4,
+      "evidence": "bent a portion of the light into one strong horizontal beam",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Arranged in rings around a central lens, Fresnel made sure each prism",
+        "C": "Arranged in rings around a central lens, there was a prism that",
+        "D": "Arranged in rings around a central lens, the job of each prism was that it"
+      },
+      "correct_answer": "A",
+      "explanation": "The prisms are what were arranged in rings, so \"each prism\" must come right after the introductory phrase.",
+      "distractor_explanations": {
+        "B": "Fresnel himself was not arranged in rings around a central lens.",
+        "C": "The modifier has nothing it can logically describe; \"there\" was not arranged in rings.",
+        "D": "A job cannot be arranged in rings; the modifier must describe the prisms."
+      },
+      "distractor_traps": {
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "What was arranged in rings around a central lens?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put the thing the modifier describes right after the comma."
+      },
+      "remember": "An introductory modifier describes the noun right after it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-04",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000443",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Its versus it's",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 8,
+      "evidence": "each lighthouse's lens was chosen",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "its'",
+        "C": "their",
+        "D": "its"
+      },
+      "correct_answer": "D",
+      "explanation": "The location belongs to each lighthouse, so the singular possessive \"its\" is correct.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is,\" which makes no sense here.",
+        "B": "\"Its'\" is not a word.",
+        "C": "\"Their\" is plural, but it refers to the singular \"each lighthouse.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Can you replace the word with \"it is\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test \"it is\" in the sentence."
+      },
+      "remember": "\"It's\" always means \"it is\" or \"it has.\"",
+      "expected_time_seconds": 15,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-08",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000444",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Effect of deleting a phrase",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000047",
+      "underline": 9,
+      "evidence": "proposed a different",
+      "figure": null,
+      "stem": "If the writer were to delete the underlined portion (adjusting the punctuation as needed), the essay would primarily lose:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "an explanation of how Fresnel's lens was manufactured in France.",
+        "B": "a description of the problems caused by soot on lighthouse mirrors.",
+        "C": "a detail suggesting why Fresnel could propose a new way to direct light.",
+        "D": "a comparison between Fresnel's ideas and those of other physicists."
+      },
+      "correct_answer": "C",
+      "explanation": "The phrase tells the reader that Fresnel had studied how light bends, which explains why he could propose a lens that bends light.",
+      "distractor_explanations": {
+        "A": "The phrase concerns Fresnel's research, not manufacturing.",
+        "B": "Soot is described in sentence 2, not in this phrase.",
+        "D": "No other physicists are mentioned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "true_but_irrelevant",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "How does the phrase connect to what Fresnel proposed?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the phrase adds to the sentence."
+      },
+      "remember": "A deleted phrase's value is the link it makes to the rest of the sentence.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-09",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000445",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical placement of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000046",
+      "underline": 9,
+      "evidence": "Early kits sold poorly",
+      "figure": null,
+      "stem": "For the sake of logic and cohesion, sentence 5 should be placed:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "where it is now.",
+        "B": "after sentence 6.",
+        "C": "after sentence 7.",
+        "D": "before sentence 4."
+      },
+      "correct_answer": "A",
+      "explanation": "The paragraph moves in time order: the owner's doubts, early poor sales, improved sales after a demonstration, and finally millions sold. Sentence 5 belongs where it is.",
+      "distractor_explanations": {
+        "B": "Sentence 6 explains how sales improved, so the poor early sales must come before it.",
+        "C": "Placing the early poor sales after the report of millions sold breaks the time order.",
+        "D": "Sentence 4 introduces the owner's doubts, which the poor early sales then bear out; reversing them loses that link."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What order do the events in paragraph 2 happen in?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put the events in time order."
+      },
+      "remember": "Sentence order should follow time or logic; check what each sentence depends on.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 47,
+      "draft_candidate": "E047-12",
+      "created_at": "2026-10-27T17:18:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-047.review.json",
+        "computation": "checks/act_english/batch_047.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
