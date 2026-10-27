@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T08:13:52+00:00",
+  "updated_at": "2026-10-27T08:14:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 281,
-    "act_reading": 273,
+    "act_reading": 282,
     "sat_reading_writing": 278,
     "sat_math": 518
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 7
     },
     "act_reading": {
-      "PASS": 294,
+      "PASS": 303,
       "REVISE": 28,
       "REJECT": 0,
-      "candidates": 322,
+      "candidates": 331,
       "passed_after_revision": 20
     },
     "sat_reading_writing": {
@@ -1093,19 +1093,21 @@
       "passages": 28
     },
     "act_reading": {
-      "accepted": 273,
+      "accepted": 282,
       "retired_after_audit": 21,
       "by_skill": {
-        "Craft and Structure": 98,
-        "Integration of Knowledge and Ideas": 81,
-        "Key Ideas and Details": 94
+        "Craft and Structure": 101,
+        "Integration of Knowledge and Ideas": 83,
+        "Key Ideas and Details": 98
       },
       "by_subskill": {
         "Applying a character's standard": 1,
         "Applying a model": 1,
         "Applying a qualified claim to choose a setting": 1,
+        "Applying a stated principle": 1,
         "Applying a stated rule": 1,
         "Applying an explanation": 1,
+        "Applying an idea to a new situation": 1,
         "Applying one group's view to an example": 1,
         "Applying one passage to the other": 1,
         "Applying the author's reasoning": 4,
@@ -1125,6 +1127,7 @@
         "Author's view of a debate": 1,
         "Author's view of an earlier argument": 1,
         "Author's view of an interpretation": 1,
+        "Author’s attitude toward a view": 1,
         "Central claim of a passage": 3,
         "Central claim of a research narrative": 1,
         "Central idea of a narrative": 3,
@@ -1151,6 +1154,7 @@
         "Evaluating evidence for an explanation": 1,
         "Evaluating evidence for competing explanations": 1,
         "Evaluating evidence that would weaken a claim": 1,
+        "Explaining a described event": 1,
         "Function of a closing sentence": 1,
         "Function of a comparison": 4,
         "Function of a description": 1,
@@ -1174,6 +1178,7 @@
         "How an outcome bears on an expectation": 1,
         "How one author would respond to the other": 2,
         "How one passage complicates another": 1,
+        "Inference about a cause": 1,
         "Inference about a character": 1,
         "Inference about a character's action": 2,
         "Inference about a character's meaning": 1,
@@ -1224,13 +1229,13 @@
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
         "Main idea of a narrative": 2,
-        "Main idea of a passage": 1,
+        "Main idea of a passage": 2,
         "Main purpose of a passage": 8,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
         "Meaning of a figurative phrase": 1,
         "Meaning of a phrase in context": 5,
-        "Meaning of a word in context": 26,
+        "Meaning of a word in context": 27,
         "Overall structure of a narrative": 1,
         "Overall structure of a passage": 1,
         "Overall structure of an argument": 1,
@@ -1239,8 +1244,9 @@
         "Points of agreement across passages": 1,
         "Predicting one author's response to the other": 1,
         "Purpose of a control in an experiment": 1,
-        "Purpose of a detail": 1,
+        "Purpose of a detail": 2,
         "Purpose of a detail in an argument": 1,
+        "Purpose of a fact in an argument": 1,
         "Purpose of a passage": 1,
         "Purpose of a short paragraph": 1,
         "Relating a proposal to the other passage": 1,
@@ -1258,27 +1264,27 @@
         "What an experiment adds to a correlation": 1
       },
       "by_difficulty_author": {
-        "easy": 83,
+        "easy": 89,
         "hard": 32,
-        "medium": 158
+        "medium": 161
       },
       "by_difficulty_calibrated": {
-        "easy": 158,
-        "medium": 115
+        "easy": 164,
+        "medium": 118
       },
       "calibrated_share": {
-        "easy": 0.579,
-        "medium": 0.421
+        "easy": 0.582,
+        "medium": 0.418
       },
       "answer_key_balance": {
-        "A": 80,
-        "B": 64,
-        "C": 65,
-        "D": 64
+        "A": 83,
+        "B": 66,
+        "C": 67,
+        "D": 66
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 36
+      "passages": 37
     },
     "sat_reading_writing": {
       "accepted": 278,
@@ -2101,7 +2107,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 28,
-    "act_reading": 36,
+    "act_reading": 37,
     "sat_reading_writing": 31,
     "sat_math": 57
   },
@@ -2159,15 +2165,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 32,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 0.6,
-        "Information and Ideas": -2.1,
-        "Standard English Conventions": 13.9,
-        "Expression of Ideas": -2.4
-      }
-    },
     "act_english": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
@@ -2177,11 +2174,20 @@
       }
     },
     "act_reading": {
-      "next_batch": 37,
+      "next_batch": 38,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 41.8,
-        "Craft and Structure": -14.5,
+        "Key Ideas and Details": 42.2,
+        "Craft and Structure": -14.9,
         "Integration of Knowledge and Ideas": -17.3
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 32,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 0.6,
+        "Information and Ideas": -2.1,
+        "Standard English Conventions": 13.9,
+        "Expression of Ideas": -2.4
       }
     }
   },
@@ -2198,8 +2204,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 273,
-      "share_of_target": 0.399
+      "accepted": 282,
+      "share_of_target": 0.412
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2213,9 +2219,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2124,
+  "total_accepted": 2133,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_reading",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -50436,6 +50442,85 @@
         "Live SAT Math after this audit: 499 (this workstream only), one below the 500 checkpoint; qb.py next therefore returns to SAT Math for one more batch before rotating. Answer letters: {\"B\": 105, \"D\": 54, \"A\": 72, \"C\": 87}; domains: {\"Algebra\": 160, \"Advanced Math\": 170, \"Geometry and Trigonometry\": 89, \"Problem-Solving and Data Analysis\": 80}; student-produced responses: 181.",
         "Pending (unchanged): prep-and-price-combined-bank-screening.zip is not accessible here, so the combined SAT Math baseline, combined reconciliation and cross-workstream duplicate screening remain pending."
       ]
+    },
+    {
+      "bank": "act_reading",
+      "audited_at": "2026-10-27T08:14:07+00:00",
+      "accepted": 303,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-ACT-R-000204",
+          "b": "CLD-ACT-R-000284",
+          "similarity": 0.71
+        }
+      ],
+      "answer_key_balance": {
+        "A": 88,
+        "B": 72,
+        "C": 72,
+        "D": 71
+      },
+      "by_skill": {
+        "Craft and Structure": 108,
+        "Integration of Knowledge and Ideas": 87,
+        "Key Ideas and Details": 108
+      },
+      "by_difficulty_author": {
+        "easy": 100,
+        "hard": 32,
+        "medium": 171
+      },
+      "by_difficulty_calibrated": {
+        "easy": 174,
+        "medium": 129
+      },
+      "thin_explanations": [
+        "CLD-ACT-R-000028",
+        "CLD-ACT-R-000046",
+        "CLD-ACT-R-000062",
+        "CLD-ACT-R-000069",
+        "CLD-ACT-R-000086",
+        "CLD-ACT-R-000090",
+        "CLD-ACT-R-000093",
+        "CLD-ACT-R-000111",
+        "CLD-ACT-R-000120",
+        "CLD-ACT-R-000126",
+        "CLD-ACT-R-000133",
+        "CLD-ACT-R-000141",
+        "CLD-ACT-R-000143",
+        "CLD-ACT-R-000146",
+        "CLD-ACT-R-000149",
+        "CLD-ACT-R-000150",
+        "CLD-ACT-R-000165",
+        "CLD-ACT-R-000181",
+        "CLD-ACT-R-000185",
+        "CLD-ACT-R-000194",
+        "CLD-ACT-R-000196",
+        "CLD-ACT-R-000242",
+        "CLD-ACT-R-000297"
+      ],
+      "subskills_used_more_than_twice": {
+        "Applying the author's reasoning": 4,
+        "Applying the passage's reasoning": 3,
+        "Author's attitude": 7,
+        "Central claim of a passage": 3,
+        "Central idea of a narrative": 4,
+        "Characterization": 3,
+        "Detail": 6,
+        "Detail (paraphrased)": 7,
+        "Function of a comparison": 4,
+        "Function of a detail": 7,
+        "Function of a paragraph": 11,
+        "Function of examples": 3,
+        "Interpreting a figurative statement": 6,
+        "Locating a stated detail": 8,
+        "Locating a stated reason": 8,
+        "Main purpose of a passage": 8,
+        "Meaning of a phrase in context": 6,
+        "Meaning of a word in context": 28,
+        "Relationship between paragraphs": 4
+      },
+      "scope": "automatic audit at 303 accepted"
     }
   ],
   "files": {
@@ -50455,7 +50540,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 36,
+      "bank_version": 37,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -50595,7 +50680,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T08:13:51+00:00",
+    "heartbeat_at": "2026-10-27T08:14:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
