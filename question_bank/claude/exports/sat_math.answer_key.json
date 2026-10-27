@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 87,
+  "bank_version": 88,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -20737,6 +20737,257 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Ask which statement is certain rather than plausible."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000977",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 rewrites 2x² as 4x + 1, doubling only the x-term of 2x + 1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Multiply the given equation by x: x³ = 2x² + x. Replace x² again: x³ = 2(2x + 1) + x = 5x + 2. So x³ − 5x = 2 for both solutions, x = 1 ± √2. Check: (1 + √2)³ = 7 + 5√2, and 7 + 5√2 − 5(1 + √2) = 2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides of the given equation by x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the relation twice to lower the degree."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000978",
+      "correct_answer": "-2",
+      "accepted_answers": [
+        "-2"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 uses (x − 1)(x − 3) without the factor a.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the x-coordinate of the vertex.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "a + b + c = f(1) and 9a + 3b + c = f(3), so 1 and 3 are zeros and f(x) = a(x − 1)(x − 3). Then f(0) = 3a = 6 gives a = 2. The minimum is at x = 2: f(2) = 2(1)(−1) = −2. Solving the system directly also gives a = 2, b = −8, c = 6.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is f(1) in terms of a, b, and c?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Recognize each sum as a value of f."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000979",
+      "correct_answer": "A",
+      "explanation": "The first fraction is (x + 2)(x + 3)/(x + 2) = x + 3. The second is (x − 3)(x + 3)/(−(x − 3)) = −(x + 3). Their sum is 0. Check x = 0: 6/2 + (−9)/3 = 3 − 3 = 0.",
+      "distractor_explanations": {
+        "B": "Factors x² − 9 as (x − 3)², so the second fraction becomes 3 − x.",
+        "C": "Cancels x − 3 against 3 − x as if they were equal.",
+        "D": "Applies the negative from 3 − x to both fractions."
+      },
+      "hints": [
+        "Factor each numerator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check with x = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000980",
+      "correct_answer": "C",
+      "explanation": "p(a) = 9 means a³ − 4a = 7. Then p(−a) = −a³ + 4a + 2 = −(a³ − 4a) + 2 = −7 + 2 = −5.",
+      "distractor_explanations": {
+        "A": "Treats p as odd, so p(−a) = −p(a), ignoring the constant 2.",
+        "B": "Negates the odd part but forgets to add the 2 back.",
+        "D": "Treats p as even."
+      },
+      "hints": [
+        "What is a³ − 4a?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Separate the odd part from the constant."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000981",
+      "correct_answer": "B",
+      "explanation": "From x = 1 to x = 3 the rate is (24 − 6)/2 = 9. From x = 0 to x = 2 it is (12 − 3)/2 = 4.5. The ratio is 9/4.5 = 2: shifting the interval 1 unit to the right multiplies every value of f, and every difference, by the base 2.",
+      "distractor_explanations": {
+        "A": "Treats intervals of equal width as having equal rates, as for a linear function.",
+        "C": "Gives f(3)/f(1), the growth across one interval.",
+        "D": "Gives f(3)/f(0), comparing the outer endpoints."
+      },
+      "hints": [
+        "Compute each average rate of change."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f at the four inputs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000982",
+      "correct_answer": "C",
+      "explanation": "The region is the large sector minus the small sector: (θ/2)(6²) − (θ/2)(4²) = 18θ − 8θ = 10θ. Setting 10θ = 5π gives θ = π/2.",
+      "distractor_explanations": {
+        "A": "Uses θ(6² − 4²) without the factor 1/2.",
+        "B": "Uses only the larger sector, (θ/2)(36) = 5π.",
+        "D": "Uses only the smaller sector, (θ/2)(16) = 5π."
+      },
+      "hints": [
+        "What is the area of a sector with angle θ radians?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Shade the region between the two arcs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000983",
+      "correct_answer": "B",
+      "explanation": "The arcs measure 60°, 120°, and 180°, so the inscribed angles are 30°, 60°, and 90°. The 90° angle intercepts a semicircle, so the hypotenuse is a diameter of length 10, and the legs are 5 and 5√3. The area is (1/2)(5)(5√3) = 25√3/2.",
+      "distractor_explanations": {
+        "A": "Uses the radius 5 as the hypotenuse.",
+        "C": "Treats the diameter as a leg with the other leg 5.",
+        "D": "Uses 10 as the shorter leg of the 30°-60°-90° triangle."
+      },
+      "hints": [
+        "What fraction of 360° is each arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Convert arcs to inscribed angles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000984",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 sets the sum of squares equal to 5 instead of 25.",
+          "trap": null
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 is the other solution, not the greatest.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "(k − 2)² + (3 − k)² = 25 gives 2k² − 10k + 13 = 25, so k² − 5k − 6 = 0 and k = 6 or k = −1. The greatest value is 6. Check: (6, 3) to (2, 6) is √(16 + 9) = 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the distance formula with both points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the distance and solve the quadratic."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000985",
+      "correct_answer": "28.8",
+      "accepted_answers": [
+        "28.8",
+        "144/5"
+      ],
+      "common_errors": [
+        {
+          "value": "57.6",
+          "rationale": "57.6 forgets the 1/2 in the area formula.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.4",
+          "rationale": "2.4 scales by the hypotenuse only once, (1/2)(0.4)(12).",
+          "trap": null
+        }
+      ],
+      "explanation": "BC = 12 sin A and AC = 12 cos A, so the area is (1/2)(12 sin A)(12 cos A) = 72(0.4) = 28.8. No single side needs to be found.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each leg in terms of the hypotenuse and angle A."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Express the area using sin A and cos A."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000986",
+      "correct_answer": "7/4",
+      "accepted_answers": [
+        "7/4",
+        "1.75"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 assumes D is the midpoint of AC.",
+          "trap": null
+        },
+        {
+          "value": "25/4",
+          "rationale": "25/4 is BD (and AD), not CD.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "BC = AC · tan A = 6. Let CD = d, so AD = 8 − d = BD. In right triangle BCD, (8 − d)² = d² + 36, so 64 − 16d = 36 and d = 7/4. Check: BD = 25/4, and (7/4)² + 6² = 625/16.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find BC first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label CD as d and write BD in terms of d."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000987",
+      "correct_answer": "67.5",
+      "accepted_answers": [
+        "67.5",
+        "135/2"
+      ],
+      "common_errors": [
+        {
+          "value": "65",
+          "rationale": "65 weights the speeds by distance, (30 × 45 + 90v)/120 = 60.",
+          "trap": null
+        },
+        {
+          "value": "75",
+          "rationale": "75 averages the two speeds, (45 + v)/2 = 60.",
+          "trap": null
+        }
+      ],
+      "explanation": "An average of at least 60 mph over 120 miles means the trip takes at most 2 hours. The first 30 miles took 30/45 = 2/3 hour, leaving 4/3 hours for 90 miles, so 90/v ≤ 4/3 and v ≥ 67.5 mph.",
+      "distractor_explanations": {},
+      "hints": [
+        "How long may the whole trip take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Work with total time, not with averaged speeds."
       }
     }
   ]

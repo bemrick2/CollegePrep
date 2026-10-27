@@ -1,0 +1,343 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 88,
+  "reviewed_at": "2026-10-27T22:45:43+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 88
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 2
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000977",
+    "CLD-SAT-M-000978",
+    "CLD-SAT-M-000979",
+    "CLD-SAT-M-000980",
+    "CLD-SAT-M-000981",
+    "CLD-SAT-M-000982",
+    "CLD-SAT-M-000983",
+    "CLD-SAT-M-000984",
+    "CLD-SAT-M-000985",
+    "CLD-SAT-M-000986",
+    "CLD-SAT-M-000987"
+  ],
+  "results": [
+    {
+      "cand": "Q088-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x^3 = x*x^2 = 2x^2+x = 5x+2, so x^3-5x = 2. Both roots 1±√2 give 2, so it is well-defined; a calculator check works too.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires using the relation twice so the x-terms cancel."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000977"
+    },
+    {
+      "cand": "Q088-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-2",
+      "computed_answer": "-2",
+      "blind_answer": "-2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "f(1)=f(3)=0, so f=a(x-1)(x-3). c=3a=6 gives a=2. Vertex x=2 gives f(2)=2(1)(-1)=-2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The sums must be recognized as function values."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000978"
+    },
+    {
+      "cand": "Q088-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: C keeps a positive leading coefficient, so anyone who knows a reflection flips concavity can drop it right away"
+      ],
+      "blind_notes": "g = 8 - f = -x^2+6x-3. Vertex (3,2) goes to (3,6). A is 4 - f (a half-step error), and B has the wrong sign on the x term.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Three choices share the y-intercept, so the vertex or opening must be checked."
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000733",
+          "similarity": 0.68
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q088-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(x+3) + (x-3)(x+3)/(3-x) = (x+3) - (x+3) = 0. C is the result if you miss the sign of 3-x.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000979"
+    },
+    {
+      "cand": "Q088-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "a^3-4a = 7, so p(-a) = -7+2 = -5. B comes from dropping the constant, and A from treating p as odd.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000980"
+    },
+    {
+      "cand": "Q088-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "(24-6)/2 = 9 and (12-3)/2 = 4.5, so the ratio is 2. Direct computation is quick.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000981"
+    },
+    {
+      "cand": "Q088-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Downward parabola with axis x=2, and f(4)=f(0)=1. x=5 is farther from the axis, so f(5)<1. B and C are false (f(4)=1). D is false because f(5)=f(-1) by symmetry. Only A is necessarily true.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000905",
+          "similarity": 0.69
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q088-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "(θ/2)(36-16) = 10θ = 5π, so θ = π/2. The distractors come from using only the large circle (B), only the small circle (D), or dropping the 1/2 (A).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000982"
+    },
+    {
+      "cand": "Q088-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [
+        "minor: D (50√3 ≈ 86.6) exceeds the circle's own area (25π ≈ 78.5), so it is implausible and easy to eliminate"
+      ],
+      "blind_notes": "Arcs of 60°, 120° and 180° give inscribed angles of 30°, 60° and 90°. The hypotenuse is a diameter (10), so the legs are 5 and 5√3. Area = 25√3/2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Arc ratio to angles, then diameter and special triangle."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000983"
+    },
+    {
+      "cand": "Q088-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(k-2)^2+(3-k)^2 = 25 simplifies to k^2-5k-6 = 0, so k = 6 or k = -1. The greatest is 6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000984"
+    },
+    {
+      "cand": "Q088-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "28.8",
+      "computed_answer": "28.8",
+      "blind_answer": "28.8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "The legs are 12sinA and 12cosA, so area = 72·sinA·cosA = 28.8 (also 144/5). sinA·cosA = 0.4 ≤ 0.5, so the triangle exists. The key insight is to express the legs in terms of the hypotenuse.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The given product appears directly in the area formula."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000985"
+    },
+    {
+      "cand": "Q088-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7/4",
+      "computed_answer": "7/4",
+      "blind_answer": "7/4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "BC = 6. Let AD = x. Then x^2 = (8-x)^2 + 36, so x = 6.25 and CD = 1.75.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Combines a trig ratio with a Pythagorean equation in the unknown piece."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000986"
+    },
+    {
+      "cand": "Q088-13",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "accepted answers 66.66 and 66.67 are rounded, not equivalent to 200/3",
+          "change": "renumbered (first 30 miles at 45 mph) so the exact answer is 67.5; traps recomputed (65 distance-weighted, 75 plain average)"
+        }
+      ],
+      "key": "67.5",
+      "computed_answer": "67.5",
+      "blind_answer": "67.5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Total time must be ≤ 2 h. The first leg takes 2/3 h, leaving 4/3 h for 90 mi, so the speed is 67.5 mph. The trap is averaging the speeds, which gives 65 (weighted) or 75.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both averaging shortcuts give wrong answers."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000987"
+    }
+  ]
+}

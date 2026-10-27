@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 87,
-  "updated_at": "2026-10-27T20:03:07+00:00",
+  "version": 88,
+  "updated_at": "2026-10-27T22:45:43+00:00",
   "passages": [],
   "questions": [
     {
@@ -70964,6 +70964,799 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_math/batch-087.review.json",
         "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000977",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Reducing a cubic with a quadratic relation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x² = 2x + 1, what is the value of x³ − 5x?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 rewrites 2x² as 4x + 1, doubling only the x-term of 2x + 1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Multiply the given equation by x: x³ = 2x² + x. Replace x² again: x³ = 2(2x + 1) + x = 5x + 2. So x³ − 5x = 2 for both solutions, x = 1 ± √2. Check: (1 + √2)³ = 7 + 5√2, and 7 + 5√2 − 5(1 + √2) = 2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Multiply both sides of the given equation by x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the relation twice to lower the degree."
+      },
+      "remember": "Use a given equation repeatedly to reduce higher powers.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-01",
+      "created_at": "2026-10-27T22:45:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000978",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Quadratic from coefficient sums",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = ax² + bx + c, where a, b, and c are constants. If a + b + c = 0, 9a + 3b + c = 0, and c = 6, what is the minimum value of f(x)?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-2",
+      "accepted_answers": [
+        "-2"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 uses (x − 1)(x − 3) without the factor a.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the x-coordinate of the vertex.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "a + b + c = f(1) and 9a + 3b + c = f(3), so 1 and 3 are zeros and f(x) = a(x − 1)(x − 3). Then f(0) = 3a = 6 gives a = 2. The minimum is at x = 2: f(2) = 2(1)(−1) = −2. Solving the system directly also gives a = 2, b = −8, c = 6.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is f(1) in terms of a, b, and c?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Recognize each sum as a value of f."
+      },
+      "remember": "a + b + c is f(1) for any quadratic ax² + bx + c.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-02",
+      "created_at": "2026-10-27T22:45:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-2",
+        "blind_answer": "-2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000979",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of two rational expressions that cancel",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x ≠ −2 and x ≠ 3, which of the following is equivalent to (x² + 5x + 6)/(x + 2) + (x² − 9)/(3 − x)?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0",
+        "B": "6",
+        "C": "2x + 6",
+        "D": "−2x − 6"
+      },
+      "correct_answer": "A",
+      "explanation": "The first fraction is (x + 2)(x + 3)/(x + 2) = x + 3. The second is (x − 3)(x + 3)/(−(x − 3)) = −(x + 3). Their sum is 0. Check x = 0: 6/2 + (−9)/3 = 3 − 3 = 0.",
+      "distractor_explanations": {
+        "B": "Factors x² − 9 as (x − 3)², so the second fraction becomes 3 − x.",
+        "C": "Cancels x − 3 against 3 − x as if they were equal.",
+        "D": "Applies the negative from 3 − x to both fractions."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Factor each numerator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check with x = 0."
+      },
+      "remember": "3 − x equals −(x − 3).",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-04",
+      "created_at": "2026-10-27T22:45:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000980",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Odd part plus a constant",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function p is defined by p(x) = x³ − 4x + 2. If p(a) = 9, what is the value of p(−a)?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−9",
+        "B": "−7",
+        "C": "−5",
+        "D": "9"
+      },
+      "correct_answer": "C",
+      "explanation": "p(a) = 9 means a³ − 4a = 7. Then p(−a) = −a³ + 4a + 2 = −(a³ − 4a) + 2 = −7 + 2 = −5.",
+      "distractor_explanations": {
+        "A": "Treats p as odd, so p(−a) = −p(a), ignoring the constant 2.",
+        "B": "Negates the odd part but forgets to add the 2 back.",
+        "D": "Treats p as even."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "What is a³ − 4a?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Separate the odd part from the constant."
+      },
+      "remember": "Only the odd part changes sign when x becomes −x.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-05",
+      "created_at": "2026-10-27T22:45:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000981",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Comparing average rates of change of an exponential",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = 3 · 2ˣ. The average rate of change of f from x = 1 to x = 3 is how many times the average rate of change of f from x = 0 to x = 2?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "8"
+      },
+      "correct_answer": "B",
+      "explanation": "From x = 1 to x = 3 the rate is (24 − 6)/2 = 9. From x = 0 to x = 2 it is (12 − 3)/2 = 4.5. The ratio is 9/4.5 = 2: shifting the interval 1 unit to the right multiplies every value of f, and every difference, by the base 2.",
+      "distractor_explanations": {
+        "A": "Treats intervals of equal width as having equal rates, as for a linear function.",
+        "C": "Gives f(3)/f(1), the growth across one interval.",
+        "D": "Gives f(3)/f(0), comparing the outer endpoints."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Compute each average rate of change."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate f at the four inputs."
+      },
+      "remember": "Shifting an exponential's input by 1 multiplies outputs by the base.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-06",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000982",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area between two sectors with a shared angle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two circles have the same center O, with radii 4 and 6. Two radii of the larger circle form a central angle of θ radians, and the part of the region between the two circles that lies inside this angle has an area of 5π. What is the value of θ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "π/4",
+        "B": "5π/18",
+        "C": "π/2",
+        "D": "5π/8"
+      },
+      "correct_answer": "C",
+      "explanation": "The region is the large sector minus the small sector: (θ/2)(6²) − (θ/2)(4²) = 18θ − 8θ = 10θ. Setting 10θ = 5π gives θ = π/2.",
+      "distractor_explanations": {
+        "A": "Uses θ(6² − 4²) without the factor 1/2.",
+        "B": "Uses only the larger sector, (θ/2)(36) = 5π.",
+        "D": "Uses only the smaller sector, (θ/2)(16) = 5π."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is the area of a sector with angle θ radians?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Shade the region between the two arcs."
+      },
+      "remember": "A sector's area is (θ/2)r² when θ is in radians.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-08",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000983",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed triangle from an arc ratio",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Triangle ABC is inscribed in a circle with radius 5. Its vertices divide the circle into three arcs whose lengths are in the ratio 1 : 2 : 3. What is the area of triangle ABC?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25√3/8",
+        "B": "25√3/2",
+        "C": "25",
+        "D": "50√3"
+      },
+      "correct_answer": "B",
+      "explanation": "The arcs measure 60°, 120°, and 180°, so the inscribed angles are 30°, 60°, and 90°. The 90° angle intercepts a semicircle, so the hypotenuse is a diameter of length 10, and the legs are 5 and 5√3. The area is (1/2)(5)(5√3) = 25√3/2.",
+      "distractor_explanations": {
+        "A": "Uses the radius 5 as the hypotenuse.",
+        "C": "Treats the diameter as a leg with the other leg 5.",
+        "D": "Uses 10 as the shorter leg of the 30°-60°-90° triangle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What fraction of 360° is each arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Convert arcs to inscribed angles."
+      },
+      "remember": "An inscribed angle is half its intercepted arc.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-09",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [
+          "minor: D (50√3 ≈ 86.6) exceeds the circle's own area (25π ≈ 78.5), so it is implausible and easy to eliminate"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000984",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Distance condition with the unknown in both points",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the distance between the points (k, 3) and (2, k) is 5. What is the greatest possible value of k?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 sets the sum of squares equal to 5 instead of 25.",
+          "trap": null
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 is the other solution, not the greatest.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "(k − 2)² + (3 − k)² = 25 gives 2k² − 10k + 13 = 25, so k² − 5k − 6 = 0 and k = 6 or k = −1. The greatest value is 6. Check: (6, 3) to (2, 6) is √(16 + 9) = 5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the distance formula with both points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the distance and solve the quadratic."
+      },
+      "remember": "Square the distance to avoid the square root.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-10",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000985",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Right-triangle area from a product of trigonometric ratios",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle and AB = 12. If sin A · cos A = 0.4, what is the area of triangle ABC?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "28.8",
+      "accepted_answers": [
+        "28.8",
+        "144/5"
+      ],
+      "common_errors": [
+        {
+          "value": "57.6",
+          "rationale": "57.6 forgets the 1/2 in the area formula.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.4",
+          "rationale": "2.4 scales by the hypotenuse only once, (1/2)(0.4)(12).",
+          "trap": null
+        }
+      ],
+      "explanation": "BC = 12 sin A and AC = 12 cos A, so the area is (1/2)(12 sin A)(12 cos A) = 72(0.4) = 28.8. No single side needs to be found.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each leg in terms of the hypotenuse and angle A."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Express the area using sin A and cos A."
+      },
+      "remember": "In a right triangle, each leg is the hypotenuse times sin or cos.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-11",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "28.8",
+        "blind_answer": "28.8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000986",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Equal segments inside a right triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, AC = 8, and tan A = 3/4. Point D lies on side AC so that BD = AD. What is the length of CD?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7/4",
+      "accepted_answers": [
+        "7/4",
+        "1.75"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 assumes D is the midpoint of AC.",
+          "trap": null
+        },
+        {
+          "value": "25/4",
+          "rationale": "25/4 is BD (and AD), not CD.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "BC = AC · tan A = 6. Let CD = d, so AD = 8 − d = BD. In right triangle BCD, (8 − d)² = d² + 36, so 64 − 16d = 36 and d = 7/4. Check: BD = 25/4, and (7/4)² + 6² = 625/16.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find BC first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label CD as d and write BD in terms of d."
+      },
+      "remember": "Turn equal lengths into an equation with the Pythagorean theorem.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-12",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7/4",
+        "blind_answer": "7/4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000987",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Required speed for a target average",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Kim is driving 120 miles. She drove the first 30 miles at an average speed of 45 miles per hour. What is the least average speed, in miles per hour, at which she can drive the remaining 90 miles so that her average speed for the whole trip is at least 60 miles per hour?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "67.5",
+      "accepted_answers": [
+        "67.5",
+        "135/2"
+      ],
+      "common_errors": [
+        {
+          "value": "65",
+          "rationale": "65 weights the speeds by distance, (30 × 45 + 90v)/120 = 60.",
+          "trap": null
+        },
+        {
+          "value": "75",
+          "rationale": "75 averages the two speeds, (45 + v)/2 = 60.",
+          "trap": null
+        }
+      ],
+      "explanation": "An average of at least 60 mph over 120 miles means the trip takes at most 2 hours. The first 30 miles took 30/45 = 2/3 hour, leaving 4/3 hours for 90 miles, so 90/v ≤ 4/3 and v ≥ 67.5 mph.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How long may the whole trip take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Work with total time, not with averaged speeds."
+      },
+      "remember": "Average speed is total distance divided by total time.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 88,
+      "draft_candidate": "Q088-13",
+      "created_at": "2026-10-27T22:45:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "67.5",
+        "blind_answer": "67.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-088.review.json",
+        "computation": "checks/sat_math/batch_088.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
