@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 13,
-  "updated_at": "2026-10-27T02:18:15+00:00",
+  "version": 14,
+  "updated_at": "2026-10-27T02:23:45+00:00",
   "passages": [],
   "questions": [
     {
@@ -8906,6 +8906,726 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-013.review.json",
         "computation": "checks/sat_math/batch_013.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000125",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a formula for one of its variables",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The perimeter P of a rectangle with length l and width w is given by P = 2l + 2w. Which of the following expresses w in terms of P and l ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "w = P − 2l",
+        "B": "w = (P − 2l)/2",
+        "C": "w = P/2 − 2l",
+        "D": "w = (P + 2l)/2"
+      },
+      "correct_answer": "B",
+      "explanation": "Subtract 2l from both sides to get P − 2l = 2w, then divide both sides by 2: w = (P − 2l)/2. Dividing only part of the expression by 2 gives the wrong formula.",
+      "distractor_explanations": {
+        "A": "This forgets to divide by 2.",
+        "C": "This divides P by 2 but not 2l.",
+        "D": "This adds 2l instead of subtracting it."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Isolate the term with w first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "A 3-by-5 rectangle has P = 16: check which formula gives w = 3 when l = 5."
+      },
+      "remember": "Undo addition first, then undo multiplication.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-01",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000126",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Setting up an equation from a scoring rule",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a 40-question test, a student earns 3 points for each correct answer and loses 1 point for each incorrect answer. A student answered all 40 questions and earned a score of 76. How many questions did the student answer correctly?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18",
+        "B": "25",
+        "C": "29",
+        "D": "38"
+      },
+      "correct_answer": "C",
+      "explanation": "If c answers are correct, then 40 − c are incorrect, so 3c − (40 − c) = 76. That gives 4c − 40 = 76, 4c = 116 and c = 29. Check: 29 correct earn 87 points, and 11 incorrect lose 11, for 76.",
+      "distractor_explanations": {
+        "A": "18 adds the incorrect answers instead of subtracting them: 3c + (40 − c) = 76.",
+        "B": "25 divides 76 by 3 and ignores the lost points.",
+        "D": "38 subtracts c instead of 40 − c: 3c − c = 76."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write the number of incorrect answers in terms of c."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: 29 gives 87 − 11 = 76."
+      },
+      "remember": "Every question is either correct or incorrect: the counts add to 40.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-02",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000127",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Finding a coefficient from part of a system's solution",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "ax + 2y = 5\n3x − y = 4\nIn the system of equations above, a is a constant. If the solution (x, y) of the system has x = 1, what is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "5",
+        "D": "7"
+      },
+      "correct_answer": "D",
+      "explanation": "Substituting x = 1 into the second equation gives 3 − y = 4, so y = −1. Substituting x = 1 and y = −1 into the first equation gives a − 2 = 5, so a = 7.",
+      "distractor_explanations": {
+        "A": "1 uses y = 1 instead of y = −1.",
+        "B": "3 is the coefficient of x in the second equation.",
+        "C": "5 ignores the 2y term."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "Use the second equation to find y when x = 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find y first, then substitute both values into the first equation."
+      },
+      "remember": "Use the equation with no unknown constant first.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-03",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000128",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant that puts a parabola's vertex on the y-axis",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of y = (x − k)(x + 3), where k is a constant, is a parabola whose vertex lies on the y-axis. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "-3",
+          "rationale": "−3 gives a double zero at x = −3, so the vertex is at x = −3, not on the y-axis.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "0",
+          "rationale": "0 makes one zero x = 0, but then the vertex is at x = −3/2.",
+          "trap": null
+        }
+      ],
+      "explanation": "The x-coordinate of the vertex is midway between the zeros k and −3: (k − 3)/2. The vertex is on the y-axis when this equals 0, so k = 3. Check: y = (x − 3)(x + 3) = x² − 9 has its vertex at (0, −9).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the vertex relative to the two zeros?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the midpoint of the zeros equal to 0."
+      },
+      "remember": "The vertex lies midway between the zeros.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-04",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000129",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential function through two points",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = a · bˣ, where a and b are positive constants. The graph of y = f(x) passes through the points (1, 6) and (3, 54). What is the value of f(0) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "6",
+        "D": "18"
+      },
+      "correct_answer": "A",
+      "explanation": "Dividing f(3) by f(1) gives b² = 54/6 = 9, so b = 3 (b is positive). Then f(1) = 3a = 6 gives a = 2, and f(0) = a · b⁰ = a = 2.",
+      "distractor_explanations": {
+        "B": "3 is the value of b, not f(0).",
+        "C": "6 is f(1).",
+        "D": "18 is f(2)."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Divide f(3) by f(1)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b from the ratio, then find a."
+      },
+      "remember": "The ratio of outputs two steps apart is b².",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-05",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000130",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solution set of a quadratic with no constant term",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the solution set of the equation x² = 6x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "{6}",
+        "B": "{0, 6}",
+        "C": "{−6, 6}",
+        "D": "{−6, 0}"
+      },
+      "correct_answer": "B",
+      "explanation": "Subtract 6x from both sides: x² − 6x = 0, so x(x − 6) = 0 and x = 0 or x = 6. Dividing both sides by x would lose the solution x = 0.",
+      "distractor_explanations": {
+        "A": "{6} divides both sides by x, losing the solution x = 0.",
+        "C": "{−6, 6} treats the equation as x² = 36.",
+        "D": "{−6, 0} has the wrong sign for the nonzero solution."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Move every term to one side and factor."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check x = 0: 0 = 0."
+      },
+      "remember": "Never divide both sides by a variable that could be 0.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-06",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000131",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Share of a total after two different percent changes",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In 2022, 40% of a store's sales, in dollars, were online and the rest were in the store. From 2022 to 2023, online sales increased by 20% and in-store sales decreased by 20%. What percent of the store's 2023 sales were online? (Disregard the % sign when entering your answer.)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "48",
+          "rationale": "48 is 2023 online sales as a percent of 2022 total sales, not of 2023 sales.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "40",
+          "rationale": "40 assumes the share is unchanged because the two changes are equal and opposite.",
+          "trap": null
+        }
+      ],
+      "explanation": "Suppose 2022 sales were $100: $40 online and $60 in the store. In 2023, online sales were 40 × 1.2 = $48 and in-store sales were 60 × 0.8 = $48, for a total of $96. The online share is 48/96 = 0.5, or 50%.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Pick a convenient total for 2022."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use $100 for 2022 sales."
+      },
+      "remember": "A share is part ÷ the new total, not the old one.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-07",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "50",
+        "blind_answer": "50",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000132",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Scale model with a unit conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A model car is built at a scale of 1 : 18, so each length on the model is 1/18 of the matching length on the real car. The model is 25 centimeters long. How long is the real car, in meters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.45",
+        "B": "1.39",
+        "C": "4.5",
+        "D": "45"
+      },
+      "correct_answer": "C",
+      "explanation": "The real car is 18 times as long as the model: 25 × 18 = 450 centimeters. Since 100 centimeters = 1 meter, 450 centimeters = 4.5 meters.",
+      "distractor_explanations": {
+        "A": "0.45 divides by 1,000 instead of 100.",
+        "B": "1.39 divides 25 by 18 instead of multiplying.",
+        "D": "45 divides by 10 instead of 100."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find the real length in centimeters first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by 18, then convert centimeters to meters."
+      },
+      "remember": "Scale first, then convert units.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-08",
+      "created_at": "2026-10-27T02:23:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000133",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Shadow length from similar triangles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A person 6 feet tall stands 10 feet from the base of a lamppost that is 15 feet tall. The light at the top of the lamppost casts the person's shadow directly away from the lamppost along level ground. What is the length of the person's shadow, in feet?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "20/3",
+      "accepted_answers": [
+        "20/3",
+        "6.666",
+        "6.667"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 sets 6/15 = s/10, using the distance to the post as the large triangle's base.",
+          "trap": null
+        },
+        {
+          "value": "50/3",
+          "rationale": "50/3 is 10 + s, the distance from the lamppost to the tip of the shadow.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The lamppost and the person form two similar right triangles that share the tip of the shadow. If the shadow is s feet long, the large triangle has base 10 + s and height 15, and the small one has base s and height 6. So 6/s = 15/(10 + s), giving 6(10 + s) = 15s, 60 = 9s and s = 20/3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Draw both triangles with the shadow's tip as a shared vertex."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the large triangle's base as 10 + s."
+      },
+      "remember": "Similar triangles: match height to base in both triangles.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-09",
+      "created_at": "2026-10-27T02:23:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "20/3",
+        "blind_answer": "20/3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: the answer 20/3 is a repeating decimal, so the key should also accept 6.666 and 6.667"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000134",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Volume of cylinders with the same height and different radii",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Cylinders A and B have the same height. The radius of cylinder B is 1.5 times the radius of cylinder A. The volume of cylinder A is 48π cubic centimeters. What is the volume of cylinder B, in cubic centimeters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "72π",
+        "B": "96π",
+        "C": "108π",
+        "D": "162π"
+      },
+      "correct_answer": "C",
+      "explanation": "Volume is πr²h. With the same height, multiplying the radius by 1.5 multiplies the volume by 1.5² = 2.25. So the volume of B is 48π × 2.25 = 108π cubic centimeters.",
+      "distractor_explanations": {
+        "A": "72π multiplies the volume by 1.5 instead of 1.5².",
+        "B": "96π doubles the volume.",
+        "D": "162π multiplies by 1.5³, as if the height also changed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How does the volume depend on the radius?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let A have r = 4 and h = 3, so B has r = 6."
+      },
+      "remember": "Volume scales with the square of the radius when the height is fixed.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 14,
+      "draft_candidate": "Q014-10",
+      "created_at": "2026-10-27T02:23:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-014.review.json",
+        "computation": "checks/sat_math/batch_014.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

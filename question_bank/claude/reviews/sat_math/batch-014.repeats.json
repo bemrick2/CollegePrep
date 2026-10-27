@@ -1,0 +1,27 @@
+{
+  "batch": 14,
+  "checked_against": "sat_math (live), act_math (live), fixtures",
+  "results": {
+    "Q014-01": [],
+    "Q014-02": [],
+    "Q014-03": [],
+    "Q014-04": [
+      {"other_id": "CLD-ACT-M-000734", "severity": "close", "why": "Both rest on the axis of symmetry lying midway between the zeros, but ACT-734 gives two x-intercepts and asks for the axis; Q014-04 fixes the axis (x = 0) and solves for an unknown zero/constant k. The reasoning runs in reverse, so this is not a template repeat."}
+    ],
+    "Q014-05": [
+      {"other_id": "CLD-ACT-M-000184", "severity": "close", "why": "Both find exponential parameters from given points. ACT-184 gives a = 200 and one point and asks for b. Q014-05 gives two points with a and b both unknown (divide to get b², then back-solve) and asks for f(0). The setup and the asked quantity differ."}
+    ],
+    "Q014-06": [],
+    "Q014-07": [],
+    "Q014-08": [
+      {"other_id": "CLD-ACT-M-000037", "severity": "close", "why": "Both scale a length up to the real-world length. ACT-037 uses a map rate (1.5 in : 20 mi) with no unit change. Q014-08 uses a pure ratio of 1:18 plus a cm-to-m conversion."}
+    ],
+    "Q014-09": [
+      {"other_id": "CLD-ACT-M-000257", "severity": "close", "why": "Both use similar triangles with shadows. ACT-257 is the parallel-sun-rays case: two objects, two shadows, find the tree's height. Q014-09 is a point light source where the large triangle's base is distance + shadow, and it asks for the shadow length. The equation setup is different."}
+    ],
+    "Q014-10": [
+      {"other_id": "CLD-ACT-M-000602", "severity": "close", "why": "Both scale a cylinder's volume from a known volume (both start at 48). ACT-602 is similar solids (factor cubed, from heights). Q014-10 has equal heights and only the radius scaled (factor squared, 1.5² = 2.25). The asked quantity is alike but the scaling reasoning differs."},
+      {"other_id": "CLD-ACT-M-000232", "severity": "close", "why": "Both look at how a cylinder's volume changes when the radius changes. ACT-232 changes both radius and height and asks for the multiplier. Q014-10 keeps the height fixed and asks for the new volume. This is the same broad skill, not the same template."}
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 13,
+  "bank_version": 14,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -2326,6 +2326,211 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Evaluate f(0)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000125",
+      "correct_answer": "B",
+      "explanation": "Subtract 2l from both sides to get P − 2l = 2w, then divide both sides by 2: w = (P − 2l)/2. Dividing only part of the expression by 2 gives the wrong formula.",
+      "distractor_explanations": {
+        "A": "This forgets to divide by 2.",
+        "C": "This divides P by 2 but not 2l.",
+        "D": "This adds 2l instead of subtracting it."
+      },
+      "hints": [
+        "Isolate the term with w first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "A 3-by-5 rectangle has P = 16: check which formula gives w = 3 when l = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000126",
+      "correct_answer": "C",
+      "explanation": "If c answers are correct, then 40 − c are incorrect, so 3c − (40 − c) = 76. That gives 4c − 40 = 76, 4c = 116 and c = 29. Check: 29 correct earn 87 points, and 11 incorrect lose 11, for 76.",
+      "distractor_explanations": {
+        "A": "18 adds the incorrect answers instead of subtracting them: 3c + (40 − c) = 76.",
+        "B": "25 divides 76 by 3 and ignores the lost points.",
+        "D": "38 subtracts c instead of 40 − c: 3c − c = 76."
+      },
+      "hints": [
+        "Write the number of incorrect answers in terms of c."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: 29 gives 87 − 11 = 76."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000127",
+      "correct_answer": "D",
+      "explanation": "Substituting x = 1 into the second equation gives 3 − y = 4, so y = −1. Substituting x = 1 and y = −1 into the first equation gives a − 2 = 5, so a = 7.",
+      "distractor_explanations": {
+        "A": "1 uses y = 1 instead of y = −1.",
+        "B": "3 is the coefficient of x in the second equation.",
+        "C": "5 ignores the 2y term."
+      },
+      "hints": [
+        "Use the second equation to find y when x = 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find y first, then substitute both values into the first equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000128",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "-3",
+          "rationale": "−3 gives a double zero at x = −3, so the vertex is at x = −3, not on the y-axis.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "0",
+          "rationale": "0 makes one zero x = 0, but then the vertex is at x = −3/2.",
+          "trap": null
+        }
+      ],
+      "explanation": "The x-coordinate of the vertex is midway between the zeros k and −3: (k − 3)/2. The vertex is on the y-axis when this equals 0, so k = 3. Check: y = (x − 3)(x + 3) = x² − 9 has its vertex at (0, −9).",
+      "distractor_explanations": {},
+      "hints": [
+        "Where is the vertex relative to the two zeros?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the midpoint of the zeros equal to 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000129",
+      "correct_answer": "A",
+      "explanation": "Dividing f(3) by f(1) gives b² = 54/6 = 9, so b = 3 (b is positive). Then f(1) = 3a = 6 gives a = 2, and f(0) = a · b⁰ = a = 2.",
+      "distractor_explanations": {
+        "B": "3 is the value of b, not f(0).",
+        "C": "6 is f(1).",
+        "D": "18 is f(2)."
+      },
+      "hints": [
+        "Divide f(3) by f(1)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b from the ratio, then find a."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000130",
+      "correct_answer": "B",
+      "explanation": "Subtract 6x from both sides: x² − 6x = 0, so x(x − 6) = 0 and x = 0 or x = 6. Dividing both sides by x would lose the solution x = 0.",
+      "distractor_explanations": {
+        "A": "{6} divides both sides by x, losing the solution x = 0.",
+        "C": "{−6, 6} treats the equation as x² = 36.",
+        "D": "{−6, 0} has the wrong sign for the nonzero solution."
+      },
+      "hints": [
+        "Move every term to one side and factor."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check x = 0: 0 = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000131",
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "48",
+          "rationale": "48 is 2023 online sales as a percent of 2022 total sales, not of 2023 sales.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "40",
+          "rationale": "40 assumes the share is unchanged because the two changes are equal and opposite.",
+          "trap": null
+        }
+      ],
+      "explanation": "Suppose 2022 sales were $100: $40 online and $60 in the store. In 2023, online sales were 40 × 1.2 = $48 and in-store sales were 60 × 0.8 = $48, for a total of $96. The online share is 48/96 = 0.5, or 50%.",
+      "distractor_explanations": {},
+      "hints": [
+        "Pick a convenient total for 2022."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use $100 for 2022 sales."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000132",
+      "correct_answer": "C",
+      "explanation": "The real car is 18 times as long as the model: 25 × 18 = 450 centimeters. Since 100 centimeters = 1 meter, 450 centimeters = 4.5 meters.",
+      "distractor_explanations": {
+        "A": "0.45 divides by 1,000 instead of 100.",
+        "B": "1.39 divides 25 by 18 instead of multiplying.",
+        "D": "45 divides by 10 instead of 100."
+      },
+      "hints": [
+        "Find the real length in centimeters first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by 18, then convert centimeters to meters."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000133",
+      "correct_answer": "20/3",
+      "accepted_answers": [
+        "20/3",
+        "6.666",
+        "6.667"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 sets 6/15 = s/10, using the distance to the post as the large triangle's base.",
+          "trap": null
+        },
+        {
+          "value": "50/3",
+          "rationale": "50/3 is 10 + s, the distance from the lamppost to the tip of the shadow.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The lamppost and the person form two similar right triangles that share the tip of the shadow. If the shadow is s feet long, the large triangle has base 10 + s and height 15, and the small one has base s and height 6. So 6/s = 15/(10 + s), giving 6(10 + s) = 15s, 60 = 9s and s = 20/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Draw both triangles with the shadow's tip as a shared vertex."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the large triangle's base as 10 + s."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000134",
+      "correct_answer": "C",
+      "explanation": "Volume is πr²h. With the same height, multiplying the radius by 1.5 multiplies the volume by 1.5² = 2.25. So the volume of B is 48π × 2.25 = 108π cubic centimeters.",
+      "distractor_explanations": {
+        "A": "72π multiplies the volume by 1.5 instead of 1.5².",
+        "B": "96π doubles the volume.",
+        "D": "162π multiplies by 1.5³, as if the height also changed."
+      },
+      "hints": [
+        "How does the volume depend on the radius?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let A have r = 4 and h = 3, so B has r = 6."
       }
     }
   ]
