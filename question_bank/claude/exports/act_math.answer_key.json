@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 73,
+  "bank_version": 74,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -12283,6 +12283,176 @@
       "strategy": {
         "key": "find_the_trend",
         "explanation": "List remainders until they repeat."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000727",
+      "correct_answer": "D",
+      "explanation": "Average the coordinates: x = (0 + 6 + 3)/3 = 3 and y = (0 + 0 + 9)/3 = 3, giving (3, 3).",
+      "distractor_explanations": {
+        "A": "(3, 4.5) is the midpoint of the segment from (3, 0) to (3, 9), dividing by 2 instead of 3.",
+        "B": "(9, 9) adds the coordinates without dividing by 3.",
+        "C": "(2, 3) leaves out the third vertex's x-coordinate, 3, when averaging."
+      },
+      "hints": [
+        "Add the three x-coordinates and divide by 3."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Average each coordinate separately."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000728",
+      "correct_answer": "A",
+      "explanation": "Triangle ABM has base AB, a full side of the square, and its height is the distance from M to AB, which is also a full side. Its area is (1/2)(s)(s), half the square's area.",
+      "distractor_explanations": {
+        "B": "1/4 assumes the triangle's base or height is half a side.",
+        "C": "1/8 uses half a side for both the base and the height.",
+        "D": "3/4 subtracts only one of the two corner triangles (each 1/4 of the square)."
+      },
+      "hints": [
+        "What are the base and height of triangle ABM ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the square and the triangle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000729",
+      "correct_answer": "B",
+      "explanation": "A counterexample must make the \"if\" part true and the \"then\" part false: a prime that is not odd. The only even prime is 2.",
+      "distractor_explanations": {
+        "A": "9 is odd and not prime, so the statement says nothing about it.",
+        "C": "15 is odd and not prime.",
+        "D": "7 is prime and odd, so it agrees with the statement."
+      },
+      "hints": [
+        "What two things must a counterexample do?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a prime that is even."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000730",
+      "correct_answer": "A",
+      "explanation": "The rise (3 m) is opposite θ and the horizontal distance (40 m) is adjacent to θ, so tan θ = 3/40 and θ = tan⁻¹(3/40).",
+      "distractor_explanations": {
+        "B": "sin⁻¹(3/40) treats 40 as the length of the road (the hypotenuse), but 40 m is the horizontal distance.",
+        "C": "tan⁻¹(40/3) inverts the ratio and gives the angle with the vertical.",
+        "D": "cos⁻¹(3/40) pairs the opposite side with cosine."
+      },
+      "hints": [
+        "Which sides of the right triangle are 3 and 40?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the right triangle with the rise and run."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000731",
+      "correct_answer": "D",
+      "explanation": "The scores in order are 23, 25, 28, 30, 34, 34, 37, 41, 46. The middle (5th) score is 34.",
+      "distractor_explanations": {
+        "A": "30 is the 4th score, one position early.",
+        "B": "37 is the 7th score.",
+        "C": "33.1 is the mean (298 ÷ 9), not the median."
+      },
+      "hints": [
+        "How many scores are there, and which position is the middle?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Write the scores out in order."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000732",
+      "correct_answer": "C",
+      "explanation": "52/40 = 1.3, which is 130%.",
+      "distractor_explanations": {
+        "A": "77% computes 40/52.",
+        "B": "12% is the difference 52 − 40 written as a percent.",
+        "D": "30% is the percent increase from 40 to 52, not what percent 52 is of 40."
+      },
+      "hints": [
+        "Divide the part by the whole."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 52 = (p/100) · 40."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000733",
+      "correct_answer": "B",
+      "explanation": "Let d be the number of dimes. Then 0.05(30 − d) + 0.10d = 2.10, so 1.50 + 0.05d = 2.10 and d = 12.",
+      "distractor_explanations": {
+        "A": "18 is the number of nickels.",
+        "C": "21 divides $2.10 by $0.10, as if all coins were dimes.",
+        "D": "15 assumes half the coins are dimes without using the total value."
+      },
+      "hints": [
+        "Write one equation for the count and one for the value."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try each choice: 12 dimes and 18 nickels are worth $1.20 + $0.90."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000734",
+      "correct_answer": "D",
+      "explanation": "The axis of symmetry is halfway between the zeros: x = (−1 + 7)/2 = 3.",
+      "distractor_explanations": {
+        "A": "x = 4 is half the distance between the zeros, not their midpoint.",
+        "B": "x = 8 is the distance between the zeros.",
+        "C": "y = 3 is a horizontal line; a parabola's axis here is vertical."
+      },
+      "hints": [
+        "Where is the point halfway between the two intercepts?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the zeros and find the midpoint."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000735",
+      "correct_answer": "C",
+      "explanation": "AD = AB/2 and AE = AC/2, and the midsegment DE = BC/2. So every side of triangle ADE is half the corresponding side of triangle ABC, and its perimeter is 40/2 = 20.",
+      "distractor_explanations": {
+        "A": "10 uses the area ratio, 1/4, instead of the length ratio, 1/2.",
+        "B": "40/3 divides the perimeter into three equal parts.",
+        "D": "30 halves only one side of the triangle."
+      },
+      "hints": [
+        "How does DE compare with BC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and mark the midpoints."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000736",
+      "correct_answer": "A",
+      "explanation": "Two bases: 2 · π · 3² = 18π. Lateral area: 2π · 3 · 5 = 30π. Total: 48π.",
+      "distractor_explanations": {
+        "B": "30π is the lateral area only.",
+        "C": "39π includes only one base.",
+        "D": "45π is the volume, πr²h."
+      },
+      "hints": [
+        "What surfaces does a closed cylinder have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add two circles and the rectangle that wraps around."
       }
     }
   ]

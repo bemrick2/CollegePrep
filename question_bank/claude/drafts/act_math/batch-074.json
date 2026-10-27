@@ -1,0 +1,457 @@
+{
+ "bank": "act_math",
+ "batch": 74,
+ "plan": "Ideas checked against stems and subskills (sum/product-of-roots equation dropped as existing): centroid, triangle in a square, counterexample (IES), inverse tangent, stem-and-leaf median, percent of, coin system, axis of symmetry, triangle midsegment perimeter (dice-sum item dropped: CLD-ACT-M-000263 covers it), cylinder total surface area.",
+ "candidates": [
+  {
+   "cand": "B074-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Centroid of a triangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x,y) coordinate plane, a triangle has vertices (0, 0), (6, 0) and (3, 9). The centroid of a triangle is the point whose coordinates are the averages of the vertices' coordinates. What is the centroid of this triangle?",
+   "choices": {
+    "A": "(3, 4.5)",
+    "B": "(9, 9)",
+    "C": "(2, 3)",
+    "D": "(3, 3)"
+   },
+   "answer": "D",
+   "explanation": "Average the coordinates: x = (0 + 6 + 3)/3 = 3 and y = (0 + 0 + 9)/3 = 3, giving (3, 3).",
+   "distractors": {
+    "A": {
+     "rationale": "(3, 4.5) is the midpoint of the segment from (3, 0) to (3, 9), dividing by 2 instead of 3.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "(9, 9) adds the coordinates without dividing by 3.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "(2, 3) leaves out the third vertex's x-coordinate, 3, when averaging.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Add the three x-coordinates and divide by 3."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Average each coordinate separately."
+   },
+   "remember": "Centroid = average of the three vertices.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Fraction of a square covered by a triangle",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In square ABCD, point M is the midpoint of side CD. What fraction of the area of the square is the area of triangle ABM ?",
+   "choices": {
+    "A": "1/2",
+    "B": "1/4",
+    "C": "1/8",
+    "D": "3/4"
+   },
+   "answer": "A",
+   "explanation": "Triangle ABM has base AB, a full side of the square, and its height is the distance from M to AB, which is also a full side. Its area is (1/2)(s)(s), half the square's area.",
+   "distractors": {
+    "B": {
+     "rationale": "1/4 assumes the triangle's base or height is half a side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1/8 uses half a side for both the base and the height.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3/4 subtracts only one of the two corner triangles (each 1/4 of the square).",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "What are the base and height of triangle ABM ?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the square and the triangle."
+   },
+   "remember": "A triangle with a square's side as base and full height covers half the square.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-03",
+   "reporting_category": "Integrating Essential Skills",
+   "skill": "Integrating Essential Skills",
+   "subskill": "Choosing a counterexample",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "Which value of n is a counterexample to the statement \"If n is a prime number, then n is odd\" ?",
+   "choices": {
+    "A": "9",
+    "B": "2",
+    "C": "15",
+    "D": "7"
+   },
+   "answer": "B",
+   "explanation": "A counterexample must make the \"if\" part true and the \"then\" part false: a prime that is not odd. The only even prime is 2.",
+   "distractors": {
+    "A": {
+     "rationale": "9 is odd and not prime, so the statement says nothing about it.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "15 is odd and not prime.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "7 is prime and odd, so it agrees with the statement.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What two things must a counterexample do?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Look for a prime that is even."
+   },
+   "remember": "A counterexample satisfies the hypothesis but not the conclusion.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Angle from an inverse tangent",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A straight road rises 3 meters over a horizontal distance of 40 meters. Which expression gives the measure of the angle θ that the road makes with the horizontal?",
+   "choices": {
+    "A": "tan⁻¹(3/40)",
+    "B": "sin⁻¹(3/40)",
+    "C": "tan⁻¹(40/3)",
+    "D": "cos⁻¹(3/40)"
+   },
+   "answer": "A",
+   "explanation": "The rise (3 m) is opposite θ and the horizontal distance (40 m) is adjacent to θ, so tan θ = 3/40 and θ = tan⁻¹(3/40).",
+   "distractors": {
+    "B": {
+     "rationale": "sin⁻¹(3/40) treats 40 as the length of the road (the hypotenuse), but 40 m is the horizontal distance.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "tan⁻¹(40/3) inverts the ratio and gives the angle with the vertical.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "cos⁻¹(3/40) pairs the opposite side with cosine.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which sides of the right triangle are 3 and 40?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the right triangle with the rise and run."
+   },
+   "remember": "Opposite over adjacent is tangent; use tan⁻¹ to find the angle.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Median from a stem-and-leaf plot",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "easy",
+   "stem": "The stem-and-leaf plot below shows nine test scores. (Stem 2 | leaves 3 5 8 means 23, 25 and 28.)\nStem | Leaves\n2 | 3 5 8\n3 | 0 4 4 7\n4 | 1 6\nWhat is the median score?",
+   "choices": {
+    "A": "30",
+    "B": "37",
+    "C": "33.1",
+    "D": "34"
+   },
+   "answer": "D",
+   "explanation": "The scores in order are 23, 25, 28, 30, 34, 34, 37, 41, 46. The middle (5th) score is 34.",
+   "distractors": {
+    "A": {
+     "rationale": "30 is the 4th score, one position early.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "37 is the 7th score.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "33.1 is the mean (298 ÷ 9), not the median.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "How many scores are there, and which position is the middle?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Write the scores out in order."
+   },
+   "remember": "The median is the middle value of an ordered list.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "What percent one number is of another",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "52 is what percent of 40 ?",
+   "choices": {
+    "A": "77%",
+    "B": "12%",
+    "C": "130%",
+    "D": "30%"
+   },
+   "answer": "C",
+   "explanation": "52/40 = 1.3, which is 130%.",
+   "distractors": {
+    "A": {
+     "rationale": "77% computes 40/52.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12% is the difference 52 − 40 written as a percent.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "30% is the percent increase from 40 to 52, not what percent 52 is of 40.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Divide the part by the whole."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write 52 = (p/100) · 40."
+   },
+   "remember": "\"A is what percent of B\" means A ÷ B × 100.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "System of equations with coins",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "A jar contains 30 coins, all nickels (worth $0.05) and dimes (worth $0.10), with a total value of $2.10. How many dimes are in the jar?",
+   "choices": {
+    "A": "18",
+    "B": "12",
+    "C": "21",
+    "D": "15"
+   },
+   "answer": "B",
+   "explanation": "Let d be the number of dimes. Then 0.05(30 − d) + 0.10d = 2.10, so 1.50 + 0.05d = 2.10 and d = 12.",
+   "distractors": {
+    "A": {
+     "rationale": "18 is the number of nickels.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "21 divides $2.10 by $0.10, as if all coins were dimes.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "15 assumes half the coins are dimes without using the total value.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Write one equation for the count and one for the value."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try each choice: 12 dimes and 18 nickels are worth $1.20 + $0.90."
+   },
+   "remember": "Coin problems need a count equation and a value equation.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Axis of symmetry from two zeros",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A parabola in the standard (x,y) coordinate plane has x-intercepts at x = −1 and x = 7. What is the equation of its axis of symmetry?",
+   "choices": {
+    "A": "x = 4",
+    "B": "x = 8",
+    "C": "y = 3",
+    "D": "x = 3"
+   },
+   "answer": "D",
+   "explanation": "The axis of symmetry is halfway between the zeros: x = (−1 + 7)/2 = 3.",
+   "distractors": {
+    "A": {
+     "rationale": "x = 4 is half the distance between the zeros, not their midpoint.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "x = 8 is the distance between the zeros.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "y = 3 is a horizontal line; a parabola's axis here is vertical.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where is the point halfway between the two intercepts?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Mark the zeros and find the midpoint."
+   },
+   "remember": "A parabola's axis lies midway between its zeros.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Perimeter of the triangle formed by a midsegment",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In triangle ABC, points D and E are the midpoints of sides AB and AC, respectively. The perimeter of triangle ABC is 40 centimeters. What is the perimeter, in centimeters, of triangle ADE ?",
+   "choices": {
+    "A": "10",
+    "B": "40/3",
+    "C": "20",
+    "D": "30"
+   },
+   "answer": "C",
+   "explanation": "AD = AB/2 and AE = AC/2, and the midsegment DE = BC/2. So every side of triangle ADE is half the corresponding side of triangle ABC, and its perimeter is 40/2 = 20.",
+   "distractors": {
+    "A": {
+     "rationale": "10 uses the area ratio, 1/4, instead of the length ratio, 1/2.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "40/3 divides the perimeter into three equal parts.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "30 halves only one side of the triangle.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does DE compare with BC?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle and mark the midpoints."
+   },
+   "remember": "A midsegment is parallel to the third side and half as long.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B074-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Total surface area of a cylinder",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A closed right circular cylinder has radius 3 inches and height 5 inches. What is its total surface area, in square inches?",
+   "choices": {
+    "A": "48π",
+    "B": "30π",
+    "C": "39π",
+    "D": "45π"
+   },
+   "answer": "A",
+   "explanation": "Two bases: 2 · π · 3² = 18π. Lateral area: 2π · 3 · 5 = 30π. Total: 48π.",
+   "distractors": {
+    "B": {
+     "rationale": "30π is the lateral area only.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "39π includes only one base.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "45π is the volume, πr²h.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "What surfaces does a closed cylinder have?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add two circles and the rectangle that wraps around."
+   },
+   "remember": "Closed cylinder: 2πr² + 2πrh.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}
