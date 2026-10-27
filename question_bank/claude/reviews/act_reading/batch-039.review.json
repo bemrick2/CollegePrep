@@ -1,0 +1,283 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 39,
+  "reviewed_at": "2026-10-27T08:49:49+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 39
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000313",
+    "CLD-ACT-R-000314",
+    "CLD-ACT-R-000315",
+    "CLD-ACT-R-000316",
+    "CLD-ACT-R-000317",
+    "CLD-ACT-R-000318",
+    "CLD-ACT-R-000319",
+    "CLD-ACT-R-000320",
+    "CLD-ACT-R-000321"
+  ],
+  "results": [
+    {
+      "cand": "R039-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: key lifts 'controlling where the ice forms' nearly verbatim from paragraph 2, making it look familiar",
+        "minor: distractors are weak; C contradicts paragraph 5 ('no one yet knows'), A contradicts the frog freezing at all, and D's 'completely different' is an obvious extreme",
+        "minor: partial overlap with R039-02 (both test the extracellular-ice idea)"
+      ],
+      "blind_notes": "Passage is built around the two defenses (ice placement, glucose/urea); B covers both.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: choice B ('controlling where ice forms') restates P2 wording and effectively gives away R039-02's answer (ice forms around rather than inside cells)",
+        "minor: distractors are weak; A contradicts P1 (frog does freeze), C contradicts P5, D's 'completely different' is extreme"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000313"
+    },
+    {
+      "cand": "R039-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [
+        "minor: key closely paraphrases paragraph 2 ('Ice that forms between cells ... does relatively little harm'), so this is a direct lookup",
+        "minor: B is a twisted half-truth of the first sentence of paragraph 2 and is the only distractor with any pull"
+      ],
+      "blind_notes": "Ice builds between cells while intracellular water stays liquid.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: overlaps with R039-01 (same idea of ice location); R039-01 B cues this answer"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000314"
+    },
+    {
+      "cand": "R039-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: R039-04's key ('the liver can turn more glycogen into glucose when freezing begins') reminds students that glucose rises only once freezing begins, giving a cross-item hint toward A"
+      ],
+      "blind_notes": "Glucose rises only after ice touches the skin, so a frog that has not started freezing has much less blood glucose. B reverses the relationship, since glycogen has not yet been used. C is wrong because a frozen frog's heart has stopped. D is wrong because there is no ice yet. B is the main trap.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000315"
+    },
+    {
+      "cand": "R039-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "This item connects paragraph 4 to the mechanism in paragraph 3: more glycogen means more glucose can be made once freezing starts. A, B and D have no support in the passage or contradict it. Science checks out: Alaskan wood frogs in Costanzo/Lee studies had larger liver glycogen stores and fall urea accumulation, and they tolerated roughly -16 to -18 C, against roughly -3 to -6 C for southern/midwestern frogs.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000316"
+    },
+    {
+      "cand": "R039-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "The cell fluid loses water, so it is less diluted. A ('more focused') is the common-meaning trap, and C ('gathered in one place') is a plausible near-miss.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000317"
+    },
+    {
+      "cand": "R039-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: B ('identical') and D are easy to rule out"
+      ],
+      "blind_notes": "The human comparison shows how extreme the frog's glucose rise is.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000318"
+    },
+    {
+      "cand": "R039-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "D is a controlled comparison that ties glucose to survival. C is the trap: it only restates when glucose is released, not that it protects. B is about urea, and A is about hopping speed, which is irrelevant.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000319"
+    },
+    {
+      "cand": "R039-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: key nearly restates the paragraph's topic sentence ('more than its own sake')"
+      ],
+      "blind_notes": "Paragraph 5 gives the medical relevance. B and C contradict it, and D mentions other animals that the paragraph never discusses.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key closely paraphrases the paragraph's opening sentence ('for more than its own sake'), making it near-lookup; C is contradicted by 'no one yet knows', B by 'cannot be safely frozen'"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000320"
+    },
+    {
+      "cand": "R039-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 76,
+      "blind_flags": [],
+      "blind_notes": "The 'looks like death' opening sets up the revival in spring. C is a mild trap but has no support in the passage.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000321"
+    }
+  ]
+}
