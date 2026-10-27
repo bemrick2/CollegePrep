@@ -132,6 +132,9 @@ def main():
             if ov.get('content_hash'):
                 rec['content_hash'] = ov['content_hash']
                 rv = [r for r in reviews.get(rid, []) if r.get('content_hash') == ov['content_hash']]
+        if ov and ov.get('kind') == 'proposed_display_repair' and rec['status'] in ('pending_review', 'reviewed_draft', 'hold'):
+            rec['status'] = 'hold'
+            rec['status_reason'] = 'literal-insertion defect in source version; proposed display repair awaits fresh review (' + ov['reason'][:90] + ')'
         if rv:
             rec['fresh_reviews'] = rv
             verdicts = {r['verdict'] for r in rv}
@@ -221,7 +224,8 @@ def status_for_retired(r):
 
 
 def rec_required(rec):
-    return 1
+    # verbal records need two independent solves; math needs one solve plus a computation check
+    return 1 if rec['section'] == 'Math' else 2
 
 
 if __name__ == '__main__':
