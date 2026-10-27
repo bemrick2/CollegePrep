@@ -1,0 +1,107 @@
+{
+  "ideas": "batch 26",
+  "results": {
+    "Z04": [
+      {
+        "other_id": "CLD-ACT-M-000461",
+        "severity": "close",
+        "why": "Tank drained at constant rate, asked minutes until empty; but 000461 hands over V(t)=500-25t, while Z04 requires forming the net rate (30-12) first."
+      }
+    ],
+    "Z05": [
+      {
+        "other_id": "CLD-ACT-M-000062",
+        "severity": "template",
+        "why": "Same template: linear relation known at two inputs (t=2 -> 17, t=5 -> 9.5), find the input where it reaches 0; Z05 is the abstract f(1)=5, f(4)=-4 version."
+      },
+      {
+        "other_id": "CLD-SAT-M-000136",
+        "severity": "close",
+        "why": "Linear f from two values (f(-2)=7, f(4)=-5), but asks m+b rather than the zero."
+      }
+    ],
+    "Z09": [
+      {
+        "other_id": "CLD-ACT-M-000609",
+        "severity": "close",
+        "why": "Verbal one-variable equation ('Four more than 3 times a number is 25'); Z09 differs by the grouping 2(n+5)."
+      }
+    ],
+    "AA04": [
+      {
+        "other_id": "Q025-05 (drafts/sat_math/batch-025.json)",
+        "severity": "close",
+        "why": "Quadratic set equal to a nonzero constant (x^2-2x-8=-9), rearranged to standard form and solved; Z's product-form trap and 'larger solution' ask differ."
+      }
+    ],
+    "AA05": [
+      {
+        "other_id": "CLD-ACT-M-000302",
+        "severity": "close",
+        "why": "Interpret a parameter of an exponential model V=500(0.9)^t, but asks about the factor 0.9, not the initial value."
+      },
+      {
+        "other_id": "CLD-SAT-M-000026",
+        "severity": "close",
+        "why": "Same town-population P(t)=8,000(1.05)^(t/2) after 2020 context, but asks how the population changes (growth rate), not the meaning of the coefficient."
+      }
+    ],
+    "AA06": [],
+    "BB05": [
+      {
+        "other_id": "CLD-ACT-M-000762",
+        "severity": "close",
+        "why": "Inverse proportion: given one (P,V) pair, find the other quantity via constant product; workers-days context requires recognizing inverse variation unstated."
+      },
+      {
+        "other_id": "CLD-ACT-M-000097",
+        "severity": "close",
+        "why": "Painters at same rate, worker-hours reasoning, but with a mid-job crew change."
+      }
+    ],
+    "CC04": [
+      {
+        "other_id": "CLD-ACT-M-000209",
+        "severity": "close",
+        "why": "Triangle inequality with two given sides (7, 12); asks how many integer third sides vs. Z's which listed value could be the third side - same interval reasoning, different ask."
+      }
+    ],
+    "CC05": [
+      {
+        "other_id": "CLD-ACT-M-000747",
+        "severity": "close",
+        "why": "Circle with given center tangent to the x-axis (radius = |y-coordinate|), but asks the equation; CC05 continues to y-axis crossings."
+      }
+    ],
+    "Z12": [
+      {
+        "other_id": "CLD-SAT-M-000217",
+        "severity": "template",
+        "why": "Same template: two hourly rates, one works 2 hours longer, equal totals; 45(t+2)=60t vs 180(t+2)=240t (same 3:4 ratio, same answer t=6)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000078",
+        "severity": "template",
+        "why": "Head-start catch-up: two constant rates, one starts earlier, find when totals are equal (distance instead of parts)."
+      }
+    ],
+    "AA09": [
+      {
+        "other_id": "CLD-ACT-M-000280",
+        "severity": "template",
+        "why": "Same template: count integers x with a factorable quadratic < 0 (x^2-x-12<0 vs x^2-10x+21<0)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000291",
+        "severity": "close",
+        "why": "Count integers where f(x)>g(x) reduces to a quadratic inequality x^2-2x-3<0."
+      },
+      {
+        "other_id": "fixtures.ts stem 'g(x) = |x − 4| − 3 ... how many integer values of x is g(x) < 0'",
+        "severity": "close",
+        "why": "Same ask (number of integers where function is negative) but absolute-value function."
+      }
+    ],
+    "CC07": []
+  }
+}
