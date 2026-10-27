@@ -1,0 +1,136 @@
+{
+ "solver": {
+  "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+  "batch": 70
+ },
+ "answers": {
+  "Q070-01": {
+   "answer": "10",
+   "confidence": "high",
+   "est_pct_correct": 40,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "ax+b=bx+a -> (a-b)x=a-b, a!=b so x=1; y=a+b=9; r+s=10."
+  },
+  "Q070-02": {
+   "answer": "4",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "2s+3L=30, L even, s>=1,L>=1 -> L in {2,4,6,8}; L=10 gives s=0 (excluded)."
+  },
+  "Q070-03": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 65,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Doubling receipt 1 predicts $22.80, not $21.60 -> inconsistent system, no solution. A would need 21.60=22.80 (dependent); B and C name specific prices but no pair satisfies both (C fits receipt 1 only: 6+5.40=11.40, but gives 22.80 on receipt 2)."
+  },
+  "Q070-04": {
+   "answer": "1",
+   "confidence": "high",
+   "est_pct_correct": 35,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "f-g=(3-m)x-8 >0 for all x>4 requires 3-m>0 and (3-m)*4-8>=0 -> m<=1; m=1 gives 2x-8>0 for x>4, holds. Greatest m=1."
+  },
+  "Q070-05": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "3 - 0.25d + d = 5.4 -> d=3.2. A (2.4) = antifreeze added ignoring removed antifreeze; C/D distractors (5.4 = liters of antifreeze needed). 'Nearest tenth' wording harmless though answer is exact."
+  },
+  "Q070-06": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 65,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "48/0.75 = miles whose mileage charge equals one hour of labor. B: no speed info; C reverses the ratio (would be 0.75/48); D difference is 47.25, not ratio."
+  },
+  "Q070-07": {
+   "answer": "860",
+   "confidence": "high",
+   "est_pct_correct": 75,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "Insurer pays 0.8(1800)=1440; policyholder 2300-1440=860."
+  },
+  "Q070-08": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 75,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "5+0.40(n-1)=0.40n+4.60. A charges first copy twice; B charges 5 per copy; C swaps coefficients."
+  },
+  "Q070-09": {
+   "answer": "2/3",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Positive-integer points on 2x+3y=12: only (3,2) (x=6->y=0, x=0 excluded). k=2/3 (accept .6666/.6667)."
+  },
+  "Q070-10": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 75,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "400<=1500-40t<=800 -> 17.5<=t<=27.5. A plain wrong; B complement; C wrong lower bound."
+  },
+  "Q070-11": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "New 6x+12y=300: x-int 50 (unchanged), y-int 25 (was 20). A false (slope changes, x-int same); B swaps axes; D slope part true (-0.4 to -0.5) but y-intercept changes to 25."
+  },
+  "Q070-12": {
+   "answer": "13",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "(45+5.5v)/v<=9 -> 3.5v>=45 -> v>=12.857 -> 13."
+  },
+  "Q070-13": {
+   "answer": "8",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "1.75(1+r)=1.89 -> r=0.08 -> 8. Consistent: menu prices 50.25 and 52.00."
+  },
+  "Q070-14": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "A lasts 125 min; B lasts 156.25 min; k=100/156.25=0.64. B (0.60) = 25% less rate trap; D (1.00) = 1.25*0.8 trap; A arbitrary."
+  },
+  "Q070-15": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Slope -20/0.5=-40; n=400-40(p-3)=520-40p. B/C use slope -20; D wrong sign (check p=3: 400 ok but slope positive)."
+  },
+  "Q070-16": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 70,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "208-0.7a>220-a -> 0.3a>12 -> a>40. A reversed inequality; C 12/0.7; D drops the 0.3 coefficient."
+  }
+ }
+}

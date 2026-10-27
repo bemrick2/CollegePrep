@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 69,
+  "bank_version": 70,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -15533,6 +15533,372 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the base diagonal and the vertical edge."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000756",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is s alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 is r alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 assumes a = b = 4.5, which the stem rules out.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting ax + b = bx + a gives (a − b)x = a − b, and since a ≠ b, x = 1. Then s = a(1) + b = a + b = 9. So r + s = 1 + 9 = 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "Set the two expressions equal and collect terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor out a − b."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000757",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 also counts the all-small and all-large cases.",
+          "trap": null
+        },
+        {
+          "value": "9",
+          "rationale": "9 allows every number from 1 to 9 without requiring a whole number of small bouquets.",
+          "trap": null
+        }
+      ],
+      "explanation": "With a small and b large bouquets, 4a + 6b = 60, so 2a + 3b = 30 and a = (30 − 3b)/2. For a to be a whole number, b must be even; with a ≥ 1 and b ≥ 1, b = 2, 4, 6, or 8. That is 4 possibilities.",
+      "distractor_explanations": {},
+      "hints": [
+        "What must be true of b for a to be a whole number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for a and test which b give whole numbers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000758",
+      "correct_answer": "D",
+      "explanation": "The left side of receipt 2's equation, 6b + 4m, is twice that of receipt 1, so receipt 2's total should be 2($11.40) = $22.80. It is $21.60, so the system 3b + 2m = 11.40 and 6b + 4m = 21.60 has no solution.",
+      "distractor_explanations": {
+        "A": "This notices the doubled left side but ignores that the totals do not double.",
+        "B": "$1.20 is the leftover difference from elimination, not a price.",
+        "C": "These prices satisfy receipt 1 only; receipt 2 would total $22.80."
+      },
+      "hints": [
+        "What would receipt 2 total if it matched receipt 1?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the equations after multiplying the first by 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000759",
+      "correct_answer": "1",
+      "accepted_answers": [
+        "1"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 requires only that f have the greater slope.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 demands f(4) > g(4) strictly and then takes the greatest integer.",
+          "trap": null
+        }
+      ],
+      "explanation": "f(x) − g(x) = (3 − m)x − 8 must be positive for every x > 4. This needs 3 − m ≥ 0 and the value at x = 4 to be at least 0: 4(3 − m) − 8 ≥ 0, so m ≤ 1. With m = 1, f(x) − g(x) = 2x − 8, which is positive for every x > 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is f(x) − g(x)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the difference as a line and require it to be positive to the right of 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000760",
+      "correct_answer": "B",
+      "explanation": "If x liters are drained, the antifreeze left is 0.25(12 − x), and x liters of pure antifreeze are added. The result must be 0.45(12) = 5.4 liters: 0.25(12 − x) + x = 5.4, so 3 + 0.75x = 5.4 and x = 3.2.",
+      "distractor_explanations": {
+        "A": "2.4 adds 20% of 12 liters, forgetting that the drained coolant contained antifreeze.",
+        "C": "4.4 adds pure antifreeze without draining any coolant.",
+        "D": "5.4 is the amount of antifreeze in the final mixture."
+      },
+      "hints": [
+        "How much antifreeze is removed when x liters are drained?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Track the antifreeze before and after."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000761",
+      "correct_answer": "A",
+      "explanation": "48 dollars per hour divided by 0.75 dollar per mile is 64 miles per hour of work: 64 miles of driving adds 64(0.75) = 48 dollars, the same as 1 hour of work.",
+      "distractor_explanations": {
+        "B": "The units \"miles per hour\" here compare charges, not a speed.",
+        "C": "That would be 0.75/48, the inverse ratio.",
+        "D": "A difference would be 48 − 0.75 = 47.25, not a ratio."
+      },
+      "hints": [
+        "What are the units of 48 and of 0.75?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the units as well as the numbers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000762",
+      "correct_answer": "860",
+      "accepted_answers": [
+        "860"
+      ],
+      "common_errors": [
+        {
+          "value": "1440",
+          "rationale": "1440 is the policy's payment.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "460",
+          "rationale": "460 is 20% of the whole $2,300.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 is 20% of $1,800 without the deductible.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The policy pays 0.8(2,300 − 500) = 0.8(1,800) = 1,440 dollars, so the policyholder pays 2,300 − 1,440 = 860 dollars: the $500 deductible plus 20% of the remaining $1,800.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much does the policy pay?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the policy's share, then subtract it from the total."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000763",
+      "correct_answer": "D",
+      "explanation": "The first copy costs $5.00 and the other n − 1 copies cost $0.40 each, so the total is 5.00 + 0.40(n − 1) = 0.40n + 4.60.",
+      "distractor_explanations": {
+        "A": "This charges $0.40 for the first copy as well.",
+        "B": "This charges $5.00 for every copy.",
+        "C": "This swaps the roles of the two prices; it is right for n = 1 but wrong for n = 2."
+      },
+      "hints": [
+        "What do 2 copies cost?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check n = 1 and n = 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000764",
+      "correct_answer": "2/3",
+      "accepted_answers": [
+        "2/3",
+        ".6666",
+        ".6667"
+      ],
+      "common_errors": [
+        {
+          "value": "1.5",
+          "rationale": "1.5 inverts the ratio, x/y.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 uses (6, 0), where y is not positive.",
+          "trap": null
+        }
+      ],
+      "explanation": "On 2x + 3y = 12, y = (12 − 2x)/3. For x and y to be positive integers, x must be 3 (x = 0 or 6 makes a coordinate zero), giving the point (3, 2). Then k = 2/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which points on 2x + 3y = 12 have positive integer coordinates?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List the integer points, then find k."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000765",
+      "correct_answer": "D",
+      "explanation": "400 ≤ 1,500 − 40t ≤ 800 gives −1,100 ≤ −40t ≤ −700. Dividing by −40 reverses both inequalities: 17.5 ≤ t ≤ 27.5.",
+      "distractor_explanations": {
+        "A": "This divides 400 and 800 by 40, ignoring the starting height.",
+        "B": "This describes heights outside the range.",
+        "C": "This uses 800/40 for one bound instead of (1,500 − 800)/40."
+      },
+      "hints": [
+        "What happens to an inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the compound inequality."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000766",
+      "correct_answer": "C",
+      "explanation": "The new equation is 6x + 12y = 300. Its x-intercept is still 300/6 = 50, and its y-intercept is 300/12 = 25 instead of 300/15 = 20. The line pivots about (50, 0).",
+      "distractor_explanations": {
+        "A": "A price change alters the slope, unlike a budget change.",
+        "B": "This applies the price change to the wrong axis.",
+        "D": "The slope does become −0.5, but the y-intercept changes to 25."
+      },
+      "hints": [
+        "Which intercept depends on the science kit price?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute both intercepts before and after."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000767",
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 rounds 12.86 down; 12 visits average $9.25.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 divides 45 by 9, ignoring the per-visit charge.",
+          "trap": null
+        }
+      ],
+      "explanation": "The average cost is (45 + 5.50n)/n ≤ 9, so 45 + 5.50n ≤ 9n, 45 ≤ 3.5n, and n ≥ 12.86. The least whole number of visits is 13. Check: 13 visits average about $8.96.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the average cost per visit."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality and round up."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000768",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "0.14",
+          "rationale": "0.14 is 1.89 − 1.75, read as the rate.",
+          "trap": null
+        },
+        {
+          "value": "108",
+          "rationale": "108 reports the multiplier as a percent.",
+          "trap": null
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 divides 1.89 by 54.27.",
+          "trap": null
+        }
+      ],
+      "explanation": "The total is (1 + r) times the menu price, so the increase in the total is (1 + r)(1.75). The total rose by 56.16 − 54.27 = 1.89, so 1 + r = 1.89/1.75 = 1.08 and the rate is 8%.",
+      "distractor_explanations": {},
+      "hints": [
+        "How is the change in the total related to the change in the menu price?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the change in the total by the change in the price."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000769",
+      "correct_answer": "C",
+      "explanation": "Phone A lasts 100/0.8 = 125 minutes, so phone B lasts 1.25(125) = 156.25 minutes. Then k = 100/156.25 = 0.64. Lasting 25% longer means draining at 1/1.25 = 80% of A's rate, and 0.8(0.8) = 0.64.",
+      "distractor_explanations": {
+        "A": "0.55 subtracts 0.25 from the rate.",
+        "B": "0.60 lowers the rate by 25%, but a 25% longer time means dividing the rate by 1.25.",
+        "D": "1.00 raises the rate by 25%, which would shorten the battery life."
+      },
+      "hints": [
+        "How long does phone A's battery last?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each battery's lifetime, then the rate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000770",
+      "correct_answer": "A",
+      "explanation": "The rate is −20 cups per $0.50, or −40 cups per dollar. Through (3, 400): n = 400 − 40(p − 3) = 520 − 40p.",
+      "distractor_explanations": {
+        "B": "This uses −20 per dollar instead of per $0.50, though it passes through (3, 400).",
+        "C": "This uses the given numbers directly as the intercept and slope.",
+        "D": "This gets the sign of the slope wrong."
+      },
+      "hints": [
+        "How many fewer cups are sold per $1 increase?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rescale the rate to per dollar, then use the point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000771",
+      "correct_answer": "B",
+      "explanation": "208 − 0.7a > 220 − a gives 0.3a > 12, so a > 40. The formulas agree at age 40, and the second is greater for older ages.",
+      "distractor_explanations": {
+        "A": "a < 40 solves the equation correctly but takes the wrong side.",
+        "C": "17.1 divides 12 by 0.7 instead of by 1 − 0.7.",
+        "D": "12 compares only the constants 220 and 208."
+      },
+      "hints": [
+        "Where do the two formulas agree?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality and solve."
       }
     }
   ]

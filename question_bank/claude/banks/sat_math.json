@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 69,
-  "updated_at": "2026-10-27T17:36:46+00:00",
+  "version": 70,
+  "updated_at": "2026-10-27T17:38:08+00:00",
   "passages": [],
   "questions": [
     {
@@ -54646,6 +54646,1173 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-069.review.json",
         "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000756",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Intersection of lines with swapped coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graphs of y = ax + b and y = bx + a, where a and b are constants with a ≠ b and a + b = 9, intersect at the point (r, s). What is the value of r + s ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is s alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 is r alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 assumes a = b = 4.5, which the stem rules out.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting ax + b = bx + a gives (a − b)x = a − b, and since a ≠ b, x = 1. Then s = a(1) + b = a + b = 9. So r + s = 1 + 9 = 10.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Set the two expressions equal and collect terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor out a − b."
+      },
+      "remember": "Look for structure that makes individual unknowns unnecessary.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-01",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000757",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Counting whole-number solutions of a two-variable equation",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A florist uses exactly 60 roses to make small bouquets of 4 roses each and large bouquets of 6 roses each. Every rose is used, and there is at least one bouquet of each size. How many different numbers of large bouquets are possible?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 also counts the all-small and all-large cases.",
+          "trap": null
+        },
+        {
+          "value": "9",
+          "rationale": "9 allows every number from 1 to 9 without requiring a whole number of small bouquets.",
+          "trap": null
+        }
+      ],
+      "explanation": "With a small and b large bouquets, 4a + 6b = 60, so 2a + 3b = 30 and a = (30 − 3b)/2. For a to be a whole number, b must be even; with a ≥ 1 and b ≥ 1, b = 2, 4, 6, or 8. That is 4 possibilities.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What must be true of b for a to be a whole number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for a and test which b give whole numbers."
+      },
+      "remember": "Whole-number solutions of ax + by = c often come in regular steps.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-02",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000758",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Interpreting an inconsistent system in context",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a bakery, every bagel has the same price and every muffin has the same price, and the prices did not change between two visits. Receipt 1 shows 3 bagels and 2 muffins for a total of $11.40. Receipt 2 shows 6 bagels and 4 muffins for a total of $21.60. Which statement is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "There are infinitely many pairs of prices consistent with both receipts.",
+        "B": "One of the two items costs $1.20.",
+        "C": "A bagel costs $2.00 and a muffin costs $2.70.",
+        "D": "No pair of prices is consistent with both receipts, so at least one receipt is incorrect."
+      },
+      "correct_answer": "D",
+      "explanation": "The left side of receipt 2's equation, 6b + 4m, is twice that of receipt 1, so receipt 2's total should be 2($11.40) = $22.80. It is $21.60, so the system 3b + 2m = 11.40 and 6b + 4m = 21.60 has no solution.",
+      "distractor_explanations": {
+        "A": "This notices the doubled left side but ignores that the totals do not double.",
+        "B": "$1.20 is the leftover difference from elimination, not a price.",
+        "C": "These prices satisfy receipt 1 only; receipt 2 would total $22.80."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What would receipt 2 total if it matched receipt 1?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the equations after multiplying the first by 2."
+      },
+      "remember": "Proportional left sides with non-proportional constants mean no solution.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-03",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000759",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Inequality holding on a whole ray",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f and g are defined by f(x) = 3x − 5 and g(x) = mx + 3, where m is a constant. If f(x) > g(x) for every value of x greater than 4, what is the greatest possible value of m ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1",
+      "accepted_answers": [
+        "1"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 requires only that f have the greater slope.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 demands f(4) > g(4) strictly and then takes the greatest integer.",
+          "trap": null
+        }
+      ],
+      "explanation": "f(x) − g(x) = (3 − m)x − 8 must be positive for every x > 4. This needs 3 − m ≥ 0 and the value at x = 4 to be at least 0: 4(3 − m) − 8 ≥ 0, so m ≤ 1. With m = 1, f(x) − g(x) = 2x − 8, which is positive for every x > 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is f(x) − g(x)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the difference as a line and require it to be positive to the right of 4."
+      },
+      "remember": "For an open ray, the endpoint value may be zero.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-04",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1",
+        "blind_answer": "1",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000760",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Drain-and-replace mixture",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A car's radiator holds 12 liters of coolant that is 25% antifreeze by volume. A mechanic will drain some of the coolant and replace it with the same volume of pure antifreeze so that the radiator holds 12 liters that is 45% antifreeze. To the nearest tenth of a liter, how much coolant must be drained?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2.4",
+        "B": "3.2",
+        "C": "4.4",
+        "D": "5.4"
+      },
+      "correct_answer": "B",
+      "explanation": "If x liters are drained, the antifreeze left is 0.25(12 − x), and x liters of pure antifreeze are added. The result must be 0.45(12) = 5.4 liters: 0.25(12 − x) + x = 5.4, so 3 + 0.75x = 5.4 and x = 3.2.",
+      "distractor_explanations": {
+        "A": "2.4 adds 20% of 12 liters, forgetting that the drained coolant contained antifreeze.",
+        "C": "4.4 adds pure antifreeze without draining any coolant.",
+        "D": "5.4 is the amount of antifreeze in the final mixture."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How much antifreeze is removed when x liters are drained?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Track the antifreeze before and after."
+      },
+      "remember": "In a drain-and-replace problem, subtract what leaves before adding what enters.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-05",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000761",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Ratio of coefficients as an exchange rate",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A mobile mechanic charges C dollars for a repair visit, where C = 30 + 48h + 0.75m, h is the number of hours of work, and m is the number of miles driven for the visit. The value of 48/0.75 is 64. What is the best interpretation of 64 in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The number of miles of driving that adds the same amount to the charge as 1 hour of work",
+        "B": "The mechanic's average driving speed, in miles per hour",
+        "C": "The number of hours of work that adds the same amount to the charge as 1 mile of driving",
+        "D": "The amount, in dollars, by which the hourly charge exceeds the charge per mile"
+      },
+      "correct_answer": "A",
+      "explanation": "48 dollars per hour divided by 0.75 dollar per mile is 64 miles per hour of work: 64 miles of driving adds 64(0.75) = 48 dollars, the same as 1 hour of work.",
+      "distractor_explanations": {
+        "B": "The units \"miles per hour\" here compare charges, not a speed.",
+        "C": "That would be 0.75/48, the inverse ratio.",
+        "D": "A difference would be 48 − 0.75 = 47.25, not a ratio."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What are the units of 48 and of 0.75?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the units as well as the numbers."
+      },
+      "remember": "A ratio of two rates tells how much of one input trades for another.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-06",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000762",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Deductible and coinsurance from a model",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a covered repair costing x dollars, where x > 500, an insurance policy pays y dollars, where y = 0.8(x − 500). The policyholder pays the rest of the repair cost. For a covered repair that costs $2,300, how many dollars does the policyholder pay?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "860",
+      "accepted_answers": [
+        "860"
+      ],
+      "common_errors": [
+        {
+          "value": "1440",
+          "rationale": "1440 is the policy's payment.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "460",
+          "rationale": "460 is 20% of the whole $2,300.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 is 20% of $1,800 without the deductible.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The policy pays 0.8(2,300 − 500) = 0.8(1,800) = 1,440 dollars, so the policyholder pays 2,300 − 1,440 = 860 dollars: the $500 deductible plus 20% of the remaining $1,800.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How much does the policy pay?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the policy's share, then subtract it from the total."
+      },
+      "remember": "Check whether the question asks for the model's output or what remains.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-07",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "860",
+        "blind_answer": "860",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000763",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Building a linear cost with a different first unit",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A print shop charges $5.00 for the first copy of a poster and $0.40 for each additional copy. Which expression gives the total cost, in dollars, of n copies of the poster, where n ≥ 1 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.40n + 5.00",
+        "B": "5.00n",
+        "C": "4.60n + 0.40",
+        "D": "0.40n + 4.60"
+      },
+      "correct_answer": "D",
+      "explanation": "The first copy costs $5.00 and the other n − 1 copies cost $0.40 each, so the total is 5.00 + 0.40(n − 1) = 0.40n + 4.60.",
+      "distractor_explanations": {
+        "A": "This charges $0.40 for the first copy as well.",
+        "B": "This charges $5.00 for every copy.",
+        "C": "This swaps the roles of the two prices; it is right for n = 1 but wrong for n = 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What do 2 copies cost?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check n = 1 and n = 2."
+      },
+      "remember": "Check a formula at more than one input.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-08",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000764",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Integer intersection fixing a slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graphs of 2x + 3y = 12 and y = kx, where k is a constant, intersect at a point whose x-coordinate and y-coordinate are both positive integers. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2/3",
+      "accepted_answers": [
+        "2/3",
+        ".6666",
+        ".6667"
+      ],
+      "common_errors": [
+        {
+          "value": "1.5",
+          "rationale": "1.5 inverts the ratio, x/y.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 uses (6, 0), where y is not positive.",
+          "trap": null
+        }
+      ],
+      "explanation": "On 2x + 3y = 12, y = (12 − 2x)/3. For x and y to be positive integers, x must be 3 (x = 0 or 6 makes a coordinate zero), giving the point (3, 2). Then k = 2/3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which points on 2x + 3y = 12 have positive integer coordinates?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List the integer points, then find k."
+      },
+      "remember": "A line through the origin has slope y/x for any of its points.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-09",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2/3",
+        "blind_answer": "2/3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000765",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Compound inequality with a negative slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A weather balloon's height h, in meters, t minutes after it begins its descent is h = 1,500 − 40t. For which values of t is the balloon's height from 400 meters to 800 meters, inclusive?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10 ≤ t ≤ 20",
+        "B": "t ≤ 17.5 or t ≥ 27.5",
+        "C": "20 ≤ t ≤ 27.5",
+        "D": "17.5 ≤ t ≤ 27.5"
+      },
+      "correct_answer": "D",
+      "explanation": "400 ≤ 1,500 − 40t ≤ 800 gives −1,100 ≤ −40t ≤ −700. Dividing by −40 reverses both inequalities: 17.5 ≤ t ≤ 27.5.",
+      "distractor_explanations": {
+        "A": "This divides 400 and 800 by 40, ignoring the starting height.",
+        "B": "This describes heights outside the range.",
+        "C": "This uses 800/40 for one bound instead of (1,500 − 800)/40."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What happens to an inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the compound inequality."
+      },
+      "remember": "Dividing by a negative number reverses the inequality.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-10",
+      "created_at": "2026-10-27T17:38:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000766",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Effect of a coefficient change on a graph",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A teacher plans to spend exactly $300 on x art kits at $6 each and y science kits at $15 each, so 6x + 15y = 300, and the graph of this equation is drawn in the xy-plane. If the price of a science kit drops to $12 and the teacher still spends exactly $300, how does the graph change?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The line shifts up without changing its slope, so both intercepts increase.",
+        "B": "The x-intercept increases from 50 to 62.5, and the y-intercept stays 20.",
+        "C": "The y-intercept increases from 20 to 25, and the x-intercept stays 50.",
+        "D": "The slope changes from −0.4 to −0.5, and the y-intercept stays 20."
+      },
+      "correct_answer": "C",
+      "explanation": "The new equation is 6x + 12y = 300. Its x-intercept is still 300/6 = 50, and its y-intercept is 300/12 = 25 instead of 300/15 = 20. The line pivots about (50, 0).",
+      "distractor_explanations": {
+        "A": "A price change alters the slope, unlike a budget change.",
+        "B": "This applies the price change to the wrong axis.",
+        "D": "The slope does become −0.5, but the y-intercept changes to 25."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which intercept depends on the science kit price?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute both intercepts before and after."
+      },
+      "remember": "Changing one coefficient moves only that variable's intercept.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-11",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000767",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Average-cost cap as an inequality",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A climbing gym charges a member $45 per month plus $5.50 for each visit. For one month, a member wants the average cost per visit, including the $45 charge, to be at most $9.00. What is the least number of visits the member must make that month?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 rounds 12.86 down; 12 visits average $9.25.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 divides 45 by 9, ignoring the per-visit charge.",
+          "trap": null
+        }
+      ],
+      "explanation": "The average cost is (45 + 5.50n)/n ≤ 9, so 45 + 5.50n ≤ 9n, 45 ≤ 3.5n, and n ≥ 12.86. The least whole number of visits is 13. Check: 13 visits average about $8.96.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the average cost per visit."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality and round up."
+      },
+      "remember": "When a quantity must meet a minimum, round up.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-12",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "13",
+        "blind_answer": "13",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000768",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Tax rate from changes in price and total",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A caterer raised the menu price of a party tray by $1.75. Sales tax at the same rate is added to the menu price both before and after the increase. The total cost of the tray, including tax, rose from $54.27 to $56.16. What is the sales tax rate, as a percent? (Disregard the % sign when entering your answer. For example, if your answer is 15.5%, enter 15.5)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "0.14",
+          "rationale": "0.14 is 1.89 − 1.75, read as the rate.",
+          "trap": null
+        },
+        {
+          "value": "108",
+          "rationale": "108 reports the multiplier as a percent.",
+          "trap": null
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 divides 1.89 by 54.27.",
+          "trap": null
+        }
+      ],
+      "explanation": "The total is (1 + r) times the menu price, so the increase in the total is (1 + r)(1.75). The total rose by 56.16 − 54.27 = 1.89, so 1 + r = 1.89/1.75 = 1.08 and the rate is 8%.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How is the change in the total related to the change in the menu price?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the change in the total by the change in the price."
+      },
+      "remember": "For a proportional rule, the change in output equals the multiplier times the input change.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-13",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000769",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Percent change in an intercept versus a slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "While a video plays, the battery charge of phone A, as a percent of full charge, is modeled by B = 100 − 0.8t, where t is the number of minutes since the video started on a full charge. Phone B's charge is modeled by B = 100 − kt, where k is a constant, and phone B's battery lasts 25% longer than phone A's before reaching 0%. What is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.55",
+        "B": "0.60",
+        "C": "0.64",
+        "D": "1.00"
+      },
+      "correct_answer": "C",
+      "explanation": "Phone A lasts 100/0.8 = 125 minutes, so phone B lasts 1.25(125) = 156.25 minutes. Then k = 100/156.25 = 0.64. Lasting 25% longer means draining at 1/1.25 = 80% of A's rate, and 0.8(0.8) = 0.64.",
+      "distractor_explanations": {
+        "A": "0.55 subtracts 0.25 from the rate.",
+        "B": "0.60 lowers the rate by 25%, but a 25% longer time means dividing the rate by 1.25.",
+        "D": "1.00 raises the rate by 25%, which would shorten the battery life."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How long does phone A's battery last?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each battery's lifetime, then the rate."
+      },
+      "remember": "A percent change in time is not the same percent change in rate.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-14",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000770",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Building a linear demand model",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a price of $3.00 per cup, a lemonade stand sells 400 cups per day. For every $0.50 increase in the price, it sells 20 fewer cups per day. Assuming this relationship is linear, which equation gives the number of cups n sold per day at a price of p dollars per cup?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "n = 520 − 40p",
+        "B": "n = 460 − 20p",
+        "C": "n = 400 − 20p",
+        "D": "n = 280 + 40p"
+      },
+      "correct_answer": "A",
+      "explanation": "The rate is −20 cups per $0.50, or −40 cups per dollar. Through (3, 400): n = 400 − 40(p − 3) = 520 − 40p.",
+      "distractor_explanations": {
+        "B": "This uses −20 per dollar instead of per $0.50, though it passes through (3, 400).",
+        "C": "This uses the given numbers directly as the intercept and slope.",
+        "D": "This gets the sign of the slope wrong."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "How many fewer cups are sold per $1 increase?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rescale the rate to per dollar, then use the point."
+      },
+      "remember": "Convert a rate to per one unit before writing the slope.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-15",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000771",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Comparing two linear formulas",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "One formula estimates a person's maximum heart rate, in beats per minute, as 220 − a, where a is the person's age in years. Another formula estimates it as 208 − 0.7a. For which ages does the second formula give a greater estimate than the first?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a < 40",
+        "B": "a > 40",
+        "C": "a > 17.1",
+        "D": "a > 12"
+      },
+      "correct_answer": "B",
+      "explanation": "208 − 0.7a > 220 − a gives 0.3a > 12, so a > 40. The formulas agree at age 40, and the second is greater for older ages.",
+      "distractor_explanations": {
+        "A": "a < 40 solves the equation correctly but takes the wrong side.",
+        "C": "17.1 divides 12 by 0.7 instead of by 1 − 0.7.",
+        "D": "12 compares only the constants 220 and 208."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where do the two formulas agree?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the inequality and solve."
+      },
+      "remember": "Collect the variable terms on one side before dividing.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "Q070-16",
+      "created_at": "2026-10-27T17:38:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-070.review.json",
+        "computation": "checks/sat_math/batch_070.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
