@@ -1,0 +1,597 @@
+{
+  "audit": "SAT Math concept-repeat check at 306 accepted (items 107+)",
+  "date": "2026-10-27",
+  "repeats": [
+    {
+      "sat_id": "CLD-SAT-M-000108",
+      "other_id": "fixture:act-math-07",
+      "severity": "template",
+      "why": "Demo fixture: system 2x + y = 11, x − y = 1 (find x + y); SAT 108 is 2x + y = 1, x − y = 8 (find the ordered pair). Same system shape solved by adding equations; prior audit already flagged retired SAT 002 against this fixture."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000112",
+      "other_id": "CLD-SAT-M-000102",
+      "severity": "template",
+      "why": "Both: exponential model given per one time unit (1.02 per month vs 1.2 per year); find the percent increase over a different period by raising the factor to a power (1.02^12 vs 1.2^2)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000115",
+      "other_id": "CLD-SAT-M-000022",
+      "severity": "template",
+      "why": "Both: circle x²+y²+Dx+Ey(+k)=... with an unknown constant k and radius 6; complete the square to find k. Same ask, same radius, new coefficients."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000116",
+      "other_id": "CLD-SAT-M-000159",
+      "severity": "template",
+      "why": "Same triangle numbers in both in-scope items: 116 gives 48° and 67° and asks the third angle (65°); 159 gives exterior angle 115° and 48° and asks the remote angle (67°). One triangle-angle-sum computation on the same 48/67/65/115 figures."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000149",
+      "other_id": "CLD-SAT-M-000046",
+      "severity": "template",
+      "why": "Both: cosine of an acute angle in a 3-4-5-scaled right triangle given two sides (coordinates 8,6 vs sides 20,12); same answer 4/5 and nearly identical choice set (3/5, 3/4, 4/5, 4/3 vs 5/4)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000150",
+      "other_id": "CLD-ACT-M-000660",
+      "severity": "template",
+      "why": "Both: arc length = r·θ with a decimal radian angle (2.5 rad, arc 15 → r vs r 4, 1.5 rad → arc). Same one-step relation, solved for a different variable."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000161",
+      "other_id": "CLD-ACT-M-000142",
+      "severity": "template",
+      "why": "Both: a group is p% one type and the rest another; each type has a different rate (spend $60 vs $40; transit 25% vs 10%); what share of the total quantity comes from the first type = p·a/(p·a+(1−p)·b), with the same 40% split."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000175",
+      "other_id": "CLD-SAT-M-000033",
+      "severity": "template",
+      "why": "Both: solve a factorable quadratic ax²+bx+c=0 and report one root (x²−5x−14 vs 3x²−5x−12)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000192",
+      "other_id": "CLD-SAT-M-000001",
+      "severity": "template",
+      "why": "Same item shell as SAT 001 (whose copy 091 was already retired): 'the equation ax + by = total represents a collection of x of one kind and y of another; given x, how many y' (0.25x+0.10y=4.70, x=12 vs 4x+3y=60, x=6)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000218",
+      "other_id": "CLD-ACT-M-000421",
+      "severity": "template",
+      "why": "Both: four-row table x = 0..3 with outputs multiplying by a constant (4,12,36,108 vs 3,6,12,24); identify the exponential function/growth factor among linear and exponential choices."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000219",
+      "other_id": "CLD-ACT-M-000655",
+      "severity": "template",
+      "why": "Both: given 3^a = a value, evaluate 3 raised to a linear expression in a using exponent rules (3^(a+2)=9·3^a vs 3^(2a−b))."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000222",
+      "other_id": "CLD-SAT-M-000018",
+      "severity": "template",
+      "why": "Both: randomized experiment (random assignment to a new routine vs usual) with an observed difference; ask which conclusion is supported (causation + scope of generalization). 222 swaps random sample for volunteers but tests the same pair of ideas."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000225",
+      "other_id": "CLD-SAT-M-000068",
+      "severity": "template",
+      "why": "Both: expand a linear expression with distributed constants and match it to an equivalent form to find the unknown constant(s) (3(2x+1)−2(x−4)=ax+b vs 5(2x−k)+3x ≡ 13x−35)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000230",
+      "other_id": "CLD-SAT-M-000023",
+      "severity": "template",
+      "why": "Both: right triangle with one trig ratio of an acute angle (sin 3/5 vs tan 5/12) and the hypotenuse given; scale the Pythagorean triple to find side length(s). 230 asks perimeter instead of one leg, same reasoning."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000234",
+      "other_id": "CLD-ACT-M-000609",
+      "severity": "template",
+      "why": "Both: one-sentence verbal linear equation about 'a number', translate and solve ('Twice the sum of a number and 5 is 26' vs 'Four more than 3 times a number is 25')."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000239",
+      "other_id": "CLD-ACT-M-000209",
+      "severity": "template",
+      "why": "Both: two sides of a triangle given; apply the triangle inequality |a−b| < c < a+b (pick a possible third side vs count integer third sides)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000244",
+      "other_id": "CLD-SAT-M-000041",
+      "severity": "template",
+      "why": "Both ask for the product of the solutions of a quadratic equation via c/a (Vieta), without solving; 244 adds an unknown b-coefficient, 041 needs one rearrangement."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000246",
+      "other_id": "CLD-ACT-M-000580",
+      "severity": "template",
+      "why": "Both: vertex of a parabola after a horizontal and vertical translation (g(x)=f(x−2)+3 from x² vs (x−3)²+2 moved 4 left, 5 down)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000252",
+      "other_id": "CLD-SAT-M-000143",
+      "severity": "template",
+      "why": "Both in scope: 'X has $N to spend on two items at given prices with a constraint; what is the greatest whole number of one item' (equal quantities vs at least 4 notebooks)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000286",
+      "other_id": "CLD-ACT-M-000566",
+      "severity": "template",
+      "why": "Both: given b^x = k, evaluate a power of a related base by rewriting in terms of the known power (9^x=5 → 27^x·3^−x = 9^x vs 2^a=3 → 8^a = (2^a)^3)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000108",
+      "other_id": "CLD-ACT-M-000532",
+      "severity": "close",
+      "why": "Solve a 2x2 linear system by elimination (ordered pair vs x − y)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000122",
+      "other_id": "CLD-SAT-M-000149",
+      "severity": "close",
+      "why": "Both in scope: trig ratio of an angle in a 6-8-10 triangle, answer 4/5 with the same 3/5, 3/4, 4/5, 4/3 choices."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000125",
+      "other_id": "CLD-ACT-M-000623",
+      "severity": "close",
+      "why": "Solve a geometric formula for one variable (rectangle perimeter vs cone volume)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000129",
+      "other_id": "CLD-ACT-M-000184",
+      "severity": "close",
+      "why": "Find the parameters of an exponential a·b^x from given points."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000133",
+      "other_id": "CLD-ACT-M-000257",
+      "severity": "close",
+      "why": "Shadow lengths via similar triangles (lamppost with distance vs same-time shadows)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000134",
+      "other_id": "CLD-ACT-M-000602",
+      "severity": "close",
+      "why": "Volume of one cylinder from another's volume and a scale relation (radius only vs similar solids)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000136",
+      "other_id": "CLD-SAT-M-000048",
+      "severity": "close",
+      "why": "Linear function from two (or three) given values, then evaluate (m+b = f(1) vs f(−4))."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000138",
+      "other_id": "CLD-ACT-M-000693",
+      "severity": "close",
+      "why": "Same setup: a line y = x + c meets the circle x² + y² = 25; ask product of x-coordinates vs chord length."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000140",
+      "other_id": "fixture:sat-math-09",
+      "severity": "close",
+      "why": "Minor arc AB on a circle of radius 6; 140 needs the 90° angle from coordinates, fixture gives 120°."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000141",
+      "other_id": "CLD-ACT-M-000104",
+      "severity": "close",
+      "why": "Area of a trapezoid from its bases; ACT 104 first needs the height from the legs."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000142",
+      "other_id": "CLD-SAT-M-000040",
+      "severity": "close",
+      "why": "Intercepts of a line in standard form; 142 reverses it (sum of intercepts given, find k)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000146",
+      "other_id": "CLD-SAT-M-000269",
+      "severity": "close",
+      "why": "Both in scope: time for a falling or thrown object to hit the ground from a quadratic height model."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000148",
+      "other_id": "CLD-ACT-M-000175",
+      "severity": "close",
+      "why": "Percent change in area from percent changes in linear dimensions."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000150",
+      "other_id": "CLD-SAT-M-000005",
+      "severity": "close",
+      "why": "Arc length with radian measure s = rθ; 005 asks arc (kπ), 150 asks radius."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000152",
+      "other_id": "CLD-SAT-M-000028",
+      "severity": "close",
+      "why": "Same slope/point/intercept relation; 152 finds slope from a point and the x-intercept."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000152",
+      "other_id": "CLD-SAT-M-000169",
+      "severity": "close",
+      "why": "Both in scope: line through a point and a given x-intercept; 152 asks slope, 169 asks y-intercept (one more step)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000155",
+      "other_id": "CLD-SAT-M-000071",
+      "severity": "close",
+      "why": "Horizontally shifted quadratic g(x)=f(x±3); 071 asks zeros, 155 asks minimum and its location."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000158",
+      "other_id": "CLD-ACT-M-000750",
+      "severity": "close",
+      "why": "Part-to-part ratio with a difference; 750 goes total → difference, 158 goes difference → part."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000160",
+      "other_id": "CLD-ACT-M-000738",
+      "severity": "close",
+      "why": "Ratio of sphere volume to cylinder volume."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000160",
+      "other_id": "CLD-SAT-M-000095",
+      "severity": "close",
+      "why": "Sphere compared with another solid with the same radius by volume (cylinder ratio vs cone height)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000164",
+      "other_id": "CLD-SAT-M-000172",
+      "severity": "close",
+      "why": "Both in scope: line with an unknown slope meets a fixed line at a point with a stated condition; find the slope."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000165",
+      "other_id": "CLD-SAT-M-000213",
+      "severity": "close",
+      "why": "Both in scope: square with the same perimeter as another figure (circle circumference vs equilateral triangle)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000166",
+      "other_id": "CLD-SAT-M-000190",
+      "severity": "close",
+      "why": "Both in scope: find something from one value of a linear function, then evaluate at a related input."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000169",
+      "other_id": "CLD-SAT-M-000028",
+      "severity": "close",
+      "why": "Line through a point plus one other condition (x-intercept vs slope); find the y-intercept."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000170",
+      "other_id": "CLD-ACT-M-000085",
+      "severity": "close",
+      "why": "Altitude to the hypotenuse of a right triangle (segments ↔ altitude, geometric mean)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000173",
+      "other_id": "CLD-SAT-M-000073",
+      "severity": "close",
+      "why": "Two linear quantities, when are they equal (battery levels vs phone plans)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000176",
+      "other_id": "CLD-ACT-M-000007",
+      "severity": "close",
+      "why": "Successive percent increase and decrease of a price."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000177",
+      "other_id": "CLD-SAT-M-000064",
+      "severity": "close",
+      "why": "Unknown count of marbles/tokens from a given probability; 177 is without replacement (quadratic)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000179",
+      "other_id": "CLD-SAT-M-000047",
+      "severity": "close",
+      "why": "Right triangle with legs in a fixed ratio; 047 goes area → hypotenuse, 179 goes hypotenuse → area."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000184",
+      "other_id": "CLD-ACT-M-000219",
+      "severity": "close",
+      "why": "Difference of values of a quadratic function (numeric vs symbolic f(a+1) − f(a))."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000185",
+      "other_id": "CLD-ACT-M-000653",
+      "severity": "close",
+      "why": "Which statement about mean/median (and mode) of a list of test scores is true."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000190",
+      "other_id": "CLD-SAT-M-000052",
+      "severity": "close",
+      "why": "Function with one unknown constant; use one given value to find it, then evaluate at another input (linear vs quadratic)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000195",
+      "other_id": "CLD-SAT-M-000102",
+      "severity": "close",
+      "why": "Exponential percent growth across two years, but inverted: 195 finds the annual rate from two values, 102 finds the 2-year rate from the model."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000199",
+      "other_id": "CLD-SAT-M-000098",
+      "severity": "close",
+      "why": "Verbal statement about one number with the unknown on both sides; translate and solve."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000200",
+      "other_id": "CLD-ACT-M-000362",
+      "severity": "close",
+      "why": "Line through a point parallel to a given line; 200 asks its x-intercept."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000201",
+      "other_id": "CLD-SAT-M-000071",
+      "severity": "close",
+      "why": "Shifted quadratic (vertical vs horizontal), ask for the zeros of g."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000202",
+      "other_id": "fixture:sat-math-07",
+      "severity": "close",
+      "why": "Minimum of a quadratic; 202 reverses it (given minimum, find c)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000209",
+      "other_id": "CLD-ACT-M-000155",
+      "severity": "close",
+      "why": "Factored quadratic with one unknown constant passing through a given point."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000214",
+      "other_id": "CLD-ACT-M-000511",
+      "severity": "close",
+      "why": "Chord, radius and distance to center form a right triangle; 214 asks triangle area, 511 asks radius."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000215",
+      "other_id": "CLD-SAT-M-000009",
+      "severity": "close",
+      "why": "Constant-rate proportion (GB per day vs miles per gallon) scaled to a target."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000217",
+      "other_id": "CLD-SAT-M-000073",
+      "severity": "close",
+      "why": "Equal totals under two linear rates (equal earnings vs break-even plan cost)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000219",
+      "other_id": "CLD-SAT-M-000286",
+      "severity": "close",
+      "why": "Both in scope: given an exponential value, evaluate a related exponential expression; different rule used (product vs change of base)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000224",
+      "other_id": "CLD-ACT-M-000204",
+      "severity": "close",
+      "why": "Area of an isosceles triangle with two equal sides (from base angles vs from base)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000225",
+      "other_id": "fixture:sat-math-04",
+      "severity": "close",
+      "why": "Expand and match coefficients, then report a sum (linear vs quadratic)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000226",
+      "other_id": "CLD-SAT-M-000118",
+      "severity": "close",
+      "why": "Third point on a line determined by given data; find the missing coordinate."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000227",
+      "other_id": "CLD-ACT-M-000610",
+      "severity": "close",
+      "why": "Solve f(x) = k for a quadratic f."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000236",
+      "other_id": "CLD-ACT-M-000302",
+      "severity": "close",
+      "why": "Interpreting a parameter of an exponential value model (initial value vs growth factor)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000238",
+      "other_id": "CLD-ACT-M-000762",
+      "severity": "close",
+      "why": "Inverse variation: product held constant (painters × days vs pressure × volume)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000240",
+      "other_id": "CLD-ACT-M-000747",
+      "severity": "close",
+      "why": "Circle with given center tangent to the x-axis (radius = |y-center|); 240 then finds y-axis crossings."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000242",
+      "other_id": "CLD-ACT-M-000424",
+      "severity": "close",
+      "why": "Interpret a constant/intercept in a linear model in context."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000243",
+      "other_id": "CLD-ACT-M-000020",
+      "severity": "close",
+      "why": "Two-item count-and-total-cost system in context."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000243",
+      "other_id": "CLD-SAT-M-000014",
+      "severity": "close",
+      "why": "Two-item price/quantity system in context (write the system vs solve it)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000251",
+      "other_id": "CLD-ACT-M-000730",
+      "severity": "close",
+      "why": "Road/ramp rising r over run d: tangent value vs inverse-tangent expression."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000255",
+      "other_id": "CLD-ACT-M-000597",
+      "severity": "close",
+      "why": "Solutions of a linear absolute value equation |ax − b| = c (sum vs list)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000258",
+      "other_id": "CLD-ACT-M-000047",
+      "severity": "close",
+      "why": "Comparing spread via standard deviation."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000259",
+      "other_id": "CLD-ACT-M-000791",
+      "severity": "close",
+      "why": "Inputs where a quadratic matches a given output value f(x) = f(a)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000261",
+      "other_id": "CLD-ACT-M-000175",
+      "severity": "close",
+      "why": "Scaling the input of a squared relationship multiplies the output by the square."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000266",
+      "other_id": "CLD-ACT-M-000145",
+      "severity": "close",
+      "why": "Where exponential growth overtakes linear growth over integers."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000270",
+      "other_id": "CLD-ACT-M-000558",
+      "severity": "close",
+      "why": "Triangle angles from a multiplicative relation (isosceles 3:1 vs ratio 2:3:4)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000273",
+      "other_id": "CLD-SAT-M-000013",
+      "severity": "close",
+      "why": "Linear equation with a parameter that has infinitely many solutions; 273 puts the parameter in both coefficient and constant."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000276",
+      "other_id": "CLD-ACT-M-000678",
+      "severity": "close",
+      "why": "Slope from two points (parametric vs numeric)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000277",
+      "other_id": "CLD-ACT-M-000544",
+      "severity": "close",
+      "why": "2x2 linear system with a parameter that has no solution (proportional coefficients); 277 puts the parameter in two places, giving a² = 12."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000289",
+      "other_id": "CLD-SAT-M-000101",
+      "severity": "close",
+      "why": "Uses the symmetry of a parabola: equal outputs at two inputs fix the axis of symmetry."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000290",
+      "other_id": "CLD-ACT-M-000161",
+      "severity": "close",
+      "why": "Value of a constant making an equation have no solution."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000290",
+      "other_id": "CLD-SAT-M-000029",
+      "severity": "close",
+      "why": "No-solution condition for an equation with a parameter (rational vs linear)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000292",
+      "other_id": "CLD-ACT-M-000067",
+      "severity": "close",
+      "why": "Coverage rate plus unit conversion, rounded up to whole units sold (bags vs rolls)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000293",
+      "other_id": "CLD-ACT-M-000017",
+      "severity": "close",
+      "why": "Median read from a frequency table; 293 adds an unknown frequency."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000295",
+      "other_id": "CLD-ACT-M-000133",
+      "severity": "close",
+      "why": "Same 6-8-10 right triangle with an inscribed figure (square vs incircle)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000303",
+      "other_id": "CLD-SAT-M-000102",
+      "severity": "close",
+      "why": "Percent growth over a different period of an exponential (doubling every 6 years → 3 years vs 1.2 per year → 2 years)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000307",
+      "other_id": "CLD-SAT-M-000099",
+      "severity": "close",
+      "why": "Which quadrant a line does not pass through, decided by the signs of slope and intercept."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000311",
+      "other_id": "CLD-ACT-M-000454",
+      "severity": "close",
+      "why": "Scale a sample proportion up to a population count; 311 adds the margin-of-error range."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000313",
+      "other_id": "CLD-SAT-M-000115",
+      "severity": "close",
+      "why": "Both in scope: circle x²+y²+Dx+Ey with an unknown constant; 313 asks for a k that puts a point inside."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000315",
+      "other_id": "CLD-ACT-M-000025",
+      "severity": "close",
+      "why": "Conditional probability from a two-way table; 315 first recovers a missing cell."
+    }
+  ],
+  "official_mirrors": [
+    {
+      "sat_id": "CLD-SAT-M-000113",
+      "resembles": "Released digital SAT item on chained percents ('a is p% less than b; c is q% greater than a; c is what multiple/percent of b')",
+      "severity": "close",
+      "why": "Same two-step percent-of-percent chain with one 'less than' link; numbers and wording differ. Pattern-level match, not verbatim."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000156",
+      "resembles": "Recurring official SAT idea: a larger random sample gives a smaller margin of error",
+      "severity": "close",
+      "why": "Standard official framing (same population, bigger sample, what happens to the margin of error). The concept is common, not a copy."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000222",
+      "resembles": "Official SAT random-assignment vs random-selection inference items",
+      "severity": "close",
+      "why": "Volunteers randomly assigned to treatment: causation for similar people, no generalization to everyone. Standard official template, as for SAT 018."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000311",
+      "resembles": "Official SAT 'plausible population value from a sample estimate and margin of error' items",
+      "severity": "close",
+      "why": "Scale the sample percent ± margin of error to the population count. A common official structure, with different numbers."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000115",
+      "resembles": "Official SAT circle-equation items solved by completing the square (x² + y² + Dx + Ey = k with a given radius)",
+      "severity": "close",
+      "why": "A standard official item type; already a template repeat of SAT 022 inside this bank."
+    }
+  ],
+  "summary": "Checked 210 live SAT Math items (CLD-SAT-M-000107 to -000316; none retired in this range) against all 306 live SAT items, 774 live ACT Math items (21 retired skipped) and 22 demo-fixture math items. 93 pairs flagged: 0 copy, 20 template, 73 close. No verbatim or same-number copies were found. The closest is SAT 116/159, which reuse one triangle's angle measures (48°, 67°, 65°, 115°). Internal SAT template repeats: 192/001 (same item shell as the 001/091 copy already retired), 115/022, 149/046, 230/023, 225/068, 244/041, 175/033, 222/018, 112/102, 116/159, 252/143. Cross-bank template repeats: 150/ACT 660, 161/ACT 142, 218/ACT 421, 246/ACT 580, 234/ACT 609, 239/ACT 209, 286/ACT 566, 219/ACT 655, and 108 vs fixture act-math-07 (the same fixture the prior audit matched to retired SAT 002). Recommendation: retire or rewrite SAT 192 (third use of the 001 shell) and one item of each of 115/022 and 149/046 (same radius and same answer set). Change the asked quantity or setup of the other template pairs. Close pairs are informational. Pairs from the 106-item audit were not re-reported. Official mirrors are pattern-level resemblances to common released-SAT item types, checked from memory and not against official texts. No verbatim official item was found."
+}

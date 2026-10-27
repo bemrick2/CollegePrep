@@ -290,6 +290,90 @@
    "audit": "audits/insertion_scan_2026-10-27.json",
    "date": "2026-10-27",
    "kind": "hold-defect"
+  },
+  "CLD-SAT-M-000108": {
+   "duplicate_of": "fixture:act-math-07",
+   "shared_idea": "Demo fixture: system 2x + y = 11, x − y = 1 (find x + y); SAT 108 is 2x + y = 1, x − y = 8 (find the ordered pair). Same system shape solved by adding equations; prior audit already flagged retired SAT 002 against this fixture.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000112": {
+   "duplicate_of": "CLD-SAT-M-000102",
+   "shared_idea": "Both: exponential model given per one time unit (1.02 per month vs 1.2 per year); find the percent increase over a different period by raising the factor to a power (1.02^12 vs 1.2^2).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000115": {
+   "duplicate_of": "CLD-SAT-M-000022",
+   "shared_idea": "Both: circle x²+y²+Dx+Ey(+k)=... with an unknown constant k and radius 6; complete the square to find k. Same ask, same radius, new coefficients.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000159": {
+   "duplicate_of": "CLD-SAT-M-000116",
+   "shared_idea": "Same triangle numbers in both in-scope items: 116 gives 48° and 67° and asks the third angle (65°); 159 gives exterior angle 115° and 48° and asks the remote angle (67°). One triangle-angle-sum computation on the same 48/67/65/115 figures.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000149": {
+   "duplicate_of": "CLD-SAT-M-000046",
+   "shared_idea": "Both: cosine of an acute angle in a 3-4-5-scaled right triangle given two sides (coordinates 8,6 vs sides 20,12); same answer 4/5 and nearly identical choice set (3/5, 3/4, 4/5, 4/3 vs 5/4).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000175": {
+   "duplicate_of": "CLD-SAT-M-000033",
+   "shared_idea": "Both: solve a factorable quadratic ax²+bx+c=0 and report one root (x²−5x−14 vs 3x²−5x−12).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000192": {
+   "duplicate_of": "CLD-SAT-M-000001",
+   "shared_idea": "Same item shell as SAT 001 (whose copy 091 was already retired): 'the equation ax + by = total represents a collection of x of one kind and y of another; given x, how many y' (0.25x+0.10y=4.70, x=12 vs 4x+3y=60, x=6).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000222": {
+   "duplicate_of": "CLD-SAT-M-000018",
+   "shared_idea": "Both: randomized experiment (random assignment to a new routine vs usual) with an observed difference; ask which conclusion is supported (causation + scope of generalization). 222 swaps random sample for volunteers but tests the same pair of ideas.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000225": {
+   "duplicate_of": "CLD-SAT-M-000068",
+   "shared_idea": "Both: expand a linear expression with distributed constants and match it to an equivalent form to find the unknown constant(s) (3(2x+1)−2(x−4)=ax+b vs 5(2x−k)+3x ≡ 13x−35).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000230": {
+   "duplicate_of": "CLD-SAT-M-000023",
+   "shared_idea": "Both: right triangle with one trig ratio of an acute angle (sin 3/5 vs tan 5/12) and the hypotenuse given; scale the Pythagorean triple to find side length(s). 230 asks perimeter instead of one leg, same reasoning.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000244": {
+   "duplicate_of": "CLD-SAT-M-000041",
+   "shared_idea": "Both ask for the product of the solutions of a quadratic equation via c/a (Vieta), without solving; 244 adds an unknown b-coefficient, 041 needs one rearrangement.",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000252": {
+   "duplicate_of": "CLD-SAT-M-000143",
+   "shared_idea": "Both in scope: 'X has $N to spend on two items at given prices with a constraint; what is the greatest whole number of one item' (equal quantities vs at least 4 notebooks).",
+   "audit": "reviews/sat_math/audit-300-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
   }
  }
 }
