@@ -1,0 +1,141 @@
+{
+ "audit": "ACT Reading 300-item concept-repeat audit",
+ "date": "2026-10-27",
+ "passages_checked": 39,
+ "live_items_checked": 300,
+ "method": "Read all 39 passage texts in full, grouped by genre (37 with live items; 032 and 033 were already retired and were used only for reference). Listed all 300 live items (321 in the bank minus 21 retired) with stem and key. Ran TF-IDF cosine similarity on stem plus key text across passages and read the top pairs. Also read every item key by hand against the passage-level themes.",
+ "passage_repeats": [
+  {
+   "later": "CLD-P-ACT-R-000022",
+   "earlier": "CLD-P-ACT-R-000012",
+   "why": "Both are first-person essays by literary translators making the same argument. Translators split into a 'keep the words' camp and a 'keep the effect' camp. Every option loses something, so neither literal rendering nor substitution is simply faithful. The debate never ends because each side is partly right (012: 'Both sides are right, which is why the argument never ends'; 022: 'This is why the old argument never ends'). The right choice depends on what the passage is doing in the whole work (012: 'what the book is for'; 022: 'what the phrase is doing in this particular poem'). No translation is neutral (012: 'any of these choices is neutral'; 022: 'not a neutral transfer'). Moving the example from a pun to an idiom ('wet match') changes the case, not the argument. This is the same repeat that got passage 033 (rhyme) retired against 012. The items repeat too: 174/175 (each approach has its own cost) restate 012's 106 ('none of them good': each choice gives something up); 177 (choose by asking what the phrase does in context) matches 104/106; 178 and 179 (camps treat a method as a rule; a translation is an argument/decision about what the work is) restate 105 (choices are never neutral).",
+   "retire_items": [
+    "CLD-ACT-R-000173",
+    "CLD-ACT-R-000174",
+    "CLD-ACT-R-000175",
+    "CLD-ACT-R-000176",
+    "CLD-ACT-R-000177",
+    "CLD-ACT-R-000178",
+    "CLD-ACT-R-000179"
+   ]
+  },
+  {
+   "later": "CLD-P-ACT-R-000021",
+   "earlier": "CLD-P-ACT-R-000014",
+   "why": "Same storyline and turn. A family shop run for about forty years is closing, and a teenage grandchild helps clear it out on the last days. In a drawer (014: the 'Others' drawer; 021: the bottom drawer of the counter) the grandchild finds decades-old slips in the grandfather's handwriting: uncollected repair tickets marked finished in 014, IOUs never crossed out in 021. The slips reveal a tender side the shop's orderly surface hid (014: hope that 'somebody might come back'; 021: quiet mercy, 'it meant he'd noticed'). The story ends with the slips deliberately kept out of the disposal (014: the narrator keeps the drawer shut from the mother; 021: the grandmother puts the box in her purse, not on the sale pile). Both also use the 'meticulous man whose careful records conceal feeling' device, which passage 007 ('The Inventory', a ledger that omits a box of letters) uses as well. Changing watches to hardware and tickets to IOUs is a change of names and objects only. Items overlap too: 167 (central idea: the grandson discovers the grandfather's hidden generosity) parallels 116/119; 171 (careful sorting makes the discovery surprising) uses the same set-up as 118/122.",
+   "retire_items": [
+    "CLD-ACT-R-000167",
+    "CLD-ACT-R-000168",
+    "CLD-ACT-R-000169",
+    "CLD-ACT-R-000170",
+    "CLD-ACT-R-000171",
+    "CLD-ACT-R-000172"
+   ]
+  }
+ ],
+ "item_duplicates": [
+  {
+   "keep": "CLD-ACT-R-000204",
+   "retire": [
+    "CLD-ACT-R-000284"
+   ],
+   "shared_idea": "The same vocabulary item. 'Champions' most nearly means 'supporters' in the same sense in both passages (026: Beethoven 'among its earliest champions'; 035: 'Each idea has had its champions'). The stems are identical, the key is identical, and the distractors are nearly identical (winners/inventors in both; rivals vs opponents). A student who has seen one item answers the other without reading. Similarity score 1.00."
+  }
+ ],
+ "close_but_kept": [
+  {
+   "items": [
+    "CLD-ACT-R-000079",
+    "CLD-ACT-R-000166"
+   ],
+   "note": "Both have the key 'interested but cautious, since it has not been confirmed/demonstrated' and use the same enthusiastic/dismissive/indifferent distractor template. They test attitudes toward different things (an unconfirmed hypothesis about bird navigation vs an unproven farm application), so the passage is still needed. Kept, but this answer wording is overused; vary it in future drafting. CLD-ACT-R-000044 ('confident... but aware of unresolved questions') is a related pattern."
+  },
+  {
+   "items": [
+    "CLD-ACT-R-000165",
+    "CLD-ACT-R-000317"
+   ],
+   "note": "Both test the word 'concentrated', but in different senses ('gathered' for nutrients near the surface; 'less diluted' for cell fluid) with different keys. Not a duplicate."
+  },
+  {
+   "items": [
+    "CLD-ACT-R-000218",
+    "CLD-ACT-R-000233"
+   ],
+   "note": "Both are paragraph-function items in which an idea spread before being tested. The content differs (wood wide web vs Hardin) and neither can be answered from the other."
+  },
+  {
+   "items": [
+    "CLD-ACT-R-000105",
+    "CLD-ACT-R-000269"
+   ],
+   "note": "Both draw on a 'no choice is neutral / a default decides for you' idea (translation vs retirement defaults). The items ask different things (author's attitude vs meaning of a claim). Kept."
+  },
+  {
+   "items": [
+    "CLD-ACT-R-000205",
+    "CLD-ACT-R-000228"
+   ],
+   "note": "Both say surviving tempo evidence may not show performers' real preferences (Beethoven's imagined tempo vs tempos sped up for the recording time limit). The reasons differ and the items are passage-specific. Kept, consistent with the earlier ruling on 026/029."
+  },
+  {
+   "passages": [
+    "CLD-P-ACT-R-000001",
+    "CLD-P-ACT-R-000004",
+    "CLD-P-ACT-R-000017",
+    "CLD-P-ACT-R-000011"
+   ],
+   "note": "A recurring mentor/apprentice frame (a taciturn mentor, no praise, a tool or role handed over without comment). The central points differ: patience and readiness (001); a grandfather passing on his ear (004); trust shown through action under pressure (017); mapping as conscious omission (011). The items test different inferences. Kept, but the bank has no room for another story of this shape."
+  },
+  {
+   "passages": [
+    "CLD-P-ACT-R-000007",
+    "CLD-P-ACT-R-000014"
+   ],
+   "note": "Both feature a meticulous relative's records and a hidden box or drawer. The points differ (a complete list can still disguise what mattered most vs an old man's attachment to work that is ending), and so does the storyline (an estate inventory and private letters). Kept. 021 is the passage that repeats 014's actual plot."
+  },
+  {
+   "passages": [
+    "CLD-P-ACT-R-000020",
+    "CLD-P-ACT-R-000028"
+   ],
+   "note": "Both caution against reading tree cooperation into the evidence (020: hydraulic lift as 'generosity'; 028: the 'wood wide web' and mother trees). For 020 this is one paragraph in a mechanism explainer; for 028 it is the whole argument. Item 164 (generosity unsupported because the process benefits the tree) is the closest item, but no 028 item tests that inference. Kept."
+  },
+  {
+   "passages": [
+    "CLD-P-ACT-R-000010",
+    "CLD-P-ACT-R-000023"
+   ],
+   "note": "Both follow a behavioral-economics template: a classic anomaly defies standard theory, and later work narrows it by context. The effects (decoy vs endowment), the explanations and the items differ. Kept."
+  },
+  {
+   "passages": [
+    "CLD-P-ACT-R-000002",
+    "CLD-P-ACT-R-000006",
+    "CLD-P-ACT-R-000027"
+   ],
+   "note": "In each paired set, Passage B is a skeptic who asks for measurement or cost-effectiveness. The claims differ (opportunity cost of daylighting; canopy vs trees planted; before/after evidence on fine-free libraries) and so do the items. Kept."
+  }
+ ],
+ "notes": "Live items = 321 in the bank minus 21 retired = 300. Passages 032 and 033 and their items were already retired and were not re-reported. Topic overlaps from the 2026-10-27 passage-theme audit (031/006, 029/026, etc.) were re-read and still look acceptable. If all proposals are applied, 14 items are retired (7 from passage 022, 6 from 021, and item 284), leaving 286 live items. Passage 035 would keep 8 items. Process: the word-overlap screen catches identical items like 204/284 but not argument-level repeats (022/012, 021/014). Both of those were found by reading, which supports the existing rule to read same-genre passages before drafting.",
+ "decision": {
+  "date": "2026-10-27",
+  "retired": [
+   "CLD-ACT-R-000173",
+   "CLD-ACT-R-000174",
+   "CLD-ACT-R-000175",
+   "CLD-ACT-R-000176",
+   "CLD-ACT-R-000177",
+   "CLD-ACT-R-000178",
+   "CLD-ACT-R-000179",
+   "CLD-ACT-R-000167",
+   "CLD-ACT-R-000168",
+   "CLD-ACT-R-000169",
+   "CLD-ACT-R-000170",
+   "CLD-ACT-R-000171",
+   "CLD-ACT-R-000172",
+   "CLD-ACT-R-000284"
+  ],
+  "rule": "Accepted all three findings after reading the passages and items: P022 and P021 sets retired as passage repeats; R-284 retired as a copy of R-204."
+ }
+}
