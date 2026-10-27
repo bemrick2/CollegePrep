@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 1,
+  "bank_version": 2,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -203,6 +203,209 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the lines and mark the two angles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000011",
+      "correct_answer": "A",
+      "explanation": "Set 4a − 10 = −a + 5, so 5a = 15 and a = 3. Then b = −3 + 5 = 2.",
+      "distractor_explanations": {
+        "B": "3 is the value of a, the x-coordinate.",
+        "C": "5 is the y-intercept of the second line.",
+        "D": "8 substitutes a = 3 into 4a − 10 incorrectly as 4(3) − 4."
+      },
+      "hints": [
+        "Set the two expressions for y equal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for a first, then substitute."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000012",
+      "correct_answer": "11",
+      "accepted_answers": [
+        "11"
+      ],
+      "common_errors": [
+        {
+          "value": "13",
+          "rationale": "13 distributes 5(t − 3) as 5t − 3.",
+          "trap": null
+        },
+        {
+          "value": "5.5",
+          "rationale": "5.5 divides 22 by 4 instead of 2.",
+          "trap": null
+        }
+      ],
+      "explanation": "5t − 15 + 2 = 3t + 9, so 5t − 13 = 3t + 9, 2t = 22 and t = 11.",
+      "distractor_explanations": {},
+      "hints": [
+        "Distribute the 5 first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Collect t-terms on one side."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000013",
+      "correct_answer": "B",
+      "explanation": "The left side is 6x − 3. The equation 6x − 3 = 6x + k is true for every x exactly when k = −3.",
+      "distractor_explanations": {
+        "A": "−6 doubles the constant.",
+        "C": "−1 distributes 3(2x − 1) as 6x − 1.",
+        "D": "3 drops the negative sign."
+      },
+      "hints": [
+        "When is an equation true for every value of x?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Make both sides identical."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000014",
+      "correct_answer": "D",
+      "explanation": "Adding the equations: 5m + 5c = 30, so m + c = 6. Subtracting the first from the second: c − m = 1. So c = 3.50 and m = 2.50.",
+      "distractor_explanations": {
+        "A": "$2.50 is the price of a muffin.",
+        "B": "$3.00 splits the combined $6 equally between a muffin and a coffee.",
+        "C": "$3.25 averages the two totals' per-item costs without solving the system."
+      },
+      "hints": [
+        "What do you get if you add the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add and subtract the equations."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000015",
+      "correct_answer": "C",
+      "explanation": "9 = 3², so 9^(x/2) = (3²)^(x/2) = 3^x.",
+      "distractor_explanations": {
+        "A": "This changes the base without changing the exponent.",
+        "B": "This squares the base instead of taking its square root.",
+        "D": "This divides the whole power by 2 instead of halving the exponent."
+      },
+      "hints": [
+        "Write 9 as a power of 3."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 2: 9^1 = 9, and only 3^2 = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000016",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "−1",
+          "rationale": "−1 is the smaller x-coordinate.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "10",
+          "rationale": "10 is the y-coordinate of the point with x = 5.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set x² − 3x = x + 5: x² − 4x − 5 = 0, so (x − 5)(x + 1) = 0 and x = 5 or x = −1. The greatest is 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Set the two expressions for y equal."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the resulting quadratic, or graph both and read the intersections."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000017",
+      "correct_answer": "A",
+      "explanation": "The fractions have the same denominator: (x + 5 − 6)/(x − 1) = (x − 1)/(x − 1) = 1 for x ≠ 1.",
+      "distractor_explanations": {
+        "B": "This drops the denominator after subtracting.",
+        "C": "This adds 6 instead of subtracting it.",
+        "D": "This inverts the result and uses the wrong numerator."
+      },
+      "hints": [
+        "Combine the numerators over the common denominator."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 3: 8/2 − 6/2 = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000018",
+      "correct_answer": "C",
+      "explanation": "Random assignment supports a cause-and-effect conclusion, and random selection from the city's residents lets the result be generalized to adults in that city, but not beyond it.",
+      "distractor_explanations": {
+        "A": "The sample came from one city, so the result cannot be generalized to every city.",
+        "B": "Random assignment is exactly what allows a causal conclusion.",
+        "D": "Random selection allows generalizing beyond the 150 participants to the city's adults."
+      },
+      "hints": [
+        "What does random assignment allow? What does random selection allow?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the scope of each conclusion."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000019",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "250",
+          "rationale": "250 is the speed in meters per minute.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0.25",
+          "rationale": "0.25 is kilometers per minute.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "1,500 meters in 6 minutes is 250 meters per minute, or 15,000 meters per hour, which is 15 kilometers per hour.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many meters per hour is that?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert minutes to hours and meters to kilometers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000020",
+      "correct_answer": "B",
+      "explanation": "The other side is √(13² − 5²) = 12, so the area is 5 × 12 = 60.",
+      "distractor_explanations": {
+        "A": "30 takes half of the area, as for a triangle.",
+        "C": "65 multiplies the diagonal by the side.",
+        "D": "78 multiplies 13 by 6, using the wrong side length."
+      },
+      "hints": [
+        "Find the missing side with the Pythagorean theorem."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the rectangle and its diagonal."
       }
     }
   ]

@@ -1,0 +1,457 @@
+{
+ "bank": "sat_math",
+ "batch": 3,
+ "plan": "SAT Math batch 3: Algebra 3, Advanced Math 4, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 2; 3 student-produced responses; two hard items (coefficient matching with two cases, exponential factor per 2 years). Ideas that repeated ACT items 172 and 061 were dropped.",
+ "candidates": [
+  {
+   "cand": "Q003-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Matching coefficients of a product",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "(ax + 3)(bx + 7) = 15x² + cx + 21\nIn the equation above, a, b and c are constants, the equation is true for all values of x, and a + b = 8. What is the greatest possible value of c ?",
+   "explanation": "Expanding: abx² + (7a + 3b)x + 21. So ab = 15 and a + b = 8, giving {a, b} = {3, 5}. If a = 3, b = 5, then c = 21 + 15 = 36; if a = 5, b = 3, then c = 35 + 9 = 44. The greatest is 44.",
+   "hints": [
+    "Expand the left side and match each coefficient."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find a and b from ab = 15 and a + b = 8, then test both orders."
+   },
+   "remember": "Matching coefficients can leave more than one case; check them all.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must expand, set up ab = 15 with a + b = 8, and then notice that the two assignments of 3 and 5 give different values of c."
+   },
+   "format": "spr",
+   "answer": "44",
+   "accepted_answers": [
+    "44"
+   ],
+   "common_errors": [
+    {
+     "value": "36",
+     "rationale": "36 is the value of c when a = 3 and b = 5, the smaller of the two possibilities.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "10",
+     "rationale": "10 adds 3 and 7 without the coefficients a and b.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q003-02",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Equation of a circle with an unknown constant",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of x² + y² + 8x − 6y = k is a circle with radius 6. What is the value of k ?",
+   "explanation": "Complete the squares: (x + 4)² − 16 + (y − 3)² − 9 = k, so (x + 4)² + (y − 3)² = k + 25. The radius is 6, so k + 25 = 36 and k = 11.",
+   "hints": [
+    "Complete the square for x and for y."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the equation in center-radius form."
+   },
+   "remember": "Completing the square adds constants to both sides.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "11",
+   "accepted_answers": [
+    "11"
+   ],
+   "common_errors": [
+    {
+     "value": "36",
+     "rationale": "36 is the square of the radius, before accounting for the completed squares.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "61",
+     "rationale": "61 adds 25 instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q003-03",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right-triangle trigonometry with a given ratio",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle ABC, angle C is the right angle, tan A = 5/12 and AB = 26. What is the length of BC ?",
+   "explanation": "tan A = BC/AC = 5/12, so the sides are in the ratio 5 : 12 : 13. Since AB = 26 = 2 × 13, BC = 2 × 5 = 10.",
+   "hints": [
+    "Which side is opposite angle A?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the triangle with 5k, 12k and 13k."
+   },
+   "remember": "A trig ratio gives a side ratio; scale it to the given side.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "5",
+    "B": "10",
+    "C": "12",
+    "D": "24"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "5 uses the ratio without scaling by 2.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "12 is the unscaled adjacent side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 is AC, the side adjacent to A.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q003-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solutions of a linear inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "Which of the following values of x is a solution to the inequality 3 − 2x > 11 ?",
+   "explanation": "3 − 2x > 11 gives −2x > 8, so x < −4. Only −6 is less than −4.",
+   "hints": [
+    "What happens to the inequality when you divide by a negative number?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Substitute each choice."
+   },
+   "remember": "Dividing by a negative reverses the inequality.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−6",
+    "B": "−4",
+    "C": "0",
+    "D": "4"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−4 makes the two sides equal, so it is not a solution of the strict inequality.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "0 gives 3 > 11, which is false.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4 results from forgetting to reverse the inequality when dividing by −2.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q003-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Evaluating an expression from a related equation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "If 3x − 5 = 16, what is the value of 6x − 10 ?",
+   "explanation": "6x − 10 = 2(3x − 5) = 2(16) = 32. (Or x = 7 and 6(7) − 10 = 32.)",
+   "hints": [
+    "How is 6x − 10 related to 3x − 5?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the whole equation by 2."
+   },
+   "remember": "Look for a multiple of a known expression before solving.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "26",
+    "B": "30",
+    "C": "32",
+    "D": "42"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "26 is 16 + 10.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "30 is 6(7) − 12, a subtraction error.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "42 is 6x, forgetting to subtract 10.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q003-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "System of linear inequalities in context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Each week Maya runs r miles and bikes b miles. Running burns 110 calories per mile, and biking burns 40 calories per mile. She wants to burn at least 2,000 calories while covering no more than 30 miles in all. Which of the following choices of (r, b) meets both goals?",
+   "explanation": "(15, 12): 110(15) + 40(12) = 1,650 + 480 = 2,130 ≥ 2,000, and 15 + 12 = 27 ≤ 30. A burns 1,900, B burns 1,920, and D covers 35 miles.",
+   "hints": [
+    "Write one inequality for calories and one for distance."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each pair in both inequalities."
+   },
+   "remember": "A solution of a system must satisfy every inequality.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(10, 20)",
+    "B": "(12, 15)",
+    "C": "(15, 12)",
+    "D": "(20, 15)"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This covers 30 miles but burns only 1,900 calories.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "This burns only 1,920 calories.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "This burns enough calories but covers 35 miles.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q003-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Vertex form that displays a minimum",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "f(x) = 2x² − 12x + 7\nWhich of the following equivalent forms of f(x) shows the minimum value of f as a constant or coefficient?",
+   "explanation": "f(x) = 2(x² − 6x) + 7 = 2(x − 3)² − 18 + 7 = 2(x − 3)² − 11, which shows the minimum value −11.",
+   "hints": [
+    "Factor 2 out of the x-terms first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check x = 0 in each choice: only A and D give 7, and only A also matches at x = 1."
+   },
+   "remember": "Vertex form a(x − h)² + k shows the minimum k when a > 0.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2(x − 3)² − 11",
+    "B": "2(x − 6)² − 65",
+    "C": "2(x + 3)² − 11",
+    "D": "(2x − 3)² − 2"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This completes the square with 6 instead of half of 6.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This has the wrong sign inside the square, which changes the function.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This is not equivalent; it expands to 4x² − 12x + 7.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q003-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Interpreting an exponential growth factor",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The population of a town t years after 2020 is modeled by P(t) = 8,000(1.05)^(t/2). Which statement best describes how the population changes according to the model?",
+   "explanation": "When t increases by 2, the exponent t/2 increases by 1, so P is multiplied by 1.05: a 5% increase every 2 years. (The yearly rate is √1.05 − 1 ≈ 2.47%, not exactly 2.5%.)",
+   "hints": [
+    "What happens to the exponent when t increases by 2?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compare P(0), P(1) and P(2)."
+   },
+   "remember": "In a(b)^(t/k), the factor b applies every k units of t.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Choices A and C are tempting shortcuts; students must see that the growth factor applies per 2 years and that halving a percent is not the same as taking a square root."
+   },
+   "choices": {
+    "A": "It increases by 5% each year.",
+    "B": "It increases by 10% every 2 years.",
+    "C": "It increases by 2.5% each year.",
+    "D": "It increases by 5% every 2 years."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This ignores the division of t by 2 in the exponent.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "This doubles the percent instead of the time period.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This halves the percent; compound growth makes the yearly rate about 2.47%, not 2.5%.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q003-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Prediction from a line of best fit",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "For a group of students, the line of best fit for test score y versus hours of practice x is y = 1.8x + 12. According to the line of best fit, what is the predicted test score for a student who practiced 15 hours?",
+   "explanation": "y = 1.8(15) + 12 = 27 + 12 = 39.",
+   "hints": [
+    "Substitute x = 15."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate the line at x = 15."
+   },
+   "remember": "A line of best fit predicts by substitution.",
+   "expected_time_seconds": 25,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "27",
+    "B": "39",
+    "C": "42",
+    "D": "45"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "27 is only 1.8 × 15, without the 12.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "42 adds 15 to 27.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "45 multiplies 15 by 3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q003-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a rational equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "4/(x − 2) = 2/(x − 5)\nWhat value of x satisfies the equation above?",
+   "explanation": "Cross-multiply: 4(x − 5) = 2(x − 2), so 4x − 20 = 2x − 4, 2x = 16 and x = 8. Neither denominator is 0 at x = 8.",
+   "hints": [
+    "Cross-multiply to clear the fractions."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Cross-multiply, then check the denominators."
+   },
+   "remember": "Check that the solution doesn't make a denominator 0.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "1",
+     "rationale": "1 cross-multiplies as 4(x − 2) = 2(x − 5).",
+     "trap": null
+    },
+    {
+     "value": "−8",
+     "rationale": "−8 makes a sign error when collecting terms.",
+     "trap": "sign_error"
+    }
+   ]
+  }
+ ]
+}

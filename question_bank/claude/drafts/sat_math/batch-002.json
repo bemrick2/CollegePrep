@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 2,
+ "plan": "SAT Math batch 2: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 3 student-produced responses; ideas checked against both math banks (density block dropped: ACT 256).",
+ "candidates": [
+  {
+   "cand": "Q002-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Intersection of two lines",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graphs of y = 4x − 10 and y = −x + 5 intersect at the point (a, b). What is the value of b ?",
+   "explanation": "Set 4a − 10 = −a + 5, so 5a = 15 and a = 3. Then b = −3 + 5 = 2.",
+   "hints": [
+    "Set the two expressions for y equal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for a first, then substitute."
+   },
+   "remember": "At an intersection, both equations give the same y.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "5",
+    "D": "8"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "3 is the value of a, the x-coordinate.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "5 is the y-intercept of the second line.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 substitutes a = 3 into 4a − 10 incorrectly as 4(3) − 4.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q002-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation in one variable",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "5(t − 3) + 2 = 3t + 9\nWhat value of t satisfies the equation above?",
+   "explanation": "5t − 15 + 2 = 3t + 9, so 5t − 13 = 3t + 9, 2t = 22 and t = 11.",
+   "hints": [
+    "Distribute the 5 first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Collect t-terms on one side."
+   },
+   "remember": "Distribute to every term inside the parentheses.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "11",
+   "accepted_answers": [
+    "11"
+   ],
+   "common_errors": [
+    {
+     "value": "13",
+     "rationale": "13 distributes 5(t − 3) as 5t − 3.",
+     "trap": null
+    },
+    {
+     "value": "5.5",
+     "rationale": "5.5 divides 22 by 4 instead of 2.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q002-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear equation with infinitely many solutions",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the equation 3(2x − 1) = 6x + k, k is a constant. For what value of k does the equation have infinitely many solutions?",
+   "explanation": "The left side is 6x − 3. The equation 6x − 3 = 6x + k is true for every x exactly when k = −3.",
+   "hints": [
+    "When is an equation true for every value of x?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Make both sides identical."
+   },
+   "remember": "Identical sides give infinitely many solutions.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−6",
+    "B": "−3",
+    "C": "−1",
+    "D": "3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−6 doubles the constant.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−1 distributes 3(2x − 1) as 6x − 1.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3 drops the negative sign.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q002-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "System of linear equations in context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a café, 3 muffins and 2 coffees cost $14.50, and 2 muffins and 3 coffees cost $15.50. Each muffin has the same price, and each coffee has the same price. What is the price of one coffee?",
+   "explanation": "Adding the equations: 5m + 5c = 30, so m + c = 6. Subtracting the first from the second: c − m = 1. So c = 3.50 and m = 2.50.",
+   "hints": [
+    "What do you get if you add the two equations?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add and subtract the equations."
+   },
+   "remember": "Adding or subtracting equations can isolate a sum or difference.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$2.50",
+    "B": "$3.00",
+    "C": "$3.25",
+    "D": "$3.50"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "$2.50 is the price of a muffin.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "$3.00 splits the combined $6 equally between a muffin and a coffee.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$3.25 averages the two totals' per-item costs without solving the system.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q002-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Rewriting exponential expressions with a common base",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Which expression is equivalent to 9^(x/2) for all real values of x ?",
+   "explanation": "9 = 3², so 9^(x/2) = (3²)^(x/2) = 3^x.",
+   "hints": [
+    "Write 9 as a power of 3."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 2: 9^1 = 9, and only 3^2 = 9."
+   },
+   "remember": "(aᵐ)ⁿ = aᵐⁿ.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3^(x/2)",
+    "B": "81^x",
+    "C": "3^x",
+    "D": "9^x / 2"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This changes the base without changing the exponent.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This squares the base instead of taking its square root.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This divides the whole power by 2 instead of halving the exponent.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q002-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Intersection of a line and a parabola",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graphs of y = x² − 3x and y = x + 5 intersect at two points. What is the greatest x-coordinate of these points?",
+   "explanation": "Set x² − 3x = x + 5: x² − 4x − 5 = 0, so (x − 5)(x + 1) = 0 and x = 5 or x = −1. The greatest is 5.",
+   "hints": [
+    "Set the two expressions for y equal."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the resulting quadratic, or graph both and read the intersections."
+   },
+   "remember": "Intersections satisfy both equations.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "5",
+   "accepted_answers": [
+    "5"
+   ],
+   "common_errors": [
+    {
+     "value": "−1",
+     "rationale": "−1 is the smaller x-coordinate.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "10",
+     "rationale": "10 is the y-coordinate of the point with x = 5.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q002-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying a rational expression",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x ≠ 1, which of the following is equivalent to (x + 5)/(x − 1) − 6/(x − 1) ?",
+   "explanation": "The fractions have the same denominator: (x + 5 − 6)/(x − 1) = (x − 1)/(x − 1) = 1 for x ≠ 1.",
+   "hints": [
+    "Combine the numerators over the common denominator."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 3: 8/2 − 6/2 = 1."
+   },
+   "remember": "Subtract the whole numerator, then simplify.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1",
+    "B": "x − 1",
+    "C": "(x + 11)/(x − 1)",
+    "D": "(x − 1)/(x + 5)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This drops the denominator after subtracting.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This adds 6 instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This inverts the result and uses the wrong numerator.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q002-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Conclusions from a randomized experiment",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Researchers selected 300 adults at random from a city's residents. They randomly assigned 150 of them to walk 30 minutes a day and the other 150 to keep their usual routines. After 12 weeks, the walking group had lower average blood pressure. Which conclusion is best supported by the study?",
+   "explanation": "Random assignment supports a cause-and-effect conclusion, and random selection from the city's residents lets the result be generalized to adults in that city, but not beyond it.",
+   "hints": [
+    "What does random assignment allow? What does random selection allow?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Check the scope of each conclusion."
+   },
+   "remember": "Random assignment: cause. Random sampling: generalize to that population.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "Walking 30 minutes a day causes lower blood pressure for all adults in every city.",
+    "B": "There is an association between walking and blood pressure, but no evidence that walking caused the difference.",
+    "C": "Walking 30 minutes a day likely causes lower blood pressure for adults in the city.",
+    "D": "Walking 30 minutes a day causes lower blood pressure only for the 150 adults who walked."
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "The sample came from one city, so the result cannot be generalized to every city.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "Random assignment is exactly what allows a causal conclusion.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Random selection allows generalizing beyond the 150 participants to the city's adults.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q002-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Converting a rate between units",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A runner covers 1,500 meters in 6 minutes. At this rate, what is the runner's speed in kilometers per hour?",
+   "explanation": "1,500 meters in 6 minutes is 250 meters per minute, or 15,000 meters per hour, which is 15 kilometers per hour.",
+   "hints": [
+    "How many meters per hour is that?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert minutes to hours and meters to kilometers."
+   },
+   "remember": "Convert each unit separately and check the size of the result.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "250",
+     "rationale": "250 is the speed in meters per minute.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "0.25",
+     "rationale": "0.25 is kilometers per minute.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q002-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Rectangle from its diagonal and one side",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A rectangle has a diagonal of length 13 inches and one side of length 5 inches. What is the area of the rectangle, in square inches?",
+   "explanation": "The other side is √(13² − 5²) = 12, so the area is 5 × 12 = 60.",
+   "hints": [
+    "Find the missing side with the Pythagorean theorem."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the rectangle and its diagonal."
+   },
+   "remember": "The diagonal splits a rectangle into two right triangles.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "30",
+    "B": "60",
+    "C": "65",
+    "D": "78"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "30 takes half of the area, as for a triangle.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "65 multiplies the diagonal by the side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "78 multiplies 13 by 6, using the wrong side length.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}
