@@ -1,0 +1,409 @@
+{
+ "bank": "sat_reading_writing",
+ "batch": 41,
+ "plan": "Repair batch: six SAT R&W items withdrawn as insertion-defect holds (CLD-SAT-RW-000011, 034, 043, 058, 230, 206) resubmitted with corrected passages so that every option inserts literally. Keys, skills and explanations unchanged except S023-03 (choices restructured around the paired commas). Each supersedes its original only after two fresh blind solves. Relabelled to the blind solvers' rating where it was lower: S041-01 medium→easy, S041-03 medium→easy, S041-04 medium→easy, S041-05 medium→easy.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-SAT-RW-000391",
+   "title": "Exhibit",
+   "genre": "arts",
+   "word_count": 24,
+   "text": "The museum's new exhibit focuses on three everyday objects whose inventors are largely ______ the folding ladder, the safety pin, and the paper clip."
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000392",
+   "title": "Festival lineup",
+   "genre": "arts",
+   "word_count": 29,
+   "text": "This year's festival lineup includes the Ramos Quartet, a string ensemble from ______ Aiko Tanaka, a percussionist from Osaka; and the Northfield Choir, which will close the final evening."
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000393",
+   "title": "Blue pigment",
+   "genre": "arts / history",
+   "word_count": 32,
+   "text": "The pigment—made by grinding a blue mineral that was carried by traders from distant ______ was so costly that painters often reserved it for the robes of a painting's most important figures."
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000394",
+   "title": "Expedition water",
+   "genre": "history / exploration",
+   "word_count": 23,
+   "text": "The expedition's success depended on a single ______ fresh water, which had to be carried in from a spring two days' walk away."
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000395",
+   "title": "Bacteria experiment",
+   "genre": "microbiology",
+   "word_count": 20,
+   "text": "Because the samples had been contaminated during ______ the team discarded them and repeated the entire experiment with fresh cultures."
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000396",
+   "title": "Reef survey",
+   "genre": "marine science",
+   "word_count": 36,
+   "text": "Most of the coral colonies in the survey area had recovered within five years of the bleaching event. The colonies on the reef's outer ______ showed almost no recovery, possibly because warmer currents reached them first."
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "S041-01",
+   "passage_id": "CLD-P-SAT-RW-000391",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Colons before a list",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "forgotten:",
+    "B": "forgotten;",
+    "C": "forgotten, which",
+    "D": "forgotten and"
+   },
+   "answer": "A",
+   "evidence": "the folding ladder, the safety pin, and the paper clip",
+   "explanation": "The first part is a complete sentence that announces three objects, and the list that follows names them. A colon correctly introduces a list after a complete clause.",
+   "distractors": {
+    "B": {
+     "rationale": "A semicolon must join two independent clauses, but the list is not a clause.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "\"Which\" cannot introduce a list of nouns without a verb.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "\"And\" joins the list to the clause ungrammatically, leaving no verb for the list.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the part before the blank a complete sentence?",
+    "What punctuation introduces a list that explains what came before?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "A complete clause followed by a list calls for a colon."
+   },
+   "remember": "Use a colon after a complete clause to introduce a list.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S002-06 repair: the original version (CLD-SAT-RW-000011) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S002-06",
+     "id": "CLD-SAT-RW-000011",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000011",
+   "dup_cleared": "supersedes CLD-SAT-RW-000011 (repair of a withdrawn insertion-defect hold); matches only that item"
+  },
+  {
+   "cand": "S041-02",
+   "passage_id": "CLD-P-SAT-RW-000392",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Semicolons in a complex series",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "Lisbon;",
+    "B": "Lisbon,",
+    "C": "Lisbon:",
+    "D": "Lisbon—"
+   },
+   "answer": "A",
+   "evidence": "a percussionist from Osaka; and the Northfield Choir",
+   "explanation": "The list's items contain internal commas, so the items are separated by semicolons, as the semicolon after \"Osaka\" shows. The same mark is needed after \"Lisbon.\"",
+   "distractors": {
+    "B": {
+     "rationale": "A comma would blur where the first item ends, since commas already appear inside the items.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A colon would introduce Tanaka as an explanation of the quartet.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A dash is inconsistent with the semicolon that separates the next items.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What separates the second and third items in the list?",
+    "Should the first and second items be separated the same way?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Match the punctuation used elsewhere in the same series."
+   },
+   "remember": "Use semicolons between list items that contain commas.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S004-06 repair: the original version (CLD-SAT-RW-000034) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S004-06",
+     "id": "CLD-SAT-RW-000034",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000034",
+   "dup_cleared": "supersedes CLD-SAT-RW-000034 (repair of a withdrawn insertion-defect hold); matches only that item"
+  },
+  {
+   "cand": "S041-03",
+   "passage_id": "CLD-P-SAT-RW-000393",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Paired dashes",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "mountains,",
+    "B": "mountains—",
+    "C": "mountains;",
+    "D": "mountains"
+   },
+   "answer": "B",
+   "evidence": "The pigment—made by grinding",
+   "explanation": "The interrupting phrase opens with a dash after \"pigment,\" so it must close with a dash before the verb \"was.\"",
+   "distractors": {
+    "A": {
+     "rationale": "A dash-opened interruption must close with a dash, not a comma.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A semicolon would separate the subject \"pigment\" from its verb \"was.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "With no closing mark, the interruption runs into the main clause.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How does the interrupting phrase begin?",
+    "Where does the main clause resume?"
+   ],
+   "strategy": {
+    "key": "locate_evidence",
+    "explanation": "Match the closing mark to the opening mark."
+   },
+   "remember": "Interruptions close with the same mark that opened them.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S005-05 repair: the original version (CLD-SAT-RW-000043) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S005-05",
+     "id": "CLD-SAT-RW-000043",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000043",
+   "dup_cleared": "supersedes CLD-SAT-RW-000043 (repair of a withdrawn insertion-defect hold); matches only that item"
+  },
+  {
+   "cand": "S041-04",
+   "passage_id": "CLD-P-SAT-RW-000394",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Colon introducing an explanation",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "resource;",
+    "B": "resource that",
+    "C": "resource, and",
+    "D": "resource:"
+   },
+   "answer": "D",
+   "evidence": "fresh water, which had to be carried in",
+   "explanation": "A colon after a complete clause introduces what \"a single resource\" refers to: fresh water.",
+   "distractors": {
+    "A": {
+     "rationale": "A semicolon must join two independent clauses, but \"fresh water ...\" is not one.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "\"That\" turns the rest into a broken clause with no verb for \"fresh water.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "\"And\" wrongly presents fresh water as a second item rather than the resource itself.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is \"fresh water ...\" a complete sentence?",
+    "What does it identify?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Test what each mark requires on its right side."
+   },
+   "remember": "Use a colon to introduce an item that explains what came before.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S006-09 repair: the original version (CLD-SAT-RW-000058) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S006-09",
+     "id": "CLD-SAT-RW-000058",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000058",
+   "dup_cleared": "supersedes CLD-SAT-RW-000058 (repair of a withdrawn insertion-defect hold); matches only that item"
+  },
+  {
+   "cand": "S041-05",
+   "passage_id": "CLD-P-SAT-RW-000395",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Comma after an introductory dependent clause",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "shipping;",
+    "B": "shipping:",
+    "C": "shipping,",
+    "D": "shipping"
+   },
+   "answer": "C",
+   "evidence": "Because the samples had been contaminated during",
+   "explanation": "\"Because the samples had been contaminated during shipping\" is a dependent clause introducing the main clause, so a comma follows it.",
+   "distractors": {
+    "A": {
+     "rationale": "A semicolon cannot follow a dependent clause; it must separate two independent clauses.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "A colon must follow an independent clause, not a dependent \"because\" clause.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Without a comma, the long introductory clause runs into the main clause.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the part before the blank a complete sentence?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate marks that require an independent clause before them."
+   },
+   "remember": "A comma follows an introductory dependent clause.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S025-08 repair: the original version (CLD-SAT-RW-000230) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S025-08",
+     "id": "CLD-SAT-RW-000230",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000230",
+   "dup_cleared": "supersedes CLD-SAT-RW-000230 (repair of a withdrawn insertion-defect hold); matches only that item"
+  },
+  {
+   "cand": "S041-06",
+   "passage_id": "CLD-P-SAT-RW-000396",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Commas around a mid-sentence \"however\"",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "edge, however",
+    "B": "edge, however,",
+    "C": "edge; however,",
+    "D": "edge however,"
+   },
+   "answer": "B",
+   "evidence": "showed almost no recovery",
+   "explanation": "\"However\" interrupts the subject and verb, so it is set off by a pair of commas: \"The colonies on the reef's outer edge, however, showed...\"",
+   "distractors": {
+    "A": {
+     "rationale": "A single comma would leave \"however\" open on one side; an interrupter needs commas on both sides.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A semicolon cannot separate the subject \"The colonies on the reef's outer edge\" from its verb \"showed.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Without a comma before it, \"however\" is not set off from the subject.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where are the subject and the verb of the second sentence?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate choices that separate the subject from its verb."
+   },
+   "remember": "An interrupting \"however\" takes commas on both sides.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_note": "S023-03 repair: the original version (CLD-SAT-RW-000206) was withdrawn as a hold-defect because literal insertion repeated the word before the blank or doubled punctuation (audits/insertion_scan_2026-10-27.json; combined baseline finding NO_VALID_LITERAL_INSERTION). Passage now leaves that word to the choices.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S023-03",
+     "id": "CLD-SAT-RW-000206",
+     "reason": "hold-defect: invalid literal insertion"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000206",
+   "dup_cleared": "supersedes CLD-SAT-RW-000206 (repair of a withdrawn insertion-defect hold); matches only that item"
+  }
+ ]
+}

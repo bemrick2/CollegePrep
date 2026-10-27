@@ -1,0 +1,77 @@
+{
+ "bank": "act_english",
+ "batch": 39,
+ "plan": "Repair batch: CLD-ACT-E-000170 (insertion-defect hold) resubmitted with choice D replaced so every option inserts literally into the unchanged shared passage CLD-P-ACT-E-000017. Supersedes the original only after two fresh blind solves. Relabelled to the blind solvers' rating where it was lower: E039-01 medium→easy.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-ACT-E-000017",
+   "title": "The Millbrook Carousel",
+   "genre": "informational essay",
+   "word_count": 274,
+   "text": "When the town of Millbrook bought its carousel in 1921, the ride {{1|costed}} more than the town's new fire truck. For decades it turned every summer in Riverside Park, its forty-two wooden horses carved by hand and {{2|it's}} brass poles polished each spring by volunteers. Children chose their favorite horses by name, and some families took the same horses year after year, as if they owned them.\n\nBy 1990, however, the carousel had fallen silent. Its motor {{3|had broke}}, several horses had cracked, and the town could not afford repairs. A plan to sell the horses to a collector was proposed twice and voted down twice. The horses were stored in a barn {{4|where they waited, unused and idle, for nearly twenty years without being used}}.\n\nIn 2009 a retired shop teacher named Walter Okafor offered to restore them. He had never carved a horse, {{5|but he}} had spent forty years teaching students to work with wood. {{6|Working in his garage, the horses were repaired by Okafor one at a time.}} He replaced missing ears and tails, filled cracks with matching wood, and {{7|repainting}} each horse in the colors shown in a 1925 photograph.\n\nThe work took six years, partly because Okafor insisted on using only wood from trees that had fallen naturally in the county. {{8|Okafor did not finish the job alone, though.}} Volunteers raised money for a new motor, and a local electrician rewired the ride without charge. {{9|In contrast,}} in the summer of 2015, the carousel reopened, and more than two thousand people lined up to ride it. {{10|Tickets cost two dollars, and the line stretched past the park's main gate.}}"
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "E039-01",
+   "passage_id": "CLD-P-ACT-E-000017",
+   "underline": 5,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Comma before a coordinating conjunction",
+   "repo_skill_key": "act_punctuation",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "but, he",
+    "C": "he",
+    "D": "but yet he"
+   },
+   "answer": "A",
+   "evidence": "had spent forty years teaching students to work with wood",
+   "explanation": "Two independent clauses are correctly joined by a comma and \"but.\"",
+   "distractors": {
+    "B": {
+     "rationale": "The comma belongs before \"but,\" not after it.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Without \"but\" or other punctuation, the two clauses form a comma splice.",
+     "trap": "comma_splice"
+    },
+    "D": {
+     "rationale": "\"But yet\" uses two conjunctions with the same meaning; one is redundant.",
+     "trap": "wordy_redundant"
+    }
+   },
+   "hints": [
+    "Is the original already correct?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Comma + but joins two independent clauses."
+   },
+   "remember": "Independent clause, comma, coordinating conjunction, independent clause.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_note": "E017-05 repair: the original version (CLD-ACT-E-000170) was withdrawn as a hold-defect because choice D (\"; but he\") inserted after the comma in the passage as \", ; but he\", a distractor eliminable on form alone (audits/insertion_scan_2026-10-27.json). Only choice D is replaced; the shared passage and the other choices are unchanged.",
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E017-05",
+     "id": "CLD-ACT-E-000170",
+     "reason": "hold-defect: invalid literal insertion of choice D"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000170",
+   "dup_cleared": "supersedes CLD-ACT-E-000170 (repair of a withdrawn insertion-defect hold); matches only that item"
+  }
+ ]
+}

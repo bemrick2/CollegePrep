@@ -1,0 +1,63 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 39,
+  "reviewed_at": "2026-10-27T13:13:28+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 39
+  },
+  "counts": {
+    "PASS": 1,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-E-000383"
+  ],
+  "results": [
+    {
+      "cand": "E039-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "cand": "E017-05",
+          "id": "CLD-ACT-E-000170",
+          "reason": "hold-defect: invalid literal insertion of choice D"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: the passage contains several other unaddressed errors (costed, it's, had broke, redundant 'unused and idle... without being used', dangling 'Working in his garage', non-parallel 'repainting', illogical 'In contrast'), presumably targets for sibling items; these do not affect this item"
+      ],
+      "blind_notes": "'He had never carved a horse, but he had spent...' gives a correct comma + FANBOYS join with contrast. B puts a comma wrongly after 'but'. C is a comma splice. D 'but yet' is redundant.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: passage contains several other un-underlined errors (costed, it's brass poles, had broke, redundant 'unused and idle...without being used', dangling 'Working in his garage', non-parallel 'repainting', illogical 'In contrast'); fine if they are targets of sibling items, but in this single-item packet they could distract"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-E-000170",
+          "similarity": 0.94
+        }
+      ],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000383"
+    }
+  ]
+}

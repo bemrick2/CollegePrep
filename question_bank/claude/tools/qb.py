@@ -847,6 +847,9 @@ def screen(bank: str, n: int) -> None:
             except Exception as e:  # noqa: BLE001
                 got = f'error {e!r}'
         dups = near_duplicates({'stem': qtext(c, bank)}, others + seen)
+        if c.get('dup_cleared') and c.get('supersedes'):
+            # a documented repair may match only the withdrawn item it supersedes
+            dups = [d for d in dups if d.get('with') != c['supersedes']]
         seen.append((c['cand'], qtext(c, bank)))
         ok = not probs and got == str(c['answer']) and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
