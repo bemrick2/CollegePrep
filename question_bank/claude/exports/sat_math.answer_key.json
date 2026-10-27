@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 80,
+  "bank_version": 81,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -18946,6 +18946,230 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the triangle and split it into two right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000900",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 is the return speed.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "48",
+          "rationale": "48 is the average speed, 240/5, treated as the outbound speed.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 divides the one-way distance by the total time.",
+          "trap": null
+        }
+      ],
+      "explanation": "120/r + 120/(r + 20) = 5. Multiplying by r(r + 20) gives 120(r + 20) + 120r = 5r(r + 20), so r² − 28r − 480 = 0 and (r − 40)(r + 12) = 0. A speed is positive, so r = 40. Check: 3 hours + 2 hours = 5 hours.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each leg's time as distance divided by speed."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a speed: 120/r + 120/(r + 20) should equal 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000901",
+      "correct_answer": "A",
+      "explanation": "(x + 2)³ = (x + 2)(x² + 4x + 4) = x³ + 6x² + 12x + 8, so (x + 2)³ − x³ = 6x² + 12x + 8.",
+      "distractor_explanations": {
+        "B": "This squares x + 2 as x² + 4 before multiplying by x + 2.",
+        "C": "This forgets to square the 2 in the term 3 · x · 2².",
+        "D": "This uses (x + 2)³ = x³ + 2³."
+      },
+      "hints": [
+        "Expand (x + 2)² first, then multiply by x + 2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: 27 − 1 = 26."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000902",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "25",
+          "rationale": "25 is x², not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.606",
+          "rationale": "3.606 gets a numerator of 1 instead of 2, so x² − 1 = 12.",
+          "trap": null
+        }
+      ],
+      "explanation": "Over the common denominator (x − 1)(x + 1), the left side is ((x + 1) − (x − 1))/(x² − 1) = 2/(x² − 1). So x² − 1 = 24, x² = 25, and the positive solution is x = 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Combine the fractions over a common denominator."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify the numerator before cross-multiplying."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000903",
+      "correct_answer": "100",
+      "accepted_answers": [
+        "100"
+      ],
+      "common_errors": [
+        {
+          "value": "200",
+          "rationale": "200 uses k(3 − 1)² = 4k = 32, so k = 8.",
+          "trap": null
+        },
+        {
+          "value": "20",
+          "rationale": "20 finds k = 4 but computes 4 · 5, forgetting the square.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since f(x) = kx², f(3) = 9k and f(1) = k. Then f(3) − f(1) = 8k = 32, so k = 4, and f(5) = 4 · 5² = 100.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write f(3) and f(1) in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k from the difference, then evaluate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000904",
+      "correct_answer": "B",
+      "explanation": "The translation moves the vertex 3 units right and 5 units up, to (5, 0). A parabola that opens upward with its vertex on the x-axis touches the axis exactly once.",
+      "distractor_explanations": {
+        "A": "A vertex on the x-axis is itself an x-intercept.",
+        "C": "This keeps the original count, but translations can change the number of x-intercepts.",
+        "D": "The vertex and the direction of opening are enough to count intercepts."
+      },
+      "hints": [
+        "Where is the new vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the translated parabola."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000905",
+      "correct_answer": "C",
+      "explanation": "f(1) = ab > 0 and b > 0 force a > 0. Then f(2) < f(1) means ab² < ab, and dividing by ab > 0 gives b < 1. So a > 0 and 0 < b < 1.",
+      "distractor_explanations": {
+        "A": "With a < 0 and b > 0, f(1) = ab is negative, which contradicts f(1) > 0.",
+        "B": "This gives decreasing values, but f(1) = ab would be negative.",
+        "D": "With a > 0 and b > 1, f would increase, so f(2) > f(1)."
+      },
+      "hints": [
+        "What does f(1) > 0 tell you about a?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use f(1) > 0 to fix the sign of a, then compare f(2) with f(1)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000906",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes the depth does not change.",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 uses the 10-by-30 face as the new base.",
+          "trap": null
+        },
+        {
+          "value": "9",
+          "rationale": "9 scales the depth up instead of down.",
+          "trap": null
+        }
+      ],
+      "explanation": "The water's volume is 10 · 20 · 6 = 1,200 cubic centimeters. On the 20-by-30 base, the depth is 1,200 ÷ (20 · 30) = 2 centimeters.",
+      "distractor_explanations": {},
+      "hints": [
+        "The volume of water stays the same."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the volume, then divide by the new base area."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000907",
+      "correct_answer": "D",
+      "explanation": "Triangle ADE is similar to triangle ABC with ratio 2/5, so its area is 4/25 of ABC. Triangle EFC is similar to triangle ABC with ratio EC/AC = 3/5, so its area is 9/25. The parallelogram is the rest: 1 − 4/25 − 9/25 = 12/25.",
+      "distractor_explanations": {
+        "A": "This is the area of triangle ADE.",
+        "B": "This multiplies 2/5 by 3/5, which gives only half of the parallelogram.",
+        "C": "This uses the length ratio as an area ratio."
+      },
+      "hints": [
+        "Which two triangles are similar to triangle ABC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the two corner triangles and subtract their areas."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000908",
+      "correct_answer": "C",
+      "explanation": "The midpoint's coordinates are half of A's x-coordinate and half of B's y-coordinate, so A = (6, 0) and B = (0, 8). Then AB = √(6² + 8²) = 10.",
+      "distractor_explanations": {
+        "A": "This is the distance from the origin to the midpoint, half of AB.",
+        "B": "This doubles only one coordinate, using A = (6, 0) and B = (0, 4).",
+        "D": "This adds 6 + 8 instead of using the distance formula."
+      },
+      "hints": [
+        "What must A and B be so that their midpoint is (3, 4)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the segment from the x-axis to the y-axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000909",
+      "correct_answer": "C",
+      "explanation": "The y-variable is a percent, so the slope −2.5 means the predicted percent falls by 2.5 percentage points for each additional year.",
+      "distractor_explanations": {
+        "A": "This reads the slope as a relative change, as in an exponential model.",
+        "B": "The y-variable is a percent, not a count of households.",
+        "D": "This inverts the rate."
+      },
+      "hints": [
+        "What are the units of y?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the units of each interpretation."
       }
     }
   ]

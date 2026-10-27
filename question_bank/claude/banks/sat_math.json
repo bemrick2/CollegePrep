@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 80,
-  "updated_at": "2026-10-27T19:18:09+00:00",
+  "version": 81,
+  "updated_at": "2026-10-27T19:19:47+00:00",
   "passages": [],
   "questions": [
     {
@@ -65302,6 +65302,736 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-080.review.json",
         "computation": "checks/sat_math/batch_080.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000900",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation from a round trip",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ana drove 120 miles to a city at a constant speed. She returned home along the same route at a constant speed that was 20 miles per hour faster. Her total driving time for the round trip was 5 hours. What was her speed, in miles per hour, on the trip to the city?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 is the return speed.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "48",
+          "rationale": "48 is the average speed, 240/5, treated as the outbound speed.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 divides the one-way distance by the total time.",
+          "trap": null
+        }
+      ],
+      "explanation": "120/r + 120/(r + 20) = 5. Multiplying by r(r + 20) gives 120(r + 20) + 120r = 5r(r + 20), so r² − 28r − 480 = 0 and (r − 40)(r + 12) = 0. A speed is positive, so r = 40. Check: 3 hours + 2 hours = 5 hours.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each leg's time as distance divided by speed."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a speed: 120/r + 120/(r + 20) should equal 5."
+      },
+      "remember": "Time equals distance divided by speed.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-01",
+      "created_at": "2026-10-27T19:19:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "40",
+        "blind_answer": "40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000901",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Expanding a binomial cube",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to (x + 2)³ − x³ ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6x² + 12x + 8",
+        "B": "2x² + 4x + 8",
+        "C": "6x² + 6x + 8",
+        "D": "8"
+      },
+      "correct_answer": "A",
+      "explanation": "(x + 2)³ = (x + 2)(x² + 4x + 4) = x³ + 6x² + 12x + 8, so (x + 2)³ − x³ = 6x² + 12x + 8.",
+      "distractor_explanations": {
+        "B": "This squares x + 2 as x² + 4 before multiplying by x + 2.",
+        "C": "This forgets to square the 2 in the term 3 · x · 2².",
+        "D": "This uses (x + 2)³ = x³ + 2³."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Expand (x + 2)² first, then multiply by x + 2."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: 27 − 1 = 26."
+      },
+      "remember": "(a + b)³ = a³ + 3a²b + 3ab² + b³.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-02",
+      "created_at": "2026-10-27T19:19:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000902",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation whose numerator collapses",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the positive solution to the equation 1/(x − 1) − 1/(x + 1) = 1/12 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "25",
+          "rationale": "25 is x², not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.606",
+          "rationale": "3.606 gets a numerator of 1 instead of 2, so x² − 1 = 12.",
+          "trap": null
+        }
+      ],
+      "explanation": "Over the common denominator (x − 1)(x + 1), the left side is ((x + 1) − (x − 1))/(x² − 1) = 2/(x² − 1). So x² − 1 = 24, x² = 25, and the positive solution is x = 5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Combine the fractions over a common denominator."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify the numerator before cross-multiplying."
+      },
+      "remember": "Subtract the whole second numerator, not just its first term.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-03",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "5",
+        "blind_answer": "5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000903",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant of a quadratic from a difference of outputs",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = kx², where k is a constant. If f(3) − f(1) = 32, what is the value of f(5) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "100",
+      "accepted_answers": [
+        "100"
+      ],
+      "common_errors": [
+        {
+          "value": "200",
+          "rationale": "200 uses k(3 − 1)² = 4k = 32, so k = 8.",
+          "trap": null
+        },
+        {
+          "value": "20",
+          "rationale": "20 finds k = 4 but computes 4 · 5, forgetting the square.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since f(x) = kx², f(3) = 9k and f(1) = k. Then f(3) − f(1) = 8k = 32, so k = 4, and f(5) = 4 · 5² = 100.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write f(3) and f(1) in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k from the difference, then evaluate."
+      },
+      "remember": "Evaluate each output before subtracting.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-04",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "100",
+        "blind_answer": "100",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000904",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Intercept count after a translation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graph of the quadratic function f in the xy-plane is a parabola that opens upward and has its vertex at (2, −5). How many x-intercepts does the graph of y = f(x − 3) + 5 have?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "It cannot be determined from the given information."
+      },
+      "correct_answer": "B",
+      "explanation": "The translation moves the vertex 3 units right and 5 units up, to (5, 0). A parabola that opens upward with its vertex on the x-axis touches the axis exactly once.",
+      "distractor_explanations": {
+        "A": "A vertex on the x-axis is itself an x-intercept.",
+        "C": "This keeps the original count, but translations can change the number of x-intercepts.",
+        "D": "The vertex and the direction of opening are enough to count intercepts."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where is the new vertex?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the translated parabola."
+      },
+      "remember": "An upward parabola's intercepts depend on the vertex height.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-06",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000905",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Signs of exponential parameters from outputs",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = a · bˣ, where a and b are constants, b > 0, and b ≠ 1. If f(1) > 0 and f(2) < f(1), which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a < 0 and 0 < b < 1",
+        "B": "a < 0 and b > 1",
+        "C": "a > 0 and 0 < b < 1",
+        "D": "a > 0 and b > 1"
+      },
+      "correct_answer": "C",
+      "explanation": "f(1) = ab > 0 and b > 0 force a > 0. Then f(2) < f(1) means ab² < ab, and dividing by ab > 0 gives b < 1. So a > 0 and 0 < b < 1.",
+      "distractor_explanations": {
+        "A": "With a < 0 and b > 0, f(1) = ab is negative, which contradicts f(1) > 0.",
+        "B": "This gives decreasing values, but f(1) = ab would be negative.",
+        "D": "With a > 0 and b > 1, f would increase, so f(2) > f(1)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does f(1) > 0 tell you about a?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use f(1) > 0 to fix the sign of a, then compare f(2) with f(1)."
+      },
+      "remember": "Use every condition; each one rules out different cases.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-07",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: A and B both fail for the same reason (a<0 makes f(1)=ab<0), so the f(1)>0 condition alone halves the field; standard 2x2 sign-grid format though."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000906",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Water depth after turning a box",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A closed box shaped like a right rectangular prism has inside dimensions of 10 centimeters by 20 centimeters by 30 centimeters. The box rests on its 10-centimeter-by-20-centimeter face and contains water 6 centimeters deep. The box is turned so that it rests on its 20-centimeter-by-30-centimeter face. What is the depth of the water, in centimeters, now?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes the depth does not change.",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 uses the 10-by-30 face as the new base.",
+          "trap": null
+        },
+        {
+          "value": "9",
+          "rationale": "9 scales the depth up instead of down.",
+          "trap": null
+        }
+      ],
+      "explanation": "The water's volume is 10 · 20 · 6 = 1,200 cubic centimeters. On the 20-by-30 base, the depth is 1,200 ÷ (20 · 30) = 2 centimeters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "The volume of water stays the same."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the volume, then divide by the new base area."
+      },
+      "remember": "Same volume, new base: depth equals volume divided by base area.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-08",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000907",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Parallelogram between two similar triangles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, point D lies on side AB so that AD : DB = 2 : 3. Point E lies on side AC so that DE is parallel to BC, and point F lies on side BC so that EF is parallel to AB. The area of parallelogram DBFE is what fraction of the area of triangle ABC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4/25",
+        "B": "6/25",
+        "C": "2/5",
+        "D": "12/25"
+      },
+      "correct_answer": "D",
+      "explanation": "Triangle ADE is similar to triangle ABC with ratio 2/5, so its area is 4/25 of ABC. Triangle EFC is similar to triangle ABC with ratio EC/AC = 3/5, so its area is 9/25. The parallelogram is the rest: 1 − 4/25 − 9/25 = 12/25.",
+      "distractor_explanations": {
+        "A": "This is the area of triangle ADE.",
+        "B": "This multiplies 2/5 by 3/5, which gives only half of the parallelogram.",
+        "C": "This uses the length ratio as an area ratio."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Which two triangles are similar to triangle ABC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the two corner triangles and subtract their areas."
+      },
+      "remember": "Areas of similar figures scale by the square of the ratio.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-10",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000908",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Segment endpoints from a midpoint on the axes",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, point A lies on the x-axis, point B lies on the y-axis, and the midpoint of segment AB is (3, 4). What is the length of AB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5",
+        "B": "2√13",
+        "C": "10",
+        "D": "14"
+      },
+      "correct_answer": "C",
+      "explanation": "The midpoint's coordinates are half of A's x-coordinate and half of B's y-coordinate, so A = (6, 0) and B = (0, 8). Then AB = √(6² + 8²) = 10.",
+      "distractor_explanations": {
+        "A": "This is the distance from the origin to the midpoint, half of AB.",
+        "B": "This doubles only one coordinate, using A = (6, 0) and B = (0, 4).",
+        "D": "This adds 6 + 8 instead of using the distance formula."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What must A and B be so that their midpoint is (3, 4)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the segment from the x-axis to the y-axis."
+      },
+      "remember": "A midpoint averages the endpoints' coordinates.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-12",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000909",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Slope when the y-variable is a percent",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A scatterplot shows the percent y of households in a region that had a landline telephone x years after 2005, and the line of best fit is y = −2.5x + 92. Which is the best interpretation of −2.5 in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Each year, the predicted percent decreases by 2.5% of the previous year's predicted percent.",
+        "B": "Each year, the predicted number of households with a landline decreases by 2.5.",
+        "C": "Each year, the predicted percent decreases by 2.5 percentage points.",
+        "D": "It takes 2.5 years for the predicted percent to decrease by 1 percentage point."
+      },
+      "correct_answer": "C",
+      "explanation": "The y-variable is a percent, so the slope −2.5 means the predicted percent falls by 2.5 percentage points for each additional year.",
+      "distractor_explanations": {
+        "A": "This reads the slope as a relative change, as in an exponential model.",
+        "B": "The y-variable is a percent, not a count of households.",
+        "D": "This inverts the rate."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What are the units of y?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the units of each interpretation."
+      },
+      "remember": "Slope units are y-units per x-unit.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 81,
+      "draft_candidate": "Q081-13",
+      "created_at": "2026-10-27T19:19:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-081.review.json",
+        "computation": "checks/sat_math/batch_081.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

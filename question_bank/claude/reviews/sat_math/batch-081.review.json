@@ -1,0 +1,330 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 81,
+  "reviewed_at": "2026-10-27T19:19:47+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 81
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 3
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000900",
+    "CLD-SAT-M-000901",
+    "CLD-SAT-M-000902",
+    "CLD-SAT-M-000903",
+    "CLD-SAT-M-000904",
+    "CLD-SAT-M-000905",
+    "CLD-SAT-M-000906",
+    "CLD-SAT-M-000907",
+    "CLD-SAT-M-000908",
+    "CLD-SAT-M-000909"
+  ],
+  "results": [
+    {
+      "cand": "Q081-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "40",
+      "computed_answer": "40",
+      "blind_answer": "40",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "120/v + 120/(v+20) = 5 -> v^2 - 28v - 480 = 0 -> (v-40)(v+12)=0 -> v=40 (return 60 mph; 3h + 2h = 5h). Realistic magnitudes.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The unknown appears in two denominators, giving a quadratic with a root to reject."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000900"
+    },
+    {
+      "cand": "Q081-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "(x+2)^3 = x^3+6x^2+12x+8; subtract x^3 -> 6x^2+12x+8. D (8) catches the (a+b)^3=a^3+b^3 error; B and C are coefficient slips. Checking x=1 (27-1=26) quickly isolates A, which is the normal SAT approach.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000901"
+    },
+    {
+      "cand": "Q081-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Left side = 2/(x^2-1) = 1/12 -> x^2 = 25 -> x = 5 (x=-5 rejected by 'positive'). Neither root is extraneous.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000902"
+    },
+    {
+      "cand": "Q081-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "100",
+      "computed_answer": "100",
+      "blind_answer": "100",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "9k - k = 32 -> k = 4; f(5) = 4*25 = 100.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000903"
+    },
+    {
+      "cand": "Q081-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "2*2^x = 2^5 -> 2^(x+1) = 2^5 -> x = 4. A (5/2) = halving the exponent trap; C = 6 adds instead; D = 16 is the value of 2^x, not x. Good distractors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-M-000330",
+          "similarity": 0.67
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q081-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Shift right 3, up 5: vertex moves to (5, 0); opens upward so vertex is tangent to x-axis -> exactly 1 x-intercept. D is the tempting 'unknown a' trap, but opening direction plus vertex on the axis settles it.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000904"
+    },
+    {
+      "cand": "Q081-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: A and B both fail for the same reason (a<0 makes f(1)=ab<0), so the f(1)>0 condition alone halves the field; standard 2x2 sign-grid format though."
+      ],
+      "blind_notes": "f(1)=ab>0 with b>0 -> a>0. f(2)<f(1): ab^2 < ab -> b<1. So a>0, 0<b<1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "A decreasing pattern can come from two sign cases; f(1) > 0 rules one out."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000905"
+    },
+    {
+      "cand": "Q081-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Volume = 10*20*6 = 1200 cm^3; new base 20*30 = 600 -> depth 2 cm (box height now 10, fits). Realistic.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000906"
+    },
+    {
+      "cand": "Q081-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "Borderline domain: solving a trig equation (tan θ = -1) over [0, 2π) goes past the digital SAT's unit-circle/radian content, which seldom asks for all solutions of a trig equation; closer to precalculus."
+      ],
+      "blind_notes": "sinθ = -cosθ -> tanθ = -1 (cosθ=0 gives no solution) -> θ = 3π/4, 7π/4; sum = 10π/4 = 5π/2. A = one root only; B/C are plausible slips.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must find both quadrants with opposite signs; symmetry shortcuts give wrong sums."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REJECT",
+      "reason": "Blind solver: solving sin θ = −cos θ for all θ in [0, 2π) is precalculus equation-solving, beyond digital SAT unit-circle scope. Withdrawn on domain grounds."
+    },
+    {
+      "cand": "Q081-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "AD/AB = 2/5 -> area(ADE) = 4/25 of ABC. EF ∥ AB -> triangle EFC ~ ABC with CE/CA = DB/AB = 3/5 -> 9/25. Parallelogram = 1 - 4/25 - 9/25 = 12/25 (= 2*(2/5)(3/5)). A = small triangle only; B = half the answer; C = linear-ratio trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two different similar triangles are needed, and the target is what remains."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000907"
+    },
+    {
+      "cand": "Q081-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "0.96",
+      "computed_answer": "0.96",
+      "blind_answer": "0.96",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [
+        "Borderline domain: the sine of an obtuse angle (cos = -7/25) is past the SAT's right-triangle trig. It can be done with SAT tools (altitude 3 -> area 12 = ½·5·5·sin C), but that needs the ½ab·sin C area formula, which is not on the SAT reference sheet.",
+        "minor: accept 24/25 and .96."
+      ],
+      "blind_notes": "Law of cosines: cos C = (25+25-64)/50 = -7/25 -> sin C = 24/25. Or altitude to base 8 is 3, half-angle sin 4/5, cos 3/5 -> sin 2α = 2(4/5)(3/5) = 24/25. Likely wrong answers: 4/5 or 3/5 (half-angle).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The asked angle is obtuse and is not an angle of the right triangles formed by symmetry."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REJECT",
+      "reason": "Blind solver: the sine of an obtuse angle via (1/2)ab sin C is outside the digital SAT reference material and scope. Withdrawn on domain grounds."
+    },
+    {
+      "cand": "Q081-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "A = (6,0), B = (0,8) -> AB = sqrt(36+64) = 10. A = 5 is the distance from the origin to the midpoint (a good distractor); B = 2√13 = sqrt(3^2... ) uses (6,4)-type slip; D = 6+8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000908"
+    },
+    {
+      "cand": "Q081-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "The slope is the predicted change in y (percent) per year: a decrease of 2.5 percentage points. A = multiplicative (exponential) misreading; B = wrong units (households, not percent); D = inverted rate.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000909"
+    }
+  ]
+}
