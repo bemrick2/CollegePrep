@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 48,
-  "updated_at": "2026-10-27T17:29:44+00:00",
+  "version": 49,
+  "updated_at": "2026-10-27T17:55:43+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -509,6 +509,17 @@
       "word_count": 222,
       "text": "[1] In 1948, a graduate student named Bernard Silver overheard a grocery executive asking a dean at his school how stores might record a product's information automatically at the checkout. [2] Silver mentioned the problem to his friend Norman Joseph Woodland, who became fascinated by it.\n\n[3] Woodland, who had learned Morse code as a Boy Scout, was sitting on a Florida beach {{1|when, he had an idea}}. [4] He pushed his fingers into the sand and drew them toward himself, stretching the dots and dashes of Morse code into long, thin lines. [5] Wide and narrow lines, he realized, could stand for numbers {{2|just as}} dots and dashes stood for letters.\n\n[6] Woodland and Silver's design used circles, like a bull's-eye, so that it could be read from any direction. [7] The two received a patent for it in 1952, {{3|but}} the equipment needed to read the code was still too expensive for stores. [8] For two decades, the idea sat {{6|unused, grocers had}} no practical way to scan the codes.\n\n[9] {{7|Lasers are also used today in medicine and in music players.}} [10] On June 26, 1974, a cashier at a supermarket in Troy, Ohio, scanned a pack of chewing gum, the first product sold using the Universal Product Code. [11] Today, barcodes {{8|is}} printed on nearly everything people buy.",
       "batch": 48,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000049",
+      "title": "A Better Way to Fasten Boots",
+      "genre": "informative essay",
+      "word_count": 236,
+      "text": "[1] In 1893, an inventor named Whitcomb Judson patented a device he called a \"clasp locker.\" [2] It was meant to replace the long rows of buttons and hooks on high boots, {{1|but it had a serious flaw: it}} tended to pop open without warning.\n\n[3] The problem was solved two decades later by Gideon Sundback, a Swedish-born engineer working for the company that had acquired Judson's patents. [4] {{2|Sundback's design, which used}} rows of small interlocking teeth, each shaped with a small bump on top and a matching hollow underneath. [5] A slider pressed the teeth together so that each bump nested inside the hollow of the tooth above it. [6] {{4|Increasing the number of teeth per inch, the fastener became both smaller and far more secure.}}\n\n[7] Sundback called his invention the \"hookless fastener,\" a name that {{5|did little to excite}} customers. [8] Sales stayed modest until 1923, when the B. F. Goodrich Company used it on a line of rubber boots. {{10|}} [9] The company's president is said to have enjoyed the sound the boots made as they were closed{{6| and he decided to call}} them \"Zippers.\" [10] Before long, the name had spread from the boots to the fastener itself.\n\n[11] Today, zippers close everything from jackets to tents to suitcases. [12] {{8|Few of the people who use them every day knows}} that the device began as a better way to fasten boots.",
+      "batch": 49,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -32936,6 +32947,503 @@
         "revisions_before_pass": 2,
         "evidence": "reviews/act_english/batch-048.review.json",
         "computation": "checks/act_english/batch_048.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000458",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon before an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 1,
+      "evidence": "tended to pop open without warning",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "but it had a serious flaw, it",
+        "C": "but it had a serious flaw it",
+        "D": "but it had a serious flaw, which it"
+      },
+      "correct_answer": "A",
+      "explanation": "The colon follows a complete clause and introduces an explanation of the flaw.",
+      "distractor_explanations": {
+        "B": "A comma alone joins two independent clauses, creating a comma splice.",
+        "C": "Without punctuation, two independent clauses run together.",
+        "D": "\"Which it tended to pop open\" is not a grammatical clause."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"it tended to pop open without warning\" a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check how the explanation is attached."
+      },
+      "remember": "A colon after a complete clause can introduce an explanation.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-01",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000459",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence fragment (missing main verb)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 2,
+      "evidence": "rows of small interlocking teeth",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Sundback's design, using",
+        "C": "Sundback's design that used",
+        "D": "Sundback's design used"
+      },
+      "correct_answer": "D",
+      "explanation": "The subject \"Sundback's design\" needs a main verb. \"Sundback's design used rows of small interlocking teeth\" is a complete sentence.",
+      "distractor_explanations": {
+        "A": "\"Which used\" turns the rest into a clause describing the design, leaving the sentence without a main verb.",
+        "B": "\"Using\" is not a main verb, so the sentence is a fragment.",
+        "C": "\"That used\" also makes a describing clause, so the sentence still has no main verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does sentence 4 have a main verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the subject and look for its verb."
+      },
+      "remember": "A relative clause cannot supply a sentence's main verb.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-02",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000460",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 4,
+      "evidence": "Sundback's design",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Having increased the number of teeth per inch, the fastener became both smaller and far more secure.",
+        "C": "By increasing the number of teeth per inch, Sundback made the fastener both smaller and far more secure.",
+        "D": "Increasing the number of teeth per inch, smaller and far more secure was what the fastener became."
+      },
+      "correct_answer": "C",
+      "explanation": "Only C names the person who increased the number of teeth, Sundback, so the introductory phrase has a logical subject.",
+      "distractor_explanations": {
+        "A": "The fastener did not increase the number of teeth; the modifier dangles.",
+        "B": "The fastener still appears to be the one that increased the teeth.",
+        "D": "The modifier still has no logical subject, and the word order is awkward."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "Who increased the number of teeth?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Make sure that person follows the introductory phrase."
+      },
+      "remember": "An introductory modifier must describe the noun right after the comma.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-03",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000461",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision and precise meaning",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 5,
+      "evidence": "customers",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "did little to thrill and excite",
+        "C": "did a little to excite",
+        "D": "did little exciting of"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Did little to excite\" says concisely that the name failed to interest customers, which sets up the next sentence.",
+      "distractor_explanations": {
+        "B": "\"Thrill\" and \"excite\" say the same thing.",
+        "C": "\"A little\" reverses the meaning, suggesting the name helped somewhat.",
+        "D": "This is not idiomatic English."
+      },
+      "distractor_traps": {
+        "B": "wordy_redundant",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the next sentence say about sales?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each choice for meaning and wordiness."
+      },
+      "remember": "\"Little\" and \"a little\" mean nearly opposite things.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-04",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000462",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Logical connection (cause)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 6,
+      "evidence": "enjoyed the sound the boots made",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", so he decided to call",
+        "C": ", although he decided to call",
+        "D": "; deciding to call"
+      },
+      "correct_answer": "B",
+      "explanation": "The president enjoyed the sound, so he named the boots after it: \", so\" joins the clauses and shows cause and effect.",
+      "distractor_explanations": {
+        "A": "Two independent clauses joined by \"and\" need a comma, and \"and\" also hides the cause-and-effect relationship.",
+        "C": ", although\" signals a contrast, but enjoying the sound is the reason for the name.",
+        "D": "A semicolon must be followed by an independent clause, not a phrase."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_transition",
+        "D": null
+      },
+      "hints": [
+        "Why did the president call the boots \"Zippers\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Identify the relationship between the two clauses."
+      },
+      "remember": "Use \"so\" to show that one action caused another.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-05",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000463",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (intervening clause)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 8,
+      "evidence": "that the device began",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Few of the people who use them every day has known",
+        "C": "Few of the people who use them every day know",
+        "D": "Few of the people who use them every day is knowing"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Few\" is plural, so its verb must be plural: \"Few ... know.\"",
+      "distractor_explanations": {
+        "A": "The subject \"Few\" is plural, so \"knows\" does not agree with it.",
+        "B": "\"Has\" is singular and does not agree with \"Few.\"",
+        "D": "\"Is\" is singular, and the progressive form is not idiomatic here."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the subject of the verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out \"of the people who use them every day.\""
+      },
+      "remember": "\"Few,\" \"many,\" and \"several\" take plural verbs.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-06",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000464",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000049",
+      "underline": 10,
+      "evidence": "used it on a line of rubber boots",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nRubber boots were especially popular among farmers in rainy regions.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why the boots with the new fastener sold so well.",
+        "B": "Yes, because it identifies the first people who used the new fastener.",
+        "C": "No, because the boots' buyers are unrelated to the history of the fastener.",
+        "D": "No, because it contradicts the statement that the boots were made by Goodrich."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph traces how the fastener got its name; who bought rubber boots is off topic.",
+      "distractor_explanations": {
+        "A": "The sentence says nothing about why the boots sold well.",
+        "B": "The sentence describes rubber boots in general, not who first used the fastener.",
+        "D": "The sentence does not mention who made the boots."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "State its focus, then test the sentence."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's focus.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "E049-08",
+      "created_at": "2026-10-27T17:55:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-049.review.json",
+        "computation": "checks/act_english/batch_049.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
