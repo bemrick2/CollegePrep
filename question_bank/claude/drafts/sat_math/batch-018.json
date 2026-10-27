@@ -1,0 +1,460 @@
+{
+ "bank": "sat_math",
+ "batch": 18,
+ "plan": "SAT Math batch 18: Algebra 4, Advanced Math 3, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 2; 3 student-produced responses; 4 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-018.repeats.json): one copy (ACT 339) and five templates (ACT 096, 115, 699, 384; SAT 043) dropped, plus two close ideas (demo fixture sin A = 5/13; SAT 120).",
+ "candidates": [
+  {
+   "cand": "Q018-01",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Share of revenue from a subgroup",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "At a store, 40% of the customers are members and the rest are nonmembers. On average, a member spends $60 per visit and a nonmember spends $40 per visit. Assuming each customer makes one visit, what percent of the store's revenue comes from members? (Disregard the % sign when entering your answer.)",
+   "explanation": "Imagine 100 customers: 40 members spend 40 × $60 = $2,400 and 60 nonmembers spend 60 × $40 = $2,400. Total revenue is $4,800, and members provide $2,400 of it, which is 50%.",
+   "hints": [
+    "Imagine 100 customers."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute each group's total spending."
+   },
+   "remember": "Weight each group's average by its size before comparing.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must weight two averages by group sizes and compare a part with the new total; 40 (the share of customers) is a strong trap."
+   },
+   "format": "spr",
+   "answer": "50",
+   "accepted_answers": [
+    "50"
+   ],
+   "common_errors": [
+    {
+     "value": "40",
+     "rationale": "40 is the percent of customers who are members, not their share of revenue.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "60",
+     "rationale": "60 is a member's average spending, not a percent of revenue.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q018-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Coefficients from the vertex of a parabola",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = ax² + 4x + c, where a and c are constants. The vertex of the graph of y = f(x) in the xy-plane is (−1, 3). What is the value of a + c ?",
+   "explanation": "The x-coordinate of the vertex is −b/(2a) = −4/(2a) = −1, so a = 2. Then f(−1) = 2(1) + 4(−1) + c = c − 2 = 3, so c = 5 and a + c = 7.",
+   "hints": [
+    "Use x = −b/(2a) for the vertex."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find a from the vertex's x-coordinate, then c from its y-coordinate."
+   },
+   "remember": "The vertex's x-coordinate is −b/(2a).",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use the vertex formula to find a, then substitute the vertex to find c; two linked unknowns and sign care are required."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the value of c alone.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2",
+     "rationale": "2 is the value of a alone.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q018-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Value of a completed square from an equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "If x² + 6x = 7, what is the value of (x + 3)² ?",
+   "explanation": "(x + 3)² = x² + 6x + 9. Since x² + 6x = 7, (x + 3)² = 7 + 9 = 16. (Solving gives x = 1 or x = −7, and both give (x + 3)² = 16.)",
+   "hints": [
+    "Expand (x + 3)²."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Solve for x (x = 1 or −7) and compute (x + 3)²."
+   },
+   "remember": "(x + 3)² = x² + 6x + 9.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that the asked expression is the given expression plus 9; solving first works but is slower, and 7 and 13 are traps."
+   },
+   "choices": {
+    "A": "7",
+    "B": "13",
+    "C": "16",
+    "D": "49"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "7 is the value of x² + 6x, not (x + 3)².",
+     "trap": null
+    },
+    "B": {
+     "rationale": "13 adds 6 instead of 9.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "49 squares 7.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q018-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope of a line through a given intersection point",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the line y = mx + 2, where m is a constant, intersects the line y = 3x − 4 at a point whose x-coordinate is 2. What is the value of m ?",
+   "explanation": "At x = 2, the line y = 3x − 4 has y = 2, so the intersection point is (2, 2). Substituting into y = mx + 2 gives 2 = 2m + 2, so m = 0. The first line is horizontal.",
+   "hints": [
+    "Find the y-coordinate of the intersection point."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute (2, 2) into y = mx + 2."
+   },
+   "remember": "An intersection point lies on both lines.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−2",
+    "B": "−1",
+    "C": "0",
+    "D": "3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−2 sets 2m + 2 equal to −2.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "−1 uses y = 0 at the intersection point.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3 is the slope of the other line; equal slopes would mean no intersection.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q018-05",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Square with a perimeter equal to a circle's circumference",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A circle has an area of 49π square centimeters. A square has a perimeter equal to the circumference of the circle. What is the side length of the square, in centimeters?",
+   "explanation": "πr² = 49π gives r = 7, so the circumference is 2π(7) = 14π. A square with perimeter 14π has sides of length 14π ÷ 4 = 3.5π centimeters.",
+   "hints": [
+    "Find the radius from the area."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "r = 7, circumference = 14π, side = 14π/4."
+   },
+   "remember": "Find r first; perimeter ÷ 4 gives a square's side.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3.5π",
+    "B": "7π",
+    "C": "12.25π",
+    "D": "14π"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "7π divides the circumference by 2 instead of 4.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "12.25π divides the area, 49π, by 4.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "14π is the full perimeter, not one side.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q018-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Evaluating a linear function at a related input",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = −3x + 12. If f(k) = 0, what is the value of f(2k) ?",
+   "explanation": "f(k) = −3k + 12 = 0 gives k = 4. Then 2k = 8, and f(8) = −3(8) + 12 = −24 + 12 = −12. Doubling the input does not double the output.",
+   "hints": [
+    "Find k first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve −3k + 12 = 0, then evaluate f(2k)."
+   },
+   "remember": "Find the input, then evaluate the function at the new input.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−12",
+    "B": "0",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "0 is f(k), not f(2k).",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "4 is the value of k.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "8 is the value of 2k, not f(2k).",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q018-07",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Substituting into a linear relationship",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "If y = 3x and x = 7, what is the value of 2y ?",
+   "explanation": "Substituting x = 7 gives y = 3(7) = 21, so 2y = 2(21) = 42. The question asks for 2y, not y, so one more step is needed after finding y.",
+   "hints": [
+    "Find y first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "y = 21, so 2y = 42."
+   },
+   "remember": "Answer the question asked: 2y, not y.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "14",
+    "B": "21",
+    "C": "28",
+    "D": "42"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "14 is 2x, not 2y.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "21 is y, not 2y.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "28 adds x and y.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q018-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Distributing a monomial over a binomial",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "Which of the following is equivalent to 2x(3x − 4) ?",
+   "explanation": "Multiply 2x by each term: 2x · 3x = 6x² and 2x · (−4) = −8x, so 2x(3x − 4) = 6x² − 8x.",
+   "hints": [
+    "Multiply 2x by each term in the parentheses."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 1: 2(−1) = −2, and 6 − 8 = −2."
+   },
+   "remember": "Distribute to every term.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6x² − 4",
+    "B": "6x² − 8x",
+    "C": "5x² − 8x",
+    "D": "6x − 8x"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This multiplies only the first term by 2x.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "This adds the coefficients 2 and 3 instead of multiplying them.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This drops the power of x in the first product.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q018-09",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "y-intercept from an x-intercept and another point",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a line has an x-intercept of 4 and passes through the point (6, 5). What is the y-intercept of the line?",
+   "explanation": "The line passes through (4, 0) and (6, 5), so its slope is 5/2. Then y = (5/2)(x − 4), and at x = 0, y = (5/2)(−4) = −10.",
+   "hints": [
+    "Write the x-intercept as a point."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the slope, then use point-slope form at x = 0."
+   },
+   "remember": "An x-intercept of 4 is the point (4, 0).",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−15",
+    "B": "−10",
+    "C": "2.5",
+    "D": "10"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−15 uses the point (6, 5) but forgets to add 5: (5/2)(0 − 6).",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2.5 is the slope, not the y-intercept.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "10 has the wrong sign.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q018-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Segment of the hypotenuse cut by the altitude",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A right triangle has legs of lengths 9 and 12. The altitude drawn from the right angle to the hypotenuse divides the hypotenuse into two segments. What is the length of the shorter segment?",
+   "explanation": "The hypotenuse is √(9² + 12²) = 15. The altitude creates a smaller right triangle similar to the original, in which the shorter leg 9 is the hypotenuse and the shorter segment s is adjacent to the same acute angle: s/9 = 9/15, so s = 81/15 = 5.4.",
+   "hints": [
+    "Which smaller triangle contains the leg of length 9?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the altitude and match the similar triangles."
+   },
+   "remember": "The altitude to the hypotenuse creates triangles similar to the original.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognise the similar triangles formed by the altitude and match sides correctly; the altitude (7.2) is a strong trap."
+   },
+   "format": "spr",
+   "answer": "5.4",
+   "accepted_answers": [
+    "5.4",
+    "27/5"
+   ],
+   "common_errors": [
+    {
+     "value": "7.2",
+     "rationale": "7.2 is the length of the altitude, not a segment of the hypotenuse.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "9.6",
+     "rationale": "9.6 is the longer segment.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,154 @@
+{
+  "ideas": "batch 18",
+  "results": {
+    "I01": [
+      {
+        "other_id": "CLD-ACT-M-000586",
+        "severity": "close",
+        "why": "Both weight two subgroups by their shares (60/40 split); ACT 586 asks the overall rate, I01 asks one group's share of the total revenue, so the final step differs."
+      }
+    ],
+    "I02": [
+      {
+        "other_id": "CLD-ACT-M-000096",
+        "severity": "template",
+        "why": "Combined mean of two groups with given sizes and means (20 at 80 + 30 at 70); I02 is 20 at 70 + 5 at 90 'joining', which is the same weighted-mean computation."
+      },
+      {
+        "other_id": "CLD-ACT-M-000530",
+        "severity": "close",
+        "why": "Mean of a set after values are added, but ACT 530 solves for the added value."
+      }
+    ],
+    "I03": [],
+    "I04": [
+      {
+        "other_id": "CLD-ACT-M-000756",
+        "severity": "close",
+        "why": "Completing the square on x² + 6x; ACT 756 asks for an equivalent form, I04 asks for the value of (x + 3)² given x² + 6x = 7."
+      },
+      {
+        "other_id": "CLD-ACT-M-000541",
+        "severity": "close",
+        "why": "Same (x + 3)² square, but ACT 541 solves (x + 3)² = 49 for the sum of the solutions."
+      }
+    ],
+    "I05": [
+      {
+        "other_id": "CLD-SAT-M-000120",
+        "severity": "close",
+        "why": "Absorbing a factor of 4 into an exponent shift of 2 (12·2^x = 3·2^(x+k), so k = 2); I05 gets the 4 from adding four copies of 2^x. Same key step and the same answer."
+      },
+      {
+        "other_id": "CLD-ACT-M-000488",
+        "severity": "close",
+        "why": "Combining sums of powers of 2 (2^(x+1) + 2^x = 48), but ACT 488 solves for x."
+      }
+    ],
+    "I06": [
+      {
+        "other_id": "CLD-SAT-M-000011",
+        "severity": "close",
+        "why": "Intersection of two lines; SAT 011 finds the point, I06 is the reverse (given the x-coordinate, find a slope)."
+      }
+    ],
+    "I08": [
+      {
+        "other_id": "CLD-ACT-M-000339",
+        "severity": "copy",
+        "why": "Same figure (circle inscribed in a square that is inscribed in a circle) and the same area ratio, only inverted (ACT 339 asks inscribed:circumscribed = 1/2; I08 asks larger:smaller = 2)."
+      }
+    ],
+    "I09": [
+      {
+        "other_id": "CLD-ACT-M-000401",
+        "severity": "close",
+        "why": "Cofunction cos(90° − θ) = sin θ is half of I09; I09 also adds sin B = cos A in a right triangle."
+      },
+      {
+        "other_id": "fixture: math demo 'In right triangle ABC, angle C is the right angle and sin A = 5/13. What is tan B?'",
+        "severity": "close",
+        "why": "Identical setup and numbers (right angle C, sin A = 5/13); the fixture asks tan B, I09 asks cos(90° − A) + sin B. Same 5-12-13 complementary-angle reasoning, with a different target."
+      }
+    ],
+    "I10": [
+      {
+        "other_id": "CLD-ACT-M-000115",
+        "severity": "template",
+        "why": "Given the midpoint and one endpoint, find the other endpoint. Only the numbers change (M(3,−1), A(−2,4) vs M(3,−2), A(7,4))."
+      }
+    ],
+    "I14": [
+      {
+        "other_id": "CLD-ACT-M-000699",
+        "severity": "template",
+        "why": "Mean of n consecutive integers is given; find the largest. ACT 699 uses 15 integers with mean 40 and I14 uses 8 with mean 14.5. Same reasoning (the mean is the middle value)."
+      }
+    ],
+    "I16": [
+      {
+        "other_id": "CLD-ACT-M-000095",
+        "severity": "close",
+        "why": "Moving between circle area and circumference (ACT 095 goes from circumference to area); I16 adds an equal-perimeter square."
+      }
+    ],
+    "I17": [],
+    "I18": [
+      {
+        "other_id": "CLD-ACT-M-000384",
+        "severity": "template",
+        "why": "Two overlapping groups with 'neither', using total = A + B − both + neither. ACT 384 (120; 45, 50, both 20) asks neither, I18 (200; 120, 90, neither 40) asks both. It is the same equation with a different unknown."
+      },
+      {
+        "other_id": "CLD-ACT-M-000088",
+        "severity": "close",
+        "why": "Spanish/French overlap in percents, but asks Spanish-not-French."
+      }
+    ],
+    "I19": [
+      {
+        "other_id": "CLD-SAT-M-000043",
+        "severity": "template",
+        "why": "Monic quadratic x² − bx + c: the sum of the roots comes from b, plus a stated relation between the roots (6 apart in SAT 043, one is 3 times the other in I19). Find the roots, then the constant term = their product."
+      }
+    ],
+    "I21": [
+      {
+        "other_id": "CLD-ACT-M-000579",
+        "severity": "close",
+        "why": "Substituting into a linear expression; I21 adds a second step (2y)."
+      }
+    ],
+    "I22": [
+      {
+        "other_id": "CLD-ACT-M-000390",
+        "severity": "close",
+        "why": "Distributing to find an equivalent expression; ACT 390 also combines like terms."
+      }
+    ],
+    "I23": [
+      {
+        "other_id": "CLD-SAT-M-000152",
+        "severity": "close",
+        "why": "Line through a point with a known x-intercept. SAT 152 asks the slope, I23 takes one more step to the y-intercept."
+      },
+      {
+        "other_id": "Q017-01",
+        "severity": "close",
+        "why": "Pending draft that copies SAT 152 (point plus x-intercept gives slope); I23 extends it to the y-intercept."
+      }
+    ],
+    "I24": [
+      {
+        "other_id": "CLD-ACT-M-000085",
+        "severity": "close",
+        "why": "Altitude to the hypotenuse in a right triangle; ACT 085 is the geometric mean from the segments, I24 finds a segment from the legs (9²/15)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000604",
+        "severity": "close",
+        "why": "Altitude to the hypotenuse of a 6-8-10 triangle (its length), while I24 asks for a hypotenuse segment."
+      }
+    ]
+  }
+}
