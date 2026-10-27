@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 5,
+  "bank_version": 6,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -964,6 +964,199 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Solve 6x² = 150, then use the 3-4-5 pattern."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000048",
+      "correct_answer": "A",
+      "explanation": "The slope is (20 − 11)/(5 − 2) = 3, and f(2) = 11 gives 11 = 6 + b, so b = 5. Then f(x) = 3x + 5 and f(−4) = −12 + 5 = −7.",
+      "distractor_explanations": {
+        "B": "−1 uses f(2) = 11 as the y-intercept: 3(−4) + 11.",
+        "C": "5 is f(0), the y-intercept.",
+        "D": "17 drops the sign of −4: 3(4) + 5."
+      },
+      "hints": [
+        "Find the slope from two rows of the table."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write f(x) = mx + b, then evaluate at −4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000049",
+      "correct_answer": "B",
+      "explanation": "Each increase of 1 degree Celsius increases F by 1.8 degrees, so an increase of 15 degrees Celsius increases F by 1.8 × 15 = 27 degrees.",
+      "distractor_explanations": {
+        "A": "15 assumes the two scales change by the same amount.",
+        "C": "47 adds 32 to 15, treating the change as a temperature.",
+        "D": "59 converts 15 °C to Fahrenheit instead of finding the change."
+      },
+      "hints": [
+        "What does the coefficient 1.8 represent?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare F at C = 0 and C = 15."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000050",
+      "correct_answer": "1.5",
+      "accepted_answers": [
+        "1.5",
+        "3/2"
+      ],
+      "common_errors": [
+        {
+          "value": "3.5",
+          "rationale": "3.5 is the price of one notebook.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2.83",
+          "rationale": "2.83 divides 34 by 12 and ignores the $2.00 difference.",
+          "trap": null
+        }
+      ],
+      "explanation": "If a pen costs p dollars, a notebook costs p + 2. Then 8(p + 2) + 4p = 34, so 12p + 16 = 34, 12p = 18 and p = 1.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the notebook price in terms of the pen price."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 8(p + 2) + 4p = 34."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000051",
+      "correct_answer": "A",
+      "explanation": "(3x − 2)² = 9x² − 12x + 4 and (x + 1)(9x − 5) = 9x² + 4x − 5. Subtracting: 9x² − 12x + 4 − 9x² − 4x + 5 = −16x + 9.",
+      "distractor_explanations": {
+        "B": "−4x + 9 expands (3x − 2)² as 9x² + 4, dropping the middle term.",
+        "C": "−16x − 1 does not distribute the subtraction to −5.",
+        "D": "18x² − 8x − 1 adds the products instead of subtracting."
+      },
+      "hints": [
+        "Expand each product separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: 1 − 2(4) = −7, and −16 + 9 = −7."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000052",
+      "correct_answer": "D",
+      "explanation": "g(3) = 18 − 3k + 10 = 28 − 3k = 4, so k = 8. Then g(−1) = 2(1) − 8(−1) + 10 = 2 + 8 + 10 = 20.",
+      "distractor_explanations": {
+        "A": "4 evaluates −k(−1) as −8.",
+        "B": "8 is the value of k.",
+        "C": "12 drops the kx term."
+      },
+      "hints": [
+        "Use g(3) = 4 to find k first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute x = 3, solve for k, then substitute x = −1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000053",
+      "correct_answer": "B",
+      "explanation": "p(x) = x(x² − 4x − 12) = x(x − 6)(x + 2), so the zeros are 0, 6 and −2.",
+      "distractor_explanations": {
+        "A": "{−6, 0, 2} reverses the signs of the zeros of x − 6 and x + 2.",
+        "C": "{−2, 6} omits the zero that comes from the common factor x.",
+        "D": "{2, 6} omits 0 and uses the wrong sign for −2."
+      },
+      "hints": [
+        "Factor out the common factor x first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check p(6) = 216 − 144 − 72 = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000054",
+      "correct_answer": "C",
+      "explanation": "The rate is 210 ÷ 35 = 6 bottles per minute. In 2.5 hours = 150 minutes, the machine fills 6 × 150 = 900 bottles.",
+      "distractor_explanations": {
+        "A": "6 is the rate in bottles per minute.",
+        "B": "15 multiplies 6 by 2.5 without converting hours to minutes.",
+        "D": "1,260 multiplies 210 by 6."
+      },
+      "hints": [
+        "Convert 2.5 hours to minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find bottles per minute, then multiply by the minutes."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000055",
+      "correct_answer": "C",
+      "explanation": "The sample was selected at random from the 3,500 members of this gym, so the result can be generalized to that population. It cannot be extended to people who had no chance of being selected, such as city residents who are not members or members of other gyms.",
+      "distractor_explanations": {
+        "A": "A random sample is used to draw conclusions beyond the people in the sample itself.",
+        "B": "Most city adults were never eligible for selection, and gym members may exercise more than other adults.",
+        "D": "Only members of one gym were eligible for selection."
+      },
+      "hints": [
+        "From which group was the sample chosen at random?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate any group that had people who could not have been selected."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000056",
+      "correct_answer": "D",
+      "explanation": "A central angle is twice the inscribed angle that intercepts the same arc: 5x − 4 = 2(2x + 8) = 4x + 16, so x = 20. Angle AOB = 5(20) − 4 = 96°.",
+      "distractor_explanations": {
+        "A": "16 sets the two angle measures equal (x = 4) and finds angle AOB.",
+        "B": "20 is the value of x.",
+        "C": "48 is the measure of inscribed angle ACB."
+      },
+      "hints": [
+        "How does a central angle compare with an inscribed angle on the same arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write 5x − 4 = 2(2x + 8)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000057",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "53",
+          "rationale": "53 is the measure of the angle (4k − 7)°, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "29/3",
+          "rationale": "29/3 sets the two angle measures equal instead of making them complementary.",
+          "trap": null
+        }
+      ],
+      "explanation": "For acute angles, sin A = cos B exactly when A + B = 90°. So (4k − 7) + (k + 22) = 90, 5k + 15 = 90 and k = 15. Check: the angles are 53° and 37°.",
+      "distractor_explanations": {},
+      "hints": [
+        "When does the sine of one acute angle equal the cosine of another?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the sum of the two angle measures equal to 90."
       }
     }
   ]

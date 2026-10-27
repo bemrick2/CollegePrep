@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 5,
-  "updated_at": "2026-10-27T01:51:11+00:00",
+  "version": 6,
+  "updated_at": "2026-10-27T01:55:05+00:00",
   "passages": [],
   "questions": [
     {
@@ -3382,6 +3382,723 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-005.review.json",
         "computation": "checks/sat_math/batch_005.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000048",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Evaluating a linear function given by a table",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table below shows three values of the linear function f.\nx | 2 | 5 | 9\nf(x) | 11 | 20 | 32\nWhat is the value of f(−4) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−7",
+        "B": "−1",
+        "C": "5",
+        "D": "17"
+      },
+      "correct_answer": "A",
+      "explanation": "The slope is (20 − 11)/(5 − 2) = 3, and f(2) = 11 gives 11 = 6 + b, so b = 5. Then f(x) = 3x + 5 and f(−4) = −12 + 5 = −7.",
+      "distractor_explanations": {
+        "B": "−1 uses f(2) = 11 as the y-intercept: 3(−4) + 11.",
+        "C": "5 is f(0), the y-intercept.",
+        "D": "17 drops the sign of −4: 3(4) + 5."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Find the slope from two rows of the table."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write f(x) = mx + b, then evaluate at −4."
+      },
+      "remember": "Slope = change in f(x) / change in x.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-01",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000049",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Interpreting a change in a linear conversion formula",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The formula F = 1.8C + 32 converts a temperature of C degrees Celsius to F degrees Fahrenheit. If the temperature of a liquid rises by 15 degrees Celsius, by how many degrees Fahrenheit does its temperature rise?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "15",
+        "B": "27",
+        "C": "47",
+        "D": "59"
+      },
+      "correct_answer": "B",
+      "explanation": "Each increase of 1 degree Celsius increases F by 1.8 degrees, so an increase of 15 degrees Celsius increases F by 1.8 × 15 = 27 degrees.",
+      "distractor_explanations": {
+        "A": "15 assumes the two scales change by the same amount.",
+        "C": "47 adds 32 to 15, treating the change as a temperature.",
+        "D": "59 converts 15 °C to Fahrenheit instead of finding the change."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What does the coefficient 1.8 represent?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare F at C = 0 and C = 15."
+      },
+      "remember": "A change in output equals the slope times the change in input.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-02",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000050",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a linear equation in a pricing context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a store, each notebook costs $2.00 more than each pen. Lena pays $34.00 for 8 notebooks and 4 pens. What is the price, in dollars, of one pen?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1.5",
+      "accepted_answers": [
+        "1.5",
+        "3/2"
+      ],
+      "common_errors": [
+        {
+          "value": "3.5",
+          "rationale": "3.5 is the price of one notebook.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2.83",
+          "rationale": "2.83 divides 34 by 12 and ignores the $2.00 difference.",
+          "trap": null
+        }
+      ],
+      "explanation": "If a pen costs p dollars, a notebook costs p + 2. Then 8(p + 2) + 4p = 34, so 12p + 16 = 34, 12p = 18 and p = 1.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the notebook price in terms of the pen price."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 8(p + 2) + 4p = 34."
+      },
+      "remember": "Define one variable and express the other quantity with it.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-03",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1.5",
+        "blind_answer": "1.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: also accept 3/2"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000051",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Simplifying a difference of polynomial products",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to (3x − 2)² − (x + 1)(9x − 5) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−16x + 9",
+        "B": "−4x + 9",
+        "C": "−16x − 1",
+        "D": "18x² − 8x − 1"
+      },
+      "correct_answer": "A",
+      "explanation": "(3x − 2)² = 9x² − 12x + 4 and (x + 1)(9x − 5) = 9x² + 4x − 5. Subtracting: 9x² − 12x + 4 − 9x² − 4x + 5 = −16x + 9.",
+      "distractor_explanations": {
+        "B": "−4x + 9 expands (3x − 2)² as 9x² + 4, dropping the middle term.",
+        "C": "−16x − 1 does not distribute the subtraction to −5.",
+        "D": "18x² − 8x − 1 adds the products instead of subtracting."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Expand each product separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: 1 − 2(4) = −7, and −16 + 9 = −7."
+      },
+      "remember": "Put the second product in parentheses before subtracting.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-04",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000052",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating a quadratic after finding a coefficient",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function g is defined by g(x) = 2x² − kx + 10, where k is a constant. If g(3) = 4, what is the value of g(−1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "12",
+        "D": "20"
+      },
+      "correct_answer": "D",
+      "explanation": "g(3) = 18 − 3k + 10 = 28 − 3k = 4, so k = 8. Then g(−1) = 2(1) − 8(−1) + 10 = 2 + 8 + 10 = 20.",
+      "distractor_explanations": {
+        "A": "4 evaluates −k(−1) as −8.",
+        "B": "8 is the value of k.",
+        "C": "12 drops the kx term."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Use g(3) = 4 to find k first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute x = 3, solve for k, then substitute x = −1."
+      },
+      "remember": "Find the unknown constant before evaluating at a new input.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-05",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000053",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Zeros of a factorable cubic polynomial",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p is defined by p(x) = x³ − 4x² − 12x. Which of the following is the set of all zeros of p ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "{−6, 0, 2}",
+        "B": "{−2, 0, 6}",
+        "C": "{−2, 6}",
+        "D": "{2, 6}"
+      },
+      "correct_answer": "B",
+      "explanation": "p(x) = x(x² − 4x − 12) = x(x − 6)(x + 2), so the zeros are 0, 6 and −2.",
+      "distractor_explanations": {
+        "A": "{−6, 0, 2} reverses the signs of the zeros of x − 6 and x + 2.",
+        "C": "{−2, 6} omits the zero that comes from the common factor x.",
+        "D": "{2, 6} omits 0 and uses the wrong sign for −2."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Factor out the common factor x first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check p(6) = 216 − 144 − 72 = 0."
+      },
+      "remember": "A common factor of x gives a zero at x = 0.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-06",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000054",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Rate problem with a unit conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A machine fills 210 bottles every 35 minutes. Working at this rate, how many bottles does the machine fill in 2.5 hours?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6",
+        "B": "15",
+        "C": "900",
+        "D": "1,260"
+      },
+      "correct_answer": "C",
+      "explanation": "The rate is 210 ÷ 35 = 6 bottles per minute. In 2.5 hours = 150 minutes, the machine fills 6 × 150 = 900 bottles.",
+      "distractor_explanations": {
+        "A": "6 is the rate in bottles per minute.",
+        "B": "15 multiplies 6 by 2.5 without converting hours to minutes.",
+        "D": "1,260 multiplies 210 by 6."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Convert 2.5 hours to minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find bottles per minute, then multiply by the minutes."
+      },
+      "remember": "Match the time units before multiplying by a rate.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-07",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000055",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Population to which a sample result generalizes",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A researcher selected 200 members at random from the 3,500 members of a city's largest gym. Each selected member reported the number of hours they exercised last week, and the mean was 5.2 hours. To which of the following groups can the result most appropriately be generalized?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The 200 members who were selected",
+        "B": "All adults who live in the city",
+        "C": "All 3,500 members of the gym",
+        "D": "All members of every gym in the city"
+      },
+      "correct_answer": "C",
+      "explanation": "The sample was selected at random from the 3,500 members of this gym, so the result can be generalized to that population. It cannot be extended to people who had no chance of being selected, such as city residents who are not members or members of other gyms.",
+      "distractor_explanations": {
+        "A": "A random sample is used to draw conclusions beyond the people in the sample itself.",
+        "B": "Most city adults were never eligible for selection, and gym members may exercise more than other adults.",
+        "D": "Only members of one gym were eligible for selection."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "overextend_trend",
+        "D": "overextend_trend"
+      },
+      "hints": [
+        "From which group was the sample chosen at random?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate any group that had people who could not have been selected."
+      },
+      "remember": "A random sample generalizes only to the population it was drawn from.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-08",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000056",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed and central angles with algebra",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Points A, B and C lie on a circle with center O. Inscribed angle ACB and central angle AOB intercept the same arc AB. The measure of angle ACB is (2x + 8)°, and the measure of angle AOB is (5x − 4)°. What is the measure, in degrees, of angle AOB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "16",
+        "B": "20",
+        "C": "48",
+        "D": "96"
+      },
+      "correct_answer": "D",
+      "explanation": "A central angle is twice the inscribed angle that intercepts the same arc: 5x − 4 = 2(2x + 8) = 4x + 16, so x = 20. Angle AOB = 5(20) − 4 = 96°.",
+      "distractor_explanations": {
+        "A": "16 sets the two angle measures equal (x = 4) and finds angle AOB.",
+        "B": "20 is the value of x.",
+        "C": "48 is the measure of inscribed angle ACB."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "How does a central angle compare with an inscribed angle on the same arc?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Write 5x − 4 = 2(2x + 8)."
+      },
+      "remember": "Central angle = 2 × inscribed angle on the same arc.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-09",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000057",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Complementary angles and the sine-cosine relationship",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation sin((4k − 7)°) = cos((k + 22)°), k is a constant, and both angle measures are between 0° and 90°. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "53",
+          "rationale": "53 is the measure of the angle (4k − 7)°, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "29/3",
+          "rationale": "29/3 sets the two angle measures equal instead of making them complementary.",
+          "trap": null
+        }
+      ],
+      "explanation": "For acute angles, sin A = cos B exactly when A + B = 90°. So (4k − 7) + (k + 22) = 90, 5k + 15 = 90 and k = 15. Check: the angles are 53° and 37°.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "When does the sine of one acute angle equal the cosine of another?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the sum of the two angle measures equal to 90."
+      },
+      "remember": "sin x° = cos(90 − x)°.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 6,
+      "draft_candidate": "Q006-10",
+      "created_at": "2026-10-27T01:55:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-006.review.json",
+        "computation": "checks/sat_math/batch_006.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

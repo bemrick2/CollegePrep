@@ -1,0 +1,460 @@
+{
+ "bank": "sat_math",
+ "batch": 6,
+ "plan": "SAT Math batch 6: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses. First-choice ideas that matched ACT 003 (van inequality), 400 (circle equation), 413, 527, 733, 261, 025/560, 467 and 550, a percent-of-a-percent item that repeated SAT 000008, and replacements that matched ACT 076, 309 and 741 were dropped before drafting.",
+ "candidates": [
+  {
+   "cand": "Q006-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Evaluating a linear function given by a table",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The table below shows three values of the linear function f.\nx | 2 | 5 | 9\nf(x) | 11 | 20 | 32\nWhat is the value of f(−4) ?",
+   "explanation": "The slope is (20 − 11)/(5 − 2) = 3, and f(2) = 11 gives 11 = 6 + b, so b = 5. Then f(x) = 3x + 5 and f(−4) = −12 + 5 = −7.",
+   "hints": [
+    "Find the slope from two rows of the table."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write f(x) = mx + b, then evaluate at −4."
+   },
+   "remember": "Slope = change in f(x) / change in x.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−7",
+    "B": "−1",
+    "C": "5",
+    "D": "17"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−1 uses f(2) = 11 as the y-intercept: 3(−4) + 11.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "5 is f(0), the y-intercept.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "17 drops the sign of −4: 3(4) + 5.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q006-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting a change in a linear conversion formula",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The formula F = 1.8C + 32 converts a temperature of C degrees Celsius to F degrees Fahrenheit. If the temperature of a liquid rises by 15 degrees Celsius, by how many degrees Fahrenheit does its temperature rise?",
+   "explanation": "Each increase of 1 degree Celsius increases F by 1.8 degrees, so an increase of 15 degrees Celsius increases F by 1.8 × 15 = 27 degrees.",
+   "hints": [
+    "What does the coefficient 1.8 represent?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compare F at C = 0 and C = 15."
+   },
+   "remember": "A change in output equals the slope times the change in input.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "15",
+    "B": "27",
+    "C": "47",
+    "D": "59"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "15 assumes the two scales change by the same amount.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "47 adds 32 to 15, treating the change as a temperature.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "59 converts 15 °C to Fahrenheit instead of finding the change.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q006-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation in a pricing context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a store, each notebook costs $2.00 more than each pen. Lena pays $34.00 for 8 notebooks and 4 pens. What is the price, in dollars, of one pen?",
+   "explanation": "If a pen costs p dollars, a notebook costs p + 2. Then 8(p + 2) + 4p = 34, so 12p + 16 = 34, 12p = 18 and p = 1.5.",
+   "hints": [
+    "Write the notebook price in terms of the pen price."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 8(p + 2) + 4p = 34."
+   },
+   "remember": "Define one variable and express the other quantity with it.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "1.5",
+   "accepted_answers": [
+    "1.5",
+    "3/2"
+   ],
+   "common_errors": [
+    {
+     "value": "3.5",
+     "rationale": "3.5 is the price of one notebook.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "2.83",
+     "rationale": "2.83 divides 34 by 12 and ignores the $2.00 difference.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q006-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying a difference of polynomial products",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Which of the following is equivalent to (3x − 2)² − (x + 1)(9x − 5) ?",
+   "explanation": "(3x − 2)² = 9x² − 12x + 4 and (x + 1)(9x − 5) = 9x² + 4x − 5. Subtracting: 9x² − 12x + 4 − 9x² − 4x + 5 = −16x + 9.",
+   "hints": [
+    "Expand each product separately."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 1: 1 − 2(4) = −7, and −16 + 9 = −7."
+   },
+   "remember": "Put the second product in parentheses before subtracting.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−16x + 9",
+    "B": "−4x + 9",
+    "C": "−16x − 1",
+    "D": "18x² − 8x − 1"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−4x + 9 expands (3x − 2)² as 9x² + 4, dropping the middle term.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−16x − 1 does not distribute the subtraction to −5.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "18x² − 8x − 1 adds the products instead of subtracting.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q006-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Evaluating a quadratic after finding a coefficient",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function g is defined by g(x) = 2x² − kx + 10, where k is a constant. If g(3) = 4, what is the value of g(−1) ?",
+   "explanation": "g(3) = 18 − 3k + 10 = 28 − 3k = 4, so k = 8. Then g(−1) = 2(1) − 8(−1) + 10 = 2 + 8 + 10 = 20.",
+   "hints": [
+    "Use g(3) = 4 to find k first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute x = 3, solve for k, then substitute x = −1."
+   },
+   "remember": "Find the unknown constant before evaluating at a new input.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "12",
+    "D": "20"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "4 evaluates −k(−1) as −8.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "8 is the value of k.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "12 drops the kx term.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q006-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Zeros of a factorable cubic polynomial",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The polynomial p is defined by p(x) = x³ − 4x² − 12x. Which of the following is the set of all zeros of p ?",
+   "explanation": "p(x) = x(x² − 4x − 12) = x(x − 6)(x + 2), so the zeros are 0, 6 and −2.",
+   "hints": [
+    "Factor out the common factor x first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check p(6) = 216 − 144 − 72 = 0."
+   },
+   "remember": "A common factor of x gives a zero at x = 0.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "{−6, 0, 2}",
+    "B": "{−2, 0, 6}",
+    "C": "{−2, 6}",
+    "D": "{2, 6}"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "{−6, 0, 2} reverses the signs of the zeros of x − 6 and x + 2.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "{−2, 6} omits the zero that comes from the common factor x.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "{2, 6} omits 0 and uses the wrong sign for −2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q006-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Rate problem with a unit conversion",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A machine fills 210 bottles every 35 minutes. Working at this rate, how many bottles does the machine fill in 2.5 hours?",
+   "explanation": "The rate is 210 ÷ 35 = 6 bottles per minute. In 2.5 hours = 150 minutes, the machine fills 6 × 150 = 900 bottles.",
+   "hints": [
+    "Convert 2.5 hours to minutes."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find bottles per minute, then multiply by the minutes."
+   },
+   "remember": "Match the time units before multiplying by a rate.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6",
+    "B": "15",
+    "C": "900",
+    "D": "1,260"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "6 is the rate in bottles per minute.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "15 multiplies 6 by 2.5 without converting hours to minutes.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,260 multiplies 210 by 6.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q006-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Population to which a sample result generalizes",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A researcher selected 200 members at random from the 3,500 members of a city's largest gym. Each selected member reported the number of hours they exercised last week, and the mean was 5.2 hours. To which of the following groups can the result most appropriately be generalized?",
+   "explanation": "The sample was selected at random from the 3,500 members of this gym, so the result can be generalized to that population. It cannot be extended to people who had no chance of being selected, such as city residents who are not members or members of other gyms.",
+   "hints": [
+    "From which group was the sample chosen at random?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate any group that had people who could not have been selected."
+   },
+   "remember": "A random sample generalizes only to the population it was drawn from.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The 200 members who were selected",
+    "B": "All adults who live in the city",
+    "C": "All 3,500 members of the gym",
+    "D": "All members of every gym in the city"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "A random sample is used to draw conclusions beyond the people in the sample itself.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "Most city adults were never eligible for selection, and gym members may exercise more than other adults.",
+     "trap": "overextend_trend"
+    },
+    "D": {
+     "rationale": "Only members of one gym were eligible for selection.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q006-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inscribed and central angles with algebra",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Points A, B and C lie on a circle with center O. Inscribed angle ACB and central angle AOB intercept the same arc AB. The measure of angle ACB is (2x + 8)°, and the measure of angle AOB is (5x − 4)°. What is the measure, in degrees, of angle AOB ?",
+   "explanation": "A central angle is twice the inscribed angle that intercepts the same arc: 5x − 4 = 2(2x + 8) = 4x + 16, so x = 20. Angle AOB = 5(20) − 4 = 96°.",
+   "hints": [
+    "How does a central angle compare with an inscribed angle on the same arc?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Write 5x − 4 = 2(2x + 8)."
+   },
+   "remember": "Central angle = 2 × inscribed angle on the same arc.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "16",
+    "B": "20",
+    "C": "48",
+    "D": "96"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "16 sets the two angle measures equal (x = 4) and finds angle AOB.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "20 is the value of x.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "48 is the measure of inscribed angle ACB.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q006-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Complementary angles and the sine-cosine relationship",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the equation sin((4k − 7)°) = cos((k + 22)°), k is a constant, and both angle measures are between 0° and 90°. What is the value of k ?",
+   "explanation": "For acute angles, sin A = cos B exactly when A + B = 90°. So (4k − 7) + (k + 22) = 90, 5k + 15 = 90 and k = 15. Check: the angles are 53° and 37°.",
+   "hints": [
+    "When does the sine of one acute angle equal the cosine of another?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the sum of the two angle measures equal to 90."
+   },
+   "remember": "sin x° = cos(90 − x)°.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "53",
+     "rationale": "53 is the measure of the angle (4k − 7)°, not k.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "29/3",
+     "rationale": "29/3 sets the two angle measures equal instead of making them complementary.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}
