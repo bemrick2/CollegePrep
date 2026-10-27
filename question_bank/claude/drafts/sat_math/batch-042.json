@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 42,
- "plan": "SAT Math batch 42: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 7 student-produced responses. Ideas N05-N08, P05, P06, P08, P12, R04, R05, T03, T05 from generated set 4 (independently pre-checked: no copy or template matches). P06's 13/3 rationale corrected; N01/N06 and P12/P13 kept in different batches.",
+ "plan": "SAT Math batch 42: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 7 student-produced responses. Ideas N05-N08, P05, P06, P08, P12, R04, R05, T03, T05 from generated set 4 (independently pre-checked: no copy or template matches). P06's 13/3 rationale corrected; N01/N06 and P12/P13 kept in different batches. Relabelled to the blind solver's rating where it was lower: Q042-02 hard→medium, Q042-04 medium→easy, Q042-05 hard→medium, Q042-09 hard→medium, Q042-10 hard→medium, Q042-11 hard→medium, Q042-12 hard→medium.",
  "candidates": [
   {
    "cand": "Q042-01",
@@ -55,7 +55,7 @@
    "skill": "Algebra",
    "subskill": "Counting integers in the overlap of two absolute value inequalities",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "How many integers x satisfy both |x − 5| < 4 and |x − 10| ≤ 4 ?",
    "explanation": "|x − 5| < 4 means 1 < x < 9, and |x − 10| ≤ 4 means 6 ≤ x ≤ 14. Both hold for 6 ≤ x < 9, whose integers are 6, 7, and 8: three integers.",
    "hints": [
@@ -71,8 +71,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must intersect two intervals with one strict and one inclusive endpoint; each endpoint is a trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "3",
@@ -140,7 +139,7 @@
    "skill": "Algebra",
    "subskill": "System from two shared resources",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Each batch of recipe A uses 3 eggs and 2 cups of milk, and each batch of recipe B uses 2 eggs and 3 cups of milk. A cook made some batches of each recipe and used exactly 24 eggs and 26 cups of milk. How many batches of recipe B did the cook make?",
    "explanation": "Let a and b be the numbers of batches of A and B. Eggs: 3a + 2b = 24; milk: 2a + 3b = 26. Multiplying the first by 2 and the second by 3 and subtracting gives 5b = 30, so b = 6 (and a = 4).",
    "hints": [
@@ -186,7 +185,7 @@
    "skill": "Advanced Math",
    "subskill": "Factor theorem fixes a constant, then the remaining zeros",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The polynomial p is defined by p(x) = x³ + kx² − 16x + 48, where k is a constant. If x − 3 is a factor of p(x), what is the greatest zero of p ?",
    "explanation": "Since x − 3 is a factor, p(3) = 27 + 9k − 48 + 48 = 27 + 9k = 0, so k = −3. Then p(x) = x³ − 3x² − 16x + 48 = x²(x − 3) − 16(x − 3) = (x − 3)(x − 4)(x + 4). The zeros are 3, 4, and −4, so the greatest is 4.",
    "hints": [
@@ -202,8 +201,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must use the factor theorem to find k and then factor a cubic; answering with the given zero 3 is a trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "4",
@@ -230,7 +228,7 @@
    "subskill": "X-intercept of an absolute value graph after finding its stretch factor",
    "repo_skill_key": "sat_advanced_math",
    "difficulty": "medium",
-   "stem": "The graph of f(x) = a|x − 3| + 8, where a is a constant, passes through the point (1, 4). What is the greater x-intercept of the graph of y = f(x) ?",
+   "stem": "For the function f(x) = a|x − 3| + 8, where a is a constant, f(1) = 4. The graph of y = f(x) crosses the x-axis at two points. What is the x-coordinate of the point that is farther to the right?",
    "explanation": "f(1) = a|1 − 3| + 8 = 2a + 8 = 4, so a = −2. The x-intercepts satisfy −2|x − 3| + 8 = 0, so |x − 3| = 4 and x = −1 or x = 7. The greater x-intercept is 7.",
    "hints": [
     "Use the point (1, 4) to find a."
@@ -364,7 +362,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Converting liters per 100 kilometers to miles per gallon",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A car uses 8 liters of fuel for every 100 kilometers it is driven. Using 1 mile = 1.609 kilometers and 1 gallon = 3.785 liters, what is the car's fuel efficiency, to the nearest whole number of miles per gallon?",
    "explanation": "The car travels 100 ÷ 8 = 12.5 kilometers per liter. Per gallon that is 12.5 × 3.785 ≈ 47.3 kilometers, and in miles 47.3 ÷ 1.609 ≈ 29.4. To the nearest whole number, 29 miles per gallon.",
    "hints": [
@@ -380,8 +378,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must invert a consumption rate and convert two units in the right directions."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "29",
@@ -407,7 +404,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Group mean from a weighted combined mean with linked group means",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The mean score of the members of group A is 10 points higher than the mean score of the members of group B. Group A has 3 times as many members as group B. The mean score of the two groups combined is 85. What is the mean score of group B?",
    "explanation": "Let group B have n members with mean m, so group A has 3n members with mean m + 10. The combined mean is (3n(m + 10) + nm)/(4n) = (4m + 30)/4 = 85, so 4m = 310 and m = 77.5.",
    "hints": [
@@ -423,8 +420,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must weight the means by group size; the unweighted midpoint is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "75",
@@ -454,7 +450,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Two angles formed by a transversal that are not congruent",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Parallel lines ℓ and m are cut by a transversal. Two of the eight angles formed measure (5x + 12)° and (3x + 24)°, and these two angles are not congruent. What is the measure, in degrees, of the larger of the two angles?",
    "explanation": "When parallel lines are cut by a transversal, any two of the eight angles are either congruent or supplementary. These are not congruent, so (5x + 12) + (3x + 24) = 180, giving 8x = 144 and x = 18. The angles are 102° and 78°, and the larger is 102°.",
    "hints": [
@@ -470,8 +466,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "No angle positions are given; students must use the congruent-or-supplementary fact, and setting the angles equal is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "102",
@@ -497,7 +492,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Cofunction identity turns a trig relation into a linear equation",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In right triangle ABC, angle C is the right angle, and sin A = 3 cos B − 1. What is the value of sin A ?",
    "explanation": "Angles A and B are complementary, so cos B = sin A. The equation becomes sin A = 3 sin A − 1, so 2 sin A = 1 and sin A = 1/2.",
    "hints": [
@@ -513,8 +508,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see the cofunction relation; treating cos B as cos A leads to a longer route and a wrong answer."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "1/2",

@@ -1,0 +1,305 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 42,
+  "reviewed_at": "2026-10-27T04:45:27+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 42
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000374",
+    "CLD-SAT-M-000375",
+    "CLD-SAT-M-000376",
+    "CLD-SAT-M-000377",
+    "CLD-SAT-M-000378",
+    "CLD-SAT-M-000379",
+    "CLD-SAT-M-000380",
+    "CLD-SAT-M-000381",
+    "CLD-SAT-M-000382",
+    "CLD-SAT-M-000383",
+    "CLD-SAT-M-000384",
+    "CLD-SAT-M-000385"
+  ],
+  "results": [
+    {
+      "cand": "Q042-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: p is non-integer for most t (e.g. t=31 gives 0.3 pages); consider 'approximate number of pages' or note pages printed continuously"
+      ],
+      "blind_notes": "18 pages/min = 0.3 pages/s; p = 0.3(t-30) = 0.3t - 9. B subtracts 30 instead of 9, C sign error, D unit (minutes vs seconds) error.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000374"
+    },
+    {
+      "cand": "Q042-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 52,
+      "blind_flags": [],
+      "blind_notes": "|x-5|<4 -> 1<x<9 (2..8); |x-10|<=4 -> 6..14; overlap 6,7,8 -> 3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000375"
+    },
+    {
+      "cand": "Q042-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "18",
+      "computed_answer": "18",
+      "blind_answer": "18",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "300p = 270(p+2) -> 30p = 540 -> p = 18 (check: 5400 = 270*20).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000376"
+    },
+    {
+      "cand": "Q042-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: D (12) matches no obvious error path and is easy to eliminate; consider a more attractive distractor"
+      ],
+      "blind_notes": "3a+2b=24, 2a+3b=26 -> a+b=10, a-b=-2 -> a=4, b=6. A = batches of A, C = total batches.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000377"
+    },
+    {
+      "cand": "Q042-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "p(3)=27+9k-48+48=0 -> k=-3; x^3-3x^2-16x+48 = (x-3)(x-4)(x+4); zeros -4,3,4; greatest 4 (trap: answering 3).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000378"
+    },
+    {
+      "cand": "Q042-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: distractors 13/3 and 11 do not correspond to clear error paths; -1 (left intercept) is the only strong distractor"
+      ],
+      "blind_notes": "f(1)=2a+8=4 -> a=-2; -2|x-3|+8=0 -> |x-3|=4 -> x=-1 or 7; right one 7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000379"
+    },
+    {
+      "cand": "Q042-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Difference of squares: (2ax)(10)=20ax=60x -> a=3. A from 10ax, C/D from other slips.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000380"
+    },
+    {
+      "cand": "Q042-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "f(x)=f(6-x) -> axis x=3; vertex (3,-4): f=(x-3)^2-4; f(-1)=16-4=12. Non-obvious symmetry insight.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must read the axis of symmetry from a functional identity before using vertex form."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000381"
+    },
+    {
+      "cand": "Q042-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "29",
+      "computed_answer": "29",
+      "blind_answer": "29",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "100 km = 62.15 mi; 8 L = 2.1136 gal; 62.15/2.1136 = 29.40 -> 29. Trap: inverting the rate (L/100km vs mi/gal).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000382"
+    },
+    {
+      "cand": "Q042-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(3(B+10)+B)/4 = B+7.5 = 85 -> B = 77.5. A = 85-10, C = unweighted midpoint error, D = weights reversed.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000383"
+    },
+    {
+      "cand": "Q042-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "102",
+      "computed_answer": "102",
+      "blind_answer": "102",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Not congruent -> supplementary: 8x+36=180 -> x=18; angles 102 and 78; larger 102. (Congruent case x=6 gives 42,42, excluded.)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000384"
+    },
+    {
+      "cand": "Q042-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "1/2",
+      "computed_answer": "1/2",
+      "blind_answer": "1/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: style of complementary-angle sin/cos item closely resembles common official SAT items (sin A = cos B in right triangle); acceptable but not novel"
+      ],
+      "blind_notes": "A+B=90 so cos B = sin A: sin A = 3 sin A - 1 -> sin A = 1/2 (0.5).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000385"
+    }
+  ]
+}
