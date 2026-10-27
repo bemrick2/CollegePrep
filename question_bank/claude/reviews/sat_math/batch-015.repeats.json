@@ -1,0 +1,38 @@
+{
+  "batch": 15,
+  "checked_against": "sat_math (live), act_math (live), fixtures",
+  "results": {
+    "Q015-01": [
+      {"other_id": "CLD-SAT-M-000001", "severity": "close", "why": "Same ax + by = C context-equation setup, but SAT-001 substitutes a fixed x to find y; Q015-01 asks the trade-off (change in x per change in y), which requires the rate reasoning."}
+    ],
+    "Q015-02": [
+      {"other_id": "CLD-SAT-M-000048", "severity": "close", "why": "Both build a linear function from given input-output pairs and evaluate it (m + b = f(1) vs f(-4) from a table); format and ask differ slightly."}
+    ],
+    "Q015-03": [
+      {"other_id": "CLD-ACT-M-000360", "severity": "close", "why": "Both solve k(x - c) = d with a single distributed term; ACT-360 adds decimals. Very generic skill, borderline only."}
+    ],
+    "Q015-04": [
+      {"other_id": "CLD-ACT-M-000704", "severity": "template", "why": "Both divide a cubic by a linear binomial (x - a) and ask for the quotient polynomial; Q015-04 uses x^3 - 8 (difference of cubes) but the setup and asked quantity are the same."}
+    ],
+    "Q015-05": [
+      {"other_id": "CLD-ACT-M-000693", "severity": "close", "why": "Same setup (line y = x + b meeting x^2 + y^2 = 25 at two points) but ACT-693 asks the distance between the points; Q015-05 asks the product of x-coordinates (Vieta)."},
+      {"other_id": "CLD-ACT-M-000300", "severity": "close", "why": "Both substitute a line into a curve and use Vieta on the resulting quadratic (sum of x-coordinates with a parabola vs product with a circle)."}
+    ],
+    "Q015-06": [
+      {"other_id": "CLD-ACT-M-000610", "severity": "template", "why": "Identical template: g(x) = 2x^2 - 5, g(x) = 27, find positive x (answer 4) vs f(x) = 3x^2 - 2, f(a) = 25, a > 0 (answer 3). Same setup and ask, new numbers."}
+    ],
+    "Q015-07": [
+      {"other_id": "CLD-SAT-M-000045", "severity": "close", "why": "Both use 'of those who own X, p% also own Y' conditional percents, but SAT-045 asks total car owners from given group sizes; Q015-07 works backward from the overlap to the 'exactly one' count."}
+    ],
+    "Q015-08": [
+      {"other_id": "CLD-ACT-M-000198", "severity": "template", "why": "Same template: integers 1..N that are multiples of a or b (or both), via inclusion-exclusion with the LCM. ACT-198 asks the count (1..100, 6 or 10); Q015-08 asks that count over 50, a trivial added step."},
+      {"other_id": "CLD-ACT-M-000555", "severity": "close", "why": "Same 'chosen at random from 1 through N, probability of A or B (or both)' wording and inclusion-exclusion, but with squares/cubes rather than multiples."}
+    ],
+    "Q015-09": [
+      {"other_id": "fixture:sat-math minor arc AB (radius 6, central angle 120°)", "severity": "close", "why": "Both ask the minor arc AB length on a radius-6 circle; fixture gives the central angle directly, Q015-09 requires reading the 90° angle from coordinates."}
+    ],
+    "Q015-10": [
+      {"other_id": "CLD-ACT-M-000104", "severity": "close", "why": "Both ask trapezoid area, but ACT-104 must first find the height from the legs (Pythagorean step); Q015-10 gives the height directly."}
+    ]
+  }
+}

@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 14,
-  "updated_at": "2026-10-27T02:23:45+00:00",
+  "version": 15,
+  "updated_at": "2026-10-27T02:25:35+00:00",
   "passages": [],
   "questions": [
     {
@@ -9626,6 +9626,511 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-014.review.json",
         "computation": "checks/sat_math/batch_014.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000135",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Trade-off between two variables in a linear equation",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Lena earns $15 per hour mowing lawns and $25 per hour painting fences. The equation 15x + 25y = 750 represents the numbers of hours, x mowing and y painting, that Lena works to earn exactly $750. If Lena paints 6 more hours, how many fewer hours must she mow to earn the same $750 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes each painting hour replaces exactly one mowing hour.",
+          "trap": null
+        },
+        {
+          "value": "3.6",
+          "rationale": "3.6 inverts the rates, computing 15 × 6 ÷ 25.",
+          "trap": null
+        }
+      ],
+      "explanation": "Six more hours of painting earn 6 × $25 = $150 more. To keep the total at $750, mowing must earn $150 less, which is 150 ÷ 15 = 10 fewer hours. Equivalently, the slope of the line in terms of x is −25/15, so Δx = −(25/15)(6) = −10.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How much more does she earn from the extra painting?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 15Δx + 25(6) = 0."
+      },
+      "remember": "Changes in the variables must keep the total unchanged.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-01",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000136",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Using two values of a linear function",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the linear function f, f(−2) = 7 and f(4) = −5. If f(x) = mx + b, where m and b are constants, what is the value of m + b ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−5",
+        "B": "−2",
+        "C": "1",
+        "D": "3"
+      },
+      "correct_answer": "C",
+      "explanation": "The slope is m = (−5 − 7)/(4 − (−2)) = −12/6 = −2. Then 7 = −2(−2) + b gives b = 3, so m + b = −2 + 3 = 1. (Note that m + b is f(1).)",
+      "distractor_explanations": {
+        "A": "−5 computes m − b.",
+        "B": "−2 is the slope m alone.",
+        "D": "3 is the y-intercept b alone."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Find the slope from the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find m, then b, then add."
+      },
+      "remember": "m + b is the value of mx + b at x = 1.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-02",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000137",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a one-step distributed equation",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 2(a − 3) = 10, what is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "5",
+        "C": "6.5",
+        "D": "8"
+      },
+      "correct_answer": "D",
+      "explanation": "Dividing both sides by 2 gives a − 3 = 5, so a = 8. Check: 2(8 − 3) = 2(5) = 10, which matches the right side.",
+      "distractor_explanations": {
+        "A": "2 subtracts 6 from 10 and then divides by 2, using a sign error: (10 − 6)/2.",
+        "B": "5 is the value of a − 3.",
+        "C": "6.5 distributes the 2 only to a: 2a − 3 = 10."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Divide both sides by 2 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a = 8."
+      },
+      "remember": "Undo the multiplication, then the subtraction.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-03",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000138",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Product of x-coordinates where a line meets a circle",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = x + 1 intersects the circle x² + y² = 25 at two points. What is the product of the x-coordinates of the two points?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-12",
+      "accepted_answers": [
+        "-12"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 is the sum of the x-coordinates.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "12",
+          "rationale": "12 drops the sign: the x-coordinates are 3 and −4.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Substituting y = x + 1 gives x² + (x + 1)² = 25, so 2x² + 2x − 24 = 0, or x² + x − 12 = 0. This factors as (x + 4)(x − 3) = 0, so the points are (3, 4) and (−4, −3), and the product of the x-coordinates is −12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Substitute the line into the circle's equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the resulting quadratic."
+      },
+      "remember": "Substitution turns a line-circle system into one quadratic.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-05",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-12",
+        "blind_answer": "-12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000139",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Overlapping groups from two conditional percents",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a survey of pet owners, 30% of the people who own a dog also own a cat, and 50% of the people who own a cat also own a dog. If 60 of the people surveyed own both a dog and a cat, how many of the people surveyed own exactly one of these two kinds of pets?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "200",
+      "accepted_answers": [
+        "200"
+      ],
+      "common_errors": [
+        {
+          "value": "260",
+          "rationale": "260 is the number who own at least one of the two kinds, including the 60 who own both.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "320",
+          "rationale": "320 adds the dog owners and cat owners, counting the 60 twice.",
+          "trap": null
+        }
+      ],
+      "explanation": "If 30% of dog owners own both, then dog owners = 60 ÷ 0.30 = 200. If 50% of cat owners own both, cat owners = 60 ÷ 0.50 = 120. Exactly one: (200 − 60) + (120 − 60) = 140 + 60 = 200.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use the 60 to find the number of dog owners and of cat owners."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a Venn diagram with 60 in the overlap."
+      },
+      "remember": "\"Exactly one\" excludes the overlap from both groups.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-07",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "200",
+        "blind_answer": "200",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [
+          "minor: say 'exactly one of these two kinds of pets (a dog or a cat)' to be explicit; the meaning is already clear"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000140",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Arc length from coordinates on a circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, points A(6, 0) and B(0, 6) lie on the circle x² + y² = 36. What is the length of the minor arc AB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6√2",
+        "B": "3π",
+        "C": "9π",
+        "D": "12π"
+      },
+      "correct_answer": "B",
+      "explanation": "The radius is 6. A is on the positive x-axis and B is on the positive y-axis, so the central angle AOB is 90°, one-fourth of the circle. The minor arc has length (1/4)(2π · 6) = 3π.",
+      "distractor_explanations": {
+        "A": "6√2 is the length of the chord AB, not the arc.",
+        "C": "9π is the area of the quarter-circle sector.",
+        "D": "12π is the circumference of the whole circle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What is the central angle between the positive axes?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot A, B and the center."
+      },
+      "remember": "Arc length = (central angle/360°) × circumference.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-09",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000141",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of a trapezoid",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A trapezoid has parallel sides of lengths 7 centimeters and 13 centimeters, and the distance between the parallel sides is 5 centimeters. What is the area of the trapezoid, in square centimeters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "35",
+        "B": "50",
+        "C": "65",
+        "D": "100"
+      },
+      "correct_answer": "B",
+      "explanation": "The area of a trapezoid is (1/2)(b₁ + b₂)h = (1/2)(7 + 13)(5) = (1/2)(20)(5) = 50 square centimeters.",
+      "distractor_explanations": {
+        "A": "35 uses only the shorter base: 7 × 5.",
+        "C": "65 uses only the longer base: 13 × 5.",
+        "D": "100 omits the factor 1/2."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Average the two bases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the average base by the height."
+      },
+      "remember": "Trapezoid area = average of the bases × height.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 15,
+      "draft_candidate": "Q015-10",
+      "created_at": "2026-10-27T02:25:35+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-015.review.json",
+        "computation": "checks/sat_math/batch_015.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 14,
+  "bank_version": 15,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -2531,6 +2531,158 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Let A have r = 4 and h = 3, so B has r = 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000135",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes each painting hour replaces exactly one mowing hour.",
+          "trap": null
+        },
+        {
+          "value": "3.6",
+          "rationale": "3.6 inverts the rates, computing 15 × 6 ÷ 25.",
+          "trap": null
+        }
+      ],
+      "explanation": "Six more hours of painting earn 6 × $25 = $150 more. To keep the total at $750, mowing must earn $150 less, which is 150 ÷ 15 = 10 fewer hours. Equivalently, the slope of the line in terms of x is −25/15, so Δx = −(25/15)(6) = −10.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much more does she earn from the extra painting?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 15Δx + 25(6) = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000136",
+      "correct_answer": "C",
+      "explanation": "The slope is m = (−5 − 7)/(4 − (−2)) = −12/6 = −2. Then 7 = −2(−2) + b gives b = 3, so m + b = −2 + 3 = 1. (Note that m + b is f(1).)",
+      "distractor_explanations": {
+        "A": "−5 computes m − b.",
+        "B": "−2 is the slope m alone.",
+        "D": "3 is the y-intercept b alone."
+      },
+      "hints": [
+        "Find the slope from the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find m, then b, then add."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000137",
+      "correct_answer": "D",
+      "explanation": "Dividing both sides by 2 gives a − 3 = 5, so a = 8. Check: 2(8 − 3) = 2(5) = 10, which matches the right side.",
+      "distractor_explanations": {
+        "A": "2 subtracts 6 from 10 and then divides by 2, using a sign error: (10 − 6)/2.",
+        "B": "5 is the value of a − 3.",
+        "C": "6.5 distributes the 2 only to a: 2a − 3 = 10."
+      },
+      "hints": [
+        "Divide both sides by 2 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a = 8."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000138",
+      "correct_answer": "-12",
+      "accepted_answers": [
+        "-12"
+      ],
+      "common_errors": [
+        {
+          "value": "-1",
+          "rationale": "−1 is the sum of the x-coordinates.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "12",
+          "rationale": "12 drops the sign: the x-coordinates are 3 and −4.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Substituting y = x + 1 gives x² + (x + 1)² = 25, so 2x² + 2x − 24 = 0, or x² + x − 12 = 0. This factors as (x + 4)(x − 3) = 0, so the points are (3, 4) and (−4, −3), and the product of the x-coordinates is −12.",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute the line into the circle's equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the resulting quadratic."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000139",
+      "correct_answer": "200",
+      "accepted_answers": [
+        "200"
+      ],
+      "common_errors": [
+        {
+          "value": "260",
+          "rationale": "260 is the number who own at least one of the two kinds, including the 60 who own both.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "320",
+          "rationale": "320 adds the dog owners and cat owners, counting the 60 twice.",
+          "trap": null
+        }
+      ],
+      "explanation": "If 30% of dog owners own both, then dog owners = 60 ÷ 0.30 = 200. If 50% of cat owners own both, cat owners = 60 ÷ 0.50 = 120. Exactly one: (200 − 60) + (120 − 60) = 140 + 60 = 200.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the 60 to find the number of dog owners and of cat owners."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a Venn diagram with 60 in the overlap."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000140",
+      "correct_answer": "B",
+      "explanation": "The radius is 6. A is on the positive x-axis and B is on the positive y-axis, so the central angle AOB is 90°, one-fourth of the circle. The minor arc has length (1/4)(2π · 6) = 3π.",
+      "distractor_explanations": {
+        "A": "6√2 is the length of the chord AB, not the arc.",
+        "C": "9π is the area of the quarter-circle sector.",
+        "D": "12π is the circumference of the whole circle."
+      },
+      "hints": [
+        "What is the central angle between the positive axes?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot A, B and the center."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000141",
+      "correct_answer": "B",
+      "explanation": "The area of a trapezoid is (1/2)(b₁ + b₂)h = (1/2)(7 + 13)(5) = (1/2)(20)(5) = 50 square centimeters.",
+      "distractor_explanations": {
+        "A": "35 uses only the shorter base: 7 × 5.",
+        "C": "65 uses only the longer base: 13 × 5.",
+        "D": "100 omits the factor 1/2."
+      },
+      "hints": [
+        "Average the two bases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the average base by the height."
       }
     }
   ]

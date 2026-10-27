@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 15,
- "plan": "SAT Math batch 15: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: triangle formed with the axes (ACT 273), the 13-14-15 triangle (357), age systems (163), circle-and-point membership (542), parallel-line angle algebra (010/272). A distinct-zeros count that matched ACT 642 was replaced after screening.",
+ "plan": "SAT Math batch 15: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: triangle formed with the axes (ACT 273), the 13-14-15 triangle (357), age systems (163), circle-and-point membership (542), parallel-line angle algebra (010/272). A distinct-zeros count that matched ACT 642 was replaced after screening. Q015-01, Q015-04, Q015-05 relabelled medium after the blind solver rated them medium; Q015-07 rated hard. Q015-04, Q015-06 and Q015-08 withdrawn before review after the per-batch repeat check.",
  "candidates": [
   {
    "cand": "Q015-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Trade-off between two variables in a linear equation",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Lena earns $15 per hour mowing lawns and $25 per hour painting fences. The equation 15x + 25y = 750 represents the numbers of hours, x mowing and y painting, that Lena works to earn exactly $750. If Lena paints 6 more hours, how many fewer hours must she mow to earn the same $750 ?",
    "explanation": "Six more hours of painting earn 6 × $25 = $150 more. To keep the total at $750, mowing must earn $150 less, which is 150 ÷ 15 = 10 fewer hours. Equivalently, the slope of the line in terms of x is −25/15, so Δx = −(25/15)(6) = −10.",
    "hints": [
@@ -25,8 +25,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must reason about changes rather than values; the hour-for-hour assumption (6) and the inverted rate (3.6) are common."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "10",
@@ -139,59 +138,12 @@
    }
   },
   {
-   "cand": "Q015-04",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Dividing a cubic by a linear factor",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "For x ≠ 2, which of the following is equivalent to (x³ − 8)/(x − 2) ?",
-   "explanation": "Since (x − 2)(x² + 2x + 4) = x³ + 2x² + 4x − 2x² − 4x − 8 = x³ − 8, the quotient is x² + 2x + 4. (Polynomial long division gives the same result.)",
-   "hints": [
-    "Multiply each choice by x − 2."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Test x = 3: (27 − 8)/1 = 19, and 9 + 6 + 4 = 19."
-   },
-   "remember": "Check a quotient by multiplying it by the divisor.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Most students do not know the factorization of a difference of cubes; they must divide or test choices, and x² + 4 is a strong trap."
-   },
-   "choices": {
-    "A": "x² + 2x + 4",
-    "B": "x² + 4",
-    "C": "x² − 2x + 4",
-    "D": "x² + 4x + 4"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "x² + 4 divides term by term, which is not valid for a sum in the numerator.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This has the wrong sign on the middle term; multiplying back gives x³ − 4x² + 8x − 8.",
-     "trap": "sign_error"
-    },
-    "D": {
-     "rationale": "This is (x + 2)², which multiplied by x − 2 does not give x³ − 8.",
-     "trap": null
-    }
-   }
-  },
-  {
    "cand": "Q015-05",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
    "subskill": "Product of x-coordinates where a line meets a circle",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, the line y = x + 1 intersects the circle x² + y² = 25 at two points. What is the product of the x-coordinates of the two points?",
    "explanation": "Substituting y = x + 1 gives x² + (x + 1)² = 25, so 2x² + 2x − 24 = 0, or x² + x − 12 = 0. This factors as (x + 4)(x − 3) = 0, so the points are (3, 4) and (−4, −3), and the product of the x-coordinates is −12.",
    "hints": [
@@ -207,8 +159,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine a circle and a line into one quadratic and keep track of signs; the sum (−1) is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "-12",
@@ -227,52 +178,6 @@
      "trap": "sign_error"
     }
    ]
-  },
-  {
-   "cand": "Q015-06",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Input of a quadratic function from its output",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "easy",
-   "stem": "The function f is defined by f(x) = 3x² − 2. If f(a) = 25 and a > 0, what is the value of a ?",
-   "explanation": "Setting 3a² − 2 = 25 gives 3a² = 27, so a² = 9 and a = 3 (since a > 0). Check: f(3) = 3(9) − 2 = 25.",
-   "hints": [
-    "Set the function equal to 25."
-   ],
-   "strategy": {
-    "key": "backsolve",
-    "explanation": "Test a = 3."
-   },
-   "remember": "f(a) = 25 means the output is 25; solve for the input.",
-   "expected_time_seconds": 35,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "3",
-    "B": "√(23/3)",
-    "C": "9",
-    "D": "73"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "√(23/3) subtracts 2 instead of adding it: 3a² = 23.",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "9 is the value of a², not a.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "73 treats 25 as the input: 3(25) − 2.",
-     "trap": "wrong_quantity"
-    }
-   }
   },
   {
    "cand": "Q015-07",
@@ -316,52 +221,6 @@
      "trap": null
     }
    ]
-  },
-  {
-   "cand": "Q015-08",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Probability of a multiple of 3 or 5",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "An integer is chosen at random from the integers 1 through 50, inclusive. What is the probability that the integer is a multiple of 3 or a multiple of 5 (or both)?",
-   "explanation": "There are 16 multiples of 3 and 10 multiples of 5 from 1 to 50. The 3 multiples of 15 (15, 30, 45) are counted in both, so 16 + 10 − 3 = 23 integers qualify. The probability is 23/50.",
-   "hints": [
-    "Count each kind, then remove the double counts."
-   ],
-   "strategy": {
-    "key": "find_the_trend",
-    "explanation": "Count multiples of 3, of 5, and of 15."
-   },
-   "remember": "Or: add the two counts, then subtract the overlap.",
-   "expected_time_seconds": 50,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "3/50",
-    "B": "8/25",
-    "C": "23/50",
-    "D": "13/25"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "3/50 counts only the multiples of both 3 and 5.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "8/25 = 16/50 counts only the multiples of 3.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "13/25 = 26/50 counts the multiples of 15 twice.",
-     "trap": null
-    }
-   }
   },
   {
    "cand": "Q015-09",
@@ -452,6 +311,158 @@
     "D": {
      "rationale": "100 omits the factor 1/2.",
      "trap": null
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q015-04",
+   "reason": "per-batch repeat check: template of CLD-ACT-M-000704 (divide a cubic by a linear binomial, give the quotient)",
+   "item": {
+    "cand": "Q015-04",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Dividing a cubic by a linear factor",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "For x ≠ 2, which of the following is equivalent to (x³ − 8)/(x − 2) ?",
+    "explanation": "Since (x − 2)(x² + 2x + 4) = x³ + 2x² + 4x − 2x² − 4x − 8 = x³ − 8, the quotient is x² + 2x + 4. (Polynomial long division gives the same result.)",
+    "hints": [
+     "Multiply each choice by x − 2."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Test x = 3: (27 − 8)/1 = 19, and 9 + 6 + 4 = 19."
+    },
+    "remember": "Check a quotient by multiplying it by the divisor.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "x² + 2x + 4",
+     "B": "x² + 4",
+     "C": "x² − 2x + 4",
+     "D": "x² + 4x + 4"
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "x² + 4 divides term by term, which is not valid for a sum in the numerator.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "This has the wrong sign on the middle term; multiplying back gives x³ − 4x² + 8x − 8.",
+      "trap": "sign_error"
+     },
+     "D": {
+      "rationale": "This is (x + 2)², which multiplied by x − 2 does not give x³ − 8.",
+      "trap": null
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q015-06",
+   "reason": "per-batch repeat check: template of CLD-ACT-M-000610 (quadratic output given, find the positive input)",
+   "item": {
+    "cand": "Q015-06",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Input of a quadratic function from its output",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "easy",
+    "stem": "The function f is defined by f(x) = 3x² − 2. If f(a) = 25 and a > 0, what is the value of a ?",
+    "explanation": "Setting 3a² − 2 = 25 gives 3a² = 27, so a² = 9 and a = 3 (since a > 0). Check: f(3) = 3(9) − 2 = 25.",
+    "hints": [
+     "Set the function equal to 25."
+    ],
+    "strategy": {
+     "key": "backsolve",
+     "explanation": "Test a = 3."
+    },
+    "remember": "f(a) = 25 means the output is 25; solve for the input.",
+    "expected_time_seconds": 35,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "3",
+     "B": "√(23/3)",
+     "C": "9",
+     "D": "73"
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "√(23/3) subtracts 2 instead of adding it: 3a² = 23.",
+      "trap": "sign_error"
+     },
+     "C": {
+      "rationale": "9 is the value of a², not a.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "73 treats 25 as the input: 3(25) − 2.",
+      "trap": "wrong_quantity"
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q015-08",
+   "reason": "per-batch repeat check: template of CLD-ACT-M-000198 (multiples of a or b from 1 to N by inclusion-exclusion)",
+   "item": {
+    "cand": "Q015-08",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Probability of a multiple of 3 or 5",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "medium",
+    "stem": "An integer is chosen at random from the integers 1 through 50, inclusive. What is the probability that the integer is a multiple of 3 or a multiple of 5 (or both)?",
+    "explanation": "There are 16 multiples of 3 and 10 multiples of 5 from 1 to 50. The 3 multiples of 15 (15, 30, 45) are counted in both, so 16 + 10 − 3 = 23 integers qualify. The probability is 23/50.",
+    "hints": [
+     "Count each kind, then remove the double counts."
+    ],
+    "strategy": {
+     "key": "find_the_trend",
+     "explanation": "Count multiples of 3, of 5, and of 15."
+    },
+    "remember": "Or: add the two counts, then subtract the overlap.",
+    "expected_time_seconds": 50,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "3/50",
+     "B": "8/25",
+     "C": "23/50",
+     "D": "13/25"
+    },
+    "answer": "C",
+    "distractors": {
+     "A": {
+      "rationale": "3/50 counts only the multiples of both 3 and 5.",
+      "trap": "partial_answer"
+     },
+     "B": {
+      "rationale": "8/25 = 16/50 counts only the multiples of 3.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "13/25 = 26/50 counts the multiples of 15 twice.",
+      "trap": null
+     }
     }
    }
   }
