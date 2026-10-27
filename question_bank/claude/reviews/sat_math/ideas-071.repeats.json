@@ -1,0 +1,448 @@
+{
+ "ideas": "generated set 22 (QA/QC)",
+ "results": {
+  "QA01": [
+   {
+    "other_id": "CLD-SAT-M-000704 (= ideas-gen-16 KA04)",
+    "severity": "close",
+    "why": "Adding two equations whose coefficients are swapped to get a symmetric combination. 000704 asks for a + b with abstract coefficients; QA01 is a context item and asks for 10(a + b). Same key step, different ask."
+   },
+   {
+    "other_id": "ideas-gen-09 DA01 / ideas-gen-20 OA09",
+    "severity": "close",
+    "why": "Adding equations to get a combination instead of solving for each unknown. Neither is banked. Different setup (three unknowns or pairwise sums)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000598 / CLD-ACT-M-000018",
+    "severity": "close",
+    "why": "Two-unknown system / two printers. Cited by the generator. Different ask."
+   }
+  ],
+  "QA02": [
+   {
+    "other_id": "ideas-gen-02 H02 (= CLD-SAT-M-000299)",
+    "severity": "close",
+    "why": "A vertical shift of a linear function combined with an intercept condition sets the slope. QA02 uses equal horizontal and vertical shifts instead. Different key step."
+   },
+   {
+    "other_id": "CLD-ACT-M-000556",
+    "severity": "close",
+    "why": "f(x + 1) = f(x) + 3 read as a slope of 3, on a recursive integer function. QA02 needs the horizontal shift of 2, so the slope is 3/2. Close idea, different ask."
+   },
+   {
+    "other_id": "CLD-ACT-M-000021 / ideas-gen-06 AA09",
+    "severity": "close",
+    "why": "One point followed through a translation. Cited by the generator."
+   }
+  ],
+  "QA03": [
+   {
+    "other_id": "CLD-SAT-M-000388",
+    "severity": "close",
+    "why": "Inequality whose solutions lie on one side of a line through two given points. 000388 asks for the inequality; QA03 asks for the values of c that put (c, c) strictly below the line."
+   },
+   {
+    "other_id": "ideas-gen-20 OA06 / ideas-gen-16 KA08",
+    "severity": "close",
+    "why": "Testing fixed points against a half-plane. Cited by the generator."
+   }
+  ],
+  "QA04": [
+   {
+    "other_id": "CLD-SAT-M-000308 (= ideas-gen-02 H09)",
+    "severity": "template",
+    "why": "Same mechanism and same ask: two given points are solutions, so every solution lies on the line through them; \"which of the following must also be a solution?\" The only change is \"a system of two equations\" instead of \"the equation ax + by = c\". The extra step is weak, because each equation of the system is itself a line through both points, so a student who uses 000308's reasoning on either equation gets the key at once. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000594",
+    "severity": "close",
+    "why": "A shifted system with one solution. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-SAT-M-000080",
+    "severity": "close",
+    "why": "A system with infinitely many solutions (coefficients proportional). Different ask."
+   }
+  ],
+  "QA05": [
+   {
+    "other_id": "CLD-SAT-M-000646 (= ideas-gen-14 IA12, batch-062 Q062-09)",
+    "severity": "close",
+    "why": "Least score on a remaining test to reach a required average. One unknown score there; QA05 has two unknown scores, and the 100-point cap sets the bound. Different key step."
+   },
+   {
+    "other_id": "CLD-ACT-M-000117 / CLD-SAT-M-000074 (retired)",
+    "severity": "close",
+    "why": "Needed score to raise a mean. One unknown."
+   }
+  ],
+  "QA06": [
+   {
+    "other_id": "CLD-SAT-M-000397 (= ideas-gen-05 U02)",
+    "severity": "close",
+    "why": "Strong overlap that the generator does not cite. 000397: the linear f has f(3) = k and f(k) = 3, so swapping input and output forces slope −1, then k = f(3). QA06 uses the same swap, the same slope −1, and the same \"intercept = a + b\" result, with symbols instead of numbers, and asks which statement must be true. The asked quantity differs (a must-be-true statement, not k), so it is allowed, but the key insight is the same. Cite 000397 in the Nearest note, and do not batch QA06 near it."
+   },
+   {
+    "other_id": "ideas-gen-06 AA13 (= CLD-SAT-M-000453) / ideas-gen-20 OA13",
+    "severity": "close",
+    "why": "Linear-function conditions. Cited by the generator."
+   }
+  ],
+  "QA07": [
+   {
+    "other_id": "CLD-SAT-M-000705 (= ideas-gen-16 KA05, batch-066 Q066-10)",
+    "severity": "template",
+    "why": "Same mechanism and same ask: two groups with a fixed total (400 tickets / 630 students), one group changes up and the other down, the totals stay equal, so gain = loss; with the total, solve for the size of one group. 000705: 3a = 2(400 − a); QA07: 0.10b = 0.05(630 − b). The only changes are the context and percents instead of dollar amounts. Traps play the same roles too (the other group; an even split). Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000656",
+    "severity": "close",
+    "why": "Two revenue segments with percent changes; asks for the change in the total. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-ACT-M-000058",
+    "severity": "close",
+    "why": "Boys/girls ratio after more join. Different mechanism."
+   }
+  ],
+  "QA08": [
+   {
+    "other_id": "CLD-SAT-M-000765 (= ideas-gen-18 MA11)",
+    "severity": "close",
+    "why": "ADJUDICATION (generator flag): close, not template; allowed with a note. Both solve a three-part inequality with a negative x-coefficient and ask for the whole solution interval, and both use an \"outside the interval\" distractor (QA08 C; 000765 B). Differences that make it a distinct item: (1) QA08 mixes one strict and one inclusive end, so after the reversal the student must move the strict sign to the other endpoint (choice B tests exactly this; 000765 is inclusive at both ends, so only the direction matters); (2) QA08 has no context; (3) choice A (no solution, from not reversing) is a new error path. 000765 is easy; QA08 is medium-hard. Keep it out of 000765's batch and do not pair it with QA03. Fix the Nearest note to cite the banked id CLD-SAT-M-000765."
+   },
+   {
+    "other_id": "CLD-SAT-M-000024",
+    "severity": "close",
+    "why": "Single inequality 3 − 2x > 11 with a negative coefficient. Different ask (pick a value)."
+   }
+  ],
+  "QA09": [
+   {
+    "other_id": "CLD-ACT-M-000270",
+    "severity": "close",
+    "why": "A chain of fractions \"of what remained\" works back to the starting amount (spent 1/3, then 1/4 of the rest, $30 left). QA09 adds 12 people and compares with the start (x/3 + 12 = x − 8). Same chain idea, different ending equation."
+   },
+   {
+    "other_id": "ideas-gen-16 KC13 / CLD-SAT-M-000207",
+    "severity": "close",
+    "why": "Cited by the generator."
+   }
+  ],
+  "QA10": [
+   {
+    "other_id": "CLD-ACT-M-000507",
+    "severity": "close",
+    "why": "Fractional cups per batch. Cited by the generator; that multiplies, QA10 solves for the count."
+   },
+   {
+    "other_id": "CLD-SAT-M-000377 (= ideas-gen-04 N08)",
+    "severity": "close",
+    "why": "Batches of recipes and amounts used. A system; different."
+   }
+  ],
+  "QA11": [
+   {
+    "other_id": "none",
+    "severity": "close",
+    "why": "No error-analysis (\"in which step did the student first make an error\") item in the SAT or ACT bank, the drafts or the idea files. Format is new. Weak relation: ideas-gen-01 G08 (sign trap when distributing)."
+   }
+  ],
+  "QA12": [
+   {
+    "other_id": "CLD-ACT-M-000273",
+    "severity": "close",
+    "why": "Triangle formed by a line and the axes. That finds the area from the line; QA12 finds the slope from the area and the sign condition. Inverse ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000117",
+    "severity": "close",
+    "why": "\"A line with a negative slope passes through a point; intercept condition; what is the slope?\" Same stem frame and same ask (slope) with a different condition (equal intercepts vs. triangle area). Allowed; keep apart."
+   }
+  ],
+  "QA13": [
+   {
+    "other_id": "CLD-ACT-M-000311",
+    "severity": "template",
+    "why": "Cross-exam re-skin. Same mechanism and same ask: interpret the solution / intersection point of two linear cost or savings models. Even the distractor roles match: ACT 000311 has \"differ by $450 after 12 months\" (QA13 D, difference), \"after 450 months each costs $12\" (QA13 C, swapped coordinates), and the key \"after 12 months both have the same total, $450\" (QA13 B). QA13 adds the equations, which are not needed. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000300 (= ideas-gen-02 H03)",
+    "severity": "close",
+    "why": "Same two-savings frame (200 + 15w, 350 − 10w); asks for an inequality threshold. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-05 U11",
+    "severity": "close",
+    "why": "Interpreting a feature of two tank functions. Cited by the generator."
+   }
+  ],
+  "QA14": [
+   {
+    "other_id": "CLD-SAT-M-000029",
+    "severity": "close",
+    "why": "Linear equation with no solution. Cited by the generator; QA14 reaches no solution through a mean. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-20 OC10",
+    "severity": "close",
+    "why": "Mean set equal to an expression in x. Different (mean = median, sum of solutions)."
+   }
+  ],
+  "QA15": [
+   {
+    "other_id": "CLD-SAT-M-000638 (= ideas-gen-14 IA01)",
+    "severity": "close",
+    "why": "Recover a constant from a modified equation's solution, then use it. Different setup (no-solution condition); the miscopied-coefficient story is new."
+   },
+   {
+    "other_id": "CLD-SAT-M-000060",
+    "severity": "close",
+    "why": "Find a constant from a known solution. A single step; QA15 adds the second solve."
+   },
+   {
+    "other_id": "ideas-gen-04 N09",
+    "severity": "close",
+    "why": "Cited by the generator."
+   }
+  ],
+  "QA16": [
+   {
+    "other_id": "CLD-SAT-M-000550 (= ideas-gen-10 EA08)",
+    "severity": "close",
+    "why": "Composing or adjusting linear weight/cost models. Cited by the generator; different ask."
+   },
+   {
+    "other_id": "interpretation items (e.g. CLD-SAT-M-000493, 000350)",
+    "severity": "close",
+    "why": "Identify which parameter is the per-unit rate. QA16 asks the student to rewrite the model instead of interpreting it."
+   }
+  ],
+  "QC01": [
+   {
+    "other_id": "ideas-gen-20 OC08 / ideas-gen-18 MC12",
+    "severity": "close",
+    "why": "Percents of percents / overlapping groups. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-ACT-M-000088 / CLD-ACT-M-000586",
+    "severity": "close",
+    "why": "Overlapping groups with percents on one base. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000008",
+    "severity": "close",
+    "why": "35% bike, 25% of those ride far: a percent of a percent on one base. QC01 changes the base. Different."
+   }
+  ],
+  "QC02": [
+   {
+    "other_id": "CLD-SAT-M-000438 (= ideas-gen-06 AC06)",
+    "severity": "close",
+    "why": "Two five-number summaries compared. That compares IQR and range; QC02 turns medians into guaranteed counts for classes of different sizes. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000258",
+    "severity": "close",
+    "why": "\"Which statement must be true\" about two classes (standard deviations). Different statistic."
+   }
+  ],
+  "QC03": [
+   {
+    "other_id": "CLD-SAT-M-000394 (= ideas-gen-04 R06)",
+    "severity": "close",
+    "why": "A household-size distribution in percents (cars per household). Same kind of table; asks mean − median. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000830 (= ideas-gen-20 OC12, batch-075 Q075-13)",
+    "severity": "close",
+    "why": "Households in percent categories; conditional probability on households. QC03 picks a person, so rows are weighted by size. Different key step, but same table frame: keep apart."
+   }
+  ],
+  "QC04": [
+   {
+    "other_id": "ideas-gen-05 W03",
+    "severity": "close",
+    "why": "Strong overlap at idea level (not banked, not drafted): two subgroups of known size, each with its own sample rate (30% and 40%), and the estimate is the sum of the two scaled rates; even the \"average the two percents\" trap is the same. QC04 adds raw sample counts with unequal sampling fractions, so pooling (357) is a new, real trap. Allowed, but keep only one of QC04 / W03 if W03 is ever revived."
+   },
+   {
+    "other_id": "CLD-SAT-M-000311 / CLD-ACT-M-000454",
+    "severity": "close",
+    "why": "One random sample scaled to a population. Cited by the generator."
+   }
+  ],
+  "QC05": [
+   {
+    "other_id": "ideas-gen-18 MC04 / ideas-gen-04 R02",
+    "severity": "close",
+    "why": "Random sample, association, not causation. Those ask which conclusion is supported; QC05 asks for a confounding explanation."
+   },
+   {
+    "other_id": "ideas-gen-14 IC01 / CLD-SAT-M-000652",
+    "severity": "close",
+    "why": "Confounding in a study design. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000511 (= ideas-gen-08 CC03)",
+    "severity": "close",
+    "why": "Clinic recovery rates split by severity: the same \"sicker patients\" confounder idea, shown with a table. Different item type; keep apart."
+   }
+  ],
+  "QC06": [
+   {
+    "other_id": "CLD-SAT-M-000374",
+    "severity": "close",
+    "why": "Printer with a warm-up delay. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-SAT-M-000715 (= ideas-gen-16 KA15)",
+    "severity": "close",
+    "why": "Stops built into a time total. Different ask."
+   }
+  ],
+  "QC07": [
+   {
+    "other_id": "CLD-ACT-M-000555",
+    "severity": "close",
+    "why": "Random integer from 1 to N, probability of a defined set. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-ACT-M-000366 / 000198",
+    "severity": "close",
+    "why": "Counting integers in a range that meet a condition. No probability."
+   }
+  ],
+  "QC08": [
+   {
+    "other_id": "CLD-SAT-M-000402",
+    "severity": "template",
+    "why": "Same mechanism and same ask: a linear and an exponential function agree at two points (L(0) = E(0) = 50, L(2) = E(2) = 98); find L at the midpoint minus E at the midpoint (= arithmetic mean − geometric mean). QC08 changes only the numbers (100, 400 at t = 0, 4) and adds a bacteria context. The generator's Nearest note misses it. Drop."
+   },
+   {
+    "other_id": "ideas-gen-23 RB12 / CLD-SAT-M-000267",
+    "severity": "close",
+    "why": "Choosing an exponential model from a table. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-ACT-M-000312",
+    "severity": "close",
+    "why": "Bacteria doubling model. Different ask."
+   }
+  ],
+  "QC09": [
+   {
+    "other_id": "ideas-gen-11 FC05",
+    "severity": "close",
+    "why": "Three-part weight ratio; the scarcest ingredient sets the batch. Cited by the generator; QC09 has an excess ingredient and asks how much to add."
+   },
+   {
+    "other_id": "CLD-ACT-M-000582 / CLD-SAT-M-000823 (= ideas-gen-20 OC03, batch-075 Q075-05)",
+    "severity": "close",
+    "why": "Baker, flour and sugar, grams. Different mechanisms (simple ratio; unit conversion). Same context: keep apart."
+   },
+   {
+    "other_id": "CLD-ACT-M-000513 (retired)",
+    "severity": "close",
+    "why": "Adding to one part of a ratio to reach a new ratio. Different ask."
+   }
+  ],
+  "QC10": [
+   {
+    "other_id": "CLD-SAT-M-000527 (= ideas-gen-09 DA02)",
+    "severity": "close",
+    "why": "Miscalibrated scale and a 2% condition. Cited by the generator. That is an equation; QC10 is an interval with the true weight as the base."
+   },
+   {
+    "other_id": "ideas-gen-10 ED03",
+    "severity": "close",
+    "why": "Measurement within a tolerance; area range. Different."
+   }
+  ],
+  "QC11": [
+   {
+    "other_id": "CLD-ACT-M-000150",
+    "severity": "close",
+    "why": "Repeated replace-with-water dilution (10-liter tank). Multiplying dilution factors is the same idea, but the structure differs (remove and replace vs. serial dilution by parts)."
+   },
+   {
+    "other_id": "ideas-gen-09 DC04 / CLD-SAT-M-000760",
+    "severity": "close",
+    "why": "Single mixtures. Cited by the generator."
+   }
+  ],
+  "QC12": [
+   {
+    "other_id": "ideas-gen-08 CC07 / CLD-SAT-M-000148",
+    "severity": "close",
+    "why": "Combining two percent changes. Cited by the generator."
+   },
+   {
+    "other_id": "ideas-gen-12 GC05",
+    "severity": "close",
+    "why": "Revenue and costs with different percent changes. Different ask."
+   }
+  ],
+  "QC13": [
+   {
+    "other_id": "CLD-SAT-M-000173",
+    "severity": "close",
+    "why": "Percentage points changing over time. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-SAT-M-000722 (= ideas-gen-16 KC08)",
+    "severity": "close",
+    "why": "A percent change in a quantity equals a given count, so the base is found (25% more servings = 150 g). Same \"percent of an unknown base = known amount\" step, different setup (QC13 nets out two flows). Allowed."
+   }
+  ],
+  "QC14": [
+   {
+    "other_id": "CLD-SAT-M-000722",
+    "severity": "close",
+    "why": "Proportionality given and used. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-ACT-M-000269",
+    "severity": "close",
+    "why": "Direct variation, find y. Different ask. No \"which table is proportional\" item in either bank."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "QC07": "Common-sense elimination. Choice B, 3/20, equals 7.5/50, which no count of the 50 equally likely integers can give, so a student who notices the denominator removes it. Replace it with a real error value, e.g. 3/25 (adds 4 instead of subtracting: 3n > 114, n > 38, so the even n are 40 to 50, which is 6 values, and 6/50 = 3/25), or 9/50 (includes n = 35 or 34 by rounding 35 1/3 down).",
+  "QA03": "Consensus cue plus a test-value shortcut. Three choices (B c > 2, C c < 2, D c ≥ 2) share the boundary 2, so A stands out as the odd one. Testing c = 3 (the point lies below the line) and c = 2 (the point is on the line) then removes C and D. Some test-value checking is natural in a solution-set item, but it is cheap here. Optional: replace D with an error that has a different boundary, e.g. c > −2 (from a y-intercept sign slip, y = 2x + 2), and keep the strict/inclusive test in the explanation.",
+  "QA08": "Test values remove every distractor: x = 0 satisfies the inequality, which rules out A and C, and x = 5 (−7 ≤ −7 is true) or x = −2 (7 < 7 is false) separates B from D. This is inherent to an MC solution-interval item and also applies to banked CLD-SAT-M-000765. Acceptable.",
+  "QA04": "(Dropped as a template.) It also has a pattern cue: (1, 4), (3, 10), (5, 16) continue an obvious arithmetic pattern in both coordinates, so the key can be guessed without any algebra.",
+  "QA16": "Mild consensus cue. The slopes are 27, 18, 19.5, 27, and the intercepts are 360, 360, 240, 240. Majority slope 27 leaves A or D. B (18n + 360) is a weak distractor. Acceptable; optionally replace B with 27n + 160 (divides the box's weight by 1.5) to break the pairing.",
+  "QC03": "Mild. The key 17/48 is the only choice with an unusual denominator, and it shares the numerator 17 with D, which signals real computation. Acceptable; optionally change C to 17/40 or 1/4 (the 85 people divided by a wrong total).",
+  "QC05": "Mild. Choice B only repeats a fact from the stem (random selection), so common sense removes it as an 'explanation'. The key (A) is tied with C for the longest choice. Acceptable for an SAT reasoning item; optionally make B a different non-explanation of similar length.",
+  "QA14": "Not a cue, but the wording assumes an answer exists: 'For what value of x is ...' with key 'There is no such value of x'. SAT style is 'Which of the following describes the values of x for which the mean ... is equal to 2x + 3?' or 'How many values of x satisfy ...'.",
+  "QA06": "Substituting numbers (e.g. a = 1, b = 2 gives f(x) = 3 − x) checks every choice quickly. This is normal for a 'must be true' item with symbolic conditions. Acceptable.",
+  "QC10": "No cue. The consensus pattern (48.04 in B and C, 49.98 in A and C) points to distractor C, not the key.",
+  "QC12": "Calculator route (C = 100, B = 70, A = 87.5) is the intended method, not a shortcut around it. Acceptable.",
+  "batching": "Keep apart (not in the same batch, or at least not adjacent): QA10 / QC09 (baking and recipe amounts; also keep away from CLD-SAT-M-000823 and Q075-05); QA02 / QA03 / QA06 / QA12 (lines in the xy-plane; spread over at least two batches); QA03 / QA08 (inequalities with a sign reversal); QA05 / QA14 (means); QC01 / QC04 (percents of school students); QC11 / QC12 / QC13 (chained or percent-of-base reasoning; spread them); QC03 / QC07 (probability); QA01 / QC06 (machines working at rates); QA01 / QA09 (word-problem systems). Against banked items: QA06 away from CLD-SAT-M-000397's batch; QA08 away from CLD-SAT-M-000765; QA12 away from CLD-SAT-M-000117; QC02 away from CLD-SAT-M-000438; QC03 away from CLD-SAT-M-000830 and 000394."
+ },
+ "math_errors": {
+  "none (keys)": "All 30 keys and every listed distractor or trap were recomputed with sympy or a simulation: QA01 a = 45, b = 55, 1,000; QA02 m = 3/2; QA03 c > 2 (A: c < −4 from y = x/2 − 2; C: c < 2); QA04 y = 3x + 1, only (5, 16) lies on it; QA05 190 needed, lower score ≥ 90; QA06 f(x) = a + b − x, f(a + b) = 0; QA07 210 (231 + 399 = 630); QA08 −2 < x ≤ 5; QA09 30 (A 12, B 24 check); QA10 7 (7.5 trap); QA11 correct solution x = 0, steps 2–4 follow from step 1; QA12 b = −8, slope −8/3 (−4/3 trap checks); QA13 both 300 at w = 6; QA14 the mean is 2x + 2, no solution (B −3/4, C 0 check); QA15 k = −2, x = 5/2 (3.5 trap checks); QA16 27n + 240; QC01 48% (18.75% checks); QC03 85/240 = 17/48; QC04 340 (357.14, 350, 360 check); QC06 53 by minute simulation (54 average-rate trap); QC07 8 even n of 15, 4/25 (7/50 and 3/10 check); QC08 250 − 200 = 50; QC09 400; QC10 48.039 → 48.04 to 50.00 (A 48.02–49.98); QC11 0.6 (2.14, 0.83, 0.75 check); QC12 14.29% (17.9% = 0.125/0.7 checks); QC13 300 (240 − 18 = 222 = 74%); QC14 only B has a constant ratio y/x = 3.",
+  "QC02 (verified)": "Data built from the five-number summaries (quartiles as medians of the halves) confirm that only D is forced. A has at least 20 scores ≤ 75, and B has at most 10 (its 11th score is ≥ 80). Mean of A ranges about 71.6–80.2 and mean of B about 76.3–81.5, so A is not forced. The count of scores ≥ 80 can be 19 vs 11 or 11 vs 14, so C is not forced. Scores ≥ 86 can be 9 (A) vs 6 (B), so B is not forced. The key uses only the medians, so it does not depend on the quartile convention.",
+  "QC09 (trap rationale)": "Trap 500 is described as 'scaling the whole 1,000-gram batch by 1.5, sugar included'. Scaling the intended 1,000-gram batch by 1.5 gives 1,500 grams, and 1,500 − 1,100 (already in the bowl) = 400, which is the key, not 500. The value 500 comes only from 1,500 − 1,000, forgetting the extra 100 grams of sugar already added. Reword the rationale. Also note the valid shortcut 1,500 − 1,100 = 400 in the explanation.",
+  "QA11 (distractor rationale)": "D's rationale ('checks x = −6, sees it fails, and blames the last step') is plausible, but B's ('thinks 4 − 6 was combined wrongly') describes a correct step being flagged. Both are fine as misconceptions; no numeric error.",
+  "Nearest notes": "QA04, QA07, QA13 and QC08 do not cite their template matches (CLD-SAT-M-000308, CLD-SAT-M-000705, CLD-ACT-M-000311, CLD-SAT-M-000402). QA06 does not cite CLD-SAT-M-000397. QA08 cites ideas-gen-18 MA11 but not its banked id, CLD-SAT-M-000765. QC04 does not cite ideas-gen-05 W03."
+ },
+ "recommend_drop": [
+  "QA04",
+  "QA07",
+  "QA13",
+  "QC08"
+ ],
+ "recommend_revise": {
+  "QC07": "Replace B (3/20, impossible over 50 equally likely outcomes) with 3/25 (3n > 114 sign slip, n = 40 to 50 even, 6/50) or another count over 50.",
+  "QA14": "Reword the stem so it does not assume a solution: 'Which of the following describes the values of x for which the mean of 2x + 1, 3x − 4 and x + 9 is equal to 2x + 3?' Keep the choices.",
+  "QC09": "Fix the rationale for trap 500 (it is 1,500 − 1,000, not 'scaling the batch'; the scaled-batch route gives the key 400). Tidy the stem: 'A baker meant to make a batch with 500 grams of flour, 200 grams of sugar and 300 grams of butter, but added 300 grams of sugar by mistake.'",
+  "QC11": "SPR asks 'what percent'. Add the SAT instruction '(Disregard the % sign when entering your answer.)' and accept 0.6 and .6, so that 0.006 is not a defensible entry.",
+  "QA06": "Cite CLD-SAT-M-000397 (same input/output swap forces slope −1) in the Nearest note, and keep QA06 out of that item's batch. Optional: to separate it further, ask for something that 000397 does not need, e.g. 'f(a + b) = ?' as SPR with a = 2, b = 7 given, or keep the current must-be-true form.",
+  "QA08": "Allowed (see results: close, not template). Update the Nearest note to cite CLD-SAT-M-000765, and do not batch it with that item or with QA03.",
+  "QA03": "Optional: replace D (c ≥ 2) with c > −2 (y-intercept sign slip) to break the three-way consensus on the boundary 2.",
+  "QA16": "Optional: replace B (18n + 360) with 27n + 160 to remove the slope-majority cue.",
+  "QC04": "Note ideas-gen-05 W03 in the Nearest note. If W03 is ever drafted, keep only one of the two."
+ }
+}
