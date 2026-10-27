@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 33,
-  "updated_at": "2026-10-27T09:11:00+00:00",
+  "version": 34,
+  "updated_at": "2026-10-27T09:19:44+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -366,6 +366,17 @@
       "word_count": 262,
       "text": "{{1|Supermarkets sell many different kinds of food.}} Yet the cart was invented less than a century ago, by a grocer in Oklahoma City{{2|, Oklahoma who}} owned a chain of stores called Humpty Dumpty.\n\nIn the 1930s, shoppers carried wire or wicker baskets, and many stopped adding items {{3|being that}} the baskets grew too heavy. The grocer, Sylvan Goldman, noticed the problem. One night in 1936, the story goes, he looked at two folding chairs in his office and imagined them on wheels. With the help of a mechanic named Fred Young, he built a folding metal frame that held two baskets, one above the other.\n\nGoldman introduced the carts in his stores in 1937, expecting shoppers to love them. {{4|To his surprise,}} the carts were {{5|almost used by no one}}. Many men said that pushing a cart made them look weak, and many women said that they had pushed enough baby carriages already.\n\nGoldman refused to give up. He hired people to push carts around his stores and pretend to shop, and he stationed an employee at the entrance to offer each customer a cart. {{6|}} Without his persistence, shoppers {{7|might of}} kept lugging baskets for years.\n\n{{8|Irregardless of}} the early complaints, stores across the country soon began to {{9|adapt}} the cart. Later inventors improved it; one version could slide into the cart in front of it, so carts no longer had to be folded and stored. Today carts come in many forms: small ones for children{{10|; long, narrow ones}} for crowded city stores; and motorized ones for shoppers who have trouble walking.",
       "batch": 33,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000034",
+      "title": "Click by Click",
+      "genre": "personal essay",
+      "word_count": 222,
+      "text": "Last summer I {{1|have spent}} six weeks on a folding chair at the corner of Fifth and Alder, counting cars. The city was deciding whether the intersection needed a traffic light, and it had hired a few students to gather the numbers.\n\nMy equipment was simple: a clipboard, a hand counter, and a sun hat. On a printed sheet, I recorded everything that passed, such {{2|as: cars,}} trucks, buses, and bicycles. Once, when a gust of wind threatened my papers, I {{3|lay}} the clipboard flat on the curb and held it down with my shoe.\n\nThe {{4|four hour}} shifts felt endless at first. After the first hour, {{5|you start}} to notice how slowly a single minute could pass.\n\nThen I began to notice patterns. A red pickup turned left at 7:42 every morning, so reliably that I started checking my watch by it. {{6|}} Everyone {{7|accept}} the crossing guard, an older man named Mr. Abara, seemed to be in a hurry; he waved each child across as if he had all the time in the world. {{8|}}\n\nBy August, I could predict the corner's busy and quiet periods almost to the minute. The report{{9|, that the city published in October}} recommended a four-way stop instead of a light. I was a little disappointed, but I was not surprised. I had counted every car myself. {{10|}}",
+      "batch": 34,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -23889,6 +23900,718 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-033.review.json",
         "computation": "checks/act_english/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000333",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Simple past versus present perfect",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 1,
+      "evidence": "Last summer I",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "had spent",
+        "C": "spent",
+        "D": "am spending"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Last summer\" names a finished time in the past, so the simple past, \"spent,\" is needed.",
+      "distractor_explanations": {
+        "A": "The present perfect (\"have spent\") cannot be used with a finished past time like \"last summer.\"",
+        "B": "The past perfect describes an action before another past event; nothing here calls for it.",
+        "D": "The present progressive does not fit a job that ended last summer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the time period finished?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for a time word like \"last summer.\""
+      },
+      "remember": "Finished past times (yesterday, last year) take the simple past.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-01",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000334",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "No colon after \"such as\"",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 2,
+      "evidence": "I recorded everything that passed",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "as cars,",
+        "C": "as, cars,",
+        "D": "as; cars,"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Such as\" already introduces the examples, so no punctuation follows it: \"such as cars, trucks, buses, and bicycles.\"",
+      "distractor_explanations": {
+        "A": "A colon cannot come between \"such as\" and the examples it introduces.",
+        "C": "No comma belongs between \"such as\" and the first example.",
+        "D": "A semicolon cannot introduce examples."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does \"such as\" need punctuation after it?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the phrase aloud without pausing."
+      },
+      "remember": "Never put a colon or comma right after \"such as\" or \"including.\"",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-02",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000335",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Lie versus lay (past tense of transitive \"lay\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 3,
+      "evidence": "the clipboard flat on the curb",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "lied",
+        "C": "laid",
+        "D": "layed"
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator put an object (the clipboard) down at a past moment (\"Once ... held it down\"), so the past tense of the transitive verb \"lay\" is needed: \"laid.\"",
+      "distractor_explanations": {
+        "A": "\"Lay\" is the present tense of \"lay\" (or the past tense of \"lie\"); the narrator placed the clipboard in the past, which is \"laid.\"",
+        "B": "\"Lied\" means told an untruth.",
+        "D": "\"Layed\" is a misspelling; the past tense of \"lay\" is \"laid.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the narrator putting something down, and when?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check for a direct object and the tense of the nearby verbs."
+      },
+      "remember": "Lay (put) → laid in the past; lie (recline) → lay in the past.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-03",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000336",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Hyphen in a compound adjective",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 4,
+      "evidence": "shifts felt endless at first",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "four-hours",
+        "C": "four, hour",
+        "D": "four-hour"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Four\" and \"hour\" work together as one description of \"shifts,\" so they are hyphenated and singular: \"four-hour shifts.\"",
+      "distractor_explanations": {
+        "A": "Two words that together describe a noun before it are joined with a hyphen.",
+        "B": "A compound adjective uses the singular: \"four-hour shifts.\"",
+        "C": "A comma cannot separate the parts of a single description."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Do the two words describe the noun together?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether the words act as one adjective."
+      },
+      "remember": "Hyphenate number-plus-noun descriptions before a noun: a ten-minute walk.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-04",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000337",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun and tense shift in a narrative",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 5,
+      "evidence": "The four hour shifts felt endless at first.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "one starts",
+        "C": "I started",
+        "D": "we start"
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator tells the story as \"I\" in the past tense (\"felt\"), so \"I started\" keeps both the point of view and the tense consistent.",
+      "distractor_explanations": {
+        "A": "The essay is told in the first person and in the past tense; \"you start\" shifts both.",
+        "B": "\"One\" shifts away from the narrator's \"I,\" and \"starts\" shifts to the present.",
+        "D": "No group has been mentioned, and \"start\" is present tense."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Who is telling the story, and when?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the essay's pronoun and tense."
+      },
+      "remember": "Keep the same point of view and tense throughout a narrative.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-05",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000338",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "What a detail contributes",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 6,
+      "evidence": "Then I began to notice patterns.",
+      "figure": null,
+      "stem": "The writer includes the detail about the red pickup mainly to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "give a specific example of the patterns the narrator began to notice.",
+        "B": "suggest that most drivers passing the corner turned left there.",
+        "C": "explain why the city later decided against a traffic light.",
+        "D": "show that the narrator's watch was often running inaccurately."
+      },
+      "correct_answer": "A",
+      "explanation": "The paragraph opens by saying the narrator began to notice patterns; the pickup turning left at 7:42 every morning is the first concrete example.",
+      "distractor_explanations": {
+        "B": "The detail is about one truck, not about most drivers.",
+        "C": "The city's decision comes later and is not linked to the pickup.",
+        "D": "The narrator checks the watch by the pickup; nothing says the watch was wrong."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the sentence before the detail announce?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect the detail to the paragraph's opening sentence."
+      },
+      "remember": "Specific details usually illustrate a general statement nearby.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-06",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [
+          "minor: the passage shows an empty [] placeholder after the pickup sentence for a purpose question; harmless, but it marks a location that isn't needed"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000339",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Commonly confused words (accept / except)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 7,
+      "evidence": "the crossing guard, an older man named Mr. Abara",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "except",
+        "C": "excepting for",
+        "D": "expect"
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence singles out the crossing guard as the one person not in a hurry, so it needs \"except,\" meaning \"other than.\"",
+      "distractor_explanations": {
+        "A": "\"Accept\" is a verb meaning to receive; the sentence needs a word meaning \"other than.\"",
+        "C": "\"Excepting for\" is not standard English.",
+        "D": "\"Expect\" means to anticipate, which makes no sense here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the sentence mean \"receive\" or \"other than\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute \"other than\" to test."
+      },
+      "remember": "Except = other than; accept = receive.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-07",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000340",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence: relevance",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 8,
+      "evidence": "Then I began to notice patterns.",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\n\nThe city's population has grown by about ten percent over the past decade.\n\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "No, because it adds a general fact that distracts from the paragraph's description of patterns at the corner.",
+        "B": "Yes, because it explains why the city hired students rather than professional traffic counters.",
+        "C": "Yes, because it shows why the red pickup turned left at the same time each morning.",
+        "D": "No, because it repeats information about the city's population given earlier in the essay."
+      },
+      "correct_answer": "A",
+      "explanation": "The paragraph describes specific patterns the narrator noticed (the pickup, Mr. Abara); a citywide population statistic is off topic here.",
+      "distractor_explanations": {
+        "B": "The sentence says nothing about why students were hired.",
+        "C": "Population growth does not explain one driver's routine.",
+        "D": "The essay never mentions the population, so nothing is repeated."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide yes or no first, then check the reason."
+      },
+      "remember": "Added sentences must fit the paragraph's focus, not just the essay's topic.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-08",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000341",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a nonessential \"which\" clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 9,
+      "evidence": "recommended a four-way stop instead of a light",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": " that the city published in October,",
+        "C": ", which the city published in October",
+        "D": ", which the city published in October,"
+      },
+      "correct_answer": "D",
+      "explanation": "There was only one report, so the clause adds extra information: it starts with \"which\" and is set off by a pair of commas.",
+      "distractor_explanations": {
+        "A": "A nonessential clause set off by commas begins with \"which,\" not \"that,\" and the clause needs a closing comma.",
+        "B": "The single comma separates the subject \"report\" from its verb \"recommended.\"",
+        "C": "The interrupting clause opens with a comma but never closes with one."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is there more than one report the clause could identify?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check both ends of the interruption."
+      },
+      "remember": "Extra-information clauses use \"which\" and a pair of commas.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-09",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000342",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion showing a change in perspective",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000034",
+      "underline": 10,
+      "evidence": "The four hour shifts felt endless at first.",
+      "figure": null,
+      "stem": "The writer wants to conclude the essay with a sentence that shows how the narrator's view of the job changed. Which choice best accomplishes this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The four-way stop was installed the following spring, and traffic has moved smoothly ever since.",
+        "B": "Counting cars is one of many ways that cities collect information about their streets before making decisions.",
+        "C": "Next summer, I plan to apply for a different job, one that lets me work indoors in an office with air-conditioning.",
+        "D": "The job I had expected to be nothing but numbers had taught me to see the corner as a place full of familiar people."
+      },
+      "correct_answer": "D",
+      "explanation": "The essay moves from finding the shifts endless to noticing the pickup and Mr. Abara; D states that change directly.",
+      "distractor_explanations": {
+        "A": "This reports an outcome but says nothing about how the narrator's view changed.",
+        "B": "This is a general statement, not a change in the narrator's view.",
+        "C": "This suggests the narrator still dislikes the work, which does not show a change."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How did the narrator feel at first, and later?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the beginning and the end."
+      },
+      "remember": "A conclusion with a stated goal must accomplish that goal.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 34,
+      "draft_candidate": "E034-10",
+      "created_at": "2026-10-27T09:19:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-034.review.json",
+        "computation": "checks/act_english/batch_034.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
