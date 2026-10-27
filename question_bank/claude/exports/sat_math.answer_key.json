@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 20,
+  "bank_version": 21,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -3621,6 +3621,209 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Test each choice: 10 and 8 work with 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000188",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 is the value of q, not p.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "5",
+          "rationale": "5 is the difference q − p, not p.",
+          "trap": null
+        }
+      ],
+      "explanation": "Points on the line satisfy q = (4/3)p. Then q − p = (4/3)p − p = (1/3)p = 5, so p = 15 (and q = 20). Check: 20/15 = 4/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write q in terms of p."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute q = (4/3)p into q − p = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000189",
+      "correct_answer": "D",
+      "explanation": "Setting 2x − 5 = ax + 7 gives (2 − a)x = 12, so x = 12/(2 − a). This is negative only when 2 − a < 0, that is, when a > 2. Of the choices, only a = 4 works: x = 12/(−2) = −6.",
+      "distractor_explanations": {
+        "A": "With a = −3, x = 12/5, which is positive.",
+        "B": "With a = 0, x = 6, which is positive.",
+        "C": "With a = 1, x = 12, which is positive."
+      },
+      "hints": [
+        "Solve for the x-coordinate in terms of a."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try each choice in x = 12/(2 − a)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000190",
+      "correct_answer": "A",
+      "explanation": "f(9) = (2/3)(9) + b = 6 + b = 1, so b = −5. Then f(−3) = (2/3)(−3) − 5 = −2 − 5 = −7.",
+      "distractor_explanations": {
+        "B": "−5 is the value of b, not f(−3).",
+        "C": "−3 is the input, not the output.",
+        "D": "3 uses b = 5, a sign error when solving 6 + b = 1."
+      },
+      "hints": [
+        "Use f(9) = 1 to find b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b, then evaluate at x = −3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000191",
+      "correct_answer": "26",
+      "accepted_answers": [
+        "26"
+      ],
+      "common_errors": [
+        {
+          "value": "78",
+          "rationale": "78 is the number of small cups sold.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "104",
+          "rationale": "104 is the total number of cups sold.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If L large cups were sold, then 3L small cups were sold, bringing in 3(3L) + 5L = 14L dollars. Setting 14L = 364 gives L = 26 large cups (and 78 small cups).",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the number of small cups in terms of the large cups."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 9L + 5L = 364."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000192",
+      "correct_answer": "B",
+      "explanation": "Substituting x = 12 gives 3.00 + 0.10y = 4.70, so 0.10y = 1.70 and y = 17 dimes. Check: 12 quarters ($3.00) and 17 dimes ($1.70) total $4.70.",
+      "distractor_explanations": {
+        "A": "3 is the value of the quarters in dollars.",
+        "C": "29 is the total number of coins.",
+        "D": "47 divides 4.70 by 0.10, ignoring the quarters."
+      },
+      "hints": [
+        "Substitute 12 for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3 + 0.10y = 4.70."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000193",
+      "correct_answer": "C",
+      "explanation": "The initial height is h(0) = −2(9) + 50 = 32 meters. Solving −2(t − 3)² + 50 = 32 gives (t − 3)² = 9, so t = 0 or t = 6. The ball returns to 32 meters at t = 6 seconds, symmetric to t = 0 about the vertex at t = 3.",
+      "distractor_explanations": {
+        "A": "0 is the moment the ball is thrown, not when it returns.",
+        "B": "3 is the time of the maximum height.",
+        "D": "9 is the value of (t − 3)², not t."
+      },
+      "hints": [
+        "Find the starting height first."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Use the symmetry of the parabola about t = 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000194",
+      "correct_answer": "B",
+      "explanation": "x + 1/x = 10/3. Multiplying by 3x gives 3x² + 3 = 10x, so 3x² − 10x + 3 = 0, which factors as (3x − 1)(x − 3) = 0. The solutions are 1/3 and 3; since x > 1, x = 3.",
+      "distractor_explanations": {
+        "A": "1/3 is the other solution, but it is less than 1.",
+        "C": "10/3 is the sum, not the number.",
+        "D": "9 is x², not x."
+      },
+      "hints": [
+        "Clear the fraction by multiplying by x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: 3 + 1/3 = 10/3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000195",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "10.5",
+          "rationale": "10.5 halves the two-year increase of 21%, as if the growth were linear.",
+          "trap": null
+        },
+        {
+          "value": "21",
+          "rationale": "21 is the percent increase over both years combined.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Over two years the population was multiplied by 1,452/1,200 = 1.21. A yearly factor r satisfies r² = 1.21, so r = 1.1, an increase of 10% each year. Check: 1,200 × 1.1 = 1,320 and 1,320 × 1.1 = 1,452.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the two-year growth factor first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test 10%: 1,200 → 1,320 → 1,452."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000196",
+      "correct_answer": "C",
+      "explanation": "2^(3x) = (2ˣ)³. If (2ˣ)³ = 64, then 2ˣ = ∛64 = 4. (Equivalently, 3x = 6, so x = 2 and 2ˣ = 4.)",
+      "distractor_explanations": {
+        "A": "2 is the value of x, not 2ˣ.",
+        "B": "3 is the coefficient of x in the exponent.",
+        "D": "8 is √64, taking a square root instead of a cube root."
+      },
+      "hints": [
+        "Write 2^(3x) as a power of 2ˣ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x, then compute 2ˣ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000197",
+      "correct_answer": "A",
+      "explanation": "260 people prefer tea or coffee. With a ratio of 2 : 3, tea is 2/5 of them: (2/5)(260) = 104 people. Coffee is 156, and 104 + 156 + 40 = 300.",
+      "distractor_explanations": {
+        "B": "120 applies the ratio to all 300 people, including those who prefer neither.",
+        "C": "130 splits the 260 people evenly.",
+        "D": "156 is the number who prefer coffee."
+      },
+      "hints": [
+        "Remove the 40 people first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Tea = (2/5)(300 − 40)."
       }
     }
   ]

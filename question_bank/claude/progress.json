@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:50:19+00:00",
+  "updated_at": "2026-10-27T02:50:54+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 177
+    "sat_math": 187
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 187,
+      "PASS": 197,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 188,
+      "candidates": 198,
       "passed_after_revision": 1
     }
   },
@@ -1397,16 +1397,18 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 177,
+      "accepted": 187,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 55,
-        "Algebra": 52,
+        "Advanced Math": 59,
+        "Algebra": 57,
         "Geometry and Trigonometry": 37,
-        "Problem-Solving and Data Analysis": 33
+        "Problem-Solving and Data Analysis": 34
       },
       "by_subskill": {
+        "A number from the sum with its reciprocal": 1,
         "Angle sum of a quadrilateral": 1,
+        "Annual percent growth from two values two years apart": 1,
         "Applying a part-to-whole rate": 1,
         "Applying a percent increase": 1,
         "Arc length from coordinates on a circle": 1,
@@ -1427,6 +1429,7 @@
         "Complementary angles and the sine-cosine relationship": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for two real solutions": 1,
+        "Condition on a slope for an intersection with a negative x-coordinate": 1,
         "Conditions for a linear equation to have no solution": 1,
         "Cone and sphere with equal volumes": 1,
         "Constant in an equivalent linear expression": 1,
@@ -1446,9 +1449,11 @@
         "Effect of replacing a value on the mean": 1,
         "Effect of sample size on the margin of error": 1,
         "Equation of a circle with an unknown constant": 1,
+        "Evaluating a linear function after finding its intercept": 1,
         "Evaluating a linear function at a related input": 1,
         "Evaluating a linear function given by a table": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
+        "Evaluating a related exponential expression": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
         "Exponential function through two points": 1,
@@ -1480,6 +1485,7 @@
         "Intersections of a line and an absolute value graph": 1,
         "Leading coefficient from a maximum value": 1,
         "Line with equal intercepts through a given point": 1,
+        "Linear equation from a ratio of quantities sold": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
         "Lines that avoid a quadrant": 1,
@@ -1498,6 +1504,7 @@
         "Perfect-square trinomial": 1,
         "Perimeter of a rectangle from its area and length": 1,
         "Perimeter of an equilateral triangle from its height": 1,
+        "Point on a proportional line with a coordinate condition": 1,
         "Point with related coordinates on a line": 1,
         "Points on a proportional line": 1,
         "Population density after a change": 1,
@@ -1509,8 +1516,10 @@
         "Radius from the area between concentric circles": 1,
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Rate problem with a unit conversion": 1,
+        "Ratio applied after excluding a group": 1,
         "Rectangle from its diagonal and one side": 1,
         "Remainder of a polynomial from its division form": 1,
+        "Returning to an initial height in a quadratic model": 1,
         "Rewriting a product of exponential expressions with one base": 1,
         "Rewriting exponential expressions with a common base": 1,
         "Right triangle with algebraic legs": 1,
@@ -1549,6 +1558,7 @@
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
         "Square with a perimeter equal to a circle's circumference": 1,
+        "Substituting into a linear model of coins": 1,
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
         "Sum of solutions of an equation with variable denominators": 1,
@@ -1585,19 +1595,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 32,
+        "easy": 34,
         "hard": 11,
-        "medium": 134
+        "medium": 142
       },
       "by_difficulty_calibrated": {
-        "easy": 71,
+        "easy": 76,
         "hard": 6,
-        "medium": 100
+        "medium": 105
       },
       "calibrated_share": {
-        "easy": 0.401,
-        "hard": 0.034,
-        "medium": 0.565
+        "easy": 0.406,
+        "hard": 0.032,
+        "medium": 0.561
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1605,12 +1615,12 @@
         "-9": 2,
         "1": 1,
         "1.5": 2,
-        "10": 1,
+        "10": 2,
         "11": 2,
         "114": 1,
         "115": 1,
         "12": 3,
-        "15": 2,
+        "15": 3,
         "16": 1,
         "18": 1,
         "18/13": 1,
@@ -1619,6 +1629,7 @@
         "200": 1,
         "24": 1,
         "240": 1,
+        "26": 1,
         "3": 5,
         "30": 2,
         "4": 2,
@@ -1633,13 +1644,13 @@
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 30,
-        "B": 35,
-        "C": 35,
-        "D": 22
+        "A": 32,
+        "B": 37,
+        "C": 37,
+        "D": 23
       },
-      "modeling_items": 46,
-      "spr_items": 55,
+      "modeling_items": 51,
+      "spr_items": 58,
       "passages": 0
     }
   },
@@ -1648,7 +1659,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 20
+    "sat_math": 21
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1680,27 +1691,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 21,
+    "next_batch": 22,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 13.5,
-      "Advanced Math": 10.5,
-      "Problem-Solving and Data Analysis": -4.9,
-      "Geometry and Trigonometry": -8.9
+      "Algebra": 11.9,
+      "Advanced Math": 9.9,
+      "Problem-Solving and Data Analysis": -4.5,
+      "Geometry and Trigonometry": -7.5
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -24.2,
+      "easy": -26.8,
       "medium": -6.5,
-      "hard": 40.8
+      "hard": 43.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 5.1,
-      "B": 0.1,
-      "C": 0.1,
-      "D": 13.1
+      "A": 4.9,
+      "B": -0.1,
+      "C": -0.1,
+      "D": 13.9
     },
-    "spr_items": 55,
+    "spr_items": 58,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1713,20 +1724,20 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
         "Production of Writing": 28.8,
         "Knowledge of Language": 18.6,
         "Conventions of Standard English": -33.2
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1753,12 +1764,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 177,
-      "share_of_target": 0.177
+      "accepted": 187,
+      "share_of_target": 0.187
     }
   },
   "total_target": 3841,
-  "total_accepted": 1688,
+  "total_accepted": 1698,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48713,7 +48724,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 20,
+      "bank_version": 21,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48839,7 +48850,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:50:19+00:00",
+    "heartbeat_at": "2026-10-27T02:50:53+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
