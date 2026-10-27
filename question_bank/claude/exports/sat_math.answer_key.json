@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 42,
+  "bank_version": 43,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -7539,6 +7539,226 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Replace cos B with sin A."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000386",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 doubles k instead of the solution.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the original solution, not k.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Solving 5x − 2 = 3x + k gives x = (k + 2)/2. With k + 6 in place of k, x = (k + 8)/2. Doubling means (k + 8)/2 = 2 · (k + 2)/2 = k + 2, so k + 8 = 2k + 4 and k = 4. Check: k = 4 gives x = 3; k = 10 gives x = 6.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve the equation for x in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write both solutions in terms of k."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000387",
+      "correct_answer": "D",
+      "explanation": "f(x) > 0 exactly when x > 4 means f(4) = 0 and f is increasing. The slope is (0 − (−6))/(4 − 0) = 3/2, so f(x) = (3/2)x − 6 and f(10) = 15 − 6 = 9.",
+      "distractor_explanations": {
+        "A": "−21 takes the slope as negative, −3/2.",
+        "B": "2/3 inverts the slope.",
+        "C": "4 is the x-intercept, not f(10)."
+      },
+      "hints": [
+        "What is f(4)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the points (0, −6) and (4, 0)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000388",
+      "correct_answer": "A",
+      "explanation": "The line through (0, 3) and (6, 0) is x/6 + y/3 = 1, or x + 2y = 6. Points above it have larger y: solving gives y ≥ 3 − x/2, which is x + 2y ≥ 6. Check: (0, 4) is above the line and 0 + 8 ≥ 6.",
+      "distractor_explanations": {
+        "B": "x + 2y ≤ 6 describes the points on or below the line.",
+        "C": "2x + y ≥ 6 is the line through (3, 0) and (0, 6), with the intercepts swapped.",
+        "D": "2x + y ≤ 6 swaps the intercepts and the side."
+      },
+      "hints": [
+        "Find the equation of the boundary line."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test a point above the line, such as (0, 4)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000389",
+      "correct_answer": "C",
+      "explanation": "Toward each other, the gap closes at the sum of the speeds: f + s = 300/2 = 150. In the same direction, it closes at the difference: f − s = 300/10 = 30. Adding gives 2f = 180, so f = 90 miles per hour (and s = 60).",
+      "distractor_explanations": {
+        "A": "30 is the difference of the speeds.",
+        "B": "60 is the slower train's speed.",
+        "D": "120 subtracts the equations, 2s = 120, and does not halve."
+      },
+      "hints": [
+        "How fast does the gap close in each case?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write a sum equation and a difference equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000390",
+      "correct_answer": "84",
+      "accepted_answers": [
+        "84"
+      ],
+      "common_errors": [
+        {
+          "value": "70",
+          "rationale": "70 is the area of the changed rectangle, 10 × 7.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "14",
+          "rationale": "14 is the length of side b.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "From the perimeters, a + b = 20 and (a + 4) + b/2 = 17, so a + b/2 = 13. Subtracting, b/2 = 7, so b = 14 and a = 6. The original area is 6 × 14 = 84.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each perimeter as an equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Halve each perimeter to get a + b."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000391",
+      "correct_answer": "D",
+      "explanation": "Crossing at −2 gives a single factor (x + 2); touching at 4 gives a squared factor (x − 4)². With leading coefficient 1, p(x) = (x + 2)(x − 4)². Then p(0) = 2 × 16 = 32.",
+      "distractor_explanations": {
+        "A": "−32 uses (x − 2)(x + 4)², a sign error in both factors.",
+        "B": "−16 swaps the multiplicities: (x − 4)(x + 2)².",
+        "C": "16 makes both errors: (x + 4)(x − 2)²."
+      },
+      "hints": [
+        "Which zero needs a squared factor?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build p from its factors, then evaluate p(0)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000392",
+      "correct_answer": "B",
+      "explanation": "f(x + 2) = a · bˣ · b² = 9f(x), so b² = 9 and b = 3. Then f(1) = 3a = 6 gives a = 2, and f(−1) = 2 · 3⁻¹ = 2/3. (Equivalently, going back 2 units divides by 9: 6/9 = 2/3.)",
+      "distractor_explanations": {
+        "A": "2/27 takes b = 9 instead of b² = 9.",
+        "C": "2 is f(0), the value of a.",
+        "D": "54 multiplies by 9 when moving left instead of dividing."
+      },
+      "hints": [
+        "What does f(x + 2) = 9f(x) say about b?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find b from b² = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000393",
+      "correct_answer": "C",
+      "explanation": "The minimum occurs at x = 16/(2 · 2) = 4, where f(4) = 32 − 64 + k = k − 32. Since f(0) = k, f(0) is k − (k − 32) = 32 greater than the minimum, whatever k is.",
+      "distractor_explanations": {
+        "A": "0 puts the vertex at x = 16/2 = 8, where f(8) = k.",
+        "B": "16 drops the leading coefficient and uses x² − 8x.",
+        "D": "k cancels in the difference, so its value is not needed."
+      },
+      "hints": [
+        "Where is the vertex?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try any value of k, such as k = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000394",
+      "correct_answer": "B",
+      "explanation": "The mean is 0(0.25) + 1(0.40) + 2(0.25) + 3(0.10) = 1.2. The cumulative percent passes 50% within the households with 1 car (25% have 0, 65% have 0 or 1), so the median is 1. The mean is 1.2 − 1 = 0.2 greater.",
+      "distractor_explanations": {
+        "A": "−0.3 takes the median as the middle category, 1.5.",
+        "C": "0.5 takes the mean as the average of 0, 1, 2, and 3.",
+        "D": "1.2 is the mean itself, not the difference."
+      },
+      "hints": [
+        "Where does the cumulative percent pass 50%?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Weight each value by its percent."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000395",
+      "correct_answer": "A",
+      "explanation": "The curved side has area 2πrh = 2πr(6) = 12πr = 60π, so r = 5. The volume is πr²h = π(25)(6) = 150π cubic centimeters.",
+      "distractor_explanations": {
+        "B": "300π multiplies the label area by the radius.",
+        "C": "360π multiplies the label area by the height.",
+        "D": "600π uses πrh for the curved area, giving r = 10."
+      },
+      "hints": [
+        "What is the area of the curved side in terms of r?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find r from 2πrh, then compute πr²h."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000396",
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "80",
+          "rationale": "80 assumes the exterior angle is at the vertex between the congruent sides.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "50",
+          "rationale": "50 is a base angle when the vertex angle is 80°.",
+          "trap": null
+        }
+      ],
+      "explanation": "If the exterior angle is at a base vertex, that base angle is 180° − 100° = 80°, so both base angles are 80° and the vertex angle is 20°. If it is at the vertex between the congruent sides, the vertex angle is 80°. The least possible measure is 20°.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where could the 100° exterior angle be?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both cases."
       }
     }
   ]

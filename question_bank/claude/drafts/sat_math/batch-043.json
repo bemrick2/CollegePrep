@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 43,
- "plan": "SAT Math batch 43: Algebra 5, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses. Ideas N09-N13, P09-P11, P13, R06, R07, T06, T07 from generated set 4 (independently pre-checked: no copy or template matches). P13's numbers changed from 2x² − 12x (used in ACT 313 and SAT 077); N12's choices changed so the key is not the largest; MC keys moved toward A and D.",
+ "plan": "SAT Math batch 43: Algebra 5, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses. Ideas N09-N13, P09-P11, P13, R06, R07, T06, T07 from generated set 4 (independently pre-checked: no copy or template matches). P13's numbers changed from 2x² − 12x (used in ACT 313 and SAT 077); N12's choices changed so the key is not the largest; MC keys moved toward A and D. Relabelled to the blind solver's rating where it was lower: Q043-01 hard→medium, Q043-07 hard→medium, Q043-09 hard→medium.",
  "candidates": [
   {
    "cand": "Q043-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Constant from a condition relating two solutions",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the equation 5x − 2 = 3x + k, k is a constant. If k is increased by 6, the solution of the equation doubles. What is the value of k ?",
    "explanation": "Solving 5x − 2 = 3x + k gives x = (k + 2)/2. With k + 6 in place of k, x = (k + 8)/2. Doubling means (k + 8)/2 = 2 · (k + 2)/2 = k + 2, so k + 8 = 2k + 4 and k = 4. Check: k = 4 gives x = 3; k = 10 gives x = 6.",
    "hints": [
@@ -25,8 +25,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "No solution is given; students must express the solution in terms of k and set up a relation between two solutions."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "4",
@@ -227,58 +226,12 @@
    ]
   },
   {
-   "cand": "Q043-06",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Positive solution of a quadratic with an irrational coefficient",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "What is the positive solution to the equation x² − 2√3x − 9 = 0 ?",
-   "explanation": "Completing the square: x² − 2√3x + 3 = 12, so (x − √3)² = 12 and x − √3 = ±2√3. The solutions are 3√3 and −√3, and the positive one is 3√3.",
-   "hints": [
-    "Complete the square."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Add 3 to both sides to complete the square."
-   },
-   "remember": "Completing the square works with irrational coefficients too.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "−√3",
-    "B": "√3",
-    "C": "2√3",
-    "D": "3√3"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "−√3 is the negative solution.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "√3 is the absolute value of the negative solution.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "2√3 is √12; it forgets to add √3.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
    "cand": "Q043-07",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
    "subskill": "Y-intercept of a cubic built from crossing and touching behavior",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The graph of y = p(x), where p is a polynomial of degree 3 with leading coefficient 1, crosses the x-axis at x = −2, touches the x-axis without crossing it at x = 4, and has no other x-intercepts. What is the y-intercept of the graph?",
    "explanation": "Crossing at −2 gives a single factor (x + 2); touching at 4 gives a squared factor (x − 4)². With leading coefficient 1, p(x) = (x + 2)(x − 4)². Then p(0) = 2 × 16 = 32.",
    "hints": [
@@ -294,8 +247,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must translate graph behavior into factor multiplicities and signs; each wrong choice comes from one such slip."
+    "single_correct": true
    },
    "choices": {
     "A": "−32",
@@ -371,7 +323,7 @@
    "skill": "Advanced Math",
    "subskill": "Difference between a value and the minimum when the constant cancels",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The function f is defined by f(x) = 2x² − 16x + k, where k is a constant. How much greater is f(0) than the minimum value of f ?",
    "explanation": "The minimum occurs at x = 16/(2 · 2) = 4, where f(4) = 32 − 64 + k = k − 32. Since f(0) = k, f(0) is k − (k − 32) = 32 greater than the minimum, whatever k is.",
    "hints": [
@@ -387,8 +339,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see that k cancels; many choose 'cannot be determined'."
+    "single_correct": true
    },
    "choices": {
     "A": "0",
@@ -454,52 +405,6 @@
     },
     "D": {
      "rationale": "1.2 is the mean itself, not the difference.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q043-11",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Original total from probabilities before and after a removal",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A bag contains only red and blue marbles. The probability of drawing a red marble at random is 2/5. After 6 red marbles are removed, the probability of drawing a red marble at random is 1/4. How many marbles were in the bag originally?",
-   "explanation": "Let n be the original number of marbles, so 0.4n are red. After the removal, (0.4n − 6)/(n − 6) = 1/4, so 1.6n − 24 = n − 6, 0.6n = 18 and n = 30. Check: 12 red of 30, then 6 red of 24.",
-   "hints": [
-    "Write the number of red marbles in terms of n."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Remember the total also drops by 6."
-   },
-   "remember": "Removing items changes the denominator too.",
-   "expected_time_seconds": 75,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "6",
-    "B": "12",
-    "C": "24",
-    "D": "30"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "6 is the number of red marbles left.",
-     "trap": "wrong_quantity"
-    },
-    "B": {
-     "rationale": "12 is the original number of red marbles.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "24 is the number of marbles after the removal.",
      "trap": "partial_answer"
     }
    }
@@ -592,6 +497,108 @@
      "trap": null
     }
    ]
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q043-06",
+   "reason": "blind solve: eliminable choice - the negative choice −√3 is ruled out by \"positive solution\"; resubmitted with 6√3 in its place.",
+   "item": {
+    "cand": "Q043-06",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Positive solution of a quadratic with an irrational coefficient",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "What is the positive solution to the equation x² − 2√3x − 9 = 0 ?",
+    "explanation": "Completing the square: x² − 2√3x + 3 = 12, so (x − √3)² = 12 and x − √3 = ±2√3. The solutions are 3√3 and −√3, and the positive one is 3√3.",
+    "hints": [
+     "Complete the square."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Add 3 to both sides to complete the square."
+    },
+    "remember": "Completing the square works with irrational coefficients too.",
+    "expected_time_seconds": 70,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "−√3",
+     "B": "√3",
+     "C": "2√3",
+     "D": "3√3"
+    },
+    "answer": "D",
+    "distractors": {
+     "A": {
+      "rationale": "−√3 is the negative solution.",
+      "trap": "partial_answer"
+     },
+     "B": {
+      "rationale": "√3 is the absolute value of the negative solution.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "2√3 is √12; it forgets to add √3.",
+      "trap": "partial_answer"
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q043-11",
+   "reason": "blind solve: answer cue - P(red) = 2/5 forces the total to be a multiple of 5 and only the key (30) is; resubmitted as a student-produced response (Q044-pending).",
+   "item": {
+    "cand": "Q043-11",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Original total from probabilities before and after a removal",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "medium",
+    "stem": "A bag contains only red and blue marbles. The probability of drawing a red marble at random is 2/5. After 6 red marbles are removed, the probability of drawing a red marble at random is 1/4. How many marbles were in the bag originally?",
+    "explanation": "Let n be the original number of marbles, so 0.4n are red. After the removal, (0.4n − 6)/(n − 6) = 1/4, so 1.6n − 24 = n − 6, 0.6n = 18 and n = 30. Check: 12 red of 30, then 6 red of 24.",
+    "hints": [
+     "Write the number of red marbles in terms of n."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Remember the total also drops by 6."
+    },
+    "remember": "Removing items changes the denominator too.",
+    "expected_time_seconds": 75,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "6",
+     "B": "12",
+     "C": "24",
+     "D": "30"
+    },
+    "answer": "D",
+    "distractors": {
+     "A": {
+      "rationale": "6 is the number of red marbles left.",
+      "trap": "wrong_quantity"
+     },
+     "B": {
+      "rationale": "12 is the original number of red marbles.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "24 is the number of marbles after the removal.",
+      "trap": "partial_answer"
+     }
+    }
+   }
   }
  ]
 }

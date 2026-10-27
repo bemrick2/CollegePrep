@@ -1,0 +1,18 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 43},
+  "answers": {
+    "Q043-01": {"answer": "4", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "x=(k+2)/2; new x=(k+8)/2 = (k+2) -> k=4. Check: x=3 -> k=10 gives x=6."},
+    "Q043-02": {"answer": "D", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "Zero at x=4, f(0)=-6 -> slope 3/2; f(10)=-6+15=9. A=-21 uses slope -3/2; B uses slope 2/3."},
+    "Q043-03": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "Line x+2y=6; above means y >= (6-x)/2 -> x+2y >= 6. C/D swap intercepts."},
+    "Q043-04": {"answer": "C", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "v1+v2=150, v1-v2=30 -> faster 90, slower 60 (choice B)."},
+    "Q043-05": {"answer": "84", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "a+b=20; a+4+b/2=17 -> b/2=7, b=14, a=6; area 84."},
+    "Q043-06": {"answer": "D", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": ["minor: choice A (-√3) is negative and is eliminated immediately by 'positive solution'; leaves effectively 3 choices"], "notes": "Quadratic formula: (2√3 ± √48)/2 = (2√3 ± 4√3)/2 -> 3√3 or -√3. Calculator graphing also works."},
+    "Q043-07": {"answer": "D", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "p(x)=(x+2)(x-4)^2; p(0)=2*16=32. A/B sign/multiplicity errors."},
+    "Q043-08": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "b^2=9 -> b=3; a=2; f(-1)=2/3 (=f(1)/9). D=54 multiplies instead of divides."},
+    "Q043-09": {"answer": "C", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Vertex x=4; f(4)=k-32; f(0)=k; difference 32. D is the trap."},
+    "Q043-10": {"answer": "B", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": ["minor: distractor A (-0.3) does not correspond to an obvious error (median-mean is -0.2); consider -0.2"], "notes": "Mean = 0.4+0.5+0.3 = 1.2; cumulative 25%,65% -> median 1; difference 0.2. D = mean itself."},
+    "Q043-11": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": ["Answer cue: P(red)=2/5 requires the original total to be a multiple of 5; only 30 is, so A (6), B (12), C (24) are eliminated instantly without solving. Replace distractors with multiples of 5 (e.g., 20, 25, 40) or adjust numbers."], "notes": "r=2n/5; (r-6)/(n-6)=1/4 -> 3n/5=18 -> n=30 (12 red, 18 blue; after: 6/24). C=24 is new total, B=12 is original red."},
+    "Q043-12": {"answer": "A", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "2πr·6=60π -> r=5; V=π·25·6=150π. C=60π·6, B/D from radius errors."},
+    "Q043-13": {"answer": "20", "confidence": "high", "est_pct_correct": 35, "difficulty_opinion": "hard", "flags": [], "notes": "Interior angle 80. If 80 is vertex angle -> vertex 80; if 80 is a base angle -> vertex 20. Least = 20. Trap: answering 80 (or 50)."}
+  }
+}

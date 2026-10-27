@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T04:46:14+00:00",
+  "updated_at": "2026-10-27T04:47:11+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 363
+    "sat_math": 374
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 385,
+      "PASS": 396,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 387,
+      "candidates": 398,
       "passed_after_revision": 5
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 363,
+      "accepted": 374,
       "retired_after_audit": 22,
       "by_skill": {
-        "Advanced Math": 128,
-        "Algebra": 112,
-        "Geometry and Trigonometry": 65,
-        "Problem-Solving and Data Analysis": 58
+        "Advanced Math": 131,
+        "Algebra": 117,
+        "Geometry and Trigonometry": 67,
+        "Problem-Solving and Data Analysis": 59
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1418,6 +1418,7 @@
         "Approximating a solution of an exponential-linear equation by graphing": 1,
         "Arc length from coordinates on a circle": 1,
         "Arc length with a radian measure": 1,
+        "Area of a rectangle from two perimeter conditions": 1,
         "Area of a right triangle with legs in a 2 : 1 ratio": 1,
         "Area of a trapezoid": 1,
         "Area of a triangle formed by two radii and a chord": 1,
@@ -1454,6 +1455,7 @@
         "Conditions for a linear equation to have no solution": 1,
         "Cone and sphere with equal volumes": 1,
         "Constant for which a point lies inside a circle": 1,
+        "Constant from a condition relating two solutions": 1,
         "Constant from an identity between a rational expression and a linear expression": 1,
         "Constant from an identity in which square terms cancel": 1,
         "Constant in a factored quadratic from a point": 1,
@@ -1473,6 +1475,8 @@
         "Count of x-intercepts after a constant creates a repeated zero": 1,
         "Counting from a conditional percent": 1,
         "Counting integers in the overlap of two absolute value inequalities": 1,
+        "Cylinder volume from its lateral area and height": 1,
+        "Difference between a value and the minimum when the constant cancels": 1,
         "Difference of two function values": 1,
         "Difference of two heights from two angles of elevation": 1,
         "Distance from a chord endpoint to the midpoint of its arc": 1,
@@ -1504,6 +1508,7 @@
         "Evaluating an exponential function at a fractional input": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
+        "Exponential base from a relation over a two-unit step": 1,
         "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
         "Exponential function with an added constant through two points": 1,
@@ -1553,6 +1558,7 @@
         "Intersections of a line and an absolute value graph": 1,
         "Inverse variation in a work problem": 1,
         "Leading coefficient from a maximum value": 1,
+        "Least apex angle of an isosceles triangle from one exterior angle": 1,
         "Least whole number satisfying a scaled linear inequality": 1,
         "Length of the interval where a quadratic is positive": 1,
         "Line containing the vertices of a family of parabolas": 1,
@@ -1564,6 +1570,7 @@
         "Linear equation with fractional coefficients": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear function from a functional equation": 1,
+        "Linear function from its intercept and a sign condition": 1,
         "Linear inequality in a savings context": 1,
         "Linear model for depth below the surface": 1,
         "Linear model from a table with a change of time unit": 1,
@@ -1575,6 +1582,7 @@
         "Maximum of a rational model by graphing": 1,
         "Maximum profit from a linear price model and a linear cost": 1,
         "Maximum value from the range and the minimum": 1,
+        "Mean minus median from a percent frequency distribution": 1,
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
         "Median from a frequency table with an unknown frequency": 1,
@@ -1724,6 +1732,7 @@
         "Triangle area from an arc length": 1,
         "Two angles formed by a transversal that are not congruent": 1,
         "Two counts from the effect of swapped prices": 1,
+        "Two speeds from meeting and catch-up conditions": 1,
         "Two travelers leaving at different times in opposite directions": 1,
         "Unit cost from two rates": 1,
         "Unit rate in a proportion": 1,
@@ -1756,9 +1765,11 @@
         "Writing a system of equations from a context": 1,
         "Writing a system of inequalities from a context": 1,
         "Writing an exponential growth model": 1,
+        "Writing an inequality from a described boundary and side": 1,
         "Writing one equation for three related lengths": 1,
         "X-intercept of an absolute value graph after finding its stretch factor": 1,
         "Y-coordinate of the intersection of two exponential graphs": 1,
+        "Y-intercept of a cubic built from crossing and touching behavior": 1,
         "Zero of an exponential function": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
@@ -1772,18 +1783,18 @@
       },
       "by_difficulty_author": {
         "easy": 72,
-        "hard": 29,
-        "medium": 262
+        "hard": 30,
+        "medium": 272
       },
       "by_difficulty_calibrated": {
         "easy": 122,
-        "hard": 24,
-        "medium": 217
+        "hard": 25,
+        "medium": 227
       },
       "calibrated_share": {
-        "easy": 0.336,
-        "hard": 0.066,
-        "medium": 0.598
+        "easy": 0.326,
+        "hard": 0.067,
+        "medium": 0.607
       },
       "answer_key_balance": {
         "-1": 2,
@@ -1811,7 +1822,7 @@
         "18/13": 1,
         "193.5": 1,
         "2": 8,
-        "20": 2,
+        "20": 3,
         "20/3": 1,
         "200": 2,
         "24": 1,
@@ -1822,7 +1833,7 @@
         "3": 8,
         "30": 2,
         "36": 2,
-        "4": 6,
+        "4": 7,
         "4.2": 1,
         "40": 1,
         "41.4": 1,
@@ -1841,16 +1852,17 @@
         "8": 4,
         "80": 1,
         "81": 1,
+        "84": 1,
         "9": 2,
         "9/17": 1,
         "90": 1,
-        "A": 46,
-        "B": 83,
-        "C": 69,
-        "D": 42
+        "A": 48,
+        "B": 85,
+        "C": 71,
+        "D": 44
       },
-      "modeling_items": 106,
-      "spr_items": 123,
+      "modeling_items": 108,
+      "spr_items": 126,
       "passages": 0
     }
   },
@@ -1859,7 +1871,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 42
+    "sat_math": 43
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1891,37 +1903,36 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 43,
+    "next_batch": 44,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 18.5,
-      "Advanced Math": 2.5,
-      "Problem-Solving and Data Analysis": -2.1,
-      "Geometry and Trigonometry": -9.1
+      "Algebra": 17.4,
+      "Advanced Math": 3.4,
+      "Problem-Solving and Data Analysis": -1.4,
+      "Geometry and Trigonometry": -9.4
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -28.8,
-      "medium": -30.5,
-      "hard": 69.2
+      "easy": -26.0,
+      "medium": -35.0,
+      "hard": 71.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 23.9,
-      "B": -13.1,
-      "C": 0.9,
-      "D": 27.9
+      "A": 24.0,
+      "B": -13.0,
+      "C": 1.0,
+      "D": 28.0
     },
-    "spr_items": 123,
+    "spr_items": 126,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 30,
+    "act_reading": {
+      "next_batch": 29,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 1.8,
-        "Information and Ideas": -1.6,
-        "Standard English Conventions": 12.4,
-        "Expression of Ideas": -2.6
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     },
     "act_english": {
@@ -1932,12 +1943,13 @@
         "Conventions of Standard English": -33.2
       }
     },
-    "act_reading": {
-      "next_batch": 29,
+    "sat_reading_writing": {
+      "next_batch": 30,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
+        "Craft and Structure": 1.8,
+        "Information and Ideas": -1.6,
+        "Standard English Conventions": 12.4,
+        "Expression of Ideas": -2.6
       }
     }
   },
@@ -1964,12 +1976,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 363,
-      "share_of_target": 0.363
+      "accepted": 374,
+      "share_of_target": 0.374
     }
   },
   "total_target": 3841,
-  "total_accepted": 1874,
+  "total_accepted": 1885,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49432,7 +49444,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 42,
+      "bank_version": 43,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49558,7 +49570,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T04:46:13+00:00",
+    "heartbeat_at": "2026-10-27T04:47:11+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
