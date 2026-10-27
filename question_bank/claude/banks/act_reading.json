@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 52,
-  "updated_at": "2026-10-27T17:25:37+00:00",
+  "version": 53,
+  "updated_at": "2026-10-27T17:29:45+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -575,6 +575,17 @@
       "word_count": 446,
       "text": "Every Sunday since I was eight, my grandfather and I had played chess at the card table by his window. He never let me win. When I was nine and cried after losing my queen, he handed me a tissue and said, \"A piece you leave unguarded is a piece you have given away,\" and then he took my rook. I hated him a little that afternoon. By the time I was twelve, I could repeat the sentence along with him.\n\nThe spring I turned fifteen, I began to win. The first time, I thought it was luck. The second time, I thought I had finally learned something. By the fifth time, I had started telling my friends at school that I could beat my grandfather, a man who had once played in tournaments, and I liked the way they looked at me when I said it.\n\nThen, in early May, he moved his bishop to a square where my knight could take it for nothing. I stared at the board. It was exactly the kind of move he had spent seven years teaching me never to make. I took the bishop, and he nodded as if I had done something sensible, and twenty minutes later I won again.\n\nThat night I lay awake replaying the game. There were only two explanations I could think of, and I did not like either of them. Either he was letting me win, which meant that every victory I had bragged about was a gift, or he was no longer seeing the board the way he used to, which meant something I did not want to name.\n\nThe next Sunday I decided to find out. Halfway through the game, I left my queen where his knight could take it—a mistake so plain that the nine-year-old version of me would have seen it. I kept my eyes on the board and waited.\n\nHe looked at the queen for a long time. His hand moved toward the knight, stopped, and settled on a pawn instead, which he pushed forward one square. Then he looked up at me, and I could not tell whether his expression was kind or confused, or whether there was any difference.\n\nI could have asked him. The question was right there, as plain as the unguarded queen. Instead I moved my queen to safety, and we played on, and I lost, and I was more grateful for that loss than for any of my wins. When we finished, I set the pieces back on their starting squares the way he had taught me, white on the right, and asked whether he wanted to play again next week.",
       "batch": 53,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000054",
+      "title": "Making Room for Cars",
+      "genre": "social science (paired passages)",
+      "word_count": 362,
+      "text": "Passage A\n\nFor most of the last century, American cities have required builders to provide a minimum number of parking spaces with every new apartment building, store, and office. The rules were meant to keep cars off crowded streets. Their effects have reached much further. A parking space in a garage can cost tens of thousands of dollars to build, and that cost is folded into rents and prices whether or not a tenant owns a car. On small or oddly shaped lots, the required spaces can make a project impossible, so the housing is never built at all.\n\nMinimum parking rules also shape how people travel. When every destination promises free parking, driving becomes the easy default, and buses and bike lanes struggle to attract riders. Several cities have recently eliminated their minimums, leaving it to builders to decide how much parking their customers actually want. Builders have not stopped providing parking; they have simply provided less of it in places where residents can walk or take transit. That, rather than any single number written into a code, is how parking ought to be decided.\n\nPassage B\n\nCritics of parking minimums make a strong case, and in dense neighborhoods with frequent trains and buses, I find it persuasive. But most Americans do not live in such places. In a suburb where the nearest bus comes once an hour, a household without parking at home is not a household without a car; it is a household that parks on the street. When a new building is approved without spaces, the cars of its residents do not disappear. They spill onto nearby blocks, where longtime residents, many of whom bought their homes counting on curbside parking, suddenly cannot find a space.\n\nNone of this means that the old rules should stay as they are. Many codes demand far more spaces than buildings ever fill. A better approach would be to lower minimums where transit is strong and to tie any remaining requirements to how often buses actually run. Eliminating minimums everywhere at once trades one uniform rule for another, and uniform rules are exactly what got cities into trouble in the first place.",
+      "batch": 54,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -32724,6 +32735,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-053.review.json",
         "computation": "checks/act_reading/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000450",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea (Passage A)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "That, rather than any single number written into a code, is how parking ought to be decided.",
+      "figure": null,
+      "stem": "The main claim of Passage A is that parking minimums:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "should be raised in neighborhoods where streets are already crowded with parked cars.",
+        "B": "impose hidden costs and encourage driving, so builders should decide on parking.",
+        "C": "are necessary in suburbs but should be removed in city centers with frequent transit.",
+        "D": "have caused builders to stop providing parking in most new apartment buildings."
+      },
+      "correct_answer": "B",
+      "explanation": "Passage A describes the costs of minimums (higher rents, unbuilt housing, more driving) and concludes that builders, not codes, should decide.",
+      "distractor_explanations": {
+        "A": "Passage A argues against minimums, not for raising them.",
+        "C": "This is closer to Passage B's position than to Passage A's.",
+        "D": "Passage A says builders kept providing parking, only less of it in some places."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the last sentence of Passage A recommend?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Combine the problems Passage A lists with its final recommendation."
+      },
+      "remember": "In a paired set, keep each author's position separate.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-01",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000451",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (Passage A)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "they have simply provided less of it in places where residents can walk or take transit",
+      "figure": null,
+      "stem": "According to Passage A, after several cities eliminated parking minimums, builders:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "stopped providing parking in nearly all of their new buildings.",
+        "B": "built more parking than the old minimums had required.",
+        "C": "provided less parking where residents could walk or use transit.",
+        "D": "asked the cities to restore the old parking requirements."
+      },
+      "correct_answer": "C",
+      "explanation": "Passage A says builders did not stop providing parking but provided less of it where people can walk or take transit.",
+      "distractor_explanations": {
+        "A": "Passage A says builders \"have not stopped providing parking.\"",
+        "B": "Passage A says they provided less in walkable areas, not more.",
+        "D": "Nothing like this is mentioned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find the sentence that begins \"Builders have not stopped.\""
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence after the cities eliminated minimums."
+      },
+      "remember": "Watch for distractors that turn \"less\" into \"none.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-02",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000452",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (Passage A's reasoning)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "that cost is folded into rents and prices whether or not a tenant owns a car",
+      "figure": null,
+      "stem": "Passage A suggests that a tenant who does not own a car is affected by parking minimums because the tenant:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "must pay a separate monthly fee for a parking space in the building's garage.",
+        "B": "cannot find a space on the street because the building's garage is full.",
+        "C": "is required by the city to buy a car in order to rent an apartment.",
+        "D": "pays rent that includes the cost of building parking the tenant does not use."
+      },
+      "correct_answer": "D",
+      "explanation": "Passage A says the cost of required parking is folded into rents whether or not a tenant owns a car, so carless tenants pay for parking they do not use.",
+      "distractor_explanations": {
+        "A": "Passage A says the cost is folded into rents, not charged as a separate fee.",
+        "B": "Street parking problems are Passage B's concern, and they would not affect a tenant without a car.",
+        "C": "Nothing suggests tenants are required to own cars."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does \"folded into rents\" mean for someone without a car?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find \"whether or not a tenant owns a car.\""
+      },
+      "remember": "An inference must follow directly from a stated cause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-03",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000453",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's stance (Passage B)",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "in dense neighborhoods with frequent trains and buses, I find it persuasive",
+      "figure": null,
+      "stem": "The author of Passage B regards the critics of parking minimums as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "persuasive about transit-rich neighborhoods but wrong to apply their view everywhere.",
+        "B": "wrong about every point, since minimums protect all neighborhoods equally well.",
+        "C": "correct in every respect, so that minimums should be eliminated immediately.",
+        "D": "uninterested in the problems that cars cause in crowded city neighborhoods."
+      },
+      "correct_answer": "A",
+      "explanation": "The author agrees with the critics for dense, transit-rich areas but objects to applying their solution everywhere, especially suburbs with poor transit.",
+      "distractor_explanations": {
+        "B": "The author says the critics \"make a strong case\" and that many codes demand too many spaces.",
+        "C": "The author warns against eliminating minimums everywhere at once.",
+        "D": "The author never says the critics ignore crowded city neighborhoods."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "Where does the author agree with the critics, and where not?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Separate the concession from the objection in Passage B."
+      },
+      "remember": "A qualified stance agrees in some cases and disagrees in others.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-04",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000454",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a sentence (Passage B)",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "a household without parking at home is not a household without a car",
+      "figure": null,
+      "stem": "In Passage B, the statement that a household without parking at home \"is not a household without a car\" mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "explain why suburban households prefer to live near train and bus stations.",
+        "B": "challenge the assumption that removing required parking will reduce car ownership.",
+        "C": "show that suburban residents are unwilling to use public transportation.",
+        "D": "suggest that builders in suburbs should provide fewer parking spaces."
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence rejects the idea that fewer spaces mean fewer cars: in suburbs with poor transit, households keep their cars and park them on the street.",
+      "distractor_explanations": {
+        "A": "The sentence concerns car ownership, not where households prefer to live.",
+        "C": "The point is that transit is infrequent, not that residents refuse to use it.",
+        "D": "The author is warning about the effects of providing fewer spaces."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What assumption is the author denying?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what someone would have to believe for the sentence to be needed."
+      },
+      "remember": "\"X is not Y\" sentences often correct an assumption the author attributes to others.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-05",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000455",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "They spill onto nearby blocks",
+      "figure": null,
+      "stem": "As it is used in Passage B, the word spill most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "pour.",
+        "B": "drop.",
+        "C": "spread.",
+        "D": "waste."
+      },
+      "correct_answer": "C",
+      "explanation": "Cars that \"spill onto nearby blocks\" spread out into the surrounding streets.",
+      "distractor_explanations": {
+        "A": "Cars are not liquid; the word is used figuratively.",
+        "B": "Nothing is being dropped.",
+        "D": "The cars are not being wasted."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What do the cars do when there is no parking at home?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a word for what the cars do."
+      },
+      "remember": "Figurative uses of words call for the figurative meaning.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-06",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000456",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (Passage B's proposal)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "lower minimums where transit is strong and to tie any remaining requirements to how often buses actually run",
+      "figure": null,
+      "stem": "Which of the following does the author of Passage B propose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Lowering minimums where transit is strong and linking the rest to bus frequency.",
+        "B": "Keeping existing parking minimums because they were designed for good reasons.",
+        "C": "Eliminating parking minimums in every city at once, as several cities have done.",
+        "D": "Requiring new suburban buildings to provide more parking than current codes do."
+      },
+      "correct_answer": "A",
+      "explanation": "The final paragraph proposes lowering minimums where transit is strong and tying remaining requirements to bus frequency.",
+      "distractor_explanations": {
+        "B": "The author says the old rules should not stay as they are.",
+        "C": "The author argues against eliminating minimums everywhere at once.",
+        "D": "The author says many codes already demand too many spaces."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find \"A better approach would be.\""
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence that begins \"A better approach.\""
+      },
+      "remember": "Proposal questions are usually answered by a single recommending sentence.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-07",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000457",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Comparing passages (agreement)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "Many codes demand far more spaces than buildings ever fill.",
+      "figure": null,
+      "stem": "Both authors would most likely agree that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "parking minimums should be removed in every type of neighborhood.",
+        "B": "suburban residents will give up their cars if parking is not provided.",
+        "C": "builders cannot be trusted to decide how much parking to provide.",
+        "D": "many codes require amounts of parking that do not match actual need."
+      },
+      "correct_answer": "D",
+      "explanation": "Passage A says builders, freed from codes, provide less parking where it is not needed; Passage B says many codes demand more spaces than buildings fill. Both see a mismatch between codes and need.",
+      "distractor_explanations": {
+        "A": "Passage B's author rejects removing minimums everywhere.",
+        "B": "Passage B's author argues the opposite.",
+        "C": "Passage A's author argues that builders should decide."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does each author say about the existing rules?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each choice against both passages."
+      },
+      "remember": "For \"both would agree,\" eliminate any choice that either author rejects.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-08",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000458",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Comparing passages (response)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000054",
+      "underline": null,
+      "evidence": "where longtime residents, many of whom bought their homes counting on curbside parking, suddenly cannot find a space",
+      "figure": null,
+      "stem": "The author of Passage B would most likely respond to Passage A's claim that builders should decide how much parking to provide by pointing out that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "builders always provide more parking than their customers want.",
+        "B": "builders rarely build housing on small or oddly shaped lots.",
+        "C": "builders may not bear the cost when tenants' cars crowd nearby streets.",
+        "D": "builders cannot estimate how many of their tenants will use buses."
+      },
+      "correct_answer": "C",
+      "explanation": "Passage B's concern is that cars spill onto streets used by longtime residents, a cost borne by neighbors, not by the builder who chose to provide less parking.",
+      "distractor_explanations": {
+        "A": "Passage B blames codes, not builders, for excess parking.",
+        "B": "Passage B does not discuss lot shapes.",
+        "D": "Passage B does not claim builders lack this ability."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Who bears the cost of spillover parking in Passage B?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Apply Passage B's main worry to Passage A's proposal."
+      },
+      "remember": "To predict one author's response, apply that author's main concern to the other's claim.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-09",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000459",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (a character's motive)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000053",
+      "underline": null,
+      "evidence": "The next Sunday I decided to find out.",
+      "figure": null,
+      "stem": "The narrator leaves the queen unguarded in the fifth paragraph mainly in order to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "give the grandfather a win to make up for the earlier losses.",
+        "B": "show the grandfather that the narrator no longer needs lessons.",
+        "C": "test a sacrifice of the queen that the narrator had read about.",
+        "D": "see whether the grandfather would notice and punish the mistake."
+      },
+      "correct_answer": "D",
+      "explanation": "After lying awake over two possible explanations, the narrator sets a test: a mistake so plain that any attentive player would punish it.",
+      "distractor_explanations": {
+        "A": "The narrator says, \"I decided to find out,\" not that the goal was to give a win.",
+        "B": "A deliberate blunder would not show this.",
+        "C": "Nothing suggests a planned sacrifice strategy."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What did the narrator want to find out?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect paragraph 5 to the two explanations in paragraph 4."
+      },
+      "remember": "A character's action often answers a question raised just before it.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "R054-11",
+      "created_at": "2026-10-27T17:29:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-054.review.json",
+        "computation": "checks/act_reading/batch_054.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

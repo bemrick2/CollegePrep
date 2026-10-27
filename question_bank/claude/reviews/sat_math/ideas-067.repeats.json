@@ -1,0 +1,378 @@
+{
+ "ideas": "generated set 18 (MA/MC)",
+ "results": {
+  "MA01": [
+   {
+    "other_id": "CLD-SAT-M-000704 (= Q066-09, ideas-gen-16 KA04)",
+    "severity": "close",
+    "why": "Both use symmetric swapped constants (a and b trade places). 704 adds two equations to use a given x + y; here the lines y = ax + b and y = bx + a always meet at x = 1, and r + s is asked. Different mechanism."
+   },
+   {
+    "other_id": "ideas-gen-11 FA02 / ideas-gen-15 JB13",
+    "severity": "close",
+    "why": "Family of graphs through a fixed point. Here the fixed x-value comes from subtracting the two lines, not from regrouping a parameter. Different ask."
+   }
+  ],
+  "MA02": [
+   {
+    "other_id": "CLD-SAT-M-000588 (staircase, ideas-gen-10 EA01)",
+    "severity": "close",
+    "why": "Counting whole-number configurations with a divisibility condition (equal risers, 108 inches). Here an exact two-variable equation 2a + 3b = 30 with parity gaps; same answer (4) but a different mechanism."
+   },
+   {
+    "other_id": "CLD-SAT-M-000712 / CLD-SAT-M-000431",
+    "severity": "close",
+    "why": "Counting whole-number solutions of an inequality interval in one variable. Different mechanism."
+   }
+  ],
+  "MA03": [
+   {
+    "other_id": "CLD-SAT-M-000277 / CLD-SAT-M-000029 / CLD-SAT-M-000638",
+    "severity": "close",
+    "why": "No-solution systems or equations solved for a parameter. Here a fully numeric system must be recognized as inconsistent and interpreted in context. Different ask."
+   }
+  ],
+  "MA04": [
+   {
+    "other_id": "CLD-SAT-M-000328 / CLD-SAT-M-000452",
+    "severity": "close",
+    "why": "Bounds on a constant from a single value or solution of a linear inequality. Here the inequality must hold on a whole open ray, so slope and endpoint both matter."
+   },
+   {
+    "other_id": "MA17 (this set)",
+    "severity": "close",
+    "why": "Generator flag. Both hinge on whether a boundary value is allowed with strict inequalities, but MA04 is one-variable on a ray and MA17 is a parallel strip. Different mechanism. Moot if MA17 is dropped."
+   }
+  ],
+  "MA05": [
+   {
+    "other_id": "CLD-ACT-M-000150 (ACT, repeated dilution)",
+    "severity": "close",
+    "why": "Cross-exam note. Remove-and-replace with a pure liquid, but ACT gives the volume removed and repeats the step; here the volume drained is unknown and solved once."
+   },
+   {
+    "other_id": "CLD-ACT-M-000028 / CLD-SAT-M-000542",
+    "severity": "close",
+    "why": "Mixtures made by adding only. The add-without-draining case is a distractor here."
+   }
+  ],
+  "MA06": [
+   {
+    "other_id": "Q060-02 (= ideas-gen-12 GA02, café 12x + 15y = 600, interpret 0.8)",
+    "severity": "close",
+    "why": "Strongest match, not named by the generator. Both interpret a quotient of two coefficients as an exchange rate between two inputs, and both use the reversed trade as a distractor. GA02's quotient appears as the slope of a rearranged level-set equation; MA06's is stated outright (48/0.75 = 64), there is no fixed total, and the 'speed' misreading is new. Allowed, but keep it out of any batch with Q060-02 and do not reuse the reversed-ratio choice wording."
+   },
+   {
+    "other_id": "CLD-SAT-M-000640 / CLD-SAT-M-000135",
+    "severity": "close",
+    "why": "Interpret a single coefficient / numeric trade at a fixed total. Different ask."
+   },
+   {
+    "other_id": "MA12 (this set)",
+    "severity": "close",
+    "why": "Generator flag. Both are two-input linear money models, but MA06 interprets a quotient of coefficients and MA12 translates a coefficient change into intercept changes. Different ask; both allowed, not adjacent."
+   }
+  ],
+  "MA07": [
+   {
+    "other_id": "CLD-SAT-M-000412",
+    "severity": "close",
+    "why": "Interpreting the shift in point-slope form. Here a deductible-plus-coinsurance model is evaluated and the complement of its output is asked. No deductible item in either bank."
+   }
+  ],
+  "MA08": [
+   {
+    "other_id": "CLD-ACT-M-000259 (ACT bank)",
+    "severity": "template",
+    "why": "Cross-exam re-skin, not named by the generator. ACT 259: a boat goes 24 km downstream in 2 h and back upstream in 3 h; find the current's speed. MA08: 36 km in 1.5 h and 2.25 h; same system s + c, s - c, same solved quantity (c = 4), plus one division (36/4) for the raft. The ACT key is MA08's first trap. The extra step is trivial, so this is the same item with new numbers."
+   },
+   {
+    "other_id": "CLD-SAT-M-000519 (= ideas-gen-08 CB10)",
+    "severity": "close",
+    "why": "Generator flag. Symbolic round-trip time as a rational expression. Different ask; this alone would be allowed."
+   }
+  ],
+  "MA09": [
+   {
+    "other_id": "CLD-ACT-M-000385 (ACT, first pound then each additional)",
+    "severity": "close",
+    "why": "Cross-exam note. Same pricing structure, but ACT evaluates one case with rounding up; here the expression is written."
+   },
+   {
+    "other_id": "CLD-SAT-M-000107 / CLD-SAT-M-000710",
+    "severity": "close",
+    "why": "Linear models with a starting value at input 0. Different structure."
+   }
+  ],
+  "MA10": [
+   {
+    "other_id": "CLD-SAT-M-000188",
+    "severity": "close",
+    "why": "A point on a proportional line fixed by a coordinate condition. Here the slope is unknown and the integer condition on the other line fixes the point."
+   }
+  ],
+  "MA11": [
+   {
+    "other_id": "CLD-SAT-M-000602 (= ideas-gen-12 GA13)",
+    "severity": "close",
+    "why": "Compound inequality through a linear relation. 602 has a positive slope; here the negative coefficient reverses which bound gives which end."
+   },
+   {
+    "other_id": "CLD-SAT-M-000038",
+    "severity": "close",
+    "why": "Single inequality with a negative coefficient. Different ask."
+   }
+  ],
+  "MA12": [
+   {
+    "other_id": "CLD-SAT-M-000135 / Q060-02 (ideas-gen-12 GA02)",
+    "severity": "close",
+    "why": "Read numbers from one fixed budget equation. Here a price change is translated into intercept changes. Different ask."
+   },
+   {
+    "other_id": "MA06 (this set)",
+    "severity": "close",
+    "why": "See MA06."
+   }
+  ],
+  "MA13": [
+   {
+    "other_id": "CLD-SAT-M-000422",
+    "severity": "close",
+    "why": "Generator flag. 422 solves an equation for an unknown joining fee from a total and an average. Here the fee is known and an average-cost cap gives an inequality that must be rounded up. Different ask; allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000398 (ACT)",
+    "severity": "close",
+    "why": "Cross-exam note. Fixed cost plus per-item cost with a target average, solved as an equation with a whole-number answer. MA13 adds the inequality and rounding up."
+   },
+   {
+    "other_id": "CLD-SAT-M-000487 (= ideas-gen-07 BB12)",
+    "severity": "close",
+    "why": "Average cost at most a value, but with a quadratic cost. Different mechanism."
+   }
+  ],
+  "MA14": [
+   {
+    "other_id": "CLD-SAT-M-000421",
+    "severity": "close",
+    "why": "A dollar change equal to a percent of a starting value. Here a proportional rule makes the change in total equal (1 + r) times the change in price. Different mechanism."
+   },
+   {
+    "other_id": "CLD-SAT-M-000493 / ideas-gen-06 AA01",
+    "severity": "close",
+    "why": "Taxed linear totals. Different ask."
+   }
+  ],
+  "MA15": [
+   {
+    "other_id": "CLD-SAT-M-000306",
+    "severity": "close",
+    "why": "Percent change applied directly to a slope. Here the percent change is on the x-intercept, so the slope changes by the reciprocal factor."
+   },
+   {
+    "other_id": "CLD-SAT-M-000494 (= ideas-gen-08 CA04)",
+    "severity": "close",
+    "why": "Battery drain at a constant rate. Different ask."
+   }
+  ],
+  "MA16": [
+   {
+    "other_id": "CLD-SAT-M-000279 / ideas-gen-12 GA10",
+    "severity": "close",
+    "why": "Building or interpreting a linear demand model. Here the slope must be rescaled from per $0.50 to per dollar and the intercept recovered. Different ask."
+   }
+  ],
+  "MA17": [
+   {
+    "other_id": "ideas-gen-03 J03",
+    "severity": "template",
+    "why": "Not named by the generator. J03: 'The system y > 2x + 1 and y < 2x + k has no solutions; which could be k?' with the key at the boundary (k = 1) and the trap that the shared boundary line gives solutions. MA17 is the same parallel-strip mechanism and the same asked quantity (no-solution values of the constant), with the boundary case again the point. J03 was turned into a different item (Q038-02 / CLD-SAT-M-000328) when drafted, but it is an earlier idea and MA17 re-uses it (same precedent as KC10 vs BC04 in ideas-065)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000483",
+    "severity": "close",
+    "why": "Least k making three inequalities nonempty. Different mechanism."
+   },
+   {
+    "other_id": "MA04 (this set)",
+    "severity": "close",
+    "why": "See MA04."
+   }
+  ],
+  "MA18": [
+   {
+    "other_id": "CLD-SAT-M-000589",
+    "severity": "close",
+    "why": "Two formulas with equal slopes. Here the slopes differ and the side of the crossing is asked."
+   }
+  ],
+  "MC01": [
+   {
+    "other_id": "CLD-SAT-M-000156",
+    "severity": "close",
+    "why": "Same 1/sqrt(n) relationship and the same numbers (400 voters, 5 points). 156 runs it forward (n quadruples, MOE halves, answered qualitatively); MC01 inverts it to find n for a target MOE and asks for the increase. Different ask, so allowed, but change 400/5 (e.g. 600 voters, 4 points, target 2 → 2,400 total, 1,800 more) so it does not read as a re-skin of 156."
+   },
+   {
+    "other_id": "MC02 (this set)",
+    "severity": "close",
+    "why": "Generator flag. Both use MOE ∝ 1/sqrt(n): MC01 numerically, MC02 qualitatively for a subgroup. Different ask; both allowed, but keep them in different batches."
+   }
+  ],
+  "MC02": [
+   {
+    "other_id": "CLD-SAT-M-000156 / CLD-SAT-M-000311 / CLD-ACT-M-000234",
+    "severity": "close",
+    "why": "Use or rescale a reported margin of error. Here the reported margin does not apply to a subgroup. Different ask."
+   },
+   {
+    "other_id": "MC03 / MC04 (this set)",
+    "severity": "close",
+    "why": "Generator flag: shared 'most appropriate conclusion' shape. The content differs (subgroup MOE, overlap within one poll, study design). MC04 is dropped for another reason; MC02 and MC03 can both stay but not adjacent."
+   }
+  ],
+  "MC03": [
+   {
+    "other_id": "CLD-SAT-M-000316 (= ideas-gen-01 G25)",
+    "severity": "close",
+    "why": "Plausible common value from two independent polls' intervals. Here the overlap is used to judge a claimed lead within one poll. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000653",
+    "severity": "close",
+    "why": "Evaluating a poll claim. Different issue (self-selection)."
+   }
+  ],
+  "MC04": [
+   {
+    "other_id": "ideas-gen-04 R02",
+    "severity": "template",
+    "why": "Not named by the generator. R02: 'Researchers selected 400 adults at random from a city's residents...social media use...worse sleep. Which conclusion is best supported?' with the same four-choice grid (causes for the city / association for the city, key / association only for the 400 / causes only for the 400). MC04 changes only the context (screen time before bed) and n. R02 was dropped at batch 41 as 'cue, official format', and ideas-041 noted that next to CLD-SAT-M-000018 the shared 2x2 grid gives away each item's key. Re-using it repeats both problems."
+   },
+   {
+    "other_id": "CLD-SAT-M-000018 / CLD-SAT-M-000222 / CLD-SAT-M-000055 / CLD-SAT-M-000357",
+    "severity": "close",
+    "why": "The other cells of the selection/assignment grid. Same opening sentence as 018."
+   }
+  ],
+  "MC05": [
+   {
+    "other_id": "CLD-ACT-M-000651 (ACT, area on a scale map)",
+    "severity": "close",
+    "why": "Cross-exam note. Map scale, but area; no enlargement."
+   },
+   {
+    "other_id": "CLD-SAT-M-000132",
+    "severity": "close",
+    "why": "Applies a stated scale once. Here the enlargement must be undone first."
+   }
+  ],
+  "MC06": [
+   {
+    "other_id": "CLD-ACT-M-000077 (ACT, evaporation)",
+    "severity": "close",
+    "why": "Cross-exam note, strong. 40 L at 15% salt, water evaporates until 25% salt; how much water evaporated? Same mechanism (the unchanged component's share fixes the new total). ACT asks for the amount removed; MC06 asks for the new total. Different ask, so allowed."
+   },
+   {
+    "other_id": "ideas-gen-16 KC04 / CLD-SAT-M-000542",
+    "severity": "close",
+    "why": "Percents of changing bases / adding a component. Different mechanism."
+   }
+  ],
+  "MC07": [
+   {
+    "other_id": "CLD-ACT-M-000285 (ACT, tag and recapture)",
+    "severity": "close",
+    "why": "Generator flag. Cross-exam note. ACT 285 is the direct proportion; MC07 must first remove the 10% of lost tags (120 → 108), and the uncorrected answer (2,000) is a trap. That is a real added step, not a re-skin. No tag-and-recapture item in the SAT bank or the drafts. Allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000428",
+    "severity": "close",
+    "why": "Population estimate from a sample percent. Different setup."
+   }
+  ],
+  "MC08": [
+   {
+    "other_id": "CLD-SAT-M-000727 / CLD-SAT-M-000524",
+    "severity": "close",
+    "why": "Rates per base from counts. Here only shares are given and rates per car reverse the count-based claim."
+   },
+   {
+    "other_id": "CLD-SAT-M-000161",
+    "severity": "close",
+    "why": "Shares of a total by subgroup. Different ask."
+   }
+  ],
+  "MC09": [
+   {
+    "other_id": "CLD-ACT-M-000767 (ACT, median interval from a histogram)",
+    "severity": "close",
+    "why": "Cross-exam note. Grouped data, but locating the median."
+   },
+   {
+    "other_id": "CLD-SAT-M-000312 / CLD-SAT-M-000394",
+    "severity": "close",
+    "why": "Median bounds / exact mean from a frequency table. Different ask."
+   }
+  ],
+  "MC10": [
+   {
+    "other_id": "CLD-SAT-M-000418 / CLD-SAT-M-000267 / ideas-gen-12 GC13",
+    "severity": "close",
+    "why": "Compute with or choose a line of best fit. No extrapolation-validity item in the bank, drafts or earlier sets."
+   }
+  ],
+  "MC11": [
+   {
+    "other_id": "CLD-ACT-M-000326 (ACT, 15 mg per kg, 44 lb child)",
+    "severity": "close",
+    "why": "Cross-exam note. Same 15 mg/kg rate and pound-to-kilogram step; MC11 adds the 3-way split and the 250 mg / 5 mL concentration, so it is not a re-skin. Change the rate (e.g. 12 or 20 mg/kg) so it does not echo ACT 326."
+   },
+   {
+    "other_id": "CLD-SAT-M-000448",
+    "severity": "close",
+    "why": "Chained rate conversions. Different context."
+   }
+  ],
+  "MC12": [
+   {
+    "other_id": "CLD-SAT-M-000419",
+    "severity": "close",
+    "why": "Conditional probability on a complement after finding an overlap. Here the condition is the union."
+   },
+   {
+    "other_id": "ideas-gen-07 BC04 / ideas-gen-16 KC10 (dropped)",
+    "severity": "close",
+    "why": "P(A or B) by inclusion-exclusion with double counting as the trap. MC12 conditions on the union and asks for P(both | union). Different ask, but the double-count distractor (3/16) is the same idea. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000284 / CLD-ACT-M-000555",
+    "severity": "close",
+    "why": "Cross-exam note: OR probability with overlap."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "MA09": "Answer cue: testing n = 1 (cost must be $5.00) eliminates all three distractors at once (A 5.40, B 5.40, C 5.80; key D 5.00). Replace two distractors with expressions that also give 5.00 at n = 1, e.g. 5.00n (charges $5 for every copy) and 4.60n + 0.40 (attaches the rates to the wrong terms), so the student has to check n = 2 or reason about the rate.",
+  "MA11": "Choice C (−27.5 ≤ t ≤ −17.5) gives negative times and can be ruled out at a glance. It is weak but does not give the key away. Consider a positive-interval error instead, e.g. 12.5 ≤ t ≤ 22.5 (subtracts the bounds from 1,300 instead of 1,500), so all four choices are plausible.",
+  "MA10": "SPR. The generator flags weak traps; for an SPR item this is not a defect. Only one lattice point (3, 2) exists, which is correct. Accept 2/3, .6666, .6667, 0.666, 0.667.",
+  "MA18": "Not a cue: testing a = 30 and a = 50 eliminates the distractors, but that is checking the solution set, which is the skill.",
+  "MA16": "Not a cue: p = 3 eliminates only C (B and D also pass through (3, 400) by design); a second point is needed.",
+  "MC02": "Ambiguity in choice A: 'It is plausible that between 57% and 63% of the state's voters under age 30 support the measure' is literally true, since every value from 57% to 63% lies inside the wider (about ±6) plausible interval. A student can defend A. Reword A so it is clearly false, e.g. 'The margin of error for this estimate is 3 percentage points, the same as for the whole sample' or 'It is unlikely that fewer than 57% of the state's voters under age 30 support the measure.'",
+  "MC03": "No second defensible answer. D uses standard SAT wording (plausible values from each interval). A (lead greater than one margin of error) is the intended trap and is correctly false under SAT conventions, since each percent has its own ±3.3 interval.",
+  "MC09": "Ambiguity, must fix: if commute times are whole minutes (the natural reading of 'at least 0 but less than 10 minutes' for a commute survey), the greatest values are 9, 19 and 29, the greatest total is 370 and the greatest mean is 18.5, so the key becomes 18, not 19. State that times were measured to the nearest second / need not be whole numbers, or key it as 18 with whole-minute times stated.",
+  "MC05": "Say 'On the original map, 1 centimeter represents 2 kilometers' so no one reads the stated scale as printed on the copy (a printed scale bar would enlarge with the copy).",
+  "MC01 / MC02 / MC03": "Three margin-of-error items in one 12-item PSDA set (plus MC04's study-design conclusion). With MC04 dropped, keep MC01, MC02 and MC03, but no two in the same batch, and MC01 and MC02 apart because both run on MOE ∝ 1/sqrt(n).",
+  "MA06 / MA12": "Both two-input linear money models; different asks. Allowed, not adjacent.",
+  "MA04 / MA17": "Both turn on a strict-inequality boundary value. Moot once MA17 is dropped.",
+  "other": "No choice gives the key away in MA03, MA05, MA06, MA12, MA15, MC05, MC06, MC10, MC11 or MC12, and no key is guessable without the math. MC10's key is the only choice citing the data's range, which is the standard SAT form for extrapolation items. No purely numeric calculator shortcut was found in the SPR items beyond ordinary checking."
+ },
+ "math_errors": {
+  "none": "All 30 keys recomputed in Python and correct: MA01 10; MA02 4 (b = 2, 4, 6, 8); MA03 D (2 × 11.40 = 22.80 ≠ 21.60; C's prices give 11.40 and 22.80); MA04 1 (m = 1 works, 1.01 fails near x = 4); MA05 3.2 (C 4.36, A 2.4, D 5.4); MA06 64 (D 47.25); MA07 860 (1,440, 460, 360); MA08 9 (s = 20, c = 4; 1.875, 4.5); MA09 0.40n + 4.60; MA10 2/3 (only lattice point (3, 2)); MA11 17.5 ≤ t ≤ 27.5; MA12 intercepts 50, 20 → 50, 25 (B's 62.5 = 300/4.8); MA13 13 (12 visits $9.25, 13 visits $8.96; 45/3.5 = 12.86; traps 5 and 9 correct); MA14 8 (menu price 50.25 → 52.00; traps 7.4, 3.5 correct); MA15 0.64 (0.60, 1.00); MA16 n = 520 − 40p (B and D pass through (3, 400)); MA18 a > 40 (C 17.14); MC01 2,100 (600 linear); MC02 subgroup MOE about 6 (= 3√4); MC03 3.3 is realistic for n = 900 (1.96√(0.49·0.51/900) = 3.27); MC05 14.4 (13.5, 18, 22.5); MC06 12.5 (12, 20); MC07 1,800 (2,000, 2,200, 7.2); MC08 3 (1.2); MC09 19 under real-valued times (14.5 midpoint estimate; 18 if times are whole minutes, see cues); MC10 266; MC11 1 mL (0.2, 2.2, 3); MC12 3/13 (3/20, 3/16, 1/3). Every distractor value matches its stated rationale. The only key at risk is MC09, which depends on wording, not arithmetic."
+ },
+ "recommend_drop": [
+  "MC04",
+  "MA17",
+  "MA08"
+ ]
+}
