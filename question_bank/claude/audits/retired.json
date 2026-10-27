@@ -395,6 +395,20 @@
    "audit": "reviews/sat_math/audit-400-concept-repeats.json",
    "date": "2026-10-27",
    "kind": "audit-template"
+  },
+  "CLD-SAT-M-000436": {
+   "duplicate_of": "CLD-SAT-M-000326",
+   "shared_idea": "Both: f is given only by a table and combined with a linear rule (f(g(a)) = 9 with g(x) = 3x - 3 vs g(x) = f(x + 1) - 2 = 6); read the table backward for the inner value, then solve a linear equation. Same steps, and both answers are 2.",
+   "audit": "reviews/sat_math/audit-500-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
+  },
+  "CLD-SAT-M-000471": {
+   "duplicate_of": "CLD-SAT-M-000453",
+   "shared_idea": "Same frame, 'For the linear function f, f(a) = b, and [a disguised second value]. What is the value of f(0)?' 471 hides f(12) in a percent, 453 hides f(5) in a nested input; after decoding, both are a two-point line read at x = 0. This is the third use of the frame after SAT 410.",
+   "audit": "reviews/sat_math/audit-500-concept-repeats.json",
+   "date": "2026-10-27",
+   "kind": "audit-template"
   }
  }
 }
