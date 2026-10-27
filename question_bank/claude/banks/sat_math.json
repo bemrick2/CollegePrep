@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 86,
-  "updated_at": "2026-10-27T20:01:16+00:00",
+  "version": 87,
+  "updated_at": "2026-10-27T20:03:07+00:00",
   "passages": [],
   "questions": [
     {
@@ -70164,6 +70164,806 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-086.review.json",
         "computation": "checks/sat_math/batch_086.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000966",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Difference of a two-input linear cost for any value",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A car rental company charges C = 25d + 0.15m dollars to rent a car for d days and drive it m miles. Trip A is a 3-day rental in which the car is driven m miles, and trip B is a 2-day rental in which the car is driven m + 100 miles. Which of the following statements is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Trip B costs $10 more than trip A.",
+        "B": "Trip B costs $15 more than trip A.",
+        "C": "Which trip costs more depends on the value of m.",
+        "D": "Trip A costs $10 more than trip B."
+      },
+      "correct_answer": "D",
+      "explanation": "Trip A costs 75 + 0.15m and trip B costs 50 + 0.15(m + 100) = 65 + 0.15m. The difference is (75 + 0.15m) − (65 + 0.15m) = 10 for every value of m, so trip A costs $10 more.",
+      "distractor_explanations": {
+        "A": "Reverses the sign of the difference.",
+        "B": "Counts only the extra 100 miles, 0.15 × 100.",
+        "C": "Does not see that the 0.15m terms cancel."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Write each trip's cost in terms of m."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try two different values of m to see the pattern."
+      },
+      "remember": "Subtract the expressions; common terms may cancel.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-01",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000967",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Expression as a multiple of a given linear form",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 6x − 4y = 18, what is the value of y − 1.5x?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-9/2",
+      "accepted_answers": [
+        "-9/2",
+        "-4.5"
+      ],
+      "common_errors": [
+        {
+          "value": "4.5",
+          "rationale": "4.5 divides by 4 instead of −4.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "18",
+          "rationale": "18 is the given constant.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The expression y − 1.5x is −1/4 of 6x − 4y, since −(1/4)(6x − 4y) = −1.5x + y. So y − 1.5x = −(1/4)(18) = −4.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How is y − 1.5x related to 6x − 4y?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the factor that turns one expression into the other."
+      },
+      "remember": "Look for a multiple of the given expression instead of solving.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-02",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-9/2",
+        "blind_answer": "-9/2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: accept -9/2 as an equivalent entry"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000968",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Interpreting a difference of function values",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The depth of snow on a roof, in centimeters, t hours after it stops snowing is modeled by S(t) = 30 − 1.5t. Which of the following is the best interpretation of S(t) − S(t + 3) in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The snow depth, in centimeters, 3 hours after it stops snowing",
+        "B": "The decrease in snow depth, in centimeters, during any 3-hour period",
+        "C": "The decrease in snow depth, in centimeters, during each hour",
+        "D": "The number of hours it takes for the snow depth to decrease by 3 centimeters"
+      },
+      "correct_answer": "B",
+      "explanation": "S(t) − S(t + 3) = (30 − 1.5t) − (30 − 1.5t − 4.5) = 4.5 for every t. It is the amount the depth drops from time t to 3 hours later, that is, the decrease during any 3-hour period.",
+      "distractor_explanations": {
+        "A": "Reads the expression as S(3).",
+        "C": "Describes the slope, the decrease per hour.",
+        "D": "Swaps the roles of time and depth."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What does each term represent?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate the expression for t = 0 and t = 2."
+      },
+      "remember": "A difference of outputs is a change over an interval.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-03",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: 'during any 3-hour period' holds only while the model is valid (S >= 0, t <= 17 for the full interval); could say 'any 3-hour period after it stops snowing'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000969",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Conditions on two constants from a solution point",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the point (4, 3) is a solution to the system of inequalities y < ax − 5 and y > b − 2x, where a and b are constants. Which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a > 2 and b < 11",
+        "B": "a > 2 and b > 11",
+        "C": "a < 2 and b < 11",
+        "D": "a < 2 and b > 11"
+      },
+      "correct_answer": "A",
+      "explanation": "Substituting (4, 3): 3 < 4a − 5 gives 4a > 8, so a > 2, and 3 > b − 8 gives b < 11.",
+      "distractor_explanations": {
+        "B": "Reverses the second inequality when isolating b.",
+        "C": "Reverses the first inequality when isolating a.",
+        "D": "Reverses both inequalities."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Substitute x = 4 and y = 3 into each inequality."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve each inequality for its constant."
+      },
+      "remember": "Keep each inequality's direction when isolating a constant.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-05",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: structure resembles the official SAT item where a point satisfies y < ax + b-type inequalities and students find what must be true of the constants; numbers differ, so it is not a close copy"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000970",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Interpreting the base of an exponential fit with a decade unit",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A scatterplot shows the population y, in millions, of a country x decades after 1950, for x = 0 to x = 7. An exponential curve of best fit for the data is y = 2.1(1.4)^x. Which of the following is the best interpretation of 1.4 in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The predicted population increases by 40% each year.",
+        "B": "The predicted population increases by 1.4 million each decade.",
+        "C": "The predicted population increases by 40% each decade.",
+        "D": "The predicted population increases by 1.4 million each year."
+      },
+      "correct_answer": "C",
+      "explanation": "Each increase of 1 in x is one decade, and it multiplies the predicted population by 1.4, which is a 40% increase each decade.",
+      "distractor_explanations": {
+        "A": "Ignores that x counts decades.",
+        "B": "Reads the base as an additive change.",
+        "D": "Reads the base as additive and ignores the decade unit."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What does an increase of 1 in x mean here?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the unit of x and whether the change is additive or multiplicative."
+      },
+      "remember": "In y = a(b)^x, b is the growth factor per unit of x.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-06",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000971",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Recovering a sample count from an interval",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A news report, based on a random sample of 1,200 adults in a state, says that between 38% and 44% of the state's adults carpool to work. This range is the sample percent plus or minus the margin of error. How many adults in the sample said they carpool to work?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "492",
+      "accepted_answers": [
+        "492"
+      ],
+      "common_errors": [
+        {
+          "value": "456",
+          "rationale": "456 uses the lower end, 38%.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "36",
+          "rationale": "36 is 3% of 1,200, treating the margin of error as a count.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sample percent is the midpoint of the interval, (38 + 44)/2 = 41%, and the margin of error is 3 percentage points. The number in the sample is 0.41 × 1,200 = 492.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the sample percent within the interval?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the midpoint, then apply it to the sample size."
+      },
+      "remember": "The estimate is the midpoint of the interval.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-07",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "492",
+        "blind_answer": "492",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000972",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Diagnosing a causal claim from random selection",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A researcher selected 300 of a university's 9,000 students at random. Of these 300 students, 120 had chosen to attend a free study-skills workshop, and their mean grade point average (GPA) the next term was higher than that of the other 180 students. The researcher claims, \"Because the students were selected at random, these results show that the workshop caused higher GPAs among the university's students.\" Which statement best explains why this claim is not justified?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Students chose whether to attend, so the groups may differ in other ways; random selection does not make the workshop the cause.",
+        "B": "A sample of 300 students is too small to support any conclusion about all 9,000 students, even with random selection.",
+        "C": "Because the students were selected at random, the results apply only to the 300 selected students and not to the university.",
+        "D": "The two groups had different numbers of students, 120 and 180, so their mean GPAs cannot be compared fairly."
+      },
+      "correct_answer": "A",
+      "explanation": "Random selection supports generalizing to the university, but the students chose whether to attend the workshop. Without random assignment, other differences between the groups, such as motivation, could explain the higher GPAs.",
+      "distractor_explanations": {
+        "B": "Treats a random sample of 300 as too small for any conclusion.",
+        "C": "Reverses what random selection does.",
+        "D": "Assumes groups of unequal size cannot be compared by their means."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Who decided which students attended the workshop?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Separate what random selection does from what random assignment does."
+      },
+      "remember": "Only random assignment supports a cause-and-effect conclusion.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-08",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: A is the longest choice and the only one built on 'self-selection', which is a mild length cue"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000973",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percentage points versus percent change",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From 2020 to 2024, the percent of the households in a town that had solar panels increased from 8% to 10%. Which statement correctly describes this change?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "It increased by 2 percent, which is an increase of 25 percentage points.",
+        "B": "It increased by 2 percentage points, which is an increase of 25 percent.",
+        "C": "It increased by 2 percentage points, which is an increase of 20 percent.",
+        "D": "It increased by 2 percent, which is an increase of 20 percentage points."
+      },
+      "correct_answer": "B",
+      "explanation": "The difference 10 − 8 = 2 is measured in percentage points. Relative to the starting value of 8%, it is an increase of 2/8 = 25 percent.",
+      "distractor_explanations": {
+        "A": "Swaps the two terms.",
+        "C": "Uses the final value 10% as the base, 2/10.",
+        "D": "Swaps the terms and uses the wrong base."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the base for a percent change?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide the absolute change first, then the relative change."
+      },
+      "remember": "Differences of percents are percentage points; relative change uses the starting value.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-10",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000974",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Median after adding a value that keeps the mean",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The data set 2, 3, 4, 5, 20, 26 consists of six numbers. A seventh number is added to the data set, and the mean of the data set does not change. What is the median of the new data set of seven numbers?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "4.5",
+          "rationale": "4.5 is the median of the original six numbers.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 is the mean, which is also the added number.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The mean is 60/6 = 10. The new sum must be 7 × 10 = 70, so the added number is 10. The new ordered list is 2, 3, 4, 5, 10, 20, 26, and its median is the fourth value, 5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What number keeps the mean the same?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the added value from the sum, then reorder."
+      },
+      "remember": "Adding a value equal to the mean leaves the mean unchanged.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-11",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "5",
+        "blind_answer": "5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000975",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Conditional probability from a two-way table",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table shows all 60 tiles in a bag, by color and shape: red squares, 12; red circles, 18; blue squares, 20; blue circles, 10. If a blue tile is selected at random from the bag, what is the probability that it is a circle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1/6",
+        "B": "1/3",
+        "C": "5/14",
+        "D": "2/3"
+      },
+      "correct_answer": "B",
+      "explanation": "There are 20 + 10 = 30 blue tiles, and 10 of them are circles, so the probability is 10/30 = 1/3.",
+      "distractor_explanations": {
+        "A": "Uses all 60 tiles as the denominator.",
+        "C": "Uses all 28 circles as the denominator.",
+        "D": "Finds the probability of a square."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many blue tiles are there?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Restrict to the given condition before counting."
+      },
+      "remember": "\"Given\" a condition, count only within that group.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-12",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: stem says 'The table shows' but the data are given inline in text; either render the table or reword"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000976",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "What a margin of error does and does not guarantee",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A random sample of 500 of a city's 80,000 adults were asked whether they had used the public library in the past year, and 62% of the sample said yes. The margin of error for this estimate is 4 percentage points. Which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Between 58% and 66% of the city's adults used the public library in the past year.",
+        "B": "At least 46,400 of the city's adults used the public library in the past year.",
+        "C": "Exactly 310 adults in another random sample of 500 from the city would say yes.",
+        "D": "Exactly 310 of the 500 adults in the sample said they had used the library."
+      },
+      "correct_answer": "D",
+      "explanation": "62% of 500 is 310, a fact about the sample. Statements about the city's adults describe plausible values only, and the margin of error describes uncertainty about the population, not about the sample's own count.",
+      "distractor_explanations": {
+        "A": "Treats the plausible interval as certain.",
+        "B": "Treats 58% of 80,000 as a guaranteed floor.",
+        "C": "Applies the sample's result to a future sample; a new random sample would vary by chance."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Which statements are about the sample, and which about the city?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask which statement is certain rather than plausible."
+      },
+      "remember": "A margin of error describes the population estimate, not the sample.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 87,
+      "draft_candidate": "Q087-13",
+      "created_at": "2026-10-27T20:03:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [
+          "minor: if 62% were a rounded figure, 'exactly 310' would not strictly follow; adding 'exactly 62%' would close this"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-087.review.json",
+        "computation": "checks/sat_math/batch_087.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
