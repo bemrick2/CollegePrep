@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T07:28:38+00:00",
+  "updated_at": "2026-10-27T07:31:34+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 261,
+    "act_english": 271,
     "act_reading": 255,
     "sat_reading_writing": 268,
     "sat_math": 509
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 262,
+      "PASS": 272,
       "REVISE": 10,
       "REJECT": 0,
-      "candidates": 272,
+      "candidates": 282,
       "passed_after_revision": 7
     },
     "act_reading": {
@@ -873,18 +873,18 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 261,
+      "accepted": 271,
       "retired_after_audit": 1,
       "by_skill": {
-        "Conventions of Standard English": 143,
-        "Knowledge of Language": 37,
-        "Production of Writing": 81
+        "Conventions of Standard English": 150,
+        "Knowledge of Language": 38,
+        "Production of Writing": 83
       },
       "by_subskill": {
         "Adding a sentence (relevance)": 2,
         "Adding a sentence: relevance and focus": 1,
         "Adjective versus adverb": 1,
-        "Adjectives versus adverbs": 1,
+        "Adjectives versus adverbs": 2,
         "Affect versus effect": 2,
         "Agreement across an interrupting clause": 1,
         "Agreement in an inverted sentence (lie/lay)": 1,
@@ -914,6 +914,7 @@
         "Commas in a series within a compound sentence": 1,
         "Commas with a nonessential clause": 1,
         "Commonly confused words (involve/evolve)": 1,
+        "Comparative adjectives (double comparative)": 1,
         "Comparative with two items": 1,
         "Concision": 2,
         "Concision (redundancy)": 3,
@@ -935,12 +936,12 @@
         "Deciding whether to keep a sentence": 9,
         "Double negatives": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 10,
+        "Evaluating whether an essay meets a goal": 11,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 3,
         "Faulty comparison (\"any other\")": 1,
         "Fewer versus less": 1,
-        "Function of a sentence (what would be lost)": 1,
+        "Function of a sentence (what would be lost)": 2,
         "Idiom (\"arrive at\")": 1,
         "Idiom (\"by design\")": 1,
         "Idiom (phrasal verb)": 1,
@@ -964,6 +965,7 @@
         "No comma between a subject and its verb": 1,
         "No comma in a \"so ... that\" construction": 1,
         "Nonessential clause with \"which\"": 2,
+        "Paired dashes": 1,
         "Paired dashes around an interrupting list": 1,
         "Parallel infinitives": 1,
         "Parallel structure": 3,
@@ -998,8 +1000,9 @@
         "Restrictive appositive with a title": 1,
         "Semicolon between independent clauses": 1,
         "Semicolon joining two independent clauses": 2,
+        "Semicolon misuse (compound predicate)": 1,
         "Semicolons joining independent clauses": 1,
-        "Sentence boundaries": 3,
+        "Sentence boundaries": 4,
         "Sentence fragment": 1,
         "Sentence fragment (appositive)": 1,
         "Sentence fragment (finite verb)": 1,
@@ -1010,6 +1013,7 @@
         "Singular possessive": 2,
         "Subject-verb agreement": 2,
         "Subject-verb agreement (\"each of\")": 1,
+        "Subject-verb agreement (intervening phrase)": 1,
         "Subject-verb agreement across a prepositional phrase": 1,
         "Subject-verb agreement in a relative clause": 1,
         "Subject-verb agreement in an inverted sentence": 1,
@@ -1025,7 +1029,7 @@
         "Transitional sentences between paragraphs": 1,
         "Transitions (alternative)": 1,
         "Transitions (cause and effect)": 3,
-        "Transitions (concession)": 3,
+        "Transitions (concession)": 4,
         "Transitions (contrast of theory and practice)": 1,
         "Transitions (contrast with an expectation)": 1,
         "Transitions (contrast with an expected result)": 1,
@@ -1039,6 +1043,7 @@
         "Unnecessary comma before a that-clause": 2,
         "Unnecessary comma between a verb and its object": 1,
         "Unnecessary comma between noun and clause": 1,
+        "Unnecessary comma between subject and verb": 1,
         "Unnecessary comma in a clause": 1,
         "Unnecessary comma in a relative clause": 1,
         "Verb form in a past conditional": 1,
@@ -1057,29 +1062,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 81,
+        "easy": 87,
         "hard": 27,
-        "medium": 153
+        "medium": 157
       },
       "by_difficulty_calibrated": {
-        "easy": 140,
+        "easy": 146,
         "hard": 4,
-        "medium": 117
+        "medium": 121
       },
       "calibrated_share": {
-        "easy": 0.536,
+        "easy": 0.539,
         "hard": 0.015,
-        "medium": 0.448
+        "medium": 0.446
       },
       "answer_key_balance": {
-        "A": 65,
-        "B": 66,
-        "C": 66,
-        "D": 64
+        "A": 67,
+        "B": 70,
+        "C": 68,
+        "D": 66
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 26
+      "passages": 27
     },
     "act_reading": {
       "accepted": 255,
@@ -2058,7 +2063,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 26,
+    "act_english": 27,
     "act_reading": 32,
     "sat_reading_writing": 30,
     "sat_math": 56
@@ -2117,14 +2122,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
-      }
-    },
     "act_reading": {
       "next_batch": 33,
       "skill_gap_for_next_10": {
@@ -2141,6 +2138,14 @@
         "Standard English Conventions": 13.3,
         "Expression of Ideas": -2.4
       }
+    },
+    "act_english": {
+      "next_batch": 28,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 30.8,
+        "Knowledge of Language": 19.6,
+        "Conventions of Standard English": -36.2
+      }
     }
   },
   "section_targets": {
@@ -2151,8 +2156,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 261,
-      "share_of_target": 0.379
+      "accepted": 271,
+      "share_of_target": 0.393
     },
     "act_reading": {
       "target": 684,
@@ -2171,7 +2176,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2067,
+  "total_accepted": 2077,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -50406,7 +50411,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 26,
+      "bank_version": 27,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -50553,7 +50558,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T07:28:38+00:00",
+    "heartbeat_at": "2026-10-27T07:31:34+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
