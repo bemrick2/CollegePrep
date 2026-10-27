@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 57,
-  "updated_at": "2026-10-27T07:33:04+00:00",
+  "version": 58,
+  "updated_at": "2026-10-27T13:31:33+00:00",
   "passages": [],
   "questions": [
     {
@@ -39331,6 +39331,1667 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-057.review.json",
         "computation": "checks/sat_math/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000546",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Finding and correcting the one entry that breaks linearity",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A quantity y is known to be a linear function of x. A student recorded the values below, and exactly one of the y-values was recorded incorrectly.\nx: 1, 4, 6, 9, 13\ny: 5, 14, 21, 29, 41\nWhat is the correct value of the incorrect entry?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18",
+        "B": "20",
+        "C": "21.5",
+        "D": "31.5"
+      },
+      "correct_answer": "B",
+      "explanation": "The points (1, 5), (4, 14), (9, 29) and (13, 41) all lie on y = 3x + 2: for example, (14 − 5)/(4 − 1) = 3 and (41 − 29)/(13 − 9) = 3. The point (6, 21) does not, since 3(6) + 2 = 20. So the incorrect entry is 21, and its correct value is 20.",
+      "distractor_explanations": {
+        "A": "18 uses y = 3x and drops the intercept 2.",
+        "C": "21.5 averages the neighboring y-values 14 and 29, although the x-steps on either side (2 and 3) are unequal.",
+        "D": "31.5 trusts (4, 14) and (6, 21), uses their slope 3.5, and wrongly changes the x = 9 entry to 21 + 3.5(3)."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find the slope between pairs of points; which point disagrees with the others?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute slopes between consecutive points and look for the one pair that breaks the pattern."
+      },
+      "remember": "When x-steps are unequal, compare slopes, not differences in y.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-02",
+      "created_at": "2026-10-27T13:31:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000547",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Distance from the gap between two arrival times",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "After an earthquake, P waves travel through the ground at about 6 kilometers per second and S waves at about 3.5 kilometers per second. A seismograph station records the first P wave 20 seconds before the first S wave. How far, in kilometers, is the station from the earthquake?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "168",
+      "accepted_answers": [
+        "168"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 multiplies the 20-second gap by the difference in speeds, 6 − 3.5.",
+          "trap": null
+        },
+        {
+          "value": "70",
+          "rationale": "70 is the distance an S wave travels in 20 seconds.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "120",
+          "rationale": "120 is the distance a P wave travels in 20 seconds.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the distance is d kilometers, the S wave takes d/3.5 seconds and the P wave takes d/6 seconds. Then d/3.5 − d/6 = 20, so d(12 − 7)/42 = 20 and d = 168. Check: 168/3.5 = 48 seconds and 168/6 = 28 seconds, a gap of 20 seconds.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each wave's travel time in terms of the distance."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the difference of the two travel times equal to 20."
+      },
+      "remember": "When two things start together, the gap between arrivals is the difference of their travel times.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-04",
+      "created_at": "2026-10-27T13:31:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "168",
+        "blind_answer": "168",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000548",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Total mileage from a bill with a per-day allowance",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rental company charges $35 per day for a car, and each day of the rental includes 100 miles of driving. Every mile beyond the total included mileage costs $0.25. The total charge for a 4-day rental was $210. How many miles was the car driven?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "280",
+        "B": "380",
+        "C": "680",
+        "D": "1,100"
+      },
+      "correct_answer": "C",
+      "explanation": "The daily fees are 4($35) = $140, and the included mileage is 4(100) = 400 miles. The extra miles cost $210 − $140 = $70, which is 70/0.25 = 280 extra miles. The car was driven 400 + 280 = 680 miles.",
+      "distractor_explanations": {
+        "A": "280 is only the number of miles beyond the included mileage.",
+        "B": "380 treats 100 miles as the allowance for the whole rental instead of for each day.",
+        "D": "1,100 charges the $35 daily fee only once."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many miles are included in a 4-day rental?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 140 + 0.25(m − 400) = 210."
+      },
+      "remember": "Subtract the fixed charges first; the remainder pays only for the extra units.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-05",
+      "created_at": "2026-10-27T13:31:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000549",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Total time for a rate that changes at a threshold",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An electric car charges at 2 percentage points per minute until its battery reaches 80%, and then at 0.5 percentage point per minute. How many minutes does it take to charge the battery from 20% to 100%?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "40",
+        "B": "64",
+        "C": "70",
+        "D": "160"
+      },
+      "correct_answer": "C",
+      "explanation": "From 20% to 80% is 60 percentage points at 2 points per minute, which takes 30 minutes. From 80% to 100% is 20 points at 0.5 point per minute, which takes 40 minutes. The total is 70 minutes.",
+      "distractor_explanations": {
+        "A": "40 uses 2 points per minute for the whole charge.",
+        "B": "64 averages the two rates to 1.25 points per minute.",
+        "D": "160 uses 0.5 point per minute for the whole charge."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Split the charge at 80%."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a timeline from 20% to 80% to 100%."
+      },
+      "remember": "When a rate changes at a threshold, compute each piece separately and add the times.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-07",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000550",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Substituting one linear rule into another in context",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A shipping service charges C = 4.50 + 0.80w dollars to ship a package that weighs w pounds. A box packed with b books weighs w = 1.5 + 0.6b pounds. Which expression gives the shipping cost, in dollars, of a box packed with b books?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6.00 + 0.48b",
+        "B": "5.70 + 0.48b",
+        "C": "4.50 + 0.48b",
+        "D": "4.20 + 0.48b"
+      },
+      "correct_answer": "B",
+      "explanation": "Substitute w = 1.5 + 0.6b into the cost rule: C = 4.50 + 0.80(1.5 + 0.6b) = 4.50 + 1.20 + 0.48b = 5.70 + 0.48b.",
+      "distractor_explanations": {
+        "A": "6.00 + 0.48b adds 1.5 to 4.50 without multiplying it by 0.80.",
+        "C": "4.50 + 0.48b drops the 1.5-pound weight of the empty box.",
+        "D": "4.20 + 0.48b substitutes the cost rule into the weight rule: 1.5 + 0.6(4.50 + 0.80b)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which quantity is the input to the cost rule?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try b = 10: the box weighs 7.5 pounds and costs 4.50 + 6.00 = $10.50."
+      },
+      "remember": "To combine rules, substitute the inner rule's output into the outer rule's input and distribute.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-08",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: every choice has the same 0.48b term, so students only need to work out the constant 4.50+0.80(1.5)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000551",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Proportion that holds only on a shifted temperature scale",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At constant pressure, the volume of a gas is proportional to its temperature measured in kelvins, where K = C + 273 and C is the temperature in degrees Celsius. A balloon has a volume of 2.0 liters at 27°C. At what temperature, in degrees Celsius, will its volume be 2.2 liters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−0.3",
+        "B": "29.7",
+        "C": "57",
+        "D": "330"
+      },
+      "correct_answer": "C",
+      "explanation": "27°C is 300 K. The volume grows by a factor of 2.2/2.0 = 1.1, so the kelvin temperature must too: 1.1(300) = 330 K, which is 330 − 273 = 57°C.",
+      "distractor_explanations": {
+        "A": "−0.3 treats volume as inversely proportional to temperature: 300/1.1 ≈ 272.7 K.",
+        "B": "29.7 applies the proportion to the Celsius temperature: 1.1(27).",
+        "D": "330 is the temperature in kelvins, not degrees Celsius."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Convert 27°C to kelvins first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the kelvin temperature, then convert back."
+      },
+      "remember": "A proportion applies only on the scale where zero means zero; shift, scale, then shift back.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-09",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000552",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Percent cap on total payments after a unit conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A lender requires that a borrower's total monthly debt payments, including a new mortgage payment, be at most 36% of the borrower's gross monthly income. Kim's gross annual income is $78,000, and her other monthly debt payments total $500. What is the greatest monthly mortgage payment for which Kim can qualify?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$1,840",
+        "B": "$2,160",
+        "C": "$2,340",
+        "D": "$2,840"
+      },
+      "correct_answer": "A",
+      "explanation": "Kim's gross monthly income is $78,000/12 = $6,500, so her total monthly payments can be at most 0.36($6,500) = $2,340. Her other debts use $500 of that, leaving $2,340 − $500 = $1,840 for the mortgage.",
+      "distractor_explanations": {
+        "B": "$2,160 applies 36% to income after subtracting the other debts: 0.36($6,500 − $500).",
+        "C": "$2,340 is the cap on all payments; it forgets the other debts.",
+        "D": "$2,840 adds the other debts instead of subtracting them."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "What is Kim's monthly income?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write m + 500 ≤ 0.36(6,500)."
+      },
+      "remember": "A cap on a total limits the sum; existing amounts come out of the cap.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-10",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000553",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Maximum of a quadratic built from two equal values",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A company's weekly profit, in dollars, when it sells a product at a price of p dollars is P(p) = −40p² + bp + c, where b and c are constants. The weekly profit is $2,250 when p = 6 and also when p = 14. What is the maximum possible weekly profit?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1,610",
+        "B": "2,266",
+        "C": "2,890",
+        "D": "4,000"
+      },
+      "correct_answer": "C",
+      "explanation": "Because P(6) = P(14) = 2,250, P(p) − 2,250 has zeros 6 and 14, so P(p) = −40(p − 6)(p − 14) + 2,250. The maximum is midway, at p = 10: −40(4)(−4) + 2,250 = 640 + 2,250 = 2,890.",
+      "distractor_explanations": {
+        "A": "1,610 subtracts the vertex term, 2,250 − 640, instead of adding it.",
+        "B": "2,266 forgets the leading coefficient 40: 2,250 + (4)(4).",
+        "D": "4,000 finds b = 800 but evaluates −40(10)² + 800(10) without the constant c = −1,110."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Equal outputs at p = 6 and p = 14 tell you where the vertex is."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write P(p) − 2,250 in factored form."
+      },
+      "remember": "If f(r) = f(s) for a quadratic, the vertex is at (r + s)/2.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-11",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: 'maximum possible weekly profit' should read 'maximum weekly profit'; b and c are fixed, so 'possible' suggests a range that does not exist"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000554",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Building a perimeter quadratic from a parabola",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangle has two vertices on the x-axis and the other two vertices on the parabola y = 16 − x², above the x-axis. What is the greatest possible perimeter of the rectangle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "34",
+      "accepted_answers": [
+        "34"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 places the upper vertices at x = ±2, the vertex of a different quadratic, instead of maximizing the perimeter.",
+          "trap": null
+        },
+        {
+          "value": "30.6",
+          "rationale": "About 30.6 is the perimeter of the rectangle with the greatest area, not the greatest perimeter.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Put the upper vertices at (±t, 16 − t²) with 0 < t < 4. The width is 2t and the height is 16 − t², so the perimeter is P = 2(2t) + 2(16 − t²) = −2t² + 4t + 32. This is greatest at t = −4/(2(−2)) = 1, where P = −2 + 4 + 32 = 34.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use symmetry: put the upper vertices at x = t and x = −t."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and the rectangle, and label the width and the height in terms of t."
+      },
+      "remember": "Write the quantity to maximize as a function of one variable, then find its vertex.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-12",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "34",
+        "blind_answer": "34",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000555",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a rational dose rule at two values",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Young's rule estimates a child's dose of a medicine as (adult dose) × a/(a + 12), where a is the child's age in years. By this rule, a child's dose is 1/4 of the adult dose at one age and 3/7 of the adult dose at an older age. How many years older is the second age?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "9",
+        "D": "13"
+      },
+      "correct_answer": "B",
+      "explanation": "a/(a + 12) = 1/4 gives 4a = a + 12, so a = 4. a/(a + 12) = 3/7 gives 7a = 3a + 36, so a = 9. The second age is 9 − 4 = 5 years older.",
+      "distractor_explanations": {
+        "A": "4 is the younger age, not the difference.",
+        "C": "9 is the older age, not the difference.",
+        "D": "13 adds the two ages instead of subtracting them."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Solve a/(a + 12) = 1/4 by cross-multiplying."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the rule for a at each fraction."
+      },
+      "remember": "Clear the denominator by cross-multiplying, then collect the variable on one side.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-13",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000556",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Comparing two outputs of a rational cost model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A city estimates that the cost, in thousands of dollars, of removing p percent of the litter along a river is C(p) = 120p/(100 − p), for 0 ≤ p < 100. The cost of removing 80% of the litter is how many times the cost of removing 40%?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "5",
+        "C": "6",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "C(80) = 120(80)/20 = 480 and C(40) = 120(40)/60 = 80. So the cost of removing 80% is 480/80 = 6 times the cost of removing 40%.",
+      "distractor_explanations": {
+        "A": "2 assumes the cost is proportional to p: 80/40.",
+        "B": "5 computes how much more, (480 − 80)/80, instead of how many times.",
+        "D": "12 divides C(80) = 480 by the percent 40 instead of by C(40)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Evaluate C(80) and C(40)."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute each percent into the formula."
+      },
+      "remember": "\"How many times\" means divide the two values; \"how much more\" means subtract first.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-14",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000557",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Fixed-area pen against a wall: choosing between two roots",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A farmer uses 60 meters of fencing for three sides of a rectangular pen; the fourth side is a long barn wall. If the pen's area is 400 square meters, what is the greatest possible length, in meters, of the side parallel to the barn?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 is the parallel side for the other solution, x = 20, not the greatest possible length.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 is the length of each side perpendicular to the barn.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let each side perpendicular to the barn be x meters, so the parallel side is 60 − 2x. Then x(60 − 2x) = 400, so x² − 30x + 200 = 0 and x = 10 or x = 20. These give parallel sides of 40 and 20 meters, so the greatest possible length is 40.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Let x be each side perpendicular to the barn."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the area in terms of x, solve the quadratic, and check both solutions."
+      },
+      "remember": "A fixed area can give two valid rectangles; use the question to choose between them.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-15",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "40",
+        "blind_answer": "40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000558",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Axis of symmetry from a shift that reflects the zeros",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The quadratic function f has two distinct real zeros. The zeros of the function g, defined by g(x) = f(x + 5), are the opposites of the zeros of f. What is the x-coordinate of the vertex of the graph of f?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−5",
+        "B": "−5/2",
+        "C": "5/2",
+        "D": "5"
+      },
+      "correct_answer": "C",
+      "explanation": "If f has zeros r and s, then g(x) = f(x + 5) has zeros r − 5 and s − 5. These must be −r and −s in some order. Matching r − 5 = −r would force s − 5 = −s, so r = s, which is not allowed; so r − 5 = −s, which gives r + s = 5. The vertex is midway between the zeros, at x = 5/2.",
+      "distractor_explanations": {
+        "A": "−5 shifts the zeros the wrong way and also gives their sum instead of their average.",
+        "B": "−5/2 shifts the zeros the wrong way, to r + 5 and s + 5.",
+        "D": "5 is the sum of the zeros, not the x-coordinate of the vertex."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How does replacing x with x + 5 move the zeros?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test f(x) = (x − 1)(x − 4): g has zeros −4 and −1."
+      },
+      "remember": "Replacing x with x + h moves every zero h units to the left.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-16",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000559",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Recovering the constants of a shifted square root",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = √(x − a) + b, where a and b are constants. The graph of y = f(x) in the xy-plane passes through the points (5, 3) and (13, 5). What is the value of f(29)?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 assumes f grows at a constant rate of 1/4 per unit of x, a linear pattern.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "5",
+          "rationale": "5 is √(29 − 4), forgetting to add b.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Subtracting the two equations gives √(13 − a) − √(5 − a) = 2. Let u = √(5 − a); then √(u² + 8) = u + 2, so u² + 8 = u² + 4u + 4 and u = 1. So a = 4, and b = 3 − 1 = 2. Then f(29) = √25 + 2 = 7.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Subtract the two equations to eliminate b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute u = √(5 − a) to turn the radical equation into a linear one."
+      },
+      "remember": "Eliminate one constant first, then solve the resulting radical equation and check the solution.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-18",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000560",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Reciprocal solutions of a quadratic with equal outer coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation ax² + bx + a = 0, a and b are nonzero constants. If r is a real solution of the equation, which of the following must also be a solution?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−r",
+        "B": "−1/r",
+        "C": "r − b/a",
+        "D": "1/r"
+      },
+      "correct_answer": "D",
+      "explanation": "Since a ≠ 0, r ≠ 0 (x = 0 gives a = 0). Dividing ar² + br + a = 0 by r² gives a + b(1/r) + a(1/r)² = 0, so 1/r is also a solution. Equivalently, the product of the solutions is a/a = 1.",
+      "distractor_explanations": {
+        "A": "−r assumes the solutions are symmetric about 0, which needs b = 0.",
+        "B": "−1/r takes the product of the solutions as −a/a = −1, a sign error.",
+        "C": "r − b/a misuses the sum of the solutions: the sum is −b/a, so the other solution is −b/a − r, not r − b/a."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": "sign_error"
+      },
+      "hints": [
+        "What is the product of the solutions?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try 2x² − 5x + 2 = 0: its solutions are 2 and 1/2."
+      },
+      "remember": "For ax² + bx + c = 0, the product of the solutions is c/a.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-19",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000561",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Mean after dropping the high and low scores",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a competition, each performance is scored by five judges. The highest and the lowest of the five scores are dropped, and the final score is the mean of the remaining three. Four of the judges gave a performance scores of 6.0, 7.5, 8.0 and 9.5, and its final score was 8.0. What score did the fifth judge give?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8.5",
+      "accepted_answers": [
+        "8.5",
+        "17/2"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 averages all five scores: (6.0 + 7.5 + 8.0 + 9.5 + x)/5 = 8.0.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 assumes the fifth score equals the final score.",
+          "trap": null
+        }
+      ],
+      "explanation": "If the fifth score were 6.0 or lower, the kept scores would be 6.0, 7.5 and 8.0, with mean about 7.17; if it were 9.5 or higher, they would be 7.5, 8.0 and 9.5, with mean about 8.33. Neither is 8.0, so 6.0 and 9.5 are dropped and (7.5 + 8.0 + x)/3 = 8.0, giving x = 8.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which scores are dropped?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Decide which scores are kept, then write the mean equation."
+      },
+      "remember": "Before averaging, check which values the rule actually keeps.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-20",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8.5",
+        "blind_answer": "8.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000562",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Remaining distance when one runner finishes",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a 10-mile race, Ana runs at a constant pace of 6 minutes per mile and Bea runs at a constant pace of 6 minutes 30 seconds per mile. To the nearest hundredth of a mile, how far from the finish line is Bea when Ana finishes?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.48",
+        "B": "0.77",
+        "C": "0.83",
+        "D": "9.23"
+      },
+      "correct_answer": "B",
+      "explanation": "Ana finishes after 10 × 6 = 60 minutes. Bea's pace is 6.5 minutes per mile, so in 60 minutes she runs 60/6.5 ≈ 9.231 miles. She is 10 − 9.231 ≈ 0.77 mile from the finish.",
+      "distractor_explanations": {
+        "A": "0.48 reads 6 minutes 30 seconds as 6.3 minutes.",
+        "C": "0.83 converts Bea's 5-minute deficit to miles at Ana's pace: 5/6.",
+        "D": "9.23 is the distance Bea has run, not her distance from the finish."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "When does Ana finish?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find Ana's finishing time, then Bea's distance at that time."
+      },
+      "remember": "A pace in minutes per mile converts to distance by dividing time by pace.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-21",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000563",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Estimating a count from two densities over shares of an area",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rally fills a rectangular plaza 120 meters by 80 meters. Organizers estimate a density of 2.5 people per square meter in the 40% of the plaza nearest the stage and 1 person per square meter in the rest of the plaza. Based on these estimates, how many people are in the plaza?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "9,600",
+        "B": "15,360",
+        "C": "16,800",
+        "D": "18,240"
+      },
+      "correct_answer": "B",
+      "explanation": "The plaza's area is 120 × 80 = 9,600 square meters. Near the stage: 0.4 × 9,600 × 2.5 = 9,600 people. Elsewhere: 0.6 × 9,600 × 1 = 5,760 people. The total is 15,360.",
+      "distractor_explanations": {
+        "A": "9,600 counts only the people near the stage.",
+        "C": "16,800 averages the two densities to 1.75 without weighting by area.",
+        "D": "18,240 swaps the shares: 60% of the area at 2.5 and 40% at 1."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the area of each region."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the plaza into the two regions and find each count."
+      },
+      "remember": "Average densities by weighting each one by its share of the area.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-22",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: distractor 9,600 equals both the plaza area and the number of people in the near-stage zone; this works as a partial-answer trap but could confuse students"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000564",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Sharing a fixed resource between two usage rates",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A printer's toner cartridge can print 3,000 pages at 5% page coverage, and the amount of toner used for a page is proportional to its coverage. After printing 600 pages at 12% coverage, how many more pages at 5% coverage can the cartridge print?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "650",
+        "B": "1,560",
+        "C": "2,400",
+        "D": "2,750"
+      },
+      "correct_answer": "B",
+      "explanation": "A page at 12% coverage uses 12/5 = 2.4 times the toner of a 5% page. So the 600 pages used as much toner as 600 × 2.4 = 1,440 pages at 5%, leaving enough for 3,000 − 1,440 = 1,560 pages at 5%.",
+      "distractor_explanations": {
+        "A": "650 converts the capacity to 12% pages (1,250), subtracts 600, and does not convert back to 5% pages.",
+        "C": "2,400 ignores coverage and subtracts 600 from 3,000.",
+        "D": "2,750 scales the 600 pages by 5/12 instead of 12/5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many 5% pages' worth of toner do the 600 pages use?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert everything to 5%-page equivalents."
+      },
+      "remember": "Convert different usage rates to one common unit before subtracting from a fixed supply.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-23",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000565",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Billing threshold from a cube-root inequality",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A courier bills each package by the greater of its actual weight and its dimensional weight, where dimensional weight, in kilograms, is the package's volume in cubic centimeters divided by 5,000. A package is a cube and has an actual weight of 9 kilograms. What is the least whole-number edge length, in centimeters, for which the package is billed by its dimensional weight?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "35",
+          "rationale": "35 rounds the cube root of 45,000 (about 35.57) down; at 35 cm the dimensional weight is only 8.575 kg.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "213",
+          "rationale": "213 takes the square root of 45,000 instead of the cube root.",
+          "trap": null
+        }
+      ],
+      "explanation": "The package is billed by dimensional weight when s³/5,000 > 9, that is, when s³ > 45,000. The cube root of 45,000 is about 35.57, so the least whole-number edge length is 36 centimeters (36³/5,000 ≈ 9.33 kg, while 35³/5,000 = 8.575 kg).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "When is the dimensional weight greater than 9 kilograms?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write s³/5,000 > 9 and solve for s."
+      },
+      "remember": "When a whole number must exceed a bound, round up.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-24",
+      "created_at": "2026-10-27T13:31:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "36",
+        "blind_answer": "36",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000566",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Common chord of two circles: considering both positions",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, circle A has center (0, 0) and radius 17, and circle B has center (28, 0) and radius r. The circles intersect at exactly two points, and the distance between those points is 30. What is the greatest possible value of r?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "39",
+      "accepted_answers": [
+        "39"
+      ],
+      "common_errors": [
+        {
+          "value": "25",
+          "rationale": "25 is the least possible value of r, from intersection points with x-coordinate 8.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "13",
+          "rationale": "13 uses 28 − 15 as the horizontal distance.",
+          "trap": null
+        }
+      ],
+      "explanation": "The intersection points are symmetric about the x-axis, so they are (x, 15) and (x, −15) on circle A: x² + 225 = 289, so x = 8 or x = −8. Their distance from (28, 0) is √(20² + 15²) = 25 or √(36² + 15²) = 39. Both radii give two intersection points, so the greatest possible value of r is 39.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where are the two intersection points on circle A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch both circles and the common chord."
+      },
+      "remember": "The common chord of two circles is perpendicular to the line through their centers.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-26",
+      "created_at": "2026-10-27T13:31:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "39",
+        "blind_answer": "39",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 20,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000567",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Range of areas from a length tolerance",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The side of a square tile is measured as 10 centimeters, and the true side length is within 0.2 centimeter of the measured length. What is the difference, in square centimeters, between the greatest and least possible true areas of the tile?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "0.16",
+          "rationale": "0.16 squares the 0.4-centimeter range of lengths.",
+          "trap": null
+        },
+        {
+          "value": "4.04",
+          "rationale": "4.04 uses only the upper bound: 10.2² − 10².",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The side is between 9.8 and 10.2 centimeters, so the area is between 9.8² = 96.04 and 10.2² = 104.04 square centimeters. The difference is 104.04 − 96.04 = 8 (equivalently, (10.2 − 9.8)(10.2 + 9.8) = 0.4 × 20).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What are the least and greatest possible side lengths?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square each bound and subtract."
+      },
+      "remember": "A tolerance on a length becomes a range on the area found by squaring each bound.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-27",
+      "created_at": "2026-10-27T13:31:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000568",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Slope of a tangent from the origin to an off-center circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line through the origin with a positive slope is tangent to the circle (x − 5)² + y² = 9. What is the slope of the line?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/5",
+        "B": "3/4",
+        "C": "5/4",
+        "D": "4/3"
+      },
+      "correct_answer": "B",
+      "explanation": "The radius to the point of tangency is perpendicular to the line, so the origin, the center (5, 0) and the point of tangency form a right triangle with hypotenuse 5 and a leg of 3 (the radius). The other leg, along the line, is 4. The angle at the origin has tangent 3/4, so the slope is 3/4.",
+      "distractor_explanations": {
+        "A": "3/5 uses radius/distance, the sine of the angle, as the slope.",
+        "C": "5/4 comes from substituting y = mx and setting the discriminant of m²x² + (x − 5)² = 9 to zero, but dropping the x² from (x − 5)².",
+        "D": "4/3 comes from the same substitution but using 9 instead of 25 − 9 = 16 as the constant term."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Draw the radius to the point of tangency."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle, the tangent line and the radius, and find the right triangle."
+      },
+      "remember": "A tangent line is perpendicular to the radius at the point of tangency.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "Q058-28",
+      "created_at": "2026-10-27T13:31:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-058.review.json",
+        "computation": "checks/sat_math/batch_058.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
