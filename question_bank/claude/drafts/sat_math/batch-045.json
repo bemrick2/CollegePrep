@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 45,
- "plan": "SAT Math batch 45: Algebra 4, Advanced Math 5, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas U07-U10, V04-V07, V13, W02, W05, Y03, Y04 from generated set 5 (independently pre-checked: no copy or template matches). V13's eliminable choice 2 replaced with 1/4; Y04 and Y07 kept in different batches, as are V11 and V13.",
+ "plan": "SAT Math batch 45: Algebra 4, Advanced Math 5, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 5 student-produced responses. Ideas U07-U10, V04-V07, V13, W02, W05, Y03, Y04 from generated set 5 (independently pre-checked: no copy or template matches). V13's eliminable choice 2 replaced with 1/4; Y04 and Y07 kept in different batches, as are V11 and V13. Relabelled to the blind solver's rating where it was lower: Q045-05 hard→medium, Q045-06 hard→medium.",
  "candidates": [
   {
    "cand": "Q045-01",
@@ -194,7 +194,7 @@
    "skill": "Advanced Math",
    "subskill": "Cylinder whose volume equals its surface area",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A closed right circular cylinder has a height equal to its diameter. The number of cubic units in its volume equals the number of square units in its total surface area. What is the radius of the cylinder?",
    "explanation": "With h = 2r, the volume is πr²(2r) = 2πr³ and the total surface area is 2πr² + 2πr(2r) = 6πr². Setting 2πr³ = 6πr² and dividing by 2πr² gives r = 3.",
    "hints": [
@@ -210,8 +210,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "No measurement is given; students must build and solve a cubic equation from two formulas."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "3",
@@ -237,7 +236,7 @@
    "skill": "Advanced Math",
    "subskill": "Height where a falling ball passes a rising drone",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A ball's height, in meters, t seconds after it is thrown upward is h(t) = −5t² + 30t. A drone that is 20 meters high at t = 0 rises at 5 meters per second, so its height is 5t + 20 meters. At what height, in meters, does the ball pass the drone while the ball is falling?",
    "explanation": "Setting −5t² + 30t = 5t + 20 gives 5t² − 25t + 20 = 0, so t² − 5t + 4 = 0 and t = 1 or t = 4. The ball peaks at t = 3, so it is falling at t = 4. The height then is 5(4) + 20 = 40 meters.",
    "hints": [
@@ -253,8 +252,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find both crossing times and use the peak time to choose the falling one; the asked quantity is a height, not a time."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "40",
@@ -546,49 +544,55 @@
      "trap": "wrong_quantity"
     }
    ]
-  },
+  }
+ ],
+ "withdrawn": [
   {
    "cand": "Q045-13",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Side length from areas of a triangle and a trapezoid cut by a parallel",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. The area of triangle ADE is 9 square units, the area of quadrilateral DBCE is 16 square units, and AB = 25. What is the length of segment DB ?",
-   "explanation": "Triangle ABC has area 9 + 16 = 25. Triangles ADE and ABC are similar, so the ratio of their sides is √(9/25) = 3/5. Then AD = (3/5)(25) = 15 and DB = 25 − 15 = 10.",
-   "hints": [
-    "What is the area of the whole triangle ABC?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Areas scale with the square of the side ratio."
-   },
-   "remember": "Side ratio = square root of area ratio.",
-   "expected_time_seconds": 85,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine two regions into the whole triangle and take a square root of the area ratio; using 9 : 16 directly is a strong trap."
-   },
-   "format": "spr",
-   "answer": "10",
-   "accepted_answers": [
-    "10"
-   ],
-   "common_errors": [
-    {
-     "value": "15",
-     "rationale": "15 is the length of AD, not DB.",
-     "trap": "partial_answer"
+   "reason": "screen: near-duplicate of CLD-ACT-M-000045 (same DE parallel to BC figure with triangle ADE and quadrilateral DBCE, run in reverse); judged too close, dropped rather than reworded.",
+   "item": {
+    "cand": "Q045-13",
+    "reporting_category": "Geometry and Trigonometry",
+    "skill": "Geometry and Trigonometry",
+    "subskill": "Side length from areas of a triangle and a trapezoid cut by a parallel",
+    "repo_skill_key": "sat_geometry_trig",
+    "difficulty": "hard",
+    "stem": "In triangle ABC, point D lies on side AB and point E lies on side AC so that segment DE is parallel to side BC. The area of triangle ADE is 9 square units, the area of quadrilateral DBCE is 16 square units, and AB = 25. What is the length of segment DB ?",
+    "explanation": "Triangle ABC has area 9 + 16 = 25. Triangles ADE and ABC are similar, so the ratio of their sides is √(9/25) = 3/5. Then AD = (3/5)(25) = 15 and DB = 25 − 15 = 10.",
+    "hints": [
+     "What is the area of the whole triangle ABC?"
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Areas scale with the square of the side ratio."
     },
-    {
-     "value": "6.25",
-     "rationale": "6.25 treats 9 : 16 as the area ratio of triangle ADE to triangle ABC.",
-     "trap": null
-    }
-   ]
+    "remember": "Side ratio = square root of area ratio.",
+    "expected_time_seconds": 85,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must combine two regions into the whole triangle and take a square root of the area ratio; using 9 : 16 directly is a strong trap."
+    },
+    "format": "spr",
+    "answer": "10",
+    "accepted_answers": [
+     "10"
+    ],
+    "common_errors": [
+     {
+      "value": "15",
+      "rationale": "15 is the length of AD, not DB.",
+      "trap": "partial_answer"
+     },
+     {
+      "value": "6.25",
+      "rationale": "6.25 treats 9 : 16 as the area ratio of triangle ADE to triangle ABC.",
+      "trap": null
+     }
+    ]
+   }
   }
  ]
 }

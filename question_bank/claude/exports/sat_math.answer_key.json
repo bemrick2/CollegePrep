@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 44,
+  "bank_version": 45,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -8053,6 +8053,243 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Add 3 to both sides to complete the square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000409",
+      "correct_answer": "D",
+      "explanation": "Let p be the original price. The final price is 0.85p − 6, and it equals 0.8p. So 0.05p = 6 and p = 120. Check: 0.85(120) − 6 = 96 = 0.8(120).",
+      "distractor_explanations": {
+        "A": "30 treats the 20% gap between 100% and 80% as if the coupon were the whole of it: 6/0.20.",
+        "B": "40 treats the coupon as the whole 15% discount: 6/0.15.",
+        "C": "102 applies the coupon first: 0.85(p − 6) = 0.8p."
+      },
+      "hints": [
+        "Write the final price two ways."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set 0.85p − 6 equal to 0.8p."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000410",
+      "correct_answer": "B",
+      "explanation": "Adding the equations gives 2f(6) = 40, so f(6) = 20 and f(2) = 10. The slope is 10/4 = 2.5, so f(0) = f(2) − 2(2.5) = 10 − 5 = 5.",
+      "distractor_explanations": {
+        "A": "2.5 is the slope, not f(0).",
+        "C": "7.5 steps back from f(2) by only one slope instead of two.",
+        "D": "15 is f(4), the average of the two outputs."
+      },
+      "hints": [
+        "Find f(2) and f(6) first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add and subtract the two equations."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000411",
+      "correct_answer": "B",
+      "explanation": "The lines meet at (2, 5). At x = k the vertical side runs from −k + 7 to 2k + 1, a length of 3k − 6 = 3(k − 2). The height from (2, 5) to the vertical line is k − 2. So the area is (1/2)(3)(k − 2)² = 24, giving (k − 2)² = 16 and k − 2 = 4. So k = 6.",
+      "distractor_explanations": {
+        "A": "2 + 2√2 leaves out the 1/2 in the area formula.",
+        "C": "10 sets the vertical side 3(k − 2) equal to 24.",
+        "D": "18 solves (k − 2)² = 16 as k − 2 = 16."
+      },
+      "hints": [
+        "Where do the two slanted lines meet?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the lines and the vertical side."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000412",
+      "correct_answer": "A",
+      "explanation": "The equation is in point-slope form, so it passes through (10, 50): when x = 10, y = 50. So 50 is the number of members 10 weeks after the club was formed. (At x = 0, y = 10, so the club started with 10 members.)",
+      "distractor_explanations": {
+        "B": "The starting number is y at x = 0, which is 10, not 50.",
+        "C": "The members gained in 10 weeks is 4 × 10 = 40.",
+        "D": "The number gained each week is the slope, 4."
+      },
+      "hints": [
+        "Which point is visible in point-slope form?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute x = 10 and x = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000413",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 takes the height as r instead of 2r: πr³ = 4πr².",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 leaves the two circular bases out of the surface area.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "With h = 2r, the volume is πr²(2r) = 2πr³ and the total surface area is 2πr² + 2πr(2r) = 6πr². Setting 2πr³ = 6πr² and dividing by 2πr² gives r = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the height in terms of the radius."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the volume formula equal to the surface area formula."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000414",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "25",
+          "rationale": "25 is the height where the ball passes the drone while rising (t = 1).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "45",
+          "rationale": "45 is the ball's maximum height.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Setting −5t² + 30t = 5t + 20 gives 5t² − 25t + 20 = 0, so t² − 5t + 4 = 0 and t = 1 or t = 4. The ball peaks at t = 3, so it is falling at t = 4. The height then is 5(4) + 20 = 40 meters.",
+      "distractor_explanations": {},
+      "hints": [
+        "When does the ball reach its peak?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the heights equal and choose the correct time."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000415",
+      "correct_answer": "A",
+      "explanation": "In the first year, town B grows by 0.04 × 12,500 = 500, the same as town A. In the second year, town B grows by 0.04 × 13,000 = 520, which is greater than town A's 500.",
+      "distractor_explanations": {
+        "B": "A percent increase grows as the base grows, so B's second increase is larger.",
+        "C": "In the first year 4% of 12,500 is exactly 500.",
+        "D": "This takes 4% of 12,500 as 50."
+      },
+      "hints": [
+        "What is 4% of 12,500?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute each town's increase for two years."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000416",
+      "correct_answer": "A",
+      "explanation": "x⁴ − 16 = (x² − 4)(x² + 4) = (x − 2)(x + 2)(x² + 4). Dividing by x − 2 leaves (x + 2)(x² + 4) = x³ + 2x² + 4x + 8.",
+      "distractor_explanations": {
+        "B": "This factors x⁴ − 16 as (x² − 4)² before cancelling.",
+        "C": "This cancels x + 2 instead of x − 2.",
+        "D": "This divides term by term: x⁴/x and −16/−2."
+      },
+      "hints": [
+        "Factor x⁴ − 16 as a difference of squares."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: the expression equals 15."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000417",
+      "correct_answer": "C",
+      "explanation": "In 12 hours, A goes through 3 half-lives and keeps (1/2)³ = 1/8 of its mass, and B goes through 2 half-lives and keeps (1/2)² = 1/4. The ratio is (1/8)/(1/4) = 1/2.",
+      "distractor_explanations": {
+        "A": "1/8 is the fraction of A remaining, not the ratio.",
+        "B": "1/4 is the fraction of B remaining.",
+        "D": "2/3 is the ratio of the half-lives."
+      },
+      "hints": [
+        "How many half-lives does each substance go through?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each remaining fraction, then divide."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000418",
+      "correct_answer": "C",
+      "explanation": "The predicted heights are 1.5(10) + 30 = 45 and 1.5(20) + 30 = 60 centimeters. The increase is 15 on a base of 45, which is 15/45 ≈ 33%.",
+      "distractor_explanations": {
+        "A": "15% gives the increase in centimeters as a percent.",
+        "B": "25% divides the increase by the new value, 60.",
+        "D": "100% assumes doubling x doubles y, ignoring the intercept."
+      },
+      "hints": [
+        "Find both predicted heights."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Percent change = change ÷ starting value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000419",
+      "correct_answer": "C",
+      "explanation": "70 students take at least one subject, so 30 + 45 − 70 = 5 take both. 80 − 45 = 35 students do not take biology; of the 30 chemistry students, 30 − 5 = 25 are among them. The probability is 25/35 = 5/7.",
+      "distractor_explanations": {
+        "A": "5/16 is 25/80, the joint probability.",
+        "B": "3/8 is 30/80, which ignores the condition.",
+        "D": "6/7 is 30/35, which includes the 5 who also take biology."
+      },
+      "hints": [
+        "How many students take both subjects?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a Venn diagram."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000420",
+      "correct_answer": "60",
+      "accepted_answers": [
+        "60"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is the measure of angle BAD.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "100",
+          "rationale": "100 is the measure of angle BAC.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Since AB = AC, angle B = angle C = 40°, so angle BAC = 100°. Since AD = BD, triangle ABD is isosceles with angle BAD = angle B = 40°. So angle DAC = 100° − 40° = 60°.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which angles are equal in each isosceles triangle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and mark equal sides."
       }
     }
   ]
