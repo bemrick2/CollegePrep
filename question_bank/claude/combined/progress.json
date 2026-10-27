@@ -1,0 +1,53 @@
+{
+ "updated": "2026-10-27",
+ "baseline": "combined/baseline/prep-and-price-combined-bank-screening.zip",
+ "targets": "1,000 retained, independently AI-reviewed candidates each for SAT Math, SAT R&W, ACT English, ACT Reading (combined ChatGPT + Claude). ACT Math bulk generation paused.",
+ "tasks": [
+  {
+   "id": "T1",
+   "task": "Reconcile baseline with current Claude banks; save combined bank and exact totals",
+   "status": "done (re-run after each change)"
+  },
+  {
+   "id": "T2",
+   "task": "Repair 7 Claude insertion-defect holds (SAT 011,034,043,058,230,206; ACT-E 170) as new candidates with fresh blind review; supersede originals",
+   "status": "todo"
+  },
+  {
+   "id": "T3",
+   "task": "Resolve CLD-SAT-RW-000100 appositive dispute (rewrite as new candidate or keep hold)",
+   "status": "todo"
+  },
+  {
+   "id": "T4",
+   "task": "Propose display repair for PP-VERBAL-20261022-B-003 empty choice (overlay) and blind-review it",
+   "status": "todo"
+  },
+  {
+   "id": "T5",
+   "task": "Fresh blind review of the 69 REVISED_REVIEW_PENDING records (67 ACT math with computation checks, 2 verbal pilot); keep 16 blueprint holds unless a documented blueprint check resolves them",
+   "status": "todo"
+  },
+  {
+   "id": "T6",
+   "task": "Literal-insertion scan of every fill-in/underline option across ChatGPT verbal records",
+   "status": "todo"
+  },
+  {
+   "id": "T7",
+   "task": "Duplicate screen of Claude post-baseline items (964) against the entire combined bank",
+   "status": "todo"
+  },
+  {
+   "id": "T8",
+   "task": "Blind review (two independent solves) of ChatGPT verbal records lacking current-version review: SAT R&W 309, ACT English 311, ACT Reading 313",
+   "status": "todo"
+  },
+  {
+   "id": "T9",
+   "task": "Generate SAT Math (priority) and upper-difficulty verbal toward 1,000 reviewed each",
+   "status": "ongoing"
+  }
+ ],
+ "log": []
+}

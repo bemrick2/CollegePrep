@@ -1,0 +1,74 @@
+{
+ "meta": {
+  "generated_at": "2026-10-27T13:05:51+00:00",
+  "baseline_zip_sha256": "5e97823b612c576551e2bba67cca6545e305f1119190d761b864719fc2f9f099",
+  "baseline_records": 3345,
+  "claude_current_records": 2482,
+  "notes": {
+   "claude_retired_after_baseline": 63,
+   "claude_new_since_baseline": 964
+  },
+  "definitions": "(exactly one per record):\n  reviewed_draft   current content version has independent AI review evidence (blind solve without key) and no open hold\n  pending_review   retained, but the current version lacks independent review (self-review only, new, or changed)\n  hold             open hold carried from the baseline or raised since (revision, adjudication, blueprint)\n  reserved_duplicate  excluded/reserved as a duplicate or template variant (baseline) or retired by a concept-repeat audit\n  retired          withdrawn by this workstream after acceptance (superseded by a repair, or retired by audit)\nNo record is human-approved; difficulty is provisional throughout."
+ },
+ "by_section": {
+  "ACT English": {
+   "reviewed_draft": 348,
+   "pending_review": 311,
+   "hold": 1,
+   "reserved_duplicate": 33,
+   "retired": 0,
+   "active_retained": 659,
+   "by_source": {
+    "Claude": 382,
+    "ChatGPT": 311
+   }
+  },
+  "ACT Math": {
+   "reviewed_draft": 1390,
+   "pending_review": 178,
+   "hold": 67,
+   "reserved_duplicate": 40,
+   "retired": 0,
+   "active_retained": 1568,
+   "by_source": {
+    "Claude": 795,
+    "ChatGPT": 880
+   }
+  },
+  "ACT Reading": {
+   "reviewed_draft": 349,
+   "pending_review": 313,
+   "hold": 1,
+   "reserved_duplicate": 39,
+   "retired": 0,
+   "active_retained": 662,
+   "by_source": {
+    "Claude": 381,
+    "ChatGPT": 321
+   }
+  },
+  "SAT Math": {
+   "reviewed_draft": 518,
+   "pending_review": 0,
+   "hold": 0,
+   "reserved_duplicate": 27,
+   "retired": 0,
+   "active_retained": 518,
+   "by_source": {
+    "Claude": 545
+   }
+  },
+  "SAT Reading and Writing": {
+   "reviewed_draft": 354,
+   "pending_review": 309,
+   "hold": 9,
+   "reserved_duplicate": 22,
+   "retired": 0,
+   "active_retained": 663,
+   "by_source": {
+    "Claude": 379,
+    "ChatGPT": 315
+   }
+  }
+ }
+}
