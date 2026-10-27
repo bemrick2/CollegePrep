@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 54,
-  "updated_at": "2026-10-27T06:53:18+00:00",
+  "version": 55,
+  "updated_at": "2026-10-27T06:54:50+00:00",
   "passages": [],
   "questions": [
     {
@@ -37099,6 +37099,871 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-054.review.json",
         "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000515",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Re-expressing a model’s input over a different time window",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rule estimates the air temperature T, in degrees Fahrenheit, as T = n + 40, where n is the number of chirps a cricket makes in 14 seconds. Which equation gives T in terms of c, the number of chirps the cricket makes per minute?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "T = 7c/30 + 40",
+        "B": "T = 30c/7 + 40",
+        "C": "T = c/14 + 40",
+        "D": "T = 7(c + 40)/30"
+      },
+      "correct_answer": "A",
+      "explanation": "In 14 seconds the cricket makes (14/60)c = 7c/30 chirps, so n = 7c/30 and T = 7c/30 + 40.",
+      "distractor_explanations": {
+        "B": "30c/7 inverts the time conversion.",
+        "C": "c/14 divides by 14 without converting minutes to seconds.",
+        "D": "7(c + 40)/30 applies the conversion to the constant too."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What fraction of a minute is 14 seconds?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write n in terms of c."
+      },
+      "remember": "Convert the input, not the whole model.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-01",
+      "created_at": "2026-10-27T06:54:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: cricket-chirp temperature context is a familiar SAT/textbook trope; not a close mirror of a specific released item as far as I can tell"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000516",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Second time two walkers are a given distance apart",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a straight trail, Ana starts at the 3-mile marker and walks toward higher-numbered markers at 2.5 miles per hour. At the same moment, Ben starts at the 12-mile marker and walks toward lower-numbered markers at 3.5 miles per hour. How many minutes after they start will Ana and Ben be exactly 2 miles apart for the second time?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "110",
+      "accepted_answers": [
+        "110"
+      ],
+      "common_errors": [
+        {
+          "value": "70",
+          "rationale": "70 is the first time they are 2 miles apart, before they pass each other.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the time they meet.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "After t hours, Ana is at 3 + 2.5t and Ben at 12 − 3.5t, so the distance between them is |9 − 6t|. Setting |9 − 6t| = 2 gives t = 7/6 or t = 11/6 hours. The second time is 11/6 hours = 110 minutes, after they have passed each other.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each walker's position after t hours."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the absolute value of the difference in positions."
+      },
+      "remember": "Two objects can be a given distance apart twice: before and after they pass.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-02",
+      "created_at": "2026-10-27T06:54:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "110",
+        "blind_answer": "110",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000517",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Change in break-even quantity when the price rises",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A food truck's daily costs are $315 plus $1.50 for each taco it makes, and it sells every taco it makes. If the price of a taco is raised from $4.00 to $5.00, by how many tacos does the number needed to break even (revenue equal to cost) decrease?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "15.75",
+        "B": "36",
+        "C": "63",
+        "D": "90"
+      },
+      "correct_answer": "B",
+      "explanation": "At $4.00, each taco contributes 4.00 − 1.50 = 2.50 toward the $315, so the break-even number is 315/2.50 = 126. At $5.00 it is 315/3.50 = 90. The break-even number decreases by 126 − 90 = 36 tacos.",
+      "distractor_explanations": {
+        "A": "15.75 ignores the $1.50 cost per taco: 315/4 − 315/5.",
+        "C": "63 subtracts the per-taco cost only at the old price: 126 − 315/5.",
+        "D": "90 is the new break-even number, not the decrease."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How much does each taco contribute toward the fixed cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both break-even numbers, then subtract."
+      },
+      "remember": "Break-even quantity = fixed cost ÷ (price − cost per unit).",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-03",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000518",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Distance fallen during a one-second window",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An object dropped from a tall cliff falls 4.9t² meters in the first t seconds. During the one-second interval from t = k to t = k + 1, it falls 34.3 meters. What is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "3.5",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "The distance fallen from t = k to t = k + 1 is 4.9(k + 1)² − 4.9k² = 4.9(2k + 1). Setting 4.9(2k + 1) = 34.3 gives 2k + 1 = 7 and k = 3.",
+      "distractor_explanations": {
+        "A": "2 solves 4.9t² = 34.3 (t ≈ 2.65) and takes the second that contains it.",
+        "C": "3.5 is the midpoint of the interval, from 34.3 = 9.8t.",
+        "D": "7 divides 34.3 by 4.9."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Write the distance fallen during the interval as a difference."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two distances and simplify."
+      },
+      "remember": "Distance during an interval = distance at the end − distance at the start.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-04",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000519",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Round-trip time against a current as a rational expression",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A boat travels d miles upstream and then d miles back downstream. Its speed in still water is s miles per hour, and the river's current is c miles per hour, where s > c. Which expression gives the total travel time, in hours?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2ds/(s² − c²)",
+        "B": "2d/s",
+        "C": "2ds/(s² + c²)",
+        "D": "2dc/(s² − c²)"
+      },
+      "correct_answer": "A",
+      "explanation": "Upstream the speed is s − c and downstream it is s + c. The total time is d/(s − c) + d/(s + c) = d(s + c + s − c)/((s − c)(s + c)) = 2ds/(s² − c²).",
+      "distractor_explanations": {
+        "B": "2d/s assumes the current's effects cancel.",
+        "C": "2ds/(s² + c²) multiplies (s − c)(s + c) as s² + c².",
+        "D": "2dc/(s² − c²) keeps c instead of s in the numerator after combining."
+      },
+      "distractor_traps": {
+        "B": "overextend_trend",
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Write each leg's time as distance ÷ speed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the fractions over a common denominator."
+      },
+      "remember": "With and against a current, speeds are s + c and s − c.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-05",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000520",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Quadratic from a minimum stated as an inequality",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the quadratic function f, f(x) ≥ 3 for all values of x, f(2) = 3, and f(0) = 7. What is the value of f(5) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 drops the + 3 from the vertex form.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "15.75",
+          "rationale": "15.75 writes f(x) = a(x − 2)² and solves 4a = 7.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since f(x) ≥ 3 for all x and f(2) = 3, the minimum value 3 occurs at x = 2, so f(x) = a(x − 2)² + 3. Then f(0) = 4a + 3 = 7 gives a = 1, and f(5) = 9 + 3 = 12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What does f(x) ≥ 3 with f(2) = 3 say about the vertex?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use vertex form."
+      },
+      "remember": "A minimum value that is reached marks the vertex.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-06",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000521",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Greatest value of an expression under a linear constraint",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x + y = 12, what is the greatest possible value of xy + 4x ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 maximizes xy at x = y = 6 first and then adds 4 × 6.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "48",
+          "rationale": "48 makes x as large as possible: x = 12, y = 0.",
+          "trap": null
+        }
+      ],
+      "explanation": "Substituting y = 12 − x gives xy + 4x = x(12 − x) + 4x = −x² + 16x. This quadratic is greatest at x = 8, where it equals −64 + 128 = 64 (with y = 4).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the expression in terms of x only."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute, then find the vertex."
+      },
+      "remember": "A constraint can reduce two variables to one.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-07",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "64",
+        "blind_answer": "64",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000522",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a square-root growth model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The carbon stored in a young forest plot, in metric tons, t years after planting is modeled by S(t) = 100 + 40√t. According to the model, how many years after planting will the plot store 260 metric tons of carbon?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "16",
+        "D": "42.25"
+      },
+      "correct_answer": "C",
+      "explanation": "Set 100 + 40√t = 260. Subtracting 100 gives 40√t = 160, so √t = 4. Squaring both sides gives t = 16 years.",
+      "distractor_explanations": {
+        "A": "2 takes the square root of 4 instead of squaring.",
+        "B": "4 is √t, not t.",
+        "D": "42.25 ignores the initial 100: (260/40)²."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Subtract 100 first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Isolate √t, then square."
+      },
+      "remember": "Isolate the radical before squaring.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-08",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000523",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "New average speed from a time difference",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A cyclist completed a 40-kilometer time trial at an average speed of 36 kilometers per hour. A second cyclist finished the same course 2 minutes 40 seconds faster. What was the second cyclist's average speed, in kilometers per hour?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "37.5",
+      "accepted_answers": [
+        "37.5",
+        "75/2"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the first cyclist's speed.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "64",
+          "rationale": "64 is the second cyclist's time in minutes.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The first cyclist took 40/36 hours = 66 2/3 minutes. The second took 66 2/3 − 2 2/3 = 64 minutes, or 64/60 hours. The second cyclist's speed is 40 ÷ (64/60) = 37.5 kilometers per hour.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How many minutes did the first cyclist take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the second time, then speed = distance ÷ time."
+      },
+      "remember": "Convert minutes to hours before computing km/h.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-09",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "37.5",
+        "blind_answer": "37.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000524",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change in a density when both quantities change",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From 2018 to 2024, the number of birds in a nature reserve increased by 12%, and land added to the reserve increased its area by 40%. By what percent did the number of birds per square kilometer change?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a 20% decrease",
+        "B": "a 28% decrease",
+        "C": "a 32.8% decrease",
+        "D": "a 56.8% increase"
+      },
+      "correct_answer": "A",
+      "explanation": "Density = birds ÷ area, so the factor of change is 1.12/1.40 = 0.80. The number of birds per square kilometer decreased by 20%.",
+      "distractor_explanations": {
+        "B": "28% subtracts the percents: 40 − 12.",
+        "C": "32.8% treats the 40% area increase as a 40% density decrease: 1.12 × 0.60.",
+        "D": "56.8% multiplies the factors: 1.12 × 1.40."
+      },
+      "distractor_traps": {
+        "B": "overextend_trend",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Write density as a quotient."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the two growth factors."
+      },
+      "remember": "A quotient changes by the quotient of the factors.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-10",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000525",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Rate of rise of a level in a cylinder with a unit conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Corn is poured into an empty cylindrical grain bin with an inside radius of 2 meters at a constant rate of 0.45 cubic meter per minute, and the top of the corn is kept level. Which of the following is closest to the rate, in centimeters per minute, at which the level of the corn rises?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.9",
+        "B": "3.6",
+        "C": "7.2",
+        "D": "11.3"
+      },
+      "correct_answer": "B",
+      "explanation": "The base area is π(2²) = 4π ≈ 12.57 square meters. The level rises 0.45 ÷ 4π ≈ 0.0358 meter per minute, which is about 3.6 centimeters per minute.",
+      "distractor_explanations": {
+        "A": "0.9 uses the diameter, 4, as the radius.",
+        "C": "7.2 uses πr instead of πr².",
+        "D": "11.3 drops π: 0.45 ÷ 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the area of the bin's base?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rate of rise = volume rate ÷ base area."
+      },
+      "remember": "Rise rate = volume rate ÷ cross-sectional area.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-11",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000526",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Capacity of a prism with a trapezoid cross section",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A water trough is a prism 3 meters long whose cross section is an isosceles trapezoid with a bottom edge of 40 centimeters, a top opening of 70 centimeters, and slanted sides of 25 centimeters each. How many liters does the trough hold when full? (1 liter = 1,000 cubic centimeters)",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "330",
+      "accepted_answers": [
+        "330"
+      ],
+      "common_errors": [
+        {
+          "value": "412.5",
+          "rationale": "412.5 uses the slanted side, 25, as the depth.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.3",
+          "rationale": "3.3 uses 3 for the length in centimeters.",
+          "trap": null
+        }
+      ],
+      "explanation": "Each slanted side spans (70 − 40)/2 = 15 centimeters horizontally, so the depth is √(25² − 15²) = 20 centimeters. The cross section has area (40 + 70)/2 × 20 = 1,100 square centimeters. The volume is 1,100 × 300 = 330,000 cubic centimeters, which is 330 liters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the depth of the trapezoid first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the cross section and drop heights from the bottom corners."
+      },
+      "remember": "Prism volume = cross-sectional area × length.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "Q055-12",
+      "created_at": "2026-10-27T06:54:50+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "330",
+        "blind_answer": "330",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-055.review.json",
+        "computation": "checks/sat_math/batch_055.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

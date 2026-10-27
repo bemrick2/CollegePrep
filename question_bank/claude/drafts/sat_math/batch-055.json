@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 55,
- "plan": "SAT Math batch 55: Algebra 3, Advanced Math 5, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 6 student-produced responses. Ideas CA11-CA13, CB09-CB13, CC06, CC07, CD06, CD07 from generated set 8 (independently pre-checked; CB12 converted to a student-produced response because the key was the largest choice; CB10's choice D replaced so it passes a units check).",
+ "plan": "SAT Math batch 55: Algebra 3, Advanced Math 5, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 6 student-produced responses. Ideas CA11-CA13, CB09-CB13, CC06, CC07, CD06, CD07 from generated set 8 (independently pre-checked; CB12 converted to a student-produced response because the key was the largest choice; CB10's choice D replaced so it passes a units check). Relabelled to the blind solver's rating where it was lower: Q055-03 hard→medium, Q055-05 hard→medium, Q055-06 hard→medium, Q055-07 hard→medium, Q055-08 medium→easy, Q055-10 hard→medium, Q055-12 hard→medium.",
  "candidates": [
   {
    "cand": "Q055-01",
@@ -98,7 +98,7 @@
    "skill": "Algebra",
    "subskill": "Change in break-even quantity when the price rises",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A food truck's daily costs are $315 plus $1.50 for each taco it makes, and it sells every taco it makes. If the price of a taco is raised from $4.00 to $5.00, by how many tacos does the number needed to break even (revenue equal to cost) decrease?",
    "explanation": "At $4.00, each taco contributes 4.00 − 1.50 = 2.50 toward the $315, so the break-even number is 315/2.50 = 126. At $5.00 it is 315/3.50 = 90. The break-even number decreases by 126 − 90 = 36 tacos.",
    "hints": [
@@ -114,8 +114,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find two break-even points that each account for the per-unit cost."
+    "single_correct": true
    },
    "choices": {
     "A": "15.75",
@@ -191,7 +190,7 @@
    "skill": "Advanced Math",
    "subskill": "Round-trip time against a current as a rational expression",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A boat travels d miles upstream and then d miles back downstream. Its speed in still water is s miles per hour, and the river's current is c miles per hour, where s > c. Which expression gives the total travel time, in hours?",
    "explanation": "Upstream the speed is s − c and downstream it is s + c. The total time is d/(s − c) + d/(s + c) = d(s + c + s − c)/((s − c)(s + c)) = 2ds/(s² − c²).",
    "hints": [
@@ -207,8 +206,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine two rational expressions; assuming the current cancels is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "2ds/(s² − c²)",
@@ -238,7 +236,7 @@
    "skill": "Advanced Math",
    "subskill": "Quadratic from a minimum stated as an inequality",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "For the quadratic function f, f(x) ≥ 3 for all values of x, f(2) = 3, and f(0) = 7. What is the value of f(5) ?",
    "explanation": "Since f(x) ≥ 3 for all x and f(2) = 3, the minimum value 3 occurs at x = 2, so f(x) = a(x − 2)² + 3. Then f(0) = 4a + 3 = 7 gives a = 1, and f(5) = 9 + 3 = 12.",
    "hints": [
@@ -254,8 +252,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The vertex is hidden in an inequality that holds for all x."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "12",
@@ -281,7 +278,7 @@
    "skill": "Advanced Math",
    "subskill": "Greatest value of an expression under a linear constraint",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "If x + y = 12, what is the greatest possible value of xy + 4x ?",
    "explanation": "Substituting y = 12 − x gives xy + 4x = x(12 − x) + 4x = −x² + 16x. This quadratic is greatest at x = 8, where it equals −64 + 128 = 64 (with y = 4).",
    "hints": [
@@ -297,8 +294,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must substitute and find a vertex that is not at the 'balanced' point x = y."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "64",
@@ -324,7 +320,7 @@
    "skill": "Advanced Math",
    "subskill": "Solving a square-root growth model",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The carbon stored in a young forest plot, in metric tons, t years after planting is modeled by S(t) = 100 + 40√t. According to the model, how many years after planting will the plot store 260 metric tons of carbon?",
    "explanation": "Set 100 + 40√t = 260. Subtracting 100 gives 40√t = 160, so √t = 4. Squaring both sides gives t = 16 years.",
    "hints": [
@@ -413,7 +409,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Percent change in a density when both quantities change",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "From 2018 to 2024, the number of birds in a nature reserve increased by 12%, and land added to the reserve increased its area by 40%. By what percent did the number of birds per square kilometer change?",
    "explanation": "Density = birds ÷ area, so the factor of change is 1.12/1.40 = 0.80. The number of birds per square kilometer decreased by 20%.",
    "hints": [
@@ -429,8 +425,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must divide growth factors; subtracting percents is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "a 20% decrease",
@@ -506,7 +501,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Capacity of a prism with a trapezoid cross section",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A water trough is a prism 3 meters long whose cross section is an isosceles trapezoid with a bottom edge of 40 centimeters, a top opening of 70 centimeters, and slanted sides of 25 centimeters each. How many liters does the trough hold when full? (1 liter = 1,000 cubic centimeters)",
    "explanation": "Each slanted side spans (70 − 40)/2 = 15 centimeters horizontally, so the depth is √(25² − 15²) = 20 centimeters. The cross section has area (40 + 70)/2 × 20 = 1,100 square centimeters. The volume is 1,100 × 300 = 330,000 cubic centimeters, which is 330 liters.",
    "hints": [
@@ -522,8 +517,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find the trapezoid's height, its area and the prism volume, with a unit conversion."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "330",

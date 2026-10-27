@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 54,
+  "bank_version": 55,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -10292,6 +10292,266 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Set up the similar-triangle ratio in one unit."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000515",
+      "correct_answer": "A",
+      "explanation": "In 14 seconds the cricket makes (14/60)c = 7c/30 chirps, so n = 7c/30 and T = 7c/30 + 40.",
+      "distractor_explanations": {
+        "B": "30c/7 inverts the time conversion.",
+        "C": "c/14 divides by 14 without converting minutes to seconds.",
+        "D": "7(c + 40)/30 applies the conversion to the constant too."
+      },
+      "hints": [
+        "What fraction of a minute is 14 seconds?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write n in terms of c."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000516",
+      "correct_answer": "110",
+      "accepted_answers": [
+        "110"
+      ],
+      "common_errors": [
+        {
+          "value": "70",
+          "rationale": "70 is the first time they are 2 miles apart, before they pass each other.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the time they meet.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "After t hours, Ana is at 3 + 2.5t and Ben at 12 − 3.5t, so the distance between them is |9 − 6t|. Setting |9 − 6t| = 2 gives t = 7/6 or t = 11/6 hours. The second time is 11/6 hours = 110 minutes, after they have passed each other.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each walker's position after t hours."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the absolute value of the difference in positions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000517",
+      "correct_answer": "B",
+      "explanation": "At $4.00, each taco contributes 4.00 − 1.50 = 2.50 toward the $315, so the break-even number is 315/2.50 = 126. At $5.00 it is 315/3.50 = 90. The break-even number decreases by 126 − 90 = 36 tacos.",
+      "distractor_explanations": {
+        "A": "15.75 ignores the $1.50 cost per taco: 315/4 − 315/5.",
+        "C": "63 subtracts the per-taco cost only at the old price: 126 − 315/5.",
+        "D": "90 is the new break-even number, not the decrease."
+      },
+      "hints": [
+        "How much does each taco contribute toward the fixed cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both break-even numbers, then subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000518",
+      "correct_answer": "B",
+      "explanation": "The distance fallen from t = k to t = k + 1 is 4.9(k + 1)² − 4.9k² = 4.9(2k + 1). Setting 4.9(2k + 1) = 34.3 gives 2k + 1 = 7 and k = 3.",
+      "distractor_explanations": {
+        "A": "2 solves 4.9t² = 34.3 (t ≈ 2.65) and takes the second that contains it.",
+        "C": "3.5 is the midpoint of the interval, from 34.3 = 9.8t.",
+        "D": "7 divides 34.3 by 4.9."
+      },
+      "hints": [
+        "Write the distance fallen during the interval as a difference."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two distances and simplify."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000519",
+      "correct_answer": "A",
+      "explanation": "Upstream the speed is s − c and downstream it is s + c. The total time is d/(s − c) + d/(s + c) = d(s + c + s − c)/((s − c)(s + c)) = 2ds/(s² − c²).",
+      "distractor_explanations": {
+        "B": "2d/s assumes the current's effects cancel.",
+        "C": "2ds/(s² + c²) multiplies (s − c)(s + c) as s² + c².",
+        "D": "2dc/(s² − c²) keeps c instead of s in the numerator after combining."
+      },
+      "hints": [
+        "Write each leg's time as distance ÷ speed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the fractions over a common denominator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000520",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 drops the + 3 from the vertex form.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "15.75",
+          "rationale": "15.75 writes f(x) = a(x − 2)² and solves 4a = 7.",
+          "trap": null
+        }
+      ],
+      "explanation": "Since f(x) ≥ 3 for all x and f(2) = 3, the minimum value 3 occurs at x = 2, so f(x) = a(x − 2)² + 3. Then f(0) = 4a + 3 = 7 gives a = 1, and f(5) = 9 + 3 = 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "What does f(x) ≥ 3 with f(2) = 3 say about the vertex?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use vertex form."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000521",
+      "correct_answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 maximizes xy at x = y = 6 first and then adds 4 × 6.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "48",
+          "rationale": "48 makes x as large as possible: x = 12, y = 0.",
+          "trap": null
+        }
+      ],
+      "explanation": "Substituting y = 12 − x gives xy + 4x = x(12 − x) + 4x = −x² + 16x. This quadratic is greatest at x = 8, where it equals −64 + 128 = 64 (with y = 4).",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the expression in terms of x only."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute, then find the vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000522",
+      "correct_answer": "C",
+      "explanation": "Set 100 + 40√t = 260. Subtracting 100 gives 40√t = 160, so √t = 4. Squaring both sides gives t = 16 years.",
+      "distractor_explanations": {
+        "A": "2 takes the square root of 4 instead of squaring.",
+        "B": "4 is √t, not t.",
+        "D": "42.25 ignores the initial 100: (260/40)²."
+      },
+      "hints": [
+        "Subtract 100 first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Isolate √t, then square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000523",
+      "correct_answer": "37.5",
+      "accepted_answers": [
+        "37.5",
+        "75/2"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the first cyclist's speed.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "64",
+          "rationale": "64 is the second cyclist's time in minutes.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The first cyclist took 40/36 hours = 66 2/3 minutes. The second took 66 2/3 − 2 2/3 = 64 minutes, or 64/60 hours. The second cyclist's speed is 40 ÷ (64/60) = 37.5 kilometers per hour.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many minutes did the first cyclist take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the second time, then speed = distance ÷ time."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000524",
+      "correct_answer": "A",
+      "explanation": "Density = birds ÷ area, so the factor of change is 1.12/1.40 = 0.80. The number of birds per square kilometer decreased by 20%.",
+      "distractor_explanations": {
+        "B": "28% subtracts the percents: 40 − 12.",
+        "C": "32.8% treats the 40% area increase as a 40% density decrease: 1.12 × 0.60.",
+        "D": "56.8% multiplies the factors: 1.12 × 1.40."
+      },
+      "hints": [
+        "Write density as a quotient."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the two growth factors."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000525",
+      "correct_answer": "B",
+      "explanation": "The base area is π(2²) = 4π ≈ 12.57 square meters. The level rises 0.45 ÷ 4π ≈ 0.0358 meter per minute, which is about 3.6 centimeters per minute.",
+      "distractor_explanations": {
+        "A": "0.9 uses the diameter, 4, as the radius.",
+        "C": "7.2 uses πr instead of πr².",
+        "D": "11.3 drops π: 0.45 ÷ 4."
+      },
+      "hints": [
+        "What is the area of the bin's base?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rate of rise = volume rate ÷ base area."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000526",
+      "correct_answer": "330",
+      "accepted_answers": [
+        "330"
+      ],
+      "common_errors": [
+        {
+          "value": "412.5",
+          "rationale": "412.5 uses the slanted side, 25, as the depth.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.3",
+          "rationale": "3.3 uses 3 for the length in centimeters.",
+          "trap": null
+        }
+      ],
+      "explanation": "Each slanted side spans (70 − 40)/2 = 15 centimeters horizontally, so the depth is √(25² − 15²) = 20 centimeters. The cross section has area (40 + 70)/2 × 20 = 1,100 square centimeters. The volume is 1,100 × 300 = 330,000 cubic centimeters, which is 330 liters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the depth of the trapezoid first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the cross section and drop heights from the bottom corners."
       }
     }
   ]
