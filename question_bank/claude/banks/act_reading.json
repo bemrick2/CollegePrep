@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 61,
-  "updated_at": "2026-10-27T19:32:14+00:00",
+  "version": 62,
+  "updated_at": "2026-10-27T19:43:22+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -674,6 +674,17 @@
       "word_count": 411,
       "text": "A gecko can run straight up a pane of glass and hang from a ceiling by a single toe, and for most of the twentieth century no one could fully explain how. The obvious guesses failed one by one. Suction seemed unlikely once experiments showed that geckos still clung in a vacuum. Glue was ruled out because gecko feet have no glands that secrete anything sticky. Tiny hooks catching on rough spots could not explain how the animals held on to polished glass.\n\nThe answer turned out to lie in structure rather than substance. The underside of each toe is lined with ridges covered in hundreds of thousands of microscopic hairs called setae, and the tip of each seta splits into hundreds of even finer branches. These branches are so small that they can come extremely close to the surface beneath them, close enough for weak attractive forces between molecules, known as van der Waals forces, to act. Any single contact is feeble, but billions of them together produce a grip strong enough to hold many times the animal's weight.\n\nNot everyone accepted this explanation at once. Some researchers suspected that thin films of water, which coat most surfaces in ordinary air, were doing the work through capillary attraction. To decide between the ideas, investigators measured how well setae stuck to surfaces that attract water and to surfaces that repel it. If water films were essential, the setae should have gripped the water-attracting surfaces far more strongly. Instead, the grip was similar on both, a result that pointed to van der Waals forces as the main source of adhesion, though later studies found that humidity can strengthen the grip somewhat.\n\nAn equally puzzling question was how a gecko lets go. A grip strong enough to support the animal would seem to make every step a struggle, yet geckos run quickly. The solution lies in angle. When a gecko curls its toes upward, the setae peel away from the surface a few at a time, the way tape comes off more easily when pulled from one edge than when pulled straight out. The adhesion is strong in one direction and almost absent in another.\n\nEngineers have spent years trying to copy these feet. Synthetic materials with forests of tiny fibers can now hold heavy objects on smooth walls and release them cleanly, though none yet matches the gecko's ability to stay clean and keep working after thousands of steps across dusty ground.",
       "batch": 62,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000063",
+      "title": "The Number in the Room",
+      "genre": "social science",
+      "word_count": 362,
+      "text": "In a well-known experiment from the 1970s, the psychologists Amos Tversky and Daniel Kahneman spun a wheel marked from 0 to 100 in front of their participants. The wheel was rigged to stop at either 10 or 65. Participants were first asked whether the percentage of African countries in the United Nations was higher or lower than the number on the wheel, and then asked to estimate the actual percentage. Those who had seen 10 gave a median estimate of 25 percent; those who had seen 65 gave a median of 45 percent. A number that everyone could see was random had pulled their judgments toward it.\n\nPsychologists call this effect anchoring. When people must estimate an uncertain quantity, they often begin from whatever number is at hand and adjust away from it, but not far enough. The anchor need not be relevant, and it need not be believed. It needs only to be noticed.\n\nOne might expect expertise to protect against so crude an influence. In a later study, however, experienced real estate agents toured a house and were given a packet of information that included a listing price, which the researchers varied from one group to another. The agents' own appraisals of the house rose and fell with the listing price they had been shown. When asked what had influenced their judgments, few mentioned the listing price at all.\n\nThat last detail may be the most important. Anchoring is difficult to resist not because people are careless but because it does its work before deliberate reasoning begins. A person who tries to correct for an anchor starts the correction from the anchor itself, and the correction tends to stop too soon. Simply warning people about the effect has often done little to reduce it.\n\nResearchers have had more success with strategies that change the starting point rather than the effort. Asking people to consider reasons why the anchor might be wrong, or to generate their own estimate before seeing any number, can weaken its pull. Such findings suggest that the remedy for anchoring lies less in trying harder than in arranging, ahead of time, which numbers a decision begins from.",
+      "batch": 63,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -39071,6 +39082,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-062.review.json",
         "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000538",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "the remedy for anchoring lies less in trying harder than in arranging, ahead of time, which numbers a decision begins from",
+      "figure": null,
+      "stem": "The main idea of the passage is that anchoring:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "affects only people who lack expertise in the subject they are judging.",
+        "B": "can arise from irrelevant numbers and is better countered by new starting points.",
+        "C": "can be eliminated by warning people about the effect in advance.",
+        "D": "was first discovered by real estate agents studying listing prices."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage shows that irrelevant numbers sway judgments, even experts', and concludes that changing starting points works better than effort or warnings.",
+      "distractor_explanations": {
+        "A": "The real estate agents, who were experts, were also affected.",
+        "C": "The passage says warnings have often done little.",
+        "D": "The agents were participants in a study, not the discoverers of anchoring."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does the last paragraph conclude?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then combine."
+      },
+      "remember": "The main idea must include the passage's conclusion.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-01",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000539",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "those who had seen 65 gave a median of 45 percent",
+      "figure": null,
+      "stem": "According to the passage, participants who saw the number 65 on the wheel gave a median estimate of:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10 percent.",
+        "B": "25 percent.",
+        "C": "65 percent.",
+        "D": "45 percent."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage states that those who saw 65 gave a median estimate of 45 percent.",
+      "distractor_explanations": {
+        "A": "10 was the other number on the wheel.",
+        "B": "25 percent was the median for those who saw 10.",
+        "C": "65 was the number on the wheel, not the estimate."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Find the sentence with both numbers."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Match each wheel number to its median."
+      },
+      "remember": "Keep paired numbers straight.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-02",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 93,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000540",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "The anchor need not be relevant, and it need not be believed.",
+      "figure": null,
+      "stem": "The author mentions that the wheel's number was one \"that everyone could see was random\" (paragraph 1) mainly to emphasize that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "an anchor works even when people know it is meaningless.",
+        "B": "the participants did not understand how the wheel worked.",
+        "C": "the researchers chose the numbers 10 and 65 for a special reason.",
+        "D": "the participants' estimates were close to the true percentage."
+      },
+      "correct_answer": "A",
+      "explanation": "Because everyone knew the number was random, its effect shows that an anchor works even when it is known to be meaningless, as paragraph 2 states.",
+      "distractor_explanations": {
+        "B": "The point is that they knew the number was random.",
+        "C": "The passage does not explain why these numbers were chosen.",
+        "D": "The passage never gives the true percentage."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Why does it matter that the number was obviously random?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Connect the detail to paragraph 2."
+      },
+      "remember": "Ask why the author includes a detail.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-03",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000541",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (expert study)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "few mentioned the listing price at all",
+      "figure": null,
+      "stem": "The real estate study suggests that the agents:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "deliberately used the listing price as the basis for their appraisals.",
+        "B": "were less affected by the listing price than nonexperts would be.",
+        "C": "were influenced by the listing price without realizing it.",
+        "D": "knew the listing prices had been varied by the researchers."
+      },
+      "correct_answer": "C",
+      "explanation": "The appraisals moved with the listing price, yet few agents named it as an influence, so they were influenced without being aware of it.",
+      "distractor_explanations": {
+        "A": "When asked, few mentioned the listing price, which suggests they did not use it deliberately.",
+        "B": "The passage does not compare the agents with nonexperts.",
+        "D": "Nothing suggests the agents knew the prices were varied."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What did the agents say influenced them?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Compare the agents' appraisals with their explanations."
+      },
+      "remember": "Compare what people did with what they said.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-04",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 84,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000542",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "One might expect expertise to protect against so crude an influence",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word crude most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "unrefined, like oil.",
+        "B": "unsophisticated.",
+        "C": "offensive.",
+        "D": "approximate."
+      },
+      "correct_answer": "B",
+      "explanation": "The author expects experts to resist an influence as simple as a random number, so \"crude\" means unsophisticated.",
+      "distractor_explanations": {
+        "A": "This sense describes raw materials, not an influence on judgment.",
+        "C": "This sense describes rude language, not an influence on judgment.",
+        "D": "\"Crude estimate\" can mean approximate, but here the word describes the influence as simple-minded."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "What kind of influence is being described?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a word meaning \"simple-minded.\""
+      },
+      "remember": "Pick the meaning that fits the context, not the most familiar one.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-05",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000543",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (explanation)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "starts the correction from the anchor itself, and the correction tends to stop too soon",
+      "figure": null,
+      "stem": "According to the passage, trying to correct for an anchor often fails because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "people refuse to admit that an anchor has influenced them.",
+        "B": "anchors are usually believed to be accurate.",
+        "C": "warnings make people rely on the anchor even more.",
+        "D": "the correction begins from the anchor and stops too soon."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 4 explains that a correction starts from the anchor and tends to stop too soon.",
+      "distractor_explanations": {
+        "A": "The passage says people often do not notice the influence, not that they refuse to admit it.",
+        "B": "The passage says an anchor need not be believed.",
+        "C": "The passage says warnings do little, not that they make things worse."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "extreme_language"
+      },
+      "hints": [
+        "Find the sentence about correcting for an anchor."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read paragraph 4."
+      },
+      "remember": "Answer from the passage's stated explanation.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-06",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000544",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Application",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "generate their own estimate before seeing any number",
+      "figure": null,
+      "stem": "Based on the passage, which strategy would most likely reduce the effect of an anchor on a person estimating the value of a used car?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Writing down an estimate before seeing the asking price",
+        "B": "Being warned that sellers' asking prices often run high",
+        "C": "Spending more time studying the seller's asking price",
+        "D": "Asking an expert who has seen the same asking price"
+      },
+      "correct_answer": "A",
+      "explanation": "Generating one's own estimate before seeing a number changes the starting point, which the passage says can weaken anchoring.",
+      "distractor_explanations": {
+        "B": "Warnings have often done little to reduce anchoring.",
+        "C": "More attention to the anchor would not weaken its pull.",
+        "D": "Experts who see the anchor are affected too."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which strategy changes the starting point?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Match each choice to what the last two paragraphs say works."
+      },
+      "remember": "Apply the passage's findings to a new case.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-07",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 84,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000545",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "Anchoring is difficult to resist not because people are careless",
+      "figure": null,
+      "stem": "The main function of the fourth paragraph is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "describe a second experiment on anchoring.",
+        "B": "propose a strategy that weakens anchoring.",
+        "C": "explain why anchoring is hard to resist.",
+        "D": "argue that people who are anchored are careless."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 explains why anchoring is hard to resist: it acts before deliberate reasoning, and corrections stop too soon.",
+      "distractor_explanations": {
+        "A": "No experiment is described in paragraph 4.",
+        "B": "Strategies are described in paragraph 5.",
+        "D": "Paragraph 4 says anchoring is hard to resist \"not because people are careless.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does paragraph 4 explain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each paragraph's job."
+      },
+      "remember": "Name each paragraph's job in a few words.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-08",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000546",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "which the researchers varied from one group to another",
+      "figure": null,
+      "stem": "According to the passage, in the real estate study the researchers varied the:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "house that each group of agents toured.",
+        "B": "number of agents in each group.",
+        "C": "amount of time the agents spent touring the house.",
+        "D": "listing price in the agents' packets."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage says the listing price in the packet was varied from one group to another.",
+      "distractor_explanations": {
+        "A": "All agents toured a house; the passage says the listing price was varied.",
+        "B": "Group sizes are not mentioned.",
+        "C": "Touring time is not mentioned."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What did the researchers change between groups?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find \"varied\" in paragraph 3."
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-09",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 94,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000547",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000063",
+      "underline": null,
+      "evidence": "the remedy for anchoring lies less in trying harder",
+      "figure": null,
+      "stem": "The author's attitude toward the remedy of simply trying harder to resist anchors is best described as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "enthusiastic, because effort can overcome any bias.",
+        "B": "skeptical, because effort begins from the anchor itself.",
+        "C": "neutral, because the passage does not discuss effort.",
+        "D": "hostile, because effort makes the bias worse."
+      },
+      "correct_answer": "B",
+      "explanation": "The author says corrections start from the anchor and stop too soon, and that the remedy lies less in trying harder, which is a skeptical view.",
+      "distractor_explanations": {
+        "A": "The author says effort tends to stop too soon.",
+        "C": "The passage discusses effort in paragraphs 4 and 5.",
+        "D": "The author says effort falls short, not that it worsens the bias."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "What does the last sentence say about trying harder?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for evaluative language about effort."
+      },
+      "remember": "Identify attitude from evaluative language.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "R063-10",
+      "created_at": "2026-10-27T19:43:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-063.review.json",
+        "computation": "checks/act_reading/batch_063.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
