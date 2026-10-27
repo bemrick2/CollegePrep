@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 91,
-  "updated_at": "2026-10-27T22:52:36+00:00",
+  "version": 92,
+  "updated_at": "2026-10-27T23:17:16+00:00",
   "passages": [],
   "questions": [
     {
@@ -74147,6 +74147,736 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-091.review.json",
         "computation": "checks/sat_math/batch_091.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001021",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Line through a point with a given triangle area",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, line ℓ has a negative slope and passes through the point (2, 6). Line ℓ and the two coordinate axes form a triangle with an area of 25 square units. What is the greatest possible y-intercept of line ℓ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the y-intercept of the other line, found from the integer pair (5, 10).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 is an x-intercept, not a y-intercept.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With x-intercept a and y-intercept b, the point (2, 6) gives 2/a + 6/b = 1, and the area gives (1/2)ab = 25, so b = 50/a. Then 2/a + 6a/50 = 1, which gives 3a² − 25a + 50 = 0, so a = 5 or a = 10/3, and b = 10 or b = 15. Both lines work, so the greatest y-intercept is 15. Check: y = −4.5x + 15 passes through (2, 6) and makes a triangle of area (1/2)(10/3)(15) = 25.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the line in intercept form."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the point and the area to write two equations in the intercepts."
+      },
+      "remember": "Check whether more than one line satisfies the conditions.",
+      "expected_time_seconds": 130,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-01",
+      "created_at": "2026-10-27T23:17:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001022",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Swapped coordinates on two different lines",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the point (a, b) lies on the line y = 2x + 1, and the point (b, a) lies on the line y = 3x − 13, where a and b are constants. What is the value of b?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "29",
+          "rationale": "29 ignores the swap and solves 2a + 1 = 3a − 13.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the value of a.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The first point gives b = 2a + 1. For the second point, the x-coordinate is b and the y-coordinate is a, so a = 3b − 13. Substituting, a = 3(2a + 1) − 13 = 6a − 10, so a = 2 and b = 5. Check: 5 = 2(2) + 1 and 2 = 3(5) − 13.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which coordinate of (b, a) is x?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute each point into its own line."
+      },
+      "remember": "Read each coordinate carefully when letters are swapped.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-02",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "5",
+        "blind_answer": "5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001023",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Power of a power as a difference of squares",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x > 1, (x^(a + b))^(a − b) = x⁴⁵ and xᵃ/xᵇ = x³, where a and b are constants. What is the value of a + b?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "42",
+          "rationale": "42 subtracts the exponents, 45 − 3.",
+          "trap": null
+        },
+        {
+          "value": "135",
+          "rationale": "135 multiplies 45 by 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The power of a power gives x^((a + b)(a − b)), so (a + b)(a − b) = 45. The quotient gives a − b = 3. Dividing, a + b = 45/3 = 15 (so a = 9 and b = 6). Since x > 1, equal powers of x have equal exponents.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What exponent results from a power of a power?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write both conditions as equations in the exponents."
+      },
+      "remember": "(a + b)(a − b) = a² − b².",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-04",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001024",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation from reciprocals of two numbers",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two positive numbers differ by 2, and the sum of their reciprocals is 5/12. What is the greater of the two numbers?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the smaller number.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.4",
+          "rationale": "2.4 inverts the given sum, 12/5.",
+          "trap": null
+        }
+      ],
+      "explanation": "With numbers x and x + 2, 1/x + 1/(x + 2) = 5/12. Clearing denominators, 12(2x + 2) = 5x(x + 2), so 5x² − 14x − 24 = 0 and (5x + 6)(x − 4) = 0. Since the numbers are positive, x = 4 and the greater number is 6. Check: 1/4 + 1/6 = 5/12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Name the numbers x and x + 2."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try pairs of numbers that differ by 2."
+      },
+      "remember": "Reject roots that violate a stated condition.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-05",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001025",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential with an added constant from three values",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = a · bˣ + c, where a, b, and c are constants and b > 0. If f(0) = 5, f(1) = 11, and f(2) = 29, what is the value of f(3)?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "83",
+      "accepted_answers": [
+        "83"
+      ],
+      "common_errors": [
+        {
+          "value": "47",
+          "rationale": "47 extends the last difference of 18 linearly.",
+          "trap": null
+        },
+        {
+          "value": "81",
+          "rationale": "81 finds a and b but leaves out c.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The constant c cancels in differences: f(1) − f(0) = a(b − 1) = 6 and f(2) − f(1) = ab(b − 1) = 18, so b = 3. Then 2a = 6 gives a = 3, and c = 5 − 3 = 2. So f(3) = 3(27) + 2 = 83. Equivalently, the differences triple, so the next difference is 54 and f(3) = 29 + 54.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What happens to c when you subtract outputs?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Compare successive differences."
+      },
+      "remember": "Differences of a · bˣ + c grow by the factor b.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-06",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "83",
+        "blind_answer": "83",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001026",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Recovering a list size from a mean change",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A list of numbers has a mean of 30. When the number 50 is added to the list, the mean of the new list is 32. If, instead, the number 6 had been added to the original list, what would the mean of the new list have been?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "27.6",
+      "accepted_answers": [
+        "27.6",
+        "138/5"
+      ],
+      "common_errors": [
+        {
+          "value": "28",
+          "rationale": "28 assumes the mean drops by the same 2 that it rose.",
+          "trap": null
+        },
+        {
+          "value": "18",
+          "rationale": "18 averages 30 and 6.",
+          "trap": null
+        }
+      ],
+      "explanation": "With n numbers, 30n + 50 = 32(n + 1), so n = 9 and the sum is 270. Adding 6 gives a sum of 276 for 10 numbers, a mean of 27.6.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How many numbers were in the original list?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the sum before and after adding 50."
+      },
+      "remember": "Use the change in the sum to find how many values there are.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-07",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "27.6",
+        "blind_answer": "27.6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001027",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Group share from a weighted average",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a school, 65% of the students who took an exam passed it. Of the students who took the exam and attended a review session, 80% passed; of the students who took the exam and did not attend the review session, 30% passed. What percent of the students who took the exam attended the review session?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "35%",
+        "B": "55%",
+        "C": "70%",
+        "D": "81.25%"
+      },
+      "correct_answer": "C",
+      "explanation": "If a fraction s attended, the overall pass rate is a weighted average: 0.80s + 0.30(1 − s) = 0.65. So 0.50s = 0.35 and s = 0.70, or 70%. Check: per 100 students, 0.8(70) + 0.3(30) = 56 + 9 = 65.",
+      "distractor_explanations": {
+        "A": "Subtracts 30% from 65% and stops before dividing by the 50-point gap.",
+        "B": "Averages 80% and 30% as if the groups were equal in size.",
+        "D": "Divides 65% by 80%, as if every student who passed had attended."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Let s be the fraction who attended."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the overall rate as a weighted average."
+      },
+      "remember": "An overall rate is a weighted average of the group rates.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-08",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001028",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle from two points and a line through its center",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle passes through the points (1, 7) and (5, 3), and its center lies on the line y = 2x. An equation of the circle is (x − h)² + (y − k)² = r², where h, k, and r are constants. What is the value of r²?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 uses the midpoint (3, 5) as the center, which is not on y = 2x.",
+          "trap": null
+        },
+        {
+          "value": "32",
+          "rationale": "32 is the square of the distance between the two points.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The center is equally far from both points, so it lies on their perpendicular bisector. The midpoint is (3, 5) and the segment's slope is −1, so the bisector is y = x + 2. With y = 2x, the center is (2, 4), and r² = (1 − 2)² + (7 − 4)² = 10. Check (5, 3): 9 + 1 = 10.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where are points equidistant from (1, 7) and (5, 3)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the perpendicular bisector of the two points."
+      },
+      "remember": "A circle's center lies on the perpendicular bisector of any chord.",
+      "expected_time_seconds": 130,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-09",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001029",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Effect of a capped shift on mean and median",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a 100-point test, the 25 students in a class had scores with a median of 76, and exactly 4 students scored above 90. The teacher raised every student's score by 10 points, except that any score that would go above 100 was set to 100 instead. Which of the following must be true about the new scores compared with the original scores?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The median increased by exactly 10 points, and the mean increased by less than 10 points.",
+        "B": "Both the median and the mean increased by exactly 10 points.",
+        "C": "The mean increased by exactly 10 points, and the median increased by less than 10 points.",
+        "D": "Both the median and the mean increased by less than 10 points."
+      },
+      "correct_answer": "A",
+      "explanation": "Adding 10 and capping at 100 keeps the scores in order, so the 13th score, 76, becomes 86 and the median rises by exactly 10. Each score above 90 rises by less than 10, and no score rises by more than 10, so the mean rises by less than 10.",
+      "distractor_explanations": {
+        "B": "Treats the change as adding a constant to every score.",
+        "C": "Reverses which statistic the capped scores affect.",
+        "D": "Thinks the capped scores lower every measure of center."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which scores are affected by the cap?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a small set of scores with a few above 90."
+      },
+      "remember": "A cap affects the mean but not a median far from the cap.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-12",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: the 'median of 76' and the 25-student count matter only to confirm the median score is not capped; the item works as intended."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-001030",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Missing comparison group in outcome-selected data",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A school counselor wanted to know whether students who attend the school's after-school tutoring program are more likely to earn an A in algebra than students who do not attend. She looked at the records of the 50 students who earned an A in algebra last year and found that 40 of them, or 80%, had attended the tutoring program. Which additional information is most needed to answer the counselor's question?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The percent of the students in the school's geometry classes who earned an A last year",
+        "B": "The percent of the students who did not earn an A in algebra who attended the tutoring program",
+        "C": "The total number of students at the school who attended the tutoring program last year",
+        "D": "The percent of the 50 students who earned an A who said the tutoring program was helpful"
+      },
+      "correct_answer": "B",
+      "explanation": "The 80% describes students who earned an A, not students who were tutored. If about 80% of the students who did not earn an A also attended tutoring, there is no association. The tutoring rate among non-A students supplies the needed comparison.",
+      "distractor_explanations": {
+        "A": "Brings in a comparison group, but one from a different course that says nothing about tutoring.",
+        "C": "Gives the size of the tutored group but no information about untutored students, so no comparison of A rates is possible.",
+        "D": "Opinion data from the same selected group."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Whom does the 80% describe?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for the group the data leave out."
+      },
+      "remember": "To show an association, compare rates across groups.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 92,
+      "draft_candidate": "Q092-13",
+      "created_at": "2026-10-27T23:17:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: 'students who did not earn an A in algebra' could say 'algebra students who did not earn an A' to fix the comparison population.",
+          "minor: the item uses the familiar SAT 'most needed information' / conditional-comparison format; it is generic and not a close copy of a known item."
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-092.review.json",
+        "computation": "checks/sat_math/batch_092.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

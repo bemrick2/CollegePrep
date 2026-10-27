@@ -1,0 +1,345 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 92,
+  "reviewed_at": "2026-10-27T23:17:16+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 92
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 1,
+    "REJECT": 2
+  },
+  "appended_ids": [
+    "CLD-SAT-M-001021",
+    "CLD-SAT-M-001022",
+    "CLD-SAT-M-001023",
+    "CLD-SAT-M-001024",
+    "CLD-SAT-M-001025",
+    "CLD-SAT-M-001026",
+    "CLD-SAT-M-001027",
+    "CLD-SAT-M-001028",
+    "CLD-SAT-M-001029",
+    "CLD-SAT-M-001030"
+  ],
+  "results": [
+    {
+      "cand": "Q092-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Negative slope through (2,6) forces both intercepts positive. Intercepts a,b: 2/a+6/b=1, ab=50 -> b+3a=25 -> b^2-25b+150=0 -> b=10 or 15. Greatest is 15 (a=10/3). Needs the intercept-form setup and choosing the larger root.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two lines satisfy the conditions; the quadratic must be solved fully."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001021"
+    },
+    {
+      "cand": "Q092-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "b=2a+1 and a=3b-13 -> a=2, b=5. Swapped-coordinate trap (a=2 also comes out of the solve).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001022"
+    },
+    {
+      "cand": "Q092-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "x15: 5x+20-3x+6<60 -> x<17, so greatest integer is 16. Trap: entering 17, or a sign error on -3(x-2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-M-000030",
+          "similarity": 0.6
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q092-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "a^2-b^2=45 and a-b=3 -> a+b=15 (a=9, b=6).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Recognize a product of exponents and divide by the given factor."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001023"
+    },
+    {
+      "cand": "Q092-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "1/x+1/(x+2)=5/12 -> 5x^2-14x-24=0 -> x=4, so the greater number is 6. Trap: entering 4. Easy to guess and check.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001024"
+    },
+    {
+      "cand": "Q092-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "83",
+      "computed_answer": "83",
+      "blind_answer": "83",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Differences: a(b-1)=6 and ab(b-1)=18 -> b=3, a=3, c=2. f(3)=3*27+2=83. Needs the difference/ratio insight.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The base must come from the ratio of successive differences."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001025"
+    },
+    {
+      "cand": "Q092-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "27.6",
+      "computed_answer": "27.6",
+      "blind_answer": "27.6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "30n+50=32(n+1) -> n=9, sum 270. (270+6)/10=27.6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001026"
+    },
+    {
+      "cand": "Q092-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "0.8p+0.3(1-p)=0.65 -> p=0.7. Distractors: A=0.35 (stopping at 0.5p=0.35), D=0.65/0.8. All four are plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The unknown is the weight, not the overall rate."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001027"
+    },
+    {
+      "cand": "Q092-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "10",
+      "computed_answer": "10",
+      "blind_answer": "10",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Center (h,2h) equidistant from both points: 50-30h=34-22h -> h=2, k=4. r^2=(1-2)^2+(7-4)^2=10. Check with (5,3): 9+1=10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires intersecting a perpendicular bisector with a given line."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001028"
+    },
+    {
+      "cand": "Q092-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "324",
+      "computed_answer": "324",
+      "blind_answer": "324",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 22,
+      "blind_flags": [
+        "Rolling a sector into a cone (arc length becomes the base circumference, radius becomes the slant height) is at the edge of digital SAT Geometry: it uses arc length and cone volume, both in scope, but the net/rolling setup is rarely tested on the SAT. Consider whether it is in scope."
+      ],
+      "blind_notes": "Arc=(216/360)*30pi=18pi -> base r=9. Slant 15 -> h=12. V=(1/3)pi*81*12=324pi.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The sector must be translated into the cone's dimensions first."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Rolling a sector into a cone (arc length becomes the base circumference, radius becomes the slant height) is at the edge of digital SAT Geometry: it uses arc length and cone volume, both in scope, but the net/rolling setup is rarely tested on the SAT. Consider whether it is in scope."
+    },
+    {
+      "cand": "Q092-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "x-int 8, y-int 24/k; 8=2(24/k) -> k=6. Trap: reversing the relation gives k=24 (or 3/2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000142",
+          "similarity": 0.6
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q092-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: the 'median of 76' and the 25-student count matter only to confirm the median score is not capped; the item works as intended."
+      ],
+      "blind_notes": "Ordering is preserved, so the 13th score 76 becomes 86 (+10 exactly). The 4 scores above 90 gain less than 10 because of the cap, so the mean rises by less than 10. Only A must be true.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Separates the effect of a cap on the mean from its effect on the median."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001029"
+    },
+    {
+      "cand": "Q092-13",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver: key was the only choice naming a comparison group; other distractors plainly irrelevant",
+          "change": "choice C replaced with a relevant but insufficient quantity (total tutored)"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: 'students who did not earn an A in algebra' could say 'algebra students who did not earn an A' to fix the comparison population.",
+        "minor: the item uses the familiar SAT 'most needed information' / conditional-comparison format; it is generic and not a close copy of a known item."
+      ],
+      "blind_notes": "P(T|A) > P(T|not A) is equivalent to P(A|T) > P(A|not T), so B is sufficient. C needs the total enrollment as well. A and D are irrelevant.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The data were selected on the outcome."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001030"
+    }
+  ]
+}

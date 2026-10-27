@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 91,
+  "bank_version": 92,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -21703,6 +21703,254 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Apply the same fraction to grade 11."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001021",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the y-intercept of the other line, found from the integer pair (5, 10).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 is an x-intercept, not a y-intercept.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With x-intercept a and y-intercept b, the point (2, 6) gives 2/a + 6/b = 1, and the area gives (1/2)ab = 25, so b = 50/a. Then 2/a + 6a/50 = 1, which gives 3a² − 25a + 50 = 0, so a = 5 or a = 10/3, and b = 10 or b = 15. Both lines work, so the greatest y-intercept is 15. Check: y = −4.5x + 15 passes through (2, 6) and makes a triangle of area (1/2)(10/3)(15) = 25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the line in intercept form."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the point and the area to write two equations in the intercepts."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001022",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "29",
+          "rationale": "29 ignores the swap and solves 2a + 1 = 3a − 13.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the value of a.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The first point gives b = 2a + 1. For the second point, the x-coordinate is b and the y-coordinate is a, so a = 3b − 13. Substituting, a = 3(2a + 1) − 13 = 6a − 10, so a = 2 and b = 5. Check: 5 = 2(2) + 1 and 2 = 3(5) − 13.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which coordinate of (b, a) is x?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute each point into its own line."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001023",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "42",
+          "rationale": "42 subtracts the exponents, 45 − 3.",
+          "trap": null
+        },
+        {
+          "value": "135",
+          "rationale": "135 multiplies 45 by 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The power of a power gives x^((a + b)(a − b)), so (a + b)(a − b) = 45. The quotient gives a − b = 3. Dividing, a + b = 45/3 = 15 (so a = 9 and b = 6). Since x > 1, equal powers of x have equal exponents.",
+      "distractor_explanations": {},
+      "hints": [
+        "What exponent results from a power of a power?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write both conditions as equations in the exponents."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001024",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the smaller number.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.4",
+          "rationale": "2.4 inverts the given sum, 12/5.",
+          "trap": null
+        }
+      ],
+      "explanation": "With numbers x and x + 2, 1/x + 1/(x + 2) = 5/12. Clearing denominators, 12(2x + 2) = 5x(x + 2), so 5x² − 14x − 24 = 0 and (5x + 6)(x − 4) = 0. Since the numbers are positive, x = 4 and the greater number is 6. Check: 1/4 + 1/6 = 5/12.",
+      "distractor_explanations": {},
+      "hints": [
+        "Name the numbers x and x + 2."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try pairs of numbers that differ by 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001025",
+      "correct_answer": "83",
+      "accepted_answers": [
+        "83"
+      ],
+      "common_errors": [
+        {
+          "value": "47",
+          "rationale": "47 extends the last difference of 18 linearly.",
+          "trap": null
+        },
+        {
+          "value": "81",
+          "rationale": "81 finds a and b but leaves out c.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The constant c cancels in differences: f(1) − f(0) = a(b − 1) = 6 and f(2) − f(1) = ab(b − 1) = 18, so b = 3. Then 2a = 6 gives a = 3, and c = 5 − 3 = 2. So f(3) = 3(27) + 2 = 83. Equivalently, the differences triple, so the next difference is 54 and f(3) = 29 + 54.",
+      "distractor_explanations": {},
+      "hints": [
+        "What happens to c when you subtract outputs?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Compare successive differences."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001026",
+      "correct_answer": "27.6",
+      "accepted_answers": [
+        "27.6",
+        "138/5"
+      ],
+      "common_errors": [
+        {
+          "value": "28",
+          "rationale": "28 assumes the mean drops by the same 2 that it rose.",
+          "trap": null
+        },
+        {
+          "value": "18",
+          "rationale": "18 averages 30 and 6.",
+          "trap": null
+        }
+      ],
+      "explanation": "With n numbers, 30n + 50 = 32(n + 1), so n = 9 and the sum is 270. Adding 6 gives a sum of 276 for 10 numbers, a mean of 27.6.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many numbers were in the original list?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the sum before and after adding 50."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001027",
+      "correct_answer": "C",
+      "explanation": "If a fraction s attended, the overall pass rate is a weighted average: 0.80s + 0.30(1 − s) = 0.65. So 0.50s = 0.35 and s = 0.70, or 70%. Check: per 100 students, 0.8(70) + 0.3(30) = 56 + 9 = 65.",
+      "distractor_explanations": {
+        "A": "Subtracts 30% from 65% and stops before dividing by the 50-point gap.",
+        "B": "Averages 80% and 30% as if the groups were equal in size.",
+        "D": "Divides 65% by 80%, as if every student who passed had attended."
+      },
+      "hints": [
+        "Let s be the fraction who attended."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the overall rate as a weighted average."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001028",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 uses the midpoint (3, 5) as the center, which is not on y = 2x.",
+          "trap": null
+        },
+        {
+          "value": "32",
+          "rationale": "32 is the square of the distance between the two points.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The center is equally far from both points, so it lies on their perpendicular bisector. The midpoint is (3, 5) and the segment's slope is −1, so the bisector is y = x + 2. With y = 2x, the center is (2, 4), and r² = (1 − 2)² + (7 − 4)² = 10. Check (5, 3): 9 + 1 = 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where are points equidistant from (1, 7) and (5, 3)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Find the perpendicular bisector of the two points."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001029",
+      "correct_answer": "A",
+      "explanation": "Adding 10 and capping at 100 keeps the scores in order, so the 13th score, 76, becomes 86 and the median rises by exactly 10. Each score above 90 rises by less than 10, and no score rises by more than 10, so the mean rises by less than 10.",
+      "distractor_explanations": {
+        "B": "Treats the change as adding a constant to every score.",
+        "C": "Reverses which statistic the capped scores affect.",
+        "D": "Thinks the capped scores lower every measure of center."
+      },
+      "hints": [
+        "Which scores are affected by the cap?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a small set of scores with a few above 90."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001030",
+      "correct_answer": "B",
+      "explanation": "The 80% describes students who earned an A, not students who were tutored. If about 80% of the students who did not earn an A also attended tutoring, there is no association. The tutoring rate among non-A students supplies the needed comparison.",
+      "distractor_explanations": {
+        "A": "Brings in a comparison group, but one from a different course that says nothing about tutoring.",
+        "C": "Gives the size of the tutored group but no information about untutored students, so no comparison of A rates is possible.",
+        "D": "Opinion data from the same selected group."
+      },
+      "hints": [
+        "Whom does the 80% describe?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Look for the group the data leave out."
       }
     }
   ]

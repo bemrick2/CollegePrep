@@ -136,7 +136,7 @@
    "skill": "Advanced Math",
    "subskill": "Power of a power as a difference of squares",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "For x > 1, (x^(a + b))^(a − b) = x⁴⁵ and xᵃ/xᵇ = x³, where a and b are constants. What is the value of a + b?",
    "explanation": "The power of a power gives x^((a + b)(a − b)), so (a + b)(a − b) = 45. The quotient gives a − b = 3. Dividing, a + b = 45/3 = 15 (so a = 9 and b = 6). Since x > 1, equal powers of x have equal exponents.",
    "hints": [
@@ -307,7 +307,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Group share from a weighted average",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "At a school, 65% of the students who took an exam passed it. Of the students who took the exam and attended a review session, 80% passed; of the students who took the exam and did not attend the review session, 30% passed. What percent of the students who took the exam attended the review session?",
    "explanation": "If a fraction s attended, the overall pass rate is a weighted average: 0.80s + 0.30(1 − s) = 0.65. So 0.50s = 0.35 and s = 0.70, or 70%. Check: per 100 students, 0.8(70) + 0.3(30) = 56 + 9 = 65.",
    "hints": [
@@ -432,7 +432,9 @@
      "rationale": "972 leaves out the 1/3 in the cone volume formula.",
      "trap": "partial_answer"
     }
-   ]
+   ],
+   "author_status": "REJECT",
+   "author_reason": "Withdrawn: blind solver flagged sector-to-cone construction as at the edge of digital SAT scope; not resubmitted."
   },
   {
    "cand": "Q092-11",
@@ -482,7 +484,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Effect of a capped shift on mean and median",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "On a 100-point test, the 25 students in a class had scores with a median of 76, and exactly 4 students scored above 90. The teacher raised every student's score by 10 points, except that any score that would go above 100 was set to 100 instead. Which of the following must be true about the new scores compared with the original scores?",
    "explanation": "Adding 10 and capping at 100 keeps the scores in order, so the 13th score, 76, becomes 86 and the median rises by exactly 10. Each score above 90 rises by less than 10, and no score rises by more than 10, so the mean rises by less than 10.",
    "hints": [
