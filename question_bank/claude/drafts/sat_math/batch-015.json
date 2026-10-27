@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 15,
- "plan": "SAT Math batch 15: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: triangle formed with the axes (ACT 273), the 13-14-15 triangle (357), age systems (163), circle-and-point membership (542), parallel-line angle algebra (010/272).",
+ "plan": "SAT Math batch 15: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 5 items labelled hard. Screened out before drafting: triangle formed with the axes (ACT 273), the 13-14-15 triangle (357), age systems (163), circle-and-point membership (542), parallel-line angle algebra (010/272). A distinct-zeros count that matched ACT 642 was replaced after screening.",
  "candidates": [
   {
    "cand": "Q015-01",
@@ -232,20 +232,20 @@
    "cand": "Q015-06",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
-   "subskill": "Counting distinct zeros of a factored polynomial",
+   "subskill": "Input of a quadratic function from its output",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "How many distinct zeros does the polynomial p(x) = (x² − 9)(x + 3) have?",
-   "explanation": "x² − 9 = (x − 3)(x + 3), so p(x) = (x − 3)(x + 3)². The zeros are 3 and −3; −3 appears twice, so there are only 2 distinct zeros.",
+   "difficulty": "easy",
+   "stem": "The function f is defined by f(x) = 3x² − 2. If f(a) = 25 and a > 0, what is the value of a ?",
+   "explanation": "Setting 3a² − 2 = 25 gives 3a² = 27, so a² = 9 and a = 3 (since a > 0). Check: f(3) = 3(9) − 2 = 25.",
    "hints": [
-    "Factor x² − 9."
+    "Set the function equal to 25."
    ],
    "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Write p in fully factored form and list the different zeros."
+    "key": "backsolve",
+    "explanation": "Test a = 3."
    },
-   "remember": "A repeated factor gives a repeated zero, not a new one.",
-   "expected_time_seconds": 40,
+   "remember": "f(a) = 25 means the output is 25; solve for the input.",
+   "expected_time_seconds": 35,
    "modeling": false,
    "calculator": "allowed",
    "author_checklist": {
@@ -253,24 +253,24 @@
     "single_correct": true
    },
    "choices": {
-    "A": "1",
-    "B": "2",
-    "C": "3",
-    "D": "4"
+    "A": "3",
+    "B": "√(23/3)",
+    "C": "9",
+    "D": "73"
    },
-   "answer": "B",
+   "answer": "A",
    "distractors": {
-    "A": {
-     "rationale": "1 counts only the zero from x + 3.",
-     "trap": null
+    "B": {
+     "rationale": "√(23/3) subtracts 2 instead of adding it: 3a² = 23.",
+     "trap": "sign_error"
     },
     "C": {
-     "rationale": "3 counts the repeated zero −3 twice.",
+     "rationale": "9 is the value of a², not a.",
      "trap": "partial_answer"
     },
     "D": {
-     "rationale": "4 counts a zero for each term.",
-     "trap": null
+     "rationale": "73 treats 25 as the input: 3(25) − 2.",
+     "trap": "wrong_quantity"
     }
    }
   },
