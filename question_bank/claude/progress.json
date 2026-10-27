@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:55:49+00:00",
+  "updated_at": "2026-10-27T02:56:26+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 187
+    "sat_math": 196
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 197,
+      "PASS": 206,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 198,
+      "candidates": 207,
       "passed_after_revision": 1
     }
   },
@@ -1397,12 +1397,12 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 187,
+      "accepted": 196,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 59,
-        "Algebra": 57,
-        "Geometry and Trigonometry": 37,
+        "Advanced Math": 64,
+        "Algebra": 60,
+        "Geometry and Trigonometry": 38,
         "Problem-Solving and Data Analysis": 34
       },
       "by_subskill": {
@@ -1434,6 +1434,7 @@
         "Cone and sphere with equal volumes": 1,
         "Constant in an equivalent linear expression": 1,
         "Constant term from the distance between zeros": 1,
+        "Constant term from the minimum value of a quadratic": 1,
         "Constant term in a circle equation from its radius": 1,
         "Constant that puts a parabola's vertex on the y-axis": 1,
         "Converting a monthly growth rate to an annual rate": 1,
@@ -1444,6 +1445,7 @@
         "Counting from a conditional percent": 1,
         "Difference of two function values": 1,
         "Distance from a pace and a time": 1,
+        "Distance from a vertex of a square to a midpoint": 1,
         "Distributing a monomial over a binomial": 1,
         "Dividing a polynomial by a monomial": 1,
         "Effect of replacing a value on the mean": 1,
@@ -1484,6 +1486,7 @@
         "Intersection of two lines": 1,
         "Intersections of a line and an absolute value graph": 1,
         "Leading coefficient from a maximum value": 1,
+        "Length of the interval where a quadratic is positive": 1,
         "Line with equal intercepts through a given point": 1,
         "Linear equation from a ratio of quantities sold": 1,
         "Linear equation with infinitely many solutions": 1,
@@ -1493,6 +1496,7 @@
         "Matching coefficients of a product": 1,
         "Median after finding a missing value from the mean": 1,
         "Minimum of a horizontally shifted quadratic": 1,
+        "Minimum of a sum of absolute values": 1,
         "Multiplying powers with fractional exponents": 1,
         "Number of real solutions of a quadratic equation": 1,
         "Overlapping groups from two conditional percents": 1,
@@ -1517,6 +1521,7 @@
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Rate problem with a unit conversion": 1,
         "Ratio applied after excluding a group": 1,
+        "Recognising an equivalent equation": 1,
         "Rectangle from its diagonal and one side": 1,
         "Remainder of a polynomial from its division form": 1,
         "Returning to an initial height in a quadratic model": 1,
@@ -1558,6 +1563,7 @@
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
         "Square with a perimeter equal to a circle's circumference": 1,
+        "Squaring a product with a fractional exponent": 1,
         "Substituting into a linear model of coins": 1,
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
@@ -1570,6 +1576,7 @@
         "Time for a falling object to reach a height": 1,
         "Time for a whole job from a partial job": 1,
         "Trade-off between two variables in a linear equation": 1,
+        "Translating a comparison of fractional parts": 1,
         "Translating a verbal statement into a linear equation": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
@@ -1590,23 +1597,25 @@
         "Zero of an exponential function": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
+        "Zeros of a vertically shifted quadratic": 1,
+        "x-intercept of a parallel line through a point": 1,
         "y-intercept from a slope and a point": 1,
         "y-intercept from an x-intercept and another point": 1,
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 34,
+        "easy": 36,
         "hard": 11,
-        "medium": 142
+        "medium": 149
       },
       "by_difficulty_calibrated": {
-        "easy": 76,
+        "easy": 80,
         "hard": 6,
-        "medium": 105
+        "medium": 110
       },
       "calibrated_share": {
-        "easy": 0.406,
-        "hard": 0.032,
+        "easy": 0.408,
+        "hard": 0.031,
         "medium": 0.561
       },
       "answer_key_balance": {
@@ -1615,7 +1624,7 @@
         "-9": 2,
         "1": 1,
         "1.5": 2,
-        "10": 2,
+        "10": 3,
         "11": 2,
         "114": 1,
         "115": 1,
@@ -1632,7 +1641,8 @@
         "26": 1,
         "3": 5,
         "30": 2,
-        "4": 2,
+        "36": 1,
+        "4": 3,
         "44": 2,
         "5": 2,
         "5.4": 1,
@@ -1644,13 +1654,13 @@
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 32,
-        "B": 37,
-        "C": 37,
-        "D": 23
+        "A": 33,
+        "B": 39,
+        "C": 38,
+        "D": 25
       },
       "modeling_items": 51,
-      "spr_items": 58,
+      "spr_items": 61,
       "passages": 0
     }
   },
@@ -1659,7 +1669,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 21
+    "sat_math": 22
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1691,30 +1701,38 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 22,
+    "next_batch": 23,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 11.9,
-      "Advanced Math": 9.9,
-      "Problem-Solving and Data Analysis": -4.5,
-      "Geometry and Trigonometry": -7.5
+      "Algebra": 12.1,
+      "Advanced Math": 8.1,
+      "Problem-Solving and Data Analysis": -3.1,
+      "Geometry and Trigonometry": -7.1
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -26.8,
-      "medium": -6.5,
-      "hard": 43.2
+      "easy": -28.5,
+      "medium": -7.0,
+      "hard": 45.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 4.9,
-      "B": -0.1,
-      "C": -0.1,
-      "D": 13.9
+      "A": 5.6,
+      "B": -0.4,
+      "C": 0.6,
+      "D": 13.6
     },
-    "spr_items": 58,
+    "spr_items": 61,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
+      }
+    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
@@ -1730,14 +1748,6 @@
         "Information and Ideas": -1.6,
         "Standard English Conventions": 12.4,
         "Expression of Ideas": -2.6
-      }
-    },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1764,12 +1774,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 187,
-      "share_of_target": 0.187
+      "accepted": 196,
+      "share_of_target": 0.196
     }
   },
   "total_target": 3841,
-  "total_accepted": 1698,
+  "total_accepted": 1707,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48691,6 +48701,223 @@
         "Thin explanations (under 80 characters): 40 accepted records; records are append-only, so the drafting header now refuses explanations under 80 characters.",
         "Answer-letter balance at 106: A 20, B 20, C 19, D 15; no action needed beyond normal balancing."
       ]
+    },
+    {
+      "bank": "sat_math",
+      "audited_at": "2026-10-27T02:56:24+00:00",
+      "accepted": 206,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-SAT-M-000002",
+          "b": "CLD-SAT-M-000031",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000002",
+          "b": "CLD-SAT-M-000127",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-M-000005",
+          "b": "CLD-SAT-M-000150",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000022",
+          "b": "CLD-SAT-M-000115",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000030",
+          "b": "CLD-SAT-M-000118",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000034",
+          "b": "CLD-SAT-M-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000038",
+          "b": "CLD-SAT-M-000190",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000048",
+          "b": "CLD-SAT-M-000171",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000058",
+          "b": "CLD-SAT-M-000169",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000071",
+          "b": "CLD-SAT-M-000155",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000071",
+          "b": "CLD-SAT-M-000201",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000081",
+          "b": "CLD-SAT-M-000155",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000081",
+          "b": "CLD-SAT-M-000201",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000108",
+          "b": "CLD-SAT-M-000127",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000117",
+          "b": "CLD-SAT-M-000169",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000136",
+          "b": "CLD-SAT-M-000190",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000164",
+          "b": "CLD-SAT-M-000172",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000164",
+          "b": "CLD-SAT-M-000189",
+          "similarity": 0.46
+        }
+      ],
+      "answer_key_balance": {
+        "-1": 1,
+        "-12": 1,
+        "-9": 2,
+        "1": 1,
+        "1.5": 2,
+        "10": 3,
+        "11": 2,
+        "114": 1,
+        "115": 1,
+        "12": 3,
+        "15": 3,
+        "16": 1,
+        "18": 1,
+        "18/13": 1,
+        "2": 3,
+        "20/3": 1,
+        "200": 1,
+        "24": 1,
+        "240": 1,
+        "26": 1,
+        "3": 5,
+        "30": 2,
+        "36": 1,
+        "4": 3,
+        "44": 2,
+        "5": 2,
+        "5.4": 1,
+        "50": 2,
+        "6": 3,
+        "60": 1,
+        "7": 4,
+        "8": 2,
+        "80": 1,
+        "9": 1,
+        "90": 1,
+        "96": 1,
+        "A": 36,
+        "B": 41,
+        "C": 40,
+        "D": 26
+      },
+      "by_skill": {
+        "Advanced Math": 68,
+        "Algebra": 64,
+        "Geometry and Trigonometry": 39,
+        "Problem-Solving and Data Analysis": 35
+      },
+      "by_difficulty_author": {
+        "easy": 39,
+        "hard": 12,
+        "medium": 155
+      },
+      "by_difficulty_calibrated": {
+        "easy": 86,
+        "hard": 7,
+        "medium": 113
+      },
+      "thin_explanations": [
+        "CLD-SAT-M-000001",
+        "CLD-SAT-M-000005",
+        "CLD-SAT-M-000008",
+        "CLD-SAT-M-000011",
+        "CLD-SAT-M-000012",
+        "CLD-SAT-M-000013",
+        "CLD-SAT-M-000015",
+        "CLD-SAT-M-000020",
+        "CLD-SAT-M-000024",
+        "CLD-SAT-M-000028",
+        "CLD-SAT-M-000035",
+        "CLD-SAT-M-000039",
+        "CLD-SAT-M-000040",
+        "CLD-SAT-M-000046",
+        "CLD-SAT-M-000047",
+        "CLD-SAT-M-000052",
+        "CLD-SAT-M-000053",
+        "CLD-SAT-M-000056",
+        "CLD-SAT-M-000058",
+        "CLD-SAT-M-000059",
+        "CLD-SAT-M-000060",
+        "CLD-SAT-M-000062",
+        "CLD-SAT-M-000066",
+        "CLD-SAT-M-000068",
+        "CLD-SAT-M-000072",
+        "CLD-SAT-M-000075",
+        "CLD-SAT-M-000078",
+        "CLD-SAT-M-000081",
+        "CLD-SAT-M-000083",
+        "CLD-SAT-M-000085",
+        "CLD-SAT-M-000086",
+        "CLD-SAT-M-000088",
+        "CLD-SAT-M-000089",
+        "CLD-SAT-M-000091",
+        "CLD-SAT-M-000094",
+        "CLD-SAT-M-000096",
+        "CLD-SAT-M-000097",
+        "CLD-SAT-M-000100",
+        "CLD-SAT-M-000103",
+        "CLD-SAT-M-000105",
+        "CLD-SAT-M-000115",
+        "CLD-SAT-M-000122",
+        "CLD-SAT-M-000127",
+        "CLD-SAT-M-000129",
+        "CLD-SAT-M-000134",
+        "CLD-SAT-M-000136",
+        "CLD-SAT-M-000137",
+        "CLD-SAT-M-000144",
+        "CLD-SAT-M-000149",
+        "CLD-SAT-M-000163",
+        "CLD-SAT-M-000166",
+        "CLD-SAT-M-000167",
+        "CLD-SAT-M-000169",
+        "CLD-SAT-M-000174",
+        "CLD-SAT-M-000179",
+        "CLD-SAT-M-000184",
+        "CLD-SAT-M-000187",
+        "CLD-SAT-M-000194"
+      ],
+      "subskills_used_more_than_twice": {},
+      "scope": "automatic audit at 206 accepted"
     }
   ],
   "files": {
@@ -48724,7 +48951,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 21,
+      "bank_version": 22,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48850,7 +49077,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:55:48+00:00",
+    "heartbeat_at": "2026-10-27T02:56:26+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

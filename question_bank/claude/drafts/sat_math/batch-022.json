@@ -1,54 +1,8 @@
 {
  "bank": "sat_math",
  "batch": 22,
- "plan": "SAT Math batch 22: Algebra 4, Advanced Math 5, Geometry and Trigonometry 1; 3 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-022.repeats.json): one copy (ACT 658) and five templates (ACT 508, 613, 375, 541; SAT 127) dropped; after drafting, a positive-root item matching SAT 033 was replaced.",
+ "plan": "SAT Math batch 22: Algebra 4, Advanced Math 5, Geometry and Trigonometry 1; 3 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-022.repeats.json): one copy (ACT 658) and five templates (ACT 508, 613, 375, 541; SAT 127) dropped; after drafting, a positive-root item matching SAT 033 was replaced. Q022-04, Q022-08 relabelled medium after the blind solver rated them medium. Q022-01 withdrawn (answer cue).",
  "candidates": [
-  {
-   "cand": "Q022-01",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Solving a formula for time",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
-   "stem": "The simple interest I earned on a deposit is given by I = Prt, where P is the amount deposited, r is the annual interest rate written as a decimal, and t is the time in years. A deposit of $2,000 at an annual rate of 3.5% earns $280 in simple interest. For how many years was the money deposited?",
-   "explanation": "Writing 3.5% as 0.035 gives 280 = 2,000(0.035)t = 70t, so t = 280 ÷ 70 = 4 years.",
-   "hints": [
-    "Write 3.5% as a decimal."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Solve 280 = 2,000(0.035)t."
-   },
-   "remember": "Convert a percent to a decimal by dividing by 100.",
-   "expected_time_seconds": 45,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "0.04",
-    "B": "0.4",
-    "C": "4",
-    "D": "40"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "0.04 uses r = 3.5 instead of 0.035.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "0.4 uses r = 0.35 (35%) instead of 0.035.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "40 uses r = 0.0035, misplacing the decimal point.",
-     "trap": null
-    }
-   }
-  },
   {
    "cand": "Q022-02",
    "reporting_category": "Algebra",
@@ -143,7 +97,7 @@
    "skill": "Algebra",
    "subskill": "x-intercept of a parallel line through a point",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, line ℓ passes through the point (0, −4) and is parallel to the line 3x − 6y = 7. What is the x-intercept of line ℓ ?",
    "explanation": "Rewriting 3x − 6y = 7 as y = (1/2)x − 7/6 shows a slope of 1/2. Line ℓ has the same slope and y-intercept −4, so y = (1/2)x − 4. Setting y = 0 gives (1/2)x = 4, so x = 8.",
    "hints": [
@@ -159,8 +113,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must convert standard form to find a slope, build a new line and then find its x-intercept; inverting the slope (2) is a common slip."
+    "single_correct": true
    },
    "choices": {
     "A": "−8",
@@ -324,7 +277,7 @@
    "skill": "Advanced Math",
    "subskill": "Minimum of a sum of absolute values",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "For every real number x, let f(x) be the sum of the distance from x to 4 and the distance from x to −2 on the number line, so that f(x) = |x − 4| + |x + 2|. What is the least possible value of f(x) ?",
    "explanation": "|x − 4| is the distance from x to 4 and |x + 2| is the distance from x to −2. For any x between −2 and 4 the two distances add up to the distance from −2 to 4, which is 6; outside that interval the sum is larger. So the minimum value is 6.",
    "hints": [
@@ -340,8 +293,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see each absolute value as a distance, or graph the function; assuming each term can be 0 gives the trap 0."
+    "single_correct": true
    },
    "choices": {
     "A": "0",
@@ -450,6 +402,58 @@
     "D": {
      "rationale": "10√2 is the length of a diagonal of the square.",
      "trap": "wrong_quantity"
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q022-01",
+   "reason": "blind solver: distractors are decimal shifts of the key (0.04, 0.4, 40), so estimation gives the answer away; withdrawn under the answer-cue rule",
+   "item": {
+    "cand": "Q022-01",
+    "reporting_category": "Algebra",
+    "skill": "Algebra",
+    "subskill": "Solving a formula for time",
+    "repo_skill_key": "sat_algebra",
+    "difficulty": "medium",
+    "stem": "The simple interest I earned on a deposit is given by I = Prt, where P is the amount deposited, r is the annual interest rate written as a decimal, and t is the time in years. A deposit of $2,000 at an annual rate of 3.5% earns $280 in simple interest. For how many years was the money deposited?",
+    "explanation": "Writing 3.5% as 0.035 gives 280 = 2,000(0.035)t = 70t, so t = 280 ÷ 70 = 4 years.",
+    "hints": [
+     "Write 3.5% as a decimal."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Solve 280 = 2,000(0.035)t."
+    },
+    "remember": "Convert a percent to a decimal by dividing by 100.",
+    "expected_time_seconds": 45,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "0.04",
+     "B": "0.4",
+     "C": "4",
+     "D": "40"
+    },
+    "answer": "C",
+    "distractors": {
+     "A": {
+      "rationale": "0.04 uses r = 3.5 instead of 0.035.",
+      "trap": null
+     },
+     "B": {
+      "rationale": "0.4 uses r = 0.35 (35%) instead of 0.035.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "40 uses r = 0.0035, misplacing the decimal point.",
+      "trap": null
+     }
     }
    }
   }
