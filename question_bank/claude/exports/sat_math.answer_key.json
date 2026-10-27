@@ -1,5 +1,209 @@
 {
   "bank": "sat_math",
-  "bank_version": 0,
-  "answers": []
+  "bank_version": 1,
+  "answers": [
+    {
+      "id": "CLD-SAT-M-000001",
+      "correct_answer": "B",
+      "explanation": "Substitute x = 6: 24 + 3y = 60, so 3y = 36 and y = 12.",
+      "distractor_explanations": {
+        "A": "8 solves 3y = 24, using the weight of the four-pound bags instead of the weight that remains.",
+        "C": "36 is the weight, in pounds, of the three-pound bags, not the number of bags.",
+        "D": "20 is 60 ÷ 3, as if all 60 pounds were in three-pound bags."
+      },
+      "hints": [
+        "What does x = 6 mean for the weight already accounted for?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute 6 for x and solve for y."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000002",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of x alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the value of y alone.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "From the second equation, x = y + 3. Substituting: 3(y + 3) + 2y = 19, so 5y = 10, y = 2 and x = 5. Then x + y = 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve the second equation for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute, then add x and y."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000003",
+      "correct_answer": "D",
+      "explanation": "The total weight is the driver's 80 kilograms plus 35 kilograms per box, and it can be at most 1,200: 35n + 80 ≤ 1,200.",
+      "distractor_explanations": {
+        "A": "This leaves out the driver's weight.",
+        "B": "This swaps the per-box weight and the driver's weight.",
+        "C": "This reverses the inequality: the total must be at most 1,200, not at least."
+      },
+      "hints": [
+        "What is the total weight with n boxes and the driver?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the total, then compare it with the limit."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000004",
+      "correct_answer": "A",
+      "explanation": "(2x − 3)² = 4x² − 12x + 9 and (x + 1)² = x² + 2x + 1. Subtracting: 3x² − 14x + 8.",
+      "distractor_explanations": {
+        "B": "This adds the 2x and the 1 from (x + 1)² instead of subtracting them.",
+        "C": "This squares each term separately and drops the middle terms.",
+        "D": "This adds 1 instead of subtracting it in the constant term."
+      },
+      "hints": [
+        "Expand each square before subtracting."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: (−3)² − 1² = 8, and only A gives 8 with the right x-term."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000005",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 halves the arc length, as if the angle were 2π/5.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 uses the diameter, 30, instead of the radius.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Arc length = radius × angle in radians = 15 × 4π/5 = 12π, so k = 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "How is arc length related to a radian angle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the radius by the angle in radians."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000006",
+      "correct_answer": "C",
+      "explanation": "Substituting x = 2 makes the factor x − 2 equal to 0, so p(2) = 0 · q(2) + 5 = 5. Nothing is known about p(5), p(−2) or q(2).",
+      "distractor_explanations": {
+        "A": "This swaps the input and the remainder.",
+        "B": "This uses x = −2, which does not make x − 2 equal to 0.",
+        "D": "q(2) is not determined; only p(2) is."
+      },
+      "hints": [
+        "What value of x makes (x − 2)q(x) equal to 0 no matter what q is?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute the x-value that removes the unknown term."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000007",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 doubles only one of the square roots (2 · 3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "36",
+          "rationale": "36 multiplies 4 and 9 instead of using 2 · 2 · 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "(mx + n)² = m²x² + 2mnx + n². With m² = 4 and n² = 9 and b positive, m = 2 and n = 3, so b = 2 · 2 · 3 = 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "Expand (mx + n)² and match the coefficients."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set m² = 4 and n² = 9, then find 2mn."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000008",
+      "correct_answer": "D",
+      "explanation": "35% of 240 is 84 students who bike, and 25% of 84 is 21.",
+      "distractor_explanations": {
+        "A": "84 is the number who bike, the first step only.",
+        "B": "60 is 25% of all 240 students, skipping the first percent.",
+        "C": "144 is 60% of 240, adding the two percents."
+      },
+      "hints": [
+        "Find the number who bike first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take 25% of 35% of 240."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000009",
+      "correct_answer": "C",
+      "explanation": "The car gets 150 ÷ 6 = 25 miles per gallon. For 425 miles it needs 425 ÷ 25 = 17 gallons.",
+      "distractor_explanations": {
+        "A": "25 is the miles per gallon, not the number of gallons.",
+        "B": "15 divides 150 by 10 instead of using the rate per gallon.",
+        "D": "70.8 divides 425 by 6, mixing the given quantities."
+      },
+      "hints": [
+        "How many miles does the car go on 1 gallon?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the unit rate, then divide."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000010",
+      "correct_answer": "A",
+      "explanation": "Same-side interior angles are supplementary: 6x + 60 = 180, so x = 20. The angles are 55° and 125°; the smaller is 55°.",
+      "distractor_explanations": {
+        "B": "125° is the larger angle.",
+        "C": "20 is the value of x, not an angle.",
+        "D": "90° assumes the two angles are equal."
+      },
+      "hints": [
+        "Are same-side interior angles equal or supplementary?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the lines and mark the two angles."
+      }
+    }
+  ]
 }

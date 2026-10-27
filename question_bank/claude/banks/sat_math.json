@@ -4,8 +4,734 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 0,
-  "updated_at": null,
+  "version": 1,
+  "updated_at": "2026-10-27T01:39:38+00:00",
   "passages": [],
-  "questions": []
+  "questions": [
+    {
+      "id": "CLD-SAT-M-000001",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Interpreting a linear equation in two variables",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A store sells birdseed in 4-pound bags and 3-pound bags. The equation 4x + 3y = 60 represents a shipment of x four-pound bags and y three-pound bags that weighs 60 pounds in all. If the shipment contains 6 four-pound bags, how many three-pound bags does it contain?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "8",
+        "B": "12",
+        "C": "36",
+        "D": "20"
+      },
+      "correct_answer": "B",
+      "explanation": "Substitute x = 6: 24 + 3y = 60, so 3y = 36 and y = 12.",
+      "distractor_explanations": {
+        "A": "8 solves 3y = 24, using the weight of the four-pound bags instead of the weight that remains.",
+        "C": "36 is the weight, in pounds, of the three-pound bags, not the number of bags.",
+        "D": "20 is 60 ÷ 3, as if all 60 pounds were in three-pound bags."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What does x = 6 mean for the weight already accounted for?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute 6 for x and solve for y."
+      },
+      "remember": "Substitute what you know, then solve for what is left.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-01",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: numeric choices not in ascending order (8, 12, 36, 20); SAT lists numeric choices in order"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000002",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving a linear system for an expression",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "3x + 2y = 19\nx − y = 3\nIf (x, y) is the solution to the system of equations above, what is the value of x + y ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of x alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the value of y alone.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "From the second equation, x = y + 3. Substituting: 3(y + 3) + 2y = 19, so 5y = 10, y = 2 and x = 5. Then x + y = 7.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Solve the second equation for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute, then add x and y."
+      },
+      "remember": "Answer the question asked: here, the sum, not one variable.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-02",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000003",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Writing a linear inequality from a context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A delivery van can safely carry at most 1,200 kilograms. The driver weighs 80 kilograms, and each box the van carries weighs 35 kilograms. Which inequality represents the possible numbers of boxes, n, the van can safely carry with the driver aboard?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "35n ≤ 1,200",
+        "B": "80n + 35 ≤ 1,200",
+        "C": "35n + 80 ≥ 1,200",
+        "D": "35n + 80 ≤ 1,200"
+      },
+      "correct_answer": "D",
+      "explanation": "The total weight is the driver's 80 kilograms plus 35 kilograms per box, and it can be at most 1,200: 35n + 80 ≤ 1,200.",
+      "distractor_explanations": {
+        "A": "This leaves out the driver's weight.",
+        "B": "This swaps the per-box weight and the driver's weight.",
+        "C": "This reverses the inequality: the total must be at most 1,200, not at least."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": "sign_error"
+      },
+      "hints": [
+        "What is the total weight with n boxes and the driver?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the total, then compare it with the limit."
+      },
+      "remember": "\"At most\" means ≤.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-03",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000004",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Expanding and combining polynomial expressions",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to (2x − 3)² − (x + 1)² ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3x² − 14x + 8",
+        "B": "3x² − 10x + 10",
+        "C": "3x² + 8",
+        "D": "3x² − 14x + 10"
+      },
+      "correct_answer": "A",
+      "explanation": "(2x − 3)² = 4x² − 12x + 9 and (x + 1)² = x² + 2x + 1. Subtracting: 3x² − 14x + 8.",
+      "distractor_explanations": {
+        "B": "This adds the 2x and the 1 from (x + 1)² instead of subtracting them.",
+        "C": "This squares each term separately and drops the middle terms.",
+        "D": "This adds 1 instead of subtracting it in the constant term."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Expand each square before subtracting."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: (−3)² − 1² = 8, and only A gives 8 with the right x-term."
+      },
+      "remember": "Subtract every term of the second expansion.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-04",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000005",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Arc length with a radian measure",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle with radius 15 centimeters, a central angle measures 4π/5 radians. The length of the arc intercepted by the angle is kπ centimeters. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 halves the arc length, as if the angle were 2π/5.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 uses the diameter, 30, instead of the radius.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Arc length = radius × angle in radians = 15 × 4π/5 = 12π, so k = 12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How is arc length related to a radian angle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the radius by the angle in radians."
+      },
+      "remember": "With radians, arc length = rθ.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-05",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000006",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Remainder of a polynomial from its division form",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a polynomial p, p(x) = (x − 2)q(x) + 5 for all values of x, where q is a polynomial. Which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "p(5) = 2",
+        "B": "p(−2) = 5",
+        "C": "p(2) = 5",
+        "D": "q(2) = 5"
+      },
+      "correct_answer": "C",
+      "explanation": "Substituting x = 2 makes the factor x − 2 equal to 0, so p(2) = 0 · q(2) + 5 = 5. Nothing is known about p(5), p(−2) or q(2).",
+      "distractor_explanations": {
+        "A": "This swaps the input and the remainder.",
+        "B": "This uses x = −2, which does not make x − 2 equal to 0.",
+        "D": "q(2) is not determined; only p(2) is."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What value of x makes (x − 2)q(x) equal to 0 no matter what q is?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute the x-value that removes the unknown term."
+      },
+      "remember": "Dividing p(x) by x − a leaves remainder p(a).",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-06",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000007",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Perfect-square trinomial",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The expression 4x² + bx + 9, where b is a positive constant, can be written as (mx + n)² for some constants m and n. What is the value of b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 doubles only one of the square roots (2 · 3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "36",
+          "rationale": "36 multiplies 4 and 9 instead of using 2 · 2 · 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "(mx + n)² = m²x² + 2mnx + n². With m² = 4 and n² = 9 and b positive, m = 2 and n = 3, so b = 2 · 2 · 3 = 12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Expand (mx + n)² and match the coefficients."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set m² = 4 and n² = 9, then find 2mn."
+      },
+      "remember": "(a + b)² = a² + 2ab + b².",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-07",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000008",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent of a percent",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a survey of 240 students, 35% said they bike to school. Of the students who bike to school, 25% said they ride more than 3 miles each way. How many of the surveyed students ride more than 3 miles each way?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "84",
+        "B": "60",
+        "C": "144",
+        "D": "21"
+      },
+      "correct_answer": "D",
+      "explanation": "35% of 240 is 84 students who bike, and 25% of 84 is 21.",
+      "distractor_explanations": {
+        "A": "84 is the number who bike, the first step only.",
+        "B": "60 is 25% of all 240 students, skipping the first percent.",
+        "C": "144 is 60% of 240, adding the two percents."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Find the number who bike first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take 25% of 35% of 240."
+      },
+      "remember": "A percent of a percent multiplies the percents.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-08",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: numeric choices not in ascending order (84, 60, 144, 21)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000009",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Unit rate in a proportion",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A car travels 150 miles on 6 gallons of gas. At this rate, how many gallons of gas does the car need to travel 425 miles?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25",
+        "B": "15",
+        "C": "17",
+        "D": "70.8"
+      },
+      "correct_answer": "C",
+      "explanation": "The car gets 150 ÷ 6 = 25 miles per gallon. For 425 miles it needs 425 ÷ 25 = 17 gallons.",
+      "distractor_explanations": {
+        "A": "25 is the miles per gallon, not the number of gallons.",
+        "B": "15 divides 150 by 10 instead of using the rate per gallon.",
+        "D": "70.8 divides 425 by 6, mixing the given quantities."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many miles does the car go on 1 gallon?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the unit rate, then divide."
+      },
+      "remember": "Find the rate per unit before scaling.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-09",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: numeric choices not in ascending order (25, 15, 17, 70.8)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000010",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Same-side interior angles with algebra",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Lines m and n are parallel, and line t crosses both of them. On the same side of t and between m and n, one angle measures (2x + 15)° and the other measures (4x + 45)°. What is the measure of the smaller of these two angles?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "55°",
+        "B": "125°",
+        "C": "20°",
+        "D": "90°"
+      },
+      "correct_answer": "A",
+      "explanation": "Same-side interior angles are supplementary: 6x + 60 = 180, so x = 20. The angles are 55° and 125°; the smaller is 55°.",
+      "distractor_explanations": {
+        "B": "125° is the larger angle.",
+        "C": "20 is the value of x, not an angle.",
+        "D": "90° assumes the two angles are equal."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Are same-side interior angles equal or supplementary?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the lines and mark the two angles."
+      },
+      "remember": "Same-side interior angles add to 180°.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 1,
+      "draft_candidate": "Q001-10",
+      "created_at": "2026-10-27T01:39:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: numeric choices not in ascending order (55, 125, 20, 90)",
+          "minor: no figure; wording 'same side of t and between m and n' is unambiguous (same-side interior) but SAT items of this type usually include a diagram"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-001.review.json",
+        "computation": "checks/sat_math/batch_001.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    }
+  ]
 }

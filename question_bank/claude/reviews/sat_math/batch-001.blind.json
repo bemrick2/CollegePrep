@@ -1,0 +1,15 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 1},
+  "answers": {
+    "Q001-01": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": ["minor: numeric choices not in ascending order (8, 12, 36, 20); SAT lists numeric choices in order"], "notes": "4(6)+3y=60 -> 3y=36 -> y=12. Distractors: 36 (forgot to divide by 3), 20 (60/3), 8."},
+    "Q001-02": {"answer": "7", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "x=y+3 -> 3y+9+2y=19 -> y=2, x=5; x+y=7. Check: 15+4=19, 5-2=3."},
+    "Q001-03": {"answer": "D", "confidence": "high", "est_pct_correct": 82, "difficulty_opinion": "easy", "flags": [], "notes": "Total weight 35n+80 must be at most 1200."},
+    "Q001-04": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "(4x^2-12x+9)-(x^2+2x+1)=3x^2-14x+8. D = sign error on constant (+1 instead of -1); B = -10x from mis-subtracting; C = dropped middle terms."},
+    "Q001-05": {"answer": "12", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "s = r*theta = 15*(4pi/5) = 12pi, k=12."},
+    "Q001-06": {"answer": "C", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "Substitute x=2: p(2)=0*q(2)+5=5. Other choices are swap/sign traps."},
+    "Q001-07": {"answer": "12", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "m^2=4, n^2=9, b=2mn; b>0 -> mn=6 -> b=12 ((2x+3)^2). Positivity condition correctly rules out -12."},
+    "Q001-08": {"answer": "D", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": ["minor: numeric choices not in ascending order (84, 60, 144, 21)"], "notes": "240*0.35=84 bikers; 84*0.25=21. Distractors 84 (stopped early), 60 (25% of 240)."},
+    "Q001-09": {"answer": "C", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": ["minor: numeric choices not in ascending order (25, 15, 17, 70.8)"], "notes": "150/6=25 mi/gal; 425/25=17 gal. 70.8 = 425/6 (inverted rate)."},
+    "Q001-10": {"answer": "A", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": ["minor: numeric choices not in ascending order (55, 125, 20, 90)", "minor: no figure; wording 'same side of t and between m and n' is unambiguous (same-side interior) but SAT items of this type usually include a diagram"], "notes": "Same-side interior angles are supplementary: 6x+60=180 -> x=20; angles 55 and 125; smaller 55. Distractors: 125 (larger), 20 (x), 90 (assumed equal/perpendicular)."}
+  }
+}

@@ -35,6 +35,7 @@ History: ACT/verbal generation stopped 2026-10-26 about 20:13 US Central at the 
 - **SPR candidate shape:** `"format": "spr"`, no `choices`/`distractors`; `"answer"` (canonical string) and `"accepted_answers"` (every equivalent spelling that fits the grid: e.g. `["3/4", ".75", "0.75"]`; 5 characters max, 6 with a minus sign); `"common_errors": [{"value", "rationale", "trap"}]` (at least one). The check function in `checks/sat_math/batch_NNN.py` returns the **value** (it receives `None`), and the tool compares it with the accepted answers.
 - **Repeats:** the screen and review also compare against the live ACT Math bank. Same skill is fine; the same setup, numbers or template as an ACT item is not. Search both banks with `kw.py` before drafting.
 - **Difficulty (from the "how do we make them harder" review):** build at least two wrong choices from specific student errors; no answer-revealing style (key longest, only exact form, only hedged); hard items need a non-routine step that a quick Desmos graph does not settle. Labels stay provisional.
+- **Choice order:** purely numeric choices go from least to greatest (SAT convention; flagged by the batch-1 solver). Place the key by choosing distractor values, not by shuffling.
 - **Blind solve:** one separate solver per batch, as for ACT Math; for SPR items the packet has no choices and the solver records a number.
 - Audits every 100 SAT Math items: whole-bank re-rate (`calibrate.py sat_math`) and a concept-repeat check against both math banks.
 

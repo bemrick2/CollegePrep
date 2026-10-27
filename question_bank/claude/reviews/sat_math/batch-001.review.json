@@ -1,0 +1,261 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 1,
+  "reviewed_at": "2026-10-27T01:39:38+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 1
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000001",
+    "CLD-SAT-M-000002",
+    "CLD-SAT-M-000003",
+    "CLD-SAT-M-000004",
+    "CLD-SAT-M-000005",
+    "CLD-SAT-M-000006",
+    "CLD-SAT-M-000007",
+    "CLD-SAT-M-000008",
+    "CLD-SAT-M-000009",
+    "CLD-SAT-M-000010"
+  ],
+  "results": [
+    {
+      "cand": "Q001-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: numeric choices not in ascending order (8, 12, 36, 20); SAT lists numeric choices in order"
+      ],
+      "blind_notes": "4(6)+3y=60 -> 3y=36 -> y=12. Distractors: 36 (forgot to divide by 3), 20 (60/3), 8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000001"
+    },
+    {
+      "cand": "Q001-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "x=y+3 -> 3y+9+2y=19 -> y=2, x=5; x+y=7. Check: 15+4=19, 5-2=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000002"
+    },
+    {
+      "cand": "Q001-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "Total weight 35n+80 must be at most 1200.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000003"
+    },
+    {
+      "cand": "Q001-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(4x^2-12x+9)-(x^2+2x+1)=3x^2-14x+8. D = sign error on constant (+1 instead of -1); B = -10x from mis-subtracting; C = dropped middle terms.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000004"
+    },
+    {
+      "cand": "Q001-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "s = r*theta = 15*(4pi/5) = 12pi, k=12.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000005"
+    },
+    {
+      "cand": "Q001-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Substitute x=2: p(2)=0*q(2)+5=5. Other choices are swap/sign traps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Nothing is computed; students must see that substituting x = 2 eliminates the unknown polynomial q. Choices B and D catch sign errors and confusion between p and q."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000006"
+    },
+    {
+      "cand": "Q001-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "m^2=4, n^2=9, b=2mn; b>0 -> mn=6 -> b=12 ((2x+3)^2). Positivity condition correctly rules out -12.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires matching coefficients of a general square; the trap answers 6 and 36 come from partial use of the pattern."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000007"
+    },
+    {
+      "cand": "Q001-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: numeric choices not in ascending order (84, 60, 144, 21)"
+      ],
+      "blind_notes": "240*0.35=84 bikers; 84*0.25=21. Distractors 84 (stopped early), 60 (25% of 240).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000008"
+    },
+    {
+      "cand": "Q001-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: numeric choices not in ascending order (25, 15, 17, 70.8)"
+      ],
+      "blind_notes": "150/6=25 mi/gal; 425/25=17 gal. 70.8 = 425/6 (inverted rate).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000009"
+    },
+    {
+      "cand": "Q001-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: numeric choices not in ascending order (55, 125, 20, 90)",
+        "minor: no figure; wording 'same side of t and between m and n' is unambiguous (same-side interior) but SAT items of this type usually include a diagram"
+      ],
+      "blind_notes": "Same-side interior angles are supplementary: 6x+60=180 -> x=20; angles 55 and 125; smaller 55. Distractors: 125 (larger), 20 (x), 90 (assumed equal/perpendicular).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000010"
+    }
+  ]
+}

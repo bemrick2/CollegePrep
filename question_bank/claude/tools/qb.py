@@ -860,6 +860,11 @@ def screen(bank: str, n: int) -> None:
                         if q.get('subskill') and sub and jaccard(sub, tokens(q['subskill'])) >= 0.6})
         if twins:
             print(f"  warn: subskill overlaps existing bank subskills {twins[:3]} (check for a concept repeat)")
+        # SAT Math (and the ACT) list purely numeric choices from least to greatest.
+        if bank == 'sat_math' and c.get('choices'):
+            vals = [num(v.replace(',', '').replace('$', '').replace('%', '').replace('°', '')) for v in c['choices'].values()]
+            if all(v is not None for v in vals) and vals != sorted(vals):
+                print("  BAD: numeric choices must be in ascending order (SAT convention)")
         # Advisory only: blind solvers repeatedly flag a key that is clearly the longest choice as a test-wise tell.
         lens = {k: len(v) for k, v in (c.get('choices') or {}).items() if v not in ('NO CHANGE', 'DELETE the underlined portion.')}
         if verbal and c['answer'] in lens and len(lens) > 2:
