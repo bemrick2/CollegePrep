@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 54,
-  "updated_at": "2026-10-27T19:05:51+00:00",
+  "version": 55,
+  "updated_at": "2026-10-27T19:24:26+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -575,6 +575,17 @@
       "word_count": 232,
       "text": "[1] In 1984, Alexey Pajitnov was working as a researcher at a computer center of the Soviet Academy of Sciences in Moscow. [2] In his spare time, he wrote small programs to test what the center's computers could {{1|do, one}} of them became the most famous puzzle game in the world.\n\n[3] The idea came from pentominoes, a puzzle in which players fit together shapes made of five squares. [4] Pajitnov simplified the shapes to four squares each and set them {{2|falling, so that players had to rotate}} them quickly into place. [5] When a horizontal row was completely filled, it vanished, {{3|and so, as a result, the}} pieces above it dropped down. [6] He named the game Tetris, combining \"tetra,\" the Greek prefix for four, with \"tennis,\" his favorite sport.\n\n[7] The computer Pajitnov used could not display graphics, so the first version drew {{4|it's}} pieces with letters and brackets. [8] Even so, colleagues who tried the game {{5|found it difficult to stop playing.}} [9] Copies spread from machine to machine across Moscow{{6| and}} then beyond the Soviet Union. {{7|}}\n\n[10] Because Pajitnov had written the game at a state institution, the rights to it belonged {{8|not to him, but to the government}}. [11] For years, he earned almost nothing from it. [12] {{9|Eventually, though,}} he moved to the United States and, in 1996, co-founded a company that controls the Tetris name.",
       "batch": 54,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000055",
+      "title": "A Cloudy Solution",
+      "genre": "informative essay",
+      "word_count": 221,
+      "text": "[1] In 1965, the chemist Stephanie Kwolek was searching for a lightweight fiber strong enough to replace the steel wires in car tires. [2] One of the polymer solutions she prepared looked {{1|wrong. It}} was thin and cloudy, while successful solutions were usually thick and clear. [3] Most chemists would have thrown it out.\n\n[4] Kwolek, {{2|who's}} curiosity outweighed her doubts, asked a technician to spin the solution into fibers. [5] He refused at first, worried that the cloudy liquid would clog the spinning machine. [6] She persuaded him to try, and the fibers that came out were remarkably {{3|strong and stiff, and they weighed little}}. [7] {{4|Tested in the laboratory, the fibers proved}} several times stronger than steel of the same weight.\n\n[8] DuPont, the company where Kwolek worked, developed the material into a product called Kevlar, which went on sale in the early 1970s. [9] {{5|However,}} it is used in bicycle tires, firefighters' gear, and the protective vests worn by police officers. {{6|}}\n\n[10] Kwolek later said that she had never set out to invent anything {{7|dramatic, she}} simply paid attention to a result that did not fit. [11] She received many honors for her work, {{8|such as being}} induction into the National Inventors Hall of Fame. [12] {{9|The vests made from her fiber have since protected thousands of officers.}}",
+      "batch": 55,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -36410,6 +36421,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-054.review.json",
         "computation": "checks/act_english/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000506",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 1,
+      "evidence": "was thin and cloudy",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "wrong, it",
+        "C": "wrong it",
+        "D": "wrong, and, it"
+      },
+      "correct_answer": "A",
+      "explanation": "Both parts are independent clauses, and a period correctly separates them.",
+      "distractor_explanations": {
+        "B": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "Without punctuation, the two independent clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from the clause it introduces."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "A period correctly separates two independent clauses.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-01",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000507",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel structure",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 3,
+      "evidence": "the fibers that came out were remarkably",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "strong and stiff, and lightly",
+        "C": "strong, stiff, and light",
+        "D": "strong, stiff, and having little weight"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Strong, stiff, and light\" is a parallel series of three adjectives describing the fibers.",
+      "distractor_explanations": {
+        "A": "The added clause \"and they weighed little\" breaks the series of adjectives describing the fibers.",
+        "B": "\"Lightly\" is an adverb and cannot describe the fibers alongside the adjectives.",
+        "D": "\"Having little weight\" is a phrase, not an adjective, so the series is not parallel."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Are all items in the series the same part of speech?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check that each item fits \"the fibers were remarkably ___.\""
+      },
+      "remember": "Items in a series should share the same grammatical form.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-03",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000508",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Modifier placement",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 4,
+      "evidence": "several times stronger than steel of the same weight",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Testing them in the laboratory, the fibers proved",
+        "C": "Tested in the laboratory, it was proved that the fibers were",
+        "D": "In the laboratory testing, the fibers proved"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Tested in the laboratory\" correctly describes the fibers, which come right after the comma.",
+      "distractor_explanations": {
+        "B": "The fibers did not test themselves, so \"Testing them\" cannot describe the fibers.",
+        "C": "The opening phrase would describe \"it,\" not the fibers.",
+        "D": "\"In the laboratory testing\" is unidiomatic and unclear."
+      },
+      "distractor_traps": {
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier",
+        "D": null
+      },
+      "hints": [
+        "What was tested?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put the thing tested right after the comma."
+      },
+      "remember": "An opening modifier describes the noun that follows it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-04",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000509",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 5,
+      "evidence": "it is used in bicycle tires",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Instead,",
+        "C": "Today,",
+        "D": "For example,"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Today\" moves from the 1970s to the present, which fits a sentence about current uses.",
+      "distractor_explanations": {
+        "A": "Nothing in sentence 9 contrasts with the product's going on sale.",
+        "B": "Current uses do not replace the product's sale; they follow from it.",
+        "D": "Sentence 9 is not an example of the product going on sale."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "What time does sentence 9 describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship before choosing."
+      },
+      "remember": "Time transitions can move a narrative to the present.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-05",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000510",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 6,
+      "evidence": "it is used in bicycle tires, firefighters' gear",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nSteel wire is also used in suspension bridges and in the cables of elevators.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why Kwolek wanted to replace steel in car tires.",
+        "B": "Yes, because it adds another example of products that use Kevlar.",
+        "C": "No, because it contradicts the claim that Kevlar is stronger than steel.",
+        "D": "No, because it shifts the focus from Kevlar's uses to the uses of steel."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph describes Kevlar's uses; a sentence about the uses of steel moves away from that focus.",
+      "distractor_explanations": {
+        "A": "The sentence lists uses of steel; it does not explain her goal.",
+        "B": "Bridges and elevators are given as uses of steel, not of Kevlar.",
+        "C": "Listing uses of steel does not contradict a comparison of strength."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the paragraph's focus?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the sentence with the paragraph's topic."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's focus.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-06",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000511",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Semicolon between independent clauses",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 7,
+      "evidence": "simply paid attention to a result that did not fit",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "dramatic: and she",
+        "C": "dramatic she",
+        "D": "dramatic; she"
+      },
+      "correct_answer": "D",
+      "explanation": "Both sides are independent clauses, and the semicolon correctly joins them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "A colon followed by \"and\" is not standard.",
+        "C": "Without punctuation, the two clauses run together."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is each side a complete sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check what comes before and after the punctuation."
+      },
+      "remember": "A semicolon joins two closely related sentences.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-07",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000512",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precision of word choice",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 8,
+      "evidence": "induction into the National Inventors Hall of Fame",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "including",
+        "C": "including of",
+        "D": "like for example"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Including\" correctly introduces one of the honors.",
+      "distractor_explanations": {
+        "A": "\"Such as being induction\" is ungrammatical.",
+        "C": "\"Including of\" adds a preposition that does not belong.",
+        "D": "\"Like for example\" is redundant and informal."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice introduces an example most smoothly?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read each choice in the sentence."
+      },
+      "remember": "Choose the most precise, idiomatic connector.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-08",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000513",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence (connecting to the essay's theme)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 9,
+      "evidence": "simply paid attention to a result that did not fit",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by returning to the idea introduced in sentence 10?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "It all began with a liquid most chemists would have thrown away.",
+        "C": "Kevlar is now made in several countries and sold around the world.",
+        "D": "She retired from DuPont after a long career as a research chemist."
+      },
+      "correct_answer": "B",
+      "explanation": "Sentence 10 says Kwolek paid attention to a result that did not fit; choice B returns to that idea by recalling the cloudy liquid most chemists would have thrown away.",
+      "distractor_explanations": {
+        "A": "This focuses on the vests, not on the idea of paying attention to an unexpected result.",
+        "C": "This adds a fact about production, not the idea in sentence 10.",
+        "D": "This adds a biographical detail unrelated to the idea in sentence 10."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What idea does sentence 10 introduce?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread sentence 10 before choosing."
+      },
+      "remember": "A strong conclusion connects to the essay's central idea.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-09",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000514",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": null,
+      "evidence": "One of the polymer solutions she prepared looked",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to show how an unexpected observation led to an important invention. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains in detail how Kevlar fibers are made in factories.",
+        "B": "No, because Kwolek did not set out to invent Kevlar.",
+        "C": "Yes, because it shows how Kwolek's attention to a cloudy solution led to Kevlar.",
+        "D": "No, because it focuses mainly on the uses of steel in car tires."
+      },
+      "correct_answer": "C",
+      "explanation": "The essay traces how Kwolek noticed an odd-looking solution and pursued it, which led to Kevlar.",
+      "distractor_explanations": {
+        "A": "The essay does not explain factory production.",
+        "B": "Not setting out to invent it is exactly what makes the observation unexpected.",
+        "D": "Steel is mentioned only as what Kwolek hoped to replace."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What is the essay mostly about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the essay with the stated purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-10",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000515",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": null,
+      "evidence": "co-founded a company that controls the Tetris name",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to explain how a popular game was created and how its creator eventually gained a stake in it. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains in detail how the game earned money in the Soviet Union.",
+        "B": "No, because it focuses mainly on the history of the pentomino puzzle.",
+        "C": "Yes, because it traces the game's creation and Pajitnov's later stake in its name.",
+        "D": "No, because it says that Pajitnov never earned anything from the game."
+      },
+      "correct_answer": "C",
+      "explanation": "The essay describes how Pajitnov created the game and how, after years of earning almost nothing, he co-founded a company that controls the name.",
+      "distractor_explanations": {
+        "A": "The essay says Pajitnov earned almost nothing for years; it does not explain Soviet earnings.",
+        "B": "Pentominoes are mentioned only as the game's inspiration.",
+        "D": "The essay says he earned almost nothing \"for years,\" then co-founded a company that controls the name."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Does the essay cover both the creation and the profit?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against both parts of the purpose."
+      },
+      "remember": "A purpose with two parts requires both to be met.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 55,
+      "draft_candidate": "E055-11",
+      "created_at": "2026-10-27T19:24:26+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-055.review.json",
+        "computation": "checks/act_english/batch_055.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
