@@ -44,9 +44,12 @@ BANKS = {
     'act_english': {'exam': 'ACT', 'section': 'English', 'prefix': 'CLD-ACT-E-', 'family': 'act', 'repo_section': 'english'},
     'act_reading': {'exam': 'ACT', 'section': 'Reading', 'prefix': 'CLD-ACT-R-', 'family': 'act', 'repo_section': 'reading'},
     'sat_reading_writing': {'exam': 'SAT', 'section': 'Reading and Writing', 'prefix': 'CLD-SAT-RW-', 'family': 'sat', 'repo_section': 'reading_writing'},
+    'sat_math': {'exam': 'SAT', 'section': 'Math', 'prefix': 'CLD-SAT-M-', 'family': 'sat', 'repo_section': 'math'},
 }
 # Long-term targets: 4,000 accepted items, 2,000 ACT Math and 2,000 verbal split across the three verbal banks.
-TARGETS = {'act_math': 2000, 'act_english': 700, 'act_reading': 600, 'sat_reading_writing': 700}
+TARGETS = {'act_math': 2000, 'act_english': 700, 'act_reading': 600, 'sat_reading_writing': 700, 'sat_math': 700}
+# 2026-10-27: the user asked to work only on SAT Math until it has 700 accepted items.
+FOCUS_BANK = 'sat_math'
 # ACT Math is worked first until this many are accepted; after that the bank furthest behind its target goes next.
 MATH_FIRST_UNTIL = 200
 WORKSTREAM_BRANCH = 'ccr-78c91309-anlh8e'
@@ -61,6 +64,49 @@ ACT_MATH_BLUEPRINT = {
     'Statistics & Probability': 0.135, 'Integrating Essential Skills': 0.20,
 }
 REPO_SKILLS = {'act_algebra_linear', 'act_functions', 'act_geometry', 'act_statistics_probability', 'act_number_quantity'}
+# Digital SAT Math domains and approximate shares (College Board: Algebra ~35%, Advanced Math ~35%,
+# Problem-Solving and Data Analysis ~15%, Geometry and Trigonometry ~15%). Skill keys match web/src/lib/data/demo/fixtures.ts.
+SAT_MATH_BLUEPRINT = {'Algebra': 0.35, 'Advanced Math': 0.35, 'Problem-Solving and Data Analysis': 0.15,
+                      'Geometry and Trigonometry': 0.15}
+SAT_MATH_REPO_SKILLS = {'Algebra': 'sat_algebra', 'Advanced Math': 'sat_advanced_math',
+                        'Problem-Solving and Data Analysis': 'sat_problem_solving_data',
+                        'Geometry and Trigonometry': 'sat_geometry_trig'}
+# Student-produced responses (SAT grid-ins): about a quarter of SAT Math. Same shape the import validator accepts.
+SPR_ANSWER = re.compile(r'^-?(\d+(\.\d+)?|\.\d+|\d+/\d+)$')
+
+
+def math_blueprint(bank: str) -> dict:
+    return SAT_MATH_BLUEPRINT if bank == 'sat_math' else ACT_MATH_BLUEPRINT
+
+
+def math_repo_skills(bank: str) -> set:
+    return set(SAT_MATH_REPO_SKILLS.values()) if bank == 'sat_math' else REPO_SKILLS
+
+
+def num(s) -> 'Fraction | None':
+    from fractions import Fraction
+    try:
+        return Fraction(str(s).strip().replace('−', '-'))
+    except (ValueError, ZeroDivisionError):
+        return None
+
+
+def spr_match(given, accepted: list) -> bool:
+    """A student-produced response matches if it equals an accepted answer exactly, or is a decimal of at least
+    three places within 0.001 of one (the SAT accepts rounded or truncated decimals that fill the grid)."""
+    g = num(given)
+    if g is None:
+        return False
+    for a in accepted:
+        v = num(a)
+        if v is None:
+            continue
+        if g == v:
+            return True
+        gs = str(given).strip()
+        if '.' in gs and len(gs.split('.')[1]) >= 3 and abs(g - v) < num('0.001'):
+            return True
+    return False
 STRATEGY_KEYS = {'backsolve', 'plug_in_numbers', 'process_of_elimination', 'find_the_trend', 'translate_to_algebra', 'draw_it_out'}
 TRAP_KEYS = {'partial_answer', 'wrong_quantity', 'sign_error', 'misread_graph', 'overextend_trend', None}
 VERBAL = {'act_english', 'act_reading', 'sat_reading_writing'}
@@ -198,7 +244,7 @@ def reference_stems() -> list[tuple[str, str]]:
 
 
 def text_of(q: dict) -> str:
-    return q['stem'] + ' ' + ' '.join(q['choices'].values())
+    return q['stem'] + ' ' + ' '.join((q.get('choices') or {}).values())
 
 
 DUP_THRESHOLD = 0.6
@@ -221,6 +267,9 @@ def near_duplicates(q: dict, others: list[tuple[str, str]]) -> list[dict]:
 def structural_problems(c: dict, bank: str = 'act_math', passages: dict | None = None) -> list[str]:
     out = []
     verbal = bank in VERBAL
+    spr = c.get('format') == 'spr'
+    if spr:
+        return spr_problems(c, bank)
     for f in ['cand', 'skill', 'subskill', 'reporting_category', 'difficulty', 'stem', 'choices', 'answer', 'explanation',
               'distractors', 'hints', 'strategy', 'expected_time_seconds', 'repo_skill_key', 'remember']:
         if f not in c or c[f] in (None, '', [], {}):
@@ -245,10 +294,12 @@ def structural_problems(c: dict, bank: str = 'act_math', passages: dict | None =
             out.append(f'unknown trap {d.get("trap")} for {k}')
     if c['difficulty'] not in DIFFICULTY_NUM:
         out.append('difficulty must be easy/medium/hard')
-    skills = VERBAL_BLUEPRINT[bank] if verbal else ACT_MATH_BLUEPRINT
+    skills = VERBAL_BLUEPRINT[bank] if verbal else math_blueprint(bank)
     if c['skill'] not in skills:
         out.append(f'unknown skill {c["skill"]}')
-    if c['repo_skill_key'] not in (VERBAL_REPO_SKILLS[bank] if verbal else REPO_SKILLS):
+    if bank == 'sat_math' and c['repo_skill_key'] != SAT_MATH_REPO_SKILLS.get(c['skill']):
+        out.append(f'SAT Math skill {c["skill"]} needs repo skill key {SAT_MATH_REPO_SKILLS.get(c["skill"])}')
+    if c['repo_skill_key'] not in (VERBAL_REPO_SKILLS[bank] if verbal else math_repo_skills(bank)):
         out.append(f'unknown repo skill key {c["repo_skill_key"]}')
     if c['strategy'].get('key') not in (VERBAL_STRATEGY_KEYS if verbal else STRATEGY_KEYS) or not c['strategy'].get('explanation'):
         out.append('strategy needs a known key and an explanation')
@@ -276,6 +327,57 @@ def structural_problems(c: dict, bank: str = 'act_math', passages: dict | None =
     for h in c['hints']:
         if ans_text and re.search(r'(?<![\w.])' + re.escape(ans_text) + r'(?![\w.])', h):
             out.append(f'hint may give the answer away: {h!r}')
+    return out
+
+
+def spr_problems(c: dict, bank: str) -> list[str]:
+    """Structure of a student-produced-response item: no choices; a canonical answer plus every accepted spelling,
+    each short enough for the SAT grid (5 characters for a positive answer, 6 with a minus sign); and at least one
+    common wrong value with its rationale, which stands in for distractor rationales."""
+    out = []
+    if bank != 'sat_math':
+        return ['student-produced responses are only used in the SAT Math bank']
+    for f in ['cand', 'skill', 'subskill', 'reporting_category', 'difficulty', 'stem', 'answer', 'accepted_answers',
+              'explanation', 'common_errors', 'hints', 'strategy', 'expected_time_seconds', 'repo_skill_key', 'remember']:
+        if f not in c or c[f] in (None, '', [], {}):
+            out.append(f'missing {f}')
+    if out:
+        return out
+    if c.get('choices'):
+        out.append('a student-produced response has no choices')
+    if not isinstance(c['answer'], str) or not all(isinstance(a, str) for a in c['accepted_answers']):
+        out.append('answer and accepted_answers must be strings')
+    acc = [str(a) for a in c['accepted_answers']]
+    if str(c['answer']) not in acc:
+        out.append('the canonical answer must be one of accepted_answers')
+    for a in acc:
+        if not SPR_ANSWER.match(a):
+            out.append(f'accepted answer {a!r} is not a plain number or fraction')
+        if len(a) > (6 if a.startswith('-') else 5):
+            out.append(f'accepted answer {a!r} does not fit the SAT grid')
+        if num(a) is None or num(a) != num(acc[0]) and not spr_match(a, [acc[0]]):
+            out.append(f'accepted answer {a!r} is not equivalent to {acc[0]!r}')
+    for e in c['common_errors']:
+        if not e.get('value') or not e.get('rationale') or e.get('trap') not in TRAP_KEYS:
+            out.append('each common error needs a value, a rationale and a known trap key')
+        elif spr_match(e['value'], acc):
+            out.append(f'common error {e["value"]} equals the answer')
+    if c['difficulty'] not in DIFFICULTY_NUM:
+        out.append('difficulty must be easy/medium/hard')
+    if c['skill'] not in SAT_MATH_BLUEPRINT:
+        out.append(f'unknown skill {c["skill"]}')
+    elif c['repo_skill_key'] != SAT_MATH_REPO_SKILLS[c['skill']]:
+        out.append(f'SAT Math skill {c["skill"]} needs repo skill key {SAT_MATH_REPO_SKILLS[c["skill"]]}')
+    if c['strategy'].get('key') not in STRATEGY_KEYS or not c['strategy'].get('explanation'):
+        out.append('strategy needs a known key and an explanation')
+    if not (10 <= int(c['expected_time_seconds']) <= 600):
+        out.append('expected_time_seconds out of 10-600')
+    if len(c['remember'].split()) > 16:
+        out.append('remember is over 16 words')
+    for h in c['hints']:
+        for a in acc:
+            if re.search(r'(?<![\w./])' + re.escape(a) + r'(?![\w./])', h):
+                out.append(f'hint may give the answer away: {h!r}')
     return out
 
 
@@ -311,6 +413,8 @@ def review(bank: str, n: int) -> None:
     previous = json.loads(json.dumps(data))
     refs = [] if verbal else reference_stems()
     bank_refs = [(q['id'], qtext(q, bank)) for q in data['questions']]
+    if bank == 'sat_math':
+        bank_refs += [(q['id'], qtext(q, 'act_math')) for q in live(load_bank('act_math')[0]['questions'])]
     passage_dups = {}
     if verbal:
         others = [(x['passage_id'], plain(x['text'])) for x in data.get('passages', [])] + reference_passages()
@@ -333,13 +437,19 @@ def review(bank: str, n: int) -> None:
             computed = c['answer'] if not probs else None
         elif cand in checks:
             try:
-                computed = checks[cand](c['choices'])
+                if c.get('format') == 'spr':
+                    v = checks[cand](None)
+                    computed = str(c['answer']) if spr_match(str(v), c['accepted_answers']) or num(v) == num(c['answer']) else str(v)
+                else:
+                    computed = checks[cand](c['choices'])
             except Exception as e:  # noqa: BLE001
                 probs.append(f'computation check raised {e!r}')
         else:
             probs.append('no computation check')
         b = (blind.get('answers') or {}).get(cand) or {}
         blind_ans = b.get('answer')
+        if c.get('format') == 'spr' and blind_ans is not None and spr_match(str(blind_ans), c['accepted_answers']):
+            blind_ans = str(c['answer'])
         b2 = ((blind2 or {}).get('answers') or {}).get(cand) or {}
         dups = near_duplicates({'stem': qtext(c, bank)}, bank_refs + refs + batch_refs)
         if verbal and c.get('passage_id') in passage_dups:
@@ -367,7 +477,7 @@ def review(bank: str, n: int) -> None:
             status, reason = 'REJECT', 'near-duplicate'
         elif probs:
             status, reason = 'REVISE', '; '.join(probs)
-        elif computed != c['answer']:
+        elif computed != str(c['answer']) if c.get('format') == 'spr' else computed != c['answer']:
             status, reason = 'REVISE', f'computed answer {computed} disagrees with key {c["answer"]}'
         elif blind_ans != c['answer']:
             status, reason = 'REVISE', f'blind solver chose {blind_ans}, key is {c["answer"]}'
@@ -433,11 +543,14 @@ def to_record(c: dict, qid: str, bank: str, n: int, rec: dict, blind: dict) -> d
         'evidence': c.get('evidence'),
         'figure': c.get('figure'),
         'stem': c['stem'],
-        'choices': c['choices'],
-        'correct_answer': c['answer'],
+        'answer_format': 'numeric' if c.get('format') == 'spr' else 'choice',
+        'choices': None if c.get('format') == 'spr' else c['choices'],
+        'correct_answer': str(c['answer']) if c.get('format') == 'spr' else c['answer'],
+        **({'accepted_answers': [str(a) for a in c['accepted_answers']], 'common_errors': c['common_errors']}
+           if c.get('format') == 'spr' else {}),
         'explanation': c['explanation'],
-        'distractor_explanations': {k: v['rationale'] for k, v in c['distractors'].items()},
-        'distractor_traps': {k: v.get('trap') for k, v in c['distractors'].items()},
+        'distractor_explanations': {} if c.get('format') == 'spr' else {k: v['rationale'] for k, v in c['distractors'].items()},
+        'distractor_traps': {} if c.get('format') == 'spr' else {k: v.get('trap') for k, v in c['distractors'].items()},
         'hints': c['hints'],
         'strategy': c['strategy'],
         'remember': c['remember'],
@@ -493,7 +606,7 @@ def qtext(q: dict, bank: str) -> str:
     """Text compared for duplicates: math stems alone; verbal stems share wording, so add choices and the span."""
     if bank not in VERBAL:
         return q['stem']
-    return ' '.join([q['stem'], *q['choices'].values(), str(q.get('evidence') or '')])
+    return ' '.join([q['stem'], *(q.get('choices') or {}).values(), str(q.get('evidence') or '')])
 
 
 def reference_passages() -> list[tuple[str, str]]:
@@ -530,17 +643,17 @@ def to_import(q: dict, bank: str) -> dict:
         'difficulty': DIFFICULTY_NUM[calibrated(q, bank)],
         'stem': q['stem'],
         **({'passage': q['passage']} if q.get('passage') else {}),
-        'choices': [{'key': k, 'text': v} for k, v in q['choices'].items()],
-        'answer_format': 'choice',
-        'accepted_answers': [q['correct_answer']],
+        **({'choices': [{'key': k, 'text': v} for k, v in q['choices'].items()]} if q.get('choices') else {}),
+        'answer_format': q.get('answer_format', 'choice'),
+        'accepted_answers': q.get('accepted_answers') or [q['correct_answer']],
         'expected_time_seconds': q['expected_time_seconds'],
         'primary_skill_key': q['repo_skill_key'],
         'hints': q['hints'],
         'teaching_explanation': q['explanation'],
         'strategy_explanation': q['strategy']['explanation'],
         'remember': q['remember'],
-        'distractors': [{'choice': k, 'rationale': v, 'trap': q['distractor_traps'].get(k)}
-                        for k, v in q['distractor_explanations'].items()],
+        **({'distractors': [{'choice': k, 'rationale': v, 'trap': q['distractor_traps'].get(k)}
+                            for k, v in q['distractor_explanations'].items()]} if q.get('choices') else {}),
         'strategies': [{'strategy_key': q['strategy']['key'], 'role': 'primary', 'is_fastest': True,
                         'explanation': q['strategy']['explanation']}],
         'origin': 'ai_drafted',
@@ -575,8 +688,12 @@ def export() -> None:
         student = [{'id': q['id'], 'exam': q['exam'], 'section': q['section'], 'skill': q['skill'],
                     'subskill': q['subskill'], 'difficulty': q['difficulty'], 'passage_id': q.get('passage_id'),
                     'underline': q.get('underline'),
-                    'figure': q.get('figure'), 'stem': q['stem'], 'choices': q['choices']} for q in qs]
-        answers = [{'id': q['id'], 'correct_answer': q['correct_answer'], 'explanation': q['explanation'],
+                    'figure': q.get('figure'), 'stem': q['stem'], 'answer_format': q.get('answer_format', 'choice'),
+                    'choices': q.get('choices')} for q in qs]
+        answers = [{'id': q['id'], 'correct_answer': q['correct_answer'],
+                    **({'accepted_answers': q['accepted_answers'], 'common_errors': q.get('common_errors')}
+                       if q.get('accepted_answers') else {}),
+                    'explanation': q['explanation'],
                     'distractor_explanations': q['distractor_explanations'], 'hints': q['hints'],
                     'strategy': q['strategy']} for q in qs]
         passages = data.get('passages', [])
@@ -629,6 +746,7 @@ def write_progress(files: dict) -> None:
             'calibrated_share': {k: round(v / n, 3) for k, v in dist([{'d': calibrated(q, bank)} for q in qs], 'd').items()} if n else {},
             'answer_key_balance': dist([{'k': q['correct_answer']} for q in qs], 'k'),
             'modeling_items': sum(1 for q in qs if q.get('modeling')),
+            'spr_items': sum(1 for q in qs if q.get('answer_format') == 'numeric'),
             'passages': len(data.get('passages', [])),
         }
     m = sections['act_math']
@@ -659,6 +777,7 @@ def write_progress(files: dict) -> None:
                 'answer_key_gap_for_next_10': key_gap,
             },
         },
+        'sat_math_guidance': sat_math_guidance(sections['sat_math'], batches['sat_math']),
         'verbal_guidance': {b: {'next_batch': batches[b] + 1,
                                 'skill_gap_for_next_10': {k: round(v * (sections[b]['accepted'] + 10) - sections[b]['by_skill'].get(k, 0), 1)
                                                           for k, v in VERBAL_BLUEPRINT[b].items()}} for b in VERBAL},
@@ -680,6 +799,16 @@ def write_progress(files: dict) -> None:
     print(json.dumps(progress['accepted_by_section']), json.dumps(review_totals['act_math']))
 
 
+def sat_math_guidance(m: dict, last_batch: int) -> dict:
+    n = m['accepted']
+    return {'next_batch': last_batch + 1, 'target': TARGETS['sat_math'],
+            'skill_gap_for_next_10': {k: round(v * (n + 10) - m['by_skill'].get(k, 0), 1) for k, v in SAT_MATH_BLUEPRINT.items()},
+            'calibrated_difficulty_gap_for_next_10': {k: round(t * (n + 10) - m['by_difficulty_calibrated'].get(k, 0), 1)
+                                                      for k, t in DIFFICULTY_TARGET.items()},
+            'answer_key_gap_for_next_10': {k: round((n + 10) * 0.75 / 4 - m['answer_key_balance'].get(k, 0), 1) for k in LETTERS},
+            'spr_items': m.get('spr_items', 0), 'spr_target_share': 0.25}
+
+
 def screen(bank: str, n: int) -> None:
     """Pre-review screen of a draft batch: structure, scripted check and near-duplicates. Writes nothing."""
     draft = read_json(ROOT / 'drafts' / bank / f'batch-{n:03d}.json')
@@ -688,6 +817,8 @@ def screen(bank: str, n: int) -> None:
     passages = {x['passage_id']: x for x in draft.get('passages', [])}
     data, _ = load_bank(bank)
     others = [(q['id'], qtext(q, bank)) for q in data['questions']] + ([] if verbal else reference_stems())
+    if bank == 'sat_math':
+        others += [(q['id'], qtext(q, 'act_math')) for q in live(load_bank('act_math')[0]['questions'])]
     if verbal:
         po = [(x['passage_id'], plain(x['text'])) for x in data.get('passages', [])] + reference_passages()
         for pid, x in passages.items():
@@ -701,18 +832,23 @@ def screen(bank: str, n: int) -> None:
             got = c['answer'] if not probs else 'evidence/structure problem'
         else:
             try:
-                got = checks[c['cand']](c['choices'])
+                if c.get('format') == 'spr':
+                    v = checks[c['cand']](None)
+                    got = str(c['answer']) if spr_match(str(v), c['accepted_answers']) or num(v) == num(c['answer']) else str(v)
+                else:
+                    got = checks[c['cand']](c['choices'])
             except Exception as e:  # noqa: BLE001
                 got = f'error {e!r}'
         dups = near_duplicates({'stem': qtext(c, bank)}, others + seen)
         seen.append((c['cand'], qtext(c, bank)))
-        ok = not probs and got == c['answer'] and not dups
+        ok = not probs and got == str(c['answer']) and not dups
         print(f"{c['cand']} {'ok ' if ok else 'BAD'} key={c['answer']} computed={got} dups={dups} {probs or ''}")
         # Advisory (math): the stem-only screen missed reworded repeats such as 7^2026 vs 7¹⁰⁰ (superscripts are dropped
         # by tokens()), so also compare stem + choices, as the 100-item audit does, at a lower threshold.
         if not verbal:
             mine = tokens(text_of(c))
-            close = sorted(((round(jaccard(mine, tokens(text_of(q))), 2), q['id']) for q in data['questions']
+            pool = data['questions'] + (load_bank('act_math')[0]['questions'] if bank == 'sat_math' else [])
+            close = sorted(((round(jaccard(mine, tokens(text_of(q))), 2), q['id']) for q in pool
                             if q['id'] not in retired_ids()), reverse=True)
             close = [(i, s) for s, i in close if s >= 0.45][:3]
             if close:
@@ -720,7 +856,7 @@ def screen(bank: str, n: int) -> None:
         # Advisory: the text screen misses concept-level repeats (same idea, new wording), so flag a subskill that is
         # already in the bank or overlaps an existing one heavily; check that item by hand before review.
         sub = tokens(c.get('subskill', ''))
-        twins = sorted({q['subskill'] for q in data['questions']
+        twins = sorted({q['subskill'] for q in data['questions'] + (load_bank('act_math')[0]['questions'] if bank == 'sat_math' else [])
                         if q.get('subskill') and sub and jaccard(sub, tokens(q['subskill'])) >= 0.6})
         if twins:
             print(f"  warn: subskill overlaps existing bank subskills {twins[:3]} (check for a concept repeat)")
@@ -733,6 +869,8 @@ def screen(bank: str, n: int) -> None:
 
 
 def next_bank(accepted: dict) -> str:
+    if FOCUS_BANK and accepted.get(FOCUS_BANK, 0) < TARGETS[FOCUS_BANK]:
+        return FOCUS_BANK
     if accepted['act_math'] < MATH_FIRST_UNTIL:
         return 'act_math'
     return min(BANKS, key=lambda b: (accepted[b] / TARGETS[b], b != 'act_math'))

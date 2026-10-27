@@ -25,7 +25,10 @@ for c in d['candidates']:
         item['passage_id'] = c['passage_id']
         item['passage'] = render(passages[c['passage_id']]['text'], c.get('underline'))
     item['stem'] = c['stem']
-    item['choices'] = c['choices']
+    if c.get('format') == 'spr':
+        item['answer_format'] = 'student-produced response: enter a number (no choices)'
+    else:
+        item['choices'] = c['choices']
     packet.append(item)
 out.write_text(json.dumps(packet, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 print(f'{len(packet)} items -> {out}')
