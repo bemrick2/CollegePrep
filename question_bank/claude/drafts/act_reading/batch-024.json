@@ -23,7 +23,7 @@
    "stem": "The main purpose of the passage is to:",
    "choices": {
     "A": "explain why volcanoes in Indonesia erupt more violently than volcanoes elsewhere.",
-    "B": "describe how a distant eruption disrupted life in 1816 and what that episode reveals about climate.",
+    "B": "describe the eruption's distant effects and what they reveal about climate.",
     "C": "argue that Frankenstein would not have been written without the eruption.",
     "D": "compare the damage the eruption caused on Sumbawa with the damage in Europe."
    },
@@ -73,7 +73,7 @@
     "A": "ash from the eruption blocked rain clouds from forming.",
     "B": "the explosion released cold air from deep inside the volcano.",
     "C": "sunspots reduced the amount of light reaching Earth.",
-    "D": "droplets formed from its sulfur gas reflected some sunlight back into space."
+    "D": "sulfur droplets reflected some sunlight back into space."
    },
    "answer": "D",
    "evidence": "reflected part of the incoming sunlight back into space",
@@ -314,7 +314,7 @@
     "A": "return to the science of the eruption and summarize it.",
     "B": "prove that bad weather is necessary for great literature.",
     "C": "explain why food riots broke out in Europe.",
-    "D": "add a cultural consequence of the cold summer while qualifying a popular claim about it."
+    "D": "add a cultural consequence and qualify a popular claim about it."
    },
    "answer": "D",
    "evidence": "The cold summer also left a cultural trace.",
@@ -348,54 +348,60 @@
     "single_correct": true,
     "choice_lengths": "balanced"
    }
-  },
+  }
+ ],
+ "withdrawn": [
   {
    "cand": "R024-08",
-   "passage_id": "CLD-P-ACT-R-000024",
-   "reporting_category": "Integration of Knowledge and Ideas",
-   "skill": "Integration of Knowledge and Ideas",
-   "subskill": "Author's view of a popular claim",
-   "repo_skill_key": "act_inference",
-   "difficulty": "hard",
-   "stem": "The author's view of the idea that the volcano \"produced\" Frankenstein is best described as:",
-   "choices": {
-    "A": "accepting, since the storms kept the writers indoors.",
-    "B": "skeptical, since the weather only created the occasion for writing ideas Shelley already had.",
-    "C": "dismissive, since the author doubts the writing contest took place.",
-    "D": "undecided, since the author says the evidence is evenly balanced."
-   },
-   "answer": "B",
-   "evidence": "the weather supplied the occasion; the ideas were already Shelley's own",
-   "explanation": "The author grants the weather's role in creating the occasion but rejects the stronger claim that the volcano produced the novel.",
-   "distractors": {
-    "A": {
-     "rationale": "The author calls the claim tempting but says it would be \"more accurate\" to say the weather only supplied the occasion.",
-     "trap": "partial_answer"
+   "reason": "Both solvers: R024-07's key ('qualify a popular claim') and R024-08's key ('skeptical') give each other away; R024-08 (also rated easy against a hard label) withdrawn before review.",
+   "item": {
+    "cand": "R024-08",
+    "passage_id": "CLD-P-ACT-R-000024",
+    "reporting_category": "Integration of Knowledge and Ideas",
+    "skill": "Integration of Knowledge and Ideas",
+    "subskill": "Author's view of a popular claim",
+    "repo_skill_key": "act_inference",
+    "difficulty": "hard",
+    "stem": "The author's view of the idea that the volcano \"produced\" Frankenstein is best described as:",
+    "choices": {
+     "A": "accepting, since the storms kept the writers indoors.",
+     "B": "skeptical: the weather gave Shelley an occasion, not her ideas.",
+     "C": "dismissive, since the author doubts the writing contest took place.",
+     "D": "undecided, since the author says the evidence is evenly balanced."
     },
-    "C": {
-     "rationale": "The author treats the contest as fact.",
-     "trap": null
+    "answer": "B",
+    "evidence": "the weather supplied the occasion; the ideas were already Shelley's own",
+    "explanation": "The author grants the weather's role in creating the occasion but rejects the stronger claim that the volcano produced the novel.",
+    "distractors": {
+     "A": {
+      "rationale": "The author calls the claim tempting but says it would be \"more accurate\" to say the weather only supplied the occasion.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "The author treats the contest as fact.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "The author states a clear view.",
+      "trap": null
+     }
     },
-    "D": {
-     "rationale": "The author states a clear view.",
-     "trap": null
+    "hints": [
+     "What does the author say would be \"more accurate\"?"
+    ],
+    "strategy": {
+     "key": "locate_evidence",
+     "explanation": "Read the last two sentences."
+    },
+    "remember": "\"It is tempting to say X\" usually introduces a claim the author will qualify.",
+    "expected_time_seconds": 45,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced",
+     "hardness": "Choice A states a true detail (the storms kept the writers indoors) as if it supported the claim; students must see the author grants the detail but rejects the conclusion."
     }
-   },
-   "hints": [
-    "What does the author say would be \"more accurate\"?"
-   ],
-   "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Read the last two sentences."
-   },
-   "remember": "\"It is tempting to say X\" usually introduces a claim the author will qualify.",
-   "expected_time_seconds": 45,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced",
-    "hardness": "Choice A states a true detail (the storms kept the writers indoors) as if it supported the claim; students must see the author grants the detail but rejects the conclusion."
    }
   }
  ]

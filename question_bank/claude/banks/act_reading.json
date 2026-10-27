@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 23,
-  "updated_at": "2026-10-26T23:54:12+00:00",
+  "version": 24,
+  "updated_at": "2026-10-27T00:02:31+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -256,6 +256,17 @@
       "word_count": 443,
       "text": "In a classic experiment, economists handed coffee mugs to half the students in a classroom and nothing to the other half. The students with mugs were asked the lowest price at which they would sell one; the students without mugs were asked the highest price they would pay. Standard economic theory predicted that the two prices would be about the same, since the mugs were identical and had been distributed at random. Instead, the sellers asked for roughly twice what the buyers were willing to pay. Simply owning the mug, it seemed, had made it more valuable to its owner.\n\nThe pattern already had a name, the endowment effect, coined by one of the economists a decade earlier, and the mug studies became its best-known demonstration. The researchers also offered an explanation for it. People, they argued, feel losses more sharply than equivalent gains. Giving up a mug registers as a loss, while acquiring one registers only as a gain, so an owner demands more to part with the mug than a non-owner will pay to get it. The idea was appealing because it seemed to explain a wide range of behavior, from homeowners who refuse reasonable offers to investors who hold falling stocks too long.\n\nLater studies complicated the picture. When researchers observed experienced traders at sports-card shows, people who bought and sold cards regularly, the gap between selling and buying prices was much smaller, and among the most active traders it nearly disappeared. Other experiments found that the effect shrank when participants were told that the object was intended for trade, or when the procedure was explained more carefully. Some researchers concluded that the original gap reflected confusion about the task as much as any deep feature of human nature.\n\nNone of this means that the endowment effect is an illusion. The gap has appeared in many settings, with many kinds of objects, and ordinary experience suggests that people do become attached to what they own. But the later findings show that the effect is not a fixed law. It is strongest for objects people intend to use rather than sell, and weakest for those who are used to thinking of goods as things to be exchanged.\n\nThe debate over the mugs is, in this sense, a debate about context. A person deciding whether to sell a grandmother's ring and a dealer deciding whether to sell the same ring are not facing the same choice, even if the ring and the price are identical. Economists who once hoped to find a single rule for how people value things have learned to ask a prior question: valued by whom, and for what?",
       "batch": 23,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000024",
+      "title": "The Year Without a Summer",
+      "genre": "natural science",
+      "word_count": 391,
+      "text": "In April 1815, Mount Tambora, a volcano on the Indonesian island of Sumbawa, erupted with a force that dwarfed anything in recorded history. The explosion killed thousands of people on the island and in the surrounding seas, and it hurled ash and gas high into the atmosphere. Then, for a time, nothing unusual seemed to happen elsewhere in the world. The strangest consequences arrived more than a year later and half a planet away.\n\nThe eruption had injected enormous amounts of sulfur gas into the stratosphere, well above the level where rain could wash it out. There the gas formed a thin haze of tiny droplets that spread around the globe and reflected part of the incoming sunlight back into space. The cooling it caused was modest when averaged over the whole Northern Hemisphere, less than one degree Celsius. But averages can hide a great deal.\n\nIn New England, snow fell in June 1816, and hard frosts returned in July and August, killing corn and other crops just as they began to ripen. In parts of Europe, cold, relentless rain rotted the harvest in the fields. Grain prices soared, and in some regions food riots broke out. Farmers who had never thought about the upper atmosphere found their year ruined by it. Few people in Europe or North America had even heard of the eruption, and no one yet understood how a volcano could change the weather an ocean away; many blamed sunspots, or simply bad luck.\n\nThe year 1816 came to be called the Year Without a Summer, and it shows something that a single average figure cannot. A small drop in mean temperature matters less than when the cold arrives. A few unseasonable frosts in the middle of the growing season can destroy a crop that would have survived a winter several degrees colder than usual.\n\nThe cold summer also left a cultural trace. Kept indoors by storms at a villa near Lake Geneva, a group of young English writers held a contest to see who could write the most frightening story, and Mary Shelley began the novel that became Frankenstein. It is tempting to say that the volcano produced the novel, and the story is often told that way. It would be more accurate to say that the weather supplied the occasion; the ideas were already Shelley's own.",
+      "batch": 24,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -13468,6 +13479,431 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-023.review.json",
         "computation": "checks/act_reading/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000186",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "it shows something that a single average figure cannot",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "choices": {
+        "A": "explain why volcanoes in Indonesia erupt more violently than volcanoes elsewhere.",
+        "B": "describe the eruption's distant effects and what they reveal about climate.",
+        "C": "argue that Frankenstein would not have been written without the eruption.",
+        "D": "compare the damage the eruption caused on Sumbawa with the damage in Europe."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage traces the eruption's distant effects in 1816 and draws a lesson about averages and timing; a final paragraph adds a cultural footnote.",
+      "distractor_explanations": {
+        "A": "The passage does not compare volcanoes.",
+        "C": "The author rejects the claim that the volcano produced the novel.",
+        "D": "The passage mentions local deaths only briefly and makes no such comparison."
+      },
+      "distractor_traps": {
+        "A": "out_of_scope",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does most of the passage describe, and what lesson does it draw?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then choose."
+      },
+      "remember": "A main-purpose answer covers the whole passage.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-01",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: passage says the eruption 'killed thousands'; historical estimates are roughly 10,000 direct deaths and tens of thousands in all. 'Thousands' is technically true but understates it.",
+          "minor: 'an ocean away' (para 3) undersells the Indonesia-to-New England/Europe distance; 'half a planet away' in para 1 is the more accurate phrasing."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000187",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (paraphrased)",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "reflected part of the incoming sunlight back into space",
+      "figure": null,
+      "stem": "According to the passage, the eruption cooled the Northern Hemisphere mainly because:",
+      "choices": {
+        "A": "ash from the eruption blocked rain clouds from forming.",
+        "B": "the explosion released cold air from deep inside the volcano.",
+        "C": "sunspots reduced the amount of light reaching Earth.",
+        "D": "sulfur droplets reflected some sunlight back into space."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 2 explains that sulfur gas formed droplets that \"reflected part of the incoming sunlight back into space.\"",
+      "distractor_explanations": {
+        "A": "The passage says the sulfur haze reflected sunlight; it does not mention ash and clouds this way.",
+        "B": "Nothing in the passage supports this.",
+        "C": "Sunspots are what some people mistakenly blamed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "C": null
+      },
+      "hints": [
+        "Reread paragraph 2."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence about how the haze affected sunlight."
+      },
+      "remember": "Distinguish the stated cause from causes people wrongly blamed.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-02",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000188",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "less than one degree Celsius",
+      "figure": null,
+      "stem": "As it is used in paragraph 2, the word \"modest\" most nearly means:",
+      "choices": {
+        "A": "small.",
+        "B": "humble.",
+        "C": "decent.",
+        "D": "reasonable."
+      },
+      "correct_answer": "A",
+      "explanation": "The cooling was \"less than one degree Celsius\" on average, so \"modest\" means small.",
+      "distractor_explanations": {
+        "B": "\"Humble\" describes a person's attitude, not a temperature change.",
+        "C": "\"Decent\" in the sense of proper does not describe a temperature change.",
+        "D": "The author is describing the size of the cooling, not judging whether it was reasonable."
+      },
+      "distractor_traps": {
+        "B": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What size of change does the sentence describe?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with \"small\" and check."
+      },
+      "remember": "Words about people can describe amounts in a different sense.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-03",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000189",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "In New England, snow fell in June 1816",
+      "figure": null,
+      "stem": "The main function of paragraph 3 is to:",
+      "choices": {
+        "A": "explain the chemistry of the sulfur haze in more detail.",
+        "B": "show that the eruption's effects were limited to New England.",
+        "C": "give concrete examples of the harm that the small average cooling caused.",
+        "D": "introduce the writers who gathered near Lake Geneva."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 2 ends by saying \"averages can hide a great deal\"; paragraph 3 shows what they hid: June snow, summer frosts, rotted harvests and food riots.",
+      "distractor_explanations": {
+        "A": "Paragraph 3 describes effects on farms and food, not chemistry.",
+        "B": "Paragraph 3 also describes Europe.",
+        "D": "The writers appear in paragraph 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How does paragraph 3 follow from the last sentence of paragraph 2?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect the end of paragraph 2 to paragraph 3."
+      },
+      "remember": "A paragraph of examples often follows a general claim.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-04",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000190",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference about historical understanding",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "no one yet understood how a volcano could change the weather an ocean away",
+      "figure": null,
+      "stem": "It can most reasonably be inferred from paragraph 3 that most people affected by the cold summer of 1816:",
+      "choices": {
+        "A": "blamed the eruption for their ruined crops.",
+        "B": "did not know what had caused the unusual weather.",
+        "C": "expected the cold to last for many years.",
+        "D": "had studied the upper atmosphere before 1816."
+      },
+      "correct_answer": "B",
+      "explanation": "Few people had heard of the eruption, no one understood the mechanism, and many blamed sunspots or luck, so most did not know the true cause.",
+      "distractor_explanations": {
+        "A": "The passage says few had heard of the eruption and many blamed sunspots or bad luck.",
+        "C": "Nothing suggests what they expected.",
+        "D": "The passage says farmers \"had never thought about the upper atmosphere.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What did people blame for the weather?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the end of paragraph 3."
+      },
+      "remember": "An inference must fit every detail the passage gives.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-05",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000191",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Synthesizing a claim about averages and timing",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000024",
+      "underline": null,
+      "evidence": "A small drop in mean temperature matters less than when the cold arrives.",
+      "figure": null,
+      "stem": "Based on paragraphs 2 through 4, the author suggests that the cooling of 1816 was so destructive mainly because:",
+      "choices": {
+        "A": "cold weather struck during the growing season, when crops were most vulnerable.",
+        "B": "average temperatures fell by several degrees across the Northern Hemisphere.",
+        "C": "the winter of 1815–1816 was several degrees colder than usual.",
+        "D": "farmers had planted crops that could not tolerate any cold at all."
+      },
+      "correct_answer": "A",
+      "explanation": "The author stresses that the average drop was small but that frosts \"in the middle of the growing season\" destroyed crops: timing, not size, made the cooling destructive.",
+      "distractor_explanations": {
+        "B": "The author says the average drop was less than one degree.",
+        "C": "Paragraph 4 says crops could survive a much colder winter; the damage came from summer frosts.",
+        "D": "Nothing is said about the kinds of crops chosen."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Does the author emphasize how much it cooled or when?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Eliminate choices that contradict the small average or the winter comparison."
+      },
+      "remember": "Connect a general claim to the evidence that supports it.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "R024-06",
+      "created_at": "2026-10-27T00:02:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: para 4 states this almost outright ('matters less than when the cold arrives'), so 'suggests' overstates how much inference is needed. It sits near the easy/medium line."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-024.review.json",
+        "computation": "checks/act_reading/batch_024.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
