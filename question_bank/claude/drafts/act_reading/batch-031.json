@@ -19,93 +19,95 @@
    "skill": "Key Ideas and Details",
    "subskill": "Central idea of an informational passage",
    "repo_skill_key": "act_main_idea",
-   "difficulty": "medium",
+   "difficulty": "hard",
    "stem": "Which choice best states the main idea of the passage?",
    "choices": {
-    "A": "Cities are warmest in the afternoon because their buildings block cooling winds.",
-    "B": "Reflective roofs are the most effective way to cool a city in any climate.",
-    "C": "Cities are warmer partly because of how they are built, and rebuilding can reduce that.",
-    "D": "Older residents face greater risks than other people during long summer heat waves."
+    "A": "Cities are hottest after dark because pavement releases the heat it stored by day.",
+    "B": "Reflective roofs and street trees both cool cities, though trees take longer to help.",
+    "C": "City temperatures depend partly on how cities are built, so rebuilding can lower them.",
+    "D": "Some neighborhoods are much hotter than others, which puts certain residents at risk."
    },
    "answer": "C",
    "evidence": "a city's temperature is partly a product of the choices made in building it",
-   "explanation": "The passage explains why cities are warmer, who is affected, and how coatings and trees can help, ending with the point that building choices make cities warmer and rebuilding choices can change that.",
+   "explanation": "Each wrong choice states a true point from one part of the passage. Only C covers the causes (how cities are built) and the responses (rebuilding), the point the last paragraph draws together.",
    "distractors": {
     "A": {
-     "rationale": "Paragraph 1 says the effect is strongest after dark, and wind is not discussed.",
-     "trap": null
+     "rationale": "This is the explanation in paragraphs 1 and 2, not the idea the whole passage builds to.",
+     "trap": "partial_answer"
     },
     "B": {
-     "rationale": "Paragraph 4 says reflective roofs' effects depend on the climate.",
-     "trap": "extreme_language"
+     "rationale": "This covers paragraphs 4 and 5 only.",
+     "trap": "partial_answer"
     },
     "D": {
-     "rationale": "This is a detail from paragraph 3, not the main idea.",
+     "rationale": "This covers paragraph 3 only.",
      "trap": "partial_answer"
     }
    },
    "hints": [
-    "Which choice covers the causes and the responses?"
+    "Which choice covers the causes and the responses together?"
    ],
    "strategy": {
     "key": "read_question_first",
-    "explanation": "Summarize each paragraph, then match."
+    "explanation": "Summarize each paragraph, then find the choice that covers all of them."
    },
-   "remember": "A main idea must cover the whole passage.",
-   "expected_time_seconds": 50,
+   "remember": "When every choice is true, pick the one that covers the whole passage.",
+   "expected_time_seconds": 55,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "choice_lengths": "balanced"
+    "choice_lengths": "balanced",
+    "hardness": "All four choices are accurate statements from the passage; students must pick the one broad enough to be the main idea."
    }
   },
   {
    "cand": "R031-02",
    "passage_id": "CLD-P-ACT-R-000031",
-   "reporting_category": "Key Ideas and Details",
-   "skill": "Key Ideas and Details",
-   "subskill": "Inference about timing from a cause",
+   "reporting_category": "Integration of Knowledge and Ideas",
+   "skill": "Integration of Knowledge and Ideas",
+   "subskill": "Evaluating evidence for an explanation",
    "repo_skill_key": "act_inference",
-   "difficulty": "medium",
-   "stem": "Based on paragraphs 1 and 2, the urban heat island is usually strongest after dark mainly because:",
+   "difficulty": "hard",
+   "stem": "Which of the following findings, if true, would most directly support the explanation for the urban heat island given in paragraph 2?",
    "choices": {
-    "A": "city materials that stored heat during the day give it back slowly at night.",
-    "B": "the sun is high in the sky during the late afternoon and early evening.",
-    "C": "plants release more water vapor at night than during the day.",
-    "D": "people use more air conditioners at night than in the afternoon."
+    "A": "At midnight, a dark-paved block is warmer than a nearby pale-paved block with the same trees.",
+    "B": "At noon, the center of a city is a few degrees warmer than the farmland a few miles away.",
+    "C": "At midnight, a large park in a city is about as warm as a nearby parking lot.",
+    "D": "In winter, a city's furnaces add far more heat to the outdoor air than its cars do."
    },
    "answer": "A",
    "evidence": "materials that soak up heat all day and give it back slowly through the night",
-   "explanation": "Paragraph 1 notes the effect peaks after dark, and paragraph 2 explains that city materials store heat all day and release it slowly through the night.",
+   "explanation": "Paragraph 2 says surfaces such as asphalt store the day's heat and release it at night. A night-time difference between dark and pale pavement, with trees held equal, isolates that cause.",
    "distractors": {
     "B": {
-     "rationale": "Paragraph 1 says the effect is strongest after the high-sun hours, not during them.",
+     "rationale": "This shows a daytime difference but says nothing about stored heat released at night.",
      "trap": null
     },
     "C": {
-     "rationale": "The passage does not compare plants' release of water vapor by time of day.",
-     "trap": "out_of_scope"
+     "rationale": "This would weaken the explanation, which predicts the park would be cooler.",
+     "trap": null
     },
     "D": {
-     "rationale": "Waste heat is mentioned only as an added factor, with no comparison by time of day.",
-     "trap": null
+     "rationale": "This concerns waste heat in winter, not the storage of sunlight by surfaces.",
+     "trap": "true_but_irrelevant"
     }
    },
    "hints": [
-    "Paragraph 2 calls the timing 'a clue.' What does it point to?"
+    "What does paragraph 2 say causes the night-time warmth?"
    ],
    "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Connect the timing in paragraph 1 to the cause in paragraph 2."
+    "key": "read_question_first",
+    "explanation": "Ask which finding isolates the cause the author names."
    },
-   "remember": "Link a pattern in one paragraph to its explanation in the next.",
-   "expected_time_seconds": 50,
+   "remember": "Strong evidence changes one factor while keeping the others the same.",
+   "expected_time_seconds": 60,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "choice_lengths": "balanced"
+    "choice_lengths": "balanced",
+    "hardness": "Students must judge which finding isolates the proposed cause; the noon comparison and the waste-heat fact are relevant-sounding traps."
    }
   },
   {
@@ -212,39 +214,39 @@
    "subskill": "Applying the passage to a new case",
    "repo_skill_key": "act_inference",
    "difficulty": "medium",
-   "stem": "Based on the passage, which of the following places would most likely be the hottest on a summer night?",
+   "stem": "Based on the passage, which of the following places would most likely be the warmest at midnight during a summer heat wave?",
    "choices": {
-    "A": "A neighborhood near the city center with wide streets lined by large trees",
-    "B": "A neighborhood at the edge of the city next to open farmland",
-    "C": "A block of apartments surrounded by parking lots and almost no trees",
-    "D": "A large park with a broad lawn, a pond, and scattered shade trees"
+    "A": "A block of apartments in the city center surrounded by parking lots and almost no trees",
+    "B": "A downtown block of tall office buildings with wide sidewalks lined by large shade trees",
+    "C": "A suburban street of houses with dark roofs set among tall, closely spaced shade trees",
+    "D": "A neighborhood at the edge of the city next to open farmland, with lawns and gardens"
    },
-   "answer": "C",
+   "answer": "A",
    "evidence": "the hottest blocks are often those with the fewest trees and the most pavement",
-   "explanation": "Paragraph 3 says the hottest blocks have the fewest trees and the most pavement, and paragraph 2 explains that pavement stores heat and releases it at night.",
+   "explanation": "The passage links night-time heat to pavement that stores heat and to a lack of trees. The apartment block has both, with no trees to offset it; each other place has a heating feature offset by vegetation.",
    "distractors": {
-    "A": {
-     "rationale": "Trees shade pavement and cool the air, which lowers night heat.",
+    "B": {
+     "rationale": "Tall buildings trap heat, but the shade trees reduce stored heat and cool the air.",
      "trap": null
     },
-    "B": {
-     "rationale": "Paragraph 1 says areas near farmland are cooler than the city center.",
+    "C": {
+     "rationale": "Dark roofs store heat, but the dense trees shade them and cool the air.",
      "trap": null
     },
     "D": {
-     "rationale": "Vegetation cools the air, so a park would be cooler.",
+     "rationale": "Areas near farmland with vegetation are cooler than the city center.",
      "trap": null
     }
    },
    "hints": [
-    "Which features does paragraph 3 link to the hottest blocks?"
+    "Which place has heat-storing surfaces with nothing to offset them?"
    ],
    "strategy": {
     "key": "read_question_first",
-    "explanation": "Apply the passage's causes to each choice."
+    "explanation": "Weigh heating features against cooling features for each place."
    },
-   "remember": "Apply the author's stated causes to a new example.",
-   "expected_time_seconds": 45,
+   "remember": "Weigh every feature the author names, not just one.",
+   "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -260,36 +262,36 @@
    "subskill": "Applying a qualified claim to choose a setting",
    "repo_skill_key": "act_inference",
    "difficulty": "hard",
-   "stem": "Based on paragraph 4, in which of the following places would a reflective roof most likely produce the greatest net energy savings over a year?",
+   "stem": "Based on paragraph 4, a reflective roof would most likely produce the greatest net energy savings over a year in which of the following places?",
    "choices": {
-    "A": "A town with long, hot summers and short, mild winters",
-    "B": "A town with short, cool summers and long, cold winters",
-    "C": "A town with mild summers and mild winters but very little sunshine",
-    "D": "A town with hot summers and long, cold winters with deep snow"
+    "A": "A desert city where summers are long and very hot and frosts are rare",
+    "B": "A northern city with brief, warm summers and months of snow",
+    "C": "A city with very hot summers and long winters with heavy snow",
+    "D": "A coastal city that stays cool and overcast for most of the year"
    },
    "answer": "A",
-   "evidence": "In a place with hot summers and mild winters, a reflective roof saves energy that would have gone to cooling.",
-   "explanation": "Paragraph 4 says reflective roofs save cooling energy in hot summers but lose some of those savings in long, cold winters, so the best case has long hot summers and mild winters.",
+   "evidence": "In a place with long, cold winters, the same roof also reflects sunlight that would have helped warm the building",
+   "explanation": "A reflective roof saves cooling energy in hot weather but loses some of that saving in cold weather. The desert city has the most hot weather and almost no cold season.",
    "distractors": {
     "B": {
-     "rationale": "A reflective roof here would also block winter sunlight that helps heat buildings.",
+     "rationale": "Long winters there would cancel much of the small summer benefit.",
      "trap": null
     },
     "C": {
-     "rationale": "With little sunshine, a reflective roof has little sunlight to reflect.",
-     "trap": null
+     "rationale": "The long cold season would cancel part of the large summer savings.",
+     "trap": "partial_answer"
     },
     "D": {
-     "rationale": "Long, cold winters would cancel part of the summer savings.",
-     "trap": "partial_answer"
+     "rationale": "With little strong sun, a reflective roof has little to reflect in any season.",
+     "trap": null
     }
    },
    "hints": [
-    "What does a reflective roof do in summer and in winter?"
+    "What does a reflective roof gain in summer and lose in winter?"
    ],
    "strategy": {
     "key": "read_question_first",
-    "explanation": "Weigh the summer gain against the winter loss for each choice."
+    "explanation": "Weigh the summer gain against the winter loss for each place."
    },
    "remember": "Weigh both sides of a trade-off the author describes.",
    "expected_time_seconds": 55,
@@ -298,50 +300,50 @@
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced",
-    "hardness": "Students must weigh a summer benefit against a winter cost; the choice with hot summers but long winters is a strong trap."
+    "hardness": "Students must apply a two-sided trade-off to places described in new words; the city with hot summers but long winters is a strong trap."
    }
   },
   {
    "cand": "R031-07",
    "passage_id": "CLD-P-ACT-R-000031",
-   "reporting_category": "Craft and Structure",
-   "skill": "Craft and Structure",
-   "subskill": "Author's view of a proposed solution",
-   "repo_skill_key": "act_author_purpose",
+   "reporting_category": "Key Ideas and Details",
+   "skill": "Key Ideas and Details",
+   "subskill": "Linking a cause to a stated consequence",
+   "repo_skill_key": "act_inference",
    "difficulty": "medium",
-   "stem": "The author's view of reflective roofs is best described as which of the following?",
+   "stem": "The author's statement that heat lingering into the night \"denies the body a chance to recover\" (paragraph 3) helps explain why:",
    "choices": {
-    "A": "They waste energy in every climate and should not be required.",
-    "B": "They work better than street trees in every city that uses them.",
-    "C": "They save more energy in cold climates than in warm climates.",
-    "D": "They can save energy, but how much depends on the local climate."
+    "A": "older residents are less likely than other residents to own air conditioners.",
+    "B": "temperatures can differ sharply from one neighborhood to the next.",
+    "C": "reflective roofs work better in some climates than they do in others.",
+    "D": "the heat island's timing makes it especially harmful to health."
    },
    "answer": "D",
-   "evidence": "The idea is simple, but its effects depend on circumstances.",
-   "explanation": "The author presents reflective roofs as useful but says their effects depend on circumstances, especially winter length.",
+   "evidence": "Because heat that lingers into the night denies the body a chance to recover",
+   "explanation": "Paragraph 1 says the heat island is strongest after dark; paragraph 3 says heat that lingers into the night prevents the body from recovering. Together they explain why the effect is a health risk.",
    "distractors": {
     "A": {
-     "rationale": "The author says they save energy where summers are hot and winters mild.",
-     "trap": "extreme_language"
+     "rationale": "The passage names older residents as at risk but never says they lack air conditioning.",
+     "trap": "out_of_scope"
     },
     "B": {
-     "rationale": "The author never ranks roofs above trees, and says results vary.",
-     "trap": "extreme_language"
+     "rationale": "The statement concerns why heat harms people, not why neighborhoods differ.",
+     "trap": "true_but_irrelevant"
     },
     "C": {
-     "rationale": "This reverses the author's claim about cold winters.",
+     "rationale": "Roof performance is the subject of paragraph 4, not this statement.",
      "trap": null
     }
    },
    "hints": [
-    "What qualification does the author add after describing the roofs?"
+    "When is the heat island strongest, according to paragraph 1?"
    ],
    "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Find the sentence that begins 'The idea is simple.'"
+    "key": "read_question_first",
+    "explanation": "Connect paragraph 3's statement to paragraph 1's timing."
    },
-   "remember": "Look for the author's qualification, not just the description.",
-   "expected_time_seconds": 45,
+   "remember": "Link a consequence to a pattern described earlier.",
+   "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -403,48 +405,54 @@
    "passage_id": "CLD-P-ACT-R-000031",
    "reporting_category": "Craft and Structure",
    "skill": "Craft and Structure",
-   "subskill": "Function of a concluding paragraph",
+   "subskill": "Overall structure of a passage",
    "repo_skill_key": "act_author_purpose",
    "difficulty": "medium",
-   "stem": "The last paragraph mainly serves to:",
+   "stem": "Which choice best describes how the passage is organized?",
    "choices": {
-    "A": "acknowledge an ongoing debate while stating what is no longer disputed.",
-    "B": "introduce a new way of cooling cities that the passage has not yet described.",
-    "C": "argue that reflective coatings should replace street trees in most cities.",
-    "D": "summarize the health risks of heat for older residents and others."
+    "A": "It presents a theory, tests it against new measurements, and finally rejects it.",
+    "B": "It describes a pattern, explains its causes and effects, and weighs two responses.",
+    "C": "It compares two particular cities and recommends the policies of one of them.",
+    "D": "It traces an idea's history from its first discovery up to the present day."
    },
-   "answer": "A",
-   "evidence": "What is no longer in dispute is the basic picture",
-   "explanation": "The paragraph notes that researchers still argue about how much each measure helps, then states the undisputed point that building choices affect a city's temperature.",
+   "answer": "B",
+   "evidence": "Trees offer a different kind of help.",
+   "explanation": "Paragraph 1 describes the heat island, paragraph 2 its causes, paragraph 3 its effects, paragraphs 4 and 5 two responses (reflective roofs and trees), and paragraph 6 a conclusion.",
    "distractors": {
-    "B": {
-     "rationale": "No new method appears in the last paragraph.",
+    "A": {
+     "rationale": "The passage never rejects its explanation.",
      "trap": null
     },
     "C": {
-     "rationale": "The author never argues for replacing trees.",
+     "rationale": "No particular cities are named or compared.",
      "trap": null
     },
     "D": {
-     "rationale": "The health risks appear only in paragraph 3.",
-     "trap": "true_but_irrelevant"
+     "rationale": "The passage gives no history of the idea's discovery.",
+     "trap": null
     }
    },
    "hints": [
-    "What does the paragraph say is disputed, and what is not?"
+    "Write one word for each paragraph's job."
    ],
    "strategy": {
     "key": "read_question_first",
-    "explanation": "Look for the contrast in the paragraph."
+    "explanation": "Outline the passage, then match."
    },
-   "remember": "A closing paragraph often separates what is settled from what is not.",
-   "expected_time_seconds": 45,
+   "remember": "An organization question asks about the order of jobs, not topics.",
+   "expected_time_seconds": 50,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
     "choice_lengths": "balanced"
    }
+  }
+ ],
+ "revision_log": [
+  {
+   "round": 2,
+   "reason": "Round-1 blind solves (both matched every key) rated 8 of 9 items easy, with keys restating single sentences (01, 02, 05, 06, 09), a hedged-only key (07), throwaway distractors, and overlapping pairs (06/07, 01/09). Rebuilt 01 (all distractors true but partial), 02 (evidence evaluation), 05 (traps balancing heating and cooling features), 06 (climates described in new words), 07 (replaced by a cross-paragraph consequence item) and 09 (replaced by an organization item). Passage unchanged. Whole batch re-solved blind."
   }
  ]
 }
