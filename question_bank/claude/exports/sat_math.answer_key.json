@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 74,
+  "bank_version": 75,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -17025,6 +17025,308 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Find the remaining storage in MB first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000819",
+      "correct_answer": "C",
+      "explanation": "The point (4, 3) is 5 units from the origin, so P is twice as far along the line: P = (8, 6). Line ℓ has slope 3/4, so line n has slope −4/3. Through (8, 6): y − 6 = −(4/3)(x − 8), so 3y − 18 = −4x + 32 and 4x + 3y = 50.",
+      "distractor_explanations": {
+        "A": "This uses the distance 10 as the constant.",
+        "B": "This uses (4, 3) as P; that point is only 5 units from the origin.",
+        "D": "This uses slope −3/4, the negative of ℓ's slope without taking the reciprocal."
+      },
+      "hints": [
+        "How far from the origin is (4, 3)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Scale (4, 3) to length 10, then write the perpendicular line."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000820",
+      "correct_answer": "D",
+      "explanation": "The boundary lines meet where 2x + 3 = −x − 1, at x = −4/3, y = 1/3. The solutions lie to the left of that point, between the lines. For example, (−3, 1) is a solution in Quadrant II (1 > −3 and 1 < 2) and (−3, −1) is a solution in Quadrant III (−1 > −3 and −1 < 2). If x > 0, a solution would need y > 3 and y < −1 at the same time, so Quadrants I and IV contain no solutions.",
+      "distractor_explanations": {
+        "A": "The boundary lines cross in Quadrant II, but the region also extends into Quadrant III.",
+        "B": "The region also contains points in Quadrant II, such as (−3, 1).",
+        "C": "For x > 0, y would have to be greater than 3 and less than −1."
+      },
+      "hints": [
+        "Where do the boundary lines cross?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test one point in each quadrant."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000821",
+      "correct_answer": "A",
+      "explanation": "The predicted number of errors decreases by 1.8 for each additional hour of practice. A decrease of 9 errors therefore corresponds to 9 ÷ 1.8 = 5 more hours.",
+      "distractor_explanations": {
+        "B": "This solves −1.8x + 27 = 9, the hours that predict 9 errors, not 9 fewer errors.",
+        "C": "This multiplies 9 by 1.8 instead of dividing.",
+        "D": "This subtracts 9 from the intercept 27."
+      },
+      "hints": [
+        "What does the slope −1.8 mean?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the change in y by the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000822",
+      "correct_answer": "B",
+      "explanation": "The first decrease is 1.5 percentage points, which is 1.5/6.0 = 25% of the original rate. Decreasing 4.5% by 25% gives 4.5% × 0.75 = 3.375%.",
+      "distractor_explanations": {
+        "A": "This repeats the 1.5-percentage-point drop instead of the 25% decrease.",
+        "C": "This subtracts 0.25 percentage point, reading the 25% decrease as 0.25 point.",
+        "D": "This treats 1.5 percentage points as a 1.5% decrease, 4.5 × 0.985."
+      },
+      "hints": [
+        "What percent of 6.0 is the first decrease?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the percent decrease, then apply it to 4.5%."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000823",
+      "correct_answer": "C",
+      "explanation": "Flour: 500 ÷ 125 = 4 cups. Sugar: 300 ÷ 200 = 1.5 cups. Together the recipe calls for 4 + 1.5 = 5.5 cups.",
+      "distractor_explanations": {
+        "A": "This divides the total 800 grams by the sugar rate, 200 grams per cup.",
+        "B": "This divides 800 grams by the average of the two rates, 162.5 grams per cup.",
+        "D": "This divides the total 800 grams by the flour rate, 125 grams per cup."
+      },
+      "hints": [
+        "Convert each ingredient separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use each ingredient's own grams-per-cup rate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000824",
+      "correct_answer": "C",
+      "explanation": "Off campus, 72/180 = 0.40 of students own a car; on campus, 24/120 = 0.20 do. The ratio is 0.40/0.20 = 2.",
+      "distractor_explanations": {
+        "A": "This inverts the comparison.",
+        "B": "This compares the group sizes, 180/120.",
+        "D": "This compares the numbers of car owners, 72/24, without using the group sizes."
+      },
+      "hints": [
+        "Find the proportion of car owners in each group."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare rates, not counts."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000825",
+      "correct_answer": "5760",
+      "accepted_answers": [
+        "5760"
+      ],
+      "common_errors": [
+        {
+          "value": "96",
+          "rationale": "96 is the number of boxes per minute.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1440",
+          "rationale": "1,440 is the number of meters the belt moves in an hour.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "57.6",
+          "rationale": "57.6 divides 0.4 by 25 without converting centimeters to meters.",
+          "trap": null
+        }
+      ],
+      "explanation": "The spacing is 25 centimeters = 0.25 meter, so 0.4 ÷ 0.25 = 1.6 boxes reach the end each second. In 1 hour, 1.6 × 3,600 = 5,760 boxes reach the end.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many boxes pass each second?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the speed by the spacing, then convert to hours."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000826",
+      "correct_answer": "45",
+      "accepted_answers": [
+        "45"
+      ],
+      "common_errors": [
+        {
+          "value": "24",
+          "rationale": "24 assumes the equal probabilities force equal cells.",
+          "trap": null
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the total of the two unknown cells.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "69",
+          "rationale": "69 is the number of juniors, which equals the number of club members.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let x be the juniors not in the club and y the seniors in the club. Both probabilities have numerator 24, so their denominators must be equal: club members, 24 + y, equals juniors, 24 + x, so x = y. The total is 24 + x + y + 36 = 150, so x + y = 90 and y = 45. Each probability is 24/69.",
+      "distractor_explanations": {},
+      "hints": [
+        "Both probabilities have the same numerator. What does that say about the denominators?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Fill in a two-way table with unknowns."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000827",
+      "correct_answer": "100",
+      "accepted_answers": [
+        "100"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 makes the number of women a whole number but not the number under 30.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "50",
+          "rationale": "50 makes the number under 30 a whole number but gives 22.5 women.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1000",
+          "rationale": "1,000 multiplies denominators instead of finding the least common multiple.",
+          "trap": null
+        }
+      ],
+      "explanation": "With N members, 0.45N = 9N/20 must be a whole number, so N is a multiple of 20. The women under 30 number 0.40 × 0.45N = 0.18N = 9N/50, so N is also a multiple of 50. The least common multiple of 20 and 50 is 100.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which counts must be whole numbers?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test multiples of 20 until every count is whole."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000828",
+      "correct_answer": "B",
+      "explanation": "If an item's pre-tax price is p, the old price is 1.20p and the new price is 1.14p. The decrease is 0.06p, which is 0.06/1.20 = 5% of the old price.",
+      "distractor_explanations": {
+        "A": "This finds the pre-tax price as 80% of the old price and takes 6% of that, 0.06 × 0.80 = 4.8%.",
+        "C": "This treats the 6-percentage-point drop in the rate as a 6% drop in price.",
+        "D": "This is the percent decrease of the tax rate itself, 6/20."
+      },
+      "hints": [
+        "Write the old and new prices in terms of the pre-tax price."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the pre-tax price be $100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000829",
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "11",
+          "rationale": "11 assumes x must be one of the two middle values.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "34",
+          "rationale": "34 finds only x = 11 and x = 23.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "23",
+          "rationale": "23 finds only the case where x is the largest value.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The mean is (58 + x)/6. If x ≤ 8, the median is (8 + 12)/2 = 10, so 58 + x = 60 and x = 2. If 8 ≤ x ≤ 15, the median is (x + 12)/2, so 58 + x = 3x + 36 and x = 11. If x ≥ 15, the median is (12 + 15)/2 = 13.5, so 58 + x = 81 and x = 23. Each value lies in its own case, so the sum is 2 + 11 + 23 = 36.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where can x fall when the six numbers are put in order?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Consider each position of x separately."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000830",
+      "correct_answer": "C",
+      "explanation": "Households with at least 1 pet make up 30% + 20% + 15% = 65%, and those with at least 2 pets make up 20% + 15% = 35%. The probability is 35/65 = 7/13.",
+      "distractor_explanations": {
+        "A": "This uses only the households with exactly 2 pets, 20/65.",
+        "B": "This is the unconditional probability, 35/100.",
+        "D": "This is the probability of the condition, 65/100."
+      },
+      "hints": [
+        "What is the new total after the condition?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Restrict to households with at least 1 pet."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000831",
+      "correct_answer": "D",
+      "explanation": "A point far above the trend at the left end pulls the left end of the fitted line up, which flattens the line and raises its y-intercept. Removing that point gives a steeper line with a lower y-intercept, close to y = 3x + 5. (The least-squares lines are about y = 2.15x + 12.3 with the point and y = 3x + 5 without it.)",
+      "distractor_explanations": {
+        "A": "This reverses the direction of the outlier's pull.",
+        "B": "A steeper line through the same middle points starts lower, not higher.",
+        "C": "This reasons only that removing a high value lowers the line."
+      },
+      "hints": [
+        "Which end of the line does the outlier pull, and which way?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trend line and the outlier."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000832",
+      "correct_answer": "C",
+      "explanation": "Data set A has range 8 − 2 = 6, and data set B has range 10 − 0 = 10. Every value in A is 3 from the mean, so its standard deviation is 3. In B, six of the eight values equal the mean, so its standard deviation is √(50/8) = 2.5. B has the greater range, but A has the greater standard deviation.",
+      "distractor_explanations": {
+        "A": "Data set B has the greater range, 10 versus 6.",
+        "B": "This assumes the range and the standard deviation always rank sets the same way.",
+        "D": "This confuses center with spread."
+      },
+      "hints": [
+        "How far is a typical value from the mean in each set?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compare the ranges first, then the typical distances from the mean."
       }
     }
   ]

@@ -1,711 +1,711 @@
 {
- "bank": "sat_math",
- "batch": 75,
- "plan": "SAT Math batch 75: 15 items from idea set 20 (OA15, OA16, OC01-OC10, OC12-OC14; pre-checked in ideas-069.repeats.json). Fixes: OC09 renumbered (VAT 20% to 14%, key 5%) so 25% no longer echoes OC02 and the key is no longer the odd non-round choice; OC06 uses hedged 'likely causes' wording. OC11 held for a later batch (at most two of OC02/OC09/OC11 per batch). OA15 kept out of batch 74 with OA01. Difficulty provisional.",
- "candidates": [
-  {
-   "cand": "Q075-01",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Perpendicular line through a point found by scaling",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, line ℓ passes through the origin and the point (4, 3). Point P lies on line ℓ in Quadrant I, and the distance from the origin to P is 10. Line n passes through P and is perpendicular to line ℓ. Which of the following is an equation of line n ?",
-   "explanation": "The point (4, 3) is 5 units from the origin, so P is twice as far along the line: P = (8, 6). Line ℓ has slope 3/4, so line n has slope −4/3. Through (8, 6): y − 6 = −(4/3)(x − 8), so 3y − 18 = −4x + 32 and 4x + 3y = 50.",
-   "hints": [
-    "How far from the origin is (4, 3)?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Scale (4, 3) to length 10, then write the perpendicular line."
-   },
-   "remember": "Perpendicular slopes are negative reciprocals.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "P must be found by scaling a direction before the perpendicular line is written."
-   },
-   "choices": {
-    "A": "4x + 3y = 10",
-    "B": "4x + 3y = 25",
-    "C": "4x + 3y = 50",
-    "D": "3x + 4y = 48"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This uses the distance 10 as the constant.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This uses (4, 3) as P; that point is only 5 units from the origin.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This uses slope −3/4, the negative of ℓ's slope without taking the reciprocal.",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
-   "cand": "Q075-02",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Quadrants reached by a system of linear inequalities",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, which quadrants contain at least one solution (x, y) of the system of inequalities below?\ny > 2x + 3\ny < −x − 1",
-   "explanation": "The boundary lines meet where 2x + 3 = −x − 1, at x = −4/3, y = 1/3. The solutions lie to the left of that point, between the lines. For example, (−3, 1) is a solution in Quadrant II (1 > −3 and 1 < 2) and (−3, −1) is a solution in Quadrant III (−1 > −3 and −1 < 2). If x > 0, a solution would need y > 3 and y < −1 at the same time, so Quadrants I and IV contain no solutions.",
-   "hints": [
-    "Where do the boundary lines cross?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Test one point in each quadrant."
-   },
-   "remember": "A solution must satisfy every inequality in the system.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must locate an unbounded wedge and check each quadrant."
-   },
-   "choices": {
-    "A": "II only",
-    "B": "III only",
-    "C": "I, II, and III",
-    "D": "II and III"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "The boundary lines cross in Quadrant II, but the region also extends into Quadrant III.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "The region also contains points in Quadrant II, such as (−3, 1).",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "For x > 0, y would have to be greater than 3 and less than −1.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q075-03",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Change in x for a given change in predicted y",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A scatterplot shows the number of hours of practice x and the number of errors y for each of 20 typists. The line of best fit is y = −1.8x + 27. According to the line of best fit, how many more hours of practice are associated with 9 fewer predicted errors?",
-   "explanation": "The predicted number of errors decreases by 1.8 for each additional hour of practice. A decrease of 9 errors therefore corresponds to 9 ÷ 1.8 = 5 more hours.",
-   "hints": [
-    "What does the slope −1.8 mean?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Divide the change in y by the slope."
-   },
-   "remember": "Change in x equals change in y divided by slope.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "5",
-    "B": "10",
-    "C": "16.2",
-    "D": "18"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "This solves −1.8x + 27 = 9, the hours that predict 9 errors, not 9 fewer errors.",
-     "trap": "wrong_quantity"
-    },
-    "C": {
-     "rationale": "This multiplies 9 by 1.8 instead of dividing.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This subtracts 9 from the intercept 27.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q075-04",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Percent change applied to a new base",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A bank lowered the interest rate on a savings account from 6.0% to 4.5%. Later, the bank lowered the rate again by the same percent as the first decrease. What was the interest rate after the second decrease?",
-   "explanation": "The first decrease is 1.5 percentage points, which is 1.5/6.0 = 25% of the original rate. Decreasing 4.5% by 25% gives 4.5% × 0.75 = 3.375%.",
-   "hints": [
-    "What percent of 6.0 is the first decrease?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Find the percent decrease, then apply it to 4.5%."
-   },
-   "remember": "A percent change differs from a percentage-point change.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must convert a percentage-point change to a percent change and apply it to a new base."
-   },
-   "choices": {
-    "A": "3.000%",
-    "B": "3.375%",
-    "C": "4.250%",
-    "D": "4.4325%"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This repeats the 1.5-percentage-point drop instead of the 25% decrease.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This subtracts 0.25 percentage point, reading the 25% decrease as 0.25 point.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This treats 1.5 percentage points as a 1.5% decrease, 4.5 × 0.985.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q075-05",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Converting each ingredient with its own rate",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A baker's recipe calls for 500 grams of flour and 300 grams of sugar. The baker has only a 1-cup measure. One cup of flour has a mass of 125 grams, and one cup of sugar has a mass of 200 grams. How many cups of flour and sugar together does the recipe call for?",
-   "explanation": "Flour: 500 ÷ 125 = 4 cups. Sugar: 300 ÷ 200 = 1.5 cups. Together the recipe calls for 4 + 1.5 = 5.5 cups.",
-   "hints": [
-    "Convert each ingredient separately."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use each ingredient's own grams-per-cup rate."
-   },
-   "remember": "Convert each quantity with its own rate before adding.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "4.0",
-    "B": "4.9",
-    "C": "5.5",
-    "D": "6.4"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This divides the total 800 grams by the sugar rate, 200 grams per cup.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This divides 800 grams by the average of the two rates, 162.5 grams per cup.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This divides the total 800 grams by the flour rate, 125 grams per cup.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q075-06",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Comparing two conditional rates as a ratio",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A college surveyed 300 students. Of the 120 students who live on campus, 24 own a car. Of the 180 students who live off campus, 72 own a car. Based on these data, a student who lives off campus is how many times as likely to own a car as a student who lives on campus?",
-   "explanation": "Off campus, 72/180 = 0.40 of students own a car; on campus, 24/120 = 0.20 do. The ratio is 0.40/0.20 = 2.",
-   "hints": [
-    "Find the proportion of car owners in each group."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Compare rates, not counts."
-   },
-   "remember": "Compare groups of different sizes using rates.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "0.5",
-    "B": "1.5",
-    "C": "2",
-    "D": "3"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This inverts the comparison.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This compares the group sizes, 180/120.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This compares the numbers of car owners, 72/24, without using the group sizes.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q075-07",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Count rate from a speed and a spacing",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "On a packaging line, a conveyor belt moves at a constant 0.4 meter per second, and boxes are placed on the belt one after another, 25 centimeters apart from front edge to front edge. At this rate, how many boxes reach the end of the belt in 1 hour?",
-   "explanation": "The spacing is 25 centimeters = 0.25 meter, so 0.4 ÷ 0.25 = 1.6 boxes reach the end each second. In 1 hour, 1.6 × 3,600 = 5,760 boxes reach the end.",
-   "hints": [
-    "How many boxes pass each second?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Divide the speed by the spacing, then convert to hours."
-   },
-   "remember": "Convert all lengths to the same unit first.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "A speed and a spacing must combine into a count rate before converting time units."
-   },
-   "format": "spr",
-   "answer": "5760",
-   "accepted_answers": [
-    "5760"
-   ],
-   "common_errors": [
+  "bank": "sat_math",
+  "batch": 75,
+  "plan": "SAT Math batch 75: 15 items from idea set 20 (OA15, OA16, OC01-OC10, OC12-OC14; pre-checked in ideas-069.repeats.json). Fixes: OC09 renumbered (VAT 20% to 14%, key 5%) so 25% no longer echoes OC02 and the key is no longer the odd non-round choice; OC06 uses hedged 'likely causes' wording. OC11 held for a later batch (at most two of OC02/OC09/OC11 per batch). OA15 kept out of batch 74 with OA01. Difficulty provisional.",
+  "candidates": [
     {
-     "value": "96",
-     "rationale": "96 is the number of boxes per minute.",
-     "trap": "wrong_quantity"
+      "cand": "Q075-01",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Perpendicular line through a point found by scaling",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, line ℓ passes through the origin and the point (4, 3). Point P lies on line ℓ in Quadrant I, and the distance from the origin to P is 10. Line n passes through P and is perpendicular to line ℓ. Which of the following is an equation of line n ?",
+      "explanation": "The point (4, 3) is 5 units from the origin, so P is twice as far along the line: P = (8, 6). Line ℓ has slope 3/4, so line n has slope −4/3. Through (8, 6): y − 6 = −(4/3)(x − 8), so 3y − 18 = −4x + 32 and 4x + 3y = 50.",
+      "hints": [
+        "How far from the origin is (4, 3)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Scale (4, 3) to length 10, then write the perpendicular line."
+      },
+      "remember": "Perpendicular slopes are negative reciprocals.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "P must be found by scaling a direction before the perpendicular line is written."
+      },
+      "choices": {
+        "A": "4x + 3y = 10",
+        "B": "4x + 3y = 25",
+        "C": "4x + 3y = 50",
+        "D": "3x + 4y = 48"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This uses the distance 10 as the constant.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This uses (4, 3) as P; that point is only 5 units from the origin.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This uses slope −3/4, the negative of ℓ's slope without taking the reciprocal.",
+          "trap": "sign_error"
+        }
+      }
     },
     {
-     "value": "1440",
-     "rationale": "1,440 is the number of meters the belt moves in an hour.",
-     "trap": "wrong_quantity"
+      "cand": "Q075-02",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Quadrants reached by a system of linear inequalities",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, which quadrants contain at least one solution (x, y) of the system of inequalities below?\ny > 2x + 3\ny < −x − 1",
+      "explanation": "The boundary lines meet where 2x + 3 = −x − 1, at x = −4/3, y = 1/3. The solutions lie to the left of that point, between the lines. For example, (−3, 1) is a solution in Quadrant II (1 > −3 and 1 < 2) and (−3, −1) is a solution in Quadrant III (−1 > −3 and −1 < 2). If x > 0, a solution would need y > 3 and y < −1 at the same time, so Quadrants I and IV contain no solutions.",
+      "hints": [
+        "Where do the boundary lines cross?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test one point in each quadrant."
+      },
+      "remember": "A solution must satisfy every inequality in the system.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must locate an unbounded wedge and check each quadrant."
+      },
+      "choices": {
+        "A": "II only",
+        "B": "III only",
+        "C": "I, II, and III",
+        "D": "II and III"
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "The boundary lines cross in Quadrant II, but the region also extends into Quadrant III.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "The region also contains points in Quadrant II, such as (−3, 1).",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "For x > 0, y would have to be greater than 3 and less than −1.",
+          "trap": null
+        }
+      }
     },
     {
-     "value": "57.6",
-     "rationale": "57.6 divides 0.4 by 25 without converting centimeters to meters.",
-     "trap": null
+      "cand": "Q075-03",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Change in x for a given change in predicted y",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "A scatterplot shows the number of hours of practice x and the number of errors y for each of 20 typists. The line of best fit is y = −1.8x + 27. According to the line of best fit, how many more hours of practice are associated with 9 fewer predicted errors?",
+      "explanation": "The predicted number of errors decreases by 1.8 for each additional hour of practice. A decrease of 9 errors therefore corresponds to 9 ÷ 1.8 = 5 more hours.",
+      "hints": [
+        "What does the slope −1.8 mean?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the change in y by the slope."
+      },
+      "remember": "Change in x equals change in y divided by slope.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "5",
+        "B": "10",
+        "C": "16.2",
+        "D": "18"
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "This solves −1.8x + 27 = 9, the hours that predict 9 errors, not 9 fewer errors.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "This multiplies 9 by 1.8 instead of dividing.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This subtracts 9 from the intercept 27.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q075-04",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change applied to a new base",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "A bank lowered the interest rate on a savings account from 6.0% to 4.5%. Later, the bank lowered the rate again by the same percent as the first decrease. What was the interest rate after the second decrease?",
+      "explanation": "The first decrease is 1.5 percentage points, which is 1.5/6.0 = 25% of the original rate. Decreasing 4.5% by 25% gives 4.5% × 0.75 = 3.375%.",
+      "hints": [
+        "What percent of 6.0 is the first decrease?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the percent decrease, then apply it to 4.5%."
+      },
+      "remember": "A percent change differs from a percentage-point change.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must convert a percentage-point change to a percent change and apply it to a new base."
+      },
+      "choices": {
+        "A": "3.000%",
+        "B": "3.375%",
+        "C": "4.250%",
+        "D": "4.4325%"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This repeats the 1.5-percentage-point drop instead of the 25% decrease.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This subtracts 0.25 percentage point, reading the 25% decrease as 0.25 point.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This treats 1.5 percentage points as a 1.5% decrease, 4.5 × 0.985.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q075-05",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Converting each ingredient with its own rate",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "A baker's recipe calls for 500 grams of flour and 300 grams of sugar. The baker has only a 1-cup measure. One cup of flour has a mass of 125 grams, and one cup of sugar has a mass of 200 grams. How many cups of flour and sugar together does the recipe call for?",
+      "explanation": "Flour: 500 ÷ 125 = 4 cups. Sugar: 300 ÷ 200 = 1.5 cups. Together the recipe calls for 4 + 1.5 = 5.5 cups.",
+      "hints": [
+        "Convert each ingredient separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use each ingredient's own grams-per-cup rate."
+      },
+      "remember": "Convert each quantity with its own rate before adding.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "4.0",
+        "B": "4.9",
+        "C": "5.5",
+        "D": "6.4"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This divides the total 800 grams by the sugar rate, 200 grams per cup.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This divides 800 grams by the average of the two rates, 162.5 grams per cup.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This divides the total 800 grams by the flour rate, 125 grams per cup.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q075-06",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing two conditional rates as a ratio",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "A college surveyed 300 students. Of the 120 students who live on campus, 24 own a car. Of the 180 students who live off campus, 72 own a car. Based on these data, a student who lives off campus is how many times as likely to own a car as a student who lives on campus?",
+      "explanation": "Off campus, 72/180 = 0.40 of students own a car; on campus, 24/120 = 0.20 do. The ratio is 0.40/0.20 = 2.",
+      "hints": [
+        "Find the proportion of car owners in each group."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare rates, not counts."
+      },
+      "remember": "Compare groups of different sizes using rates.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "0.5",
+        "B": "1.5",
+        "C": "2",
+        "D": "3"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This inverts the comparison.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This compares the group sizes, 180/120.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This compares the numbers of car owners, 72/24, without using the group sizes.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q075-07",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Count rate from a speed and a spacing",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "On a packaging line, a conveyor belt moves at a constant 0.4 meter per second, and boxes are placed on the belt one after another, 25 centimeters apart from front edge to front edge. At this rate, how many boxes reach the end of the belt in 1 hour?",
+      "explanation": "The spacing is 25 centimeters = 0.25 meter, so 0.4 ÷ 0.25 = 1.6 boxes reach the end each second. In 1 hour, 1.6 × 3,600 = 5,760 boxes reach the end.",
+      "hints": [
+        "How many boxes pass each second?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the speed by the spacing, then convert to hours."
+      },
+      "remember": "Convert all lengths to the same unit first.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "A speed and a spacing must combine into a count rate before converting time units."
+      },
+      "format": "spr",
+      "answer": "5760",
+      "accepted_answers": [
+        "5760"
+      ],
+      "common_errors": [
+        {
+          "value": "96",
+          "rationale": "96 is the number of boxes per minute.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1440",
+          "rationale": "1,440 is the number of meters the belt moves in an hour.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "57.6",
+          "rationale": "57.6 divides 0.4 by 25 without converting centimeters to meters.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q075-08",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Scope of a causal conclusion from two active treatments",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "At a clinic, 120 adult volunteers with seasonal allergies were randomly assigned to take either drug A or drug B for one month. Patients who took drug A reported fewer days with symptoms, on average, than patients who took drug B, and the difference was too large to be explained by chance alone. Which conclusion is best supported?",
+      "explanation": "Random assignment supports a causal conclusion, but only for the comparison the study made (drug A versus drug B) and only for people like the volunteers. The study had no untreated group, so it says nothing about drug A versus no medication.",
+      "hints": [
+        "What did the study actually compare?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each choice's comparison and population."
+      },
+      "remember": "Random assignment supports cause; random sampling supports generalization.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking drug B does.",
+        "B": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking no medication does.",
+        "C": "No conclusion about cause can be drawn, because the study did not include a placebo group.",
+        "D": "Drug A likely causes fewer symptom days than drug B does for all adults with seasonal allergies."
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "The study had no untreated group to compare with.",
+          "trap": "out_of_scope"
+        },
+        "C": {
+          "rationale": "Random assignment between two treatments supports a causal comparison of those treatments; a placebo is not required.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "The volunteers at one clinic were not a random sample of all adults with allergies.",
+          "trap": "extreme_language"
+        }
+      }
+    },
+    {
+      "cand": "Q075-09",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Two-way table from equal conditional probabilities",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "hard",
+      "stem": "A school surveyed 150 juniors and seniors about whether they belong to the robotics club. Of the juniors, 24 belong to the club. Of the seniors, 36 do not belong to the club. If a student is selected at random, the probability that the student is a junior given that the student belongs to the club is equal to the probability that the student belongs to the club given that the student is a junior. How many seniors belong to the club?",
+      "explanation": "Let x be the juniors not in the club and y the seniors in the club. Both probabilities have numerator 24, so their denominators must be equal: club members, 24 + y, equals juniors, 24 + x, so x = y. The total is 24 + x + y + 36 = 150, so x + y = 90 and y = 45. Each probability is 24/69.",
+      "hints": [
+        "Both probabilities have the same numerator. What does that say about the denominators?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Fill in a two-way table with unknowns."
+      },
+      "remember": "Equal fractions with equal numerators have equal denominators.",
+      "expected_time_seconds": 130,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must turn equal conditional probabilities into equal row and column totals."
+      },
+      "format": "spr",
+      "answer": "45",
+      "accepted_answers": [
+        "45"
+      ],
+      "common_errors": [
+        {
+          "value": "24",
+          "rationale": "24 assumes the equal probabilities force equal cells.",
+          "trap": null
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the total of the two unknown cells.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "69",
+          "rationale": "69 is the number of juniors, which equals the number of club members.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q075-10",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Least whole from two percent conditions",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A hiking club reports that exactly 45% of its members are women and that exactly 40% of the women in the club are under 30 years old. What is the least possible number of members in the club?",
+      "explanation": "With N members, 0.45N = 9N/20 must be a whole number, so N is a multiple of 20. The women under 30 number 0.40 × 0.45N = 0.18N = 9N/50, so N is also a multiple of 50. The least common multiple of 20 and 50 is 100.",
+      "hints": [
+        "Which counts must be whole numbers?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test multiples of 20 until every count is whole."
+      },
+      "remember": "Every count of people must be a whole number.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two separate divisibility conditions must hold at once."
+      },
+      "format": "spr",
+      "answer": "100",
+      "accepted_answers": [
+        "100"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 makes the number of women a whole number but not the number under 30.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "50",
+          "rationale": "50 makes the number under 30 a whole number but gives 22.5 women.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1000",
+          "rationale": "1,000 multiplies denominators instead of finding the least common multiple.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q075-11",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change in a tax-included price",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "In a country, the price of every item in a shop includes a value-added tax (VAT) equal to 20% of the item's pre-tax price. The VAT rate is lowered to 14%, and pre-tax prices do not change. By what percent do the shop prices, including VAT, decrease?",
+      "explanation": "If an item's pre-tax price is p, the old price is 1.20p and the new price is 1.14p. The decrease is 0.06p, which is 0.06/1.20 = 5% of the old price.",
+      "hints": [
+        "Write the old and new prices in terms of the pre-tax price."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the pre-tax price be $100."
+      },
+      "remember": "Percent change uses the original value as the base.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "A percentage-point change in a rate must become a percent change in a tax-included price."
+      },
+      "choices": {
+        "A": "4.8%",
+        "B": "5%",
+        "C": "6%",
+        "D": "30%"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This finds the pre-tax price as 80% of the old price and takes 6% of that, 0.06 × 0.80 = 4.8%.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This treats the 6-percentage-point drop in the rate as a 6% drop in price.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This is the percent decrease of the tax rate itself, 6/20.",
+          "trap": "wrong_quantity"
+        }
+      }
+    },
+    {
+      "cand": "Q075-12",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Mean equals median with an unknown in any position",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "hard",
+      "stem": "A data set consists of the six numbers 3, 8, 12, x, 15, and 20. The mean of the data set is equal to its median. What is the sum of all possible values of x ?",
+      "explanation": "The mean is (58 + x)/6. If x ≤ 8, the median is (8 + 12)/2 = 10, so 58 + x = 60 and x = 2. If 8 ≤ x ≤ 15, the median is (x + 12)/2, so 58 + x = 3x + 36 and x = 11. If x ≥ 15, the median is (12 + 15)/2 = 13.5, so 58 + x = 81 and x = 23. Each value lies in its own case, so the sum is 2 + 11 + 23 = 36.",
+      "hints": [
+        "Where can x fall when the six numbers are put in order?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Consider each position of x separately."
+      },
+      "remember": "The median depends on where the unknown value falls.",
+      "expected_time_seconds": 140,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must split into cases by position and find a valid value in each."
+      },
+      "format": "spr",
+      "answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "11",
+          "rationale": "11 assumes x must be one of the two middle values.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "34",
+          "rationale": "34 finds only x = 11 and x = 23.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "23",
+          "rationale": "23 finds only the case where x is the largest value.",
+          "trap": "partial_answer"
+        }
+      ]
+    },
+    {
+      "cand": "Q075-13",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Conditional probability with an \"at least\" condition",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "In a survey of households, 35% had no pets, 30% had exactly 1 pet, 20% had exactly 2 pets, and 15% had 3 or more pets. If a household that has at least 1 pet is selected at random, what is the probability that it has at least 2 pets?",
+      "explanation": "Households with at least 1 pet make up 30% + 20% + 15% = 65%, and those with at least 2 pets make up 20% + 15% = 35%. The probability is 35/65 = 7/13.",
+      "hints": [
+        "What is the new total after the condition?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Restrict to households with at least 1 pet."
+      },
+      "remember": "A condition shrinks the denominator to that group.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "4/13",
+        "B": "7/20",
+        "C": "7/13",
+        "D": "13/20"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This uses only the households with exactly 2 pets, 20/65.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This is the unconditional probability, 35/100.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This is the probability of the condition, 65/100.",
+          "trap": "wrong_quantity"
+        }
+      }
+    },
+    {
+      "cand": "Q075-14",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Effect of a high point at the left end on a fitted line",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A scatterplot shows 12 data points with x-values 1, 2, 3, …, 12. Eleven of the points lie very close to the line y = 3x + 5, but the point with x = 1 is (1, 30), far above that line. A line of best fit is found for all 12 points. If the point (1, 30) is removed and a new line of best fit is found for the other 11 points, how will the new line compare with the original line?",
+      "explanation": "A point far above the trend at the left end pulls the left end of the fitted line up, which flattens the line and raises its y-intercept. Removing that point gives a steeper line with a lower y-intercept, close to y = 3x + 5. (The least-squares lines are about y = 2.15x + 12.3 with the point and y = 3x + 5 without it.)",
+      "hints": [
+        "Which end of the line does the outlier pull, and which way?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trend line and the outlier."
+      },
+      "remember": "An outlier pulls the fitted line toward itself.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must reason about how an outlier's position changes both slope and intercept."
+      },
+      "choices": {
+        "A": "Smaller slope and greater y-intercept",
+        "B": "Greater slope and greater y-intercept",
+        "C": "Smaller slope and smaller y-intercept",
+        "D": "Greater slope and smaller y-intercept"
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "This reverses the direction of the outlier's pull.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "A steeper line through the same middle points starts lower, not higher.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This reasons only that removing a high value lowers the line.",
+          "trap": "partial_answer"
+        }
+      }
+    },
+    {
+      "cand": "Q075-15",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Range and standard deviation ranking in opposite orders",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "Data set A consists of 8 values: four 2s and four 8s. Data set B consists of 8 values: one 0, six 5s, and one 10. Both data sets have a mean of 5. Which statement is true?",
+      "explanation": "Data set A has range 8 − 2 = 6, and data set B has range 10 − 0 = 10. Every value in A is 3 from the mean, so its standard deviation is 3. In B, six of the eight values equal the mean, so its standard deviation is √(50/8) = 2.5. B has the greater range, but A has the greater standard deviation.",
+      "hints": [
+        "How far is a typical value from the mean in each set?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compare the ranges first, then the typical distances from the mean."
+      },
+      "remember": "Range uses only extremes; standard deviation uses every value.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The range and the standard deviation rank the two sets in opposite orders."
+      },
+      "choices": {
+        "A": "Data set A has the greater range and the greater standard deviation.",
+        "B": "Data set B has the greater range and the greater standard deviation.",
+        "C": "Data set B has the greater range, but data set A has the greater standard deviation.",
+        "D": "The data sets have the same standard deviation because they have the same mean."
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "Data set B has the greater range, 10 versus 6.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This assumes the range and the standard deviation always rank sets the same way.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This confuses center with spread.",
+          "trap": null
+        }
+      }
     }
-   ]
-  },
-  {
-   "cand": "Q075-08",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Scope of a causal conclusion from two active treatments",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "At a clinic, 120 adult volunteers with seasonal allergies were randomly assigned to take either drug A or drug B for one month. Patients who took drug A reported fewer days with symptoms, on average, than patients who took drug B, and the difference was too large to be explained by chance alone. Which conclusion is best supported?",
-   "explanation": "Random assignment supports a causal conclusion, but only for the comparison the study made (drug A versus drug B) and only for people like the volunteers. The study had no untreated group, so it says nothing about drug A versus no medication.",
-   "hints": [
-    "What did the study actually compare?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Check each choice's comparison and population."
-   },
-   "remember": "Random assignment supports cause; random sampling supports generalization.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking drug B does.",
-    "B": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking no medication does.",
-    "C": "No conclusion about cause can be drawn, because the study did not include a placebo group.",
-    "D": "Drug A likely causes fewer symptom days than drug B does for all adults with seasonal allergies."
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "The study had no untreated group to compare with.",
-     "trap": "out_of_scope"
-    },
-    "C": {
-     "rationale": "Random assignment between two treatments supports a causal comparison of those treatments; a placebo is not required.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "The volunteers at one clinic were not a random sample of all adults with allergies.",
-     "trap": "extreme_language"
-    }
-   }
-  },
-  {
-   "cand": "Q075-09",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Two-way table from equal conditional probabilities",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A school surveyed 150 juniors and seniors about whether they belong to the robotics club. Of the juniors, 24 belong to the club. Of the seniors, 36 do not belong to the club. If a student is selected at random, the probability that the student is a junior given that the student belongs to the club is equal to the probability that the student belongs to the club given that the student is a junior. How many seniors belong to the club?",
-   "explanation": "Let x be the juniors not in the club and y the seniors in the club. Both probabilities have numerator 24, so their denominators must be equal: club members, 24 + y, equals juniors, 24 + x, so x = y. The total is 24 + x + y + 36 = 150, so x + y = 90 and y = 45. Each probability is 24/69.",
-   "hints": [
-    "Both probabilities have the same numerator. What does that say about the denominators?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Fill in a two-way table with unknowns."
-   },
-   "remember": "Equal fractions with equal numerators have equal denominators.",
-   "expected_time_seconds": 130,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must turn equal conditional probabilities into equal row and column totals."
-   },
-   "format": "spr",
-   "answer": "45",
-   "accepted_answers": [
-    "45"
-   ],
-   "common_errors": [
-    {
-     "value": "24",
-     "rationale": "24 assumes the equal probabilities force equal cells.",
-     "trap": null
-    },
-    {
-     "value": "90",
-     "rationale": "90 is the total of the two unknown cells.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "69",
-     "rationale": "69 is the number of juniors, which equals the number of club members.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q075-10",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Least whole from two percent conditions",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A hiking club reports that exactly 45% of its members are women and that exactly 40% of the women in the club are under 30 years old. What is the least possible number of members in the club?",
-   "explanation": "With N members, 0.45N = 9N/20 must be a whole number, so N is a multiple of 20. The women under 30 number 0.40 × 0.45N = 0.18N = 9N/50, so N is also a multiple of 50. The least common multiple of 20 and 50 is 100.",
-   "hints": [
-    "Which counts must be whole numbers?"
-   ],
-   "strategy": {
-    "key": "backsolve",
-    "explanation": "Test multiples of 20 until every count is whole."
-   },
-   "remember": "Every count of people must be a whole number.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Two separate divisibility conditions must hold at once."
-   },
-   "format": "spr",
-   "answer": "100",
-   "accepted_answers": [
-    "100"
-   ],
-   "common_errors": [
-    {
-     "value": "20",
-     "rationale": "20 makes the number of women a whole number but not the number under 30.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "50",
-     "rationale": "50 makes the number under 30 a whole number but gives 22.5 women.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "1000",
-     "rationale": "1,000 multiplies denominators instead of finding the least common multiple.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q075-11",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Percent change in a tax-included price",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "In a country, the price of every item in a shop includes a value-added tax (VAT) equal to 20% of the item's pre-tax price. The VAT rate is lowered to 14%, and pre-tax prices do not change. By what percent do the shop prices, including VAT, decrease?",
-   "explanation": "If an item's pre-tax price is p, the old price is 1.20p and the new price is 1.14p. The decrease is 0.06p, which is 0.06/1.20 = 5% of the old price.",
-   "hints": [
-    "Write the old and new prices in terms of the pre-tax price."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Let the pre-tax price be $100."
-   },
-   "remember": "Percent change uses the original value as the base.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "A percentage-point change in a rate must become a percent change in a tax-included price."
-   },
-   "choices": {
-    "A": "4.8%",
-    "B": "5%",
-    "C": "6%",
-    "D": "30%"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This finds the pre-tax price as 80% of the old price and takes 6% of that, 0.06 × 0.80 = 4.8%.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This treats the 6-percentage-point drop in the rate as a 6% drop in price.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This is the percent decrease of the tax rate itself, 6/20.",
-     "trap": "wrong_quantity"
-    }
-   }
-  },
-  {
-   "cand": "Q075-12",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Mean equals median with an unknown in any position",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A data set consists of the six numbers 3, 8, 12, x, 15, and 20. The mean of the data set is equal to its median. What is the sum of all possible values of x ?",
-   "explanation": "The mean is (58 + x)/6. If x ≤ 8, the median is (8 + 12)/2 = 10, so 58 + x = 60 and x = 2. If 8 ≤ x ≤ 15, the median is (x + 12)/2, so 58 + x = 3x + 36 and x = 11. If x ≥ 15, the median is (12 + 15)/2 = 13.5, so 58 + x = 81 and x = 23. Each value lies in its own case, so the sum is 2 + 11 + 23 = 36.",
-   "hints": [
-    "Where can x fall when the six numbers are put in order?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Consider each position of x separately."
-   },
-   "remember": "The median depends on where the unknown value falls.",
-   "expected_time_seconds": 140,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must split into cases by position and find a valid value in each."
-   },
-   "format": "spr",
-   "answer": "36",
-   "accepted_answers": [
-    "36"
-   ],
-   "common_errors": [
-    {
-     "value": "11",
-     "rationale": "11 assumes x must be one of the two middle values.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "34",
-     "rationale": "34 finds only x = 11 and x = 23.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "23",
-     "rationale": "23 finds only the case where x is the largest value.",
-     "trap": "partial_answer"
-    }
-   ]
-  },
-  {
-   "cand": "Q075-13",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Conditional probability with an \"at least\" condition",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "In a survey of households, 35% had no pets, 30% had exactly 1 pet, 20% had exactly 2 pets, and 15% had 3 or more pets. If a household that has at least 1 pet is selected at random, what is the probability that it has at least 2 pets?",
-   "explanation": "Households with at least 1 pet make up 30% + 20% + 15% = 65%, and those with at least 2 pets make up 20% + 15% = 35%. The probability is 35/65 = 7/13.",
-   "hints": [
-    "What is the new total after the condition?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Restrict to households with at least 1 pet."
-   },
-   "remember": "A condition shrinks the denominator to that group.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "4/13",
-    "B": "7/20",
-    "C": "7/13",
-    "D": "13/20"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This uses only the households with exactly 2 pets, 20/65.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "This is the unconditional probability, 35/100.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This is the probability of the condition, 65/100.",
-     "trap": "wrong_quantity"
-    }
-   }
-  },
-  {
-   "cand": "Q075-14",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Effect of a high point at the left end on a fitted line",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A scatterplot shows 12 data points with x-values 1, 2, 3, …, 12. Eleven of the points lie very close to the line y = 3x + 5, but the point with x = 1 is (1, 30), far above that line. A line of best fit is found for all 12 points. If the point (1, 30) is removed and a new line of best fit is found for the other 11 points, how will the new line compare with the original line?",
-   "explanation": "A point far above the trend at the left end pulls the left end of the fitted line up, which flattens the line and raises its y-intercept. Removing that point gives a steeper line with a lower y-intercept, close to y = 3x + 5. (The least-squares lines are about y = 2.15x + 12.3 with the point and y = 3x + 5 without it.)",
-   "hints": [
-    "Which end of the line does the outlier pull, and which way?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the trend line and the outlier."
-   },
-   "remember": "An outlier pulls the fitted line toward itself.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must reason about how an outlier's position changes both slope and intercept."
-   },
-   "choices": {
-    "A": "Smaller slope and greater y-intercept",
-    "B": "Greater slope and greater y-intercept",
-    "C": "Smaller slope and smaller y-intercept",
-    "D": "Greater slope and smaller y-intercept"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "This reverses the direction of the outlier's pull.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "A steeper line through the same middle points starts lower, not higher.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This reasons only that removing a high value lowers the line.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q075-15",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Range and standard deviation ranking in opposite orders",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "Data set A consists of 8 values: four 2s and four 8s. Data set B consists of 8 values: one 0, six 5s, and one 10. Both data sets have a mean of 5. Which statement is true?",
-   "explanation": "Data set A has range 8 − 2 = 6, and data set B has range 10 − 0 = 10. Every value in A is 3 from the mean, so its standard deviation is 3. In B, six of the eight values equal the mean, so its standard deviation is √(50/8) = 2.5. B has the greater range, but A has the greater standard deviation.",
-   "hints": [
-    "How far is a typical value from the mean in each set?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Compare the ranges first, then the typical distances from the mean."
-   },
-   "remember": "Range uses only extremes; standard deviation uses every value.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The range and the standard deviation rank the two sets in opposite orders."
-   },
-   "choices": {
-    "A": "Data set A has the greater range and the greater standard deviation.",
-    "B": "Data set B has the greater range and the greater standard deviation.",
-    "C": "Data set B has the greater range, but data set A has the greater standard deviation.",
-    "D": "The data sets have the same standard deviation because they have the same mean."
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "Data set B has the greater range, 10 versus 6.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This assumes the range and the standard deviation always rank sets the same way.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This confuses center with spread.",
-     "trap": null
-    }
-   }
-  }
- ]
+  ]
 }
