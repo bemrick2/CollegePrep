@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 75,
-  "updated_at": "2026-10-27T00:50:16+00:00",
+  "version": 76,
+  "updated_at": "2026-10-27T00:53:13+00:00",
   "passages": [],
   "questions": [
     {
@@ -52208,6 +52208,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-075.review.json",
         "computation": "checks/act_math/batch_075.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000747",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Equation of a circle tangent to the x-axis",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, a circle has its center at (−2, 5) and is tangent to the x-axis. Which of the following is an equation of the circle?",
+      "choices": {
+        "A": "(x + 2)² + (y − 5)² = 25",
+        "B": "(x − 2)² + (y + 5)² = 25",
+        "C": "(x + 2)² + (y − 5)² = 4",
+        "D": "(x + 2)² + (y − 5)² = 5"
+      },
+      "correct_answer": "A",
+      "explanation": "A circle tangent to the x-axis has radius equal to the distance from its center to that axis, |5| = 5. So r² = 25 and the equation is (x + 2)² + (y − 5)² = 25.",
+      "distractor_explanations": {
+        "B": "This flips the signs of the center's coordinates.",
+        "C": "This uses the distance to the y-axis, 2, as the radius.",
+        "D": "This uses the radius, 5, without squaring it."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How far is the center from the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the center and the x-axis."
+      },
+      "remember": "Tangent to the x-axis: radius = |y-coordinate of the center|.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-01",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000748",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Mean absolute deviation",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The mean absolute deviation of a data set is the mean of the distances of the values from their mean. What is the mean absolute deviation of the data set 2, 4, 6, 8, 10 ?",
+      "choices": {
+        "A": "2",
+        "B": "6",
+        "C": "12",
+        "D": "2.4"
+      },
+      "correct_answer": "D",
+      "explanation": "The mean is 6. The distances from 6 are 4, 2, 0, 2 and 4, which sum to 12. Their mean is 12/5 = 2.4.",
+      "distractor_explanations": {
+        "A": "2 is the most common distance, not the mean of the distances.",
+        "B": "6 is the mean of the data, not of the distances.",
+        "C": "12 is the sum of the distances; it was not divided by 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Find the mean first, then each value's distance from it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Follow the definition step by step."
+      },
+      "remember": "Mean absolute deviation = average distance from the mean.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-02",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000749",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Evaluating a function defined with a shifted input",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A function f satisfies f(x + 1) = 2x + 5 for all real numbers x. What is the value of f(3) ?",
+      "choices": {
+        "A": "11",
+        "B": "9",
+        "C": "7",
+        "D": "13"
+      },
+      "correct_answer": "B",
+      "explanation": "f(3) = f(2 + 1), so use x = 2: f(3) = 2(2) + 5 = 9.",
+      "distractor_explanations": {
+        "A": "11 substitutes x = 3 into 2x + 5, which gives f(4).",
+        "C": "7 substitutes x = 1, which gives f(2).",
+        "D": "13 substitutes x = 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What value of x makes x + 1 equal to 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve x + 1 = 3 first."
+      },
+      "remember": "Match the input inside f( ) before substituting.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-03",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000750",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Difference from a part-to-part ratio",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a club of 40 members, the ratio of boys to girls is 3:5. How many more girls than boys are in the club?",
+      "choices": {
+        "A": "15",
+        "B": "25",
+        "C": "10",
+        "D": "8"
+      },
+      "correct_answer": "C",
+      "explanation": "The 40 members split into 3 + 5 = 8 parts of 5 members each, so there are 15 boys and 25 girls. The difference is 10.",
+      "distractor_explanations": {
+        "A": "15 is the number of boys.",
+        "B": "25 is the number of girls.",
+        "D": "8 is the number of parts."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How many members are in each part of the ratio?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide 40 by 3 + 5."
+      },
+      "remember": "Divide the total by the sum of the ratio parts.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-04",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000751",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Distance between two points",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the distance between the points (1, 2) and (7, 10) ?",
+      "choices": {
+        "A": "10",
+        "B": "14",
+        "C": "8",
+        "D": "6"
+      },
+      "correct_answer": "A",
+      "explanation": "The horizontal change is 6 and the vertical change is 8, so the distance is √(6² + 8²) = √100 = 10.",
+      "distractor_explanations": {
+        "B": "14 adds the changes, 6 + 8, instead of using the Pythagorean theorem.",
+        "C": "8 is only the vertical change.",
+        "D": "6 is only the horizontal change."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Find the horizontal and vertical changes."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle between the points."
+      },
+      "remember": "Distance = √((Δx)² + (Δy)²).",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-05",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000752",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Sum of the divisors of a number",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all the positive divisors of 28, including 1 and 28 ?",
+      "choices": {
+        "A": "28",
+        "B": "56",
+        "C": "6",
+        "D": "42"
+      },
+      "correct_answer": "B",
+      "explanation": "The divisors of 28 are 1, 2, 4, 7, 14 and 28, and their sum is 56.",
+      "distractor_explanations": {
+        "A": "28 is the sum of the divisors other than 28 itself.",
+        "C": "6 is the number of divisors, not their sum.",
+        "D": "42 omits the divisor 14."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "List divisors in pairs that multiply to 28."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Pair 1·28, 2·14, 4·7."
+      },
+      "remember": "Find divisors in pairs to avoid missing any.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-06",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: 'including 1 and 28' is redundant with 'all positive divisors' but helpfully clarifies"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000753",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Telescoping sum",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of the sum below?\n1/(1·2) + 1/(2·3) + 1/(3·4) + … + 1/(9·10)",
+      "choices": {
+        "A": "1/10",
+        "B": "1",
+        "C": "9/10",
+        "D": "10/11"
+      },
+      "correct_answer": "C",
+      "explanation": "Each term 1/(n(n + 1)) equals 1/n − 1/(n + 1). The sum becomes (1 − 1/2) + (1/2 − 1/3) + … + (1/9 − 1/10), in which everything cancels except 1 − 1/10 = 9/10.",
+      "distractor_explanations": {
+        "A": "1/10 is the only term that remains besides 1, not the sum.",
+        "B": "1 assumes the sum reaches its limit, which an infinite sum would approach.",
+        "D": "10/11 uses the pattern n/(n + 1) with n = 10 instead of n = 9."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Compute the first two or three partial sums and look for a pattern."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "1/2, then 2/3, then 3/4 ..."
+      },
+      "remember": "Look for terms that cancel in long sums.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-07",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000754",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Equation with a cube root",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies ∛(2x + 1) = 3 ?",
+      "choices": {
+        "A": "4",
+        "B": "1",
+        "C": "13.5",
+        "D": "13"
+      },
+      "correct_answer": "D",
+      "explanation": "Cube both sides: 2x + 1 = 27, so 2x = 26 and x = 13.",
+      "distractor_explanations": {
+        "A": "4 squares 3 instead of cubing it (2x + 1 = 9).",
+        "B": "1 ignores the cube root (2x + 1 = 3).",
+        "C": "13.5 forgets to subtract 1 (2x = 27)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What undoes a cube root?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check: 2(13) + 1 = 27, and ∛27 = 3."
+      },
+      "remember": "Undo a cube root by cubing both sides.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-08",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000755",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Degree measure of one radian",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A central angle of a circle intercepts an arc whose length is equal to the circle's radius. To the nearest degree, what is the measure of the angle?",
+      "choices": {
+        "A": "1°",
+        "B": "60°",
+        "C": "90°",
+        "D": "57°"
+      },
+      "correct_answer": "D",
+      "explanation": "The angle is 1 radian, since arc length = rθ gives θ = 1. One radian is 180°/π ≈ 57.3°, or 57° to the nearest degree.",
+      "distractor_explanations": {
+        "A": "1° confuses 1 radian with 1 degree.",
+        "B": "60° is the angle of an equilateral triangle, whose straight side (a chord) equals the radius, not the arc.",
+        "C": "90° has an arc length of (π/2)r, about 1.57r."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Use arc length = radius × angle in radians."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find θ in radians, then convert."
+      },
+      "remember": "1 radian ≈ 57.3°.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-09",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000756",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Completing the square",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equivalent to x² + 6x + 5 for all real values of x ?",
+      "choices": {
+        "A": "(x + 3)² + 5",
+        "B": "(x + 3)² − 4",
+        "C": "(x + 6)² − 31",
+        "D": "(x − 3)² − 4"
+      },
+      "correct_answer": "B",
+      "explanation": "(x + 3)² = x² + 6x + 9, so x² + 6x + 5 = (x + 3)² − 9 + 5 = (x + 3)² − 4.",
+      "distractor_explanations": {
+        "A": "(x + 3)² + 5 forgets to subtract the 9 added by squaring.",
+        "C": "(x + 6)² − 31 uses the whole coefficient 6 instead of half of it.",
+        "D": "(x − 3)² − 4 has the wrong sign inside the square."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Half of 6 is what, and what is its square?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: only B gives 5."
+      },
+      "remember": "x² + bx = (x + b/2)² − (b/2)².",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "B076-10",
+      "created_at": "2026-10-27T00:53:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-076.review.json",
+        "computation": "checks/act_math/batch_076.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

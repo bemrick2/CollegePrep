@@ -1,0 +1,458 @@
+{
+ "bank": "act_math",
+ "batch": 76,
+ "plan": "Ideas checked against stems and subskills first: tangent circle, mean absolute deviation, shifted input, ratio difference, distance formula, divisor sum, telescoping sum (hard), cube root, one radian, completing the square.",
+ "candidates": [
+  {
+   "cand": "B076-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Equation of a circle tangent to the x-axis",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x,y) coordinate plane, a circle has its center at (−2, 5) and is tangent to the x-axis. Which of the following is an equation of the circle?",
+   "choices": {
+    "A": "(x + 2)² + (y − 5)² = 25",
+    "B": "(x − 2)² + (y + 5)² = 25",
+    "C": "(x + 2)² + (y − 5)² = 4",
+    "D": "(x + 2)² + (y − 5)² = 5"
+   },
+   "answer": "A",
+   "explanation": "A circle tangent to the x-axis has radius equal to the distance from its center to that axis, |5| = 5. So r² = 25 and the equation is (x + 2)² + (y − 5)² = 25.",
+   "distractors": {
+    "B": {
+     "rationale": "This flips the signs of the center's coordinates.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "This uses the distance to the y-axis, 2, as the radius.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "This uses the radius, 5, without squaring it.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How far is the center from the x-axis?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the center and the x-axis."
+   },
+   "remember": "Tangent to the x-axis: radius = |y-coordinate of the center|.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Mean absolute deviation",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The mean absolute deviation of a data set is the mean of the distances of the values from their mean. What is the mean absolute deviation of the data set 2, 4, 6, 8, 10 ?",
+   "choices": {
+    "A": "2",
+    "B": "6",
+    "C": "12",
+    "D": "2.4"
+   },
+   "answer": "D",
+   "explanation": "The mean is 6. The distances from 6 are 4, 2, 0, 2 and 4, which sum to 12. Their mean is 12/5 = 2.4.",
+   "distractors": {
+    "A": {
+     "rationale": "2 is the most common distance, not the mean of the distances.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "6 is the mean of the data, not of the distances.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "12 is the sum of the distances; it was not divided by 5.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Find the mean first, then each value's distance from it."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Follow the definition step by step."
+   },
+   "remember": "Mean absolute deviation = average distance from the mean.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Evaluating a function defined with a shifted input",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A function f satisfies f(x + 1) = 2x + 5 for all real numbers x. What is the value of f(3) ?",
+   "choices": {
+    "A": "11",
+    "B": "9",
+    "C": "7",
+    "D": "13"
+   },
+   "answer": "B",
+   "explanation": "f(3) = f(2 + 1), so use x = 2: f(3) = 2(2) + 5 = 9.",
+   "distractors": {
+    "A": {
+     "rationale": "11 substitutes x = 3 into 2x + 5, which gives f(4).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "7 substitutes x = 1, which gives f(2).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "13 substitutes x = 4.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What value of x makes x + 1 equal to 3?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve x + 1 = 3 first."
+   },
+   "remember": "Match the input inside f( ) before substituting.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Difference from a part-to-part ratio",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "easy",
+   "stem": "In a club of 40 members, the ratio of boys to girls is 3:5. How many more girls than boys are in the club?",
+   "choices": {
+    "A": "15",
+    "B": "25",
+    "C": "10",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": "The 40 members split into 3 + 5 = 8 parts of 5 members each, so there are 15 boys and 25 girls. The difference is 10.",
+   "distractors": {
+    "A": {
+     "rationale": "15 is the number of boys.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "25 is the number of girls.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "8 is the number of parts.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How many members are in each part of the ratio?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide 40 by 3 + 5."
+   },
+   "remember": "Divide the total by the sum of the ratio parts.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance between two points",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "easy",
+   "stem": "In the standard (x,y) coordinate plane, what is the distance between the points (1, 2) and (7, 10) ?",
+   "choices": {
+    "A": "10",
+    "B": "14",
+    "C": "8",
+    "D": "6"
+   },
+   "answer": "A",
+   "explanation": "The horizontal change is 6 and the vertical change is 8, so the distance is √(6² + 8²) = √100 = 10.",
+   "distractors": {
+    "B": {
+     "rationale": "14 adds the changes, 6 + 8, instead of using the Pythagorean theorem.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "8 is only the vertical change.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "6 is only the horizontal change.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Find the horizontal and vertical changes."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the right triangle between the points."
+   },
+   "remember": "Distance = √((Δx)² + (Δy)²).",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Sum of the divisors of a number",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "medium",
+   "stem": "What is the sum of all the positive divisors of 28, including 1 and 28 ?",
+   "choices": {
+    "A": "28",
+    "B": "56",
+    "C": "6",
+    "D": "42"
+   },
+   "answer": "B",
+   "explanation": "The divisors of 28 are 1, 2, 4, 7, 14 and 28, and their sum is 56.",
+   "distractors": {
+    "A": {
+     "rationale": "28 is the sum of the divisors other than 28 itself.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "6 is the number of divisors, not their sum.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "42 omits the divisor 14.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "List divisors in pairs that multiply to 28."
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Pair 1·28, 2·14, 4·7."
+   },
+   "remember": "Find divisors in pairs to avoid missing any.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Number & Quantity",
+   "subskill": "Telescoping sum",
+   "repo_skill_key": "act_number_quantity",
+   "difficulty": "hard",
+   "stem": "What is the value of the sum below?\n1/(1·2) + 1/(2·3) + 1/(3·4) + … + 1/(9·10)",
+   "choices": {
+    "A": "1/10",
+    "B": "1",
+    "C": "9/10",
+    "D": "10/11"
+   },
+   "answer": "C",
+   "explanation": "Each term 1/(n(n + 1)) equals 1/n − 1/(n + 1). The sum becomes (1 − 1/2) + (1/2 − 1/3) + … + (1/9 − 1/10), in which everything cancels except 1 − 1/10 = 9/10.",
+   "distractors": {
+    "A": {
+     "rationale": "1/10 is the only term that remains besides 1, not the sum.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "1 assumes the sum reaches its limit, which an infinite sum would approach.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "10/11 uses the pattern n/(n + 1) with n = 10 instead of n = 9.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Compute the first two or three partial sums and look for a pattern."
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "1/2, then 2/3, then 3/4 ..."
+   },
+   "remember": "Look for terms that cancel in long sums.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Direct addition with a calculator is slow; recognizing the pattern of partial sums (n/(n+1)) or the cancelling difference is the insight."
+   }
+  },
+  {
+   "cand": "B076-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Equation with a cube root",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "What value of x satisfies ∛(2x + 1) = 3 ?",
+   "choices": {
+    "A": "4",
+    "B": "1",
+    "C": "13.5",
+    "D": "13"
+   },
+   "answer": "D",
+   "explanation": "Cube both sides: 2x + 1 = 27, so 2x = 26 and x = 13.",
+   "distractors": {
+    "A": {
+     "rationale": "4 squares 3 instead of cubing it (2x + 1 = 9).",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1 ignores the cube root (2x + 1 = 3).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "13.5 forgets to subtract 1 (2x = 27).",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What undoes a cube root?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Check: 2(13) + 1 = 27, and ∛27 = 3."
+   },
+   "remember": "Undo a cube root by cubing both sides.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Degree measure of one radian",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A central angle of a circle intercepts an arc whose length is equal to the circle's radius. To the nearest degree, what is the measure of the angle?",
+   "choices": {
+    "A": "1°",
+    "B": "60°",
+    "C": "90°",
+    "D": "57°"
+   },
+   "answer": "D",
+   "explanation": "The angle is 1 radian, since arc length = rθ gives θ = 1. One radian is 180°/π ≈ 57.3°, or 57° to the nearest degree.",
+   "distractors": {
+    "A": {
+     "rationale": "1° confuses 1 radian with 1 degree.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "60° is the angle of an equilateral triangle, whose straight side (a chord) equals the radius, not the arc.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "90° has an arc length of (π/2)r, about 1.57r.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Use arc length = radius × angle in radians."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find θ in radians, then convert."
+   },
+   "remember": "1 radian ≈ 57.3°.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B076-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Algebra",
+   "subskill": "Completing the square",
+   "repo_skill_key": "act_algebra_linear",
+   "difficulty": "medium",
+   "stem": "Which of the following is equivalent to x² + 6x + 5 for all real values of x ?",
+   "choices": {
+    "A": "(x + 3)² + 5",
+    "B": "(x + 3)² − 4",
+    "C": "(x + 6)² − 31",
+    "D": "(x − 3)² − 4"
+   },
+   "answer": "B",
+   "explanation": "(x + 3)² = x² + 6x + 9, so x² + 6x + 5 = (x + 3)² − 9 + 5 = (x + 3)² − 4.",
+   "distractors": {
+    "A": {
+     "rationale": "(x + 3)² + 5 forgets to subtract the 9 added by squaring.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "(x + 6)² − 31 uses the whole coefficient 6 instead of half of it.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "(x − 3)² − 4 has the wrong sign inside the square.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Half of 6 is what, and what is its square?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 0: only B gives 5."
+   },
+   "remember": "x² + bx = (x + b/2)² − (b/2)².",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}

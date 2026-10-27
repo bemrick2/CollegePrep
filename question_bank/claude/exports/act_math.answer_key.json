@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 75,
+  "bank_version": 76,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -12623,6 +12623,176 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Plot the point and its mirror image."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000747",
+      "correct_answer": "A",
+      "explanation": "A circle tangent to the x-axis has radius equal to the distance from its center to that axis, |5| = 5. So r² = 25 and the equation is (x + 2)² + (y − 5)² = 25.",
+      "distractor_explanations": {
+        "B": "This flips the signs of the center's coordinates.",
+        "C": "This uses the distance to the y-axis, 2, as the radius.",
+        "D": "This uses the radius, 5, without squaring it."
+      },
+      "hints": [
+        "How far is the center from the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the center and the x-axis."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000748",
+      "correct_answer": "D",
+      "explanation": "The mean is 6. The distances from 6 are 4, 2, 0, 2 and 4, which sum to 12. Their mean is 12/5 = 2.4.",
+      "distractor_explanations": {
+        "A": "2 is the most common distance, not the mean of the distances.",
+        "B": "6 is the mean of the data, not of the distances.",
+        "C": "12 is the sum of the distances; it was not divided by 5."
+      },
+      "hints": [
+        "Find the mean first, then each value's distance from it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Follow the definition step by step."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000749",
+      "correct_answer": "B",
+      "explanation": "f(3) = f(2 + 1), so use x = 2: f(3) = 2(2) + 5 = 9.",
+      "distractor_explanations": {
+        "A": "11 substitutes x = 3 into 2x + 5, which gives f(4).",
+        "C": "7 substitutes x = 1, which gives f(2).",
+        "D": "13 substitutes x = 4."
+      },
+      "hints": [
+        "What value of x makes x + 1 equal to 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve x + 1 = 3 first."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000750",
+      "correct_answer": "C",
+      "explanation": "The 40 members split into 3 + 5 = 8 parts of 5 members each, so there are 15 boys and 25 girls. The difference is 10.",
+      "distractor_explanations": {
+        "A": "15 is the number of boys.",
+        "B": "25 is the number of girls.",
+        "D": "8 is the number of parts."
+      },
+      "hints": [
+        "How many members are in each part of the ratio?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide 40 by 3 + 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000751",
+      "correct_answer": "A",
+      "explanation": "The horizontal change is 6 and the vertical change is 8, so the distance is √(6² + 8²) = √100 = 10.",
+      "distractor_explanations": {
+        "B": "14 adds the changes, 6 + 8, instead of using the Pythagorean theorem.",
+        "C": "8 is only the vertical change.",
+        "D": "6 is only the horizontal change."
+      },
+      "hints": [
+        "Find the horizontal and vertical changes."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle between the points."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000752",
+      "correct_answer": "B",
+      "explanation": "The divisors of 28 are 1, 2, 4, 7, 14 and 28, and their sum is 56.",
+      "distractor_explanations": {
+        "A": "28 is the sum of the divisors other than 28 itself.",
+        "C": "6 is the number of divisors, not their sum.",
+        "D": "42 omits the divisor 14."
+      },
+      "hints": [
+        "List divisors in pairs that multiply to 28."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Pair 1·28, 2·14, 4·7."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000753",
+      "correct_answer": "C",
+      "explanation": "Each term 1/(n(n + 1)) equals 1/n − 1/(n + 1). The sum becomes (1 − 1/2) + (1/2 − 1/3) + … + (1/9 − 1/10), in which everything cancels except 1 − 1/10 = 9/10.",
+      "distractor_explanations": {
+        "A": "1/10 is the only term that remains besides 1, not the sum.",
+        "B": "1 assumes the sum reaches its limit, which an infinite sum would approach.",
+        "D": "10/11 uses the pattern n/(n + 1) with n = 10 instead of n = 9."
+      },
+      "hints": [
+        "Compute the first two or three partial sums and look for a pattern."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "1/2, then 2/3, then 3/4 ..."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000754",
+      "correct_answer": "D",
+      "explanation": "Cube both sides: 2x + 1 = 27, so 2x = 26 and x = 13.",
+      "distractor_explanations": {
+        "A": "4 squares 3 instead of cubing it (2x + 1 = 9).",
+        "B": "1 ignores the cube root (2x + 1 = 3).",
+        "C": "13.5 forgets to subtract 1 (2x = 27)."
+      },
+      "hints": [
+        "What undoes a cube root?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check: 2(13) + 1 = 27, and ∛27 = 3."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000755",
+      "correct_answer": "D",
+      "explanation": "The angle is 1 radian, since arc length = rθ gives θ = 1. One radian is 180°/π ≈ 57.3°, or 57° to the nearest degree.",
+      "distractor_explanations": {
+        "A": "1° confuses 1 radian with 1 degree.",
+        "B": "60° is the angle of an equilateral triangle, whose straight side (a chord) equals the radius, not the arc.",
+        "C": "90° has an arc length of (π/2)r, about 1.57r."
+      },
+      "hints": [
+        "Use arc length = radius × angle in radians."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find θ in radians, then convert."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000756",
+      "correct_answer": "B",
+      "explanation": "(x + 3)² = x² + 6x + 9, so x² + 6x + 5 = (x + 3)² − 9 + 5 = (x + 3)² − 4.",
+      "distractor_explanations": {
+        "A": "(x + 3)² + 5 forgets to subtract the 9 added by squaring.",
+        "C": "(x + 6)² − 31 uses the whole coefficient 6 instead of half of it.",
+        "D": "(x − 3)² − 4 has the wrong sign inside the square."
+      },
+      "hints": [
+        "Half of 6 is what, and what is its square?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: only B gives 5."
       }
     }
   ]
