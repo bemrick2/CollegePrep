@@ -1,6 +1,6 @@
 {
   "bank": "act_reading",
-  "bank_version": 34,
+  "bank_version": 35,
   "answers": [
     {
       "id": "CLD-ACT-R-000001",
@@ -4397,6 +4397,159 @@
       "strategy": {
         "key": "locate_evidence",
         "explanation": "Match Passage B's description to a group from Passage A's study."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000277",
+      "correct_answer": "D",
+      "explanation": "The passage surveys several explanations, reports evidence against camouflage, and presents correlational and experimental support for the fly hypothesis, while noting that other functions are not ruled out.",
+      "distractor_explanations": {
+        "A": "Paragraph 2 reports evidence against the camouflage idea.",
+        "B": "The passage mentions heat only as a possibility some researchers raise; it presents no evidence that heat matters more.",
+        "C": "Paragraph 2 weakens camouflage, and paragraph 5 says the fly hypothesis has support its rivals lack."
+      },
+      "hints": [
+        "Which explanation does the passage spend the most time supporting?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize where the passage ends up."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000278",
+      "correct_answer": "A",
+      "explanation": "The rest of the passage describes studies (the 2016 vision study, the 2014 analysis, the 2019 experiments) that can separate one explanation from another, which this sentence anticipates.",
+      "distractor_explanations": {
+        "B": "The sentence says the ideas had not been tested, not that they had been disproved.",
+        "C": "Nothing suggests interest declined; the paragraph says the ideas had champions.",
+        "D": "The passage tests ideas already listed, including the fly idea."
+      },
+      "hints": [
+        "What do the following paragraphs describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect the sentence to what comes next."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000279",
+      "correct_answer": "B",
+      "explanation": "The defenders' reply was that predators see differently from people; the study checked that reply by estimating what lions and hyenas could actually see.",
+      "distractor_explanations": {
+        "A": "The study's conclusion went against the camouflage idea.",
+        "C": "The study used predators' vision, not human vision.",
+        "D": "The study measured how far away stripes could be seen."
+      },
+      "hints": [
+        "What was 'that reply'?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the reply in the sentence before."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000280",
+      "correct_answer": "C",
+      "explanation": "Within fifty meters the lion could see stripes, but by then it would likely have found the zebra by sound or smell anyway; beyond that, the stripes blur. So stripes would hide a zebra neither near nor far.",
+      "distractor_explanations": {
+        "A": "The detail concerns one distance, not lions' senses in general.",
+        "B": "Dusk hunting is mentioned only to note that stripe distances shrink.",
+        "D": "The passage says nothing about which animal notices the other first."
+      },
+      "hints": [
+        "What would the lion already know at fifty meters?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the detail rules out."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000281",
+      "correct_answer": "A",
+      "explanation": "The 2014 analysis linked striping to fly-rich regions, a correlation. The 2019 study changed the pattern itself (striped versus plain coats) and observed fewer landings, showing that the pattern affects flies.",
+      "distractor_explanations": {
+        "B": "More species and regions would still show only where stripes and flies occur together.",
+        "C": "Predator vision was the subject of the 2016 study, which concerned camouflage.",
+        "D": "Counting flies by region adds to the correlation; it does not test what stripes do."
+      },
+      "hints": [
+        "What did the 2019 researchers change, and what happened?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what an experiment can show that a correlation cannot."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000282",
+      "correct_answer": "D",
+      "explanation": "Equal circling shows the flies found both animals; far fewer landings on zebras shows the stripes mattered only at the final approach.",
+      "distractor_explanations": {
+        "A": "Equal circling means the flies found zebras as readily as horses.",
+        "B": "Flies circled both about equally, not more around zebras.",
+        "C": "Flies landed on zebras far less often, so the stripes had an effect."
+      },
+      "hints": [
+        "What differed between zebras and horses, and what did not?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Compare circling with landing."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000283",
+      "correct_answer": "A",
+      "explanation": "If flies avoided the horses for some other reason (smell or behavior), the heads would also have been landed on less. Because heads were landed on equally, the difference on the body must come from the coat's pattern.",
+      "distractor_explanations": {
+        "B": "The passage compares heads across coats, not heads with bodies.",
+        "C": "The heads were uncovered and got no protection.",
+        "D": "Nothing is said about the horses' comfort."
+      },
+      "hints": [
+        "What would the heads show if the flies were avoiding the horses for another reason?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Think of the heads as a comparison group."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000284",
+      "correct_answer": "C",
+      "explanation": "To champion an idea is to argue for it; each explanation has had scientists who supported it.",
+      "distractor_explanations": {
+        "A": "This is a familiar meaning, but the ideas have people who argue for them, not victories.",
+        "B": "The ideas compete with one another, but their champions are those who favor them.",
+        "D": "The champions argue for an idea; nothing says they came up with it."
+      },
+      "hints": [
+        "Who would an idea's champions be?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a word for people who favor an idea."
+      }
+    },
+    {
+      "id": "CLD-ACT-R-000285",
+      "correct_answer": "D",
+      "explanation": "The fly hypothesis draws support from the 2014 link between striping and fly-rich regions. Finding the boldest stripes where flies are rare would contradict that evidence.",
+      "distractor_explanations": {
+        "A": "This bears on the camouflage idea, not on the fly hypothesis.",
+        "B": "The passage says a trait can serve more than one purpose, so this would not undercut the fly idea.",
+        "C": "The fly hypothesis rests on landings, which this finding does not address."
+      },
+      "hints": [
+        "Which evidence supports the fly hypothesis?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask which choices even concern the fly hypothesis."
       }
     }
   ]
