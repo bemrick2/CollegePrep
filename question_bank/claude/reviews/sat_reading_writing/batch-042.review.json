@@ -1,0 +1,299 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 42,
+  "reviewed_at": "2026-10-27T13:38:16+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 42
+  },
+  "counts": {
+    "PASS": 4,
+    "REVISE": 5,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000386",
+    "CLD-SAT-RW-000387",
+    "CLD-SAT-RW-000388",
+    "CLD-SAT-RW-000389"
+  ],
+  "results": [
+    {
+      "cand": "S042-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": null,
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Report affirms one claim but limits/withholds judgment on another = qualified. Inserted all: dismissive/effusive contradict the confirmation; 'carefully ambiguous' is the main distractor but the report is explicit about what it confirms and what it declines, so it is limited, not unclear.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "unknown trap near_synonym for D"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap near_synonym for D"
+    },
+    {
+      "cand": "S042-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": null,
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: key is the longest choice and the only one mentioning humans/medicine, matching 'medical researchers' cue"
+      ],
+      "blind_notes": "Medical interest + no clotting -> anti-clot mechanism relevant to humans. A reverses (more transparent asleep); B overgeneralizes; C unsupported (liver stores, not produces). Facts (~90% of red cells in liver, no clotting) consistent with Taboada et al. 2022.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: key is the longest choice and the only one that mentions the medical angle the sentence sets up"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "unknown trap reversed_relationship for A",
+        "unknown trap overgeneralization for B"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap reversed_relationship for A; unknown trap overgeneralization for B"
+    },
+    {
+      "cand": "S042-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": null,
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Argument: noise tolerance alone doesn't predict effects (species interactions matter). B shows a noise-tolerant species harmed via a predator. D is consistent with tolerance predicting outcomes; A and C irrelevant. Facts consistent with Francis et al. 2009.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: key is the longest choice"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "unknown trap supports_opposite for D"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap supports_opposite for D"
+    },
+    {
+      "cand": "S042-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": null,
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Text 2 challenges the 'refined' premise via irregular teeth and drift, yet concedes absence of other devices proves little. B wrongly grants refinement; D contradicts the concession; A contradicts their 'still solving basic problems' view.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "unknown trap reversed_relationship for D"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap reversed_relationship for D"
+    },
+    {
+      "cand": "S042-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: key is notably the longest choice"
+      ],
+      "blind_notes": "Totals: weekday 5,500 -> 6,600 (+1,100, +20%); weekend 3,350 -> 4,950 (+1,600, +47.8%). Central fell 50 on each day type (5,200->5,150; 3,100->3,050). A addresses both parts accurately. C gives absolute outlying gains only (no shift check, no proportion); B and D irrelevant.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: key is notably the longest choice and the only one that addresses both parts of the claim"
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000386"
+    },
+    {
+      "cand": "S042-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": null,
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Quote justifies keeping dialogue and cutting narrator asides, the unexpected choice. A reverses; C unsupported (no reader criticism); D wrong since text ends with the quote and develops nothing further.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "unknown trap reversed_relationship for A"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap reversed_relationship for A"
+    },
+    {
+      "cand": "S042-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Simple past for a completed 2015 event, parallel with context. 'have made' wrong with 'In 2015'; 'making' yields fragment; past perfect progressive illogical. ICARDA 2015 withdrawal, rebuilding in Lebanon and Morocco accurate.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000387"
+    },
+    {
+      "cand": "S042-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Two independent clauses; semicolon after closing quote, comma after introductory 'today'. A and B are comma splices; C is a comma splice/run-on with 'today' misattached. Facts (1507, ~1,000 copies, one survivor, first to use 'America') consistent with standard accounts.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-RW-000058",
+          "similarity": 0.6
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "S042-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Britain figures illustrate the general claim. Britain 200 km -> ~2,400 km, 50 km -> ~3,400 km matches standard coastline-paradox figures.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000388"
+    },
+    {
+      "cand": "S042-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: key is the longest choice and the only one invoking the expensive-dye contrast"
+      ],
+      "blind_notes": "Significance requires contrast with costly prior dyes; only C conveys why it mattered. Perkin 1856, age 18, quinine attempt accurate.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: key is the longest choice (normal for this item type)",
+        "minor: odd setup line 'While researching a student's notes, a historian recorded the following' clashes with the stem's 'The student wants...'; standard SAT wording is 'While researching a topic, a student has taken the following notes'"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000389"
+    }
+  ]
+}

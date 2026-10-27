@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 41,
-  "updated_at": "2026-10-27T13:13:27+00:00",
+  "version": 42,
+  "updated_at": "2026-10-27T13:38:17+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-SAT-RW-000001",
@@ -4238,6 +4238,50 @@
       "word_count": 36,
       "text": "Most of the coral colonies in the survey area had recovered within five years of the bleaching event. The colonies on the reef's outer ______ showed almost no recovery, possibly because warmer currents reached them first.",
       "batch": 41,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000401",
+      "title": "Shared bikes",
+      "genre": "urban studies",
+      "word_count": 83,
+      "text": "A city analyst compared daily trips on its shared-bike system before and after it added 40 docking stations in outlying neighborhoods.\nAverage weekday trips: central stations 5,200 before and 5,150 after; outlying stations 300 before and 1,450 after.\nAverage weekend trips: central stations 3,100 before and 3,050 after; outlying stations 250 before and 1,900 after.\nThe analyst concluded that the new stations increased total ridership rather than merely shifting riders away from central stations, and that the increase was proportionally larger on weekends.",
+      "batch": 42,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000403",
+      "title": "Seed banks",
+      "genre": "agriculture",
+      "word_count": 51,
+      "text": "The Svalbard Global Seed Vault stores duplicate samples of seeds held by gene banks around the world. In 2015, researchers at a gene bank in Syria, whose collection had been damaged by war, ______ the first withdrawal from the vault, using the duplicates to rebuild their collection in Lebanon and Morocco.",
+      "batch": 42,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000405",
+      "title": "Measuring a coastline",
+      "genre": "mathematics",
+      "word_count": 59,
+      "text": "In the mid-twentieth century, the scientist Lewis Fry Richardson noticed that the measured length of a coastline grows as the measuring stick gets shorter, because a shorter stick follows smaller inlets and bends. ______ the coastline of Britain measured with a 200-kilometer stick is about 2,400 kilometers long, but measured with a 50-kilometer stick it is about 3,400 kilometers.",
+      "batch": 42,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000406",
+      "title": "Notes on a dye",
+      "genre": "history of science",
+      "word_count": 81,
+      "text": "While researching a topic, a student has taken the following notes:\n- In 1856, 18-year-old William Perkin tried to make quinine, a malaria drug, from coal tar.\n- The attempt failed, but it produced a purple substance.\n- Perkin found the substance could dye silk and did not fade in sunlight or washing.\n- He named it mauveine and opened a factory to produce it.\n- Before mauveine, purple dyes came from sources such as sea snails and were very expensive.",
+      "batch": 42,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -31605,6 +31649,294 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_reading_writing/batch-041.review.json",
         "computation": "checks/sat_reading_writing/batch_041.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000386",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Command of evidence: quantitative (two-part claim)",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000401",
+      "underline": null,
+      "evidence": "increased total ridership rather than merely shifting riders away from central stations",
+      "figure": null,
+      "stem": "Which choice best describes data that support both parts of the analyst's conclusion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Central trips fell by only 50 on each day type while outlying trips rose by far more, and total weekend trips grew by about 48 percent compared with about 20 percent on weekdays.",
+        "B": "Outlying weekend trips (1,900) exceeded outlying weekday trips (1,450) after the stations were added.",
+        "C": "Weekday trips at outlying stations rose by 1,150, while weekend trips at outlying stations rose by 1,650.",
+        "D": "Central stations still had more weekday trips than outlying stations after the new stations were added."
+      },
+      "correct_answer": "A",
+      "explanation": "Totals went from 5,500 to 6,600 on weekdays (+20%) and from 3,350 to 4,950 on weekends (+47.8%). Central trips barely changed, so riders were not just shifted. Only choice A addresses both parts.",
+      "distractor_explanations": {
+        "B": "This compares two \"after\" values but shows neither a gain in total ridership nor a proportional comparison of increases.",
+        "C": "This supports a larger weekend increase in raw numbers but ignores the central-station data needed to rule out a mere shift of riders.",
+        "D": "This is true but supports neither part of the conclusion."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "How many parts does the conclusion have? Check each choice against both."
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compute total trips before and after for each day type."
+      },
+      "remember": "A two-part claim needs data for both parts.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "S042-05",
+      "created_at": "2026-10-27T13:38:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: key is notably the longest choice"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-042.review.json",
+        "computation": "checks/sat_reading_writing/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000387",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Verb tense and form",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000403",
+      "underline": null,
+      "evidence": "In 2015, researchers",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "have made",
+        "B": "making",
+        "C": "made",
+        "D": "had been making"
+      },
+      "correct_answer": "C",
+      "explanation": "The sentence describes a completed action at a specific past time, so the simple past \"made\" is correct.",
+      "distractor_explanations": {
+        "A": "The present perfect does not fit an action tied to a specific past year, 2015.",
+        "B": "A participle cannot serve as the main verb of the sentence's subject \"researchers.\"",
+        "D": "The past perfect progressive implies an ongoing action before another past event; the withdrawal was a single completed event."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find the time marker in the sentence."
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the verb tense to \"In 2015.\""
+      },
+      "remember": "A specific past time calls for the simple past.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "S042-07",
+      "created_at": "2026-10-27T13:38:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-042.review.json",
+        "computation": "checks/sat_reading_writing/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000388",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Transitions (illustration)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000405",
+      "underline": null,
+      "evidence": "measured with a 200-kilometer stick",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical transition?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "For example,",
+        "B": "However,",
+        "C": "Consequently,",
+        "D": "Nevertheless,"
+      },
+      "correct_answer": "A",
+      "explanation": "The second sentence gives a specific case of the pattern Richardson noticed, so \"For example\" fits.",
+      "distractor_explanations": {
+        "B": "The data agree with Richardson's observation rather than contrasting with it.",
+        "C": "The figures illustrate the observation; they are not a result of Richardson's noticing it.",
+        "D": "Nothing in the first sentence would make the figures surprising."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the second sentence contrast with, result from, or illustrate the first?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label the relationship before reading the choices."
+      },
+      "remember": "A specific instance of a general claim calls for an illustration transition.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "S042-09",
+      "created_at": "2026-10-27T13:38:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-042.review.json",
+        "computation": "checks/sat_reading_writing/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000389",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Rhetorical synthesis (explaining a significance)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000406",
+      "underline": null,
+      "evidence": "Before mauveine, purple dyes came from sources such as sea snails and were very expensive.",
+      "figure": null,
+      "stem": "The student wants to explain why mauveine's discovery mattered. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "In 1856, William Perkin, who was 18 years old, tried to make the malaria drug quinine from coal tar.",
+        "B": "Perkin named his purple substance mauveine and opened a factory to produce it.",
+        "C": "Perkin's failed attempt to make quinine yielded mauveine, a lasting purple dye from coal tar that offered an alternative to expensive dyes from sources such as sea snails.",
+        "D": "Mauveine could dye silk, and it did not fade in sunlight or washing."
+      },
+      "correct_answer": "C",
+      "explanation": "Significance comes from the contrast with expensive older dyes; choice C joins the discovery, the dye's durability and that contrast.",
+      "distractor_explanations": {
+        "A": "This gives background on the attempt but never says why the discovery mattered.",
+        "B": "This reports what Perkin did next but does not explain the dye's significance.",
+        "D": "This describes the dye's qualities but not why the discovery mattered compared with earlier dyes."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which note explains why the discovery was important?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Identify the goal, then look for the choice that includes the note giving significance."
+      },
+      "remember": "Synthesis choices must address the stated goal, not just repeat notes.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "S042-10",
+      "created_at": "2026-10-27T13:38:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: key is the longest choice and the only one invoking the expensive-dye contrast"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-042.review.json",
+        "computation": "checks/sat_reading_writing/batch_042.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

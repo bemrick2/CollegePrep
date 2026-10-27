@@ -1,13 +1,13 @@
 {
  "meta": {
-  "generated_at": "2026-10-27T13:35:27+00:00",
+  "generated_at": "2026-10-27T13:39:01+00:00",
   "baseline_zip_sha256": "5e97823b612c576551e2bba67cca6545e305f1119190d761b864719fc2f9f099",
   "baseline_records": 3345,
-  "claude_current_records": 2512,
+  "claude_current_records": 2516,
   "notes": {
-   "resolved_by_fresh_review": 846,
+   "resolved_by_fresh_review": 966,
    "claude_retired_after_baseline": 63,
-   "claude_new_since_baseline": 994
+   "claude_new_since_baseline": 998
   },
   "definitions": "(exactly one per record):\n  reviewed_draft   current content version has independent AI review evidence (blind solve without key) and no open hold\n  pending_review   retained, but the current version lacks independent review (self-review only, new, or changed)\n  hold             open hold carried from the baseline or raised since (revision, adjudication, blueprint)\n  reserved_duplicate  excluded/reserved as a duplicate or template variant (baseline) or retired by a concept-repeat audit\n  retired          withdrawn by this workstream after acceptance (superseded by a repair, or retired by audit)\nNo record is human-approved; difficulty is provisional throughout."
  },
@@ -65635,8 +65635,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "0b34c635529d20fc",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "0b34c635529d20fc",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4 'the trend would be an interpretation of those observations'; P9 preserve 'circumstances that would let those numbers continue to mean something'. C contradicted by P6.",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "0b34c635529d20fc",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P9: 'preserve the circumstances that would let those numbers continue to mean something'; P4 'the trend would be an interpretation'.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-022",
@@ -65652,8 +65682,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "009dc66b8f6a59bf",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "009dc66b8f6a59bf",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P3 'two white disks, one considerably larger... smaller disk gave a purchase date halfway through the series.' A contradicted ('Nothing in the notebooks explicitly announced').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "009dc66b8f6a59bf",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P3: 'two white disks, one considerably larger... purchase date halfway through the series'. A contradicted ('Nothing in the notebooks explicitly announced').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-023",
@@ -65669,8 +65725,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "278e6ac1b5e75290",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "278e6ac1b5e75290",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3 'could not assume that the new disk had immediately replaced the old one... rather than choosing a convenient date for the switch.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "278e6ac1b5e75290",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: 'could not assume that the new disk had immediately replaced the old one... rather than choosing a convenient date'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-024",
@@ -65686,8 +65768,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f7066693e761f8fe",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f7066693e761f8fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4 'easy to draw a line through all the points... downward bend... Murkier water' = plotted decrease in depth.",
+     "flags": [
+      "minor: A/B literal-object distractors eliminable on context alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "f7066693e761f8fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4: line drawn 'through all the points' of depth column; downward bend = 'Murkier water' = lower disappearance depth (P2).",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-025",
@@ -65703,8 +65813,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "bcea945dd5cd43c2",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "bcea945dd5cd43c2",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5 'The difference was small, yet it changed where a person could lower the disk'; same pier.",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "bcea945dd5cd43c2",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5: railing 'changed where a person could lower the disk'; B contradicted ('did not try to reconstruct a precise position').",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-026",
@@ -65720,8 +65860,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "978b970904935d57",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "978b970904935d57",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P6 'alternated which disk went first so that one disk would not always be tested earlier.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "978b970904935d57",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P6: 'alternated which disk went first so that one disk would not always be tested earlier'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-027",
@@ -65737,8 +65903,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "366fd57acd50bf93",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "366fd57acd50bf93",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6 'The resulting differences were not constant... ruled out the simple correction.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "366fd57acd50bf93",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6: 'differences were not constant... ruled out the simple correction'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-028",
@@ -65754,8 +65946,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "a17e09171201e513",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "a17e09171201e513",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7 'did not make the historical records worthless... several routes into the records.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "a17e09171201e513",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'did not make the historical records worthless... several routes into the records'.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-029",
@@ -65771,8 +65991,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "188777f6ed7c1b9c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "188777f6ed7c1b9c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P8 researcher 'asked for the equipment notes before requesting the graph' - inference that methods matter for interpreting plots.",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "188777f6ed7c1b9c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P8: 'another researcher asked for the equipment notes before requesting the graph' after discussion of methods affecting trend.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-C-030",
@@ -65788,8 +66038,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "dba7dc07badc96f3",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "dba7dc07badc96f3",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P9 'record equipment, time, weather, and position'; P2 observers recorded different conditions.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "dba7dc07badc96f3",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P9: 'record equipment, time, weather, and position'; P2 inconsistent recording of sky/hour/waves.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-001",
@@ -65805,8 +66081,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "50fee1c7c89e840a",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "50fee1c7c89e840a",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P3 'searched for the most convincing gate sound'; P8 'no longer thought of the box as a collection of substitute objects... possibilities that the scene could accept or refuse.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "50fee1c7c89e840a",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P8: 'no longer thought of the box as a collection of substitute objects... possibilities that the scene could accept or refuse'; P3 searching 'most convincing gate sound'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-002",
@@ -65822,8 +66124,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4e6df22a5a27cf86",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4e6df22a5a27cf86",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P1 'set in a stone courtyard, and our actual stage was covered with carpet. My task was to lend the traveler a floor she did not have.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "4e6df22a5a27cf86",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P1: 'set in a stone courtyard, and our actual stage was covered with carpet... lend the traveler a floor she did not have'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-003",
@@ -65839,8 +66167,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c1c4040bae6304b1",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c1c4040bae6304b1",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P2 'needed a storm that sounded distant. Making the loudest noise was the easy part.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "c1c4040bae6304b1",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P2: 'The next scene... needed a storm that sounded distant. Making the loudest noise was the easy part.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-004",
@@ -65856,8 +66210,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "019a68c0d91c6a8e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "019a68c0d91c6a8e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P3 'Neither recording was useful in its original form.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "019a68c0d91c6a8e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P3: 'Neither recording was useful in its original form.' A wrong: cage was loud.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-005",
@@ -65873,8 +66253,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "3e89767fa24fd549",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "3e89767fa24fd549",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4 sound 'followed the actor's glance... made the unseen entrance seem heavy and final.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "3e89767fa24fd549",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4: sound following 'the actor's glance toward the wings... made the unseen entrance seem heavy and final'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-006",
@@ -65890,8 +66296,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f020d82cf6406501",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f020d82cf6406501",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P5 'asked the actors to continue while I gradually reduced the pressure of the brush.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "f020d82cf6406501",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P5: 'asked the actors to continue while I gradually reduced the pressure... The rain had been doing its work'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-007",
@@ -65907,8 +66339,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "cbcec99943f7224a",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "cbcec99943f7224a",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6 'A useful effect... still had to arrive when the scene could use it. Learning to listen did not excuse me from learning to count.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "cbcec99943f7224a",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6: 'A useful effect... still had to arrive when the scene could use it. Learning to listen did not excuse me from learning to count.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-008",
@@ -65924,8 +66386,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7337a04d346e97ce",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "7337a04d346e97ce",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7 'cue sheet... said nothing about a pause. Then I watched her shoulders settle and waited.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "7337a04d346e97ce",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'cue sheet... said nothing about a pause. Then I watched her shoulders settle and waited.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-009",
@@ -65941,8 +66429,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "88c4e4d8d49ca772",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "88c4e4d8d49ca772",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5 'When I stopped altogether... the room suddenly felt exposed. The rain had been doing its work.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "88c4e4d8d49ca772",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5: 'When I stopped altogether, though, the room suddenly felt exposed. The rain had been doing its work'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-D-010",
@@ -65958,8 +66472,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "54379627870ba80e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "54379627870ba80e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P8 'I kept my hands still. This time, there was nothing missing for me to supply.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "54379627870ba80e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P8: 'I kept my hands still. This time, there was nothing missing for me to supply.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-001",
@@ -65975,8 +66515,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "e4ae60d0663a7bbc",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "e4ae60d0663a7bbc",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P4 'hide the poem's uncertainty'; P7 retained 'guest' with note; P8 'questions I could not responsibly make disappear.'",
+     "flags": [
+      "minor: overlaps with F-010 (same theme of keeping uncertainty visible); mild mutual reinforcement"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "e4ae60d0663a7bbc",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P8: 'record the questions I could not responsibly make disappear'; P7 retained 'guest' plus note.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-002",
@@ -65992,8 +66560,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f8ad168a525af3af",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f8ad168a525af3af",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "P2 'The person was plainly at the table'; 'the guest seemed to be receiving hospitality rather than participating in the household' - social, not physical, distance. A is the tempting literal reading but P2 dismisses it.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "f8ad168a525af3af",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P2: 'the guest seemed to be receiving hospitality rather than participating in the household'. A is narrator's initial misreading.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-003",
@@ -66009,8 +66603,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "87591d785115f89a",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "87591d785115f89a",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2 'relative... supplied a family relationship the poem never established.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "87591d785115f89a",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: 'supplied a family relationship the poem never established'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-004",
@@ -66026,8 +66646,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d84427d70ea16b9e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "d84427d70ea16b9e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2 'Each solution made a decision that the original had left suspended.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "d84427d70ea16b9e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'Each solution made a decision that the original had left suspended.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-005",
@@ -66043,8 +66689,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "fb9170ad5dfc9e13",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "fb9170ad5dfc9e13",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3 'it took nine words. The original line had only six... should not seem to arrive with an explanatory procession.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "fb9170ad5dfc9e13",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: 'took nine words... should not seem to arrive with an explanatory procession'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-006",
@@ -66060,8 +66732,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9ad5e5f18d54229b",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9ad5e5f18d54229b",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4 'At first I resisted... leave no trace of the decisions... A note felt like displaying the pencil marks.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "9ad5e5f18d54229b",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4: 'wanted the English poem to stand without assistance... leave no trace of the decisions'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-007",
@@ -66077,8 +66775,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "64da331f3b611da2",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "64da331f3b611da2",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5 'That click made the peeling seem brisk and efficient, whereas the following lines lingered over afternoon light.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "64da331f3b611da2",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5: 'click made the peeling seem brisk and efficient, whereas the following lines lingered'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-008",
@@ -66094,8 +66818,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "67c7b2d48d1db0cc",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "67c7b2d48d1db0cc",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6 'Their responses did not identify a winner, but they showed me effects I had stopped hearing.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "67c7b2d48d1db0cc",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6: 'Their responses did not identify a winner, but they showed me effects'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-009",
@@ -66111,8 +66861,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "785256aa72a92e97",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "785256aa72a92e97",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7 'The note identified a specific limit rather than apologizing'; 'did not list every alternative.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "785256aa72a92e97",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7: 'The note identified a specific limit'; A contradicted ('did not list every alternative').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-F-010",
@@ -66128,8 +66906,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "e1c66dffa6bb8d49",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "e1c66dffa6bb8d49",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8 'a blank sheet on which to record the questions I could not responsibly make disappear.' A contradicted ('I still reached for my dictionary').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "e1c66dffa6bb8d49",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8: 'blank sheet on which to record the questions I could not responsibly make disappear'; A contradicted ('still reached for my dictionary').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-001",
@@ -66145,8 +66949,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "8a79922e0ddf8736",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "8a79922e0ddf8736",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P1 'responding to something associated with size'; P2 separate two questions; P3 controlled artificial flowers; P8 'help distinguish these processes.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "8a79922e0ddf8736",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P1/P8: initial size-visit pattern; artificial trials 'help distinguish these processes'.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/extreme wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-002",
@@ -66162,8 +66996,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "fc4d52a399af9e89",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "fc4d52a399af9e89",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2 'A flower could draw attention successfully without encouraging a second visit. Conversely...'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "fc4d52a399af9e89",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'A flower could draw attention successfully without encouraging a second visit. Conversely...'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-003",
@@ -66179,8 +67039,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "1bd31d72650ba096",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "1bd31d72650ba096",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "medium",
+     "notes": "P3 'Positions are assigned randomly and rearranged between observation periods.' B refers to 'real flower' - wrong.",
+     "flags": [
+      "minor: purpose of randomization is not stated explicitly; answer requires standard inference, though other options are clearly wrong"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "1bd31d72650ba096",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P3: 'Positions are assigned randomly and rearranged between observation periods.'",
+     "flags": [
+      "minor: passage states randomization but not its purpose; answer relies on general experimental-design inference (still the only reasonable option)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-004",
@@ -66196,8 +67086,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "36edd81b22b1c0db",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "36edd81b22b1c0db",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4 'insects approach large artificial flowers more often than small ones, whether the wells contain solution or not.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "36edd81b22b1c0db",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4: 'approach large artificial flowers more often than small ones, whether the wells contain solution or not'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-005",
@@ -66213,8 +67131,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "af2ac6fb19ea3a01",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "af2ac6fb19ea3a01",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P5 'if large flowers received more returns, either size or reward could account for the result.' C contradicted (would resemble courtyard).",
+     "flags": [
+      "minor: G-005 answer and P5 explanation partially cue G-006 (crossed arrangement)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "af2ac6fb19ea3a01",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P5: 'if large flowers received more returns, either size or reward could account for the result'. C contradicted (it would resemble courtyard).",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-006",
@@ -66230,8 +67176,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "80ee1bf3830c9059",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "80ee1bf3830c9059",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5 'Keeping rewarding and unrewarding flowers within each size category... keeps the crossed arrangement'; P3 'Within each size, half contain solution and half contain none.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "80ee1bf3830c9059",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'Keeping rewarding and unrewarding flowers within each size category'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-007",
@@ -66247,8 +67219,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "60d5777ba577f8fa",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "60d5777ba577f8fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6 'An unmarked insect's apparent first approach could actually be a return that the researchers cannot identify.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "60d5777ba577f8fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6: 'An unmarked insect's apparent first approach could actually be a return that the researchers cannot identify.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-008",
@@ -66264,8 +67262,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "1f5b42c40e83795c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "1f5b42c40e83795c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7 'At first, marked insects continue returning to several of the old rewarding flowers.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute wording (always/every/only/all)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "1f5b42c40e83795c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7: 'At first, marked insects continue returning to several of the old rewarding flowers.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-009",
@@ -66281,8 +67307,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "cea1a43dc4bb8529",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "cea1a43dc4bb8529",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P7 'their observations concern behavior, not an inspection of the insects' nervous systems.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "cea1a43dc4bb8529",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P7: 'their observations concern behavior, not an inspection of the insects' nervous systems'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-010",
@@ -66298,8 +67350,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "e20a4d7e95e15d44",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-06.A.results.json; combined/reviews/chatgpt-act_reading-06.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "e20a4d7e95e15d44",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8 plan 'separates first approaches from returns'; P2 distinguishes attraction before landing vs return after reward.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.A.results.json"
+    },
+    {
+     "content_hash": "e20a4d7e95e15d44",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'separates first approaches from returns'; P2 distinction between attraction and return.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-06.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-031",
@@ -66315,8 +67393,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f63c988343d5a947",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f63c988343d5a947",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "A4: 'a clear count can protect a discussion from becoming the property of its most persuasive participants... made one part of the argument available for everyone to examine.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "f63c988343d5a947",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "A4: 'a clear count can protect a discussion from becoming the property of its most persuasive participants... made one part of the argument available for everyone to examine.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-032",
@@ -66332,8 +67440,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "b848625ea2529fd4",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "b848625ea2529fd4",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "A1: 'the committee published the counting method before collecting responses.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "b848625ea2529fd4",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "A1: 'the committee published the counting method before collecting responses.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-033",
@@ -66349,8 +67485,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "dca8e81bcfab3aed",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "dca8e81bcfab3aed",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "A2: 'we could no longer dismiss it because no regular meeting participant had advocated for it... gave a quiet preference a visible place.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "dca8e81bcfab3aed",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "A2: 'we could no longer dismiss it because no regular meeting participant had advocated for it. The numbers gave a quiet preference a visible place.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-034",
@@ -66366,8 +67532,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "2a3d81040e3b1382",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "2a3d81040e3b1382",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "A3: 'misleading to describe the winning activity as the town's unanimous choice... Publishing the response total kept a boundary around our claim.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "2a3d81040e3b1382",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "A3: 'misleading to describe the winning activity as the town's unanimous choice... Publishing the response total kept a boundary around our claim.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-035",
@@ -66383,8 +67577,40 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "ba6fdaec42bdb1fa",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "ba6fdaec42bdb1fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "B1: 'People may revise them when they learn what a choice entails or hear another person's reasons.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)",
+      "minor: overlaps with G-038 (B's emphasis on preference revision)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "ba6fdaec42bdb1fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "B1: 'People may revise them when they learn what a choice entails or hear another person's reasons.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone",
+      "minor: overlaps with G-038 (D) on B's emphasis on preference revision"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-036",
@@ -66400,8 +67626,37 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d9e99218c87db508",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "d9e99218c87db508",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "B2: 'Renting it would leave little funding for afternoon activities. Several people who had selected the film said they had assumed equipment would be available without charge.' Stem 'reconsider' slightly inferential but fine.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "d9e99218c87db508",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "B2: 'Renting it would leave little funding for afternoon activities. Several people who had selected the film said they had assumed equipment would be available without charge.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone",
+      "minor: passage says supporters 'had assumed equipment would be available without charge' and rental 'would leave little funding for afternoon activities' but never explicitly says they reconsidered; 'reconsider' is an inference"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-037",
@@ -66417,8 +67672,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "382d98f9dac8dd75",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "382d98f9dac8dd75",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "B3: 'The respondents would be making choices with information they previously lacked.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "382d98f9dac8dd75",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "B3: 'the difference would not by itself establish that the first survey was defective. The respondents would be making choices with information they previously lacked.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-038",
@@ -66434,8 +67717,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d2a991f651cea662",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "d2a991f651cea662",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "B1 revision of preferences vs A2/A4 visible record; A/B/C clearly contradicted.",
+     "flags": [
+      "minor: partially given away by G-035"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "d2a991f651cea662",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "B1 on revision of preferences vs A2/A4 on making preferences visible; other options grossly wrong.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-039",
@@ -66451,8 +67764,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "45eadf37eeb72441",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "45eadf37eeb72441",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "B3: 'Its speakers could dominate, just as the first author warns'; A1 'confident speaker could make a favored activity sound inevitable.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "45eadf37eeb72441",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "A1: 'A confident speaker could make a favored activity sound inevitable'; B3: 'Its speakers could dominate, just as the first author warns.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-G-040",
@@ -66468,8 +67811,37 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "6be0fcf9bfc89cdf",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "6be0fcf9bfc89cdf",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "B4 info sheet, questions, then survey, publish response total; A3 publish response total.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "6be0fcf9bfc89cdf",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "B4: 'information sheet... opportunities to ask questions and then a survey... publish the materials and the response total'; A3 response total boundary.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone",
+      "minor: C partly cued by G-034 (response total) and G-035 (information changes preferences)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-011",
@@ -66485,8 +67857,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d27cc8882eb0b775",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "d27cc8882eb0b775",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P2 'imagining that I understood it'; P7 'answer with room inside it... I had imagined... five uninterrupted years of silence.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "d27cc8882eb0b775",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "P2 'imagining that I understood it'; P7 'I had imagined... five uninterrupted years of silence' revised; 'an answer with room inside it.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-012",
@@ -66502,8 +67902,39 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "8cf1953d16070e5b",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "8cf1953d16070e5b",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "P1 'looked too small for the week she had promised to stay.' A/B/D unsupported.",
+     "flags": [
+      "minor: inference is somewhat open (could merely be light packing), but C is the only option with textual basis: 'too small for the week she had promised to stay'"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "8cf1953d16070e5b",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "P1: 'carrying a suitcase that looked too small for the week she had promised to stay.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone",
+      "minor: inference is modest; text only says suitcase 'looked too small for the week she had promised to stay'; C is only plausible option"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-013",
@@ -66519,8 +67950,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7b56d2d60411366e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "7b56d2d60411366e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: 'You have your father's way of standing,' she said. I stepped away from the post.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "7b56d2d60411366e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: '\"You have your father's way of standing,\" she said. I stepped away from the post.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-014",
@@ -66536,8 +67995,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "ddce77e5ac7fd6a3",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "ddce77e5ac7fd6a3",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P3: 'I had expected her to announce that everything had changed, and I was ready to defend the changes. Her small acknowledgment...'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "ddce77e5ac7fd6a3",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P3: 'I had expected her to announce that everything had changed, and I was ready to defend the changes. Her small acknowledgment left me carrying an argument...'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-015",
@@ -66553,8 +68040,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "053d15341e711b54",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "053d15341e711b54",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4: 'He saw Vera through the glass but finished measuring before coming to the door.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "053d15341e711b54",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4: 'He saw Vera through the glass but finished measuring before coming to the door.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-016",
@@ -66570,8 +68085,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c2e95d99de724f68",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c2e95d99de724f68",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P4: 'I wondered whether their politeness was more difficult than anger... Anger, at least, would have provided a recognizable scene.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "c2e95d99de724f68",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P4: 'I wondered whether their politeness was more difficult than anger would have been. Anger, at least, would have provided a recognizable scene.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-017",
@@ -66587,8 +68132,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "b5c2524178230036",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "b5c2524178230036",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P5: 'I had been filling every pause as though an empty space belonged to the person quickest to claim it.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "b5c2524178230036",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P5: 'I had been filling every pause as though an empty space belonged to the person quickest to claim it.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-018",
@@ -66604,8 +68177,37 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9c6eca1c10bff808",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9c6eca1c10bff808",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'Vera had called twice during the past month... I had imagined the bus arriving at the end of five uninterrupted years of silence.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "9c6eca1c10bff808",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'Vera had called twice during the past month... I had imagined the bus arriving at the end of five uninterrupted years of silence.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone",
+      "minor: stem's phrase 'five uninterrupted years of silence' points directly to the calls sentence"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-019",
@@ -66621,8 +68223,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "dd686b56917a0594",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "dd686b56917a0594",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'I minded several things' -- 'an answer with room inside it, and I nearly pressed him to make it smaller.' D wrong: he does say he minded.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "dd686b56917a0594",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "medium",
+     "notes": "P7: '\"I minded several things\"... It was an answer with room inside it, and I nearly pressed him to make it smaller.' D tempting but he does say he minded things.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-020",
@@ -66638,8 +68268,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9f2c1f17c1272c6c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9f2c1f17c1272c6c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'she held it while I went in' after shared walk; contrasts P3 prepared defense. B contradicted (door replaced).",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "9f2c1f17c1272c6c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'When we reached the green bakery door, she held it while I went in'; contrasts P3 prepared defense.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-041",
@@ -66655,8 +68313,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "6021cef97b421ff9",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "6021cef97b421ff9",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P8: 'shifted from presenting the song as an object with one definitive form to showing people sustaining it through particular occasions.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "6021cef97b421ff9",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P8: 'showing people sustaining it through particular occasions'; P3 'The sequence was related to the situation in which the song was performed.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-042",
@@ -66672,8 +68358,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "be191cffc2481421",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "be191cffc2481421",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'it was simply the earliest occasion on which someone had recorded a performance.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "be191cffc2481421",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'The oldest surviving recording was not necessarily the oldest form of the song; it was simply the earliest occasion on which someone had recorded a performance.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-043",
@@ -66689,8 +68403,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c20a657c49afc9e2",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c20a657c49afc9e2",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: 'The sequence was related to the situation in which the song was performed.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "c20a657c49afc9e2",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: children joining in vs. pause before final refrain; 'The sequence was related to the situation in which the song was performed.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-044",
@@ -66706,8 +68450,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4c21a1aed8d9395c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4c21a1aed8d9395c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4: 'These accounts were worth preserving, but Mira did not turn them into established facts.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "4c21a1aed8d9395c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4: 'These accounts were worth preserving, but Mira did not turn them into established facts.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-045",
@@ -66723,8 +68495,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7e70a0b0eeb08a71",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "7e70a0b0eeb08a71",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'it would create a performance that no group had actually given.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "7e70a0b0eeb08a71",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'it would create a performance that no group had actually given.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-046",
@@ -66740,8 +68540,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "869e0605cc1434c0",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "869e0605cc1434c0",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6: 'Each was labeled with its village, date, and performance setting.'",
+     "flags": [
+      "minor: answer partly echoed in H-050 option C"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "869e0605cc1434c0",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P6: 'Each was labeled with its village, date, and performance setting.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-047",
@@ -66757,8 +68587,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "579ffb1d914e144c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "579ffb1d914e144c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6: 'Filling every gap with narration... would have blurred the boundary between a singer's voice and the exhibition's explanation.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "579ffb1d914e144c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6: 'Filling every gap with narration... would have blurred the boundary between a singer's voice and the exhibition's explanation.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-048",
@@ -66774,8 +68632,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "6a95db3ccf29f67c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "6a95db3ccf29f67c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'The label made a flexible practice sound like a fixed local rule.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "6a95db3ccf29f67c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'The label made a flexible practice sound like a fixed local rule.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-049",
@@ -66791,8 +68677,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "63eafe369d674be1",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "63eafe369d674be1",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'did not make the recording less representative of an island tradition' = illustrative of broader tradition.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "63eafe369d674be1",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'did not make the recording less representative of an island tradition' = illustrative of broader tradition.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-H-050",
@@ -66808,8 +68722,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "5174989279c48534",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "5174989279c48534",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8 'suggested listening to the performance settings' consistent with P6 labeling by setting 'without implying a ranking.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "5174989279c48534",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8 'Mira resisted answering with a winning track... listening to the performance settings'; P6 labels by village/date/setting 'without implying a ranking.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-021",
@@ -66825,8 +68767,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9a417fcd29ad65fe",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9a417fcd29ad65fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P1 'not to reproduce every condition'; P7 'more informative without pretending to be a complete engineering model.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "9a417fcd29ad65fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P1 'not to reproduce every condition'; P3 separate entries; P7 'more informative without pretending to be a complete engineering model.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-022",
@@ -66842,8 +68814,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "deba35a492b4d851",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "deba35a492b4d851",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'calls the second result a failure because it does not resemble the drawing in the instructions.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "deba35a492b4d851",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P2: 'calls the second result a failure because it does not resemble the drawing in the instructions.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-023",
@@ -66859,8 +68859,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "1a9d821032c36655",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "1a9d821032c36655",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P3: 'would conceal two events that need not occur at the same screw position.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "1a9d821032c36655",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P3: 'would conceal two events that need not occur at the same screw position.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-024",
@@ -66876,8 +68906,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "3ed6ff2f69fa6bf5",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "3ed6ff2f69fa6bf5",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'Because the change affects both the strip and the background scale, the team does not treat the apparent jump as evidence...'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "3ed6ff2f69fa6bf5",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'Because the change affects both the strip and the background scale, the team does not treat the apparent jump as evidence...'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-025",
@@ -66893,8 +68951,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "96559079c776d207",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "96559079c776d207",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4: 'it provides a consistent observational rule for comparing these trials.' B explicitly contradicted.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "96559079c776d207",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4: 'it provides a consistent observational rule for comparing these trials.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-026",
@@ -66910,8 +68996,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4f6764e5e9c5a0e3",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4f6764e5e9c5a0e3",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'Imani agrees that visibility matters, but asks him to put the downward-bending strip beside it... without assuming that one apparatus is broken.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "4f6764e5e9c5a0e3",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'Imani agrees that visibility matters, but asks him to put the downward-bending strip beside it... without assuming that one apparatus is broken.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-027",
@@ -66927,8 +69041,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "58d261b3a530f822",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "58d261b3a530f822",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P6: 'Another arrangement could introduce effects they have not isolated' -- separated/distinguished from other influences.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "58d261b3a530f822",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P6: 'Another arrangement could introduce effects they have not isolated' = not separated/distinguished from other influences.",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-028",
@@ -66944,8 +69086,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "1abf444111566421",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "1abf444111566421",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'They repeat the series with the camera secured.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "1abf444111566421",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P5: 'They repeat the series with the camera secured.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-029",
@@ -66961,8 +69131,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "5fea3dc4c27341f1",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "5fea3dc4c27341f1",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6: 'under these particular conditions, the thicker strips reach the visible-displacement threshold after more screw travel.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "5fea3dc4c27341f1",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6: 'under these particular conditions, the thicker strips reach the visible-displacement threshold after more screw travel than the thinner strips.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-I-030",
@@ -66978,8 +69178,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "e060da35b2cf958d",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-07.A.results.json; combined/reviews/chatgpt-act_reading-07.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "e060da35b2cf958d",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'adds an alternative curve... no longer dictates which result is allowed to count... revise the model.'",
+     "flags": [
+      "minor: several wrong options eliminable on absolute wording alone (all/every/always/never/guarantee)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.A.results.json"
+    },
+    {
+     "content_hash": "e060da35b2cf958d",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'adds an alternative curve... it no longer dictates which result is allowed to count.'",
+     "flags": [
+      "minor: several distractors eliminable on absolute/implausible wording alone"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-07.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-021",
@@ -66995,8 +69225,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9a7b5ca6d00ea13e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9a7b5ca6d00ea13e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Ending: empty space 'no longer seemed to describe everything that could happen at the desk'; checklist/booking book vs woman's needs.",
+     "flags": [
+      "minor: A/B/D eliminable by extreme wording (all, every)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "9a7b5ca6d00ea13e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 8: 'empty space ... no longer seemed to describe everything that could happen at the desk.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-022",
@@ -67012,8 +69270,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4b4f32ae26241d4e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4b4f32ae26241d4e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P7: 'Mr. Sen returned for the umbrella he had forgotten.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "4b4f32ae26241d4e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 7: 'Mr. Sen returned for the umbrella he had forgotten.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-023",
@@ -67029,8 +69313,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "015d91f323a5cc72",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "015d91f323a5cc72",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P4: 'relieved to find a sentence I could deliver with certainty' after unfamiliar request; A contradicted ('I could take a message').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "015d91f323a5cc72",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 4: 'relieved to find a sentence I could deliver with certainty.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-024",
@@ -67046,8 +69356,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "cde673a78365d5ae",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "cde673a78365d5ae",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4: 'Tell him I came... If he comes.' refers to Daniel arriving.",
+     "flags": [
+      "minor: B and C absurd, eliminable on form"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "cde673a78365d5ae",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 4: 'Tell him I came... If he comes.' Distractors absurd.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-025",
@@ -67063,8 +69401,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "332b8201174bb470",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "332b8201174bb470",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P5: 'I could have locked the door then... Instead, I straightened the leaflets' while watching bus/woman.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "332b8201174bb470",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 5: 'I could have locked the door then... Instead, I straightened the leaflets'; keeps watching bus/woman.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-026",
@@ -67080,8 +69444,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "ce9d6f2ff4963a95",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "ce9d6f2ff4963a95",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7: 'glanced... at the unbolted door... left without touching the bolt.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "ce9d6f2ff4963a95",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 7: 'glanced... at the unbolted door... left without touching the bolt.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-027",
@@ -67097,8 +69487,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c07c81380c416a22",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c07c81380c416a22",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: empty space 'as though I had pointed out an unfinished sentence' -- something that could continue; echoed in P8.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "c07c81380c416a22",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 2 'unfinished sentence'; para 8 echo of the empty space being open.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-028",
@@ -67114,8 +69530,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4f51716567e6fb76",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4f51716567e6fb76",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Bus departs P5; P6 'I filled the electric kettle'; Sen returns P7. Chalkboard (P3), key (P1), receipt (P4) all earlier.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "4f51716567e6fb76",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Bus pulls away (p5), kettle filled (p6), Mr. Sen returns (p7). Chalkboard p3, receipt p4.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-029",
@@ -67131,8 +69573,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "053338c33bcd9b7a",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "053338c33bcd9b7a",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P8: 'I never learned who Daniel was or why the driver had brought his jacket'; P6 'She did not explain the jacket, and I did not ask.'",
+     "flags": [
+      "minor: A/C/D use 'entire','secretly','proves' -- eliminable on absolute wording"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "053338c33bcd9b7a",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 8: 'I never learned who Daniel was or why the driver had brought his jacket.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-J-030",
@@ -67148,8 +69618,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c559b5d4ebc2a193",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c559b5d4ebc2a193",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'no new name had appeared. Yet the empty space... no longer seemed to describe everything that could happen.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "c559b5d4ebc2a193",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 8: 'no new name had appeared. Yet the empty space ... no longer seemed to describe everything.'",
+     "flags": [
+      "minor: J-021 and J-030 overlap thematically (both point to para 8 empty-space idea)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-021",
@@ -67165,8 +69663,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9375074a03b56442",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "9375074a03b56442",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P1 separates two questions; P8 heading revised to be 'more faithful to the evidence'; 'distinct benefits, concerns, and questions'.",
+     "flags": [
+      "minor: A/C/D eliminable on absolute wording (alone, any, every)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "9375074a03b56442",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 1 separating two questions; para 8 heading revised 'more faithful to the evidence.'",
+     "flags": [
+      "minor: A/C/D eliminable on absolute wording (alone, any, every)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-022",
@@ -67182,8 +69710,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "713e71bc4fd025fa",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "713e71bc4fd025fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P3: 'records the time between arrival and first contact with a clerk.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "713e71bc4fd025fa",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 3: 'records the time between arrival and first contact with a clerk.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-023",
@@ -67199,8 +69753,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f835f45495da79c2",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f835f45495da79c2",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: 'might value a chair even if the same number of minutes passed.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "f835f45495da79c2",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 2: 'might value a chair even if the same number of minutes passed.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-024",
@@ -67216,8 +69796,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "cdb6097a79c807e2",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "cdb6097a79c807e2",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P4: 'If satisfied visitors are more willing to stop and answer, a favorable response pattern might describe the respondents more accurately than... everyone.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "cdb6097a79c807e2",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 4: 'favorable response pattern might describe the respondents more accurately than ... everyone.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-025",
@@ -67233,8 +69839,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "96b970e59d2116f5",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "96b970e59d2116f5",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P5: 'The questionnaire establishes a reported perception; checking the service sequence requires a different kind of evidence.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "96b970e59d2116f5",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 5: 'questionnaire establishes a reported perception; checking the service sequence requires a different kind of evidence.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-026",
@@ -67250,8 +69882,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "b22c21eed0a92f5c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "b22c21eed0a92f5c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6: 'ticket records reveals that some numbers lead to a specialist desk... The manager proposes putting one sign...'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "b22c21eed0a92f5c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 6: 'ticket records reveals that some numbers lead to a specialist desk... manager proposes putting one sign.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-027",
@@ -67267,8 +69925,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "10d27475455739fe",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "10d27475455739fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P7: 'examines the effect of explanatory labels within the ticket system rather than comparing that system with a standing line.' C contradicted (keeps confidence questions).",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "10d27475455739fe",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 7: 'examines the effect of explanatory labels within the ticket system rather than comparing that system with a standing line.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-028",
@@ -67284,8 +69968,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "2185ec48a5e55e2f",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "2185ec48a5e55e2f",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: heavy demand or reduced staffing 'might complicate comparison'; A too strong.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "2185ec48a5e55e2f",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 3: 'unusually heavy demand or reduced staffing might complicate comparison.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-029",
@@ -67301,8 +70011,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "b3c3fa361f9fb1dd",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "b3c3fa361f9fb1dd",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P6 hypothesis: labels 'might improve confidence without sacrificing the seating'; C confounded by extra desks; B per P7 attractive signs could fail to explain.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "b3c3fa361f9fb1dd",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 6: labels 'might improve confidence without sacrificing the seating'; C is confounded by extra desks.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-K-030",
@@ -67318,8 +70054,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7705dfdc57cd5bec",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "7705dfdc57cd5bec",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8: 'New System Cuts Waiting' -> 'Seated Waiting Improves Reported Comfort'; P5 'similar typical waiting times'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "7705dfdc57cd5bec",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 8: 'New System Cuts Waiting' -> 'Seated Waiting Improves Reported Comfort'; p5 similar waiting times.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-021",
@@ -67335,8 +70097,38 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f32505c467b04201",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f32505c467b04201",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8: 'route from observation to claim remains visible'; uncertain images 'reported as such'.",
+     "flags": [
+      "minor: A/B/D eliminable on absolute wording (all, only, perfect)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "f32505c467b04201",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 8: 'route from observation to claim remains visible'; p5 uncertain images reported.",
+     "flags": [
+      "minor: B and D eliminable on absolute wording (only, perfect)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-022",
@@ -67352,8 +70144,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c54285d79c363827",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c54285d79c363827",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: 'A crest near the edge of the tray does not count unless it intersects that line.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "c54285d79c363827",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 2: 'A crest near the edge ... does not count unless it intersects that line.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-023",
@@ -67369,8 +70187,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d20020944039c685",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "d20020944039c685",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P3: 'Grain size and the pump setting changed together, leaving two possible contributors.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "d20020944039c685",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 3: 'Grain size and the pump setting changed together.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-024",
@@ -67386,8 +70230,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7f3c98dbc672cc5a",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "7f3c98dbc672cc5a",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P4: 'support for a grain-size effect under the tested conditions'; 'does not infer that the pump setting has no effect.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "7f3c98dbc672cc5a",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 4: 'support for a grain-size effect under the tested conditions'; does not infer pump has no effect.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-025",
@@ -67403,8 +70273,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "8f25be2e580edbec",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "8f25be2e580edbec",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5: 'The team had not specified how to handle forks before the first measurements... drafts an explicit counting rule.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "8f25be2e580edbec",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 5: 'The team had not specified how to handle forks before the first measurements.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-026",
@@ -67420,8 +70316,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "ff0bb3e2613b6652",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "ff0bb3e2613b6652",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6: 'reshaping the surface would introduce an intervention into that development.' C contradicted ('For a separate experiment... might be useful').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "ff0bb3e2613b6652",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 6: 'reshaping the surface would introduce an intervention into that development.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-027",
@@ -67437,8 +70359,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "c99b99957d815766",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "c99b99957d815766",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'does not quietly promote an illustrative height into a recorded observation'; sketch 'labeled as explanatory'.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "c99b99957d815766",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 7: 'quietly promote an illustrative height into a recorded observation.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-028",
@@ -67454,8 +70402,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "4f05eee38046704e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "4f05eee38046704e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P7: 'photograph provides the measured crest positions, while the sketch helps visitors imagine the ridge heights.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "4f05eee38046704e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 7: 'photograph provides the measured crest positions, while the sketch helps visitors imagine the ridge heights.'",
+     "flags": [
+      "minor: L-027 and L-028 draw on the same para 7 sentence pair; mild overlap, not a giveaway"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-029",
@@ -67471,8 +70447,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "364ab573c5966c2e",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "364ab573c5966c2e",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P8: 'labeled as preliminary... still explains why the team designed the later trials.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "364ab573c5966c2e",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 8: 'labeled as preliminary... still explains why the team designed the later trials.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261022-L-030",
@@ -67488,8 +70490,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "fc6372aabdcb4728",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "fc6372aabdcb4728",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P2: 'If the team later wants to investigate differences between the center and the edges, it will need observations designed for that question.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "fc6372aabdcb4728",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 2: 'If the team later wants to investigate differences between the center and the edges, it will need observations designed for that question.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-021",
@@ -67505,8 +70533,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "3f93bf6b007fb215",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "3f93bf6b007fb215",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P3 damp-room objection invented; P6 'What if I'm not very good at it?' then reads letter and writes questions list.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "3f93bf6b007fb215",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 3: 'difficulties she had named because they were easier to discuss than the one she could not name'; p6 question and list.",
+     "flags": [
+      "minor: overlaps with M-027 (both identify underlying concern)"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-022",
@@ -67522,8 +70578,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "0b87f9c20467ad8f",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "0b87f9c20467ad8f",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P1: cup 'seemed to keep it from becoming more official than she was ready to allow.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "0b87f9c20467ad8f",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 1: cup 'seemed to keep it from becoming more official than she was ready to allow.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-023",
@@ -67539,8 +70621,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "641d1db6a4c2e576",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "641d1db6a4c2e576",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P3: 'He was solving difficulties she had named because they were easier to discuss than the one she could not name.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "641d1db6a4c2e576",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 3: 'He was solving difficulties she had named ... than the one she could not name.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-024",
@@ -67556,8 +70664,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "07778ff81c8fc01b",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "07778ff81c8fc01b",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4: 'Someone had moved the desk lamp to the far end of her table.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "07778ff81c8fc01b",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 4: 'Someone had moved the desk lamp to the far end of her table.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-025",
@@ -67573,8 +70707,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "a078bdf8b093c83c",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "a078bdf8b093c83c",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "P4: sought evidence it would be unbearable without her or to her; 'the depot continued its ordinary work.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "a078bdf8b093c83c",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "B",
+     "key": "B",
+     "confidence": "high",
+     "notes": "Para 4: 'evidence that the place would be unbearable without her, or ... to her. Instead, the depot continued its ordinary work.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-026",
@@ -67590,8 +70750,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "411de2d3732209e1",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "411de2d3732209e1",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P5: 'treating the move as a problem of rooms and timetables while she was waiting for somebody to understand its size.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "411de2d3732209e1",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 5: 'treating the move as a problem of rooms and timetables while she was waiting for somebody to understand its size.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-027",
@@ -67607,8 +70793,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "cd2184c49549f506",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "cd2184c49549f506",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "P6: 'The question seemed embarrassingly small after all the objections she had assembled.'",
+     "flags": [
+      "minor: M-021's correct option (identifying underlying concern) points toward this item's answer, mild overlap"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "cd2184c49549f506",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "D",
+     "key": "D",
+     "confidence": "high",
+     "notes": "Para 6: 'What if I'm not very good at it?' The question seemed embarrassingly small after all the objections she had assembled.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-028",
@@ -67624,8 +70838,36 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f1d0ebe6e5383751",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f1d0ebe6e5383751",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P7: 'Give me the number.' ... 'make the next conversation hers to begin, rather than another useful arrangement delivered ready-made by her brother.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "f1d0ebe6e5383751",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 7: 'make the next conversation hers to begin.'",
+     "flags": [
+      "minor: passage implies but does not state outright that the number is the landlord's (p3 'offered to call the landlord'; p7 'make the call... Give me the number')"
+     ],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-029",
@@ -67641,8 +70883,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "f72b8b13d53bfdb8",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "f72b8b13d53bfdb8",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "P4: lamp moved on 'her table'; 'irritated by this small trespass.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "f72b8b13d53bfdb8",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "A",
+     "key": "A",
+     "confidence": "high",
+     "notes": "Para 4: 'moved the desk lamp to the far end of her table... this small trespass.'",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-M-030",
@@ -67658,8 +70926,34 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "b62db55f28fbc175",
-   "status": "pending_review",
-   "status_reason": "baseline: no current-version independent review"
+   "status": "reviewed_draft",
+   "status_reason": "fresh blind review(s) after baseline: combined/reviews/chatgpt-act_reading-08.A.results.json; combined/reviews/chatgpt-act_reading-08.B.results.json",
+   "fresh_reviews": [
+    {
+     "content_hash": "b62db55f28fbc175",
+     "verdict": "PASS",
+     "solver": "blind AI solver A (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "P8: view 'no longer seemed either a command to stay or something she needed to deny in order to leave'; D contradicted ('had not sent an acceptance').",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.A.results.json"
+    },
+    {
+     "content_hash": "b62db55f28fbc175",
+     "verdict": "PASS",
+     "solver": "blind AI solver B (separate agent, answer-free packet)",
+     "answer": "C",
+     "key": "C",
+     "confidence": "high",
+     "notes": "Para 8: view 'no longer seemed either a command to stay or something she needed to deny in order to leave'; no acceptance sent.",
+     "flags": [],
+     "summary": "",
+     "file": "combined/reviews/chatgpt-act_reading-08.B.results.json"
+    }
+   ]
   },
   {
    "id": "PP-VERBAL-20261023-N-021",
@@ -83263,6 +86557,66 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "status": "reviewed_draft",
    "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-041.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000386",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 42,
+   "draft_candidate": "S042-05",
+   "content_hash": "2a8c2477c946daed",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-042.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000387",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 42,
+   "draft_candidate": "S042-07",
+   "content_hash": "d39731e6c2cbeb09",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-042.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000388",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 42,
+   "draft_candidate": "S042-09",
+   "content_hash": "11d37a63f01dd667",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-042.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000389",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 42,
+   "draft_candidate": "S042-10",
+   "content_hash": "1161aa9e28f58c52",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-042.review.json"
   },
   {
    "id": "PP-B-VERBAL-000009",
