@@ -65,42 +65,42 @@
    "passage_id": "CLD-P-ACT-R-000034",
    "reporting_category": "Key Ideas and Details",
    "skill": "Key Ideas and Details",
-   "subskill": "Reasoning behind a claim",
+   "subskill": "Meaning of a claim in context",
    "repo_skill_key": "act_inference",
    "difficulty": "medium",
-   "stem": "According to Passage A, the choice of a default is \"never neutral\" because:",
+   "stem": "In Passage A, the statement that \"the choice of a default is never neutral\" most nearly means that:",
    "choices": {
-    "A": "every default is designed to push people toward one particular outcome.",
-    "B": "most people take no action, so the default decides what happens to them.",
-    "C": "most people prefer whatever option their employer has chosen for them.",
-    "D": "people who notice a default usually take the trouble to change it."
+    "A": "defaults are usually set to favor employers over their employees.",
+    "B": "any default shapes what happens to people, whichever option is chosen.",
+    "C": "the people who set defaults always have something personal to gain.",
+    "D": "a default leaves people with fewer choices than they had before."
    },
    "answer": "B",
-   "evidence": "Because doing nothing is what most people do most of the time",
-   "explanation": "Since most people do nothing, whatever the default is becomes their outcome; no choice of default leaves outcomes unaffected.",
+   "evidence": "Someone has to choose it",
+   "explanation": "'Neutral' here means having no effect on the outcome. Because the default decides what happens when people do nothing, no option leaves outcomes untouched: whichever is chosen, it shapes results.",
    "distractors": {
     "A": {
-     "rationale": "Passage A says someone must choose the default, not that defaults are designed to push; the point is that inaction makes any default decisive.",
-     "trap": null
+     "rationale": "Passage A never questions who benefits from a default.",
+     "trap": "out_of_scope"
     },
     "C": {
-     "rationale": "Passage A attributes the effect to inaction, not to a preference for the employer's choice.",
-     "trap": null
+     "rationale": "Nothing in Passage A concerns the motives of those who set defaults.",
+     "trap": "out_of_scope"
     },
     "D": {
-     "rationale": "This contradicts Passage A's point that doing nothing is what most people do.",
+     "rationale": "Passage A says a default 'does not forbid anything.'",
      "trap": null
     }
    },
    "hints": [
-    "What do most people do most of the time?"
+    "What would a 'neutral' default be?"
    ],
    "strategy": {
-    "key": "locate_evidence",
-    "explanation": "Read the sentence that begins with 'Because.'"
+    "key": "predict_then_match",
+    "explanation": "Define 'neutral' in this context first."
    },
-   "remember": "A 'because' clause right before a claim usually gives its reason.",
-   "expected_time_seconds": 40,
+   "remember": "Interpret a claim by asking what its opposite would mean.",
+   "expected_time_seconds": 45,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
@@ -164,7 +164,7 @@
    "subskill": "Inference from a qualifying phrase",
    "repo_skill_key": "act_inference",
    "difficulty": "medium",
-   "stem": "In Passage B, the phrase \"though less loudly\" (paragraph 1) suggests that the finding about contribution rates:",
+   "stem": "In Passage B, the phrase \"though less loudly\" (paragraph 1) suggests that the finding that enrolled workers tended to stay with the default rate and investment:",
    "choices": {
     "A": "appeared only in studies done many years after the first ones.",
     "B": "received less attention than the finding about participation.",
@@ -214,7 +214,7 @@
    "difficulty": "hard",
    "stem": "The second paragraph of Passage B mainly serves to:",
    "choices": {
-    "A": "argue that the drawback comes from the same tendency that makes defaults work.",
+    "A": "present the drawback as a side effect of what makes defaults effective.",
     "B": "concede that the drawback in the first paragraph is too rare to matter much.",
     "C": "explain why employers usually choose such low default contribution rates.",
     "D": "reject the claim that automatic enrollment actually increases participation."
@@ -307,47 +307,48 @@
    "passage_id": "CLD-P-ACT-R-000034",
    "reporting_category": "Integration of Knowledge and Ideas",
    "skill": "Integration of Knowledge and Ideas",
-   "subskill": "Point of agreement between paired passages",
+   "subskill": "Contrasting two policies across passages",
    "repo_skill_key": "act_inference",
-   "difficulty": "medium",
-   "stem": "Based on the passages, both authors would most likely agree that:",
+   "difficulty": "hard",
+   "stem": "Unlike the rule change described in Passage A, the program described in the last paragraph of Passage B required employees to:",
    "choices": {
-    "A": "automatic enrollment leads most workers to save more money overall.",
-    "B": "a default matters greatly because many people never change it.",
-    "C": "employers should be required by law to enroll workers automatically.",
-    "D": "the default contribution rates in most plans are set too high."
+    "A": "fill out a form if they did not want to take part.",
+    "B": "contribute a share of the pay they already earned.",
+    "C": "agree beforehand to take part in the program.",
+    "D": "accept a smaller employer match on their savings."
    },
-   "answer": "B",
-   "evidence": "the default is the policy",
-   "explanation": "Passage A says the choice of a default is 'never neutral' because most people do nothing; Passage B says 'the default is the policy' because it decides for everyone who never decides.",
+   "answer": "C",
+   "evidence": "employees agreed in advance to have their contribution rate rise",
+   "explanation": "Passage A's workers were enrolled automatically and had to opt out; Passage B's program began only after employees 'agreed in advance,' so joining required a choice, even though the later increases ran automatically.",
    "distractors": {
     "A": {
-     "rationale": "Passage B says some enrolled workers ended up saving less.",
+     "rationale": "That describes Passage A's opt-out rule; Passage B's employees 'agreed in advance.'",
      "trap": null
     },
-    "C": {
-     "rationale": "Neither passage discusses legal requirements.",
-     "trap": "out_of_scope"
+    "B": {
+     "rationale": "The increases came out of future raises, not current pay.",
+     "trap": null
     },
     "D": {
-     "rationale": "Passage B says the default rate was often low, not high.",
-     "trap": null
+     "rationale": "No employer match is mentioned for this program.",
+     "trap": "out_of_scope"
     }
    },
    "hints": [
-    "What does each passage say about who chooses the default?"
+    "How did employees come to be in each program?"
    ],
    "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Test each choice against both passages."
+    "key": "locate_evidence",
+    "explanation": "Compare how people entered each program."
    },
-   "remember": "An agreement answer must be supported by both passages, not just one.",
+   "remember": "Check how each policy starts, not only how it runs once started.",
    "expected_time_seconds": 55,
    "modeling": false,
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "choice_lengths": "balanced"
+    "choice_lengths": "balanced",
+    "hardness": "Students who read both programs as automatic defaults pick the opt-out choice, which describes Passage A."
    }
   },
   {
@@ -411,7 +412,7 @@
    "choices": {
     "A": "Workers who were enrolled and later raised their contribution rate on their own",
     "B": "Younger workers who would not have joined the plan under the old rule",
-    "C": "Workers who would have joined anyway and chosen a higher rate",
+    "C": "Workers already inclined to save who stopped at the low default",
     "D": "Lower-income workers who joined only because enrollment was automatic"
    },
    "answer": "C",
@@ -450,6 +451,10 @@
   }
  ],
  "revision_log": [
+  {
+   "round": 3,
+   "reason": "Round-2 solves matched every key; one solver gave non-minor flags: 02 and 05 keys paraphrased single sentences, 07 repeated the inertia idea of 02 and 05, and 09 nearly copied a sentence. Rewrote 02 as a meaning question with new distractors, reworded the 05 and 09 keys, and replaced 07 with a cross-passage contrast (opt-in vs automatic enrollment). Item 04's stem was also made precise (rate and investment). Whole batch re-solved blind."
+  },
   {
    "round": 2,
    "reason": "Round-1 blind solves (both matched every key, no factual errors) flagged that R034-05's key stated R034-06's answer, that six of nine items turned on the same 'people stay with the default' idea, and that 02, 04 and 09 were near-lookups. Replaced 04 (now the qualifying phrase 'though less loudly') and 06 (now the unstated effect on take-home pay), and replaced weak distractors in 02 (three) and 09 (two). Passages unchanged. Whole batch re-solved blind."
