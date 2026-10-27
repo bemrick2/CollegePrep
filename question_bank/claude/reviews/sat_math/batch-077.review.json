@@ -1,0 +1,367 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 77,
+  "reviewed_at": "2026-10-27T18:40:28+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 77
+  },
+  "counts": {
+    "PASS": 14,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000848",
+    "CLD-SAT-M-000849",
+    "CLD-SAT-M-000850",
+    "CLD-SAT-M-000851",
+    "CLD-SAT-M-000852",
+    "CLD-SAT-M-000853",
+    "CLD-SAT-M-000854",
+    "CLD-SAT-M-000855",
+    "CLD-SAT-M-000856",
+    "CLD-SAT-M-000857",
+    "CLD-SAT-M-000858",
+    "CLD-SAT-M-000859",
+    "CLD-SAT-M-000860",
+    "CLD-SAT-M-000861"
+  ],
+  "results": [
+    {
+      "cand": "Q077-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "700% greater => 8x initial; 2^(t/5)=8 => t=15. Distractors: 14 (2^(t/5)=7 -> t~14.04, the 'percent = multiple' trap), 3, 40 (8*5).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000848"
+    },
+    {
+      "cand": "Q077-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: direct calculator substitution of t=2 and t=5 settles it immediately; D matches two of three points (good distractor)."
+      ],
+      "blind_notes": "400*1.1^2=484, 400*1.1^5=644.204. A gives 580.84 at t=2; C gives 440; D gives 610 at t=5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000849"
+    },
+    {
+      "cand": "Q077-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "x^2+6x+4=(x+3)^2-5 -> 3 left, 5 down. Graphing vertex (-3,-5) also works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000850"
+    },
+    {
+      "cand": "Q077-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "1/4",
+      "computed_answer": "1/4",
+      "blind_answer": "1/4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Slope (16+1)/4=17/4; x^2=(17/4)x-1 -> 4x^2-17x+4=0 -> (4x-1)(x-4)=0 -> x=1/4 (.25 also acceptable).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The line must be found from two points before the system can be solved."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000851"
+    },
+    {
+      "cand": "Q077-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Roots 1,2: 1+a+b=0, 16+4a+b=0 -> a=-5, b=4; p=(x^2-1)(x^2-4).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The quadratic factor must be split into two linear factors to get two equations."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000852"
+    },
+    {
+      "cand": "Q077-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "g(f(x))=sqrt(x^2)=|x|, equals x iff x>=0. Domain of composition is all reals (x^2>=0), so D is the trap; A/C come from misused domain restrictions.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must see that √(x²) = |x| inside a composition of apparent inverses."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000853"
+    },
+    {
+      "cand": "Q077-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "OP=10; half-chord = altitude of right triangle OAP to hypotenuse = 6*8/10=4.8; AB=9.6. Distractors 4.8 (half), 7.2 (36/5), 12.8 (64/5) are all natural segment lengths.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must build the right triangle OAP and see half the chord as its altitude."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000854"
+    },
+    {
+      "cand": "Q077-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3.6",
+      "computed_answer": "3.6",
+      "blind_answer": "3.6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: the 15 m spacing cancels (h = 6*9/(6+9) regardless of distance); fine as given setup but it is not actually needed.",
+        "minor: well-known classic 'crossed wires/poles' puzzle (harmonic-mean result), recognizable to some students; not a known official SAT item."
+      ],
+      "blind_notes": "Similar triangles: h/6 + h/9 = 1 -> h=18/5=3.6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two pairs of similar triangles share the height, and the position must be eliminated."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000855"
+    },
+    {
+      "cand": "Q077-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "40",
+      "computed_answer": "40",
+      "blind_answer": "40",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Inscribed angle CAB=25 -> central angle COB=50; OC perpendicular to tangent CD; in triangle OCD angle ODC=180-90-50=40, and since D is beyond B, angle ADC=angle ODC=40.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "An inscribed angle must be converted to a central angle and combined with the tangent's right angle."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000856"
+    },
+    {
+      "cand": "Q077-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Half-height 4, sphere radius 5 -> cylinder radius 3; V=pi*9*8=72pi. 200pi uses r=5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000857"
+    },
+    {
+      "cand": "Q077-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "cos(90-x)=sin x=0.6; height=50 sin x=30. D (40) is the cos trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000858"
+    },
+    {
+      "cand": "Q077-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "AC=6/cos30=4sqrt3; triangle ACD is isosceles right at C so AD=AC*sqrt2=4sqrt6. B is AC, A is BC.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two special triangles are stacked, and the given leg is the one adjacent to 30°."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000859"
+    },
+    {
+      "cand": "Q077-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: classic square-with-equilateral-triangle configuration, familiar from competition practice."
+      ],
+      "blind_notes": "AP=AD, angle PAD=30 -> angle ADP=75 -> angle PDC=90-75=15. Coordinates confirm.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The key step is noticing AP = AD, so triangle APD is isosceles."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000860"
+    },
+    {
+      "cand": "Q077-14",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver: the given 64 degrees was unused (pure theorem recall)",
+          "change": "stem now makes 64 degrees the angle being bisected at A, so it is used; traps updated"
+        }
+      ],
+      "key": "90",
+      "computed_answer": "90",
+      "blind_answer": "90",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: the 64 degree value is irrelevant (bisectors of same-side interior angles always meet at 90), so a student may guess 90 without computing; arguably over-determined/red-herring data."
+      ],
+      "blind_notes": "Same-side interior angles 64 and 116; halves 32+58=90; angle APB=180-90=90.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The given 64° does not matter; halves of a supplementary pair always sum to 90°."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000861"
+    }
+  ]
+}

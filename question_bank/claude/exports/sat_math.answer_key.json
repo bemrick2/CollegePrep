@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 76,
+  "bank_version": 77,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -17685,6 +17685,343 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Check each choice's comparison and population."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000848",
+      "correct_answer": "C",
+      "explanation": "700% greater means 1,000 + 7(1,000) = 8,000, so 2^(t/5) = 8 = 2³. Then t/5 = 3 and t = 15.",
+      "distractor_explanations": {
+        "A": "This finds the number of doubling periods, t/5 = 3, and forgets to multiply by 5.",
+        "B": "This reads \"700% greater\" as 7 times as large and solves 2^(t/5) = 7, giving about 14.",
+        "D": "This counts 8 doublings instead of the 3 doublings that multiply by 8."
+      },
+      "hints": [
+        "What multiple of the starting population is 700% greater?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the percent increase to a factor, then match powers of 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000849",
+      "correct_answer": "B",
+      "explanation": "400(1.1)² = 484 and 400(1.1)⁵ = 644.204. The step from t = 0 to t = 2 is two units, so the factor 1.21 covers two units and the factor per unit is 1.1.",
+      "distractor_explanations": {
+        "A": "This treats the factor over the first two-unit gap as the factor per unit.",
+        "C": "This finds the right base but also divides the exponent by the gap.",
+        "D": "This line fits the first two points but gives 610, not 644.204, at t = 5."
+      },
+      "hints": [
+        "How many units of t separate the first two rows?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice at t = 2 and t = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000850",
+      "correct_answer": "A",
+      "explanation": "Completing the square gives x² + 6x + 4 = (x + 3)² − 5, so the vertex moves from (0, 0) to (−3, −5): 3 units left and 5 units down.",
+      "distractor_explanations": {
+        "B": "This reads (x + 3)² as a shift to the right.",
+        "C": "This takes the constant term 4 of the standard form as the vertical shift.",
+        "D": "This reads the coefficients 6 and 4 directly as the shifts."
+      },
+      "hints": [
+        "Complete the square."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite in vertex form, then read the vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000851",
+      "correct_answer": "1/4",
+      "accepted_answers": [
+        "1/4",
+        ".25",
+        "0.25"
+      ],
+      "common_errors": [
+        {
+          "value": "-4",
+          "rationale": "−4 assumes the two points are symmetric about the y-axis.",
+          "trap": null
+        },
+        {
+          "value": "-1/4",
+          "rationale": "−1/4 takes the product of the x-coordinates as −1 instead of 1.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "17/4",
+          "rationale": "17/4 is the slope of the line.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The slope is (16 − (−1))/4 = 17/4, so x² = (17/4)x − 1, or 4x² − 17x + 4 = 0 = (4x − 1)(x − 4). The other x-coordinate is 1/4. (For any line y = mx − 1, the two x-coordinates multiply to 1.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the slope of the line first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x² equal to the line and factor."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000852",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "-5",
+          "rationale": "−5 is the value of a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the constant term of the given factor.",
+          "trap": null
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 stops at a + b = −1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "x² − 3x + 2 = (x − 1)(x − 2), so p(1) = 1 + a + b = 0 and p(2) = 16 + 4a + b = 0. Subtracting gives 15 + 3a = 0, so a = −5 and b = 4. Check: x⁴ − 5x² + 4 = (x − 1)(x + 1)(x − 2)(x + 2).",
+      "distractor_explanations": {},
+      "hints": [
+        "Factor x² − 3x + 2 into two linear factors."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use p(1) = 0 and p(2) = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000853",
+      "correct_answer": "B",
+      "explanation": "g(f(x)) = √(x² − 4 + 4) = √(x²) = |x|, which equals x exactly when x ≥ 0. Since f(x) + 4 = x² is never negative, g(f(x)) is defined for every real x.",
+      "distractor_explanations": {
+        "A": "This uses the domain of g as the answer.",
+        "C": "This requires f(x) ≥ 0, as if the radicand were f(x).",
+        "D": "This assumes the square root undoes the square for every x, but √(x²) = |x|."
+      },
+      "hints": [
+        "What is √(x²) for a negative x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = −3: g(f(−3)) = √9 = 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000854",
+      "correct_answer": "C",
+      "explanation": "OA ⊥ PA, so PO = 10. Chord AB is perpendicular to PO at a point M, and AM is the altitude from the right angle of triangle OAP, so AM = (6)(8)/10 = 4.8 and AB = 2(4.8) = 9.6.",
+      "distractor_explanations": {
+        "A": "This finds AM but forgets that M is the midpoint of AB.",
+        "B": "This doubles OM = 6²/10 = 3.6, the distance from O to the chord.",
+        "D": "This doubles PM = 8²/10 = 6.4."
+      },
+      "hints": [
+        "What angle does a tangent make with the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw OA, OB, and OP."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000855",
+      "correct_answer": "3.6",
+      "accepted_answers": [
+        "3.6",
+        "18/5"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 averages the two heights.",
+          "trap": null
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 assumes the wires cross halfway between the poles.",
+          "trap": null
+        },
+        {
+          "value": "54",
+          "rationale": "54 multiplies the heights and forgets to divide by their sum.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Let the crossing be h meters high and x meters from the 6-meter pole. Similar triangles give h/x = 9/15 and h/(15 − x) = 6/15. Then x = 15h/9 and 15 − x = 15h/6, so 15 = 15h(1/9 + 1/6) and h = 1/(1/6 + 1/9) = 3.6.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write a similar-triangle ratio for each wire."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both poles, both wires, and the crossing point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000856",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 is the central angle COB.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "65",
+          "rationale": "65 uses the inscribed angle instead of the central angle: 180 − 90 − 25.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 assumes angle ADC equals angle CAB.",
+          "trap": null
+        }
+      ],
+      "explanation": "The inscribed angle CAB intercepts arc CB, so the central angle COB is 50°. The tangent is perpendicular to radius OC, so triangle OCD has a right angle at C, and angle ODC = 180° − 90° − 50° = 40°.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the central angle on the same arc as angle CAB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw radius OC and triangle OCD."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000857",
+      "correct_answer": "B",
+      "explanation": "The center of the sphere is the midpoint of the cylinder's axis, so a point on a base edge is 4 cm from the center along the axis and r cm to the side: r² + 4² = 5², so r = 3. The volume is π(3²)(8) = 72π.",
+      "distractor_explanations": {
+        "A": "This uses r = 3 but the cone formula, (1/3)πr²h.",
+        "C": "This uses the sphere's radius 5 as the cylinder's radius.",
+        "D": "This uses the full height with the diameter, r = √(10² − 8²) = 6."
+      },
+      "hints": [
+        "Where is the center of the sphere relative to the cylinder?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a cross section through the axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000858",
+      "correct_answer": "C",
+      "explanation": "cos(90 − x)° = sin x° = 0.6. The height is the side opposite the angle, with the string as the hypotenuse: 50 sin x° = 30.",
+      "distractor_explanations": {
+        "A": "This multiplies 30 by 0.6 again, applying the ratio twice.",
+        "B": "This subtracts the height from the string length, 50 − 30.",
+        "D": "This reads cos(90 − x)° = 0.6 as cos x° = 0.6, so sin x° = 0.8 and the height is 40."
+      },
+      "hints": [
+        "What is cos(90 − x)° equal to?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with the string as the hypotenuse."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000859",
+      "correct_answer": "C",
+      "explanation": "In triangle ABC, AB is the leg adjacent to the 30° angle, so AB = (√3/2)AC and AC = 12/√3 = 4√3. Triangle ACD is an isosceles right triangle with leg AC, so AD = 4√3 · √2 = 4√6.",
+      "distractor_explanations": {
+        "A": "This divides AC by 2 instead of multiplying by √2.",
+        "B": "This stops at AC.",
+        "D": "This treats AB as the leg opposite the 30° angle, so AC = 12, then multiplies by √2."
+      },
+      "hints": [
+        "Which leg of the 30°-60°-90° triangle is AB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both triangles along the shared side AC."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000860",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "75",
+          "rationale": "75 is angle ADP, not angle PDC.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is angle PAD.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "60",
+          "rationale": "60 assumes triangle PCD is also equilateral.",
+          "trap": null
+        }
+      ],
+      "explanation": "Angle PAD = 90° − 60° = 30°, and AP = AB = AD, so triangle APD is isosceles with base angles (180° − 30°)/2 = 75°. Then angle PDC = 90° − 75° = 15°.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which two sides of triangle APD are equal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square, the equilateral triangle, and segment PD."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000861",
+      "correct_answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "116",
+          "rationale": "116 assumes the angle at B is also 64°: 180 − 32 − 32.",
+          "trap": null
+        },
+        {
+          "value": "148",
+          "rationale": "148 drops the bisection at B: 180 − 32.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "32",
+          "rationale": "32 is half of 64°, not angle APB.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The angles at A and B on the same side of t are same-side interior angles, so the angle at B is 180° − 64° = 116°. Their halves are 32° and 58°, so in triangle APB, angle APB = 180° − 32° − 58° = 90°.",
+      "distractor_explanations": {},
+      "hints": [
+        "How are the two bisected angles related?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the parallel lines, the transversal, and both bisectors."
       }
     }
   ]

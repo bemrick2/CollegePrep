@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 76,
-  "updated_at": "2026-10-27T18:37:48+00:00",
+  "version": 77,
+  "updated_at": "2026-10-27T18:40:28+00:00",
   "passages": [],
   "questions": [
     {
@@ -61417,6 +61417,1054 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_math/batch-076.review.json",
         "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000848",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Percent increase turned into a growth factor",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The population of a species of beetle in a field is modeled by P(t) = 1,000 · 2^(t/5), where t is the number of years since 2020. How many years after 2020 is the population 700% greater than it was in 2020?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "14",
+        "C": "15",
+        "D": "40"
+      },
+      "correct_answer": "C",
+      "explanation": "700% greater means 1,000 + 7(1,000) = 8,000, so 2^(t/5) = 8 = 2³. Then t/5 = 3 and t = 15.",
+      "distractor_explanations": {
+        "A": "This finds the number of doubling periods, t/5 = 3, and forgets to multiply by 5.",
+        "B": "This reads \"700% greater\" as 7 times as large and solves 2^(t/5) = 7, giving about 14.",
+        "D": "This counts 8 doublings instead of the 3 doublings that multiply by 8."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What multiple of the starting population is 700% greater?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the percent increase to a factor, then match powers of 2."
+      },
+      "remember": "x% greater means multiply by 1 + x/100.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-01",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000849",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential model from unevenly spaced inputs",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table shows three values of a function P.\nt: 0, 2, 5\nP(t): 400, 484, 644.204\nWhich of the following could define P ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "P(t) = 400(1.21)ᵗ",
+        "B": "P(t) = 400(1.1)ᵗ",
+        "C": "P(t) = 400(1.1)^(t/2)",
+        "D": "P(t) = 400 + 42t"
+      },
+      "correct_answer": "B",
+      "explanation": "400(1.1)² = 484 and 400(1.1)⁵ = 644.204. The step from t = 0 to t = 2 is two units, so the factor 1.21 covers two units and the factor per unit is 1.1.",
+      "distractor_explanations": {
+        "A": "This treats the factor over the first two-unit gap as the factor per unit.",
+        "C": "This finds the right base but also divides the exponent by the gap.",
+        "D": "This line fits the first two points but gives 610, not 644.204, at t = 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How many units of t separate the first two rows?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice at t = 2 and t = 5."
+      },
+      "remember": "Check every row of a table, not just the first two.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-02",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: direct calculator substitution of t=2 and t=5 settles it immediately; D matches two of three points (good distractor)."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000850",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Translation read from a completed square",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following describes a translation that maps the graph of y = x² onto the graph of y = x² + 6x + 4 in the xy-plane?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3 units left and 5 units down",
+        "B": "3 units right and 5 units down",
+        "C": "3 units left and 4 units up",
+        "D": "6 units left and 4 units up"
+      },
+      "correct_answer": "A",
+      "explanation": "Completing the square gives x² + 6x + 4 = (x + 3)² − 5, so the vertex moves from (0, 0) to (−3, −5): 3 units left and 5 units down.",
+      "distractor_explanations": {
+        "B": "This reads (x + 3)² as a shift to the right.",
+        "C": "This takes the constant term 4 of the standard form as the vertical shift.",
+        "D": "This reads the coefficients 6 and 4 directly as the shifts."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Complete the square."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite in vertex form, then read the vertex."
+      },
+      "remember": "y = (x − h)² + k has vertex (h, k).",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-03",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000851",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Second intersection of a line and a parabola",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line passes through the point (0, −1) and intersects the parabola y = x² at two points. One of these points is (4, 16). What is the x-coordinate of the other point?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1/4",
+      "accepted_answers": [
+        "1/4",
+        ".25",
+        "0.25"
+      ],
+      "common_errors": [
+        {
+          "value": "-4",
+          "rationale": "−4 assumes the two points are symmetric about the y-axis.",
+          "trap": null
+        },
+        {
+          "value": "-1/4",
+          "rationale": "−1/4 takes the product of the x-coordinates as −1 instead of 1.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "17/4",
+          "rationale": "17/4 is the slope of the line.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The slope is (16 − (−1))/4 = 17/4, so x² = (17/4)x − 1, or 4x² − 17x + 4 = 0 = (4x − 1)(x − 4). The other x-coordinate is 1/4. (For any line y = mx − 1, the two x-coordinates multiply to 1.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the slope of the line first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x² equal to the line and factor."
+      },
+      "remember": "Product of roots of ax² + bx + c is c/a.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-04",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1/4",
+        "blind_answer": "1/4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000852",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constants from a quadratic factor of a quartic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p is defined by p(x) = x⁴ + ax² + b, where a and b are constants. If x² − 3x + 2 is a factor of p(x), what is the value of b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "-5",
+          "rationale": "−5 is the value of a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the constant term of the given factor.",
+          "trap": null
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 stops at a + b = −1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "x² − 3x + 2 = (x − 1)(x − 2), so p(1) = 1 + a + b = 0 and p(2) = 16 + 4a + b = 0. Subtracting gives 15 + 3a = 0, so a = −5 and b = 4. Check: x⁴ − 5x² + 4 = (x − 1)(x + 1)(x − 2)(x + 2).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Factor x² − 3x + 2 into two linear factors."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use p(1) = 0 and p(2) = 0."
+      },
+      "remember": "If x − r is a factor of p, then p(r) = 0.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-05",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000853",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Composition that looks like an inverse",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² − 4, and the function g is defined by g(x) = √(x + 4) for x ≥ −4. For which values of x is g(f(x)) = x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x ≥ −4",
+        "B": "x ≥ 0",
+        "C": "x ≥ 2",
+        "D": "All real numbers"
+      },
+      "correct_answer": "B",
+      "explanation": "g(f(x)) = √(x² − 4 + 4) = √(x²) = |x|, which equals x exactly when x ≥ 0. Since f(x) + 4 = x² is never negative, g(f(x)) is defined for every real x.",
+      "distractor_explanations": {
+        "A": "This uses the domain of g as the answer.",
+        "C": "This requires f(x) ≥ 0, as if the radicand were f(x).",
+        "D": "This assumes the square root undoes the square for every x, but √(x²) = |x|."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is √(x²) for a negative x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = −3: g(f(−3)) = √9 = 3."
+      },
+      "remember": "√(x²) = |x|, not x.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-06",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000854",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Chord between two tangent points",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From point P outside a circle with center O and radius 6, segments PA and PB are tangent to the circle at points A and B, and PA = 8. What is the length of chord AB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4.8",
+        "B": "7.2",
+        "C": "9.6",
+        "D": "12.8"
+      },
+      "correct_answer": "C",
+      "explanation": "OA ⊥ PA, so PO = 10. Chord AB is perpendicular to PO at a point M, and AM is the altitude from the right angle of triangle OAP, so AM = (6)(8)/10 = 4.8 and AB = 2(4.8) = 9.6.",
+      "distractor_explanations": {
+        "A": "This finds AM but forgets that M is the midpoint of AB.",
+        "B": "This doubles OM = 6²/10 = 3.6, the distance from O to the chord.",
+        "D": "This doubles PM = 8²/10 = 6.4."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What angle does a tangent make with the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw OA, OB, and OP."
+      },
+      "remember": "A tangent is perpendicular to the radius at the point of tangency.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-07",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000855",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Crossing height of two wires between poles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Two vertical poles stand on level ground 15 meters apart. One pole is 6 meters tall, and the other is 9 meters tall. A straight wire runs from the top of each pole to the bottom of the other pole. How many meters above the ground do the two wires cross?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3.6",
+      "accepted_answers": [
+        "3.6",
+        "18/5"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 averages the two heights.",
+          "trap": null
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 assumes the wires cross halfway between the poles.",
+          "trap": null
+        },
+        {
+          "value": "54",
+          "rationale": "54 multiplies the heights and forgets to divide by their sum.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Let the crossing be h meters high and x meters from the 6-meter pole. Similar triangles give h/x = 9/15 and h/(15 − x) = 6/15. Then x = 15h/9 and 15 − x = 15h/6, so 15 = 15h(1/9 + 1/6) and h = 1/(1/6 + 1/9) = 3.6.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write a similar-triangle ratio for each wire."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both poles, both wires, and the crossing point."
+      },
+      "remember": "Two pairs of similar triangles can share an unknown.",
+      "expected_time_seconds": 140,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-08",
+      "created_at": "2026-10-27T18:40:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3.6",
+        "blind_answer": "3.6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [
+          "minor: the 15 m spacing cancels (h = 6*9/(6+9) regardless of distance); fine as given setup but it is not actually needed.",
+          "minor: well-known classic 'crossed wires/poles' puzzle (harmonic-mean result), recognizable to some students; not a known official SAT item."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000856",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed angle, central angle, and tangent",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Segment AB is a diameter of a circle with center O, and point C lies on the circle. The measure of angle CAB is 25°. The line tangent to the circle at C intersects line AB at point D, which lies beyond B. What is the measure, in degrees, of angle ADC ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 is the central angle COB.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "65",
+          "rationale": "65 uses the inscribed angle instead of the central angle: 180 − 90 − 25.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 assumes angle ADC equals angle CAB.",
+          "trap": null
+        }
+      ],
+      "explanation": "The inscribed angle CAB intercepts arc CB, so the central angle COB is 50°. The tangent is perpendicular to radius OC, so triangle OCD has a right angle at C, and angle ODC = 180° − 90° − 50° = 40°.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the central angle on the same arc as angle CAB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw radius OC and triangle OCD."
+      },
+      "remember": "A central angle is twice an inscribed angle on the same arc.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-09",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "40",
+        "blind_answer": "40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000857",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Cylinder inscribed in a sphere",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right circular cylinder with a height of 8 centimeters is inscribed in a sphere with a radius of 5 centimeters, so that the circular edges of both bases of the cylinder lie on the sphere. What is the volume, in cubic centimeters, of the cylinder?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "24π",
+        "B": "72π",
+        "C": "200π",
+        "D": "288π"
+      },
+      "correct_answer": "B",
+      "explanation": "The center of the sphere is the midpoint of the cylinder's axis, so a point on a base edge is 4 cm from the center along the axis and r cm to the side: r² + 4² = 5², so r = 3. The volume is π(3²)(8) = 72π.",
+      "distractor_explanations": {
+        "A": "This uses r = 3 but the cone formula, (1/3)πr²h.",
+        "C": "This uses the sphere's radius 5 as the cylinder's radius.",
+        "D": "This uses the full height with the diameter, r = √(10² − 8²) = 6."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where is the center of the sphere relative to the cylinder?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a cross section through the axis."
+      },
+      "remember": "Find a hidden radius with a right triangle.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-10",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000858",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Complementary-angle identity in context",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A kite is flying at the end of a straight, taut string 50 meters long, held at ground level. The string makes an angle of x° with the level ground, and cos(90 − x)° = 0.6. How many meters above the ground is the kite?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18",
+        "B": "20",
+        "C": "30",
+        "D": "40"
+      },
+      "correct_answer": "C",
+      "explanation": "cos(90 − x)° = sin x° = 0.6. The height is the side opposite the angle, with the string as the hypotenuse: 50 sin x° = 30.",
+      "distractor_explanations": {
+        "A": "This multiplies 30 by 0.6 again, applying the ratio twice.",
+        "B": "This subtracts the height from the string length, 50 − 30.",
+        "D": "This reads cos(90 − x)° = 0.6 as cos x° = 0.6, so sin x° = 0.8 and the height is 40."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is cos(90 − x)° equal to?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with the string as the hypotenuse."
+      },
+      "remember": "cos(90° − x) = sin x.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-11",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000859",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Two special right triangles sharing a side",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In quadrilateral ABCD, angle ABC and angle ACD are right angles. The measure of angle BAC is 30°, the measure of angle CAD is 45°, and AB = 6. What is the length of AD ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2√3",
+        "B": "4√3",
+        "C": "4√6",
+        "D": "12√2"
+      },
+      "correct_answer": "C",
+      "explanation": "In triangle ABC, AB is the leg adjacent to the 30° angle, so AB = (√3/2)AC and AC = 12/√3 = 4√3. Triangle ACD is an isosceles right triangle with leg AC, so AD = 4√3 · √2 = 4√6.",
+      "distractor_explanations": {
+        "A": "This divides AC by 2 instead of multiplying by √2.",
+        "B": "This stops at AC.",
+        "D": "This treats AB as the leg opposite the 30° angle, so AC = 12, then multiplies by √2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which leg of the 30°-60°-90° triangle is AB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both triangles along the shared side AC."
+      },
+      "remember": "In a 30-60-90 triangle, the longer leg is √3 times the shorter.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-12",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000860",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Equilateral triangle inside a square",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Square ABCD has its vertices in counterclockwise order. Point P lies inside the square so that triangle PAB is equilateral. What is the measure, in degrees, of angle PDC ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "75",
+          "rationale": "75 is angle ADP, not angle PDC.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is angle PAD.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "60",
+          "rationale": "60 assumes triangle PCD is also equilateral.",
+          "trap": null
+        }
+      ],
+      "explanation": "Angle PAD = 90° − 60° = 30°, and AP = AB = AD, so triangle APD is isosceles with base angles (180° − 30°)/2 = 75°. Then angle PDC = 90° − 75° = 15°.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which two sides of triangle APD are equal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square, the equilateral triangle, and segment PD."
+      },
+      "remember": "Equal sides of a square can create hidden isosceles triangles.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-13",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [
+          "minor: classic square-with-equilateral-triangle configuration, familiar from competition practice."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000861",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Bisectors of same-side interior angles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Parallel lines ℓ and m are cut by a transversal t at point A on ℓ and point B on m. Point P lies between ℓ and m, on one side of t. On that side, the angle at A between ray AB and line ℓ measures 64°. Ray AP bisects that angle, and ray BP bisects the angle at B between ray BA and line m on the same side. What is the measure, in degrees, of angle APB ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "116",
+          "rationale": "116 assumes the angle at B is also 64°: 180 − 32 − 32.",
+          "trap": null
+        },
+        {
+          "value": "148",
+          "rationale": "148 drops the bisection at B: 180 − 32.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "32",
+          "rationale": "32 is half of 64°, not angle APB.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The angles at A and B on the same side of t are same-side interior angles, so the angle at B is 180° − 64° = 116°. Their halves are 32° and 58°, so in triangle APB, angle APB = 180° − 32° − 58° = 90°.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How are the two bisected angles related?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the parallel lines, the transversal, and both bisectors."
+      },
+      "remember": "Same-side interior angles are supplementary.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "Q077-14",
+      "created_at": "2026-10-27T18:40:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "90",
+        "blind_answer": "90",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: the 64 degree value is irrelevant (bisectors of same-side interior angles always meet at 90), so a student may guess 90 without computing; arguably over-determined/red-herring data."
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-077.review.json",
+        "computation": "checks/sat_math/batch_077.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

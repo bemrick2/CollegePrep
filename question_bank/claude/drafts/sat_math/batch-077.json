@@ -1,678 +1,678 @@
 {
- "bank": "sat_math",
- "batch": 77,
- "plan": "SAT Math batch 77: 13 items from idea set 23 (RB09, RB12, RB14, RB15, RB16, RB18, RD03, RD06, RD07, RD08, RD09, RD11, RD12; pre-checked in ideas-070.repeats.json). Fixes: RB18 domain attached to g only; RD09 over-50 distractors replaced with real-error values (18, 20); RD11 choice A changed to 2*sqrt(3) to remove the shared-part cue; RB12/RB14/RB18 choices reordered for key balance. Plus Q076-10 resubmitted as revision 2 (64 degrees now the bisected angle, so it is used). Keep-apart pairs honored with batch 76. Difficulty provisional.",
- "candidates": [
-  {
-   "cand": "Q077-01",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Percent increase turned into a growth factor",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "The population of a species of beetle in a field is modeled by P(t) = 1,000 · 2^(t/5), where t is the number of years since 2020. How many years after 2020 is the population 700% greater than it was in 2020?",
-   "explanation": "700% greater means 1,000 + 7(1,000) = 8,000, so 2^(t/5) = 8 = 2³. Then t/5 = 3 and t = 15.",
-   "hints": [
-    "What multiple of the starting population is 700% greater?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Convert the percent increase to a factor, then match powers of 2."
-   },
-   "remember": "x% greater means multiply by 1 + x/100.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "3",
-    "B": "14",
-    "C": "15",
-    "D": "40"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This finds the number of doubling periods, t/5 = 3, and forgets to multiply by 5.",
-     "trap": "partial_answer"
+  "bank": "sat_math",
+  "batch": 77,
+  "plan": "SAT Math batch 77: 13 items from idea set 23 (RB09, RB12, RB14, RB15, RB16, RB18, RD03, RD06, RD07, RD08, RD09, RD11, RD12; pre-checked in ideas-070.repeats.json). Fixes: RB18 domain attached to g only; RD09 over-50 distractors replaced with real-error values (18, 20); RD11 choice A changed to 2*sqrt(3) to remove the shared-part cue; RB12/RB14/RB18 choices reordered for key balance. Plus Q076-10 resubmitted as revision 2 (64 degrees now the bisected angle, so it is used). Keep-apart pairs honored with batch 76. Difficulty provisional.",
+  "candidates": [
+    {
+      "cand": "Q077-01",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Percent increase turned into a growth factor",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "The population of a species of beetle in a field is modeled by P(t) = 1,000 · 2^(t/5), where t is the number of years since 2020. How many years after 2020 is the population 700% greater than it was in 2020?",
+      "explanation": "700% greater means 1,000 + 7(1,000) = 8,000, so 2^(t/5) = 8 = 2³. Then t/5 = 3 and t = 15.",
+      "hints": [
+        "What multiple of the starting population is 700% greater?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the percent increase to a factor, then match powers of 2."
+      },
+      "remember": "x% greater means multiply by 1 + x/100.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "3",
+        "B": "14",
+        "C": "15",
+        "D": "40"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This finds the number of doubling periods, t/5 = 3, and forgets to multiply by 5.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This reads \"700% greater\" as 7 times as large and solves 2^(t/5) = 7, giving about 14.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This counts 8 doublings instead of the 3 doublings that multiply by 8.",
+          "trap": null
+        }
+      }
     },
-    "B": {
-     "rationale": "This reads \"700% greater\" as 7 times as large and solves 2^(t/5) = 7, giving about 14.",
-     "trap": null
+    {
+      "cand": "Q077-02",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential model from unevenly spaced inputs",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "easy",
+      "stem": "The table shows three values of a function P.\nt: 0, 2, 5\nP(t): 400, 484, 644.204\nWhich of the following could define P ?",
+      "explanation": "400(1.1)² = 484 and 400(1.1)⁵ = 644.204. The step from t = 0 to t = 2 is two units, so the factor 1.21 covers two units and the factor per unit is 1.1.",
+      "hints": [
+        "How many units of t separate the first two rows?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice at t = 2 and t = 5."
+      },
+      "remember": "Check every row of a table, not just the first two.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "P(t) = 400(1.21)ᵗ",
+        "B": "P(t) = 400(1.1)ᵗ",
+        "C": "P(t) = 400(1.1)^(t/2)",
+        "D": "P(t) = 400 + 42t"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This treats the factor over the first two-unit gap as the factor per unit.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This finds the right base but also divides the exponent by the gap.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This line fits the first two points but gives 610, not 644.204, at t = 5.",
+          "trap": "partial_answer"
+        }
+      }
     },
-    "D": {
-     "rationale": "This counts 8 doublings instead of the 3 doublings that multiply by 8.",
-     "trap": null
+    {
+      "cand": "Q077-03",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Translation read from a completed square",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "easy",
+      "stem": "Which of the following describes a translation that maps the graph of y = x² onto the graph of y = x² + 6x + 4 in the xy-plane?",
+      "explanation": "Completing the square gives x² + 6x + 4 = (x + 3)² − 5, so the vertex moves from (0, 0) to (−3, −5): 3 units left and 5 units down.",
+      "hints": [
+        "Complete the square."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite in vertex form, then read the vertex."
+      },
+      "remember": "y = (x − h)² + k has vertex (h, k).",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "3 units left and 5 units down",
+        "B": "3 units right and 5 units down",
+        "C": "3 units left and 4 units up",
+        "D": "6 units left and 4 units up"
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "This reads (x + 3)² as a shift to the right.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This takes the constant term 4 of the standard form as the vertical shift.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This reads the coefficients 6 and 4 directly as the shifts.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-04",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Second intersection of a line and a parabola",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, a line passes through the point (0, −1) and intersects the parabola y = x² at two points. One of these points is (4, 16). What is the x-coordinate of the other point?",
+      "explanation": "The slope is (16 − (−1))/4 = 17/4, so x² = (17/4)x − 1, or 4x² − 17x + 4 = 0 = (4x − 1)(x − 4). The other x-coordinate is 1/4. (For any line y = mx − 1, the two x-coordinates multiply to 1.)",
+      "hints": [
+        "Find the slope of the line first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x² equal to the line and factor."
+      },
+      "remember": "Product of roots of ax² + bx + c is c/a.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The line must be found from two points before the system can be solved."
+      },
+      "format": "spr",
+      "answer": "1/4",
+      "accepted_answers": [
+        "1/4",
+        ".25",
+        "0.25"
+      ],
+      "common_errors": [
+        {
+          "value": "-4",
+          "rationale": "−4 assumes the two points are symmetric about the y-axis.",
+          "trap": null
+        },
+        {
+          "value": "-1/4",
+          "rationale": "−1/4 takes the product of the x-coordinates as −1 instead of 1.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "17/4",
+          "rationale": "17/4 is the slope of the line.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q077-05",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constants from a quadratic factor of a quartic",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "The polynomial p is defined by p(x) = x⁴ + ax² + b, where a and b are constants. If x² − 3x + 2 is a factor of p(x), what is the value of b ?",
+      "explanation": "x² − 3x + 2 = (x − 1)(x − 2), so p(1) = 1 + a + b = 0 and p(2) = 16 + 4a + b = 0. Subtracting gives 15 + 3a = 0, so a = −5 and b = 4. Check: x⁴ − 5x² + 4 = (x − 1)(x + 1)(x − 2)(x + 2).",
+      "hints": [
+        "Factor x² − 3x + 2 into two linear factors."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use p(1) = 0 and p(2) = 0."
+      },
+      "remember": "If x − r is a factor of p, then p(r) = 0.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The quadratic factor must be split into two linear factors to get two equations."
+      },
+      "format": "spr",
+      "answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "-5",
+          "rationale": "−5 is the value of a.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the constant term of the given factor.",
+          "trap": null
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 stops at a + b = −1.",
+          "trap": "partial_answer"
+        }
+      ]
+    },
+    {
+      "cand": "Q077-06",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Composition that looks like an inverse",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "The function f is defined by f(x) = x² − 4, and the function g is defined by g(x) = √(x + 4) for x ≥ −4. For which values of x is g(f(x)) = x ?",
+      "explanation": "g(f(x)) = √(x² − 4 + 4) = √(x²) = |x|, which equals x exactly when x ≥ 0. Since f(x) + 4 = x² is never negative, g(f(x)) is defined for every real x.",
+      "hints": [
+        "What is √(x²) for a negative x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = −3: g(f(−3)) = √9 = 3."
+      },
+      "remember": "√(x²) = |x|, not x.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must see that √(x²) = |x| inside a composition of apparent inverses."
+      },
+      "choices": {
+        "A": "x ≥ −4",
+        "B": "x ≥ 0",
+        "C": "x ≥ 2",
+        "D": "All real numbers"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This uses the domain of g as the answer.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This requires f(x) ≥ 0, as if the radicand were f(x).",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This assumes the square root undoes the square for every x, but √(x²) = |x|.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-07",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Chord between two tangent points",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "From point P outside a circle with center O and radius 6, segments PA and PB are tangent to the circle at points A and B, and PA = 8. What is the length of chord AB ?",
+      "explanation": "OA ⊥ PA, so PO = 10. Chord AB is perpendicular to PO at a point M, and AM is the altitude from the right angle of triangle OAP, so AM = (6)(8)/10 = 4.8 and AB = 2(4.8) = 9.6.",
+      "hints": [
+        "What angle does a tangent make with the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw OA, OB, and OP."
+      },
+      "remember": "A tangent is perpendicular to the radius at the point of tangency.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must build the right triangle OAP and see half the chord as its altitude."
+      },
+      "choices": {
+        "A": "4.8",
+        "B": "7.2",
+        "C": "9.6",
+        "D": "12.8"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This finds AM but forgets that M is the midpoint of AB.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "This doubles OM = 6²/10 = 3.6, the distance from O to the chord.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This doubles PM = 8²/10 = 6.4.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-08",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Crossing height of two wires between poles",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "Two vertical poles stand on level ground 15 meters apart. One pole is 6 meters tall, and the other is 9 meters tall. A straight wire runs from the top of each pole to the bottom of the other pole. How many meters above the ground do the two wires cross?",
+      "explanation": "Let the crossing be h meters high and x meters from the 6-meter pole. Similar triangles give h/x = 9/15 and h/(15 − x) = 6/15. Then x = 15h/9 and 15 − x = 15h/6, so 15 = 15h(1/9 + 1/6) and h = 1/(1/6 + 1/9) = 3.6.",
+      "hints": [
+        "Write a similar-triangle ratio for each wire."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both poles, both wires, and the crossing point."
+      },
+      "remember": "Two pairs of similar triangles can share an unknown.",
+      "expected_time_seconds": 140,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two pairs of similar triangles share the height, and the position must be eliminated."
+      },
+      "format": "spr",
+      "answer": "3.6",
+      "accepted_answers": [
+        "3.6",
+        "18/5"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 averages the two heights.",
+          "trap": null
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 assumes the wires cross halfway between the poles.",
+          "trap": null
+        },
+        {
+          "value": "54",
+          "rationale": "54 multiplies the heights and forgets to divide by their sum.",
+          "trap": "partial_answer"
+        }
+      ]
+    },
+    {
+      "cand": "Q077-09",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed angle, central angle, and tangent",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "Segment AB is a diameter of a circle with center O, and point C lies on the circle. The measure of angle CAB is 25°. The line tangent to the circle at C intersects line AB at point D, which lies beyond B. What is the measure, in degrees, of angle ADC ?",
+      "explanation": "The inscribed angle CAB intercepts arc CB, so the central angle COB is 50°. The tangent is perpendicular to radius OC, so triangle OCD has a right angle at C, and angle ODC = 180° − 90° − 50° = 40°.",
+      "hints": [
+        "What is the central angle on the same arc as angle CAB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw radius OC and triangle OCD."
+      },
+      "remember": "A central angle is twice an inscribed angle on the same arc.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "An inscribed angle must be converted to a central angle and combined with the tangent's right angle."
+      },
+      "format": "spr",
+      "answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 is the central angle COB.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "65",
+          "rationale": "65 uses the inscribed angle instead of the central angle: 180 − 90 − 25.",
+          "trap": null
+        },
+        {
+          "value": "25",
+          "rationale": "25 assumes angle ADC equals angle CAB.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q077-10",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Cylinder inscribed in a sphere",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "A right circular cylinder with a height of 8 centimeters is inscribed in a sphere with a radius of 5 centimeters, so that the circular edges of both bases of the cylinder lie on the sphere. What is the volume, in cubic centimeters, of the cylinder?",
+      "explanation": "The center of the sphere is the midpoint of the cylinder's axis, so a point on a base edge is 4 cm from the center along the axis and r cm to the side: r² + 4² = 5², so r = 3. The volume is π(3²)(8) = 72π.",
+      "hints": [
+        "Where is the center of the sphere relative to the cylinder?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw a cross section through the axis."
+      },
+      "remember": "Find a hidden radius with a right triangle.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "24π",
+        "B": "72π",
+        "C": "200π",
+        "D": "288π"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This uses r = 3 but the cone formula, (1/3)πr²h.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "This uses the sphere's radius 5 as the cylinder's radius.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This uses the full height with the diameter, r = √(10² − 8²) = 6.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-11",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Complementary-angle identity in context",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "easy",
+      "stem": "A kite is flying at the end of a straight, taut string 50 meters long, held at ground level. The string makes an angle of x° with the level ground, and cos(90 − x)° = 0.6. How many meters above the ground is the kite?",
+      "explanation": "cos(90 − x)° = sin x° = 0.6. The height is the side opposite the angle, with the string as the hypotenuse: 50 sin x° = 30.",
+      "hints": [
+        "What is cos(90 − x)° equal to?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle with the string as the hypotenuse."
+      },
+      "remember": "cos(90° − x) = sin x.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "18",
+        "B": "20",
+        "C": "30",
+        "D": "40"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This multiplies 30 by 0.6 again, applying the ratio twice.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This subtracts the height from the string length, 50 − 30.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This reads cos(90 − x)° = 0.6 as cos x° = 0.6, so sin x° = 0.8 and the height is 40.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-12",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Two special right triangles sharing a side",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "In quadrilateral ABCD, angle ABC and angle ACD are right angles. The measure of angle BAC is 30°, the measure of angle CAD is 45°, and AB = 6. What is the length of AD ?",
+      "explanation": "In triangle ABC, AB is the leg adjacent to the 30° angle, so AB = (√3/2)AC and AC = 12/√3 = 4√3. Triangle ACD is an isosceles right triangle with leg AC, so AD = 4√3 · √2 = 4√6.",
+      "hints": [
+        "Which leg of the 30°-60°-90° triangle is AB?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both triangles along the shared side AC."
+      },
+      "remember": "In a 30-60-90 triangle, the longer leg is √3 times the shorter.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two special triangles are stacked, and the given leg is the one adjacent to 30°."
+      },
+      "choices": {
+        "A": "2√3",
+        "B": "4√3",
+        "C": "4√6",
+        "D": "12√2"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "This divides AC by 2 instead of multiplying by √2.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This stops at AC.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "This treats AB as the leg opposite the 30° angle, so AC = 12, then multiplies by √2.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q077-13",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Equilateral triangle inside a square",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "hard",
+      "stem": "Square ABCD has its vertices in counterclockwise order. Point P lies inside the square so that triangle PAB is equilateral. What is the measure, in degrees, of angle PDC ?",
+      "explanation": "Angle PAD = 90° − 60° = 30°, and AP = AB = AD, so triangle APD is isosceles with base angles (180° − 30°)/2 = 75°. Then angle PDC = 90° − 75° = 15°.",
+      "hints": [
+        "Which two sides of triangle APD are equal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the square, the equilateral triangle, and segment PD."
+      },
+      "remember": "Equal sides of a square can create hidden isosceles triangles.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The key step is noticing AP = AD, so triangle APD is isosceles."
+      },
+      "format": "spr",
+      "answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "75",
+          "rationale": "75 is angle ADP, not angle PDC.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 is angle PAD.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "60",
+          "rationale": "60 assumes triangle PCD is also equilateral.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q077-14",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Bisectors of same-side interior angles",
+      "repo_skill_key": "sat_geometry_trig",
+      "difficulty": "medium",
+      "stem": "Parallel lines ℓ and m are cut by a transversal t at point A on ℓ and point B on m. Point P lies between ℓ and m, on one side of t. On that side, the angle at A between ray AB and line ℓ measures 64°. Ray AP bisects that angle, and ray BP bisects the angle at B between ray BA and line m on the same side. What is the measure, in degrees, of angle APB ?",
+      "explanation": "The angles at A and B on the same side of t are same-side interior angles, so the angle at B is 180° − 64° = 116°. Their halves are 32° and 58°, so in triangle APB, angle APB = 180° − 32° − 58° = 90°.",
+      "hints": [
+        "How are the two bisected angles related?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the parallel lines, the transversal, and both bisectors."
+      },
+      "remember": "Same-side interior angles are supplementary.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The given 64° does not matter; halves of a supplementary pair always sum to 90°."
+      },
+      "format": "spr",
+      "answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "116",
+          "rationale": "116 assumes the angle at B is also 64°: 180 − 32 − 32.",
+          "trap": null
+        },
+        {
+          "value": "148",
+          "rationale": "148 drops the bisection at B: 180 − 32.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "32",
+          "rationale": "32 is half of 64°, not angle APB.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver: the given 64 degrees was unused (pure theorem recall)",
+          "change": "stem now makes 64 degrees the angle being bisected at A, so it is used; traps updated"
+        }
+      ]
     }
-   }
-  },
-  {
-   "cand": "Q077-02",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Exponential model from unevenly spaced inputs",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "The table shows three values of a function P.\nt: 0, 2, 5\nP(t): 400, 484, 644.204\nWhich of the following could define P ?",
-   "explanation": "400(1.1)² = 484 and 400(1.1)⁵ = 644.204. The step from t = 0 to t = 2 is two units, so the factor 1.21 covers two units and the factor per unit is 1.1.",
-   "hints": [
-    "How many units of t separate the first two rows?"
-   ],
-   "strategy": {
-    "key": "backsolve",
-    "explanation": "Test each choice at t = 2 and t = 5."
-   },
-   "remember": "Check every row of a table, not just the first two.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "P(t) = 400(1.21)ᵗ",
-    "B": "P(t) = 400(1.1)ᵗ",
-    "C": "P(t) = 400(1.1)^(t/2)",
-    "D": "P(t) = 400 + 42t"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This treats the factor over the first two-unit gap as the factor per unit.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This finds the right base but also divides the exponent by the gap.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This line fits the first two points but gives 610, not 644.204, at t = 5.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q077-03",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Translation read from a completed square",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "easy",
-   "stem": "Which of the following describes a translation that maps the graph of y = x² onto the graph of y = x² + 6x + 4 in the xy-plane?",
-   "explanation": "Completing the square gives x² + 6x + 4 = (x + 3)² − 5, so the vertex moves from (0, 0) to (−3, −5): 3 units left and 5 units down.",
-   "hints": [
-    "Complete the square."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Rewrite in vertex form, then read the vertex."
-   },
-   "remember": "y = (x − h)² + k has vertex (h, k).",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "3 units left and 5 units down",
-    "B": "3 units right and 5 units down",
-    "C": "3 units left and 4 units up",
-    "D": "6 units left and 4 units up"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "This reads (x + 3)² as a shift to the right.",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "This takes the constant term 4 of the standard form as the vertical shift.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This reads the coefficients 6 and 4 directly as the shifts.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-04",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Second intersection of a line and a parabola",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, a line passes through the point (0, −1) and intersects the parabola y = x² at two points. One of these points is (4, 16). What is the x-coordinate of the other point?",
-   "explanation": "The slope is (16 − (−1))/4 = 17/4, so x² = (17/4)x − 1, or 4x² − 17x + 4 = 0 = (4x − 1)(x − 4). The other x-coordinate is 1/4. (For any line y = mx − 1, the two x-coordinates multiply to 1.)",
-   "hints": [
-    "Find the slope of the line first."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Set x² equal to the line and factor."
-   },
-   "remember": "Product of roots of ax² + bx + c is c/a.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The line must be found from two points before the system can be solved."
-   },
-   "format": "spr",
-   "answer": "1/4",
-   "accepted_answers": [
-    "1/4",
-    ".25",
-    "0.25"
-   ],
-   "common_errors": [
-    {
-     "value": "-4",
-     "rationale": "−4 assumes the two points are symmetric about the y-axis.",
-     "trap": null
-    },
-    {
-     "value": "-1/4",
-     "rationale": "−1/4 takes the product of the x-coordinates as −1 instead of 1.",
-     "trap": "sign_error"
-    },
-    {
-     "value": "17/4",
-     "rationale": "17/4 is the slope of the line.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q077-05",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Constants from a quadratic factor of a quartic",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "The polynomial p is defined by p(x) = x⁴ + ax² + b, where a and b are constants. If x² − 3x + 2 is a factor of p(x), what is the value of b ?",
-   "explanation": "x² − 3x + 2 = (x − 1)(x − 2), so p(1) = 1 + a + b = 0 and p(2) = 16 + 4a + b = 0. Subtracting gives 15 + 3a = 0, so a = −5 and b = 4. Check: x⁴ − 5x² + 4 = (x − 1)(x + 1)(x − 2)(x + 2).",
-   "hints": [
-    "Factor x² − 3x + 2 into two linear factors."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use p(1) = 0 and p(2) = 0."
-   },
-   "remember": "If x − r is a factor of p, then p(r) = 0.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The quadratic factor must be split into two linear factors to get two equations."
-   },
-   "format": "spr",
-   "answer": "4",
-   "accepted_answers": [
-    "4"
-   ],
-   "common_errors": [
-    {
-     "value": "-5",
-     "rationale": "−5 is the value of a.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "2",
-     "rationale": "2 is the constant term of the given factor.",
-     "trap": null
-    },
-    {
-     "value": "-1",
-     "rationale": "−1 stops at a + b = −1.",
-     "trap": "partial_answer"
-    }
-   ]
-  },
-  {
-   "cand": "Q077-06",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Composition that looks like an inverse",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "The function f is defined by f(x) = x² − 4, and the function g is defined by g(x) = √(x + 4) for x ≥ −4. For which values of x is g(f(x)) = x ?",
-   "explanation": "g(f(x)) = √(x² − 4 + 4) = √(x²) = |x|, which equals x exactly when x ≥ 0. Since f(x) + 4 = x² is never negative, g(f(x)) is defined for every real x.",
-   "hints": [
-    "What is √(x²) for a negative x?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Try x = −3: g(f(−3)) = √9 = 3."
-   },
-   "remember": "√(x²) = |x|, not x.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must see that √(x²) = |x| inside a composition of apparent inverses."
-   },
-   "choices": {
-    "A": "x ≥ −4",
-    "B": "x ≥ 0",
-    "C": "x ≥ 2",
-    "D": "All real numbers"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This uses the domain of g as the answer.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This requires f(x) ≥ 0, as if the radicand were f(x).",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This assumes the square root undoes the square for every x, but √(x²) = |x|.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-07",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Chord between two tangent points",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "From point P outside a circle with center O and radius 6, segments PA and PB are tangent to the circle at points A and B, and PA = 8. What is the length of chord AB ?",
-   "explanation": "OA ⊥ PA, so PO = 10. Chord AB is perpendicular to PO at a point M, and AM is the altitude from the right angle of triangle OAP, so AM = (6)(8)/10 = 4.8 and AB = 2(4.8) = 9.6.",
-   "hints": [
-    "What angle does a tangent make with the radius?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw OA, OB, and OP."
-   },
-   "remember": "A tangent is perpendicular to the radius at the point of tangency.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must build the right triangle OAP and see half the chord as its altitude."
-   },
-   "choices": {
-    "A": "4.8",
-    "B": "7.2",
-    "C": "9.6",
-    "D": "12.8"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This finds AM but forgets that M is the midpoint of AB.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "This doubles OM = 6²/10 = 3.6, the distance from O to the chord.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This doubles PM = 8²/10 = 6.4.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-08",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Crossing height of two wires between poles",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "Two vertical poles stand on level ground 15 meters apart. One pole is 6 meters tall, and the other is 9 meters tall. A straight wire runs from the top of each pole to the bottom of the other pole. How many meters above the ground do the two wires cross?",
-   "explanation": "Let the crossing be h meters high and x meters from the 6-meter pole. Similar triangles give h/x = 9/15 and h/(15 − x) = 6/15. Then x = 15h/9 and 15 − x = 15h/6, so 15 = 15h(1/9 + 1/6) and h = 1/(1/6 + 1/9) = 3.6.",
-   "hints": [
-    "Write a similar-triangle ratio for each wire."
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw both poles, both wires, and the crossing point."
-   },
-   "remember": "Two pairs of similar triangles can share an unknown.",
-   "expected_time_seconds": 140,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Two pairs of similar triangles share the height, and the position must be eliminated."
-   },
-   "format": "spr",
-   "answer": "3.6",
-   "accepted_answers": [
-    "3.6",
-    "18/5"
-   ],
-   "common_errors": [
-    {
-     "value": "7.5",
-     "rationale": "7.5 averages the two heights.",
-     "trap": null
-    },
-    {
-     "value": "4.5",
-     "rationale": "4.5 assumes the wires cross halfway between the poles.",
-     "trap": null
-    },
-    {
-     "value": "54",
-     "rationale": "54 multiplies the heights and forgets to divide by their sum.",
-     "trap": "partial_answer"
-    }
-   ]
-  },
-  {
-   "cand": "Q077-09",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Inscribed angle, central angle, and tangent",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "Segment AB is a diameter of a circle with center O, and point C lies on the circle. The measure of angle CAB is 25°. The line tangent to the circle at C intersects line AB at point D, which lies beyond B. What is the measure, in degrees, of angle ADC ?",
-   "explanation": "The inscribed angle CAB intercepts arc CB, so the central angle COB is 50°. The tangent is perpendicular to radius OC, so triangle OCD has a right angle at C, and angle ODC = 180° − 90° − 50° = 40°.",
-   "hints": [
-    "What is the central angle on the same arc as angle CAB?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw radius OC and triangle OCD."
-   },
-   "remember": "A central angle is twice an inscribed angle on the same arc.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "An inscribed angle must be converted to a central angle and combined with the tangent's right angle."
-   },
-   "format": "spr",
-   "answer": "40",
-   "accepted_answers": [
-    "40"
-   ],
-   "common_errors": [
-    {
-     "value": "50",
-     "rationale": "50 is the central angle COB.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "65",
-     "rationale": "65 uses the inscribed angle instead of the central angle: 180 − 90 − 25.",
-     "trap": null
-    },
-    {
-     "value": "25",
-     "rationale": "25 assumes angle ADC equals angle CAB.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q077-10",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Cylinder inscribed in a sphere",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "A right circular cylinder with a height of 8 centimeters is inscribed in a sphere with a radius of 5 centimeters, so that the circular edges of both bases of the cylinder lie on the sphere. What is the volume, in cubic centimeters, of the cylinder?",
-   "explanation": "The center of the sphere is the midpoint of the cylinder's axis, so a point on a base edge is 4 cm from the center along the axis and r cm to the side: r² + 4² = 5², so r = 3. The volume is π(3²)(8) = 72π.",
-   "hints": [
-    "Where is the center of the sphere relative to the cylinder?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw a cross section through the axis."
-   },
-   "remember": "Find a hidden radius with a right triangle.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "24π",
-    "B": "72π",
-    "C": "200π",
-    "D": "288π"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This uses r = 3 but the cone formula, (1/3)πr²h.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This uses the sphere's radius 5 as the cylinder's radius.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This uses the full height with the diameter, r = √(10² − 8²) = 6.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-11",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Complementary-angle identity in context",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "easy",
-   "stem": "A kite is flying at the end of a straight, taut string 50 meters long, held at ground level. The string makes an angle of x° with the level ground, and cos(90 − x)° = 0.6. How many meters above the ground is the kite?",
-   "explanation": "cos(90 − x)° = sin x° = 0.6. The height is the side opposite the angle, with the string as the hypotenuse: 50 sin x° = 30.",
-   "hints": [
-    "What is cos(90 − x)° equal to?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw the right triangle with the string as the hypotenuse."
-   },
-   "remember": "cos(90° − x) = sin x.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "18",
-    "B": "20",
-    "C": "30",
-    "D": "40"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This multiplies 30 by 0.6 again, applying the ratio twice.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This subtracts the height from the string length, 50 − 30.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This reads cos(90 − x)° = 0.6 as cos x° = 0.6, so sin x° = 0.8 and the height is 40.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-12",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Two special right triangles sharing a side",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "In quadrilateral ABCD, angle ABC and angle ACD are right angles. The measure of angle BAC is 30°, the measure of angle CAD is 45°, and AB = 6. What is the length of AD ?",
-   "explanation": "In triangle ABC, AB is the leg adjacent to the 30° angle, so AB = (√3/2)AC and AC = 12/√3 = 4√3. Triangle ACD is an isosceles right triangle with leg AC, so AD = 4√3 · √2 = 4√6.",
-   "hints": [
-    "Which leg of the 30°-60°-90° triangle is AB?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw both triangles along the shared side AC."
-   },
-   "remember": "In a 30-60-90 triangle, the longer leg is √3 times the shorter.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Two special triangles are stacked, and the given leg is the one adjacent to 30°."
-   },
-   "choices": {
-    "A": "2√3",
-    "B": "4√3",
-    "C": "4√6",
-    "D": "12√2"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "This divides AC by 2 instead of multiplying by √2.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This stops at AC.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "This treats AB as the leg opposite the 30° angle, so AC = 12, then multiplies by √2.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q077-13",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Equilateral triangle inside a square",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
-   "stem": "Square ABCD has its vertices in counterclockwise order. Point P lies inside the square so that triangle PAB is equilateral. What is the measure, in degrees, of angle PDC ?",
-   "explanation": "Angle PAD = 90° − 60° = 30°, and AP = AB = AD, so triangle APD is isosceles with base angles (180° − 30°)/2 = 75°. Then angle PDC = 90° − 75° = 15°.",
-   "hints": [
-    "Which two sides of triangle APD are equal?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw the square, the equilateral triangle, and segment PD."
-   },
-   "remember": "Equal sides of a square can create hidden isosceles triangles.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The key step is noticing AP = AD, so triangle APD is isosceles."
-   },
-   "format": "spr",
-   "answer": "15",
-   "accepted_answers": [
-    "15"
-   ],
-   "common_errors": [
-    {
-     "value": "75",
-     "rationale": "75 is angle ADP, not angle PDC.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "30",
-     "rationale": "30 is angle PAD.",
-     "trap": "wrong_quantity"
-    },
-    {
-     "value": "60",
-     "rationale": "60 assumes triangle PCD is also equilateral.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q077-14",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Bisectors of same-side interior angles",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "Parallel lines ℓ and m are cut by a transversal t at point A on ℓ and point B on m. Point P lies between ℓ and m, on one side of t. On that side, the angle at A between ray AB and line ℓ measures 64°. Ray AP bisects that angle, and ray BP bisects the angle at B between ray BA and line m on the same side. What is the measure, in degrees, of angle APB ?",
-   "explanation": "The angles at A and B on the same side of t are same-side interior angles, so the angle at B is 180° − 64° = 116°. Their halves are 32° and 58°, so in triangle APB, angle APB = 180° − 32° − 58° = 90°.",
-   "hints": [
-    "How are the two bisected angles related?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Draw the parallel lines, the transversal, and both bisectors."
-   },
-   "remember": "Same-side interior angles are supplementary.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The given 64° does not matter; halves of a supplementary pair always sum to 90°."
-   },
-   "format": "spr",
-   "answer": "90",
-   "accepted_answers": [
-    "90"
-   ],
-   "common_errors": [
-    {
-     "value": "116",
-     "rationale": "116 assumes the angle at B is also 64°: 180 − 32 − 32.",
-     "trap": null
-    },
-    {
-     "value": "148",
-     "rationale": "148 drops the bisection at B: 180 − 32.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "32",
-     "rationale": "32 is half of 64°, not angle APB.",
-     "trap": "wrong_quantity"
-    }
-   ],
-   "revision": 2,
-   "revision_history": [
-    {
-     "round": 1,
-     "outcome": "REVISE",
-     "reason": "blind solver: the given 64 degrees was unused (pure theorem recall)",
-     "change": "stem now makes 64 degrees the angle being bisected at A, so it is used; traps updated"
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 51,
-  "updated_at": "2026-10-27T18:22:36+00:00",
+  "version": 52,
+  "updated_at": "2026-10-27T18:40:26+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -542,6 +542,17 @@
       "word_count": 215,
       "text": "[1] In 1943, Richard James, a mechanical engineer at a Philadelphia shipyard, was designing springs to keep delicate instruments steady on ships at {{1|sea. When}} one of his springs fell from a shelf. [2] Instead of landing in a heap, the spring stepped end over end across the floor, {{2|it's coils}} flipping one over another. [3] James spent the next two years testing different steels and coil sizes {{3|until he finds}} a spring that would walk reliably.\n\n[4] His wife, Betty, searched the dictionary for a name and settled on \"Slinky,\" a word meaning sleek and graceful. [5] In November 1945, the couple persuaded Gimbels, a Philadelphia department store, to let them demonstrate the {{4|toy; they}} worried, though, that no one would buy it. [6] They need not have worried: within ninety minutes, all four hundred of the Slinkys they had brought {{5|was sold}}. {{7|}} [7] {{6|Nevertheless,}} the toy, priced at one dollar, was being sold in stores across the country.\n\n[8] Made from a single length of steel wire, {{8|children discovered that the toy could}} do far more than walk down stairs. [9] It could be stretched across a room, bounced like a yo-yo, or used by teachers to show how a wave travels. [10] {{9|Many other popular toys have also been invented by accident.}}",
       "batch": 51,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000052",
+      "title": "Clean Ice",
+      "genre": "informative essay",
+      "word_count": 205,
+      "text": "[1] In 1940, Frank Zamboni and two of his relatives opened Iceland, an ice rink in Paramount, California. [2] Smoothing the ice between sessions was slow work. [3] A team of workers had to scrape the surface, spray it with water, and squeegee it dry, a process that took more than an hour. [4] Skaters, many of {{1|who}} had paid for a full evening, spent that hour waiting.\n\n[5] Zamboni, who had worked as an electrician and in refrigeration, decided to build a machine that could do the job {{2|alone. Spending}} most of the 1940s on the problem. [6] His first successful {{3|model which he finished in 1949 combined}} three {{4|tasks: shaving}} the ice, washing it, and leaving behind a thin, smooth layer of water. [7] {{5|The machine did the job faster.}}\n\n[8] In 1950, the figure {{8|skater Sonja Henie}} saw the machine at Iceland and ordered two for her touring ice show. [9] Within a few years, rinks across the country were placing orders. [10] Each of the rinks that bought a machine {{6|were}} able to shorten the breaks between skating sessions. [11] Today, the name Zamboni is so familiar that many people use it for any ice resurfacer{{7|, regardless of who made it}}.",
+      "batch": 52,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -34744,6 +34755,574 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-051.review.json",
         "computation": "checks/act_english/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000483",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case (who vs. whom)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 1,
+      "evidence": "Skaters, many of",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "them",
+        "C": "whom",
+        "D": "whose"
+      },
+      "correct_answer": "C",
+      "explanation": "The pronoun follows the preposition \"of,\" so it must be in the object case: \"many of whom.\"",
+      "distractor_explanations": {
+        "A": "\"Who\" is a subject pronoun, but here the pronoun is the object of the preposition \"of.\"",
+        "B": "\"Many of them had paid\" would create a comma splice with the rest of the sentence.",
+        "D": "\"Whose\" shows possession, but nothing is possessed here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "What word comes right before the pronoun?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check whether the pronoun is a subject or an object."
+      },
+      "remember": "After a preposition, use \"whom,\" not \"who.\"",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-01",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000484",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence fragment (participial phrase)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 2,
+      "evidence": "decided to build a machine that could do the job",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "alone; spending",
+        "C": "alone, and spending",
+        "D": "alone, spending"
+      },
+      "correct_answer": "D",
+      "explanation": "The participial phrase \"spending most of the 1940s on the problem\" cannot stand alone; attaching it with a comma makes it modify Zamboni's decision.",
+      "distractor_explanations": {
+        "A": "\"Spending most of the 1940s on the problem\" has no subject or main verb, so it is a fragment.",
+        "B": "A semicolon must join two independent clauses, but the phrase after it is not one.",
+        "C": "\"And\" suggests a second main verb is coming, but \"spending\" is not one, leaving the sentence incomplete."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Can \"Spending most of the 1940s on the problem\" stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the second part as its own sentence."
+      },
+      "remember": "An -ing phrase without a subject cannot be a sentence.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-02",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000485",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Nonrestrictive clause punctuation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 3,
+      "evidence": "His first successful",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "model, which he finished in 1949, combined",
+        "C": "model, which he finished in 1949 combined",
+        "D": "model which he finished in 1949, combined"
+      },
+      "correct_answer": "B",
+      "explanation": "\"His first successful model\" names a single machine, so \"which he finished in 1949\" is nonessential and needs a comma on both sides.",
+      "distractor_explanations": {
+        "A": "The clause gives extra information about the one first successful model, so it must be set off by commas.",
+        "C": "The opening comma is never closed, so the clause runs into the verb.",
+        "D": "The comma before \"combined\" separates the subject from its verb without an opening comma to pair with it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the clause tell which model, or add extra information?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check for a matching pair of commas."
+      },
+      "remember": "Nonessential clauses need commas on both sides.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-03",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000486",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon introducing a list",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 4,
+      "evidence": "shaving the ice, washing it, and leaving behind",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "tasks; shaving",
+        "C": "tasks, such as: shaving",
+        "D": "tasks that were shaving"
+      },
+      "correct_answer": "A",
+      "explanation": "\"His first successful model ... combined three tasks\" is a complete clause, so a colon correctly introduces the list of the three tasks.",
+      "distractor_explanations": {
+        "B": "A semicolon must be followed by an independent clause, not a list.",
+        "C": "A colon should not follow \"such as,\" and \"such as\" wrongly suggests the list is incomplete.",
+        "D": "\"Tasks that were shaving\" is wordy and awkward, and it changes the list into an unclear clause."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Is the part before the punctuation a complete sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check what comes before and after the punctuation."
+      },
+      "remember": "A colon can introduce a list after a complete clause.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-04",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000487",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Accomplishing a specific goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 5,
+      "evidence": "a process that took more than an hour",
+      "figure": null,
+      "stem": "Which choice most effectively emphasizes how much the machine reduced the work of resurfacing the ice?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "The machine was a clear improvement over the old method of resurfacing.",
+        "C": "One driver could now do in minutes what had taken a crew more than an hour.",
+        "D": "The machine worked well on the ice at Iceland and at other rinks too."
+      },
+      "correct_answer": "C",
+      "explanation": "Only choice C compares the new method (one driver, minutes) with the old one (a crew, more than an hour), which shows how much the work was reduced.",
+      "distractor_explanations": {
+        "A": "\"Faster\" is vague and does not show how much work was saved.",
+        "B": "This says the machine was better but gives no sense of how much work it saved.",
+        "D": "This describes where it worked, not how much work it saved."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which choice shows a before-and-after difference?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the goal before reading the choices."
+      },
+      "remember": "Specific comparisons emphasize change better than general praise.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-05",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000488",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (\"each of\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 6,
+      "evidence": "Each of the rinks that bought a machine",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "was",
+        "C": "have been",
+        "D": "are"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Each\" is the subject and is singular; \"of the rinks that bought a machine\" does not change that, so the verb is \"was.\"",
+      "distractor_explanations": {
+        "A": "The subject is \"Each,\" which is singular, so the plural \"were\" does not agree.",
+        "C": "\"Have\" is plural and does not agree with \"Each.\"",
+        "D": "\"Are\" is plural and also shifts to the present tense."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the true subject of the sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out \"of the rinks that bought a machine.\""
+      },
+      "remember": "\"Each\" takes a singular verb.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-06",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000489",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Restrictive appositive (no commas)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": 8,
+      "evidence": "saw the machine at Iceland",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "skater, Sonja Henie,",
+        "C": "skater, Sonja Henie",
+        "D": "skater—Sonja Henie"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Sonja Henie\" tells which figure skater the sentence means, so it is essential and takes no commas.",
+      "distractor_explanations": {
+        "B": "Commas would suggest that Henie was the only figure skater, but the name identifies which skater is meant.",
+        "C": "A single comma wrongly separates the title from the name that identifies the skater.",
+        "D": "The dash sets off the name as an interruption that is never closed."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the name needed to identify the skater?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask whether the sentence would be clear without the name."
+      },
+      "remember": "Essential names after a title take no commas.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-08",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000490",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical placement of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000052",
+      "underline": null,
+      "evidence": "Within a few years, rinks across the country were placing orders.",
+      "figure": null,
+      "stem": "For the sake of logic and cohesion, Sentence 9 should be placed:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "where it is now.",
+        "B": "before Sentence 8.",
+        "C": "after Sentence 10.",
+        "D": "after Sentence 11."
+      },
+      "correct_answer": "A",
+      "explanation": "Henie's order in 1950 introduced the machine to a wider audience; \"Within a few years\" then describes the spread of orders, which leads to Sentence 10 about the rinks that bought machines.",
+      "distractor_explanations": {
+        "B": "Sentence 9's growing orders follow from the publicity of Henie's order in Sentence 8, so it should come after it.",
+        "C": "Sentence 10 describes what the rinks that bought machines could do, so the orders in Sentence 9 must come first.",
+        "D": "Sentence 11 concludes the essay with the present day; an event from the 1950s does not belong after it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What event does \"Within a few years\" follow?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph with the sentence in each position."
+      },
+      "remember": "Place a sentence where its time words and ideas connect.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 52,
+      "draft_candidate": "E052-09",
+      "created_at": "2026-10-27T18:40:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-052.review.json",
+        "computation": "checks/act_english/batch_052.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
