@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 37,
-  "updated_at": "2026-10-27T10:04:41+00:00",
+  "version": 38,
+  "updated_at": "2026-10-27T10:17:10+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -410,6 +410,17 @@
       "word_count": 251,
       "text": "In 1888, a young reporter for the New York World proposed a stunt: she would travel around the world faster than Phileas Fogg, the hero of Jules Verne's novel Around the World in Eighty Days. Her editors at first {{1|lead}} her to believe that a man would be sent instead, since a woman would supposedly need too much luggage. The reporter, who wrote under the name Nellie Bly, answered that if a man went, she would make the same trip for another newspaper and beat him.\n\nOn November 14, 1889, Bly boarded a steamship in New Jersey carrying a single small bag. {{2|}} She crossed the Atlantic to England and continued by train and boat to Amiens, France. When she stepped {{3|off of}} the train there, Verne and his wife were waiting to meet her. Back in New York, the World ran a contest inviting readers to guess the exact length of her trip, and a number of rival newspapers {{4|was}} following her progress.\n\n{{5|Bly continued east across Asia.}} On the day she left, a magazine called Cosmopolitan had sent its own reporter, Elizabeth Bisland, around the world in the opposite direction. The race between Bisland and {{6|she}} drew wide attention, yet for most of the trip neither of the women knew exactly {{7|were}} the other was.\n\nBly arrived back in New Jersey on January 25, 1890, seventy-two days after she had left. She had {{8|beat}} Fogg's fictional record by eight days, and {{9|thousands of people jammed the station to cheer her}}. {{10|}}",
       "batch": 37,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000038",
+      "title": "No Accident",
+      "genre": "informative essay",
+      "word_count": 216,
+      "text": "{{1|Cookies are one of the most popular desserts in the United States.}} In the version most people have heard, Ruth Wakefield ran the Toll House Inn in Whitman, Massachusetts, {{2|which}} she cooked meals for travelers. One day in the 1930s, the story goes, she ran out of baking chocolate, chopped up a chocolate bar instead, and stirred the pieces into her cookie dough, expecting them to melt. They didn't, and a classic was born.\n\nThe story is charming, but historians doubt it. Wakefield was a trained dietitian and a careful cook{{3| who had written a popular cookbook}}, and the recipes she served were {{4|suppose to}} turn out the same way every time. She later said that she had set out on purpose to make something new for her guests. {{5|Because}} the accident story is appealing, it does not fit what is known about how she worked.\n\nWhatever its origin, the cookie was an immediate hit. {{6|Lots of people liked it.}} The number of people buying Nestlé's semisweet chocolate bars {{7|were}} soon rising sharply, and the company began printing the recipe on its wrappers. Bakers who {{8|use to}} chop chocolate bars by hand were relieved when Nestlé introduced ready-made chocolate morsels in 1939.\n\nIn return for the recipe, Wakefield{{9|, reportedly,}} received a lifetime supply of Nestlé chocolate. {{10|}}",
+      "batch": 38,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -26783,6 +26794,722 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-037.review.json",
         "computation": "checks/act_english/batch_037.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000373",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Introducing a claim the essay questions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 1,
+      "evidence": "The story is charming, but historians doubt it.",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the story that the essay goes on to question?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Massachusetts is home to many historic inns, taverns, and family restaurants.",
+        "C": "According to a popular story, the chocolate chip cookie was invented by accident.",
+        "D": "Chocolate has been used in all kinds of baking for hundreds of years."
+      },
+      "correct_answer": "C",
+      "explanation": "The second paragraph begins \"The story is charming, but historians doubt it,\" so the essay must first present that story: the cookie was invented by accident.",
+      "distractor_explanations": {
+        "A": "This general fact does not introduce the accident story that the essay later doubts.",
+        "B": "This shifts to the state's inns and does not introduce the story.",
+        "D": "This is general background, not the specific story the essay examines."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"The story\" in paragraph 2 refer to?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find what the essay later questions."
+      },
+      "remember": "An introduction should set up what the essay goes on to discuss.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-01",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000374",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative pronoun for a place (where)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 2,
+      "evidence": "ran the Toll House Inn in Whitman, Massachusetts,",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "where",
+        "C": "that",
+        "D": "when"
+      },
+      "correct_answer": "B",
+      "explanation": "The clause tells what she did at the inn, a place, so it begins with \"where\": \"the Toll House Inn..., where she cooked meals for travelers.\"",
+      "distractor_explanations": {
+        "A": "\"Which she cooked meals for travelers\" makes no sense; the clause describes what happened at the inn, so it needs \"where.\"",
+        "C": "\"That\" cannot introduce a clause set off by a comma, and the clause still needs to refer to a place.",
+        "D": "\"When\" refers to time, but the clause describes a place."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the clause describe a place or a thing?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test whether the clause can stand with \"which\" as its object."
+      },
+      "remember": "Use \"where\" for places when the clause describes what happens there.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-02",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000375",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Deleting a phrase (what would be lost)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 3,
+      "evidence": "Wakefield was a trained dietitian and a careful cook",
+      "figure": null,
+      "stem": "If the writer were to delete the underlined portion (adjusting the punctuation as needed), the paragraph would primarily lose:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a detail that supports the description of Wakefield as a careful cook.",
+        "B": "an explanation of why the Toll House Inn was popular with travelers.",
+        "C": "evidence that Wakefield invented the cookie by accident.",
+        "D": "the name of the company that later bought Wakefield's recipe."
+      },
+      "correct_answer": "A",
+      "explanation": "Having written a popular cookbook supports the claim that Wakefield was careful, which in turn casts doubt on the accident story.",
+      "distractor_explanations": {
+        "B": "The phrase concerns Wakefield's cookbook, not the inn's popularity.",
+        "C": "A cookbook author's care points away from an accident, not toward it.",
+        "D": "Nestlé is named later; the phrase does not mention it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What claim does the phrase support?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the sentence without the phrase."
+      },
+      "remember": "Ask what claim a detail supports before deleting it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-03",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: the link between writing a cookbook and being a 'careful cook' is a little indirect; the phrase supports her professional, methodical credentials. A is still clearly the only defensible choice."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000376",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "\"Supposed to\" (nonstandard \"suppose to\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 4,
+      "evidence": "turn out the same way every time",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "supposing to",
+        "C": "supposed for",
+        "D": "supposed to"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Be supposed to\" means \"be expected to,\" and the past participle \"supposed\" keeps its -d in writing.",
+      "distractor_explanations": {
+        "A": "The standard phrase is \"supposed to\"; the -d is often dropped in speech but is required in writing.",
+        "B": "\"Supposing to\" is not standard English.",
+        "C": "The idiom is \"supposed to,\" not \"supposed for.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which form is standard in writing?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Say the phrase slowly."
+      },
+      "remember": "Write \"supposed to\" and \"used to,\" with the -d.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-04",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000377",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Subordinating conjunctions (logic)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 5,
+      "evidence": "it does not fit what is known about how she worked",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Although",
+        "C": "Since",
+        "D": "So"
+      },
+      "correct_answer": "B",
+      "explanation": "The story is appealing, yet it does not fit the facts. That contrast calls for \"Although.\"",
+      "distractor_explanations": {
+        "A": "Being appealing is not the reason the story fails to fit the facts; the clauses contrast.",
+        "C": "\"Since\" signals a cause, but the clauses contrast.",
+        "D": "\"So\" signals a result and cannot introduce this clause."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Do the two clauses agree or contrast?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship first."
+      },
+      "remember": "Although = in spite of the fact that.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-05",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000378",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Supporting a claim with specific detail",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 6,
+      "evidence": "Whatever its origin, the cookie was an immediate hit.",
+      "figure": null,
+      "stem": "Which choice provides the most specific support for the claim that the cookie was an immediate hit?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "It soon became a favorite of many different kinds of people everywhere.",
+        "C": "Within a few years, her recipe had been printed in newspapers across New England.",
+        "D": "People who tried it thought it was a really, really good cookie."
+      },
+      "correct_answer": "C",
+      "explanation": "Only C gives a concrete sign of quick popularity: the recipe appearing in newspapers across a whole region.",
+      "distractor_explanations": {
+        "A": "\"Lots of people liked it\" is vague and adds nothing specific.",
+        "B": "This is still general and offers no concrete evidence.",
+        "D": "This is vague and informal and gives no evidence of how widely it spread."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which choice gives something specific you could check?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Prefer concrete evidence over general praise."
+      },
+      "remember": "Specific support names facts, not feelings.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-06",
+      "created_at": "2026-10-27T10:17:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: the claim that the recipe was printed in newspapers 'across New England' is plausible (it ran in Boston-area papers) but simplified."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000379",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement with \"the number of\"",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 7,
+      "evidence": "The number of people buying",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "are",
+        "C": "have been",
+        "D": "was"
+      },
+      "correct_answer": "D",
+      "explanation": "\"The number of\" is singular (unlike \"a number of\"), so the verb is \"was.\"",
+      "distractor_explanations": {
+        "A": "\"The number\" is the singular subject; \"of people\" only describes it.",
+        "B": "This is plural and present tense; the subject is singular and the events are past.",
+        "C": "This is plural; \"the number\" needs a singular verb."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is the simple subject?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Cross out the \"of\" phrase."
+      },
+      "remember": "The number of = singular; a number of = plural.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-07",
+      "created_at": "2026-10-27T10:17:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000380",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "\"Used to\" (nonstandard \"use to\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 8,
+      "evidence": "chop chocolate bars by hand",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were used to",
+        "C": "used to",
+        "D": "usually to"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Used to\" describes something done habitually in the past; in writing it keeps the -d.",
+      "distractor_explanations": {
+        "A": "For a past habit, the standard written form is \"used to,\" with the -d.",
+        "B": "\"Were used to\" means \"were accustomed to\" and would need \"chopping,\" not \"chop.\"",
+        "D": "\"Usually to chop\" is not grammatical here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is this a past habit?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the phrase with each choice."
+      },
+      "remember": "Past habit: \"used to\" + base verb (used to chop).",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-08",
+      "created_at": "2026-10-27T10:17:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000381",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around a parenthetical word",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 9,
+      "evidence": "received a lifetime supply of Nestlé chocolate",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", reportedly",
+        "C": " reportedly,",
+        "D": "; reportedly,"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Reportedly\" interrupts the subject and verb, so it is set off by a pair of commas.",
+      "distractor_explanations": {
+        "B": "An interrupting word set off on one side must be set off on the other; a closing comma is needed.",
+        "C": "An interrupting word needs a comma before it as well as after it.",
+        "D": "A semicolon cannot separate the subject \"Wakefield\" from the rest of its clause."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"reportedly\" an interruption?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check both sides of the interrupting word."
+      },
+      "remember": "Interrupters take a pair of commas.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-09",
+      "created_at": "2026-10-27T10:17:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: 'reportedly' could also correctly take no commas at all, but no choice offers that, so A is the only acceptable choice."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000382",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion connecting to the essay’s central question",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000038",
+      "underline": 10,
+      "evidence": "The story is charming, but historians doubt it.",
+      "figure": null,
+      "stem": "The writer wants to conclude the essay with a sentence that suggests why the accident story has lasted. Which choice best accomplishes this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Today, chocolate chip cookies are sold in nearly every grocery store and bakery in the country.",
+        "B": "Perhaps the accident story survives because it lets every home baker imagine stumbling onto a classic.",
+        "C": "The Toll House Inn burned down in 1984, but the town of Whitman still remembers it.",
+        "D": "Over the years, Nestlé has changed the printed recipe slightly to suit modern ovens and ingredients."
+      },
+      "correct_answer": "B",
+      "explanation": "The goal is to suggest why the accident story lasts; B offers a reason: it lets anyone imagine making a lucky discovery.",
+      "distractor_explanations": {
+        "A": "This states how widespread the cookie is, not why the story lasts.",
+        "C": "This gives a fact about the inn, not a reason the story endures.",
+        "D": "This concerns the recipe's history, not the accident story."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which choice offers a reason the story survives?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check each choice against the goal."
+      },
+      "remember": "A conclusion with a stated goal must meet that goal.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 38,
+      "draft_candidate": "E038-10",
+      "created_at": "2026-10-27T10:17:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-038.review.json",
+        "computation": "checks/act_english/batch_038.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

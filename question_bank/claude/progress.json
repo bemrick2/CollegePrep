@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T10:16:46+00:00",
+  "updated_at": "2026-10-27T10:17:13+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 338,
+    "act_english": 348,
     "act_reading": 336,
     "sat_reading_writing": 342,
     "sat_math": 518
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 372,
+      "PASS": 382,
       "REVISE": 10,
       "REJECT": 0,
-      "candidates": 382,
+      "candidates": 392,
       "passed_after_revision": 7
     },
     "act_reading": {
@@ -873,15 +873,17 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 338,
+      "accepted": 348,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 177,
-        "Knowledge of Language": 60,
-        "Production of Writing": 101
+        "Conventions of Standard English": 182,
+        "Knowledge of Language": 61,
+        "Production of Writing": 105
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
+        "\"Supposed to\" (nonstandard \"suppose to\")": 1,
+        "\"Used to\" (nonstandard \"use to\")": 1,
         "Adding a sentence (relevance)": 3,
         "Adding a sentence: relevance": 1,
         "Adding a sentence: relevance and focus": 1,
@@ -893,6 +895,7 @@
         "Agreement with \"a number of\"": 1,
         "Agreement with \"most of\" + plural": 1,
         "Agreement with \"neither ... nor\"": 1,
+        "Agreement with \"the number of\"": 1,
         "Agreement with a compound subject": 2,
         "Ambiguous pronoun reference": 1,
         "Amount versus number": 1,
@@ -921,6 +924,7 @@
         "Commas around a nonessential participial phrase": 1,
         "Commas around a nonessential phrase": 1,
         "Commas around a nonrestrictive appositive": 1,
+        "Commas around a parenthetical word": 1,
         "Commas in a full date": 1,
         "Commas in a series": 2,
         "Commas in a series within a compound sentence": 1,
@@ -943,6 +947,7 @@
         "Concluding sentence that fulfills a stated goal": 1,
         "Concluding sentence that links to earlier content": 1,
         "Concluding sentence that links to the introduction": 1,
+        "Conclusion connecting to the essay’s central question": 1,
         "Conclusion connecting to the opening": 1,
         "Conclusion returning to the opening": 1,
         "Conclusion showing a change in perspective": 1,
@@ -959,7 +964,7 @@
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 6,
         "Deleting a phrase (relevance)": 1,
-        "Deleting a phrase (what would be lost)": 1,
+        "Deleting a phrase (what would be lost)": 2,
         "Dividing a paragraph": 1,
         "Double negatives": 1,
         "Effective conclusions": 1,
@@ -978,6 +983,7 @@
         "Idiom (preposition)": 3,
         "Idiom in an \"as ... as\" comparison": 1,
         "Imply versus infer": 1,
+        "Introducing a claim the essay questions": 1,
         "Introducing a paragraph": 2,
         "Introducing a paragraph (topic sentence)": 1,
         "Introducing the essay's topic": 1,
@@ -1046,6 +1052,7 @@
         "Redundancy (deleting a sentence)": 1,
         "Reflexive pronouns (nonstandard \"theirselves\")": 1,
         "Register-appropriate wording": 1,
+        "Relative pronoun for a place (where)": 1,
         "Relative pronoun to avoid a comma splice": 1,
         "Relevance": 1,
         "Relevance (supporting a point)": 1,
@@ -1081,7 +1088,9 @@
         "Subject-verb agreement with \"one of\"": 1,
         "Subject-verb agreement with a gerund subject": 1,
         "Subjunctive mood": 1,
+        "Subordinating conjunctions (logic)": 1,
         "Supporting a claim with detail": 1,
+        "Supporting a claim with specific detail": 1,
         "Than versus then": 2,
         "Their / there / they're": 3,
         "Topic sentence for a paragraph": 1,
@@ -1124,29 +1133,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 147,
+        "easy": 155,
         "hard": 22,
-        "medium": 169
+        "medium": 171
       },
       "by_difficulty_calibrated": {
-        "easy": 189,
+        "easy": 195,
         "hard": 4,
-        "medium": 145
+        "medium": 149
       },
       "calibrated_share": {
-        "easy": 0.559,
-        "hard": 0.012,
-        "medium": 0.429
+        "easy": 0.56,
+        "hard": 0.011,
+        "medium": 0.428
       },
       "answer_key_balance": {
-        "A": 82,
-        "B": 87,
-        "C": 90,
-        "D": 79
+        "A": 84,
+        "B": 90,
+        "C": 93,
+        "D": 81
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 37
+      "passages": 38
     },
     "act_reading": {
       "accepted": 336,
@@ -2205,7 +2214,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 37,
+    "act_english": 38,
     "act_reading": 44,
     "sat_reading_writing": 39,
     "sat_math": 57
@@ -2264,6 +2273,14 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 39,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 40.0,
+        "Knowledge of Language": 12.4,
+        "Conventions of Standard English": -37.0
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 40,
       "skill_gap_for_next_10": {
@@ -2271,14 +2288,6 @@
         "Information and Ideas": -3.5,
         "Standard English Conventions": 23.5,
         "Expression of Ideas": -2.6
-      }
-    },
-    "act_english": {
-      "next_batch": 38,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 39.9,
-        "Knowledge of Language": 11.3,
-        "Conventions of Standard English": -36.1
       }
     },
     "act_reading": {
@@ -2298,8 +2307,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 338,
-      "share_of_target": 0.491
+      "accepted": 348,
+      "share_of_target": 0.505
     },
     "act_reading": {
       "target": 684,
@@ -2318,9 +2327,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2308,
+  "total_accepted": 2318,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_english",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -143039,7 +143048,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 37,
+      "bank_version": 38,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -143186,7 +143195,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T10:16:45+00:00",
+    "heartbeat_at": "2026-10-27T10:17:13+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
