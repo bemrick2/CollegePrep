@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T05:17:49+00:00",
+  "updated_at": "2026-10-27T05:18:22+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 398
+    "sat_math": 408
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 420,
+      "PASS": 430,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 422,
+      "candidates": 432,
       "passed_after_revision": 7
     }
   },
@@ -1397,18 +1397,19 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 398,
+      "accepted": 408,
       "retired_after_audit": 22,
       "by_skill": {
-        "Advanced Math": 140,
-        "Algebra": 125,
-        "Geometry and Trigonometry": 70,
-        "Problem-Solving and Data Analysis": 63
+        "Advanced Math": 144,
+        "Algebra": 127,
+        "Geometry and Trigonometry": 72,
+        "Problem-Solving and Data Analysis": 65
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
         "Additional time at a constant drain rate from fractions of an unknown amount": 1,
         "Altitude to the hypotenuse from a sine value": 1,
+        "Angle between radii to the points of tangency": 1,
         "Angle formed by two angle bisectors in a triangle": 1,
         "Angle in nested isosceles triangles": 1,
         "Angle sum of a quadrilateral": 1,
@@ -1420,6 +1421,7 @@
         "Approximating a solution of an exponential-linear equation by graphing": 1,
         "Arc length from coordinates on a circle": 1,
         "Arc length with a radian measure": 1,
+        "Area of a circle as a function of its circumference": 1,
         "Area of a rectangle from two perimeter conditions": 1,
         "Area of a right triangle with legs in a 2 : 1 ratio": 1,
         "Area of a trapezoid": 1,
@@ -1518,6 +1520,7 @@
         "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
         "Exponential function with an added constant through two points": 1,
+        "Exponential model from a rebound percent": 1,
         "Exponents with related bases forming a linear system": 1,
         "Expression for a cost with a rate change after a threshold": 1,
         "Extreme x-value in a system of two linear inequalities": 1,
@@ -1532,6 +1535,7 @@
         "Finding a whole from a percent": 1,
         "First integer at which exponential growth overtakes linear growth": 1,
         "First whole hour one exponential model exceeds another": 1,
+        "Fraction of a triangle’s area from a ratio on one side and a midpoint": 1,
         "Fuel remaining after a trip": 1,
         "Greatest probability bounded by the position of the median": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
@@ -1567,6 +1571,7 @@
         "Intersection of two lines": 1,
         "Intersections of a line and an absolute value graph": 1,
         "Inverse variation in a work problem": 1,
+        "Joining fee when one condition is an average": 1,
         "Leading coefficient from a maximum value": 1,
         "Least apex angle of an isosceles triangle from one exterior angle": 1,
         "Least integer parameter from a condition on a system solution": 1,
@@ -1636,8 +1641,10 @@
         "Point on a proportional line with a coordinate condition": 1,
         "Point with related coordinates on a line": 1,
         "Points on a proportional line": 1,
+        "Polynomial value from intersections with a horizontal line": 1,
         "Population count range from a sample proportion and margin of error": 1,
         "Population density after a change": 1,
+        "Population estimate from a conditional percent inside a sample": 1,
         "Population to which a sample result generalizes": 1,
         "Positive solution of a factorable quadratic": 1,
         "Positive solution of a quadratic with an irrational coefficient": 1,
@@ -1701,6 +1708,7 @@
         "Solutions of a linear inequality": 1,
         "Solving a factored quadratic set equal to a nonzero constant": 1,
         "Solving a formula for one of its variables": 1,
+        "Solving a lens formula with linked variables": 1,
         "Solving a linear equation in a pricing context": 1,
         "Solving a linear equation in one variable": 1,
         "Solving a linear equation with a fractional coefficient": 1,
@@ -1719,11 +1727,13 @@
         "Solving an exponential equation": 1,
         "Solving an exponential equation by factoring out a common power": 1,
         "Solving for a coordinate from a given slope": 1,
+        "Splitting a trip between two fuel rates": 1,
         "Square inscribed in a right triangle": 1,
         "Square on the radius of a circle with a given area": 1,
         "Square with a perimeter equal to a circle's circumference": 1,
         "Square with the same perimeter as an equilateral triangle": 1,
         "Squaring a product with a fractional exponent": 1,
+        "Starting price from a constant dollar increase equal to a percent": 1,
         "Study design for a causal conclusion about a whole population": 1,
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
@@ -1807,18 +1817,18 @@
       },
       "by_difficulty_author": {
         "easy": 72,
-        "hard": 35,
-        "medium": 291
+        "hard": 36,
+        "medium": 300
       },
       "by_difficulty_calibrated": {
         "easy": 122,
-        "hard": 30,
-        "medium": 246
+        "hard": 31,
+        "medium": 255
       },
       "calibrated_share": {
-        "easy": 0.307,
-        "hard": 0.075,
-        "medium": 0.618
+        "easy": 0.299,
+        "hard": 0.076,
+        "medium": 0.625
       },
       "answer_key_balance": {
         "-1": 2,
@@ -1831,7 +1841,7 @@
         "1/2": 1,
         "10": 7,
         "102": 1,
-        "11": 2,
+        "11": 3,
         "11/3": 1,
         "114": 1,
         "115": 1,
@@ -1841,6 +1851,7 @@
         "14": 1,
         "1480": 1,
         "15": 4,
+        "150": 1,
         "16": 4,
         "17": 1,
         "1728": 1,
@@ -1882,13 +1893,13 @@
         "9": 2,
         "9/17": 1,
         "90": 1,
-        "A": 51,
-        "B": 88,
-        "C": 75,
-        "D": 47
+        "A": 53,
+        "B": 90,
+        "C": 77,
+        "D": 49
       },
-      "modeling_items": 120,
-      "spr_items": 137,
+      "modeling_items": 126,
+      "spr_items": 139,
       "passages": 0
     }
   },
@@ -1897,7 +1908,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 45
+    "sat_math": 46
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1929,27 +1940,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 46,
+    "next_batch": 47,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 17.8,
-      "Advanced Math": 2.8,
-      "Problem-Solving and Data Analysis": -1.8,
-      "Geometry and Trigonometry": -8.8
+      "Algebra": 19.3,
+      "Advanced Math": 2.3,
+      "Problem-Solving and Data Analysis": -2.3,
+      "Geometry and Trigonometry": -9.3
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -20.0,
-      "medium": -42.0,
-      "hard": 72.0
+      "easy": -17.5,
+      "medium": -46.0,
+      "hard": 73.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 25.5,
-      "B": -11.5,
-      "C": 1.5,
-      "D": 29.5
+      "A": 25.4,
+      "B": -11.6,
+      "C": 1.4,
+      "D": 29.4
     },
-    "spr_items": 137,
+    "spr_items": 139,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1962,20 +1973,20 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
         "Production of Writing": 28.8,
         "Knowledge of Language": 18.6,
         "Conventions of Standard English": -33.2
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -2002,12 +2013,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 398,
-      "share_of_target": 0.398
+      "accepted": 408,
+      "share_of_target": 0.408
     }
   },
   "total_target": 3841,
-  "total_accepted": 1909,
+  "total_accepted": 1919,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49822,7 +49833,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 45,
+      "bank_version": 46,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49948,7 +49959,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T05:17:48+00:00",
+    "heartbeat_at": "2026-10-27T05:18:22+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

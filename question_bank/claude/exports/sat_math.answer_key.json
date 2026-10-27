@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 45,
+  "bank_version": 46,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -8290,6 +8290,198 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the triangle and mark equal sides."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000421",
+      "correct_answer": "C",
+      "explanation": "The total increase is 8 × 1.50 = 12 dollars. This is 30% of the starting price P, so 0.3P = 12 and P = 40 dollars.",
+      "distractor_explanations": {
+        "A": "12 is the total increase, not the starting price.",
+        "B": "28 takes 30% of the final price: 12 = 0.3(P + 12).",
+        "D": "52 is the price after the 8 days."
+      },
+      "hints": [
+        "What is the total increase in dollars?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the dollar increase equal to 30% of P."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000422",
+      "correct_answer": "150",
+      "accepted_answers": [
+        "150"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 is the monthly fee, not the joining fee.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "90",
+          "rationale": "90 treats $35 as the monthly fee: 230 − 4(35).",
+          "trap": null
+        }
+      ],
+      "explanation": "The 10-month member pays 10 × 35 = 350 dollars in all. The extra 6 months cost 350 − 230 = 120 dollars, so the monthly fee is 20 dollars. The joining fee is 230 − 4(20) = 150 dollars.",
+      "distractor_explanations": {},
+      "hints": [
+        "Turn the average into a total."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both totals, then the monthly fee."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000423",
+      "correct_answer": "C",
+      "explanation": "Substituting p = 3q: 1/(3q) + 1/q = 1/(3q) + 3/(3q) = 4/(3q). So 4/(3q) = 1/12, which gives 3q = 48 and q = 16.",
+      "distractor_explanations": {
+        "A": "3 adds the fractions as 1/(3q + q) = 1/12.",
+        "B": "6 adds numerators and denominators: 2/(4q) = 1/12.",
+        "D": "48 is the value of p, not q."
+      },
+      "hints": [
+        "Write 1/q with the denominator 3q."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the fractions over a common denominator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000424",
+      "correct_answer": "A",
+      "explanation": "From C = 2πr, r = C/(2π). Then A = πr² = π · C²/(4π²) = C²/(4π). Check: for r = 1, C = 2π and A = (2π)²/(4π) = π.",
+      "distractor_explanations": {
+        "B": "C²/(4π²) is r²; it forgets to multiply by π.",
+        "C": "C²/(2π) does not square the 2 in 2π.",
+        "D": "C²/π uses r = C/π, mixing up radius and diameter."
+      },
+      "hints": [
+        "Write r in terms of C."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test r = 1: C = 2π and A = π."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000425",
+      "correct_answer": "D",
+      "explanation": "Each bounce multiplies the previous peak by 0.75. After the first bounce the peak is 12(0.75) = 9, after the second 12(0.75)² = 6.75, and after the nth bounce h(n) = 12(0.75)ⁿ.",
+      "distractor_explanations": {
+        "A": "12 − 3n treats the loss as a fixed 3 meters per bounce.",
+        "B": "12(0.25)ⁿ uses the 25% that is lost.",
+        "C": "12(0.75)ⁿ⁻¹ is off by one: it gives h(1) = 12."
+      },
+      "hints": [
+        "What is the peak after the first bounce?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check n = 1: the peak should be 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000426",
+      "correct_answer": "11",
+      "accepted_answers": [
+        "11"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 forgets to add 5 back: (3)(2)(1).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 assumes p is constant.",
+          "trap": null
+        }
+      ],
+      "explanation": "p(x) − 5 equals 0 at x = 1, 2, and 3, and has leading coefficient 1, so p(x) − 5 = (x − 1)(x − 2)(x − 3). Then p(4) = (3)(2)(1) + 5 = 11.",
+      "distractor_explanations": {},
+      "hints": [
+        "What are the zeros of p(x) − 5?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write p(x) − 5 in factored form."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000427",
+      "correct_answer": "B",
+      "explanation": "Let c be the city kilometers. Then 0.09c + 0.06(360 − c) = 25.2, so 0.03c + 21.6 = 25.2, 0.03c = 3.6 and c = 120 kilometers.",
+      "distractor_explanations": {
+        "A": "40 charges the highway rate on all 360 km and then adds the city fuel: 0.09c + 21.6 = 25.2.",
+        "C": "240 is the highway distance.",
+        "D": "280 divides 25.2 by 0.09, as if the whole trip used the city rate."
+      },
+      "hints": [
+        "Write the fuel used as two parts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let c be the city distance and 360 − c the highway distance."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000428",
+      "correct_answer": "B",
+      "explanation": "In the sample, 0.45 × 40 = 18 households have both, which is 18/150 = 12% of the sample. The estimate for the town is 0.12 × 6,000 = 720 households.",
+      "distractor_explanations": {
+        "A": "18 is the number in the sample, not the estimate for the town.",
+        "C": "880 estimates the households with a dog but no cat: 22/150 × 6,000.",
+        "D": "1,600 estimates all households with a dog."
+      },
+      "hints": [
+        "How many sampled households have both?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the sample count into a proportion, then scale."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000429",
+      "correct_answer": "D",
+      "explanation": "A tangent is perpendicular to the radius at the point of tangency, so angles OAP and OBP are each 90°. The angles of quadrilateral OAPB sum to 360°, so angle AOB = 360° − 90° − 90° − 50° = 130°.",
+      "distractor_explanations": {
+        "A": "40° takes the complement of 50°.",
+        "B": "50° assumes the angles at P and O are equal.",
+        "C": "100° doubles the angle at P, as if it were an inscribed angle."
+      },
+      "hints": [
+        "What angle does a tangent make with the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radii OA and OB."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000430",
+      "correct_answer": "A",
+      "explanation": "Triangles ABD and ABC share the same height from A, and BD is 2/5 of BC, so triangle ABD has 2/5 of the area. E is the midpoint of AD, so triangle ABE has half of triangle ABD's area: (1/2)(2/5) = 1/5.",
+      "distractor_explanations": {
+        "B": "3/10 uses DC's share, 3/5, and then halves it.",
+        "C": "1/3 reads 2 : 3 as 2/3 of the whole and halves it.",
+        "D": "2/5 is the share of triangle ABD; it ignores the midpoint."
+      },
+      "hints": [
+        "What fraction of BC is BD?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Compare triangles that share a height."
       }
     }
   ]

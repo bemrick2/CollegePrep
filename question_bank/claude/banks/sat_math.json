@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 45,
-  "updated_at": "2026-10-27T05:17:03+00:00",
+  "version": 46,
+  "updated_at": "2026-10-27T05:18:20+00:00",
   "passages": [],
   "questions": [
     {
@@ -30287,6 +30287,724 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-045.review.json",
         "computation": "checks/sat_math/batch_045.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000421",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Starting price from a constant dollar increase equal to a percent",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A stock's price rose by $1.50 each day for 8 days. Its price after the 8 days was 30% greater than its starting price. What was the starting price, in dollars?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "12",
+        "B": "28",
+        "C": "40",
+        "D": "52"
+      },
+      "correct_answer": "C",
+      "explanation": "The total increase is 8 × 1.50 = 12 dollars. This is 30% of the starting price P, so 0.3P = 12 and P = 40 dollars.",
+      "distractor_explanations": {
+        "A": "12 is the total increase, not the starting price.",
+        "B": "28 takes 30% of the final price: 12 = 0.3(P + 12).",
+        "D": "52 is the price after the 8 days."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the total increase in dollars?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the dollar increase equal to 30% of P."
+      },
+      "remember": "A percent increase is measured from the starting value.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-01",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000422",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Joining fee when one condition is an average",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A gym charges a one-time joining fee plus the same fee each month. A member who stays 4 months pays $230 in all. A member who stays 10 months pays an average of $35 per month, counting the joining fee. What is the joining fee, in dollars?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "150",
+      "accepted_answers": [
+        "150"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 is the monthly fee, not the joining fee.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "90",
+          "rationale": "90 treats $35 as the monthly fee: 230 − 4(35).",
+          "trap": null
+        }
+      ],
+      "explanation": "The 10-month member pays 10 × 35 = 350 dollars in all. The extra 6 months cost 350 − 230 = 120 dollars, so the monthly fee is 20 dollars. The joining fee is 230 − 4(20) = 150 dollars.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Turn the average into a total."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both totals, then the monthly fee."
+      },
+      "remember": "An average times the count gives the total.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-02",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "150",
+        "blind_answer": "150",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000423",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a lens formula with linked variables",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a lens, 1/f = 1/p + 1/q, where f is the focal length, p is the distance from the object to the lens, and q is the distance from the image to the lens, all in centimeters. For a lens with f = 12, an object is placed so that p = 3q. What is the value of q ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "16",
+        "D": "48"
+      },
+      "correct_answer": "C",
+      "explanation": "Substituting p = 3q: 1/(3q) + 1/q = 1/(3q) + 3/(3q) = 4/(3q). So 4/(3q) = 1/12, which gives 3q = 48 and q = 16.",
+      "distractor_explanations": {
+        "A": "3 adds the fractions as 1/(3q + q) = 1/12.",
+        "B": "6 adds numerators and denominators: 2/(4q) = 1/12.",
+        "D": "48 is the value of p, not q."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write 1/q with the denominator 3q."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the fractions over a common denominator."
+      },
+      "remember": "Add fractions with a common denominator, not term by term.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-03",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000424",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Area of a circle as a function of its circumference",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following functions gives the area A of a circle in terms of its circumference C ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A = C²/(4π)",
+        "B": "A = C²/(4π²)",
+        "C": "A = C²/(2π)",
+        "D": "A = C²/π"
+      },
+      "correct_answer": "A",
+      "explanation": "From C = 2πr, r = C/(2π). Then A = πr² = π · C²/(4π²) = C²/(4π). Check: for r = 1, C = 2π and A = (2π)²/(4π) = π.",
+      "distractor_explanations": {
+        "B": "C²/(4π²) is r²; it forgets to multiply by π.",
+        "C": "C²/(2π) does not square the 2 in 2π.",
+        "D": "C²/π uses r = C/π, mixing up radius and diameter."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write r in terms of C."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test r = 1: C = 2π and A = π."
+      },
+      "remember": "Substitute, then simplify carefully.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-04",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000425",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential model from a rebound percent",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ball is dropped from a height of 12 meters. After each bounce, it rises to 75% of the height of its previous peak. Which function gives the peak height h(n), in meters, after the nth bounce?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "h(n) = 12 − 3n",
+        "B": "h(n) = 12(0.25)ⁿ",
+        "C": "h(n) = 12(0.75)ⁿ⁻¹",
+        "D": "h(n) = 12(0.75)ⁿ"
+      },
+      "correct_answer": "D",
+      "explanation": "Each bounce multiplies the previous peak by 0.75. After the first bounce the peak is 12(0.75) = 9, after the second 12(0.75)² = 6.75, and after the nth bounce h(n) = 12(0.75)ⁿ.",
+      "distractor_explanations": {
+        "A": "12 − 3n treats the loss as a fixed 3 meters per bounce.",
+        "B": "12(0.25)ⁿ uses the 25% that is lost.",
+        "C": "12(0.75)ⁿ⁻¹ is off by one: it gives h(1) = 12."
+      },
+      "distractor_traps": {
+        "A": "overextend_trend",
+        "B": "sign_error",
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What is the peak after the first bounce?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check n = 1: the peak should be 9."
+      },
+      "remember": "Repeated percent change → exponential model.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-05",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000426",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Polynomial value from intersections with a horizontal line",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function p is defined by p(x) = x³ + bx² + cx + d, where b, c, and d are constants. The graph of y = p(x) intersects the line y = 5 at x = 1, x = 2, and x = 3. What is the value of p(4) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "11",
+      "accepted_answers": [
+        "11"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 forgets to add 5 back: (3)(2)(1).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 assumes p is constant.",
+          "trap": null
+        }
+      ],
+      "explanation": "p(x) − 5 equals 0 at x = 1, 2, and 3, and has leading coefficient 1, so p(x) − 5 = (x − 1)(x − 2)(x − 3). Then p(4) = (3)(2)(1) + 5 = 11.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What are the zeros of p(x) − 5?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write p(x) − 5 in factored form."
+      },
+      "remember": "Intersections with y = k are zeros of p(x) − k.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-06",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "11",
+        "blind_answer": "11",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000427",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Splitting a trip between two fuel rates",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a 360-kilometer trip, a car used 25.2 liters of fuel. The car uses 9 liters per 100 kilometers in city driving and 6 liters per 100 kilometers in highway driving. How many kilometers of the trip were city driving?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "40",
+        "B": "120",
+        "C": "240",
+        "D": "280"
+      },
+      "correct_answer": "B",
+      "explanation": "Let c be the city kilometers. Then 0.09c + 0.06(360 − c) = 25.2, so 0.03c + 21.6 = 25.2, 0.03c = 3.6 and c = 120 kilometers.",
+      "distractor_explanations": {
+        "A": "40 charges the highway rate on all 360 km and then adds the city fuel: 0.09c + 21.6 = 25.2.",
+        "C": "240 is the highway distance.",
+        "D": "280 divides 25.2 by 0.09, as if the whole trip used the city rate."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Write the fuel used as two parts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let c be the city distance and 360 − c the highway distance."
+      },
+      "remember": "Total = rate₁ × part₁ + rate₂ × part₂.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-07",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000428",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Population estimate from a conditional percent inside a sample",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A random sample of 150 of the 6,000 households in a town found that 40 of the sampled households have a dog, and 45% of those 40 households also have a cat. Based on the sample, which is the best estimate of the number of households in the town that have both a dog and a cat?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18",
+        "B": "720",
+        "C": "880",
+        "D": "1,600"
+      },
+      "correct_answer": "B",
+      "explanation": "In the sample, 0.45 × 40 = 18 households have both, which is 18/150 = 12% of the sample. The estimate for the town is 0.12 × 6,000 = 720 households.",
+      "distractor_explanations": {
+        "A": "18 is the number in the sample, not the estimate for the town.",
+        "C": "880 estimates the households with a dog but no cat: 22/150 × 6,000.",
+        "D": "1,600 estimates all households with a dog."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many sampled households have both?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the sample count into a proportion, then scale."
+      },
+      "remember": "Scale a sample proportion to the population.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-08",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000429",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle between radii to the points of tangency",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Segments PA and PB are tangent to a circle with center O at points A and B, respectively. Angle APB measures 50°. What is the measure of angle AOB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "40°",
+        "B": "50°",
+        "C": "100°",
+        "D": "130°"
+      },
+      "correct_answer": "D",
+      "explanation": "A tangent is perpendicular to the radius at the point of tangency, so angles OAP and OBP are each 90°. The angles of quadrilateral OAPB sum to 360°, so angle AOB = 360° − 90° − 90° − 50° = 130°.",
+      "distractor_explanations": {
+        "A": "40° takes the complement of 50°.",
+        "B": "50° assumes the angles at P and O are equal.",
+        "C": "100° doubles the angle at P, as if it were an inscribed angle."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What angle does a tangent make with the radius?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the radii OA and OB."
+      },
+      "remember": "Tangent ⊥ radius at the point of tangency.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-09",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: no figure; a standard tangent-quadrilateral fact (the angles at A and B are 90°, so AOB = 180-50)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000430",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Fraction of a triangle’s area from a ratio on one side and a midpoint",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, point D lies on side BC so that BD : DC = 2 : 3, and point E is the midpoint of segment AD. The area of triangle ABE is what fraction of the area of triangle ABC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1/5",
+        "B": "3/10",
+        "C": "1/3",
+        "D": "2/5"
+      },
+      "correct_answer": "A",
+      "explanation": "Triangles ABD and ABC share the same height from A, and BD is 2/5 of BC, so triangle ABD has 2/5 of the area. E is the midpoint of AD, so triangle ABE has half of triangle ABD's area: (1/2)(2/5) = 1/5.",
+      "distractor_explanations": {
+        "B": "3/10 uses DC's share, 3/5, and then halves it.",
+        "C": "1/3 reads 2 : 3 as 2/3 of the whole and halves it.",
+        "D": "2/5 is the share of triangle ABD; it ignores the midpoint."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What fraction of BC is BD?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Compare triangles that share a height."
+      },
+      "remember": "Triangles with the same height have areas in the ratio of their bases.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 46,
+      "draft_candidate": "Q046-10",
+      "created_at": "2026-10-27T05:18:20+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: no figure provided; the setup is fully determined by the text"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-046.review.json",
+        "computation": "checks/sat_math/batch_046.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

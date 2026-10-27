@@ -1,0 +1,255 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 46,
+  "reviewed_at": "2026-10-27T05:18:20+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 46
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000421",
+    "CLD-SAT-M-000422",
+    "CLD-SAT-M-000423",
+    "CLD-SAT-M-000424",
+    "CLD-SAT-M-000425",
+    "CLD-SAT-M-000426",
+    "CLD-SAT-M-000427",
+    "CLD-SAT-M-000428",
+    "CLD-SAT-M-000429",
+    "CLD-SAT-M-000430"
+  ],
+  "results": [
+    {
+      "cand": "Q046-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "Increase = 8(1.50) = 12 = 0.30P, so P = 40. Distractors: 12 (the increase), 28 (40-12), 52 (the ending price).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000421"
+    },
+    {
+      "cand": "Q046-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "150",
+      "computed_answer": "150",
+      "blind_answer": "150",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "f+4m=230; f+10m=10(35)=350; 6m=120, m=20, f=150. The twist is turning the average into a total.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000422"
+    },
+    {
+      "cand": "Q046-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 52,
+      "blind_flags": [],
+      "blind_notes": "1/12 = 1/(3q)+1/q = 4/(3q), so 3q=48 and q=16. D=48 is p (the trap); 3 and 6 do not work.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000423"
+    },
+    {
+      "cand": "Q046-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "r=C/(2π), so A = π·C²/(4π²) = C²/(4π). B is the trap of forgetting to multiply by π. Students can also check it with r=1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000424"
+    },
+    {
+      "cand": "Q046-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "After the 1st bounce h=9=12(0.75)^1, so h(n)=12(0.75)^n. C is the off-by-one trap; A is linear and B uses the wrong factor.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000425"
+    },
+    {
+      "cand": "Q046-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "11",
+      "computed_answer": "11",
+      "blind_answer": "11",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "p(x)-5 is monic with roots 1, 2 and 3, so p(x)=(x-1)(x-2)(x-3)+5 and p(4)=6+5=11. This needs a non-obvious insight; a common error is to answer 6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must shift the polynomial so the intersections become zeros; the factored form is hidden."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000426"
+    },
+    {
+      "cand": "Q046-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "c+h=360; 0.09c+0.06h=25.2, so 0.03c=3.6 and c=120. C=240 is the highway distance (the swap trap).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000427"
+    },
+    {
+      "cand": "Q046-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "0.45(40)=18 in the sample; (18/150)(6000)=720. A is the sample count, C=1600-720 (dog with no cat), D=1600 (all dog households).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000428"
+    },
+    {
+      "cand": "Q046-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: no figure; a standard tangent-quadrilateral fact (the angles at A and B are 90°, so AOB = 180-50)"
+      ],
+      "blind_notes": "The radii meet the tangents at right angles, so AOB = 360-90-90-50 = 130. C=100 is the inscribed/central-angle confusion.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000429"
+    },
+    {
+      "cand": "Q046-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: no figure provided; the setup is fully determined by the text"
+      ],
+      "blind_notes": "[ABD] = (2/5)[ABC] (same height); E is the midpoint of AD, so [ABE] = (1/2)[ABD] = 1/5. D=2/5 is [ABD] and B=3/10 is half of [ADC].",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000430"
+    }
+  ]
+}
