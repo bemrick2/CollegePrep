@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:10:30+00:00",
+  "updated_at": "2026-10-27T03:11:06+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 221
+    "sat_math": 231
   },
   "review_totals": {
     "act_math": {
@@ -53,11 +53,11 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 231,
+      "PASS": 241,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 233,
-      "passed_after_revision": 1
+      "candidates": 243,
+      "passed_after_revision": 2
     }
   },
   "sections": {
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 221,
+      "accepted": 231,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 74,
-        "Algebra": 67,
-        "Geometry and Trigonometry": 43,
-        "Problem-Solving and Data Analysis": 37
+        "Advanced Math": 78,
+        "Algebra": 69,
+        "Geometry and Trigonometry": 46,
+        "Problem-Solving and Data Analysis": 38
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1493,11 +1493,13 @@
         "Interpreting a change in a linear conversion formula": 1,
         "Interpreting a linear equation in two variables": 1,
         "Interpreting an exponential growth factor": 1,
+        "Interpreting the initial value of an exponential model": 1,
         "Intersection of a line and a parabola": 1,
         "Intersection of a line in point-slope form with a horizontal line": 1,
         "Intersection of a line with a perpendicular line through the origin": 1,
         "Intersection of two lines": 1,
         "Intersections of a line and an absolute value graph": 1,
+        "Inverse variation in a work problem": 1,
         "Leading coefficient from a maximum value": 1,
         "Length of the interval where a quadratic is positive": 1,
         "Line with equal intercepts through a given point": 1,
@@ -1531,6 +1533,8 @@
         "Population density after a change": 1,
         "Population to which a sample result generalizes": 1,
         "Positive solution of a factorable quadratic": 1,
+        "Possible third side of a triangle": 1,
+        "Price that maximizes a quadratic revenue model": 1,
         "Product of the solutions of a quadratic equation": 1,
         "Product of x-coordinates where a line meets a circle": 1,
         "Radius from an arc length and a radian angle": 1,
@@ -1565,6 +1569,7 @@
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
         "Solving a factorable quadratic equation": 1,
+        "Solving a factored quadratic set equal to a nonzero constant": 1,
         "Solving a formula for one of its variables": 1,
         "Solving a linear equation in a pricing context": 1,
         "Solving a linear equation in one variable": 1,
@@ -1577,6 +1582,7 @@
         "Solving a system with a given relationship": 1,
         "Solving a two-step linear equation with a fraction": 1,
         "Solving an equation involving a rational function": 1,
+        "Solving an equation with two rational exponents": 1,
         "Solving an equation with two square roots": 1,
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
@@ -1596,8 +1602,10 @@
         "Third angle of a triangle": 1,
         "Time for a falling object to reach a height": 1,
         "Time for a whole job from a partial job": 1,
+        "Time to empty a tank with inflow and outflow": 1,
         "Trade-off between two variables in a linear equation": 1,
         "Translating a comparison of fractional parts": 1,
+        "Translating a verbal equation with grouping": 1,
         "Translating a verbal statement into a linear equation": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
@@ -1607,9 +1615,11 @@
         "Using two values of a linear function": 1,
         "Value of a completed square from an equation": 1,
         "Value of a shifted exponential from a known power": 1,
+        "Volume of a cone with a related radius": 1,
         "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
         "When two linear quantities are equal": 1,
+        "Where a circle tangent to the x-axis crosses the y-axis": 1,
         "Where two linear functions given by tables are equal": 1,
         "Width of a rectangle from a quadratic area": 1,
         "Working backward through a markup and a discount": 1,
@@ -1629,19 +1639,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 49,
+        "easy": 55,
         "hard": 11,
-        "medium": 161
+        "medium": 165
       },
       "by_difficulty_calibrated": {
-        "easy": 93,
+        "easy": 99,
         "hard": 6,
-        "medium": 122
+        "medium": 126
       },
       "calibrated_share": {
-        "easy": 0.421,
-        "hard": 0.027,
-        "medium": 0.552
+        "easy": 0.429,
+        "hard": 0.026,
+        "medium": 0.545
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1649,13 +1659,13 @@
         "-9": 2,
         "1": 2,
         "1.5": 2,
-        "10": 3,
+        "10": 4,
         "11": 2,
         "114": 1,
         "115": 1,
         "12": 3,
         "15": 4,
-        "16": 1,
+        "16": 2,
         "18": 1,
         "18/13": 1,
         "2": 3,
@@ -1676,17 +1686,17 @@
         "60": 1,
         "63": 1,
         "7": 3,
-        "8": 2,
+        "8": 3,
         "80": 1,
         "9": 2,
         "90": 1,
-        "A": 36,
-        "B": 46,
-        "C": 44,
-        "D": 28
+        "A": 37,
+        "B": 49,
+        "C": 46,
+        "D": 29
       },
-      "modeling_items": 59,
-      "spr_items": 67,
+      "modeling_items": 63,
+      "spr_items": 70,
       "passages": 0
     }
   },
@@ -1695,7 +1705,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 25
+    "sat_math": 26
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1727,27 +1737,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 26,
+    "next_batch": 27,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 13.8,
-      "Advanced Math": 6.8,
-      "Problem-Solving and Data Analysis": -2.4,
-      "Geometry and Trigonometry": -8.4
+      "Algebra": 15.3,
+      "Advanced Math": 6.3,
+      "Problem-Solving and Data Analysis": -1.9,
+      "Geometry and Trigonometry": -9.9
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -35.2,
-      "medium": -6.5,
-      "hard": 51.8
+      "easy": -38.8,
+      "medium": -5.5,
+      "hard": 54.2
     },
     "answer_key_gap_for_next_10": {
-      "A": 7.3,
-      "B": -2.7,
-      "C": -0.7,
-      "D": 15.3
+      "A": 8.2,
+      "B": -3.8,
+      "C": -0.8,
+      "D": 16.2
     },
-    "spr_items": 67,
+    "spr_items": 70,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1759,14 +1769,6 @@
         "Integration of Knowledge and Ideas": -10.5
       }
     },
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1774,6 +1776,14 @@
         "Information and Ideas": -1.6,
         "Standard English Conventions": 12.4,
         "Expression of Ideas": -2.6
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
       }
     }
   },
@@ -1800,12 +1810,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 221,
-      "share_of_target": 0.221
+      "accepted": 231,
+      "share_of_target": 0.231
     }
   },
   "total_target": 3841,
-  "total_accepted": 1732,
+  "total_accepted": 1742,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48977,7 +48987,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 25,
+      "bank_version": 26,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49103,7 +49113,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:10:30+00:00",
+    "heartbeat_at": "2026-10-27T03:11:06+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
