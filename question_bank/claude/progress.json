@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:13:18+00:00",
+  "updated_at": "2026-10-27T00:18:40+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 668,
+    "act_math": 678,
     "act_english": 222,
     "act_reading": 199,
     "sat_reading_writing": 227
   },
   "review_totals": {
     "act_math": {
-      "PASS": 686,
+      "PASS": 696,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 691,
+      "candidates": 701,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 668,
+      "accepted": 678,
       "retired_after_audit": 18,
       "by_skill": {
-        "Algebra": 125,
-        "Functions": 104,
-        "Geometry": 158,
+        "Algebra": 126,
+        "Functions": 108,
+        "Geometry": 162,
         "Integrating Essential Skills": 88,
         "Number & Quantity": 86,
-        "Statistics & Probability": 107
+        "Statistics & Probability": 108
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -88,6 +88,7 @@
         "Angle between clock hands": 1,
         "Angle bisector theorem": 1,
         "Angle inscribed in a semicircle": 1,
+        "Angle of rotation in radians": 1,
         "Angles formed by diagonals of a regular pentagon": 1,
         "Angles of a triangle in a given ratio": 1,
         "Annualizing an hourly wage": 1,
@@ -121,6 +122,7 @@
         "Arithmetic series in context": 1,
         "Arrangements with a restriction": 1,
         "Arrangements with repeated letters": 1,
+        "Asymptotes of a hyperbola": 1,
         "At least two of three independent events": 1,
         "Average cost with a fixed cost": 1,
         "Average rate of change": 1,
@@ -141,6 +143,7 @@
         "Checking a point on a line": 1,
         "Choosing a pair from a group (combinations)": 1,
         "Choosing mean or median for skewed data": 1,
+        "Chord cut by a line on a circle": 1,
         "Chords and distance from the center": 1,
         "Circle area from its center and a point": 1,
         "Circle circumference and area": 1,
@@ -238,6 +241,7 @@
         "Counting tiles with a border": 1,
         "Counting values that keep a median fixed": 1,
         "Counting with restrictions": 1,
+        "Crossing versus touching at a repeated zero": 1,
         "Cylinder inscribed in a cube": 1,
         "Day-of-the-week cycles": 1,
         "Density from dimensions": 1,
@@ -294,10 +298,12 @@
         "Equations quadratic in form": 1,
         "Equations with rational exponents": 1,
         "Equilateral triangle inscribed in a circle": 1,
+        "Estimating a correlation coefficient": 1,
         "Estimating a count from a sample proportion": 1,
         "Estimating a population by capture and recapture": 1,
         "Evaluating a function at an expression": 1,
         "Evaluating a linear expression at a negative value": 1,
+        "Evaluating a piecewise function at a boundary": 1,
         "Evaluating a quadratic at a negative input": 1,
         "Evaluating a quadratic model": 1,
         "Evaluating a temperature conversion formula": 1,
@@ -395,6 +401,7 @@
         "Lateral area of a cone": 1,
         "Lateral area of a cylinder": 1,
         "Law of cosines": 1,
+        "Law of cosines for an angle": 1,
         "Law of sines": 1,
         "Least common multiple in context": 1,
         "Least integer exponent exceeding a bound": 1,
@@ -424,6 +431,7 @@
         "Linear time rule with a fixed add-on": 1,
         "Linear transformations of data": 1,
         "Logarithm properties": 1,
+        "Logarithmic equation with an extraneous solution": 1,
         "Logarithmic equations": 1,
         "Matrix addition and scalar multiplication": 1,
         "Matrix multiplication": 1,
@@ -446,6 +454,7 @@
         "Midsegment (median) of a trapezoid": 1,
         "Minimum of a quadratic in intercept form": 1,
         "Minimum of a quadratic in standard form": 1,
+        "Minimum of a sinusoidal function": 1,
         "Minimum of an absolute value function": 1,
         "Missing angle in an irregular polygon": 1,
         "Missing value from a mean": 1,
@@ -648,6 +657,7 @@
         "Sum of solutions of a squared equation": 1,
         "Sum of squares from a sum and a product": 1,
         "Sum of the multiples of 3 up to 100": 1,
+        "Sum of the solutions of a quadratic": 1,
         "Sum of the squares of a quadratic's roots": 1,
         "Supplementary angles in a given ratio": 1,
         "Surface area of a cube from its volume": 1,
@@ -732,25 +742,25 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 176,
-        "hard": 204,
-        "medium": 288
+        "easy": 177,
+        "hard": 206,
+        "medium": 295
       },
       "by_difficulty_calibrated": {
-        "easy": 225,
+        "easy": 227,
         "hard": 82,
-        "medium": 361
+        "medium": 369
       },
       "calibrated_share": {
-        "easy": 0.337,
-        "hard": 0.123,
-        "medium": 0.54
+        "easy": 0.335,
+        "hard": 0.121,
+        "medium": 0.544
       },
       "answer_key_balance": {
-        "A": 152,
-        "B": 186,
+        "A": 157,
+        "B": 187,
         "C": 186,
-        "D": 144
+        "D": 148
       },
       "modeling_items": 136,
       "passages": 0
@@ -1248,36 +1258,37 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 69,
+    "act_math": 70,
     "act_english": 22,
     "act_reading": 25,
     "sat_reading_writing": 25
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 70,
+      "next_batch": 71,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
-        "Functions"
+        "Functions",
+        "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -11.4,
-        "Algebra": 0.4,
-        "Functions": 21.4,
-        "Geometry": -32.6,
-        "Statistics & Probability": -15.5,
-        "Integrating Essential Skills": 47.6
+        "Number & Quantity": -10.3,
+        "Algebra": 1.3,
+        "Functions": 19.3,
+        "Geometry": -34.7,
+        "Statistics & Probability": -15.1,
+        "Integrating Essential Skills": 49.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -55.5,
-        "medium": -22.0,
-        "hard": 87.5
+        "easy": -55.0,
+        "medium": -25.0,
+        "hard": 90.0
       },
       "answer_key_gap_for_next_10": {
-        "A": 17.5,
-        "B": -16.5,
-        "C": -16.5,
-        "D": 25.5
+        "A": 15.0,
+        "B": -15.0,
+        "C": -14.0,
+        "D": 24.0
       }
     }
   },
@@ -1311,8 +1322,8 @@
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 668,
-      "share_of_target": 0.334
+      "accepted": 678,
+      "share_of_target": 0.339
     },
     "act_english": {
       "target": 700,
@@ -1331,7 +1342,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1316,
+  "total_accepted": 1326,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_english",
   "audits": [
@@ -47597,7 +47608,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 69,
+      "bank_version": 70,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -47734,7 +47745,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:13:17+00:00",
+    "heartbeat_at": "2026-10-27T00:18:40+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

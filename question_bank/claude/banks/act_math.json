@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 69,
-  "updated_at": "2026-10-27T00:10:49+00:00",
+  "version": 70,
+  "updated_at": "2026-10-27T00:18:39+00:00",
   "passages": [],
   "questions": [
     {
@@ -47992,6 +47992,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-069.review.json",
         "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000687",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Asymptotes of a hyperbola",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what are the equations of the asymptotes of the hyperbola x²/16 − y²/9 = 1 ?",
+      "choices": {
+        "A": "y = ±(3/4)x",
+        "B": "y = ±(4/3)x",
+        "C": "y = ±(9/16)x",
+        "D": "y = ±(16/9)x"
+      },
+      "correct_answer": "A",
+      "explanation": "For x²/a² − y²/b² = 1, the asymptotes are y = ±(b/a)x. Here a = 4 and b = 3, so y = ±(3/4)x.",
+      "distractor_explanations": {
+        "B": "±(4/3)x inverts the ratio b/a.",
+        "C": "±(9/16)x uses the denominators without taking square roots.",
+        "D": "±(16/9)x inverts the ratio and skips the square roots."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Replace the 1 with 0 and solve for y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x²/16 − y²/9 = 0, so y² = (9/16)x²."
+      },
+      "remember": "Hyperbola x²/a² − y²/b² = 1 has asymptotes y = ±(b/a)x.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-01",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000688",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Angle of rotation in radians",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Through how many radians does the minute hand of a clock turn from 3:00 to 3:40 ?",
+      "choices": {
+        "A": "2π/3",
+        "B": "2π/9",
+        "C": "240",
+        "D": "4π/3"
+      },
+      "correct_answer": "D",
+      "explanation": "In 60 minutes the minute hand turns one full rotation, 2π radians. In 40 minutes it turns (40/60) · 2π = 4π/3 radians.",
+      "distractor_explanations": {
+        "A": "2π/3 is the turn for the remaining 20 minutes of the hour.",
+        "B": "2π/9 treats 40 minutes as 40 degrees.",
+        "C": "240 is the turn in degrees, not radians."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What fraction of a full turn is 40 minutes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Fraction of the hour × 2π."
+      },
+      "remember": "A full rotation is 2π radians, or 360°.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-02",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: the stem asks about magnitude only (no sign for clockwise), which is fine; choice C '240' is degrees, not radians"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000689",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Evaluating a piecewise function at a boundary",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A piecewise function uses the rule g(x) = 2x + 5 whenever x ≤ −1 and the rule g(x) = −x whenever x > −1. What is g(−1) + g(4) ?",
+      "choices": {
+        "A": "−1",
+        "B": "−3",
+        "C": "16",
+        "D": "14"
+      },
+      "correct_answer": "A",
+      "explanation": "Since −1 ≤ −1, g(−1) = 2(−1) + 5 = 3. Since 4 > −1, g(4) = −4. The sum is 3 + (−4) = −1.",
+      "distractor_explanations": {
+        "B": "−3 uses g(x) = −x at x = −1, but the boundary value belongs to the first rule.",
+        "C": "16 uses g(x) = 2x + 5 at x = 4.",
+        "D": "14 uses the wrong rule for both inputs."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Check which condition each input satisfies before substituting."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check each input against the conditions before substituting."
+      },
+      "remember": "Check the inequality, including ≤ versus <, before choosing a rule.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-03",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000690",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Law of cosines for an angle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A triangle has sides of lengths 3, 5 and 7. What is the measure of its largest angle? (Note: For any triangle, c² = a² + b² − 2ab cos C, where C is the angle opposite the side of length c.)",
+      "choices": {
+        "A": "90°",
+        "B": "135°",
+        "C": "150°",
+        "D": "120°"
+      },
+      "correct_answer": "D",
+      "explanation": "The largest angle is opposite the longest side, 7. Then 49 = 9 + 25 − 30 cos C, so cos C = −15/30 = −1/2 and C = 120°.",
+      "distractor_explanations": {
+        "A": "90° would require 3² + 5² = 7², which is false (34 ≠ 49).",
+        "B": "135° has cosine −√2/2, not −1/2.",
+        "C": "150° has cosine −√3/2, not −1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which side is the largest angle opposite?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Put c = 7 in the formula and solve for cos C."
+      },
+      "remember": "The largest angle is opposite the longest side.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-04",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000691",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Crossing versus touching at a repeated zero",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graph of f(x) = (x − 1)²(x + 3) meets the x-axis at each zero of f. At how many points does the graph cross the x-axis, passing from one side of the axis to the other?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "0"
+      },
+      "correct_answer": "A",
+      "explanation": "The zeros are 1 and −3. At x = 1 the factor is squared, so f does not change sign there: the graph touches the axis and turns back. At x = −3 the sign changes, so the graph crosses. It crosses at exactly 1 point.",
+      "distractor_explanations": {
+        "B": "2 counts both zeros, including x = 1 where the graph only touches.",
+        "C": "3 counts each factor of the degree-3 polynomial as a crossing.",
+        "D": "0 assumes every zero of a squared factor blocks crossing."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Test a value just to the left and just to the right of each zero."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0 and x = 2 on either side of 1."
+      },
+      "remember": "An even-power factor touches the x-axis; an odd-power factor crosses.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-05",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000692",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Logarithmic equation with an extraneous solution",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the solution set of the equation log₂ x + log₂(x − 2) = 3 ?",
+      "choices": {
+        "A": "{2}",
+        "B": "{−2, 4}",
+        "C": "{−2}",
+        "D": "{4}"
+      },
+      "correct_answer": "D",
+      "explanation": "Combine: log₂[x(x − 2)] = 3, so x² − 2x = 8 and (x − 4)(x + 2) = 0. x = −2 makes log₂ x undefined, so only x = 4 works.",
+      "distractor_explanations": {
+        "A": "{2} makes log₂(x − 2) undefined.",
+        "B": "{−2, 4} keeps the extraneous solution −2.",
+        "C": "{−2} keeps only the extraneous solution."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Check each solution in the original logarithms."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute each choice into both logarithms."
+      },
+      "remember": "Logarithms need positive arguments; check every solution.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-06",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000693",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Chord cut by a line on a circle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, the line y = x + 7 intersects the circle x² + y² = 25 at two points. What is the distance between those two points?",
+      "choices": {
+        "A": "√2",
+        "B": "1",
+        "C": "2",
+        "D": "7√2"
+      },
+      "correct_answer": "A",
+      "explanation": "Substitute: x² + (x + 7)² = 25, so 2x² + 14x + 24 = 0 and (x + 3)(x + 4) = 0. The points are (−3, 4) and (−4, 3), and the distance is √(1² + 1²) = √2.",
+      "distractor_explanations": {
+        "B": "1 is only the difference in the x-coordinates.",
+        "C": "2 adds the differences in x and y instead of using the distance formula.",
+        "D": "7√2 is the distance between the line's intercepts (−7, 0) and (0, 7)."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Substitute y = x + 7 into the circle's equation."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the system, then use the distance formula."
+      },
+      "remember": "Solve the system first; then measure between the points.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-07",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 48,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000694",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Minimum of a sinusoidal function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the minimum value of the function y = 5 − 2cos(3x) ?",
+      "choices": {
+        "A": "−2",
+        "B": "3",
+        "C": "5",
+        "D": "7"
+      },
+      "correct_answer": "B",
+      "explanation": "cos(3x) ranges from −1 to 1, so −2cos(3x) ranges from −2 to 2 and y ranges from 3 to 7. The minimum is 3.",
+      "distractor_explanations": {
+        "A": "−2 is the coefficient of the cosine, not a value of y.",
+        "C": "5 is the midline value.",
+        "D": "7 is the maximum value."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What are the largest and smallest values of cos(3x)?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try cos(3x) = 1 and cos(3x) = −1."
+      },
+      "remember": "Range of a + b·cos(kx) is a − |b| to a + |b|.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-08",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000695",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Sum of the solutions of a quadratic",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of the two solutions of the equation 3x² − 12x + 7 = 0 ?",
+      "choices": {
+        "A": "4",
+        "B": "−4",
+        "C": "7/3",
+        "D": "12"
+      },
+      "correct_answer": "A",
+      "explanation": "For ax² + bx + c = 0 the solutions sum to −b/a = 12/3 = 4. (The quadratic formula gives (6 ± √15)/3, which also sum to 4.)",
+      "distractor_explanations": {
+        "B": "−4 drops the negative sign in −b/a.",
+        "C": "7/3 is the product of the solutions, c/a.",
+        "D": "12 forgets to divide by a = 3."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Divide the equation by 3 first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum of solutions = −b/a."
+      },
+      "remember": "Sum of roots −b/a; product c/a.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-09",
+      "created_at": "2026-10-27T00:18:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000696",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Estimating a correlation coefficient",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a scatterplot, the points lie very close to a straight line that falls from left to right. Which of the following values is closest to the correlation coefficient of the data?",
+      "choices": {
+        "A": "0.95",
+        "B": "0.2",
+        "C": "−0.2",
+        "D": "−0.95"
+      },
+      "correct_answer": "D",
+      "explanation": "A line falling from left to right means a negative association, and points very close to the line mean a strong one, so r is near −1. Of the choices, −0.95 is closest.",
+      "distractor_explanations": {
+        "A": "0.95 is strong but positive; the line falls.",
+        "B": "0.2 is weak and positive.",
+        "C": "−0.2 has the right sign but describes a weak association."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Is the association positive or negative? Strong or weak?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide the sign, then the strength."
+      },
+      "remember": "Sign gives direction; distance from 0 gives strength.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 70,
+      "draft_candidate": "B070-10",
+      "created_at": "2026-10-27T00:18:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-070.review.json",
+        "computation": "checks/act_math/batch_070.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
