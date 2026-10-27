@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 7,
+ "plan": "SAT Math batch 7: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses. Ideas screened out before drafting: mixtures (ACT 028), isosceles area (204), radian arc length (005), circle from center and point (496), km/h conversion (019/425), polygon interior angle (617), remainder theorem (006), 30-60-90 from hypotenuse (174); a tan-from-cos item that matched the app's demo trig item was replaced.",
+ "candidates": [
+  {
+   "cand": "Q007-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Intersection of a line in point-slope form with a horizontal line",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, line ℓ has a slope of −5/2 and passes through the point (4, −3). At what x-coordinate does line ℓ intersect the line y = 12 ?",
+   "explanation": "An equation of ℓ is y + 3 = −(5/2)(x − 4). Setting y = 12 gives 15 = −(5/2)(x − 4), so x − 4 = −6 and x = −2.",
+   "hints": [
+    "Write the equation of ℓ in point-slope form."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute y = 12 and solve for x."
+   },
+   "remember": "The change in y divided by the slope gives the change in x.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−10",
+    "B": "−2",
+    "C": "0.4",
+    "D": "10"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−10 uses x + 4 instead of x − 4 in the point-slope form.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "0.4 uses y − 3 instead of y + 3, so the change in y is 9 instead of 15.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "10 uses a slope of +5/2.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q007-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation with decimal coefficients",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "0.4(15 − x) = 0.2x + 3.6\nWhat value of x satisfies the equation above?",
+   "explanation": "Distributing gives 6 − 0.4x = 0.2x + 3.6. Then 2.4 = 0.6x, so x = 4.",
+   "hints": [
+    "Distribute 0.4 to both terms in the parentheses."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 4: 0.4(11) = 4.4 and 0.8 + 3.6 = 4.4."
+   },
+   "remember": "Multiply every term inside the parentheses.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−4",
+    "B": "2",
+    "C": "2.4",
+    "D": "4"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "−4 makes a sign error when moving the x-terms.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2 distributes 0.4 only to 15, writing 6 − x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2.4 is the value of 0.6x, not x.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q007-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Finding a constant from a given solution",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the equation 3(x − c) = 2x + 9, c is a constant. If x = 15 is a solution to the equation, what is the value of c ?",
+   "explanation": "Substituting x = 15 gives 3(15 − c) = 30 + 9 = 39, so 15 − c = 13 and c = 2.",
+   "hints": [
+    "Substitute 15 for x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 3(15 − c) = 39 for c."
+   },
+   "remember": "A given solution can be substituted to find a missing constant.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 does not distribute the 3 to c, writing 3x − c.",
+     "trap": null
+    },
+    {
+     "value": "13",
+     "rationale": "13 is the value of x − c.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q007-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Writing an exponential growth model",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "An online newsletter had 2,500 subscribers at the start of 2025, and the number of subscribers increased by 6% each month after that. Which expression gives the number of subscribers m months after the start of 2025?",
+   "explanation": "Increasing by 6% each month multiplies the number by 1 + 0.06 = 1.06 each month, so after m months there are 2,500(1.06)ᵐ subscribers.",
+   "hints": [
+    "What is the growth factor for a 6% increase?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "After 1 month there should be 2,500 × 1.06 = 2,650 subscribers."
+   },
+   "remember": "An increase of r% each period gives a factor of (1 + r/100).",
+   "expected_time_seconds": 35,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2,500(1.06)ᵐ",
+    "B": "2,500(0.06)ᵐ",
+    "C": "2,500(1.6)ᵐ",
+    "D": "2,500 + 1.06m"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Multiplying by 0.06 each month would shrink the number to 6% of its value.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1.6 represents a 60% increase each month.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This is a linear model that adds 1.06 subscribers each month.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q007-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Coefficient that gives a quadratic exactly one real solution",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the equation x² + bx + 36 = 0, b is a positive constant. If the equation has exactly one real solution, what is the value of b ?",
+   "explanation": "A quadratic has exactly one real solution when its discriminant is 0: b² − 4(1)(36) = 0, so b² = 144 and b = 12 (since b > 0). The equation is (x + 6)² = 0.",
+   "hints": [
+    "Set the discriminant equal to 0."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve b² − 144 = 0 and keep the positive value."
+   },
+   "remember": "One real solution ↔ perfect-square trinomial ↔ discriminant 0.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−12",
+    "B": "6",
+    "C": "12",
+    "D": "36"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−12 also makes the discriminant 0 but is not positive.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "6 is √36; it gives x² + 6x + 36, which has no real solutions.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "36 is the constant term.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q007-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Multiplying powers with fractional exponents",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For all x > 0, x^(1/2) · x^(1/3) = x^k. What is the value of k ?",
+   "explanation": "When multiplying powers with the same base, add the exponents: 1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+   "hints": [
+    "Same base, multiplication: add the exponents."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 64: 8 × 4 = 32 = 64^(5/6)."
+   },
+   "remember": "xᵃ · xᵇ = xᵃ⁺ᵇ, with a common denominator for fractions.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1/6",
+    "B": "1/5",
+    "C": "2/5",
+    "D": "5/6"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "1/6 multiplies the exponents.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1/5 adds the denominators.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2/5 adds numerators and denominators separately.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q007-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Unknown count from a probability",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A bag contains only red, blue and green marbles. There are 6 red marbles, 9 blue marbles and some green marbles. If one marble is selected at random, the probability that it is green is 1/4. How many green marbles are in the bag?",
+   "explanation": "If there are g green marbles, g/(15 + g) = 1/4, so 4g = 15 + g and g = 5. Check: 5/20 = 1/4.",
+   "hints": [
+    "The total includes the green marbles."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each choice: 5/(15 + 5) = 1/4."
+   },
+   "remember": "Probability = favorable / total, where the total includes the unknown.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "15",
+    "D": "20"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "4 is the denominator of the probability.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "15 is the number of red and blue marbles together.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "20 is the total number of marbles.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q007-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Working backward through a markup and a discount",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A store sets the retail price of a lamp 60% above the store's cost. During a sale, the lamp is sold at 25% off the retail price, for $96. What was the store's cost for the lamp, in dollars?",
+   "explanation": "The sale price is 75% of the retail price, so the retail price is 96 ÷ 0.75 = 128. The retail price is 160% of the cost, so the cost is 128 ÷ 1.6 = 80 dollars.",
+   "hints": [
+    "Undo the discount first, then the markup."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Start from the cost: 80 × 1.6 = 128, and 128 × 0.75 = 96."
+   },
+   "remember": "Percent changes multiply; they do not add.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "80",
+   "accepted_answers": [
+    "80"
+   ],
+   "common_errors": [
+    {
+     "value": "128",
+     "rationale": "128 is the retail price, not the store's cost.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "71.11",
+     "rationale": "71.11 treats the two changes as a single 35% increase.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q007-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Radius of a cylinder from its volume and a height relationship",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A right circular cylinder has a height equal to twice its radius. The volume of the cylinder is 250π cubic inches. What is the radius of the cylinder, in inches?",
+   "explanation": "With h = 2r, V = πr²(2r) = 2πr³. Then 2πr³ = 250π, so r³ = 125 and r = 5.",
+   "hints": [
+    "Write the height in terms of r before using V = πr²h."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 2πr³ = 250π."
+   },
+   "remember": "Replace every variable with an expression in one unknown before solving.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "5",
+    "B": "6.3",
+    "C": "10",
+    "D": "125"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "6.3 is the cube root of 250; it forgets the factor 2 from h = 2r.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10 is the height of the cylinder.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "125 is r³, not r.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q007-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Perimeter of an equilateral triangle from its height",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "The height of an equilateral triangle is 5√3 centimeters. What is the perimeter of the triangle, in centimeters?",
+   "explanation": "The height splits the triangle into two 30°-60°-90° triangles. The height is the longer leg, so the shorter leg is 5√3/√3 = 5 and the hypotenuse (a side of the equilateral triangle) is 10. The perimeter is 3 × 10 = 30.",
+   "hints": [
+    "Draw the height. Where does it meet the base?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the height and label the half-base."
+   },
+   "remember": "In a 30°-60°-90° triangle, the sides are x, x√3 and 2x.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "30",
+   "accepted_answers": [
+    "30"
+   ],
+   "common_errors": [
+    {
+     "value": "10",
+     "rationale": "10 is the side length, not the perimeter.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "15",
+     "rationale": "15 triples the height without the factor √3 and ignores the 30°-60°-90° relationship.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}

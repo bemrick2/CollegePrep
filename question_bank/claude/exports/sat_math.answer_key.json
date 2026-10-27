@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 6,
+  "bank_version": 7,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -1157,6 +1157,209 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Set the sum of the two angle measures equal to 90."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000058",
+      "correct_answer": "B",
+      "explanation": "An equation of ℓ is y + 3 = −(5/2)(x − 4). Setting y = 12 gives 15 = −(5/2)(x − 4), so x − 4 = −6 and x = −2.",
+      "distractor_explanations": {
+        "A": "−10 uses x + 4 instead of x − 4 in the point-slope form.",
+        "C": "0.4 uses y − 3 instead of y + 3, so the change in y is 9 instead of 15.",
+        "D": "10 uses a slope of +5/2."
+      },
+      "hints": [
+        "Write the equation of ℓ in point-slope form."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = 12 and solve for x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000059",
+      "correct_answer": "D",
+      "explanation": "Distributing gives 6 − 0.4x = 0.2x + 3.6. Then 2.4 = 0.6x, so x = 4.",
+      "distractor_explanations": {
+        "A": "−4 makes a sign error when moving the x-terms.",
+        "B": "2 distributes 0.4 only to 15, writing 6 − x.",
+        "C": "2.4 is the value of 0.6x, not x."
+      },
+      "hints": [
+        "Distribute 0.4 to both terms in the parentheses."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 4: 0.4(11) = 4.4 and 0.8 + 3.6 = 4.4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000060",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 does not distribute the 3 to c, writing 3x − c.",
+          "trap": null
+        },
+        {
+          "value": "13",
+          "rationale": "13 is the value of x − c.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Substituting x = 15 gives 3(15 − c) = 30 + 9 = 39, so 15 − c = 13 and c = 2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute 15 for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3(15 − c) = 39 for c."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000061",
+      "correct_answer": "A",
+      "explanation": "Increasing by 6% each month multiplies the number by 1 + 0.06 = 1.06 each month, so after m months there are 2,500(1.06)ᵐ subscribers.",
+      "distractor_explanations": {
+        "B": "Multiplying by 0.06 each month would shrink the number to 6% of its value.",
+        "C": "1.6 represents a 60% increase each month.",
+        "D": "This is a linear model that adds 1.06 subscribers each month."
+      },
+      "hints": [
+        "What is the growth factor for a 6% increase?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "After 1 month there should be 2,500 × 1.06 = 2,650 subscribers."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000062",
+      "correct_answer": "C",
+      "explanation": "A quadratic has exactly one real solution when its discriminant is 0: b² − 4(1)(36) = 0, so b² = 144 and b = 12 (since b > 0). The equation is (x + 6)² = 0.",
+      "distractor_explanations": {
+        "A": "−12 also makes the discriminant 0 but is not positive.",
+        "B": "6 is √36; it gives x² + 6x + 36, which has no real solutions.",
+        "D": "36 is the constant term."
+      },
+      "hints": [
+        "Set the discriminant equal to 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve b² − 144 = 0 and keep the positive value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000063",
+      "correct_answer": "D",
+      "explanation": "When multiplying powers with the same base, add the exponents: 1/2 + 1/3 = 3/6 + 2/6 = 5/6.",
+      "distractor_explanations": {
+        "A": "1/6 multiplies the exponents.",
+        "B": "1/5 adds the denominators.",
+        "C": "2/5 adds numerators and denominators separately."
+      },
+      "hints": [
+        "Same base, multiplication: add the exponents."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 64: 8 × 4 = 32 = 64^(5/6)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000064",
+      "correct_answer": "B",
+      "explanation": "If there are g green marbles, g/(15 + g) = 1/4, so 4g = 15 + g and g = 5. Check: 5/20 = 1/4.",
+      "distractor_explanations": {
+        "A": "4 is the denominator of the probability.",
+        "C": "15 is the number of red and blue marbles together.",
+        "D": "20 is the total number of marbles."
+      },
+      "hints": [
+        "The total includes the green marbles."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: 5/(15 + 5) = 1/4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000065",
+      "correct_answer": "80",
+      "accepted_answers": [
+        "80"
+      ],
+      "common_errors": [
+        {
+          "value": "128",
+          "rationale": "128 is the retail price, not the store's cost.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "71.11",
+          "rationale": "71.11 treats the two changes as a single 35% increase.",
+          "trap": null
+        }
+      ],
+      "explanation": "The sale price is 75% of the retail price, so the retail price is 96 ÷ 0.75 = 128. The retail price is 160% of the cost, so the cost is 128 ÷ 1.6 = 80 dollars.",
+      "distractor_explanations": {},
+      "hints": [
+        "Undo the discount first, then the markup."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Start from the cost: 80 × 1.6 = 128, and 128 × 0.75 = 96."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000066",
+      "correct_answer": "A",
+      "explanation": "With h = 2r, V = πr²(2r) = 2πr³. Then 2πr³ = 250π, so r³ = 125 and r = 5.",
+      "distractor_explanations": {
+        "B": "6.3 is the cube root of 250; it forgets the factor 2 from h = 2r.",
+        "C": "10 is the height of the cylinder.",
+        "D": "125 is r³, not r."
+      },
+      "hints": [
+        "Write the height in terms of r before using V = πr²h."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 2πr³ = 250π."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000067",
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the side length, not the perimeter.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "15",
+          "rationale": "15 triples the height without the factor √3 and ignores the 30°-60°-90° relationship.",
+          "trap": null
+        }
+      ],
+      "explanation": "The height splits the triangle into two 30°-60°-90° triangles. The height is the longer leg, so the shorter leg is 5√3/√3 = 5 and the hypotenuse (a side of the equilateral triangle) is 10. The perimeter is 3 × 10 = 30.",
+      "distractor_explanations": {},
+      "hints": [
+        "Draw the height. Where does it meet the base?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the height and label the half-base."
       }
     }
   ]
