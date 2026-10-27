@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 78,
+  "bank_version": 79,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -13133,6 +13133,176 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Find both points, then use the distance formula."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000777",
+      "correct_answer": "A",
+      "explanation": "A polynomial with zeros 2 and −3 has factors (x − 2) and (x + 3). Their product is x² + x − 6.",
+      "distractor_explanations": {
+        "B": "x² − x − 6 = (x + 2)(x − 3) has zeros −2 and 3.",
+        "C": "x² + 5x + 6 = (x + 2)(x + 3) has zeros −2 and −3.",
+        "D": "x² − 5x + 6 = (x − 2)(x − 3) has zeros 2 and 3."
+      },
+      "hints": [
+        "What factor gives a zero at x = −3 ?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute x = 2 and x = −3 into each choice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000778",
+      "correct_answer": "D",
+      "explanation": "The rectangle has area 4 × 6 = 24. The semicircle has radius 2, so its area is (1/2)π(2²) = 2π. The total is 24 + 2π.",
+      "distractor_explanations": {
+        "A": "24 + 4π uses a full circle of radius 2.",
+        "B": "24 + 8π uses a semicircle of radius 4, treating the diameter as the radius.",
+        "C": "24 + π uses a quarter circle instead of a semicircle."
+      },
+      "hints": [
+        "What is the radius of the semicircle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Split the window into a rectangle and a semicircle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000779",
+      "correct_answer": "B",
+      "explanation": "From 5 to 29 there are 4 equal steps, so the common difference is (29 − 5)/4 = 6. The inserted numbers are 11, 17 and 23, whose sum is 51.",
+      "distractor_explanations": {
+        "A": "34 is 5 + 29, the sum of the given terms.",
+        "C": "63 uses a common difference of 8 (24 ÷ 3), giving 13, 21 and 29.",
+        "D": "17 is only the middle inserted number."
+      },
+      "hints": [
+        "How many equal steps are there from 5 to 29 ?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Divide the total change by the number of steps."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000780",
+      "correct_answer": "C",
+      "explanation": "8 = 2³, so log 8 = 3 log 2 ≈ 3(0.301) = 0.903.",
+      "distractor_explanations": {
+        "A": "0.602 is log 4, which is 2 log 2.",
+        "B": "2.408 multiplies 0.301 by 8 instead of by 3.",
+        "D": "0.027 cubes 0.301 instead of multiplying it by 3."
+      },
+      "hints": [
+        "Write 8 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use log(aⁿ) = n log a."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000781",
+      "correct_answer": "A",
+      "explanation": "Walking along two sides covers 60 + 80 = 140 meters. The diagonal is √(60² + 80²) = 100 meters. The shortcut saves 140 − 100 = 40 meters.",
+      "distractor_explanations": {
+        "B": "100 is the length of the diagonal, not the savings.",
+        "C": "20 is the difference between the two side lengths.",
+        "D": "140 is the length of the path along the sides."
+      },
+      "hints": [
+        "How long is each path?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the field and both paths."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000782",
+      "correct_answer": "D",
+      "explanation": "Since the first digit cannot be 0, an increasing number uses three different digits from 1 through 9, and each set of three digits gives exactly one increasing number: C(9, 3) = 84 numbers. There are 900 three-digit integers, so the probability is 84/900 = 7/75.",
+      "distractor_explanations": {
+        "A": "1/6 assumes every number has three different digits, of which one ordering in six is increasing.",
+        "B": "21/250 is 84/1,000, dividing by 1,000 instead of 900.",
+        "C": "2/15 is 120/900, counting sets of three digits that include 0."
+      },
+      "hints": [
+        "Can 0 appear in a three-digit number whose digits increase?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Count increasing numbers by choosing sets of 3 digits."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000783",
+      "correct_answer": "C",
+      "explanation": "Pair the terms: (1 − 2) + (3 − 4) + … + (99 − 100). There are 50 pairs, each equal to −1, so the value is −50.",
+      "distractor_explanations": {
+        "A": "50 has the wrong sign; each odd number is 1 less than its even partner.",
+        "B": "0 assumes the two sums are equal.",
+        "D": "−100 subtracts 2 for each of the 50 pairs."
+      },
+      "hints": [
+        "Pair each odd number with the even number just after it."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Compute (1 − 2) + (3 − 4) + ... for a few terms."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000784",
+      "correct_answer": "D",
+      "explanation": "In one day there are 24 × 60 × 60 = 86,400 seconds, so 86,400 drops. That is 86,400 ÷ 20 = 4,320 milliliters, or 4.32 liters.",
+      "distractor_explanations": {
+        "A": "86.4 divides the number of drops by 1,000 and skips the drops-to-milliliters step.",
+        "B": "432 divides by 200 instead of 20,000 overall (an error of 100 in the conversions).",
+        "C": "43.2 is off by a factor of 10 in the milliliter-to-liter step."
+      },
+      "hints": [
+        "How many seconds are in a day?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Chain the conversions: seconds → drops → mL → L."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000785",
+      "correct_answer": "B",
+      "explanation": "The base has area 6² = 36. Each triangular face has area (1/2)(6)(5) = 15, and four faces have area 60. The total is 36 + 60 = 96.",
+      "distractor_explanations": {
+        "A": "60 is only the area of the four triangular faces.",
+        "C": "120 forgets the factor 1/2 in the triangle area and leaves out the base.",
+        "D": "66 adds the base to only two triangular faces."
+      },
+      "hints": [
+        "What shapes make up the surface?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Unfold the pyramid into a net."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000786",
+      "correct_answer": "A",
+      "explanation": "The sum of the coefficients of a polynomial p(x) equals p(1). Here p(1) = (2 · 1 − 1)⁵ = 1⁵ = 1.",
+      "distractor_explanations": {
+        "B": "32 is the leading coefficient, 2⁵.",
+        "C": "−1 is the constant term, (−1)⁵, not the sum.",
+        "D": "0 assumes the positive and negative coefficients cancel."
+      },
+      "hints": [
+        "Is there an input value at which a polynomial equals the sum of its coefficients?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Evaluate the expression at x = 1."
       }
     }
   ]
