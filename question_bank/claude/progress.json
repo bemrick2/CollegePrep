@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:05:07+00:00",
+  "updated_at": "2026-10-27T02:08:18+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 86
+    "sat_math": 96
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 86,
+      "PASS": 96,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 87,
+      "candidates": 97,
       "passed_after_revision": 1
     }
   },
@@ -1401,13 +1401,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 86,
+      "accepted": 96,
       "retired_after_audit": 0,
       "by_skill": {
-        "Advanced Math": 27,
-        "Algebra": 28,
-        "Geometry and Trigonometry": 15,
-        "Problem-Solving and Data Analysis": 16
+        "Advanced Math": 31,
+        "Algebra": 30,
+        "Geometry and Trigonometry": 17,
+        "Problem-Solving and Data Analysis": 18
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
@@ -1422,16 +1422,20 @@
         "Condition for a line to meet a parabola once": 1,
         "Condition for two real solutions": 1,
         "Conditions for a linear equation to have no solution": 1,
+        "Cone and sphere with equal volumes": 1,
         "Constant in an equivalent linear expression": 1,
         "Constant term from the distance between zeros": 1,
         "Converting a rate between units": 1,
         "Cosine from two sides of a right triangle": 1,
         "Counting from a conditional percent": 1,
+        "Distance from a pace and a time": 1,
         "Effect of replacing a value on the mean": 1,
         "Equation of a circle with an unknown constant": 1,
+        "Evaluating a function defined by a multiplicative rule": 1,
         "Evaluating a linear function given by a table": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
         "Evaluating a related expression from a linear equation": 1,
+        "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
         "Finding a constant from a given solution": 1,
         "Finding a percent of a group": 1,
@@ -1452,9 +1456,12 @@
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
         "Matching coefficients of a product": 1,
+        "Median after finding a missing value from the mean": 1,
         "Multiplying powers with fractional exponents": 1,
+        "Number of real solutions of a quadratic equation": 1,
         "Percent of a percent": 1,
         "Perfect-square trinomial": 1,
+        "Perimeter of a rectangle from its area and length": 1,
         "Perimeter of an equilateral triangle from its height": 1,
         "Points on a proportional line": 1,
         "Population density after a change": 1,
@@ -1484,11 +1491,14 @@
         "Solving a system with a given relationship": 1,
         "Solving an equation involving a rational function": 1,
         "Solving an exponential equation": 1,
+        "Solving for a coordinate from a given slope": 1,
+        "Sum of coefficients from intercepts of a parabola": 1,
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
+        "Using a linear equation in context": 1,
         "Working backward through a markup and a discount": 1,
         "Writing a linear inequality from a context": 1,
         "Writing a system of inequalities from a context": 1,
@@ -1498,19 +1508,19 @@
         "y-intercept from a slope and a point": 1
       },
       "by_difficulty_author": {
-        "easy": 13,
+        "easy": 16,
         "hard": 7,
-        "medium": 66
+        "medium": 73
       },
       "by_difficulty_calibrated": {
-        "easy": 34,
+        "easy": 38,
         "hard": 2,
-        "medium": 50
+        "medium": 56
       },
       "calibrated_share": {
-        "easy": 0.395,
-        "hard": 0.023,
-        "medium": 0.581
+        "easy": 0.396,
+        "hard": 0.021,
+        "medium": 0.583
       },
       "answer_key_balance": {
         "-9": 2,
@@ -1518,12 +1528,12 @@
         "11": 2,
         "114": 1,
         "115": 1,
-        "12": 2,
+        "12": 3,
         "15": 2,
         "18": 1,
-        "2": 2,
+        "2": 3,
         "240": 1,
-        "3": 1,
+        "3": 2,
         "30": 1,
         "4": 1,
         "44": 1,
@@ -1533,13 +1543,13 @@
         "80": 1,
         "9": 1,
         "96": 1,
-        "A": 17,
-        "B": 15,
-        "C": 15,
-        "D": 13
+        "A": 18,
+        "B": 18,
+        "C": 17,
+        "D": 14
       },
-      "modeling_items": 23,
-      "spr_items": 26,
+      "modeling_items": 26,
+      "spr_items": 29,
       "passages": 0
     }
   },
@@ -1548,7 +1558,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 9
+    "sat_math": 10
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1580,35 +1590,35 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 10,
+    "next_batch": 11,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 5.6,
-      "Advanced Math": 6.6,
-      "Problem-Solving and Data Analysis": -1.6,
-      "Geometry and Trigonometry": -0.6
+      "Algebra": 7.1,
+      "Advanced Math": 6.1,
+      "Problem-Solving and Data Analysis": -2.1,
+      "Geometry and Trigonometry": -1.1
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -10.0,
-      "medium": -2.0,
-      "hard": 22.0
+      "easy": -11.5,
+      "medium": -3.0,
+      "hard": 24.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 1.0,
-      "B": 3.0,
-      "C": 3.0,
-      "D": 5.0
+      "A": 1.9,
+      "B": 1.9,
+      "C": 2.9,
+      "D": 5.9
     },
-    "spr_items": 26,
+    "spr_items": 29,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 29,
+    "act_english": {
+      "next_batch": 27,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
+        "Production of Writing": 29.2,
+        "Knowledge of Language": 18.8,
+        "Conventions of Standard English": -33.8
       }
     },
     "sat_reading_writing": {
@@ -1620,12 +1630,12 @@
         "Expression of Ideas": -1.4
       }
     },
-    "act_english": {
-      "next_batch": 27,
+    "act_reading": {
+      "next_batch": 29,
       "skill_gap_for_next_10": {
-        "Production of Writing": 29.2,
-        "Knowledge of Language": 18.8,
-        "Conventions of Standard English": -33.8
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1652,12 +1662,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 86,
-      "share_of_target": 0.123
+      "accepted": 96,
+      "share_of_target": 0.137
     }
   },
   "total_target": 4700,
-  "total_accepted": 1604,
+  "total_accepted": 1614,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48495,7 +48505,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 9,
+      "bank_version": 10,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48621,7 +48631,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:05:07+00:00",
+    "heartbeat_at": "2026-10-27T02:08:17+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

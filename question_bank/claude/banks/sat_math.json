@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 9,
-  "updated_at": "2026-10-27T02:05:05+00:00",
+  "version": 10,
+  "updated_at": "2026-10-27T02:08:15+00:00",
   "passages": [],
   "questions": [
     {
@@ -6182,6 +6182,722 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-009.review.json",
         "computation": "checks/sat_math/batch_009.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000087",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of coefficients from intercepts of a parabola",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of y = ax² + bx + c, where a, b and c are constants, has x-intercepts at x = 2 and x = 3 and a y-intercept at y = 6. What is the value of a + b + c ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the value of c, the y-intercept.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 adds the coefficients of (x − 2)(x − 3) as 1 + 5 + 6, ignoring the sign of b.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Because the zeros are 2 and 3, y = a(x − 2)(x − 3). At x = 0, y = 6a = 6, so a = 1 and y = x² − 5x + 6. Then a + b + c = 1 − 5 + 6 = 2. (Equivalently, a + b + c is the value of y at x = 1: (1 − 2)(1 − 3) = 2.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the equation in factored form using the x-intercepts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the y-intercept to find a, then expand."
+      },
+      "remember": "a + b + c is the value of the quadratic at x = 1.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-01",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000088",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating a function defined by a multiplicative rule",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a function g, g(0) = 5, and each time the input increases by 1, the output triples. What is the value of g(4) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "17",
+        "B": "60",
+        "C": "135",
+        "D": "405"
+      },
+      "correct_answer": "D",
+      "explanation": "Each step multiplies by 3: g(1) = 15, g(2) = 45, g(3) = 135, g(4) = 405. In general, g(x) = 5 · 3ˣ.",
+      "distractor_explanations": {
+        "A": "17 adds 3 at each step instead of multiplying.",
+        "B": "60 multiplies 5 by 3 and by 4.",
+        "C": "135 is g(3)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Find g(1), g(2) and so on."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Repeated multiplication by 3 gives g(x) = 5 · 3ˣ."
+      },
+      "remember": "Repeated multiplication by a constant is exponential growth.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-02",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000089",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating an expression using a squared-sum identity",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x² + y² = 29 and xy = 10, what is the value of (x + y)² ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "19",
+        "B": "39",
+        "C": "49",
+        "D": "290"
+      },
+      "correct_answer": "C",
+      "explanation": "(x + y)² = x² + 2xy + y² = 29 + 2(10) = 49.",
+      "distractor_explanations": {
+        "A": "19 subtracts xy instead of adding 2xy.",
+        "B": "39 adds xy once instead of 2xy.",
+        "D": "290 multiplies the two given values."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Expand (x + y)²."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 5 and y = 2 satisfy both equations: (5 + 2)² = 49."
+      },
+      "remember": "(x + y)² = x² + 2xy + y².",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-03",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000090",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Number of real solutions of a quadratic equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Consider the equation x(x − 6) = −9. How many distinct real values of x satisfy this equation?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Zero",
+        "B": "Exactly one",
+        "C": "Exactly two",
+        "D": "Infinitely many"
+      },
+      "correct_answer": "B",
+      "explanation": "Expanding and rearranging gives x² − 6x + 9 = 0, or (x − 3)² = 0. The only solution is x = 3.",
+      "distractor_explanations": {
+        "A": "A negative right side does not rule out real solutions; x = 3 works.",
+        "C": "A quadratic can have a repeated root; here the discriminant is 36 − 36 = 0.",
+        "D": "The equation is not an identity; only x = 3 satisfies it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Move every term to one side first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite as x² − 6x + 9 = 0 and factor."
+      },
+      "remember": "Discriminant 0 ↔ exactly one real solution.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-04",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000091",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Using a linear equation in context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A store sells juice in 24-ounce bottles and 15-ounce bottles. The equation 24x + 15y = 360 represents a shipment that contains a total of 360 ounces of juice in x of the 24-ounce bottles and y of the 15-ounce bottles. If the shipment contains 10 of the 24-ounce bottles, how many 15-ounce bottles does it contain?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "8",
+        "B": "10",
+        "C": "16",
+        "D": "24"
+      },
+      "correct_answer": "A",
+      "explanation": "Substituting x = 10 gives 240 + 15y = 360, so 15y = 120 and y = 8.",
+      "distractor_explanations": {
+        "B": "10 is the number of 24-ounce bottles.",
+        "C": "16 divides 240 by 15 instead of 120.",
+        "D": "24 divides 360 by 15 without subtracting the 240 ounces."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Substitute 10 for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 240 + 15y = 360."
+      },
+      "remember": "Substitute the known quantity, then solve for the other.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-05",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000092",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving for a coordinate from a given slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line with slope 5 passes through the points (2, 4) and (k, 3k), where k is a constant. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the y-coordinate 3k, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "9/7",
+          "rationale": "9/7 writes the slope as (k − 2)/(3k − 4), inverting it.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope is (3k − 4)/(k − 2) = 5, so 3k − 4 = 5k − 10, 6 = 2k and k = 3. Check: the points (2, 4) and (3, 9) have slope 5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the slope formula with the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (3k − 4)/(k − 2) = 5."
+      },
+      "remember": "Slope = (change in y)/(change in x), in the same order for both.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-06",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000093",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Median after finding a missing value from the mean",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The data set 5, 8, x, 12, 15 has a mean of 11. What is the median of the data set?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is the value of x, which is in the middle position only before the data are sorted.",
+          "trap": null
+        },
+        {
+          "value": "11",
+          "rationale": "11 is the mean, not the median.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sum is 5 × 11 = 55, so x = 55 − 40 = 15. In order, the data are 5, 8, 12, 15, 15, and the median is 12.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find x from the mean first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = mean × count; then sort the data."
+      },
+      "remember": "Sort the data before finding the median.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-07",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000094",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Distance from a pace and a time",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A runner keeps a constant pace of 8 minutes per mile. How many miles does the runner cover in 1 hour 12 minutes?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "7.5",
+        "B": "9",
+        "C": "64",
+        "D": "576"
+      },
+      "correct_answer": "B",
+      "explanation": "1 hour 12 minutes is 72 minutes, and 72 ÷ 8 = 9 miles.",
+      "distractor_explanations": {
+        "A": "7.5 uses 60 minutes, ignoring the extra 12.",
+        "C": "64 subtracts 8 from 72.",
+        "D": "576 multiplies 72 by 8."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Convert the time to minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the total minutes by minutes per mile."
+      },
+      "remember": "Minutes ÷ (minutes per mile) = miles.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-08",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000095",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Cone and sphere with equal volumes",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right circular cone and a sphere have the same radius r and the same volume. What is the ratio of the height of the cone to r ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4/3",
+        "B": "2",
+        "C": "4",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "(1/3)πr²h = (4/3)πr³. Dividing both sides by (1/3)πr² gives h = 4r, so the ratio is 4.",
+      "distractor_explanations": {
+        "A": "4/3 omits the 1/3 in the cone's volume formula.",
+        "B": "2 equates the cone with a hemisphere's volume, (2/3)πr³.",
+        "D": "12 multiplies by 3 twice when clearing the fraction."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write both volume formulas from the reference sheet."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the formulas equal and divide by πr²."
+      },
+      "remember": "Set equal volumes and cancel common factors.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-09",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000096",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Perimeter of a rectangle from its area and length",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular garden has an area of 96 square feet. The garden is 12 feet long. How many feet of fencing are needed to enclose the garden?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "20",
+        "B": "40",
+        "C": "48",
+        "D": "96"
+      },
+      "correct_answer": "B",
+      "explanation": "The width is 96 ÷ 12 = 8 feet, so the perimeter is 2(12 + 8) = 40 feet.",
+      "distractor_explanations": {
+        "A": "20 adds the length and width once.",
+        "C": "48 is 4 × 12, treating the rectangle as a square with side 12.",
+        "D": "96 is the area."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Find the width first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Width = area ÷ length."
+      },
+      "remember": "Perimeter = 2(length + width).",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 10,
+      "draft_candidate": "Q010-10",
+      "created_at": "2026-10-27T02:08:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-010.review.json",
+        "computation": "checks/sat_math/batch_010.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

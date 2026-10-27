@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 9,
+  "bank_version": 10,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -1749,6 +1749,209 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the circle and a line of slope 1 just touching it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000087",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the value of c, the y-intercept.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 adds the coefficients of (x − 2)(x − 3) as 1 + 5 + 6, ignoring the sign of b.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Because the zeros are 2 and 3, y = a(x − 2)(x − 3). At x = 0, y = 6a = 6, so a = 1 and y = x² − 5x + 6. Then a + b + c = 1 − 5 + 6 = 2. (Equivalently, a + b + c is the value of y at x = 1: (1 − 2)(1 − 3) = 2.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the equation in factored form using the x-intercepts."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the y-intercept to find a, then expand."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000088",
+      "correct_answer": "D",
+      "explanation": "Each step multiplies by 3: g(1) = 15, g(2) = 45, g(3) = 135, g(4) = 405. In general, g(x) = 5 · 3ˣ.",
+      "distractor_explanations": {
+        "A": "17 adds 3 at each step instead of multiplying.",
+        "B": "60 multiplies 5 by 3 and by 4.",
+        "C": "135 is g(3)."
+      },
+      "hints": [
+        "Find g(1), g(2) and so on."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Repeated multiplication by 3 gives g(x) = 5 · 3ˣ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000089",
+      "correct_answer": "C",
+      "explanation": "(x + y)² = x² + 2xy + y² = 29 + 2(10) = 49.",
+      "distractor_explanations": {
+        "A": "19 subtracts xy instead of adding 2xy.",
+        "B": "39 adds xy once instead of 2xy.",
+        "D": "290 multiplies the two given values."
+      },
+      "hints": [
+        "Expand (x + y)²."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "x = 5 and y = 2 satisfy both equations: (5 + 2)² = 49."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000090",
+      "correct_answer": "B",
+      "explanation": "Expanding and rearranging gives x² − 6x + 9 = 0, or (x − 3)² = 0. The only solution is x = 3.",
+      "distractor_explanations": {
+        "A": "A negative right side does not rule out real solutions; x = 3 works.",
+        "C": "A quadratic can have a repeated root; here the discriminant is 36 − 36 = 0.",
+        "D": "The equation is not an identity; only x = 3 satisfies it."
+      },
+      "hints": [
+        "Move every term to one side first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite as x² − 6x + 9 = 0 and factor."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000091",
+      "correct_answer": "A",
+      "explanation": "Substituting x = 10 gives 240 + 15y = 360, so 15y = 120 and y = 8.",
+      "distractor_explanations": {
+        "B": "10 is the number of 24-ounce bottles.",
+        "C": "16 divides 240 by 15 instead of 120.",
+        "D": "24 divides 360 by 15 without subtracting the 240 ounces."
+      },
+      "hints": [
+        "Substitute 10 for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 240 + 15y = 360."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000092",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the y-coordinate 3k, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "9/7",
+          "rationale": "9/7 writes the slope as (k − 2)/(3k − 4), inverting it.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope is (3k − 4)/(k − 2) = 5, so 3k − 4 = 5k − 10, 6 = 2k and k = 3. Check: the points (2, 4) and (3, 9) have slope 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the slope formula with the two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (3k − 4)/(k − 2) = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000093",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is the value of x, which is in the middle position only before the data are sorted.",
+          "trap": null
+        },
+        {
+          "value": "11",
+          "rationale": "11 is the mean, not the median.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sum is 5 × 11 = 55, so x = 55 − 40 = 15. In order, the data are 5, 8, 12, 15, 15, and the median is 12.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find x from the mean first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = mean × count; then sort the data."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000094",
+      "correct_answer": "B",
+      "explanation": "1 hour 12 minutes is 72 minutes, and 72 ÷ 8 = 9 miles.",
+      "distractor_explanations": {
+        "A": "7.5 uses 60 minutes, ignoring the extra 12.",
+        "C": "64 subtracts 8 from 72.",
+        "D": "576 multiplies 72 by 8."
+      },
+      "hints": [
+        "Convert the time to minutes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the total minutes by minutes per mile."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000095",
+      "correct_answer": "C",
+      "explanation": "(1/3)πr²h = (4/3)πr³. Dividing both sides by (1/3)πr² gives h = 4r, so the ratio is 4.",
+      "distractor_explanations": {
+        "A": "4/3 omits the 1/3 in the cone's volume formula.",
+        "B": "2 equates the cone with a hemisphere's volume, (2/3)πr³.",
+        "D": "12 multiplies by 3 twice when clearing the fraction."
+      },
+      "hints": [
+        "Write both volume formulas from the reference sheet."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the formulas equal and divide by πr²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000096",
+      "correct_answer": "B",
+      "explanation": "The width is 96 ÷ 12 = 8 feet, so the perimeter is 2(12 + 8) = 40 feet.",
+      "distractor_explanations": {
+        "A": "20 adds the length and width once.",
+        "C": "48 is 4 × 12, treating the rectangle as a square with side 12.",
+        "D": "96 is the area."
+      },
+      "hints": [
+        "Find the width first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Width = area ÷ length."
       }
     }
   ]
