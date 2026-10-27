@@ -1,0 +1,128 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 42,
+  "reviewed_at": "2026-10-27T15:14:46+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 42
+  },
+  "counts": {
+    "PASS": 3,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-E-000402",
+    "CLD-ACT-E-000403",
+    "CLD-ACT-E-000404"
+  ],
+  "results": [
+    {
+      "cand": "E042-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "E041-04",
+          "status": "REVISE",
+          "reason": "blind solver chose B, key is A",
+          "fix": "Choices rebuilt so that every distractor has a clear-cut error and no choice offers the contested no-comma variant of the original."
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: NO CHANGE keeps a comma before 'and' joining a compound predicate (experimented ..., and eventually settled); acceptable in standard prose, but strict ACT convention often treats that comma as unnecessary, so a careful student may hesitate. Consider dropping the comma from the key."
+      ],
+      "blind_notes": "B makes a fragment (no main verb for Laennec). C is a comma splice. D puts a semicolon before a dependent verb phrase. A is the only grammatical choice.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: every choice keeps the comma before 'and' in a compound predicate (experimented..., and eventually settled); a stricter reader might call that comma unnecessary, but since no choice removes it, A stays the only defensible answer"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000402"
+    },
+    {
+      "cand": "E042-02",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "E041-08",
+          "status": "REVISE",
+          "reason": "blind solver flagged: Two choices are correct: D ('Not every physician welcomed the change, and some complained ...') is a properly punctuated compound sentence with the same meaning as A. B (comma splice) and C (run-on) are clearly wrong, but A and D cannot be told apart. Revise D, for example to 'change, some of them' or 'change; and some'.; Two defensible answers: D ('Not every physician welcomed the change, and some complained that ...') is a correct compound sentence with a comma plus coordinating conjunction, as grammatical as A's two sentences. Neither is more concise in a meaningful way. One of them needs to be revised into a clear error (for example 'change, and, some' or 'change; and some').",
+          "fix": "Choice D changed from a correct compound sentence to \"change, and, some\" (misplaced comma) so only A is correct."
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Two independent clauses. B is a comma splice, C is a fused sentence, and D adds an incorrect comma after 'and'. A uses a period correctly.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: sentence number [14] covers two sentences, which is odd for the numbering but harmless"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000403"
+    },
+    {
+      "cand": "E042-03",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "E041-11",
+          "status": "REVISE",
+          "reason": "verbal item needs a passage_id defined in the draft passages",
+          "fix": "Passage CLD-P-ACT-E-000040 included in the draft passages."
+        }
+      ],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "The sentence gives a concrete example of the link between temperature/humidity and crystal form named in sentence 12. A's reason doesn't match, B claims a contradiction that isn't there, and D misdescribes the sentence's content. The science is accurate: broad, feathery dendrites form near -15 C in high supersaturation.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000404"
+    }
+  ]
+}

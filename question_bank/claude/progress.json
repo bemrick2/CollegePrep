@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T15:14:35+00:00",
+  "updated_at": "2026-10-27T15:14:48+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 367,
+    "act_english": 370,
     "act_reading": 351,
     "sat_reading_writing": 372,
     "sat_math": 563
@@ -32,11 +32,11 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 401,
+      "PASS": 404,
       "REVISE": 13,
       "REJECT": 0,
-      "candidates": 414,
-      "passed_after_revision": 8
+      "candidates": 417,
+      "passed_after_revision": 11
     },
     "act_reading": {
       "PASS": 386,
@@ -873,18 +873,18 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 367,
+      "accepted": 370,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 195,
+        "Conventions of Standard English": 197,
         "Knowledge of Language": 63,
-        "Production of Writing": 109
+        "Production of Writing": 110
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
         "\"Supposed to\" (nonstandard \"suppose to\")": 1,
         "\"Used to\" (nonstandard \"use to\")": 1,
-        "Adding a sentence (relevance)": 3,
+        "Adding a sentence (relevance)": 4,
         "Adding a sentence: relevance": 1,
         "Adding a sentence: relevance and focus": 1,
         "Adjective versus adverb": 1,
@@ -1072,7 +1072,7 @@
         "Semicolon misuse (compound predicate)": 1,
         "Semicolons in a series with internal commas": 1,
         "Semicolons joining independent clauses": 1,
-        "Sentence boundaries": 4,
+        "Sentence boundaries": 5,
         "Sentence fragment": 1,
         "Sentence fragment (appositive)": 1,
         "Sentence fragment (finite verb)": 1,
@@ -1081,6 +1081,7 @@
         "Sentence fragment (relative clause)": 1,
         "Sentence fragment (subordinate clause)": 1,
         "Sentence placement": 2,
+        "Sentence structure (compound verbs)": 1,
         "Sentence that sets up what follows": 1,
         "Simple past versus present perfect": 1,
         "Singular possessive": 3,
@@ -1142,24 +1143,24 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 165,
+        "easy": 168,
         "hard": 22,
         "medium": 180
       },
       "by_difficulty_calibrated": {
-        "easy": 204,
+        "easy": 207,
         "hard": 4,
         "medium": 159
       },
       "calibrated_share": {
-        "easy": 0.556,
+        "easy": 0.559,
         "hard": 0.011,
-        "medium": 0.433
+        "medium": 0.43
       },
       "answer_key_balance": {
-        "A": 90,
+        "A": 92,
         "B": 95,
-        "C": 98,
+        "C": 99,
         "D": 84
       },
       "modeling_items": 0,
@@ -2293,7 +2294,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 41,
+    "act_english": 42,
     "act_reading": 46,
     "sat_reading_writing": 43,
     "sat_math": 59
@@ -2352,20 +2353,20 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 43,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 43.9,
+        "Knowledge of Language": 14.9,
+        "Conventions of Standard English": -43.1
+      }
+    },
     "act_reading": {
       "next_batch": 47,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 48.3,
         "Craft and Structure": -14.5,
         "Integration of Knowledge and Ideas": -23.8
-      }
-    },
-    "act_english": {
-      "next_batch": 42,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 43.7,
-        "Knowledge of Language": 14.3,
-        "Conventions of Standard English": -42.3
       }
     },
     "sat_reading_writing": {
@@ -2386,8 +2387,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 367,
-      "share_of_target": 0.533
+      "accepted": 370,
+      "share_of_target": 0.537
     },
     "act_reading": {
       "target": 684,
@@ -2406,7 +2407,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2427,
+  "total_accepted": 2430,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -275011,7 +275012,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 41,
+      "bank_version": 42,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -275158,7 +275159,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T15:14:35+00:00",
+    "heartbeat_at": "2026-10-27T15:14:47+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

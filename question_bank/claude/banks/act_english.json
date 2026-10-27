@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 41,
-  "updated_at": "2026-10-27T15:12:38+00:00",
+  "version": 42,
+  "updated_at": "2026-10-27T15:14:46+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -28890,6 +28890,221 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-041.review.json",
         "computation": "checks/act_english/batch_041.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000402",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence structure (compound verbs)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000041",
+      "underline": 4,
+      "evidence": "on a hollow wooden cylinder about a foot long",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "experimenting with tubes of different woods and lengths, and eventually settled",
+        "C": "experimented with tubes of different woods and lengths, eventually he settled",
+        "D": "experimented with tubes of different woods and lengths; and eventually settled"
+      },
+      "correct_answer": "A",
+      "explanation": "The sentence gives Laennec two past-tense actions, \"experimented ... and eventually settled,\" so NO CHANGE is correct. Each other choice creates a clear error: a missing main verb, a comma splice, or a semicolon before a phrase that is not an independent clause.",
+      "distractor_explanations": {
+        "B": "\"Experimenting\" leaves the sentence without a main verb before \"and eventually settled.\"",
+        "C": "\"Eventually he settled\" is a second independent clause joined to the first with only a comma, creating a comma splice.",
+        "D": "A semicolon cannot separate the two verbs of one subject; \"and eventually settled\" is not an independent clause."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "What are the sentence's main verbs?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check that the two actions use the same verb form."
+      },
+      "remember": "Join two actions with matching verb forms.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "E042-01",
+      "created_at": "2026-10-27T15:14:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: NO CHANGE keeps a comma before 'and' joining a compound predicate (experimented ..., and eventually settled); acceptable in standard prose, but strict ACT convention often treats that comma as unnecessary, so a careful student may hesitate. Consider dropping the comma from the key."
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-042.review.json",
+        "computation": "checks/act_english/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000403",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence boundaries",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000041",
+      "underline": 8,
+      "evidence": "complained that the stethoscope put a tube between",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "change, some",
+        "C": "change some",
+        "D": "change, and, some"
+      },
+      "correct_answer": "A",
+      "explanation": "Two complete sentences are correctly separated by a period.",
+      "distractor_explanations": {
+        "B": "A comma alone cannot join two independent clauses.",
+        "C": "Without punctuation, the two clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from the clause it introduces."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Are there two complete sentences?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Identify each subject and verb."
+      },
+      "remember": "Two independent clauses need a period, a semicolon or a comma plus a fitting conjunction.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "E042-02",
+      "created_at": "2026-10-27T15:14:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-042.review.json",
+        "computation": "checks/act_english/batch_042.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000404",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000040",
+      "underline": 7,
+      "evidence": "linked to the temperature and humidity the crystal passed through as it fell",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nA crystal that grows in especially humid air at certain temperatures tends to develop broad, feathery branches.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why Bentley's neighbors considered his project a waste of time.",
+        "B": "No, because it contradicts the claim that the crystal's six arms grew in step with one another.",
+        "C": "Yes, because it gives an example of the link between weather conditions and crystal shape described in the preceding sentence.",
+        "D": "No, because it shifts the focus from Bentley's photographs to the history of the microscope."
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 12 says researchers linked crystal patterns to the temperature and humidity a crystal passed through; the added sentence gives a specific example of that link, so it fits here.",
+      "distractor_explanations": {
+        "A": "The sentence says nothing about the neighbors' opinion.",
+        "B": "Broader arms on all six sides would still grow in step; the sentence does not contradict the claim.",
+        "D": "The sentence is about crystal growth, not microscopes."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does the sentence before the addition describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check whether the reason in each choice is accurate."
+      },
+      "remember": "An addition belongs if it develops the point right before it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 42,
+      "draft_candidate": "E042-03",
+      "created_at": "2026-10-27T15:14:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-042.review.json",
+        "computation": "checks/act_english/batch_042.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
