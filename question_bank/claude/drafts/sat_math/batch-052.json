@@ -181,52 +181,6 @@
    ]
   },
   {
-   "cand": "Q052-05",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Sum of coefficients after squared terms cancel",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "For all values of x, (2x + 3)(x − 4) − 2(x − 1)² = ax + b, where a and b are constants. What is the value of a + b ?",
-   "explanation": "(2x + 3)(x − 4) = 2x² − 5x − 12 and 2(x − 1)² = 2x² − 4x + 2. Subtracting gives −x − 14, so a = −1, b = −14 and a + b = −15.",
-   "hints": [
-    "Expand each part separately."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "a + b equals the left side at x = 1."
-   },
-   "remember": "a + b is the value of ax + b at x = 1.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "−19",
-    "B": "−15",
-    "C": "−14",
-    "D": "−11"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "−19 squares x − 1 as x² + 1.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "−14 does not multiply the constant 1 by 2.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "−11 subtracts 2x² − 4x − 2, with the wrong sign on the constant.",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
    "cand": "Q052-06",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
@@ -490,6 +444,58 @@
      "trap": "partial_answer"
     }
    ]
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q052-05",
+   "reason": "screen: same template as CLD-SAT-M-000225 (retired as a template of SAT 068): expand an identity to ax + b and report a + b. Dropped.",
+   "item": {
+    "cand": "Q052-05",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Sum of coefficients after squared terms cancel",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "For all values of x, (2x + 3)(x − 4) − 2(x − 1)² = ax + b, where a and b are constants. What is the value of a + b ?",
+    "explanation": "(2x + 3)(x − 4) = 2x² − 5x − 12 and 2(x − 1)² = 2x² − 4x + 2. Subtracting gives −x − 14, so a = −1, b = −14 and a + b = −15.",
+    "hints": [
+     "Expand each part separately."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "a + b equals the left side at x = 1."
+    },
+    "remember": "a + b is the value of ax + b at x = 1.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "−19",
+     "B": "−15",
+     "C": "−14",
+     "D": "−11"
+    },
+    "answer": "B",
+    "distractors": {
+     "A": {
+      "rationale": "−19 squares x − 1 as x² + 1.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "−14 does not multiply the constant 1 by 2.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "−11 subtracts 2x² − 4x − 2, with the wrong sign on the constant.",
+      "trap": "sign_error"
+     }
+    }
+   }
   }
  ]
 }
