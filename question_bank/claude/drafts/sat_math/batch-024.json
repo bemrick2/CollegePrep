@@ -1,0 +1,461 @@
+{
+ "bank": "sat_math",
+ "batch": 24,
+ "plan": "SAT Math batch 24: Algebra 3, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 2 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-024.repeats.json): two templates (ACT 732, 778) dropped.",
+ "candidates": [
+  {
+   "cand": "Q024-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Constant-rate projection to a limit",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Jo's phone uses data at a constant rate. In the first 10 days of a month it used 2.5 gigabytes (GB). At this rate, on what day of the month will the phone reach its 6 GB limit?",
+   "explanation": "The rate is 2.5 ÷ 10 = 0.25 GB per day. Reaching 6 GB takes 6 ÷ 0.25 = 24 days, so the phone reaches the limit on day 24.",
+   "hints": [
+    "Find the daily rate first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 0.25d = 6."
+   },
+   "remember": "Rate × time = amount; answer the question asked.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2.4",
+    "B": "14",
+    "C": "24",
+    "D": "60"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "2.4 divides 6 by 2.5 and ignores the 10 days.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "14 is the number of additional days after day 10, not the day of the month.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "60 multiplies 6 by 10.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q024-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear model for depth below the surface",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A diver starts at a depth of −20 feet (20 feet below the surface) and descends at a constant rate of 15 feet per minute. After how many minutes will the diver be at −110 feet?",
+   "explanation": "The depth after t minutes is −20 − 15t. Setting −20 − 15t = −110 gives −15t = −90, so t = 6 minutes.",
+   "hints": [
+    "Write the depth as a function of time."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve −20 − 15t = −110."
+   },
+   "remember": "Start value plus rate × time; mind the signs.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6",
+    "B": "22/3",
+    "C": "26/3",
+    "D": "90"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "22/3 divides 110 by 15, ignoring the starting depth.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "26/3 adds the starting depth: 130 ÷ 15.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "90 is the distance descended, not the time.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q024-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Equal earnings at two hourly rates",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A plumber charges $45 per hour and an electrician charges $60 per hour. On one job, the plumber worked 2 hours longer than the electrician, and both earned the same amount. How many hours did the electrician work?",
+   "explanation": "If the electrician worked e hours, the plumber worked e + 2 hours. Equal earnings give 45(e + 2) = 60e, so 45e + 90 = 60e, 90 = 15e and e = 6. Each earned $360.",
+   "hints": [
+    "Write the plumber's hours in terms of the electrician's."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 45(e + 2) = 60e."
+   },
+   "remember": "Define one variable; express the other quantity with it.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "8",
+     "rationale": "8 is the number of hours the plumber worked.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "360",
+     "rationale": "360 is the amount each earned, in dollars.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q024-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Identifying an exponential function from a table",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "The table shows four values of a function f.\nx | 0 | 1 | 2 | 3\nf(x) | 4 | 12 | 36 | 108\nWhich of the following could define f ?",
+   "explanation": "f(0) = 4 gives the starting value, and each output is 3 times the previous one, so f(x) = 4 · 3ˣ. Check: 4 · 3³ = 108.",
+   "hints": [
+    "What happens to f(x) each time x increases by 1?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check every row of the table."
+   },
+   "remember": "Constant ratio between outputs → exponential function.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(x) = 8x + 4",
+    "B": "f(x) = 3 · 4ˣ",
+    "C": "f(x) = 12x",
+    "D": "f(x) = 4 · 3ˣ"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This fits (0, 4) and (1, 12) but gives 20 at x = 2, not 36.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "This swaps the starting value and the growth factor: f(0) would be 3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This fits (1, 12) only; f(0) would be 0.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q024-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Value of a shifted exponential from a known power",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "If 3ᵃ = 7, what is the value of 3^(a + 2) ?",
+   "explanation": "3^(a + 2) = 3ᵃ · 3² = 7 · 9 = 63. Adding 2 to the exponent multiplies the value by 3² = 9.",
+   "hints": [
+    "Use the rule b^(m + n) = bᵐ · bⁿ."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Split 3^(a + 2) into 3ᵃ · 3²."
+   },
+   "remember": "Adding to an exponent multiplies the power.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must split the exponent instead of solving for a; squaring 7 (49) is a common error."
+   },
+   "format": "spr",
+   "answer": "63",
+   "accepted_answers": [
+    "63"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 is 3², the factor the shift contributes, not the whole value.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "49",
+     "rationale": "49 squares 7 instead of multiplying it by 3².",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q024-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Evaluating a cubic function at two inputs",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "The function f is defined by f(x) = x³ − 4x. What is the value of f(−2) + f(3) ?",
+   "explanation": "f(−2) = (−2)³ − 4(−2) = −8 + 8 = 0, and f(3) = 3³ − 4(3) = 27 − 12 = 15. So f(−2) + f(3) = 0 + 15 = 15.",
+   "hints": [
+    "Evaluate f at each input separately."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute each value carefully with signs."
+   },
+   "remember": "Substitute negative inputs in parentheses.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−15",
+    "B": "0",
+    "C": "15",
+    "D": "27"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−15 makes a sign error in f(3).",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "0 is f(−2) alone.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "27 is 3³, ignoring the −4x term.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q024-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a simple radical equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "If √(x + 7) = 4, what is the value of x ?",
+   "explanation": "Squaring both sides gives x + 7 = 16, so x = 9. Check in the original equation: √(9 + 7) = √16 = 4, which matches.",
+   "hints": [
+    "Square both sides first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 9."
+   },
+   "remember": "Undo a square root by squaring both sides, then check.",
+   "expected_time_seconds": 25,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−3",
+    "B": "9",
+    "C": "16",
+    "D": "23"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−3 subtracts 7 from 4 without squaring.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 is the value of x + 7.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "23 adds 7 to 16 instead of subtracting.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q024-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Conclusion from a randomized experiment with volunteers",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Researchers recruited 200 volunteers and randomly assigned each to follow either a new sleep routine or their usual routine for a month. Volunteers who followed the new routine had higher average test scores. Which conclusion is best supported?",
+   "explanation": "Random assignment to the two routines supports a cause-and-effect conclusion. Because the volunteers were not a random sample of a larger population, the conclusion applies only to people similar to these volunteers.",
+   "hints": [
+    "What does random assignment allow? What does random sampling allow?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Separate 'cause' from 'who it applies to'."
+   },
+   "remember": "Random assignment → cause; random sampling → generalise.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The new routine likely caused higher test scores for people similar to these volunteers.",
+    "B": "The new routine causes higher test scores for all students in the country.",
+    "C": "No conclusion about cause can be drawn because the volunteers were not randomly selected.",
+    "D": "Higher test scores caused volunteers to choose the new routine."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The volunteers were not randomly sampled from all students, so the result cannot be generalised to everyone.",
+     "trap": "overextend_trend"
+    },
+    "C": {
+     "rationale": "Random assignment, not random selection, is what supports a causal conclusion.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The volunteers did not choose their routine; it was randomly assigned.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q024-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Mean of two values from two overall means",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "The mean of the numbers a, b and c is 12. The mean of the numbers a, b, c, d and e is 15. What is the mean of d and e ?",
+   "explanation": "The sum a + b + c is 3 × 12 = 36, and the sum of all five numbers is 5 × 15 = 75. So d + e = 75 − 36 = 39, and their mean is 39 ÷ 2 = 19.5.",
+   "hints": [
+    "Convert each mean into a sum."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Sum = mean × count."
+   },
+   "remember": "Work with sums, then divide.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "15",
+    "C": "19.5",
+    "D": "39"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the difference between the two means.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "15 assumes d and e have the same mean as all five numbers.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "39 is the sum d + e, not their mean.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q024-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area of an isosceles triangle with 30° base angles",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "An isosceles triangle has two sides of length 10, and the two angles opposite those sides each measure 30°. What is the area of the triangle?",
+   "explanation": "The altitude to the base bisects it and forms two 30°-60°-90° triangles with hypotenuse 10. The altitude (opposite 30°) is 5, and each half of the base is 5√3, so the base is 10√3. The area is (1/2)(10√3)(5) = 25√3.",
+   "hints": [
+    "Draw the altitude to the base."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Each half is a 30°-60°-90° triangle with hypotenuse 10."
+   },
+   "remember": "In a 30°-60°-90° triangle, the sides are x, x√3 and 2x.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must construct an altitude, use special-right-triangle ratios and avoid treating the equal sides as legs (50)."
+   },
+   "choices": {
+    "A": "25",
+    "B": "25√3",
+    "C": "50",
+    "D": "50√3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "25 uses half the altitude-base product without the √3.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "50 treats the triangle as if the equal sides were perpendicular: (1/2)(10)(10).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "50√3 omits the factor 1/2.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}
