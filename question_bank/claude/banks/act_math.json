@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 67,
-  "updated_at": "2026-10-27T00:01:16+00:00",
+  "version": 68,
+  "updated_at": "2026-10-27T00:06:30+00:00",
   "passages": [],
   "questions": [
     {
@@ -46592,6 +46592,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-067.review.json",
         "computation": "checks/act_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000667",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Number & Quantity",
+      "subskill": "Percent grade of a road",
+      "modeling": true,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A road rises 120 feet over a horizontal distance of 2,400 feet. The grade of a road is its rise divided by its horizontal distance, written as a percent. What is the grade of this road?",
+      "choices": {
+        "A": "0.05%",
+        "B": "5%",
+        "C": "20%",
+        "D": "50%"
+      },
+      "correct_answer": "B",
+      "explanation": "120 ÷ 2,400 = 0.05, which is 5%.",
+      "distractor_explanations": {
+        "A": "0.05% writes the decimal 0.05 as a percent without multiplying by 100.",
+        "C": "20% divides 2,400 by 120 and writes the result as a percent.",
+        "D": "50% shifts the decimal point the wrong way."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Divide the rise by the horizontal distance."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "120/2,400 × 100%."
+      },
+      "remember": "To convert a decimal to a percent, multiply by 100.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-01",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000668",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Counting cubes that fill a box",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many cubes with edges of 2 inches are needed to fill a rectangular box that measures 6 inches by 8 inches by 10 inches?",
+      "choices": {
+        "A": "60",
+        "B": "120",
+        "C": "160",
+        "D": "480"
+      },
+      "correct_answer": "A",
+      "explanation": "Along the edges, 6 ÷ 2 = 3, 8 ÷ 2 = 4 and 10 ÷ 2 = 5 cubes fit, so 3 × 4 × 5 = 60 cubes fill the box. (Equivalently, 480 ÷ 8 = 60.)",
+      "distractor_explanations": {
+        "B": "120 divides the box's volume by 4, the area of one face of a cube, instead of by 8.",
+        "C": "160 divides the volume by 3 instead of by the cube's volume.",
+        "D": "480 is the volume of the box in cubic inches."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many cubes fit along each edge?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Count cubes along length, width and height."
+      },
+      "remember": "Each small cube has volume 2³ = 8.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-02",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000669",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Equal tangent segments from an external point",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From point P outside a circle, two segments are drawn tangent to the circle at points A and B. If PA = 3x + 2 and PB = 5x − 6, what is the length of PA ?",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "14",
+        "D": "28"
+      },
+      "correct_answer": "C",
+      "explanation": "Tangent segments from the same external point are equal: 3x + 2 = 5x − 6, so x = 4 and PA = 3(4) + 2 = 14.",
+      "distractor_explanations": {
+        "A": "4 is the value of x, not the length of PA.",
+        "B": "5 adds 3x and 5x instead of moving 3x to the other side (8x = 8, x = 1), so PA = 5.",
+        "D": "28 is PA + PB."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is true about two tangent segments drawn from the same point?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set PA = PB."
+      },
+      "remember": "Tangent segments from one external point are congruent.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-03",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000670",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Digit in a repeating decimal pattern",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The decimal form of 1/7 is 0.142857142857…, in which the block 142857 repeats forever. What is the 100th digit to the right of the decimal point?",
+      "choices": {
+        "A": "1",
+        "B": "4",
+        "C": "7",
+        "D": "8"
+      },
+      "correct_answer": "D",
+      "explanation": "The block has 6 digits, and 100 = 6 × 16 + 4, so the 100th digit is the 4th digit of the block: 8.",
+      "distractor_explanations": {
+        "A": "1 is the 1st digit of the block, which would be correct for remainder 1.",
+        "B": "4 confuses the remainder (4) with the digit in that position.",
+        "C": "7 is the 6th digit, correct only if 100 were a multiple of 6."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How many digits are in the repeating block?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Divide 100 by 6 and use the remainder."
+      },
+      "remember": "Use the remainder to find a position in a repeating cycle.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-04",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000671",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of drawing a matching pair",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A drawer contains 4 red socks and 6 blue socks. Two socks are drawn at random without replacement. What is the probability that the two socks are the same color?",
+      "choices": {
+        "A": "2/15",
+        "B": "1/3",
+        "C": "7/15",
+        "D": "8/15"
+      },
+      "correct_answer": "C",
+      "explanation": "There are C(10, 2) = 45 pairs. Same-color pairs: C(4, 2) + C(6, 2) = 6 + 15 = 21. The probability is 21/45 = 7/15.",
+      "distractor_explanations": {
+        "A": "2/15 = 6/45 counts only the red pairs.",
+        "B": "1/3 = 15/45 counts only the blue pairs.",
+        "D": "8/15 is the probability that the socks are different colors."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Count red pairs and blue pairs separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(C(4,2) + C(6,2)) ÷ C(10,2)."
+      },
+      "remember": "\"Same color\" means either color: add the cases.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-05",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000672",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Probability of at least one six in several rolls",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A fair six-sided die is rolled 4 times. To the nearest thousandth, what is the probability that at least one roll is a 6 ?",
+      "choices": {
+        "A": "0.167",
+        "B": "0.482",
+        "C": "0.518",
+        "D": "0.667"
+      },
+      "correct_answer": "C",
+      "explanation": "The probability of no 6 in 4 rolls is (5/6)⁴ ≈ 0.482, so the probability of at least one 6 is 1 − 0.482 = 0.518.",
+      "distractor_explanations": {
+        "A": "0.167 is the probability of a 6 on a single roll.",
+        "B": "0.482 is the probability of no 6 at all.",
+        "D": "0.667 = 4 × 1/6 adds the single-roll probabilities."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What is the probability of no 6 in four rolls?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "1 − (5/6)⁴."
+      },
+      "remember": "P(at least one) = 1 − P(none); don't add probabilities of overlapping events.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-06",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000673",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Evaluating a temperature conversion formula",
+      "modeling": true,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The formula F = (9/5)C + 32 converts a temperature in degrees Celsius, C, to degrees Fahrenheit, F. A recipe calls for an oven temperature of 180°C. What is this temperature in degrees Fahrenheit?",
+      "choices": {
+        "A": "324",
+        "B": "356",
+        "C": "388",
+        "D": "414"
+      },
+      "correct_answer": "B",
+      "explanation": "F = (9/5)(180) + 32 = 324 + 32 = 356.",
+      "distractor_explanations": {
+        "A": "324 forgets to add 32.",
+        "C": "388 adds 32 twice.",
+        "D": "414 = (9/5)(180 + 50) uses a wrong order of operations."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply first, then add 32."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute C = 180."
+      },
+      "remember": "Follow the formula's order: multiply, then add.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-07",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000674",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Distances from a point to the corners of a rectangle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Point P lies inside rectangle ABCD, where A and C are opposite corners. The distances from P to A, B and C are 3, 4 and 5, respectively. What is the distance from P to D ?",
+      "choices": {
+        "A": "2√2",
+        "B": "3",
+        "C": "3√2",
+        "D": "5"
+      },
+      "correct_answer": "C",
+      "explanation": "Place the rectangle on axes and let P = (x, y). Then PA² + PC² = PB² + PD² (each side is a sum of the same four squared horizontal and vertical distances). So 9 + 25 = 16 + PD², PD² = 18 and PD = 3√2.",
+      "distractor_explanations": {
+        "A": "2√2 = √8 uses PA² + PB² − PC² instead of pairing opposite corners.",
+        "B": "3 equals PA, assuming a symmetry the problem does not give.",
+        "D": "5 equals PC, also assuming a symmetry that is not given."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Set up coordinates with the rectangle's sides on the axes."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Drop perpendiculars from P to the sides and use the Pythagorean theorem four times."
+      },
+      "remember": "PA² + PC² = PB² + PD² for any point and rectangle.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-08",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000675",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Sum of cubes from a sum and a product",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If a + b = 6 and ab = 4, what is the value of a³ + b³ ?",
+      "choices": {
+        "A": "144",
+        "B": "168",
+        "C": "192",
+        "D": "216"
+      },
+      "correct_answer": "A",
+      "explanation": "(a + b)³ = a³ + b³ + 3ab(a + b), so a³ + b³ = 6³ − 3(4)(6) = 216 − 72 = 144.",
+      "distractor_explanations": {
+        "B": "168 = 216 − 48 subtracts 3ab × 4 instead of 3ab(a + b).",
+        "C": "192 = 216 − 24 subtracts 6ab instead of 3ab(a + b).",
+        "D": "216 cubes the sum and forgets the cross terms."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Expand (a + b)³."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "a³ + b³ = (a + b)³ − 3ab(a + b)."
+      },
+      "remember": "Express symmetric sums using a + b and ab.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-09",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000676",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Writing a small number in scientific notation",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is 0.000045 written in scientific notation?",
+      "choices": {
+        "A": "4.5 × 10⁵",
+        "B": "4.5 × 10⁻⁶",
+        "C": "4.5 × 10⁴",
+        "D": "4.5 × 10⁻⁵"
+      },
+      "correct_answer": "D",
+      "explanation": "Move the decimal point 5 places to the right to get 4.5, so 0.000045 = 4.5 × 10⁻⁵.",
+      "distractor_explanations": {
+        "A": "A positive exponent gives a large number, 450,000.",
+        "B": "10⁻⁶ moves the decimal point one place too many.",
+        "C": "A positive exponent gives 45,000."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": "sign_error"
+      },
+      "hints": [
+        "Is the number greater or less than 1?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Count the places the decimal point moves."
+      },
+      "remember": "Numbers less than 1 have negative exponents in scientific notation.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "B068-10",
+      "created_at": "2026-10-27T00:06:30+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-068.review.json",
+        "computation": "checks/act_math/batch_068.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
