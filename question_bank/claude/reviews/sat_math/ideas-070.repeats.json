@@ -1,0 +1,393 @@
+{
+ "ideas": "generated set 23 (RB/RD)",
+ "results": {
+  "RB01": [
+   {
+    "other_id": "CLD-SAT-M-000381 / ideas-gen-04 P12",
+    "severity": "close",
+    "why": "Symmetry identity f(x) = f(6 − x) read as an axis. RB01 carries the identity through a horizontal shift and compression and asks for k = 2h. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-01 G20 (drafted as Q034-01)",
+    "severity": "close",
+    "why": "Equal outputs symmetric about an axis. Different ask."
+   }
+  ],
+  "RB02": [
+   {
+    "other_id": "ideas-gen-13 HB06",
+    "severity": "close",
+    "why": "'Sum of all solutions' with a case that adds or removes the root x = 2 or x = 4 (|x² − 8x| = 16). Different mechanism (absolute value, not radical substitution)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000282 / ideas-gen-21 PB02 / ideas-gen-02 H16",
+    "severity": "close",
+    "why": "Extraneous root from squaring. Here the radicand is quadratic and the substitution is u = x² − 4x. Different key step."
+   }
+  ],
+  "RB03": [
+   {
+    "other_id": "ideas-gen-01 G22",
+    "severity": "template",
+    "why": "Same mechanism and same ask: p(x) = (x − 2)²(x + 1)(3 − x), 'for how many integer values of x is p(x) > 0?' Squared factor that makes a zero but does not change sign, a negative leading factor, count integers strictly inside. RB03 changes only the numbers. G22 was never drafted (it is not in batch-034 or the bank), so the caller can keep one of the two, but not both."
+   },
+   {
+    "other_id": "CLD-ACT-M-000211",
+    "severity": "close",
+    "why": "Sign of (x + 2)²(x − 3) with a squared factor. It asks for an interval where p < 0, not an integer count."
+   }
+  ],
+  "RB04": [
+   {
+    "other_id": "CLD-SAT-M-000119",
+    "severity": "close",
+    "why": "Difference of two rational expressions that each simplify by factoring. Difference of squares, not cubes."
+   },
+   {
+    "other_id": "ideas-gen-05 V07",
+    "severity": "close",
+    "why": "Factoring a higher power before cancelling. Different factorization."
+   }
+  ],
+  "RB05": [
+   {
+    "other_id": "CLD-ACT-M-000049 / CLD-SAT-M-000287 / ideas-gen-01 G18",
+    "severity": "close",
+    "why": "Reciprocal-sum identities. RB05 is given the difference, factors x² − 1/x², and uses x > 0 to choose the sign. Different ask and key step."
+   }
+  ],
+  "RB06": [
+   {
+    "other_id": "CLD-SAT-M-000436 (= ideas-gen-06 AB02)",
+    "severity": "template",
+    "why": "Same mechanism and same ask: given a composition's output, undo the outer function, then the inner one, to find a. Distractors have the same roles: 'stops halfway', 'ignores the outer function', 'reverses the order'. The only change is that g is a second table instead of 3x − 3. The idea's 'Nearest' note wrongly says AB02 evaluates forward; it is solved backward, like RB06."
+   },
+   {
+    "other_id": "CLD-ACT-M-000072",
+    "severity": "close",
+    "why": "Table compositions that are evaluated forward."
+   }
+  ],
+  "RB07": [
+   {
+    "other_id": "CLD-SAT-M-000232",
+    "severity": "close",
+    "why": "Price that maximizes theater revenue. 000232 gives R(p). RB07 makes the student build (12 + x)(360 − 15x) and convert x back to a price."
+   },
+   {
+    "other_id": "CLD-SAT-M-000376 / ideas-gen-04 N07",
+    "severity": "close",
+    "why": "Theater 'price up, sales down' context, but revenue held constant. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000770 (Q070-15 / ideas-gen-18 MA16)",
+    "severity": "close",
+    "why": "'For each $ increase, sells N fewer' builds a linear demand. Different ask (no optimization)."
+   },
+   {
+    "other_id": "ideas-gen-03 K13",
+    "severity": "close",
+    "why": "Vertex of a profit quadratic. Different ask."
+   }
+  ],
+  "RB08": [
+   {
+    "other_id": "CLD-SAT-M-000619 / ideas-gen-13 HB09",
+    "severity": "close",
+    "why": "Expressions of the form 1 − 1/x. RB08 is a telescoping product, not a single complex fraction."
+   }
+  ],
+  "RB09": [
+   {
+    "other_id": "CLD-ACT-M-000312 (cross-exam)",
+    "severity": "close",
+    "why": "Strong overlap: P = 50 · 2^(t/3), time to reach 400 = 8 × the start, answer 3 doublings × 3. RB09 has the same 8× / 3-doublings mechanism. The added step that keeps it from being a template is turning '700% greater' into a factor of 8, and two distractors (B, D) are built on that step. Allowed, but changing the target away from 8× would make it more distinct, e.g. 300% greater = 4× gives t = 10."
+   },
+   {
+    "other_id": "ideas-gen-03 K01 / CLD-SAT-M-000354",
+    "severity": "close",
+    "why": "Time to reach a multiple under a fractional-exponent model."
+   }
+  ],
+  "RB10": [
+   {
+    "other_id": "CLD-ACT-M-000655 (cross-exam)",
+    "severity": "template",
+    "why": "Same mechanism and same ask: 3^a = 5 and 3^b = 2; find 3^(2a − b) = 25/2. RB10 has x^a = 4 and x^b = 8; find x^(3a − 2b). In both, a linear combination in the exponent becomes a quotient of known powers. The unknown base and the different multiples change only the numbers. Drop as a cross-exam re-skin."
+   },
+   {
+    "other_id": "CLD-SAT-M-000219 / CLD-SAT-M-000286 / CLD-ACT-M-000101",
+    "severity": "close",
+    "why": "Rewriting a power from one known power."
+   }
+  ],
+  "RB11": [
+   {
+    "other_id": "ideas-gen-11 FB05",
+    "severity": "close",
+    "why": "Symmetry of a function under a substitution (x → −x for an exponential). Different function and substitution."
+   }
+  ],
+  "RB12": [
+   {
+    "other_id": "CLD-SAT-M-000218",
+    "severity": "close",
+    "why": "'Which could define f' from an exponential table. RB12's uneven spacing and its linear decoy that matches two rows make the key step different."
+   },
+   {
+    "other_id": "ideas-gen-09 DB04",
+    "severity": "close",
+    "why": "Choosing the exponential form from a doubling condition. Different given."
+   }
+  ],
+  "RB13": [
+   {
+    "other_id": "CLD-SAT-M-000138 / CLD-ACT-M-000693",
+    "severity": "close",
+    "why": "A line meets x² + y² = 25. In those the line is fixed. Here the line is unknown and two intersection points are possible."
+   }
+  ],
+  "RB14": [
+   {
+    "other_id": "CLD-ACT-M-000580 (cross-exam)",
+    "severity": "close",
+    "why": "Translating a parabola, with the vertex as the ask. It applies a given translation. RB14 asks for the translation itself from standard form. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-21 PB07 / CLD-SAT-M-000182",
+    "severity": "close",
+    "why": "Completing the square and translation. Different asks."
+   }
+  ],
+  "RB15": [
+   {
+    "other_id": "CLD-SAT-M-000679 (ideas-gen-17 LB16) / ideas-gen-10 EB01 / ideas-gen-03 K02 / ideas-gen-15 JB04",
+    "severity": "close",
+    "why": "Line-parabola intersections that use the sum or product of roots. In those the line is known up to a parameter. RB15 finds the slope from two points, or uses product = 1."
+   },
+   {
+    "other_id": "RB13 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both use an unknown line through a fixed y-intercept to find a second intersection point. Keep them apart."
+   }
+  ],
+  "RB16": [
+   {
+    "other_id": "CLD-SAT-M-000621 (ideas-gen-13 HB12) / CLD-SAT-M-000378",
+    "severity": "close",
+    "why": "Factor theorem with one linear factor and one unknown. RB16 has a quadratic factor, two unknowns and two equations."
+   },
+   {
+    "other_id": "CLD-ACT-M-000437 / ideas-gen-15 JB12",
+    "severity": "close",
+    "why": "x⁴ − 5x² + 4 appears as the end result. Different ask (solving it, not building it)."
+   }
+  ],
+  "RB17": [
+   {
+    "other_id": "CLD-SAT-M-000205",
+    "severity": "close",
+    "why": "Interval for a quadratic inequality. RB17's inequality is on a composition."
+   },
+   {
+    "other_id": "CLD-ACT-M-000487 / CLD-SAT-M-000734",
+    "severity": "close",
+    "why": "Equations with compositions. Different ask."
+   },
+   {
+    "other_id": "RB18 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both ask 'for which x' about a composition, with choices that are intervals or conditions. Keep them apart."
+   }
+  ],
+  "RB18": [
+   {
+    "other_id": "ideas-gen-07 BB13",
+    "severity": "close",
+    "why": "√(a²) = |a| over a stated range. RB18 reaches it through a composition of near-inverses."
+   },
+   {
+    "other_id": "RB17 (this set)",
+    "severity": "close",
+    "why": "Within-list (see RB17)."
+   }
+  ],
+  "RD01": [
+   {
+    "other_id": "CLD-SAT-M-000297 (Q034-10)",
+    "severity": "close",
+    "why": "Angle bisectors meeting at P, then angle sum. That one is in a triangle (90 + A/2). RD01 uses same-side interior angles with parallel lines."
+   },
+   {
+    "other_id": "CLD-SAT-M-000682 / ideas-gen-15 JD04",
+    "severity": "close",
+    "why": "Bisector and parallel lines. Different ask."
+   }
+  ],
+  "RD02": [
+   {
+    "other_id": "CLD-SAT-M-000056 / ideas-gen-17 LD02 / ideas-gen-05 Y02",
+    "severity": "close",
+    "why": "Inscribed-angle relationships. RD02 adds a triangle angle sum at the chord intersection."
+   },
+   {
+    "other_id": "RD07 (this set)",
+    "severity": "close",
+    "why": "Within-list circle-angle item. Keep it apart from RD07."
+   }
+  ],
+  "RD03": [
+   {
+    "other_id": "CLD-SAT-M-000429 / CLD-ACT-M-000669",
+    "severity": "close",
+    "why": "Two tangents from P. The ask is an angle or PA, not the chord."
+   },
+   {
+    "other_id": "ideas-gen-07 BD07",
+    "severity": "close",
+    "why": "Altitude to the hypotenuse. Here it has to be built from the tangent property."
+   },
+   {
+    "other_id": "RD07 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both use a radius-tangent right angle. Keep them apart."
+   }
+  ],
+  "RD04": [
+   {
+    "other_id": "CLD-SAT-M-000697 (ideas-gen-17 LD09)",
+    "severity": "close",
+    "why": "Angular speed of a tire. That one goes from radians per second to linear speed. RD04 converts rev/min to rad/s. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000635 / CLD-ACT-M-000140",
+    "severity": "close",
+    "why": "Rev/min contexts (gears). Different ask."
+   }
+  ],
+  "RD05": [
+   {
+    "other_id": "CLD-SAT-M-000085",
+    "severity": "close",
+    "why": "Height from volume and base. It stops there."
+   },
+   {
+    "other_id": "CLD-ACT-M-000392 (cross-exam)",
+    "severity": "close",
+    "why": "Surface area of a box with all three dimensions given. RD05 needs the height first. Different key step."
+   },
+   {
+    "other_id": "CLD-SAT-M-000337 (ideas-gen-03 M02) / ideas-gen-19 ND04",
+    "severity": "close",
+    "why": "Linking a box's surface area and volume, in the reverse direction."
+   }
+  ],
+  "RD06": [
+   {
+    "other_id": "CLD-SAT-M-000133 / ideas-gen-17 LD08",
+    "severity": "close",
+    "why": "One pair of similar triangles from a light source. RD06 has two pairs and eliminates the horizontal position. No bank match for crossed wires."
+   }
+  ],
+  "RD07": [
+   {
+    "other_id": "CLD-ACT-M-000065 (cross-exam)",
+    "severity": "close",
+    "why": "AB a diameter with an inscribed angle at A. It asks for arc BC only. RD07 goes on to the tangent triangle."
+   },
+   {
+    "other_id": "CLD-SAT-M-000429 / ideas-gen-05 Y06",
+    "severity": "close",
+    "why": "Tangent-radius right angle in a quadrilateral. Different figure and ask."
+   },
+   {
+    "other_id": "RD02 / RD03 (this set)",
+    "severity": "close",
+    "why": "Within-list circle items. Space them out."
+   }
+  ],
+  "RD08": [
+   {
+    "other_id": "CLD-SAT-M-000160 / CLD-ACT-M-000738 / CLD-ACT-M-000173",
+    "severity": "close",
+    "why": "Sphere and cylinder together. In those the radii match by construction. RD08 finds the radius with the Pythagorean theorem."
+   }
+  ],
+  "RD09": [
+   {
+    "other_id": "CLD-SAT-M-000802 (ideas-gen-21 PD08)",
+    "severity": "close",
+    "why": "cos(90 − x) = sin x as a pure identity. RD09 places it in a context."
+   },
+   {
+    "other_id": "CLD-SAT-M-000361",
+    "severity": "close",
+    "why": "Plain SOHCAHTOA height."
+   }
+  ],
+  "RD10": [
+   {
+    "other_id": "CLD-SAT-M-000349 (ideas-gen-03 M04)",
+    "severity": "close",
+    "why": "A point D on a side so that one angle equals another angle of the triangle, giving similarity. 000349 is a general triangle with sides AB and AC given and asks DC. RD10 is a right triangle solved with tan. Same 'remaining piece' style of ask but a different key step."
+   },
+   {
+    "other_id": "ideas-gen-11 FD05 / ideas-gen-17 LD10",
+    "severity": "close",
+    "why": "tan A = 1/2 setups. Different asks."
+   },
+   {
+    "other_id": "RD11 (this set)",
+    "severity": "close",
+    "why": "Within-list right-triangle trig. Keep them apart."
+   }
+  ],
+  "RD11": [
+   {
+    "other_id": "ideas-gen-21 PD03 / ideas-gen-13 HD10",
+    "severity": "close",
+    "why": "Special right triangles from a split figure. RD11 stacks two triangles along AC."
+   }
+  ],
+  "RD12": [
+   {
+    "other_id": "ideas-gen-17 LD04 / ideas-gen-13 HD03",
+    "severity": "close",
+    "why": "Square with a second figure. Different ask (area, or an exterior polygon)."
+   },
+   {
+    "other_id": "CLD-ACT-M-000654",
+    "severity": "close",
+    "why": "Equilateral triangle and square, but a ratio of areas."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "RD09": "Strong elimination cue. Choices C (62.5) and D (83.3) are longer than the 50-meter string, so common sense (a leg cannot exceed the hypotenuse) removes them. That leaves A against B, a coin flip on the identity. Replace C and D with values below 50 that come from real errors, e.g. 20 (50 − 30 or 50(1 − 0.6)) and 18 (50 · 0.6², squaring the ratio), or 37.5 (30/0.8, a wrong ratio applied to the key).",
+  "RB07": "Backsolve cue. Evaluating revenue at each choice price gives 6 → 2,700, 18 → 4,860, 24 → 4,320 and 36 → 0, so the largest of the four picks B with no vertex reasoning. This happens in every MC maximization item. Making it SPR (answer 18) removes the cue, and the distractor roles then become SPR traps (6, 24, 36).",
+  "RB05": "Calculator shortcut. Solving x² − 3x − 1 = 0 gives x ≈ 3.303, and x² − 1/x² ≈ 10.817, which matches only 3√13 ≈ 10.817 (3√5 ≈ 6.71). This is legitimate on the calculator section and the key is not given away, but the item is easier than 'hard'. Consider medium-hard, or accept it.",
+  "RD11": "Minor consensus cue. The key 4√6 shares its coefficient with B (4√3) and its radical with A (2√6). Acceptable, but changing A to 2√3 (AC/2, treating AB as the hypotenuse) would remove it.",
+  "RD01": "SPR whose answer (90) does not depend on the given 64°. A student who notices that the given seems irrelevant may guess 90. This is mild and inherent to the item. Acceptable.",
+  "RB09": "Choice B '14' is 5 log₂ 7 ≈ 14.04, not exactly 14. Either show it as '14.04' or keep 14 and accept the slight mismatch. No cue toward the key.",
+  "batching": "Keep apart (not in the same batch, or at least not adjacent): RB17 / RB18 (inequality and condition on a composition); RB13 / RB15 (an unknown line through a fixed y-intercept meets a curve); RD02 / RD07 / RD03 (circle angles and tangent radii; spread these three across at least two batches); RD10 / RD11 (right-triangle trig); RD01 / RD12 (angle chasing). If RB06 is somehow kept, keep it away from RB17 and RB18. RB01 should not share a batch with CLD-SAT-M-000381's batch neighbours (it already is banked, so this is just a note). RB07 and RB09 are both modeling items; spread them out."
+ },
+ "math_errors": {
+  "none (keys)": "All 30 keys were recomputed with sympy or numeric geometry: RB01 8 (checked with f(x) = (x − 2)²: g(x) = g(8 − x) holds and k = 4, 10, 5 fail); RB02 solutions 2 ± 2√3, sum 4 (x = 2 extraneous); RB03 integers −2, −1, 0, 2, 3 → 5; RB04 2x/(x + 2) (A from the wrong-sign cube factor = −2x/(x + 2)); RB05 3√13 ≈ 10.817; RB06 a = 1 (f(g(a)) = 5 gives 4, f(a) = 5 gives 2); RB07 x = 6, price 18, revenue 4,860; RB08 (x − 1)/(x + 2); RB09 t = 15 (5 log₂ 7 ≈ 14.04); RB10 1; RB11 f(1/x) = −f(x); RB12 D matches 400, 484, 644.204, C gives 610 at t = 5, A gives 585.64 at t = 2, B gives 440 at t = 2; RB13 slopes −1/2 and −2 (both lines meet the circle again at x = 4), sum −2.5; RB14 (x + 3)² − 5; RB15 roots 1/4 and 4; RB16 a = −5, b = 4, p = (x − 1)(x + 1)(x − 2)(x + 2); RB17 −2 < x < 2 (D: 2 ± √2 checked); RB18 √(x²) = |x|; RD01 90° for both 64° and 116° (coordinate construction); RD02 55° (arcs 100/110/150 checked by construction); RD03 9.6 (7.2, 12.8 checked); RD04 3π/2 (270 deg/s, 90π rad/min); RD05 314; RD06 3.6; RD07 40°; RD08 72π (24π, 200π, 288π checked); RD09 30 (40, 62.5, 83.3 checked); RD10 9; RD11 4√6 ≈ 9.80, AC = 4√3; RD12 15°.",
+  "RD05 (trap rationale)": "Trap 229 is described as 'counts the top and bottom only once: 72 + 2(40 + 45)'. That expression equals 242, not 229. 229 = 2(72) + 40 + 45, which counts top and bottom twice but each pair of side faces once. Either relabel 229 with that rationale, or use 242 for the 'top and bottom once' trap.",
+  "RB02 (trap rationale)": "Trap 12 ('adds the two values of u to get 4 and then adds 8') is not a plausible error path; 8 + (−4) + 8 is arbitrary. Replace it with something like −4 (reporting the rejected u) or 8 (the accepted u alone, which is already listed). SPR, so only the rationale is affected.",
+  "RB06 (nearest note)": "The 'Nearest' note says ideas-gen-06 AB02 evaluates the composition forward. It actually solves f(g(a)) = 9 backward, exactly as RB06 does, and it is banked as CLD-SAT-M-000436."
+ },
+ "recommend_drop": [
+  "RB03",
+  "RB06",
+  "RB10"
+ ],
+ "recommend_revise": {
+  "RB01": "Second defensible answer. Nothing rules out an f with more symmetry. If f is constant, every k works. If f(x) = cos(πx/2), which also satisfies f(x) = f(4 − x), then g(x) = −cos(πx) and g(x) = g(k − x) holds for every even k, including the trap 4. Fix by naming the type of f, e.g. 'The quadratic function f satisfies f(x) = f(4 − x) for all x', or by saying 'the graph of f has exactly one line of symmetry'.",
+  "RB18": "Domain wording. 'f(x) = x² − 4 and g(x) = √(x + 4), for x ≥ −4' reads as if the restriction applies to both functions. Write 'f(x) = x² − 4 for all real x, and g(x) = √(x + 4) for x ≥ −4'. The key does not change, but choice B (x ≥ −4) then cannot be argued from f's domain.",
+  "RD09": "Replace C (62.5) and D (83.3), which exceed the 50-meter string, with values under 50 (see within_list_cues).",
+  "RD05": "Fix the 229 trap rationale, or change the value to 242 (see math_errors).",
+  "RB07": "Optional: convert to SPR to remove the backsolve cue, or accept it as normal for MC optimization.",
+  "RB09": "Optional: change the target away from 8× (e.g. 300% greater = 4×, t = 10, with traps 2, 8.7, 20) to separate it further from CLD-ACT-M-000312's '8 × start, 3 doublings'. Show B as 14.04 if it stays."
+ }
+}

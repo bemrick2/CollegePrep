@@ -1,0 +1,831 @@
+{
+ "bank": "sat_math",
+ "batch": 76,
+ "plan": "SAT Math batch 76: 14 items from idea set 23 (RB01, RB02, RB04, RB05, RB07, RB08, RB11, RB13, RB17, RD01, RD02, RD04, RD05, RD10; pre-checked in ideas-070.repeats.json) plus Q074-03, Q074-15 and Q075-08 resubmitted (mechanical fixes: trap keys, hint without the answer digit). RB03, RB06, RB10 dropped as templates. Fixes: RB01 states f is quadratic (removes extra symmetric solutions); RB02 implausible trap 12 dropped; RB07 made a grid-in (choice-revenue shortcut); RD05 trap 229 rationale corrected. Keep-apart pairs honored (RB17/RB18, RB13/RB15, RD10/RD11, RD01/RD12, RB07/RB09). Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q076-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Symmetry carried through a shift and a compression",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The quadratic function f satisfies f(x) = f(4 − x) for all values of x. The function g is defined by g(x) = f(2x − 6). For all values of x, g(x) = g(k − x), where k is a constant. What is the value of k ?",
+   "explanation": "The graph of f is symmetric about x = 2. The graph of g is symmetric where 2x − 6 = 2, at x = 4. A graph symmetric about x = 4 satisfies g(x) = g(8 − x). Directly: g(8 − x) = f(2(8 − x) − 6) = f(10 − 2x) = f(4 − (2x − 6)) = f(2x − 6) = g(x).",
+   "hints": [
+    "Where is the axis of symmetry of f, and where does g reach the same input?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find g's axis, then double it."
+   },
+   "remember": "Symmetry about x = h means g(x) = g(2h − x).",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The identity must be carried through a shift and a compression, and k is twice the axis."
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 is the axis of symmetry of g, not k, which is twice the axis.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "10",
+     "rationale": "10 adds the shift to f's constant, 4 + 6, ignoring the factor 2.",
+     "trap": null
+    },
+    {
+     "value": "5",
+     "rationale": "5 treats the axis as (4 + 6)/2.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q076-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Extraneous root rejected after substitution",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "What is the sum of all real solutions to the equation x² − 4x = 2√(x² − 4x + 8) ?",
+   "explanation": "Let u = x² − 4x. Then u = 2√(u + 8), so u² = 4u + 32 and u = 8 or u = −4. The value u = −4 is extraneous, because the right side is never negative. Then x² − 4x = 8 has the two real solutions 2 ± 2√3, whose sum is 4.",
+   "hints": [
+    "What expression appears both inside and outside the radical?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute u for the repeated expression."
+   },
+   "remember": "Check radical solutions; a square root is never negative.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The extraneous root must be rejected at the level of u, before it produces a valid-looking x."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 keeps the extraneous value u = −4, which adds the solution x = 2.",
+     "trap": null
+    },
+    {
+     "value": "8",
+     "rationale": "8 reports u = 8 instead of the sum of the x-values.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Difference of cubes in a rational expression",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x ≠ 2 and x ≠ −2, which of the following is equivalent to (x³ − 8)/(x² − 4) − (x² + 4)/(x + 2) ?",
+   "explanation": "x³ − 8 = (x − 2)(x² + 2x + 4) and x² − 4 = (x − 2)(x + 2), so the first fraction is (x² + 2x + 4)/(x + 2). Subtracting (x² + 4)/(x + 2) leaves 2x/(x + 2).",
+   "hints": [
+    "How does x³ − 8 factor?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor, cancel, then subtract."
+   },
+   "remember": "a³ − b³ = (a − b)(a² + ab + b²).",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−2x/(x + 2)",
+    "B": "2x/(x + 2)",
+    "C": "(2x + 8)/(x + 2)",
+    "D": "0"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This factors x³ − 8 with the wrong middle sign, (x − 2)(x² − 2x + 4).",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "This subtracts only the x² term of the second numerator and adds its 4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This factors x³ − 8 as (x − 2)(x² + 4), so the two fractions look identical.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q076-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Difference of squares from a sum and a difference",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "If x > 0 and x − 1/x = 3, what is the value of x² − 1/x² ?",
+   "explanation": "x² − 1/x² = (x − 1/x)(x + 1/x). Also (x + 1/x)² = (x − 1/x)² + 4 = 13, and x + 1/x > 0 because x > 0, so x + 1/x = √13. The value is 3√13.",
+   "hints": [
+    "Factor x² − 1/x² as a difference of squares."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find x + 1/x from its square."
+   },
+   "remember": "(a + b)² = (a − b)² + 4ab.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The missing factor x + 1/x must be found from an identity, with the sign chosen from x > 0."
+   },
+   "choices": {
+    "A": "9",
+    "B": "11",
+    "C": "3√5",
+    "D": "3√13"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This squares both sides as if (x − 1/x)² equaled x² − 1/x².",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This finds x² + 1/x² = 9 + 2, a sum instead of the difference.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "This uses (x + 1/x)² = (x − 1/x)² − 4 = 5, with the wrong sign on the 4.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q076-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Revenue model built from price increases",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A theater sells 360 tickets per show at a price of $12 per ticket. For each $1 increase in the ticket price, it sells 15 fewer tickets per show. Assuming this relationship continues, what ticket price, in dollars, gives the greatest revenue per show?",
+   "explanation": "With x one-dollar increases, revenue is R = (12 + x)(360 − 15x). Its zeros are x = −12 and x = 24, so the maximum is midway, at x = 6. The best price is 12 + 6 = 18 dollars, giving 18 × 270 = 4,860 dollars.",
+   "hints": [
+    "Write the price and the number of tickets in terms of the number of $1 increases."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Build R(x), then find its vertex."
+   },
+   "remember": "A parabola's vertex is midway between its zeros.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build the quadratic model and convert the best number of increases back into a price."
+   },
+   "format": "spr",
+   "answer": "18",
+   "accepted_answers": [
+    "18"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is the number of $1 increases, not the price.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "24",
+     "rationale": "24 is the number of increases at which sales stop.",
+     "trap": null
+    },
+    {
+     "value": "36",
+     "rationale": "36 is the price at which no tickets are sold.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q076-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Chain cancellation across factors",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x > 0, which of the following is equivalent to (1 − 1/x)(1 − 1/(x + 1))(1 − 1/(x + 2)) ?",
+   "explanation": "The factors are (x − 1)/x, x/(x + 1), and (x + 1)/(x + 2). Each denominator cancels the next numerator, leaving (x − 1)/(x + 2).",
+   "hints": [
+    "Rewrite each factor as a single fraction."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 2 in the expression and the choices."
+   },
+   "remember": "Rewrite each factor as one fraction before multiplying.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(x − 1)/(x + 2)",
+    "B": "(x − 1)³/(x(x + 1)(x + 2))",
+    "C": "(x + 1)/(x + 2)",
+    "D": "1 − 1/(x(x + 1)(x + 2))"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This writes every numerator as x − 1, as if 1 − 1/n always equaled (x − 1)/n.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This over-cancels and keeps only the last factor.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This treats a product of the form (1 − a)(1 − b)(1 − c) as 1 − abc.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q076-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Function of a reciprocal input",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = (x + 1)/(x − 1). For x ≠ 0, x ≠ 1, and x ≠ −1, which of the following is equal to f(1/x) ?",
+   "explanation": "f(1/x) = (1/x + 1)/(1/x − 1). Multiplying the numerator and denominator by x gives (1 + x)/(1 − x), which equals −(x + 1)/(x − 1) = −f(x).",
+   "hints": [
+    "Multiply the numerator and denominator by x."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try x = 2: f(2) = 3 and f(1/2) = −3."
+   },
+   "remember": "Clear a complex fraction by multiplying by the inner denominator.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must clear a complex fraction and recognize the opposite of the original."
+   },
+   "choices": {
+    "A": "f(x)",
+    "B": "1/f(x)",
+    "C": "−1/f(x)",
+    "D": "−f(x)"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This multiplies by x but keeps the denominator as x − 1, losing the sign.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "This assumes replacing x with 1/x flips the output.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This gets the sign change but also flips the fraction.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q076-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Line through a known point meeting a circle again",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the line y = mx + 5, where m is a constant, intersects the circle x² + y² = 25 at the point (0, 5) and at one other point, whose x-coordinate is 4. What is the sum of all possible values of m ?",
+   "explanation": "The other point has 16 + y² = 25, so it is (4, 3) or (4, −3). The slopes from (0, 5) are (3 − 5)/4 = −1/2 and (−3 − 5)/4 = −2. The sum is −5/2.",
+   "hints": [
+    "How many points on the circle have x-coordinate 4?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the circle and both points with x = 4."
+   },
+   "remember": "Check whether a condition allows more than one point.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must notice that two points on the circle have x-coordinate 4."
+   },
+   "format": "spr",
+   "answer": "-2.5",
+   "accepted_answers": [
+    "-2.5",
+    "-5/2"
+   ],
+   "common_errors": [
+    {
+     "value": "-0.5",
+     "rationale": "−0.5 uses only the point (4, 3).",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "-2",
+     "rationale": "−2 uses only the point (4, −3).",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2.5",
+     "rationale": "2.5 reverses the subtraction in the slopes.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Inequality on a composition",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The functions f and g are defined by f(x) = x² − 4x and g(x) = x + 2. Which of the following describes all values of x for which f(g(x)) < 0 ?",
+   "explanation": "f(g(x)) = (x + 2)² − 4(x + 2) = (x + 2)(x − 2), which is negative exactly when −2 < x < 2. Equivalently, f(u) < 0 for 0 < u < 4, and u = x + 2.",
+   "hints": [
+    "Write f(g(x)) and factor it."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand the composition, then find where it is negative."
+   },
+   "remember": "f(g(x)) means apply g first.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Each wrong choice is a specific order or direction error with compositions."
+   },
+   "choices": {
+    "A": "−2 < x < 2",
+    "B": "0 < x < 4",
+    "C": "2 < x < 6",
+    "D": "2 − √2 < x < 2 + √2"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This solves f(x) < 0 and ignores the composition.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This shifts the interval the wrong way, solving 0 < x − 2 < 4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This composes in the wrong order: g(f(x)) = x² − 4x + 2 < 0.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q076-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Bisectors of same-side interior angles",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Parallel lines ℓ and m are cut by a transversal t at point A on ℓ and point B on m. One of the angles formed at A measures 64°. Point P lies between ℓ and m, on one side of t, so that ray AP bisects the angle at A between ray AB and line ℓ on that side, and ray BP bisects the angle at B between ray BA and line m on that side. What is the measure, in degrees, of angle APB ?",
+   "explanation": "The two bisected angles are same-side interior angles, so they are supplementary (64° and 116°, in some order). Their halves are 32° and 58°, which sum to 90°, so angle APB = 180° − 90° = 90°, whichever side P is on.",
+   "hints": [
+    "How are the two bisected angles related?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the parallel lines, the transversal, and both bisectors."
+   },
+   "remember": "Same-side interior angles are supplementary.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The given 64° does not matter; halves of a supplementary pair always sum to 90°."
+   },
+   "format": "spr",
+   "answer": "90",
+   "accepted_answers": [
+    "90"
+   ],
+   "common_errors": [
+    {
+     "value": "116",
+     "rationale": "116 assumes both bisected angles are 64°.",
+     "trap": null
+    },
+    {
+     "value": "64",
+     "rationale": "64 assumes both bisected angles are 116°.",
+     "trap": null
+    },
+    {
+     "value": "32",
+     "rationale": "32 is half of 64°, not angle APB.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inscribed angles on the same arc",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Points A, B, C, and D lie on a circle in that order, and chords AC and BD intersect at point E. The measure of angle ABD is 50°, and the measure of angle AEB is 75°. What is the measure of angle BDC ?",
+   "explanation": "In triangle ABE, angle BAE = 180° − 50° − 75° = 55°. Angles BAC and BDC are inscribed angles that intercept the same arc BC, so angle BDC = 55°.",
+   "hints": [
+    "Which angle intercepts the same arc as angle BDC?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the circle, the chords, and triangle ABE."
+   },
+   "remember": "Inscribed angles on the same arc are equal.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "A triangle angle sum must be combined with the equal-inscribed-angle fact."
+   },
+   "choices": {
+    "A": "25°",
+    "B": "50°",
+    "C": "55°",
+    "D": "105°"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This subtracts the two given angles.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This treats ABD and BDC as alternate interior angles, as if AB were parallel to CD.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This is the supplement of angle AEB, an angle at E, not at D.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q076-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Revolutions per minute to radians per second",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A turntable rotates at a constant rate of 45 revolutions per minute. What is the turntable's rate of rotation, in radians per second?",
+   "explanation": "45 revolutions per minute is 45(2π) = 90π radians per minute, and 90π/60 = 3π/2 radians per second.",
+   "hints": [
+    "How many radians are in one revolution?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert revolutions to radians, then minutes to seconds."
+   },
+   "remember": "One revolution is 2π radians.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3π/4",
+    "B": "3π/2",
+    "C": "270",
+    "D": "90π"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This uses π radians per revolution instead of 2π.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This finds degrees per second, 45 × 360/60.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "This is radians per minute; it forgets to convert to seconds.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q076-13",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Surface area after finding a missing height",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "easy",
+   "stem": "A closed right rectangular prism has a volume of 360 cubic centimeters, and its base is a rectangle that is 8 centimeters by 9 centimeters. What is the total surface area of the prism, in square centimeters?",
+   "explanation": "The height is 360/72 = 5. The surface area is 2(8 · 9 + 8 · 5 + 9 · 5) = 2(72 + 40 + 45) = 314.",
+   "hints": [
+    "Find the height first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the volume to find the height, then add all six faces."
+   },
+   "remember": "A box has three pairs of congruent faces.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "314",
+   "accepted_answers": [
+    "314"
+   ],
+   "common_errors": [
+    {
+     "value": "157",
+     "rationale": "157 adds the three different face areas once each, forgetting that each appears twice.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "229",
+     "rationale": "229 counts the top and bottom twice but each pair of side faces once: 2(72) + 40 + 45.",
+     "trap": null
+    },
+    {
+     "value": "360",
+     "rationale": "360 is the volume, not the surface area.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-14",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Equal angles inside a right triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle ABC, angle C is the right angle, AC = 6, and BC = 12. Point D lies on side BC so that angle CAD has the same measure as angle ABC. What is the length of BD ?",
+   "explanation": "tan(angle ABC) = AC/BC = 6/12 = 1/2, and tan(angle CAD) = CD/AC, so CD = 6 × 1/2 = 3. Then BD = 12 − 3 = 9.",
+   "hints": [
+    "What is the tangent of angle ABC?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Mark the equal angles and use the tangent ratio in both triangles."
+   },
+   "remember": "Equal angles have equal trigonometric ratios.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "9",
+   "accepted_answers": [
+    "9"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 is CD, not BD.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "6",
+     "rationale": "6 assumes D is the midpoint of BC.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q076-15",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope after swapping the axes",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A scientist models the mass m, in grams, of a growing crystal d days after it begins forming with the equation m = 0.4d + 12. A student graphs the same relationship with m on the horizontal axis and d on the vertical axis. What is the slope of the student's graph, and what does it represent?",
+   "explanation": "Solving for d gives d = (m − 12)/0.4 = 2.5m − 30. With m horizontal and d vertical, the slope is 2.5, measured in days per gram: the crystal takes 2.5 days to gain each gram.",
+   "hints": [
+    "Solve the equation for d."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite d in terms of m, then read the units."
+   },
+   "remember": "Slope units are vertical units per horizontal unit.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must invert the model and attach the reciprocal units."
+   },
+   "choices": {
+    "A": "0.4; the crystal gains 0.4 gram per day.",
+    "B": "2.5; the crystal takes 2.5 days to gain each gram.",
+    "C": "2.5; the crystal gains 2.5 grams per day.",
+    "D": "0.4; the crystal takes 0.4 day to gain each gram."
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This keeps the original slope and meaning, ignoring the swapped axes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This inverts the number but keeps the original units, grams per day.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This keeps the original number but attaches the reciprocal units.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "trap key not in math list",
+     "change": "trap for C set to None"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-16",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Remainder from polynomial division",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "For x ≠ −2, the expression (2x² + 7x + 9)/(x + 2) is equivalent to 2x + 3 + k/(x + 2), where k is a constant. What is the value of k ?",
+   "explanation": "(2x + 3)(x + 2) = 2x² + 7x + 6, so 2x² + 7x + 9 = (2x + 3)(x + 2) + 3. Dividing by x + 2 gives 2x + 3 + 3/(x + 2), so k = 3.",
+   "hints": [
+    "Write the numerator as the divisor times a linear quotient, plus a constant."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compare the product with the numerator."
+   },
+   "remember": "Dividend = quotient × divisor + remainder.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 is the constant term of the numerator.",
+     "trap": null
+    },
+    {
+     "value": "15",
+     "rationale": "15 adds 6 instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "-3",
+     "rationale": "−3 subtracts in the wrong order, 6 − 9.",
+     "trap": "sign_error"
+    }
+   ],
+   "revision": 3,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "hint gave the computation away",
+     "change": "hint now names the form, not the product"
+    },
+    {
+     "round": 2,
+     "outcome": "REVISE",
+     "reason": "hint contained the digit of the answer",
+     "change": "hint reworded without numbers"
+    }
+   ]
+  },
+  {
+   "cand": "Q076-17",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Scope of a causal conclusion from two active treatments",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "At a clinic, 120 adult volunteers with seasonal allergies were randomly assigned to take either drug A or drug B for one month. Patients who took drug A reported fewer days with symptoms, on average, than patients who took drug B, and the difference was too large to be explained by chance alone. Which conclusion is best supported?",
+   "explanation": "Random assignment supports a causal conclusion, but only for the comparison the study made (drug A versus drug B) and only for people like the volunteers. The study had no untreated group, so it says nothing about drug A versus no medication.",
+   "hints": [
+    "What did the study actually compare?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Check each choice's comparison and population."
+   },
+   "remember": "Random assignment supports cause; random sampling supports generalization.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking drug B does.",
+    "B": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking no medication does.",
+    "C": "No conclusion about cause can be drawn, because the study did not include a placebo group.",
+    "D": "Drug A likely causes fewer symptom days than drug B does for all adults with seasonal allergies."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The study had no untreated group to compare with.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Random assignment between two treatments supports a causal comparison of those treatments; a placebo is not required.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The volunteers at one clinic were not a random sample of all adults with allergies.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "verbal trap keys used on a math item",
+     "change": "traps for B and D set to None"
+    }
+   ]
+  }
+ ]
+}
