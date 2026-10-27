@@ -1,0 +1,311 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_reading_writing",
+  "batch": 66,
+  "reviewed_at": "2026-10-27T23:01:39+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 66
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-RW-000571",
+    "CLD-SAT-RW-000572",
+    "CLD-SAT-RW-000573",
+    "CLD-SAT-RW-000574",
+    "CLD-SAT-RW-000575",
+    "CLD-SAT-RW-000576",
+    "CLD-SAT-RW-000577",
+    "CLD-SAT-RW-000578"
+  ],
+  "results": [
+    {
+      "cand": "S066-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "'so brittle that ... unrolling reduced them to fragments' is the cause-effect the blank needs. A valuable: value does not cause crumbling. B ancient: age alone is imprecise; the effect described is physical fragility. D legible: contradicts the need for X-ray reading and does not explain fragmentation.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000571"
+    },
+    {
+      "cand": "S066-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "A two-touch requirement filters out single, non-prey stimuli such as raindrops or debris. B: touch requirement is unrelated to herbivory. C: enzyme timing is governed by the later additional touches, not the two-touch closing rule (trap distractor drawn from sentence 3). D: nothing links touch count to prey size.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000572"
+    },
+    {
+      "cand": "S066-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C ('Germination was highest, 78%, after 12 hours') logically entails that 24 hours gave no gain, so it also supports the claim, though less directly than B, which cites the 24-hour figure. Consider revising C so it does not imply the comparison (e.g., cite only the 6-to-12 hour rise)."
+        }
+      ],
+      "blind_notes": "B directly compares 12 h (78%) with 24 h (77%), showing no benefit beyond 12 h. A addresses only 0 to 6 h. C is the closest rival (see flag). D addresses soaking vs. no soaking, not duration beyond 12 h.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"C ('Germination was highest, 78%, after 12 hours') logically entails that 24 hours gave no gain, so it also supports the claim, though less directly than B, which cites the 24-hour figure. Consider revising C so it does not imply the comparison (e.g., cite only the 6-to-12 hour rise).\"}"
+    },
+    {
+      "cand": "S066-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "D lifts Text 2's wording almost verbatim ('no more often than ... random'), making it matchable without real cross-text reasoning. Also 'such events' in D has no antecedent within the option; 'astronomical events' would read more cleanly."
+        }
+      ],
+      "blind_notes": "Hawkins's finding that alignments occur no more often than chance directly undercuts Reiche's calendar claim. A: he did not endorse any calendar function. B: dating is never discussed. C: the ritual/water idea belongs to later researchers, and 'definitely' overstates it.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "D copies Text 2's finding almost word for word ('no more often than'), so the item becomes a matching exercise rather than a test of cross-text inference. Also, 'such events' in D has no antecedent inside the choice. Consider paraphrasing D, e.g. 'He would say the lines' directions do not show the astronomical alignment her argument requires.'"
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"D lifts Text 2's wording almost verbatim ('no more often than ... random'), making it matchable without real cross-text reasoning. Also 'such events' in D has no antecedent within the option; 'astronomical events' would read more cleanly.\"}; {'severity': 'nonblocking', 'note': \"D copies Text 2's finding almost word for word ('no more often than'), so the item becomes a matching exercise rather than a test of cross-text inference. Also, 'such events' in D has no antecedent inside the choice. Consider paraphrasing D, e.g. 'He would say the lines' directions do not show the astronomical alignment her argument requires.'\"}"
+    },
+    {
+      "cand": "S066-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Text sets up distrust of new computers, then Johnson's matching hand calculations let the flight proceed: her work bolstered confidence in the computer results. B: the computer results matched; no claim of inferiority. C: no explanation of orbital methods. D: the flight itself is not described in detail.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000573"
+    },
+    {
+      "cand": "S066-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Subject 'the Terracotta Army' is singular and the sentence needs a finite main verb: '...the Terracotta Army, made to guard..., consists of thousands of...' A consist: plural verb disagrees with singular subject (trap from 'thousands'/'soldiers' and intervening modifiers). C consisting and D to consist: nonfinite, leaving the sentence without a main verb.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000574"
+    },
+    {
+      "cand": "S066-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "Two independent clauses: 'Brooks became the first Black author to win a Pulitzer Prize; she received the award for Annie Allen...' A: comma splice. B: run-on (fused sentence). C: 'Prize, which she received the award for Annie Allen' is ungrammatical (which-clause has a stray object; 'which' and 'the award' duplicate).",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000575"
+    },
+    {
+      "cand": "S066-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "Text claims her interests went beyond spaceflight; the Peace Corps example and the post-NASA example both illustrate this, so an additive/similarity transition fits: 'Likewise, after leaving NASA...' A However: no contrast between the two examples. B Therefore: post-NASA work is not a consequence of the Peace Corps service. D Instead: nothing is being replaced.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000576"
+    },
+    {
+      "cand": "S066-09",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "both solvers: \"Nobel Prizes are not awarded after death\" oversimplified the rule as of 1962",
+          "change": "note and key reworded to the nomination rule; Franklin never nominated"
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "D gives the cause: she died in 1958, before the 1962 award, and the dead could not be nominated. A: describes her contribution, not why she was excluded. B: an ethical controversy, not the reason she did not share the prize. C: states who won, not why Franklin did not.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000577"
+    },
+    {
+      "cand": "S066-10",
+      "revision": 3,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "both blind solvers: \"its captives\" had no clear antecedent; \"many descended\" overstated the notes",
+          "change": "key reworded to \"including descendants of the ship's captives\""
+        },
+        {
+          "round": 2,
+          "outcome": "REVISE",
+          "reason": "blind solver: \"the trade was outlawed\" overstated; only importation was banned (1808)",
+          "change": "note and choice C reworded to importation"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "B links the discovery to residents (descendants) and states its meaning for them (confirming a hidden history, which follows from the ship being burned to hide evidence). A: reports the discovery without its significance to residents. C: background on the illegal voyage, no mention of the discovery or residents. D: Africatown's origin only, no discovery.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-RW-000578"
+    }
+  ]
+}
