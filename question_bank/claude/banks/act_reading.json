@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 28,
-  "updated_at": "2026-10-27T01:01:01+00:00",
+  "version": 29,
+  "updated_at": "2026-10-27T07:02:12+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -311,6 +311,17 @@
       "word_count": 404,
       "text": "Beneath almost any forest floor runs a web of fungal threads finer than a human hair. Many of these fungi are mycorrhizal: they wrap around or grow into the roots of trees and trade water and mineral nutrients, which their threads gather from the soil, for sugars that the trees make by photosynthesis. The partnership is ancient and, for most land plants, essential. Tree seedlings grown in sterilized soil, without such fungi, often grow poorly.\n\nBecause a single fungus can connect to the roots of several trees at once, researchers in the 1990s began to ask whether the network might do more than serve each tree individually. Could it carry resources from one tree to another? Early experiments using carbon labeled with rare isotopes found that small amounts of carbon taken up by one tree later turned up in a neighbor. A journal cover in 1997 called the system a \"wood wide web,\" and the phrase stuck.\n\nIn the decades since, the idea has grown in the retelling. Popular books and documentaries have described large \"mother trees\" that recognize their own offspring and nourish them through the network, and forests in which trees warn one another of insect attacks. The image is appealing: a forest not as a crowd of competitors but as a cooperative community.\n\nA review published in 2023 examined the field studies behind these claims and found the evidence far thinner than the popular accounts suggested. In many experiments, the tracer carbon could have moved between trees through the soil, or through roots that had grown together, rather than through fungal threads. The amounts transferred were usually small, and few studies showed that they made a measurable difference to the receiving tree's growth or survival. Whether mature trees preferentially help their own seedlings had been tested in only a handful of cases, with mixed results.\n\nNone of this means that the networks do not exist or that they are unimportant. The fungi's role in supplying individual trees with water and nutrients is well established. What remains uncertain is the more dramatic claim: that the network serves as a channel through which trees share resources with, or send signals to, one another. Keeping those two claims apart, the reviewers argued, matters for forest management as well as for science, since policies built on an exaggerated picture might, for instance, protect particular \"mother trees\" at the expense of approaches better supported by evidence.",
       "batch": 28,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000029",
+      "title": "What the Horn Heard",
+      "genre": "humanities",
+      "word_count": 600,
+      "text": "When people listen to the earliest recordings of music, made in the decades around 1900, they often assume they are hearing how the musicians of that era sounded. The assumption is understandable. A recording seems to be a kind of window: the performer played, the machine listened, and the result was preserved. But the machines of that period did not listen the way a person in a concert hall did, and the musicians who made records knew it. What survives is less a window than a negotiation between players and a device with strong preferences of its own.\n\nBefore about 1925, records were made acoustically. There was no microphone and no electrical amplifier. Musicians played or sang into the wide mouth of a large horn, which funneled the sound onto a thin diaphragm. The diaphragm vibrated, and a stylus attached to it cut a wavering groove into a slowly turning disc of soft wax. Everything depended on the energy of the sound itself. A loud, focused tone pushed the diaphragm hard and cut a clear groove; a soft or scattered one barely moved it.\n\nThe horn's preferences shaped the music in ways that a listener today can easily miss. Very low notes registered poorly, so the deep pulse of a string bass often vanished from the groove. Recording directors commonly replaced it with a tuba, whose blunter tone carried better. Violins, whose sound spreads in many directions, were sometimes swapped for an odd hybrid instrument that sent the strings' vibration through a metal horn of its own, aimed straight at the recording horn. Pianos were pushed close and raised on blocks. Singers with gentle voices were told to project as though addressing the back row of a theater, and to step back from the horn on their loudest notes so that they would not overload the groove.\n\nTime was limited as well. A ten-inch disc turning at roughly seventy-eight revolutions per minute held about three minutes of music on a side. A popular song could be trimmed to fit, but a longer work could not simply be played as written. Symphonies were divided into segments, and the performers had to stop, wait for a fresh wax blank, and begin again, sometimes at a tempo a little quicker than they would have chosen in a concert, so that a movement would fit on as few sides as possible.\n\nNone of this means that early records are worthless as evidence. They preserve real details of phrasing, ornament, and pronunciation that no written score could capture, and historians of performance study them closely. But they must be read the way one reads any document produced under unusual conditions: with attention to what the conditions encouraged and what they made impossible. A forceful delivery on a disc from 1910 may tell us less about the singer's taste than about the horn the singer was standing in front of.\n\nWhen electrical recording arrived, with microphones and amplifiers, the negotiation changed its terms. A microphone could catch a quiet voice from a short distance, and a new, intimate style of popular singing, soft and conversational, became possible almost at once. It is tempting to say that the technology simply freed performers to sound like themselves. Yet microphones had preferences too. They rewarded a different kind of singer, and some voices that had thrived in front of the horn sounded harsh or thin up close. Each new device, it seems, did not remove the go-between standing between performer and listener. It replaced one go-between with another, and musicians, as they always had, learned to play to it.",
+      "batch": 29,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -16144,6 +16155,582 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-028.review.json",
         "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000223",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main purpose of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "What survives is less a window than a negotiation between players and a device with strong preferences of its own.",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "argue that historians should study written scores rather than early recordings of performances.",
+        "B": "show that early recordings reflect the demands of the recording equipment as well as the musicians' own styles.",
+        "C": "trace how the arrival of the microphone changed the style of popular singing after 1925.",
+        "D": "describe the steps by which sound was cut into a wax disc before the invention of the microphone."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage argues that early records show a negotiation between musicians and the equipment: paragraphs 2-4 give the equipment's limits, paragraph 5 says how to use the records as evidence, and paragraph 6 extends the point to microphones.",
+      "distractor_explanations": {
+        "A": "Paragraph 5 says historians study the records closely because they preserve what scores cannot.",
+        "C": "This describes only paragraph 6.",
+        "D": "This describes only paragraph 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Which choice fits every paragraph, not just one?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then match."
+      },
+      "remember": "A main-purpose answer must fit the whole passage.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-01",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 74,
+        "blind_flags": [
+          "minor: key restates the thesis of paragraphs 1 and 5 almost directly; C and D are each only part of the passage (para 6 / para 2) and A goes against para 5, so weaker readers have few tempting choices"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000224",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated reason",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "Recording directors commonly replaced it with a tuba, whose blunter tone carried better.",
+      "figure": null,
+      "stem": "According to the passage, recording directors often replaced the string bass with a tuba because the tuba's sound:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "reached lower notes than a string bass could play.",
+        "B": "spread in many directions and so reached the horn from anywhere in the room.",
+        "C": "let the player stand farther from the horn without the groove overloading.",
+        "D": "came through to the diaphragm more strongly than the bass's deep notes did."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 3 says low notes registered poorly and that the tuba's blunter tone carried better, so it showed up in the groove where the string bass vanished.",
+      "distractor_explanations": {
+        "A": "The passage says very low notes registered poorly, so lower notes would not help.",
+        "B": "Spreading in many directions is what the passage says made violins hard to record.",
+        "C": "The passage connects stepping back to loud singers, not to the tuba."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "familiar_meaning",
+        "C": null
+      },
+      "hints": [
+        "Find the sentence that mentions the tuba."
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence before it as well."
+      },
+      "remember": "Check the sentence before a detail to see what problem it solves.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-02",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000225",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a detail",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "were sometimes swapped for an odd hybrid instrument",
+      "figure": null,
+      "stem": "The author mentions the hybrid violin in paragraph 3 mainly to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "show how far recording sessions went to suit the horn rather than a listener.",
+        "B": "suggest that violinists of that period were less skilled than violinists are today.",
+        "C": "show that the horn favored instruments whose sound spread in many directions.",
+        "D": "explain why longer works such as symphonies had to be recorded in segments."
+      },
+      "correct_answer": "A",
+      "explanation": "The hybrid violin is one of several changes in paragraph 3 made for the horn's sake; it shows instruments being altered to suit the machine, not the audience.",
+      "distractor_explanations": {
+        "B": "The passage never judges the violinists' skill.",
+        "C": "The horn favored focused sound; spreading sound is why the violin was replaced.",
+        "D": "Segments are explained by the time limit in paragraph 4."
+      },
+      "distractor_traps": {
+        "B": "out_of_scope",
+        "C": null,
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What do all the examples in paragraph 3 have in common?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask why this example is in this paragraph."
+      },
+      "remember": "A detail usually supports the claim at the start of its paragraph.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-03",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [
+          "minor: overlaps conceptually with R029-09 (performing for the device rather than the listener); A's 'suit the horn rather than a listener' partly gives away the R029-09 analogy"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000226",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a word in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "What survives is less a window than a negotiation between players and a device with strong preferences of its own.",
+      "figure": null,
+      "stem": "As it is used in paragraph 1, the word negotiation most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a formal agreement reached through bargaining.",
+        "B": "a dispute that one side wins.",
+        "C": "a process of mutual adjustment.",
+        "D": "a reluctant compromise forced on one side."
+      },
+      "correct_answer": "C",
+      "explanation": "The musicians adjusted to the device's \"strong preferences\", and paragraph 6 says musicians \"learned to play to\" each device, so negotiation means a process of mutual adjustment.",
+      "distractor_explanations": {
+        "A": "This is the common meaning, but no bargain or agreement is described.",
+        "B": "The passage describes adjustment, not a contest with a winner.",
+        "D": "The passage describes both sides shaping the result, not one side giving in."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How do the musicians and the device affect each other?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Put your own word in place of negotiation, then match."
+      },
+      "remember": "Choose the meaning that fits the passage, not the most common one.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-04",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: 'mutual' is a little loose, because in the passage only the players adjust to the device, which does not adjust in return. D ('compromise forced on one side') is closer to the literal situation than ideal, but 'reluctant' is unsupported and 'learned to play to it' fits ongoing adjustment, so C stays the best answer. Consider 'a process of give-and-take or accommodation'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000227",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "None of this means that early records are worthless as evidence.",
+      "figure": null,
+      "stem": "Paragraph 5 mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "introduce the new technology that solved the problems described in the earlier paragraphs.",
+        "B": "qualify the account of distortion by explaining how early records remain useful evidence.",
+        "C": "add further examples of the instruments and voices that the acoustic horn recorded poorly.",
+        "D": "explain why historians prefer acoustic recordings to the electrical recordings that followed."
+      },
+      "correct_answer": "B",
+      "explanation": "After three paragraphs on how the horn distorted music, paragraph 5 qualifies that account: the records still hold real evidence if read with attention to the conditions that produced them.",
+      "distractor_explanations": {
+        "A": "That is paragraph 6, and the author says microphones did not simply solve the problems.",
+        "C": "Paragraph 5 gives no new examples of instruments.",
+        "D": "The paragraph does not compare acoustic and electrical recordings."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "true_but_irrelevant",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "How does paragraph 5 begin, and what does it push back against?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the first sentence of the paragraph closely."
+      },
+      "remember": "A paragraph beginning 'None of this means...' usually limits the previous claim.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-06",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000228",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Synthesis across paragraphs",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "sometimes at a tempo a little quicker than they would have chosen in a concert",
+      "figure": null,
+      "stem": "Based on the passage, which statement about the tempos heard in early recordings of symphonies would the author most likely accept?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "They show that orchestras of that era generally preferred quicker tempos than orchestras do today.",
+        "B": "They are unreliable mainly because the wax discs often warped and changed speed as they aged.",
+        "C": "Some may be quicker than the players' concert tempos, so they need not show the players' preferences.",
+        "D": "They were made slower than usual so that each segment would completely fill one side of a disc."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 4 says some movements were played quicker to fit on fewer sides, and paragraph 5 says records must be read with attention to what the conditions encouraged. So quick tempos may reflect the disc, not the players' taste.",
+      "distractor_explanations": {
+        "A": "This takes the tempos at face value, which paragraph 5 warns against.",
+        "B": "The passage never mentions warping or changes in speed.",
+        "D": "Paragraph 4 says players sometimes went quicker, not slower, to save sides."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What does paragraph 4 say about tempo, and what does paragraph 5 say about reading records?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Combine a detail from one paragraph with the principle in another."
+      },
+      "remember": "Apply the author's principle to the author's own example.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-07",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000229",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's view of a claim",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "Yet microphones had preferences too.",
+      "figure": null,
+      "stem": "In paragraph 6, the author's attitude toward the claim that electrical recording \"simply freed performers to sound like themselves\" is best described as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "skeptical, because the new equipment rewarded some singers and not others.",
+        "B": "approving, because microphones could capture quiet voices from a short distance.",
+        "C": "dismissive, because electrical recordings were no more accurate than acoustic ones.",
+        "D": "uncertain, because the passage gives no information about singing after 1925."
+      },
+      "correct_answer": "A",
+      "explanation": "The author calls the claim 'tempting' and then answers it with 'Yet microphones had preferences too': microphones rewarded different singers, so the claim oversimplifies.",
+      "distractor_explanations": {
+        "B": "The author grants this point but goes on to reject the claim.",
+        "C": "The author never says electrical recordings were no more accurate.",
+        "D": "Paragraph 6 describes singing after electrical recording arrived."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What word introduces the author's response to the claim?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the sentence that begins with 'Yet'."
+      },
+      "remember": "'It is tempting to say...' usually introduces a view the author will qualify.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-08",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 64,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000230",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Applying the passage to a new situation",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000029",
+      "underline": null,
+      "evidence": "and musicians, as they always had, learned to play to it.",
+      "figure": null,
+      "stem": "Which of the following situations is most similar to the relationship between early performers and the recording horn, as the passage describes it?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A painter who copies an older painting for a museum as exactly as possible, stroke by stroke",
+        "B": "A musician who refuses to perform anywhere except in a concert hall built for live audiences",
+        "C": "A sculptor who chooses marble for a statue because marble will last much longer than clay",
+        "D": "A speaker who adjusts gestures and pacing to suit a television camera rather than the people in the room"
+      },
+      "correct_answer": "D",
+      "explanation": "The passage's core idea is that performers shaped their playing to suit the recording device rather than the live listener. A speaker adjusting to a camera instead of the room matches that relationship.",
+      "distractor_explanations": {
+        "A": "Copying exactly is not adapting a performance to a device.",
+        "B": "Refusing to adapt is the opposite of what the performers did.",
+        "C": "Choosing a durable material is not adjusting a performance to suit a device."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What did performers change, and for whose sake?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "State the relationship in general terms, then match."
+      },
+      "remember": "Match the relationship, not the topic.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 29,
+      "draft_candidate": "R029-09",
+      "created_at": "2026-10-27T07:02:12+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: answer cue, D is noticeably the longest choice and the only one about adjusting a performance to a device; A-C are weak distractors that few would pick (A is faithful copying, B refuses technology, C is about choosing a durable material)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-029.review.json",
+        "computation": "checks/act_reading/batch_029.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
