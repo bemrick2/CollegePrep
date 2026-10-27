@@ -1,0 +1,192 @@
+{
+ "ideas": "generated set 14 (IA/IC)",
+ "results": {
+  "IA01": [
+   {
+    "other_id": "CLD-SAT-M-000029",
+    "severity": "close",
+    "why": "Same 'equation has no solution' constant condition (equal coefficients, different constants), but here it is only the first step; b is then used in a second equation with a given solution. Format is common on official SAT (no-solution constants)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000060",
+    "severity": "close",
+    "why": "Second half (k(x - c) = ... with a given solution x, find c) is SAT-060's template; the no-solution step is new."
+   }
+  ],
+  "IC01": [
+   {
+    "other_id": "CLD-SAT-M-000018",
+    "severity": "close",
+    "why": "Same 'random assignment experiment, which conclusion' format; issue here is confounding (greenhouse), not scope. Also retired SAT-222 format; not its template."
+   }
+  ],
+  "IA02": [
+   {
+    "other_id": "CLD-SAT-M-000013",
+    "severity": "close",
+    "why": "Identity-in-x condition (true for every s) as in 013/273, but derived from two score procedures; reasoning similar, setup differs."
+   }
+  ],
+  "IC02": [],
+  "IA03": [],
+  "IC03": [],
+  "IA04": [],
+  "IC04": [
+   {
+    "other_id": "CLD-ACT-M-000076",
+    "severity": "template",
+    "why": "Same template: data with given mean and SD undergo a linear transformation; report new mean and SD from a 2x2 choice grid. 50 - x (slope -1) vs 3x + 5; reasoning identical (mean transforms, SD scales by |a|, shift ignored). Textbook classic."
+   }
+  ],
+  "IA05": [],
+  "IC05": [],
+  "IA06": [
+   {
+    "other_id": "CLD-SAT-M-000271",
+    "severity": "template",
+    "why": "Contextual version of SAT-271: a lower bound and an upper bound on y, ask the greatest x; max x is the intersection of the two boundary lines (here (12, 6)). Same setup and asked quantity once translated."
+   },
+   {
+    "other_id": "ideas-gen-08 CA05",
+    "severity": "close",
+    "why": "Greatest amount of one item in a two-constraint contextual inequality system (one max, one min); CA05 combines via substitution, same skill/ask."
+   }
+  ],
+  "IC06": [
+   {
+    "other_id": "CLD-ACT-M-000784",
+    "severity": "close",
+    "why": "Drops-to-volume unit conversion over time; different direction and ask. Textbook classic (nursing IV drip-rate formula)."
+   }
+  ],
+  "IA07": [
+   {
+    "other_id": "CLD-SAT-M-000596",
+    "severity": "close",
+    "why": "Two-tier pricing inverted to find usage (596 inverts via average cost); here a doubled bill. Also ACT-758 computes one tiered bill (first step here)."
+   }
+  ],
+  "IC07": [
+   {
+    "other_id": "CLD-SAT-M-000311",
+    "severity": "close",
+    "why": "Margin-of-error interval from a random sample; adds a self-selected comparison. Also SAT-637/ACT-205 bias themes. Resembles official SAT self-selected-vs-random items."
+   }
+  ],
+  "IA08": [
+   {
+    "other_id": "CLD-SAT-M-000350",
+    "severity": "close",
+    "why": "Interpret a constant in a rewritten linear cost model; different form (factored constant), not a template."
+   }
+  ],
+  "IC08": [],
+  "IA09": [],
+  "IC09": [
+   {
+    "other_id": "CLD-ACT-M-000468",
+    "severity": "close",
+    "why": "Same two-stage setup (container chosen with probability 1/2, then an item at random); IC09 runs it in reverse (Bayes: P(room B | senior)), whose first step is ACT-468's total probability. Borderline template under the 'reverse setup' rule. Classic Bayes urn problem; beyond typical SAT conditional-probability (two-way table) scope."
+   }
+  ],
+  "IA10": [],
+  "IC10": [
+   {
+    "other_id": "CLD-SAT-M-000312",
+    "severity": "close",
+    "why": "Two groups combined, which must be true of a statistic of the combined data (median in 312, SD here); different statistic and reasoning."
+   }
+  ],
+  "IA11": [],
+  "IC11": [],
+  "IA12": [
+   {
+    "other_id": "CLD-SAT-M-000074 (retired)",
+    "severity": "close",
+    "why": "Final step is exactly the retired 'score needed on 4th test for target mean' template ((234 + x)/4 >= 82); the weighted-grade step is added in front. Demo fixture (sixth score for mean 86) is the same final step."
+   }
+  ],
+  "IC12": [
+   {
+    "other_id": "CLD-SAT-M-000131",
+    "severity": "close",
+    "why": "Same setup (revenue split by share, one part +x%, the other -y%); 131 asks the new share, IC12 asks the total change, which is an intermediate step of 131. Also SAT-606."
+   }
+  ],
+  "IA13": [
+   {
+    "other_id": "CLD-SAT-M-000377",
+    "severity": "template",
+    "why": "Same 2x2 template: two products each containing two components in fixed amounts, exact totals of both components given, find the amount of one product (recipes eggs/milk vs fertilizer nitrogen/phosphorus, percent coefficients). Also ideas-gen-04 N08 (source of 377). Textbook classic two-nutrient blend."
+   }
+  ],
+  "IC13": [
+   {
+    "other_id": "CLD-SAT-M-000544",
+    "severity": "close",
+    "why": "Aspect ratio plus a second measurement to recover dimensions (544: ratio + diagonal -> area; here ratio + area -> width)."
+   }
+  ],
+  "IA14": [
+   {
+    "other_id": "CLD-SAT-M-000073",
+    "severity": "close",
+    "why": "Least amount for which plan B is at least as good as plan A (two-plan break-even); the commission threshold changes the setup, so only close. ACT-757 supplies the threshold-commission piece."
+   }
+  ],
+  "IC14": [
+   {
+    "other_id": "CLD-ACT-M-000244",
+    "severity": "close",
+    "why": "Same 'what happens to mean and median' choice set (mean decreases, median unchanged is the key in both); mechanism differs (corrected max vs added values at the median). Also ACT-168, SAT-185."
+   }
+  ],
+  "IA15": [],
+  "IC15": []
+ },
+ "within_list_cues": [
+  "IA03, IA08, IA15: three 'best interpretation of a coefficient/constant' items in one set.",
+  "IA07 and IA14: both 'rate applies only above a threshold' (tiered water price; commission above $10,000).",
+  "IA01 and IA10: both solution-count conditions for linear equations/systems.",
+  "IA02 and IA12: both score/grade-adjustment contexts.",
+  "IC01 and IC05: both 'why cause cannot be concluded' items; IC07 and IC11: both survey-bias items (self-selection, wording).",
+  "IC04 and IC10: both standard-deviation behavior items with test-score data.",
+  "IA09 and IA13: both two-equation purchase/blend systems.",
+  "IC02 and IC13: both ratio carried through a second rate (density; pixels per inch)."
+ ],
+ "answer_errors": [
+  "IA12: trap '121.4 (uses 0.7T >= 85)' is mislabelled: 121.4 is the required test AVERAGE under that error, not a fourth-test score (the fourth score would be 4(121.43) - 234 = 251.7). Key 94 is correct.",
+  "All other keys recomputed and correct: IA01 -21/5, IA02 25, IA04 23, IA05 12.8, IA06 12, IA07 14,000, IA08 D (k = 14/9), IA09 6.75, IA10 infinitely many, IA11 7, IA13 31.25, IA14 27,500, IA15 A, IC02 95, IC03 62.5, IC06 31.25, IC08 792, IC09 10/13, IC10 >4 (sqrt 41 = 6.4), IC12 4%, IC13 20, IC14 B (mean 391,250, median 350,000), IC15 -6. All stated distractor computations reproduce their values (IA05 16.0 also arises from using 2%/min both ways)."
+ ],
+ "cues_or_overdetermined": [
+  "IA06 (hard): the naive move of treating both inequalities as equations and solving the system gives the key (12, 6) directly; Desmos intersection does too.",
+  "IA08: A (3.50) and B (2.25) die at a glance since 2.25(m + k) cannot have k = 3.50 or 2.25; key D is the longest, most technical choice; effectively a C-vs-D decision.",
+  "IA09: key 6.75 is the greatest choice (mild).",
+  "IA10: choice C 'exactly two' is impossible for a linear system (property check); checking either given point in 6x + 4y = 10 settles it immediately.",
+  "IA13: D (50) and C (35) eliminable by a quick check (50 kg of A alone already gives 10 kg nitrogen > 7; 35 forces b = 0 but then phosphorus is 3.5, not 5).",
+  "IA15: B is eliminated by the sign of -8; C and D by quick arithmetic; key obvious.",
+  "IC01: key A is the only choice that names the greenhouse, the conspicuous extra detail the stem introduces ('to keep the treatments separate').",
+  "IC04: C and D (mean 38) are eliminable at once (points missed obviously average 12); B's SD 43.5 is implausible for values in 0-50 with mean 12; key stands out.",
+  "IC07: key B states 'between about 44% and 52% of city residents support' as fact; official wording would be 'it is plausible that...'. Key is also the only choice citing random sampling.",
+  "IC11: the loaded question wording makes D obvious; A/B are standard misconceptions; C is ruled out by the stem."
+ ],
+ "grid_problems": [],
+ "unrealistic": [
+  "IA07: wording '$5.00 per 1,000 gallons for each gallon beyond 5,000' is awkward; say 'for usage beyond 5,000 gallons'.",
+  "IA08: k = 14/9 mile is a non-round quantity being interpreted (acceptable but odd).",
+  "IC06: real drip rates are rounded to whole drops; 31.25 drops per minute should be 'about' or round to 31.",
+  "IC09: a judge choosing a room by coin flip before a project is contrived (mild).",
+  "IA03: a hall charge that rises per guest per hour is unusual (mild)."
+ ],
+ "likely_easier_than_labeled": [
+  "IA04 (hard -> medium-hard; others are at most 40%, so total >= 15/0.4 = 37.5 -> 38, L = 23)",
+  "IA06 (hard -> medium-hard; boundary intersection gives key)",
+  "IA10 (hard -> medium; plug a point)",
+  "IA12 (hard -> medium-hard; two routine steps)",
+  "IA15 (medium -> easy)",
+  "IC01 (hard -> medium-hard; key telegraphed)",
+  "IC04 (medium -> easy)",
+  "IC10 (hard -> medium-hard; intuitive 'gap between means adds spread')",
+  "IC11 (medium -> easy)"
+ ]
+}
