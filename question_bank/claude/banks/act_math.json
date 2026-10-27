@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 68,
-  "updated_at": "2026-10-27T00:06:30+00:00",
+  "version": 69,
+  "updated_at": "2026-10-27T00:10:49+00:00",
   "passages": [],
   "questions": [
     {
@@ -47292,6 +47292,706 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-068.review.json",
         "computation": "checks/act_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000677",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Adding vectors in component form",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of the vectors ⟨2, −3⟩ and ⟨−5, 7⟩ ?",
+      "choices": {
+        "A": "⟨7, −10⟩",
+        "B": "⟨−3, −4⟩",
+        "C": "⟨3, 4⟩",
+        "D": "⟨−3, 4⟩"
+      },
+      "correct_answer": "D",
+      "explanation": "Add the components: ⟨2 + (−5), −3 + 7⟩ = ⟨−3, 4⟩.",
+      "distractor_explanations": {
+        "A": "⟨7, −10⟩ subtracts the second vector from the first.",
+        "B": "⟨−3, −4⟩ makes a sign error in the second component.",
+        "C": "⟨3, 4⟩ makes a sign error in the first component."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": "sign_error"
+      },
+      "hints": [
+        "Add the first components, then the second components."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "⟨a, b⟩ + ⟨c, d⟩ = ⟨a + c, b + d⟩."
+      },
+      "remember": "Vectors add component by component.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-01",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000678",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Slope from two points",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the slope of the line through the points (−1, 4) and (3, −4) ?",
+      "choices": {
+        "A": "−2",
+        "B": "−1/2",
+        "C": "1/2",
+        "D": "2"
+      },
+      "correct_answer": "A",
+      "explanation": "Slope = (−4 − 4)/(3 − (−1)) = −8/4 = −2.",
+      "distractor_explanations": {
+        "B": "−1/2 divides the change in x by the change in y.",
+        "C": "1/2 inverts the slope and drops the sign.",
+        "D": "2 drops the negative sign."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Change in y over change in x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(y₂ − y₁)/(x₂ − x₁)."
+      },
+      "remember": "Slope = rise over run, keeping signs.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-02",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000679",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Length of the major axis of an ellipse",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the length of the major axis of the ellipse with equation x²/25 + y²/9 = 1 ?",
+      "choices": {
+        "A": "3",
+        "B": "5",
+        "C": "6",
+        "D": "10"
+      },
+      "correct_answer": "D",
+      "explanation": "The larger denominator is 25 = 5², so the ellipse extends 5 units from the center along the x-axis. The major axis has length 2 × 5 = 10.",
+      "distractor_explanations": {
+        "A": "3 is the length of the semi-minor axis.",
+        "B": "5 is the semi-major axis, half the major axis.",
+        "C": "6 is the length of the minor axis."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Which denominator is larger, and what is its square root?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the x- and y-intercepts."
+      },
+      "remember": "For x²/a² + y²/b² = 1 with a > b, the major axis is 2a.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-03",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000680",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Domain of a function with a root and a denominator",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following describes the domain of f(x) = √(x − 2)/(x − 5) ?",
+      "choices": {
+        "A": "x ≥ 2",
+        "B": "x > 5",
+        "C": "x ≥ 2 and x ≠ 5",
+        "D": "x ≠ 5"
+      },
+      "correct_answer": "C",
+      "explanation": "The square root requires x − 2 ≥ 0, so x ≥ 2, and the denominator requires x ≠ 5. Both conditions apply.",
+      "distractor_explanations": {
+        "A": "x ≥ 2 forgets that x = 5 makes the denominator 0.",
+        "B": "x > 5 excludes the valid values from 2 up to 5.",
+        "D": "x ≠ 5 forgets the square root's condition."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What restrictions does each part of the function impose?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test x = 0, x = 3 and x = 5."
+      },
+      "remember": "Combine every restriction: even roots and denominators.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-04",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000681",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Vertical asymptote of a shifted reciprocal function",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the vertical asymptote of the graph of y = 3/(x + 4) − 1 ?",
+      "choices": {
+        "A": "y = −1",
+        "B": "x = 4",
+        "C": "x = 3",
+        "D": "x = −4"
+      },
+      "correct_answer": "D",
+      "explanation": "The function is undefined where x + 4 = 0, that is, at x = −4, which is the vertical asymptote.",
+      "distractor_explanations": {
+        "A": "y = −1 is the horizontal asymptote.",
+        "B": "x = 4 has the wrong sign.",
+        "C": "x = 3 uses the numerator."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Where is the denominator zero?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x + 4 = 0."
+      },
+      "remember": "Vertical asymptotes occur where the denominator is 0 (and the numerator is not).",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-05",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000682",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Squaring a complex number",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (1 + i)², where i = √−1 ?",
+      "choices": {
+        "A": "0",
+        "B": "2",
+        "C": "2i",
+        "D": "2 + 2i"
+      },
+      "correct_answer": "C",
+      "explanation": "(1 + i)² = 1 + 2i + i² = 1 + 2i − 1 = 2i.",
+      "distractor_explanations": {
+        "A": "0 treats (1 + i)² as 1 + i² = 0, forgetting the middle term.",
+        "B": "2 treats i² as +1.",
+        "D": "2 + 2i treats i² as +1 and keeps the middle term."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Expand using (a + b)² = a² + 2ab + b²."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use i² = −1."
+      },
+      "remember": "i² = −1.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-06",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000683",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Exact value on the unit circle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the exact value of sin(5π/3) ?",
+      "choices": {
+        "A": "−√3/2",
+        "B": "−1/2",
+        "C": "1/2",
+        "D": "√3/2"
+      },
+      "correct_answer": "A",
+      "explanation": "5π/3 is in Quadrant IV with reference angle π/3. sin(π/3) = √3/2, and sine is negative in Quadrant IV, so sin(5π/3) = −√3/2.",
+      "distractor_explanations": {
+        "B": "−1/2 uses the cosine of the reference angle with sine's sign.",
+        "C": "1/2 is cos(5π/3).",
+        "D": "√3/2 forgets that sine is negative in Quadrant IV."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": "sign_error"
+      },
+      "hints": [
+        "In which quadrant is 5π/3, and what is its reference angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the angle on the unit circle."
+      },
+      "remember": "Sine is the y-coordinate on the unit circle.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-07",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000684",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Counting lattice points in a region",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many points (x, y) with both x and y integers satisfy x > 0, y > 0 and x + y < 5 ?",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "10",
+        "D": "16"
+      },
+      "correct_answer": "B",
+      "explanation": "For x = 1, y can be 1, 2 or 3; for x = 2, y = 1 or 2; for x = 3, y = 1. That is 3 + 2 + 1 = 6 points.",
+      "distractor_explanations": {
+        "A": "3 counts only the points with x = 1.",
+        "C": "10 includes the 4 points on the line x + y = 5, which the strict inequality excludes.",
+        "D": "16 counts the 4-by-4 square of points with 1 ≤ x, y ≤ 4, ignoring x + y < 5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "List the possible y-values for each x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the region and count the grid points inside."
+      },
+      "remember": "Count systematically; check whether boundaries are included.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-08",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000685",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Remaining zeros of a cubic from a known zero",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p(x) = x³ − 4x² + x + 6 has a zero at x = 2. What is the sum of its other two zeros?",
+      "choices": {
+        "A": "−2",
+        "B": "2",
+        "C": "4",
+        "D": "6"
+      },
+      "correct_answer": "B",
+      "explanation": "Dividing by x − 2 gives x² − 2x − 3 = (x − 3)(x + 1), so the other zeros are 3 and −1, with sum 2. (Equivalently, all three zeros sum to 4, so the other two sum to 4 − 2.)",
+      "distractor_explanations": {
+        "A": "−2 changes the sign of the correct sum.",
+        "C": "4 is the sum of all three zeros.",
+        "D": "6 is the constant term, not a sum of zeros."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Divide p(x) by x − 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor the quotient."
+      },
+      "remember": "A known zero gives a factor; divide to find the rest.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-09",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000686",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Terms of a recursive sequence",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sequence is defined by a₁ = 2 and aₙ = 3aₙ₋₁ − 1 for n ≥ 2. What is a₄ ?",
+      "choices": {
+        "A": "14",
+        "B": "23",
+        "C": "41",
+        "D": "122"
+      },
+      "correct_answer": "C",
+      "explanation": "a₂ = 3(2) − 1 = 5, a₃ = 3(5) − 1 = 14, and a₄ = 3(14) − 1 = 41.",
+      "distractor_explanations": {
+        "A": "14 is a₃.",
+        "B": "23 adds 9 to a₃ (14 + 9), treating the sequence as if it grew by a fixed amount.",
+        "D": "122 is a₅."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Find a₂ and a₃ first."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Apply the rule one step at a time."
+      },
+      "remember": "Recursive rules build each term from the one before.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "B069-10",
+      "created_at": "2026-10-27T00:10:49+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-069.review.json",
+        "computation": "checks/act_math/batch_069.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 68,
+  "bank_version": 69,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -11484,6 +11484,176 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Count the places the decimal point moves."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000677",
+      "correct_answer": "D",
+      "explanation": "Add the components: ⟨2 + (−5), −3 + 7⟩ = ⟨−3, 4⟩.",
+      "distractor_explanations": {
+        "A": "⟨7, −10⟩ subtracts the second vector from the first.",
+        "B": "⟨−3, −4⟩ makes a sign error in the second component.",
+        "C": "⟨3, 4⟩ makes a sign error in the first component."
+      },
+      "hints": [
+        "Add the first components, then the second components."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "⟨a, b⟩ + ⟨c, d⟩ = ⟨a + c, b + d⟩."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000678",
+      "correct_answer": "A",
+      "explanation": "Slope = (−4 − 4)/(3 − (−1)) = −8/4 = −2.",
+      "distractor_explanations": {
+        "B": "−1/2 divides the change in x by the change in y.",
+        "C": "1/2 inverts the slope and drops the sign.",
+        "D": "2 drops the negative sign."
+      },
+      "hints": [
+        "Change in y over change in x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(y₂ − y₁)/(x₂ − x₁)."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000679",
+      "correct_answer": "D",
+      "explanation": "The larger denominator is 25 = 5², so the ellipse extends 5 units from the center along the x-axis. The major axis has length 2 × 5 = 10.",
+      "distractor_explanations": {
+        "A": "3 is the length of the semi-minor axis.",
+        "B": "5 is the semi-major axis, half the major axis.",
+        "C": "6 is the length of the minor axis."
+      },
+      "hints": [
+        "Which denominator is larger, and what is its square root?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the x- and y-intercepts."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000680",
+      "correct_answer": "C",
+      "explanation": "The square root requires x − 2 ≥ 0, so x ≥ 2, and the denominator requires x ≠ 5. Both conditions apply.",
+      "distractor_explanations": {
+        "A": "x ≥ 2 forgets that x = 5 makes the denominator 0.",
+        "B": "x > 5 excludes the valid values from 2 up to 5.",
+        "D": "x ≠ 5 forgets the square root's condition."
+      },
+      "hints": [
+        "What restrictions does each part of the function impose?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test x = 0, x = 3 and x = 5."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000681",
+      "correct_answer": "D",
+      "explanation": "The function is undefined where x + 4 = 0, that is, at x = −4, which is the vertical asymptote.",
+      "distractor_explanations": {
+        "A": "y = −1 is the horizontal asymptote.",
+        "B": "x = 4 has the wrong sign.",
+        "C": "x = 3 uses the numerator."
+      },
+      "hints": [
+        "Where is the denominator zero?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set x + 4 = 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000682",
+      "correct_answer": "C",
+      "explanation": "(1 + i)² = 1 + 2i + i² = 1 + 2i − 1 = 2i.",
+      "distractor_explanations": {
+        "A": "0 treats (1 + i)² as 1 + i² = 0, forgetting the middle term.",
+        "B": "2 treats i² as +1.",
+        "D": "2 + 2i treats i² as +1 and keeps the middle term."
+      },
+      "hints": [
+        "Expand using (a + b)² = a² + 2ab + b²."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use i² = −1."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000683",
+      "correct_answer": "A",
+      "explanation": "5π/3 is in Quadrant IV with reference angle π/3. sin(π/3) = √3/2, and sine is negative in Quadrant IV, so sin(5π/3) = −√3/2.",
+      "distractor_explanations": {
+        "B": "−1/2 uses the cosine of the reference angle with sine's sign.",
+        "C": "1/2 is cos(5π/3).",
+        "D": "√3/2 forgets that sine is negative in Quadrant IV."
+      },
+      "hints": [
+        "In which quadrant is 5π/3, and what is its reference angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the angle on the unit circle."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000684",
+      "correct_answer": "B",
+      "explanation": "For x = 1, y can be 1, 2 or 3; for x = 2, y = 1 or 2; for x = 3, y = 1. That is 3 + 2 + 1 = 6 points.",
+      "distractor_explanations": {
+        "A": "3 counts only the points with x = 1.",
+        "C": "10 includes the 4 points on the line x + y = 5, which the strict inequality excludes.",
+        "D": "16 counts the 4-by-4 square of points with 1 ≤ x, y ≤ 4, ignoring x + y < 5."
+      },
+      "hints": [
+        "List the possible y-values for each x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the region and count the grid points inside."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000685",
+      "correct_answer": "B",
+      "explanation": "Dividing by x − 2 gives x² − 2x − 3 = (x − 3)(x + 1), so the other zeros are 3 and −1, with sum 2. (Equivalently, all three zeros sum to 4, so the other two sum to 4 − 2.)",
+      "distractor_explanations": {
+        "A": "−2 changes the sign of the correct sum.",
+        "C": "4 is the sum of all three zeros.",
+        "D": "6 is the constant term, not a sum of zeros."
+      },
+      "hints": [
+        "Divide p(x) by x − 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor the quotient."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000686",
+      "correct_answer": "C",
+      "explanation": "a₂ = 3(2) − 1 = 5, a₃ = 3(5) − 1 = 14, and a₄ = 3(14) − 1 = 41.",
+      "distractor_explanations": {
+        "A": "14 is a₃.",
+        "B": "23 adds 9 to a₃ (14 + 9), treating the sequence as if it grew by a fixed amount.",
+        "D": "122 is a₅."
+      },
+      "hints": [
+        "Find a₂ and a₃ first."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Apply the rule one step at a time."
       }
     }
   ]
