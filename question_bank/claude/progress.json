@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T20:10:58+00:00",
+  "updated_at": "2026-10-27T22:37:14+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 518,
-    "act_reading": 522,
+    "act_reading": 532,
     "sat_reading_writing": 525,
     "sat_math": 946
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 26
     },
     "act_reading": {
-      "PASS": 557,
+      "PASS": 567,
       "REVISE": 49,
       "REJECT": 3,
-      "candidates": 609,
+      "candidates": 619,
       "passed_after_revision": 40
     },
     "sat_reading_writing": {
@@ -1228,12 +1228,12 @@
       "passages": 57
     },
     "act_reading": {
-      "accepted": 522,
+      "accepted": 532,
       "retired_after_audit": 35,
       "by_skill": {
-        "Craft and Structure": 184,
-        "Integration of Knowledge and Ideas": 161,
-        "Key Ideas and Details": 177
+        "Craft and Structure": 188,
+        "Integration of Knowledge and Ideas": 164,
+        "Key Ideas and Details": 180
       },
       "by_subskill": {
         "Application": 1,
@@ -1301,7 +1301,7 @@
         "Connecting the opening to the conclusion": 1,
         "Contrasting the passages' approaches": 1,
         "Contrasting two policies across passages": 1,
-        "Detail": 22,
+        "Detail": 24,
         "Detail (Passage A)": 1,
         "Detail (Passage B's proposal)": 1,
         "Detail (Passage B)": 1,
@@ -1341,12 +1341,13 @@
         "Evaluating evidence that would weaken a claim": 1,
         "Evaluating support for a claim": 1,
         "Explaining a described event": 1,
+        "Figurative language": 1,
         "Function of a closing detail": 1,
         "Function of a closing sentence": 3,
         "Function of a comparison": 4,
         "Function of a conclusion": 1,
         "Function of a description": 1,
-        "Function of a detail": 16,
+        "Function of a detail": 17,
         "Function of a figurative comparison": 1,
         "Function of a final sentence": 1,
         "Function of a paragraph": 20,
@@ -1386,7 +1387,9 @@
         "Inference (author's view)": 1,
         "Inference (cause of a change)": 1,
         "Inference (cause)": 1,
+        "Inference (character belief)": 1,
         "Inference (character motive)": 1,
+        "Inference (character)": 1,
         "Inference (comparing views)": 1,
         "Inference (distinguishing claims)": 1,
         "Inference (expert study)": 1,
@@ -1473,16 +1476,18 @@
         "Main focus of a passage": 1,
         "Main idea (Passage A)": 2,
         "Main idea of a literary passage": 1,
-        "Main idea of a narrative": 4,
+        "Main idea of a narrative": 5,
         "Main idea of a passage": 22,
         "Main purpose of a passage": 9,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
         "Meaning of a comparison": 1,
+        "Meaning of a conclusion": 1,
         "Meaning of a figurative phrase": 1,
         "Meaning of a phrase in context": 4,
         "Meaning of a quotation": 1,
         "Meaning of a word in context": 25,
+        "Narrator's attitude": 1,
         "Narrator's change in perception": 1,
         "Narrator's later reflection": 1,
         "Organization of a passage": 1,
@@ -1525,34 +1530,34 @@
         "Synthesizing the central claim": 1,
         "Synthesizing the passage": 1,
         "Tone of a description (narrator's mother)": 1,
-        "Vocabulary in context": 20,
+        "Vocabulary in context": 21,
         "What an experiment adds to a correlation": 1,
         "Word in context": 4
       },
       "by_difficulty_author": {
-        "easy": 280,
+        "easy": 288,
         "hard": 32,
-        "medium": 210
+        "medium": 212
       },
       "by_difficulty_calibrated": {
-        "easy": 339,
+        "easy": 346,
         "hard": 2,
-        "medium": 181
+        "medium": 184
       },
       "calibrated_share": {
-        "easy": 0.649,
+        "easy": 0.65,
         "hard": 0.004,
-        "medium": 0.347
+        "medium": 0.346
       },
       "answer_key_balance": {
-        "A": 148,
-        "B": 127,
-        "C": 121,
-        "D": 126
+        "A": 150,
+        "B": 130,
+        "C": 124,
+        "D": 128
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 63
+      "passages": 64
     },
     "sat_reading_writing": {
       "accepted": 525,
@@ -2922,7 +2927,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 59,
-    "act_reading": 64,
+    "act_reading": 65,
     "sat_reading_writing": 63,
     "sat_math": 87
   },
@@ -2990,11 +2995,11 @@
       }
     },
     "act_reading": {
-      "next_batch": 65,
+      "next_batch": 66,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 78.4,
-        "Craft and Structure": -27.1,
-        "Integration of Knowledge and Ideas": -41.3
+        "Key Ideas and Details": 80.2,
+        "Craft and Structure": -28.1,
+        "Integration of Knowledge and Ideas": -42.0
       }
     },
     "act_english": {
@@ -3019,8 +3024,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 522,
-      "share_of_target": 0.763
+      "accepted": 532,
+      "share_of_target": 0.778
     },
     "sat_reading_writing": {
       "target": 694,
@@ -3034,7 +3039,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3285,
+  "total_accepted": 3295,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540844,7 +540849,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 63,
+      "bank_version": 64,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -540984,7 +540989,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T20:10:57+00:00",
+    "heartbeat_at": "2026-10-27T22:37:13+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
