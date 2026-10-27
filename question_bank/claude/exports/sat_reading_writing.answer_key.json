@@ -1,6 +1,6 @@
 {
   "bank": "sat_reading_writing",
-  "bank_version": 28,
+  "bank_version": 29,
   "answers": [
     {
       "id": "CLD-SAT-RW-000001",
@@ -4411,6 +4411,142 @@
       "strategy": {
         "key": "read_question_first",
         "explanation": "The goal asks for a recommendation."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000261",
+      "correct_answer": "B",
+      "explanation": "A connection supported by one piece of evidence that could be explained another way is weak: \"tenuous.\"",
+      "distractor_explanations": {
+        "A": "A link resting on one piece of evidence that has another explanation is far from indisputable.",
+        "C": "\"Obsolete\" means outdated; nothing suggests the idea has been replaced.",
+        "D": "\"Deliberate\" means intentional, which does not describe how strong a link is."
+      },
+      "hints": [
+        "Is the link strongly or weakly supported?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"weak.\""
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000262",
+      "correct_answer": "D",
+      "explanation": "Small, steady gains from one generation to the next are \"incremental.\"",
+      "distractor_explanations": {
+        "A": "\"Abrupt\" means sudden, the opposite of the gradual change described.",
+        "B": "\"Erratic\" means irregular; the text describes steady small gains.",
+        "C": "\"Unprecedented\" means never seen before, which the modest gains do not suggest."
+      },
+      "hints": [
+        "How big is each step of improvement?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"gradual.\""
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000263",
+      "correct_answer": "C",
+      "explanation": "The descent lets moths lay eggs in the dung; the moths then help algae grow in the fur, and sloths eat the algae, so the risky trip may be part of a beneficial cycle.",
+      "distractor_explanations": {
+        "A": "The text says the trip exposes sloths to predators.",
+        "B": "Nothing in the text concerns mating.",
+        "D": "The text suggests the moths may benefit sloths, not damage them."
+      },
+      "hints": [
+        "What do the moths, the algae and the sloths each get from the cycle?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out choices that contradict the text."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000264",
+      "correct_answer": "D",
+      "explanation": "The claim has two parts. D shows that C had the highest average (4.6) and the widest range (6.0 − 2.9 = 3.1 tons).",
+      "distractor_explanations": {
+        "A": "One high value supports neither the average nor the consistency part of the claim fully.",
+        "B": "This concerns variety A's consistency, not variety C's average.",
+        "C": "This compares A and B and says nothing about C."
+      },
+      "hints": [
+        "What two things does the claim say about variety C?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compute each variety's range."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000265",
+      "correct_answer": "A",
+      "explanation": "Text 1 claims improvisation uses nothing prepared in advance; Text 2's research shows that soloists combine practiced phrases, which qualifies that claim.",
+      "distractor_explanations": {
+        "B": "Text 2 reports that players frequently reuse practiced phrases.",
+        "C": "Text 2 says improvisers respond to the music around them.",
+        "D": "Text 2 relies on recordings; it does not question them."
+      },
+      "hints": [
+        "What does Text 1 say about preparation, and what does Text 2 find?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the point where the texts disagree."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000266",
+      "correct_answer": "C",
+      "explanation": "\"A mathematician by training\" is a nonessential appositive opened by a comma, so it must be closed by a comma before the verb \"wrote.\"",
+      "distractor_explanations": {
+        "A": "Without a comma, the appositive \"a mathematician by training\" is not closed off from the verb \"wrote.\"",
+        "B": "A semicolon cannot separate a subject from its verb.",
+        "D": "A dash cannot close an appositive that was opened with a comma."
+      },
+      "hints": [
+        "How does the phrase describing Lovelace begin?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the closing punctuation to the opening comma."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000267",
+      "correct_answer": "B",
+      "explanation": "\"By noon the bakery had sold every loaf of bread\" and \"by evening, even the last tray of pastries was gone\" are independent clauses, so a semicolon joins them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses is a comma splice.",
+        "C": "\"Which\" cannot introduce the independent clause that follows.",
+        "D": "A colon followed by \"and\" is not standard here."
+      },
+      "hints": [
+        "Can each side of the blank stand alone?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether both sides are complete clauses."
+      }
+    },
+    {
+      "id": "CLD-SAT-RW-000268",
+      "correct_answer": "D",
+      "explanation": "Only D draws a general statement from the three examples.",
+      "distractor_explanations": {
+        "A": "This describes one tree, not a generalization.",
+        "B": "This describes one kind of tree.",
+        "C": "This describes one group and makes no general statement."
+      },
+      "hints": [
+        "Which choice talks about trees in general rather than one kind?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "The goal asks for a generalization."
       }
     }
   ]
