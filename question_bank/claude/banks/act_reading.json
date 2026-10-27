@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 60,
-  "updated_at": "2026-10-27T19:13:11+00:00",
+  "version": 61,
+  "updated_at": "2026-10-27T19:32:14+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -663,6 +663,17 @@
       "word_count": 409,
       "text": "The week the music shop closed, my uncle Arno asked me to help him count everything. Not to sell it, he said. The new owners of the building would take the display cases, and a dealer from the city would take the stock. He only wanted to know what had been there.\n\nSo for five days I stood on the rolling ladder and read numbers down to him: forty-two packs of violin strings, eleven boxes of clarinet reeds, one accordion left from a polka craze nobody remembered. He wrote each number in the old green ledger he had kept behind the counter for decades, in handwriting so small and even it looked printed. When I asked why it mattered, since nobody was going to read the ledger, he said, \"I'll read it,\" and went on writing.\n\nOn the fourth afternoon a man came in carrying a dented trumpet wrapped in a bath towel. He was only a few years younger than Arno, and he set the trumpet on the counter as if it might break. He had borrowed it, he said, in 1987, to play in his high school's spring concert, and had meant to bring it back the following Monday. He had heard the store was closing. He thought he had better hurry.\n\nArno unwrapped the trumpet and turned it over. I expected him to laugh, or to tell the man to keep it; it was a cheap student model, and its valves were stuck. Instead he opened the ledger to the back page, found a line I had not seen him write, and drew a neat stroke through it. Then he thanked the man, and the man left, and Arno went back to the numbers as if nothing had happened.\n\nI climbed down from the ladder and looked at the back page. It was a list, in the same tiny hand, of things that had gone out the door and not come back: a cello, two flutes, a music stand, a trumpet. Each line had a name beside it and a date. Some were thirty years old. Only the trumpet had been crossed out.\n\n\"You kept track of all of these?\" I asked.\n\n\"Somebody had to,\" he said. He did not look up. \"People always mean to bring things back.\"\n\nOn the last day we locked the door at noon. Arno put the ledger under his arm, and he did not offer to let me carry it.",
       "batch": 61,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000062",
+      "title": "Hanging by a Thread",
+      "genre": "natural science",
+      "word_count": 411,
+      "text": "A gecko can run straight up a pane of glass and hang from a ceiling by a single toe, and for most of the twentieth century no one could fully explain how. The obvious guesses failed one by one. Suction seemed unlikely once experiments showed that geckos still clung in a vacuum. Glue was ruled out because gecko feet have no glands that secrete anything sticky. Tiny hooks catching on rough spots could not explain how the animals held on to polished glass.\n\nThe answer turned out to lie in structure rather than substance. The underside of each toe is lined with ridges covered in hundreds of thousands of microscopic hairs called setae, and the tip of each seta splits into hundreds of even finer branches. These branches are so small that they can come extremely close to the surface beneath them, close enough for weak attractive forces between molecules, known as van der Waals forces, to act. Any single contact is feeble, but billions of them together produce a grip strong enough to hold many times the animal's weight.\n\nNot everyone accepted this explanation at once. Some researchers suspected that thin films of water, which coat most surfaces in ordinary air, were doing the work through capillary attraction. To decide between the ideas, investigators measured how well setae stuck to surfaces that attract water and to surfaces that repel it. If water films were essential, the setae should have gripped the water-attracting surfaces far more strongly. Instead, the grip was similar on both, a result that pointed to van der Waals forces as the main source of adhesion, though later studies found that humidity can strengthen the grip somewhat.\n\nAn equally puzzling question was how a gecko lets go. A grip strong enough to support the animal would seem to make every step a struggle, yet geckos run quickly. The solution lies in angle. When a gecko curls its toes upward, the setae peel away from the surface a few at a time, the way tape comes off more easily when pulled from one edge than when pulled straight out. The adhesion is strong in one direction and almost absent in another.\n\nEngineers have spent years trying to copy these feet. Synthetic materials with forests of tiny fibers can now hold heavy objects on smooth walls and release them cleanly, though none yet matches the gecko's ability to stay clean and keep working after thousands of steps across dusty ground.",
+      "batch": 62,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -38421,6 +38432,645 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-061.review.json",
         "computation": "checks/act_reading/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000529",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "The answer turned out to lie in structure rather than substance.",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "argue that synthetic adhesives will soon outperform gecko feet.",
+        "B": "explain how geckos cling and how researchers worked that out.",
+        "C": "describe the evolutionary history of climbing lizards.",
+        "D": "compare the strength of glue, suction, and hooks."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage rules out early explanations, presents the setae and van der Waals forces, describes a test of a rival idea, explains release, and notes engineering efforts.",
+      "distractor_explanations": {
+        "A": "The passage says no synthetic material yet matches the gecko.",
+        "C": "Evolutionary history is never discussed.",
+        "D": "These are early hypotheses that were rejected, not the passage's focus."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What does most of the passage explain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then combine."
+      },
+      "remember": "A purpose answer must fit the whole passage.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-01",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000530",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "Glue was ruled out because gecko feet have no glands",
+      "figure": null,
+      "stem": "According to the passage, glue was ruled out as the source of a gecko's grip because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "geckos still clung to surfaces in a vacuum.",
+        "B": "geckos can hold on to polished glass.",
+        "C": "the grip was similar on surfaces that attract and repel water.",
+        "D": "gecko feet have no glands that secrete anything sticky."
+      },
+      "correct_answer": "D",
+      "explanation": "The passage says glue was ruled out because gecko feet have no glands that secrete anything sticky.",
+      "distractor_explanations": {
+        "A": "That finding ruled out suction, not glue.",
+        "B": "That finding ruled out hooks, not glue.",
+        "C": "That finding concerned water films, not glue."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Find the sentence with the word \"Glue.\""
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Match each finding to the hypothesis it ruled out."
+      },
+      "remember": "Keep track of which evidence answered which question.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-02",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000531",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (reasoning in an experiment)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "If water films were essential, the setae should have gripped the water-attracting surfaces far more strongly.",
+      "figure": null,
+      "stem": "The researchers' test described in the third paragraph was designed so that a result showing much stronger grip on water-attracting surfaces would have supported the idea that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "van der Waals forces were the main source of the gecko's adhesion.",
+        "B": "humidity has no effect on how well geckos cling.",
+        "C": "thin films of water were the main source of the gecko's adhesion.",
+        "D": "setae grip rough surfaces better than smooth ones."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage states the prediction directly: if water films were essential, the grip would be much stronger on water-attracting surfaces.",
+      "distractor_explanations": {
+        "A": "A similar grip on both kinds of surfaces, not a stronger grip on one, supported van der Waals forces.",
+        "B": "A stronger grip on water-attracting surfaces would suggest that water matters, not that it has no effect.",
+        "D": "The test compared water-attracting and water-repelling surfaces, not rough and smooth ones."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What did the researchers predict if water films were essential?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the \"If ... should have\" sentence."
+      },
+      "remember": "Understand an experiment by matching each possible result to a hypothesis.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-03",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000532",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a qualification",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "humidity can strengthen the grip somewhat",
+      "figure": null,
+      "stem": "The phrase \"though later studies found that humidity can strengthen the grip somewhat\" (paragraph 3) mainly serves to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "qualify the conclusion by noting that water plays a minor role.",
+        "B": "show that the van der Waals explanation was later disproved.",
+        "C": "explain why geckos avoid dry environments.",
+        "D": "introduce the problem of how geckos release their grip."
+      },
+      "correct_answer": "A",
+      "explanation": "The main conclusion favors van der Waals forces; the phrase adds that humidity still has some effect, which qualifies rather than overturns the conclusion.",
+      "distractor_explanations": {
+        "B": "\"Somewhat\" indicates a minor effect, not a refutation.",
+        "C": "The passage never discusses where geckos live.",
+        "D": "Release is discussed in the next paragraph and is unrelated to humidity."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the phrase overturn or limit the conclusion?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide whether the phrase supports, rejects, or limits the claim."
+      },
+      "remember": "A qualification limits a claim without rejecting it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-04",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000533",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "Any single contact is feeble",
+      "figure": null,
+      "stem": "As it is used in paragraph 2, the word feeble most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "elderly.",
+        "B": "unconvincing.",
+        "C": "ill.",
+        "D": "weak."
+      },
+      "correct_answer": "D",
+      "explanation": "A single contact is contrasted with billions that together produce a strong grip, so \"feeble\" means weak.",
+      "distractor_explanations": {
+        "A": "This sense applies to people, not to forces between molecules.",
+        "B": "This sense applies to arguments or excuses, not to forces.",
+        "C": "This sense applies to living things, not to a single contact."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "C": "familiar_meaning"
+      },
+      "hints": [
+        "What is contrasted with a single contact?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Use the contrast with \"strong enough.\""
+      },
+      "remember": "Use contrasts in a sentence to define a word.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-05",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000534",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (analogy)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "the way tape comes off more easily when pulled from one edge",
+      "figure": null,
+      "stem": "The comparison to tape in paragraph 4 is used to illustrate that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "gecko feet are covered in a sticky substance like tape.",
+        "B": "peeling contacts off gradually takes far less force.",
+        "C": "geckos lose their grip after many steps.",
+        "D": "setae are arranged in strips like pieces of tape."
+      },
+      "correct_answer": "B",
+      "explanation": "Tape peels off easily from one edge but resists being pulled straight out; likewise, curling the toes peels setae away a few at a time.",
+      "distractor_explanations": {
+        "A": "The passage has already ruled out glue.",
+        "C": "The passage says geckos run quickly; it does not say the grip wears out.",
+        "D": "The comparison concerns how tape is removed, not how setae are arranged."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How does tape come off most easily?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read the sentence with the comparison."
+      },
+      "remember": "An analogy highlights one shared feature, not every feature.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-06",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 84,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000535",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (applying the explanation)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "close enough for weak attractive forces between molecules",
+      "figure": null,
+      "stem": "Based on the passage, which of the following would most likely make it harder for a gecko to cling to a surface?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A surface the setae tips cannot get very close to",
+        "B": "A surface that repels water instead of attracting it",
+        "C": "A surface that has been polished smooth like glass",
+        "D": "A surface tested in a vacuum rather than in air"
+      },
+      "correct_answer": "A",
+      "explanation": "Van der Waals forces act only when the tips are extremely close to the surface, so anything that prevents close contact would weaken the grip.",
+      "distractor_explanations": {
+        "B": "The grip was similar on water-repelling and water-attracting surfaces.",
+        "C": "The passage says geckos hold on to polished glass.",
+        "D": "Geckos still clung in a vacuum, according to the passage."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What must happen for van der Waals forces to act?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find what the forces require."
+      },
+      "remember": "Apply an explanation by identifying its necessary condition.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-07",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000536",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude toward engineering efforts",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "though none yet matches the gecko's ability to stay clean",
+      "figure": null,
+      "stem": "The last paragraph suggests that the author views synthetic gecko-inspired materials as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "useless because they cannot hold heavy objects.",
+        "B": "superior to gecko feet in every respect.",
+        "C": "unrelated to research on how geckos cling.",
+        "D": "impressive but still short of the gecko's durability."
+      },
+      "correct_answer": "D",
+      "explanation": "The author credits the materials with holding heavy objects and releasing cleanly but notes they cannot yet stay clean and keep working like gecko feet.",
+      "distractor_explanations": {
+        "A": "The passage says they can hold heavy objects.",
+        "B": "The passage says none yet matches the gecko's ability to stay clean.",
+        "C": "They are described as attempts to copy gecko feet."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "extreme_language",
+        "C": null
+      },
+      "hints": [
+        "What can the materials do, and what can they not do yet?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for both praise and a limitation."
+      },
+      "remember": "Balanced attitudes call for balanced answer choices.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-09",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000537",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000062",
+      "underline": null,
+      "evidence": "When a gecko curls its toes upward, the setae peel away",
+      "figure": null,
+      "stem": "According to the passage, geckos release their grip by:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "curling their toes so the setae peel away a few at a time.",
+        "B": "secreting a liquid that weakens the grip.",
+        "C": "waiting for the van der Waals forces to weaken on their own.",
+        "D": "pulling each foot straight away from the surface."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 4 says geckos curl their toes upward so the setae peel away gradually.",
+      "distractor_explanations": {
+        "B": "Gecko feet have no glands that secrete anything.",
+        "C": "The passage attributes release to the angle of the toes.",
+        "D": "Pulling straight away would be the hardest way to release, like pulling tape straight out."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find how a gecko \"lets go.\""
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Read paragraph 4."
+      },
+      "remember": "Answer detail questions from the exact sentence.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "R062-10",
+      "created_at": "2026-10-27T19:32:14+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-062.review.json",
+        "computation": "checks/act_reading/batch_062.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

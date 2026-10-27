@@ -1,0 +1,570 @@
+{
+ "bank": "sat_math",
+ "batch": 82,
+ "plan": "SAT Math batch 82: 12 items from idea set 24 (SA01, SA03, SA04, SA05, SA07, SA12, SC01, SC02, SC04, SC06, SC08, SC11; pre-checked in ideas-073.repeats.json). SA02, SA06, SA09, SA10, SA15, SC03, SC15 dropped as templates. Fixes: SA01 key recast as a total of the same shape as the decoys (odd-one-out cue); SA05 made a grid-in (common-sense-eliminable distractors); SA07 written as cx + 12 = 3x + 4c (answer not visible). Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q082-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Which added fact determines a system",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A store sold x shirts at $15 each and y hats at $10 each, for a total of $900, so 15x + 10y = 900. Which of the following additional facts, by itself, is enough to determine the values of x and y ?",
+   "explanation": "Choice A gives 2x + 3y = 170, which is not a multiple of 15x + 10y = 900, so the system has one solution: x = 40 and y = 30. Each other fact is the original equation multiplied by a constant (1/5, 0.4, and 1.2), so it adds no new information.",
+   "hints": [
+    "Is each new equation a multiple of 15x + 10y = 900?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write each fact as an equation and compare coefficients."
+   },
+   "remember": "A second equation helps only if it is not a multiple of the first.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Three facts are disguised multiples of the given equation."
+   },
+   "choices": {
+    "A": "Folding each shirt took 2 minutes and folding each hat took 3 minutes, 170 minutes in all.",
+    "B": "Folding each shirt took 3 minutes and folding each hat took 2 minutes, 180 minutes in all.",
+    "C": "The store's profit was $6 on each shirt and $4 on each hat, $360 in all.",
+    "D": "If every price had been 20% higher, the total would have been $1,080."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "3x + 2y = 180 is the given equation divided by 5, so it adds nothing.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "6x + 4y = 360 is 0.4 times the given equation.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18x + 12y = 1,080 is 1.2 times the given equation.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q082-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Recovering concentrations from two trial mixtures",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "Solution A and solution B each contain acid at a fixed percent by volume. A mixture of equal volumes of A and B is 30% acid, and a mixture of 1 liter of A with 2 liters of B is 25% acid. How many liters of solution A are in 12 liters of a mixture of A and B that is 40% acid?",
+   "explanation": "With a% and b% acid, (a + b)/2 = 30 and (a + 2b)/3 = 25, so a + b = 60 and a + 2b = 75, giving b = 15 and a = 45. Then 0.45x + 0.15(12 − x) = 0.40(12), so 0.30x = 3 and x = 10.",
+   "hints": [
+    "Find the acid percent of each solution first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write two equations from the trial mixtures."
+   },
+   "remember": "Mixture concentration is a weighted average of the parts.",
+   "expected_time_seconds": 130,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The component concentrations must first be recovered from two trial mixtures."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "8",
+     "rationale": "8 assumes the concentration changes linearly with the ratio of A to B.",
+     "trap": null
+    },
+    {
+     "value": "2",
+     "rationale": "2 is the number of liters of B.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "6",
+     "rationale": "6 splits the mixture evenly.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q082-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Original price from two discounts",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A store offers two discounts on a jacket. With a p% discount, the jacket costs $33.60. With a (p + 10)% discount, it costs $28.80. What is the original price of the jacket, in dollars?",
+   "explanation": "The extra 10 percentage points of discount remove 10% of the original price, so 0.10P = 33.60 − 28.80 = 4.80 and P = 48. (Then p = 30.)",
+   "hints": [
+    "What do the extra 10 percentage points of discount remove?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compare the two sale prices."
+   },
+   "remember": "A percent discount is a percent of the original price.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "48",
+   "accepted_answers": [
+    "48"
+   ],
+   "common_errors": [
+    {
+     "value": "30",
+     "rationale": "30 is the value of p.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "288",
+     "rationale": "288 divides 28.80 by 0.10.",
+     "trap": null
+    },
+    {
+     "value": "4.80",
+     "rationale": "4.80 is the difference between the two prices.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q082-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Greatest value under a sum cap and a difference condition",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "An airline allows each passenger two checked bags with a combined weight of at most 50 kilograms. Lena's heavier bag weighs at least 8 kilograms more than her lighter bag. What is the greatest possible weight, in kilograms, of her lighter bag?",
+   "explanation": "With lighter bag L and heavier bag H, L + H ≤ 50 and H ≥ L + 8. So L + (L + 8) ≤ 50, which gives 2L ≤ 42 and L ≤ 21.",
+   "hints": [
+    "Write two inequalities in L and H."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute the smallest possible H into the sum."
+   },
+   "remember": "To maximize one quantity, push the other to its limit.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "21",
+   "accepted_answers": [
+    "21"
+   ],
+   "common_errors": [
+    {
+     "value": "17",
+     "rationale": "17 subtracts 8 twice: (50 − 16)/2.",
+     "trap": null
+    },
+    {
+     "value": "25",
+     "rationale": "25 ignores the 8-kilogram condition.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "29",
+     "rationale": "29 is the least possible weight of the heavier bag.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q082-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solution that does not depend on the parameter",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the equation cx + 12 = 3x + 4c, c is a constant. If the equation has exactly one solution, what is that solution?",
+   "explanation": "Rearranging gives cx − 3x = 4c − 12, so (c − 3)x = 4(c − 3). Exactly one solution requires c ≠ 3, and then x = 4 for any such c.",
+   "hints": [
+    "Collect the x-terms on one side and factor."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor both sides by (c − 3)."
+   },
+   "remember": "Look for a common factor before solving for a parameter.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students often try to find c first; the solution does not depend on c."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 is the value of c for which there is not exactly one solution.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "-4",
+     "rationale": "−4 makes a sign slip in rearranging.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "12",
+     "rationale": "12 is the constant term.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q082-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Sum of outputs of a linear function",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "For the linear function f, f(3) = 10 and f(9) = 28. What is the value of f(1) + f(2) + f(3) + … + f(11) ?",
+   "explanation": "The slope is (28 − 10)/(9 − 3) = 3, so f(x) = 3x + 1. The 11 outputs are evenly spaced, so their sum is 11 times the middle output f(6) = 19, which is 209.",
+   "hints": [
+    "Find the rule for f first."
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Use the middle value of evenly spaced outputs."
+   },
+   "remember": "Evenly spaced values sum to count times the middle value.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "209",
+   "accepted_answers": [
+    "209"
+   ],
+   "common_errors": [
+    {
+     "value": "175",
+     "rationale": "175 sums only f(1) through f(10).",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "190",
+     "rationale": "190 multiplies f(6) by 10.",
+     "trap": null
+    },
+    {
+     "value": "19",
+     "rationale": "19 is the middle output, f(6).",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q082-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Difference in predictions with a unit change",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "A scatterplot shows the population x, in thousands, and the number of hospitals y for each of 40 cities. The line of best fit is y = 0.035x + 2.1. According to the line of best fit, how many more hospitals are predicted for a city that has 1.2 million more people than another city?",
+   "explanation": "1.2 million people is 1,200 thousand, so the predicted difference is 0.035 × 1,200 = 42. The intercept cancels in a difference.",
+   "hints": [
+    "What is 1.2 million in thousands?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the slope by the change in x."
+   },
+   "remember": "A difference in predictions uses only the slope.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.042",
+    "B": "2.142",
+    "C": "42",
+    "D": "44.1"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This uses x = 1.2 for 1.2 million.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This substitutes 1.2 into the equation, including the intercept.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This substitutes 1,200 into the equation and keeps the intercept in a difference.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q082-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Choosing a model with unequal spacing",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A scientist recorded six data points (x, y): (0, 12.0), (1, 14.6), (3, 19.9), (4, 22.4), (6, 27.8), and (7, 30.5). Which type of model best fits the data, and why?",
+   "explanation": "The x-values are not evenly spaced. Per unit of x, the increases are 2.6, 2.65, 2.5, 2.7, and 2.7, nearly constant, so a linear model with slope about 2.6 fits.",
+   "hints": [
+    "Are the x-values evenly spaced?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Compute the change in y per unit of x."
+   },
+   "remember": "Compare changes per unit of x when spacing is uneven.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Unequal spacing makes the raw differences alternate, hiding a constant rate."
+   },
+   "choices": {
+    "A": "An exponential model, because y increases by roughly 20% from each row of the table to the next",
+    "B": "Neither a linear nor an exponential model, because the increases in y alternate between about 2.6 and about 5.3",
+    "C": "A linear model, because y increases by about 3.7 for each increase of 1 in x",
+    "D": "A linear model, because y increases by about 2.6 for each increase of 1 in x"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This computes row-to-row ratios without regard to the unequal steps in x.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This reads the row-to-row differences without noticing that the steps in x alternate between 1 and 2.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This divides the total increase of 18.5 by the 5 row steps instead of by the change of 7 in x.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q082-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Median of two combined frequency tables",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Two classes took the same 5-point quiz. In class 1 (20 students), the numbers of students who scored 1, 2, 3, 4, and 5 points were 6, 5, 2, 3, and 4, respectively. In class 2 (24 students), the numbers who scored 1, 2, 3, 4, and 5 points were 1, 3, 3, 4, and 13, respectively. What is the median score of all 44 students?",
+   "explanation": "The combined counts are 7, 8, 5, 7, and 17 for scores 1 to 5. The 22nd and 23rd scores are the middle values; 20 scores are 3 or less and 27 are 4 or less, so both are 4, and the median is 4.",
+   "hints": [
+    "Combine the two tables first."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Find the 22nd and 23rd scores in the combined data."
+   },
+   "remember": "Medians cannot be combined by averaging; combine the data.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3.5",
+    "B": "About 3.6",
+    "C": "4",
+    "D": "5"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This averages the two class medians, 2 and 5.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This weights the class medians by class size.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This is the median of the larger class.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q082-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Hidden water in an ingredient",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A bread dough is made from only flour and water, mixed in the ratio 5 : 3 by mass. The flour itself is 12% water by mass. What percent of the dough's mass is water? (Disregard the % sign when entering your answer. For example, if your answer is 42.1%, enter 42.1)",
+   "explanation": "In 8 kilograms of dough, 3 kilograms is added water and 0.12 × 5 = 0.6 kilogram is water in the flour, for 3.6 kilograms of water. That is 3.6/8 = 45% of the dough.",
+   "hints": [
+    "How much water is inside the flour?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Assume 8 kilograms of dough."
+   },
+   "remember": "Count every source of a component, including hidden ones.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "One ingredient carries hidden water that must be added to the stated ratio."
+   },
+   "format": "spr",
+   "answer": "45",
+   "accepted_answers": [
+    "45"
+   ],
+   "common_errors": [
+    {
+     "value": "37.5",
+     "rationale": "37.5 ignores the water in the flour.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "49.5",
+     "rationale": "49.5 adds 12 percentage points to 37.5.",
+     "trap": null
+    },
+    {
+     "value": "42",
+     "rationale": "42 raises 37.5 by 12% of itself.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q082-11",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Conditional probability with a computed rate condition",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "The table lists 8 apartments by number of bedrooms, monthly rent, and floor area.\n1 bedroom, $1,350, 600 square feet\n1 bedroom, $1,200, 650 square feet\n1 bedroom, $1,420, 720 square feet\n1 bedroom, $1,100, 580 square feet\n2 bedrooms, $1,800, 950 square feet\n2 bedrooms, $2,100, 1,000 square feet\n2 bedrooms, $1,950, 1,050 square feet\n2 bedrooms, $2,000, 980 square feet\nAn apartment whose monthly rent is less than $2.00 per square foot will be selected at random. What is the probability that it has 2 bedrooms?",
+   "explanation": "The rents per square foot are about 2.25, 1.85, 1.97, 1.90, 1.89, 2.10, 1.86, and 2.04 dollars. Five apartments are under $2.00, and 2 of them have 2 bedrooms, so the probability is 2/5.",
+   "hints": [
+    "Which apartments rent for less than $2.00 per square foot?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Compute each rent per square foot first."
+   },
+   "remember": "A condition shrinks the sample to the qualifying rows.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1/4",
+    "B": "2/5",
+    "C": "1/2",
+    "D": "5/8"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This divides the 2 qualifying 2-bedroom apartments by all 8 apartments.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This ignores the condition: 4 of the 8 apartments have 2 bedrooms.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This is the probability that an apartment qualifies.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q082-12",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Average rate from cumulative totals at unequal times",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "A pump empties a flooded basement. The total volume of water pumped out t minutes after the pump starts is 0 liters at t = 0, 90 liters at t = 5, 300 liters at t = 20, 420 liters at t = 30, and 600 liters at t = 45. During which interval was the average pumping rate greatest?",
+   "explanation": "The average rates are 90/5 = 18, 210/15 = 14, 120/10 = 12, and 180/15 = 12 liters per minute, so the greatest is from t = 0 to t = 5.",
+   "hints": [
+    "Divide each change in volume by its change in time."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute each interval's rate."
+   },
+   "remember": "Rate is change divided by the length of the interval.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "From t = 0 to t = 5",
+    "B": "From t = 5 to t = 20",
+    "C": "From t = 20 to t = 30",
+    "D": "From t = 30 to t = 45"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This interval has the greatest volume pumped, but over a longer time.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This compares volumes as if the intervals were equal.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This interval ends with the greatest total, not the greatest rate.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}

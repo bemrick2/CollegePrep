@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T19:30:47+00:00",
+  "updated_at": "2026-10-27T19:32:30+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 481,
-    "act_reading": 493,
+    "act_reading": 502,
     "sat_reading_writing": 505,
     "sat_math": 879
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 23
     },
     "act_reading": {
-      "PASS": 528,
+      "PASS": 537,
       "REVISE": 49,
-      "REJECT": 2,
-      "candidates": 579,
+      "REJECT": 3,
+      "candidates": 589,
       "passed_after_revision": 40
     },
     "sat_reading_writing": {
@@ -1216,12 +1216,12 @@
       "passages": 53
     },
     "act_reading": {
-      "accepted": 493,
+      "accepted": 502,
       "retired_after_audit": 35,
       "by_skill": {
-        "Craft and Structure": 174,
-        "Integration of Knowledge and Ideas": 151,
-        "Key Ideas and Details": 168
+        "Craft and Structure": 177,
+        "Integration of Knowledge and Ideas": 154,
+        "Key Ideas and Details": 171
       },
       "by_subskill": {
         "Application (same reason)": 1,
@@ -1251,6 +1251,7 @@
         "Author's attitude toward an anecdote": 1,
         "Author's attitude toward an application": 1,
         "Author's attitude toward competing views": 1,
+        "Author's attitude toward engineering efforts": 1,
         "Author's attitude toward later research": 1,
         "Author's concern about popular comparisons": 1,
         "Author's distinction in the conclusion": 1,
@@ -1287,7 +1288,7 @@
         "Connecting the opening to the conclusion": 1,
         "Contrasting the passages' approaches": 1,
         "Contrasting two policies across passages": 1,
-        "Detail": 17,
+        "Detail": 19,
         "Detail (Passage A)": 1,
         "Detail (Passage B's proposal)": 1,
         "Detail (Passage B)": 1,
@@ -1338,6 +1339,7 @@
         "Function of a paragraph": 19,
         "Function of a parenthetical remark": 1,
         "Function of a phrase": 4,
+        "Function of a qualification": 1,
         "Function of a sentence": 2,
         "Function of a sentence (Passage B)": 1,
         "Function of a short paragraph": 1,
@@ -1363,7 +1365,9 @@
         "Inference (a character's motive)": 2,
         "Inference (a qualified judgment)": 1,
         "Inference (a response to risk)": 1,
+        "Inference (analogy)": 1,
         "Inference (applying a standard)": 1,
+        "Inference (applying the explanation)": 1,
         "Inference (author's implication)": 1,
         "Inference (author's position)": 1,
         "Inference (author's view)": 1,
@@ -1380,6 +1384,7 @@
         "Inference (meaning of a conclusion)": 1,
         "Inference (meaning of a remark)": 2,
         "Inference (meaning of a reply)": 1,
+        "Inference (reasoning in an experiment)": 1,
         "Inference (significance of a move)": 1,
         "Inference (what a detail reveals)": 1,
         "Inference (why the mimicry works)": 1,
@@ -1452,7 +1457,7 @@
         "Main idea (Passage A)": 2,
         "Main idea of a literary passage": 1,
         "Main idea of a narrative": 4,
-        "Main idea of a passage": 19,
+        "Main idea of a passage": 20,
         "Main purpose of a passage": 9,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
@@ -1500,19 +1505,19 @@
         "Synthesizing the central claim": 1,
         "Synthesizing the passage": 1,
         "Tone of a description (narrator's mother)": 1,
-        "Vocabulary in context": 17,
+        "Vocabulary in context": 18,
         "What an experiment adds to a correlation": 1,
         "Word in context": 4
       },
       "by_difficulty_author": {
-        "easy": 256,
+        "easy": 263,
         "hard": 32,
-        "medium": 205
+        "medium": 207
       },
       "by_difficulty_calibrated": {
-        "easy": 316,
+        "easy": 322,
         "hard": 2,
-        "medium": 175
+        "medium": 178
       },
       "calibrated_share": {
         "easy": 0.641,
@@ -1520,14 +1525,14 @@
         "medium": 0.355
       },
       "answer_key_balance": {
-        "A": 140,
-        "B": 120,
-        "C": 116,
-        "D": 117
+        "A": 143,
+        "B": 122,
+        "C": 117,
+        "D": 120
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 60
+      "passages": 61
     },
     "sat_reading_writing": {
       "accepted": 505,
@@ -2815,7 +2820,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 55,
-    "act_reading": 61,
+    "act_reading": 62,
     "sat_reading_writing": 61,
     "sat_math": 81
   },
@@ -2873,14 +2878,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 62,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 73.4,
-        "Craft and Structure": -25.6,
-        "Integration of Knowledge and Ideas": -37.8
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 62,
       "skill_gap_for_next_10": {
@@ -2888,6 +2885,14 @@
         "Information and Ideas": -17.1,
         "Standard English Conventions": 28.9,
         "Expression of Ideas": -4.0
+      }
+    },
+    "act_reading": {
+      "next_batch": 63,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 74.8,
+        "Craft and Structure": -26.0,
+        "Integration of Knowledge and Ideas": -38.8
       }
     },
     "act_english": {
@@ -2912,8 +2917,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 493,
-      "share_of_target": 0.721
+      "accepted": 502,
+      "share_of_target": 0.734
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2927,7 +2932,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3132,
+  "total_accepted": 3141,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540737,7 +540742,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 60,
+      "bank_version": 61,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -540877,7 +540882,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T19:30:46+00:00",
+    "heartbeat_at": "2026-10-27T19:32:29+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
