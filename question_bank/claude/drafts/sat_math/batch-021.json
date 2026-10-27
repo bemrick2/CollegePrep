@@ -1,0 +1,458 @@
+{
+ "bank": "sat_math",
+ "batch": 21,
+ "plan": "SAT Math batch 21: Algebra 5, Advanced Math 4, Problem-Solving and Data Analysis 1; 3 student-produced responses; 3 items labelled hard. Weighted toward Algebra and Advanced Math because the live bank is 30% each (target 35%). Ideas pre-checked (reviews/sat_math/ideas-021.repeats.json): four templates (ACT 042, 213, 192, 582) dropped.",
+ "candidates": [
+  {
+   "cand": "Q021-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Point on a proportional line with a coordinate condition",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a line passes through the origin and has a slope of 4/3. The point (p, q) lies on the line, and q − p = 5. What is the value of p ?",
+   "explanation": "Points on the line satisfy q = (4/3)p. Then q − p = (4/3)p − p = (1/3)p = 5, so p = 15 (and q = 20). Check: 20/15 = 4/3.",
+   "hints": [
+    "Write q in terms of p."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute q = (4/3)p into q − p = 5."
+   },
+   "remember": "On a line through the origin, y = (slope)x.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "15",
+   "accepted_answers": [
+    "15"
+   ],
+   "common_errors": [
+    {
+     "value": "20",
+     "rationale": "20 is the value of q, not p.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "5",
+     "rationale": "5 is the difference q − p, not p.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q021-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Condition on a slope for an intersection with a negative x-coordinate",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the lines y = 2x − 5 and y = ax + 7, where a is a constant, intersect at a point whose x-coordinate is negative. Which of the following could be the value of a ?",
+   "explanation": "Setting 2x − 5 = ax + 7 gives (2 − a)x = 12, so x = 12/(2 − a). This is negative only when 2 − a < 0, that is, when a > 2. Of the choices, only a = 4 works: x = 12/(−2) = −6.",
+   "hints": [
+    "Solve for the x-coordinate in terms of a."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Try each choice in x = 12/(2 − a)."
+   },
+   "remember": "The sign of a fraction depends on the sign of its denominator.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must solve for the intersection in terms of a parameter and reason about the sign of a quotient; testing choices works but takes care."
+   },
+   "choices": {
+    "A": "−3",
+    "B": "0",
+    "C": "1",
+    "D": "4"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "With a = −3, x = 12/5, which is positive.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "With a = 0, x = 6, which is positive.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "With a = 1, x = 12, which is positive.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q021-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Evaluating a linear function after finding its intercept",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = (2/3)x + b, where b is a constant. If f(9) = 1, what is the value of f(−3) ?",
+   "explanation": "f(9) = (2/3)(9) + b = 6 + b = 1, so b = −5. Then f(−3) = (2/3)(−3) − 5 = −2 − 5 = −7.",
+   "hints": [
+    "Use f(9) = 1 to find b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find b, then evaluate at x = −3."
+   },
+   "remember": "Find the constant first, then evaluate.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−7",
+    "B": "−5",
+    "C": "−3",
+    "D": "3"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−5 is the value of b, not f(−3).",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "−3 is the input, not the output.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "3 uses b = 5, a sign error when solving 6 + b = 1.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q021-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear equation from a ratio of quantities sold",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A coffee shop sells small cups of coffee for $3 each and large cups for $5 each. On Monday it sold 3 times as many small cups as large cups and collected a total of $364 from these sales. How many large cups did it sell on Monday?",
+   "explanation": "If L large cups were sold, then 3L small cups were sold, bringing in 3(3L) + 5L = 14L dollars. Setting 14L = 364 gives L = 26 large cups (and 78 small cups).",
+   "hints": [
+    "Write the number of small cups in terms of the large cups."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 9L + 5L = 364."
+   },
+   "remember": "One relationship lets you use a single variable.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "26",
+   "accepted_answers": [
+    "26"
+   ],
+   "common_errors": [
+    {
+     "value": "78",
+     "rationale": "78 is the number of small cups sold.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "104",
+     "rationale": "104 is the total number of cups sold.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q021-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Substituting into a linear model of coins",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The equation 0.25x + 0.10y = 4.70 represents a collection of x quarters and y dimes worth $4.70 in all. If the collection contains 12 quarters, how many dimes does it contain?",
+   "explanation": "Substituting x = 12 gives 3.00 + 0.10y = 4.70, so 0.10y = 1.70 and y = 17 dimes. Check: 12 quarters ($3.00) and 17 dimes ($1.70) total $4.70.",
+   "hints": [
+    "Substitute 12 for x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 3 + 0.10y = 4.70."
+   },
+   "remember": "Substitute the known count, then solve.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "17",
+    "C": "29",
+    "D": "47"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3 is the value of the quarters in dollars.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "29 is the total number of coins.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "47 divides 4.70 by 0.10, ignoring the quarters.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q021-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Returning to an initial height in a quadratic model",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A ball is thrown upward from a platform. Its height above the ground, in meters, t seconds after it is thrown is modeled by h(t) = −2(t − 3)² + 50. How many seconds after it is thrown does the ball return to the height from which it was thrown?",
+   "explanation": "The initial height is h(0) = −2(9) + 50 = 32 meters. Solving −2(t − 3)² + 50 = 32 gives (t − 3)² = 9, so t = 0 or t = 6. The ball returns to 32 meters at t = 6 seconds, symmetric to t = 0 about the vertex at t = 3.",
+   "hints": [
+    "Find the starting height first."
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Use the symmetry of the parabola about t = 3."
+   },
+   "remember": "A parabola takes equal values at times symmetric about its vertex.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0",
+    "B": "3",
+    "C": "6",
+    "D": "9"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "0 is the moment the ball is thrown, not when it returns.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3 is the time of the maximum height.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "9 is the value of (t − 3)², not t.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q021-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "A number from the sum with its reciprocal",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A number x is greater than 1, and the sum of x and its reciprocal is 10/3. What is the value of x ?",
+   "explanation": "x + 1/x = 10/3. Multiplying by 3x gives 3x² + 3 = 10x, so 3x² − 10x + 3 = 0, which factors as (3x − 1)(x − 3) = 0. The solutions are 1/3 and 3; since x > 1, x = 3.",
+   "hints": [
+    "Clear the fraction by multiplying by x."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each choice: 3 + 1/3 = 10/3."
+   },
+   "remember": "Clear fractions, solve, then apply the given condition.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must turn a reciprocal relationship into a quadratic and use the condition x > 1 to pick a root; 1/3 is the paired trap."
+   },
+   "choices": {
+    "A": "1/3",
+    "B": "3",
+    "C": "10/3",
+    "D": "9"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "1/3 is the other solution, but it is less than 1.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "10/3 is the sum, not the number.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "9 is x², not x.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q021-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Annual percent growth from two values two years apart",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A town's population was 1,200 in 2020 and 1,452 in 2022. The population increased by the same percent each year. By what percent did the population increase each year? (Disregard the % sign when entering your answer.)",
+   "explanation": "Over two years the population was multiplied by 1,452/1,200 = 1.21. A yearly factor r satisfies r² = 1.21, so r = 1.1, an increase of 10% each year. Check: 1,200 × 1.1 = 1,320 and 1,320 × 1.1 = 1,452.",
+   "hints": [
+    "Find the two-year growth factor first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test 10%: 1,200 → 1,320 → 1,452."
+   },
+   "remember": "Equal percent changes compound: take the square root for two periods.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognise compounding and take a square root of the growth factor; halving the two-year percent (10.5) is a strong trap."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "10.5",
+     "rationale": "10.5 halves the two-year increase of 21%, as if the growth were linear.",
+     "trap": null
+    },
+    {
+     "value": "21",
+     "rationale": "21 is the percent increase over both years combined.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q021-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Evaluating a related exponential expression",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "If 2^(3x) = 64, what is the value of 2ˣ ?",
+   "explanation": "2^(3x) = (2ˣ)³. If (2ˣ)³ = 64, then 2ˣ = ∛64 = 4. (Equivalently, 3x = 6, so x = 2 and 2ˣ = 4.)",
+   "hints": [
+    "Write 2^(3x) as a power of 2ˣ."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find x, then compute 2ˣ."
+   },
+   "remember": "(aᵐ)ⁿ = aᵐⁿ, so 2^(3x) = (2ˣ)³.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "2 is the value of x, not 2ˣ.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3 is the coefficient of x in the exponent.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 is √64, taking a square root instead of a cube root.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q021-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Ratio applied after excluding a group",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In a survey of 300 people, 40 said they prefer neither tea nor coffee. Among the rest, the ratio of people who prefer tea to people who prefer coffee is 2 : 3. How many of the people surveyed prefer tea?",
+   "explanation": "260 people prefer tea or coffee. With a ratio of 2 : 3, tea is 2/5 of them: (2/5)(260) = 104 people. Coffee is 156, and 104 + 156 + 40 = 300.",
+   "hints": [
+    "Remove the 40 people first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Tea = (2/5)(300 − 40)."
+   },
+   "remember": "Apply a ratio only to the group it describes.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "104",
+    "B": "120",
+    "C": "130",
+    "D": "156"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "120 applies the ratio to all 300 people, including those who prefer neither.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "130 splits the 260 people evenly.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "156 is the number who prefer coffee.",
+     "trap": "wrong_quantity"
+    }
+   }
+  }
+ ]
+}
