@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 60,
-  "updated_at": "2026-10-27T22:56:24+00:00",
+  "version": 61,
+  "updated_at": "2026-10-27T23:00:00+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -641,6 +641,17 @@
       "word_count": 203,
       "text": "[1] In the early 1900s, the Harvard College Observatory employed a group of women, known as \"computers,\" {{1|who's}} job was to study photographic plates of the night sky. [2] One of them, Henrietta Swan Leavitt, was {{2|assigned to catalog}} variable stars, stars whose brightness rises and falls in a regular cycle.\n\n[3] Studying hundreds of such stars in the Small Magellanic Cloud, {{3|a pattern was noticed by Leavitt}}: the brighter a star was, the longer its cycle lasted. [4] Because the stars in the cloud are all roughly the same distance from Earth, {{4|their}} apparent brightness reflected their true brightness. [5] Leavitt published the relationship in {{5|1912. Which gave}} astronomers a powerful new tool.\n\n[6] Astronomers could now time a star's cycle, work out its true brightness, and compare that with how bright it {{6|appeared, from this}} they could calculate its distance. [7] {{7|However,}} in the 1920s, Edwin Hubble used Leavitt's method to show that the Andromeda Nebula lies far beyond the Milky Way, which meant that the universe contains other galaxies.\n\n[8] Leavitt, who died in 1921, did not live to see {{8|her works importance}} fully recognized. [9] {{9|Today, her name is on an asteroid and on a crater on the Moon.}}",
       "batch": 60,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000061",
+      "title": "Oil on the Move",
+      "genre": "informative essay",
+      "word_count": 190,
+      "text": "[1] Elijah McCoy was born in 1844 in Ontario, Canada, to parents who had escaped slavery in {{1|Kentucky, as a teenager, he}} traveled to Scotland to train as a mechanical engineer. [2] When he settled in Michigan, however, the only job he could find was as a fireman and oiler for the Michigan Central Railroad, {{2|shoveling coal and oiling the engine's moving parts}}.\n\n[3] At the time, every train {{3|have}} to stop regularly so that workers could oil its engine by hand. [4] In 1872, McCoy patented an automatic lubricator, a cup that dripped oil {{4|steadily and continuously at a constant rate}} into an engine while it ran. [5] Railroads that adopted the device saved time and money, {{5|since}} engines no longer had to stop for oiling.\n\n[6] McCoy {{9|went on to receive}} more than fifty patents, including ones for a folding ironing board and a lawn sprinkler. [7] Some historians believe that the expression \"the real McCoy\" came from engineers who insisted on {{6|McCoys'}} lubricator rather than imitations, though the phrase's origin is disputed. [8] {{7|For example,}} McCoy's {{8|inventions, kept}} trains and factory machines running more smoothly for decades.",
+      "batch": 61,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -40452,6 +40463,716 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-060.review.json",
         "computation": "checks/act_english/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000562",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 1,
+      "evidence": "traveled to Scotland to train as a mechanical engineer",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Kentucky as a teenager he",
+        "C": "Kentucky, as a teenager, and he",
+        "D": "Kentucky. As a teenager, he"
+      },
+      "correct_answer": "D",
+      "explanation": "The sentence contains two independent clauses, so a period correctly separates them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "Without punctuation, the clauses run together, and \"as a teenager\" seems to describe Kentucky.",
+        "C": "The comma and \"and\" are misplaced, leaving the sentence garbled."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Can each part stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find where the first clause ends."
+      },
+      "remember": "Separate independent clauses with a period or semicolon.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-01",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000563",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel participial phrases",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 2,
+      "evidence": "the only job he could find was as a fireman and oiler",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "shoveling coal and to oil the engine's moving parts",
+        "C": "he shoveled coal and oiled the engine's moving parts",
+        "D": "shoveled coal and oiling the engine's moving parts"
+      },
+      "correct_answer": "A",
+      "explanation": "The phrase \"shoveling coal and oiling the engine's moving parts\" uses two parallel -ing verbs to describe the job.",
+      "distractor_explanations": {
+        "B": "\"To oil\" breaks the parallel with \"shoveling.\"",
+        "C": "This adds an independent clause after a comma, creating a comma splice.",
+        "D": "\"Shoveled\" and \"oiling\" are not parallel."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "Do the two actions have the same form?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check each verb's form."
+      },
+      "remember": "Keep paired actions in the same form.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-02",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000564",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement and tense",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 3,
+      "evidence": "At the time, every train",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "had",
+        "C": "has",
+        "D": "having"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Every train\" is singular, and \"At the time\" places the action in the past, so \"had\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Have\" is plural and present tense; \"every train\" is singular and the context is past.",
+        "C": "\"Has\" agrees in number but shifts to the present tense.",
+        "D": "\"Having\" is not a finite verb, so the sentence would lack a main verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the subject singular, and what tense fits?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check number and tense."
+      },
+      "remember": "\"Every\" takes a singular verb.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-03",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000565",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (cause)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 5,
+      "evidence": "engines no longer had to stop for oiling",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "although",
+        "C": "unless",
+        "D": "whereas"
+      },
+      "correct_answer": "A",
+      "explanation": "Engines no longer stopping explains why railroads saved time and money, so the causal \"since\" fits.",
+      "distractor_explanations": {
+        "B": "Engines no longer stopping is the reason for the savings, not a contrast with them.",
+        "C": "\"Unless\" makes the savings conditional on the opposite of what happened.",
+        "D": "\"Whereas\" sets up a contrast that does not exist here."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Is the second clause a reason or a contrast?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship first."
+      },
+      "remember": "Use a causal word when one clause explains the other.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-05",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000566",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 6,
+      "evidence": "lubricator rather than imitations",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "McCoys",
+        "C": "McCoy",
+        "D": "McCoy's"
+      },
+      "correct_answer": "D",
+      "explanation": "The lubricator belonged to one person, McCoy, so the singular possessive \"McCoy's\" is correct.",
+      "distractor_explanations": {
+        "A": "\"McCoys'\" is a plural possessive, but only one McCoy is meant.",
+        "B": "Without an apostrophe, the name cannot show possession.",
+        "C": "The name alone cannot show that the lubricator was his."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How many McCoys are meant?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide singular or plural, then possessive."
+      },
+      "remember": "Singular possessive: add 's.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-06",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000567",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 7,
+      "evidence": "though the phrase's origin is disputed",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "Whatever its origin,",
+        "D": "Similarly,"
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 7 ends by noting that the phrase's origin is disputed; \"Whatever its origin\" sets that question aside and returns to McCoy's lasting contribution.",
+      "distractor_explanations": {
+        "A": "Sentence 8 is not an example of the disputed phrase.",
+        "B": "The phrase's disputed origin does not cause McCoy's inventions to work well.",
+        "D": "Sentence 8 is not similar to the claim about the phrase."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "What does the end of sentence 7 leave unsettled?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence before the transition."
+      },
+      "remember": "A transition can set aside an unresolved point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-07",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000568",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma between subject and verb",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 8,
+      "evidence": "trains and factory machines running more smoothly",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "inventions kept",
+        "C": "inventions, which kept",
+        "D": "inventions; kept"
+      },
+      "correct_answer": "B",
+      "explanation": "The subject \"McCoy's inventions\" and the verb \"kept\" should not be separated by punctuation.",
+      "distractor_explanations": {
+        "A": "A comma should not separate the subject \"inventions\" from its verb \"kept.\"",
+        "C": "This turns the main verb into a clause, leaving the sentence without a main verb.",
+        "D": "A semicolon cannot separate a subject from its verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the subject, and what is its verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the subject and verb together."
+      },
+      "remember": "Do not put a comma between a subject and its verb.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-08",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000569",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": 9,
+      "evidence": "more than fifty patents",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "goes on to receive",
+        "C": "will go on to receive",
+        "D": "is going on to receive"
+      },
+      "correct_answer": "A",
+      "explanation": "The essay narrates past events, so \"went on to receive\" keeps the tense consistent.",
+      "distractor_explanations": {
+        "B": "The present tense clashes with the past-tense narrative.",
+        "C": "The future tense does not fit past events.",
+        "D": "The present progressive does not fit past events."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What tense does the essay use?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the surrounding verbs."
+      },
+      "remember": "Keep verb tenses consistent.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-09",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000570",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000061",
+      "underline": null,
+      "evidence": "though the phrase's origin is disputed",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to explain the origin of the expression \"the real McCoy.\" Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it proves the phrase came from engineers who wanted McCoy's device.",
+        "B": "No, because it mentions the phrase only briefly and calls its origin disputed.",
+        "C": "Yes, because it describes McCoy's patents for an ironing board and a sprinkler.",
+        "D": "No, because it never mentions the expression \"the real McCoy.\""
+      },
+      "correct_answer": "B",
+      "explanation": "The essay focuses on McCoy's life and inventions and treats the phrase in one sentence, calling its origin disputed.",
+      "distractor_explanations": {
+        "A": "The essay says only that some historians believe this and that the origin is disputed.",
+        "C": "These patents have nothing to do with the phrase's origin.",
+        "D": "The essay mentions the expression in sentence 7."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How much of the essay is about the phrase?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against the exact purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-10",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000571",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Singular possessive",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000060",
+      "underline": 8,
+      "evidence": "did not live to see",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "her work's importance",
+        "C": "her work is importance",
+        "D": "her work importance"
+      },
+      "correct_answer": "B",
+      "explanation": "The importance belongs to her work, a singular noun, so the singular possessive \"work's\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Works\" without an apostrophe is plural, not possessive.",
+        "C": "\"Her work is importance\" adds a verb that makes the phrase ungrammatical after \"see.\"",
+        "D": "Without an apostrophe, \"work\" cannot show possession."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the importance belong to the work?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide singular or plural, then possessive."
+      },
+      "remember": "Singular possessive: add 's.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 61,
+      "draft_candidate": "E061-11",
+      "created_at": "2026-10-27T23:00:00+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-061.review.json",
+        "computation": "checks/act_english/batch_061.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

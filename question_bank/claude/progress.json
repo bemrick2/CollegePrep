@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T22:58:16+00:00",
+  "updated_at": "2026-10-27T23:00:04+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 527,
+    "act_english": 537,
     "act_reading": 542,
     "sat_reading_writing": 543,
     "sat_math": 990
@@ -32,11 +32,11 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 561,
-      "REVISE": 31,
+      "PASS": 571,
+      "REVISE": 32,
       "REJECT": 11,
-      "candidates": 603,
-      "passed_after_revision": 27
+      "candidates": 614,
+      "passed_after_revision": 28
     },
     "act_reading": {
       "PASS": 577,
@@ -873,12 +873,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 527,
+      "accepted": 537,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 283,
-        "Knowledge of Language": 89,
-        "Production of Writing": 155
+        "Conventions of Standard English": 290,
+        "Knowledge of Language": 91,
+        "Production of Writing": 156
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
@@ -926,7 +926,8 @@
         "Comma before a nonessential \"which\" clause": 1,
         "Comma before a nonessential clause": 1,
         "Comma before a nonessential clause (second instance)": 1,
-        "Comma splice": 15,
+        "Comma between subject and verb": 1,
+        "Comma splice": 16,
         "Comma splice fixed with an appositive": 1,
         "Comma splice repaired with a relative clause": 1,
         "Comma splices": 1,
@@ -1001,7 +1002,7 @@
         "Effect of deleting a phrase": 3,
         "Effect of deleting a sentence": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 24,
+        "Evaluating whether an essay meets a goal": 25,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 2,
         "Faulty comparison (\"any other\")": 1,
@@ -1057,6 +1058,7 @@
         "Nonstandard words (irregardless)": 1,
         "Paired dashes": 2,
         "Parallel infinitives": 1,
+        "Parallel participial phrases": 1,
         "Parallel structure": 4,
         "Parallel structure (rather than)": 1,
         "Parallel structure in a compound object": 1,
@@ -1131,7 +1133,7 @@
         "Sentence structure (compound verbs)": 1,
         "Sentence that sets up what follows": 1,
         "Simple past versus present perfect": 1,
-        "Singular possessive": 5,
+        "Singular possessive": 7,
         "Specific detail": 1,
         "Subject-verb agreement": 2,
         "Subject-verb agreement (\"all ... of the\")": 1,
@@ -1142,6 +1144,7 @@
         "Subject-verb agreement (number of)": 1,
         "Subject-verb agreement (plural noun)": 1,
         "Subject-verb agreement across a prepositional phrase": 1,
+        "Subject-verb agreement and tense": 1,
         "Subject-verb agreement in a relative clause": 1,
         "Subject-verb agreement in an inverted sentence": 1,
         "Subject-verb agreement with \"along with\"": 1,
@@ -1159,10 +1162,11 @@
         "Transition sentence between paragraphs": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
-        "Transitions": 5,
+        "Transitions": 6,
         "Transitions (addition)": 1,
         "Transitions (alternative)": 1,
         "Transitions (cause and effect)": 3,
+        "Transitions (cause)": 1,
         "Transitions (concession)": 3,
         "Transitions (contrast with an expectation)": 1,
         "Transitions (contrast with an expected result)": 1,
@@ -1193,7 +1197,7 @@
         "Verb forms and agreement": 1,
         "Verb tense (past perfect in a past context)": 1,
         "Verb tense and agreement": 1,
-        "Verb tense consistency": 9,
+        "Verb tense consistency": 10,
         "Verb tense consistency (present perfect)": 1,
         "Verb tense consistency in a narrative": 1,
         "Verb tense with a time marker": 1,
@@ -1207,29 +1211,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 280,
+        "easy": 288,
         "hard": 22,
-        "medium": 225
+        "medium": 227
       },
       "by_difficulty_calibrated": {
-        "easy": 300,
+        "easy": 308,
         "hard": 4,
-        "medium": 223
+        "medium": 225
       },
       "calibrated_share": {
-        "easy": 0.569,
-        "hard": 0.008,
-        "medium": 0.423
+        "easy": 0.574,
+        "hard": 0.007,
+        "medium": 0.419
       },
       "answer_key_balance": {
-        "A": 134,
-        "B": 134,
-        "C": 139,
-        "D": 120
+        "A": 137,
+        "B": 138,
+        "C": 140,
+        "D": 122
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 58
+      "passages": 59
     },
     "act_reading": {
       "accepted": 542,
@@ -2986,7 +2990,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 60,
+    "act_english": 61,
     "act_reading": 66,
     "sat_reading_writing": 65,
     "sat_math": 91
@@ -3045,20 +3049,20 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 62,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 65.5,
+        "Knowledge of Language": 21.1,
+        "Conventions of Standard English": -68.5
+      }
+    },
     "act_reading": {
       "next_batch": 67,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 82.0,
         "Craft and Structure": -29.2,
         "Integration of Knowledge and Ideas": -42.8
-      }
-    },
-    "act_english": {
-      "next_batch": 61,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 62.5,
-        "Knowledge of Language": 21.1,
-        "Conventions of Standard English": -65.5
       }
     },
     "sat_reading_writing": {
@@ -3079,8 +3083,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 527,
-      "share_of_target": 0.765
+      "accepted": 537,
+      "share_of_target": 0.779
     },
     "act_reading": {
       "target": 684,
@@ -3099,7 +3103,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3376,
+  "total_accepted": 3386,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -541683,7 +541687,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 60,
+      "bank_version": 61,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -541830,7 +541834,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T22:58:16+00:00",
+    "heartbeat_at": "2026-10-27T23:00:03+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
