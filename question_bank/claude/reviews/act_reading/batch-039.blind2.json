@@ -1,0 +1,33 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 39},
+  "answers": {
+    "R039-01": {"answer": "B", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy",
+      "flags": ["minor: distractors are weak (A contradicts P1, C contradicts P5's hedge, D's 'completely different' is extreme), so B is easy to find by elimination", "minor: B also covers R039-02's answer (ice location), so the two items overlap a little"],
+      "notes": "P2 and P3 describe the two defenses: where the ice forms, and glucose/urea protecting the cells. A is wrong because the frog does freeze. C is wrong because P5 says no one yet knows. D is wrong because the difference between the populations is one of degree."},
+    "R039-02": {"answer": "D", "confidence": "high", "est_pct_correct": 82, "difficulty_opinion": "easy",
+      "flags": ["minor: the key closely paraphrases 'Ice builds up in the spaces between its cells ... while the water inside the cells mostly stays liquid', so the item is close to a lookup", "Overlap: R039-09's key (B, 'Ice forms inside most of the frog's cells') is the exact inverse of this key; each item gives away the other"],
+      "notes": "Stated directly in P2. A, B and C each contradict the passage."},
+    "R039-03": {"answer": "A", "confidence": "high", "est_pct_correct": 58, "difficulty_opinion": "medium",
+      "flags": ["minor: R039-04's key (the liver turns glycogen into glucose once freezing begins) states the reasoning this item needs, so it gives a partial cue"],
+      "notes": "The glucose spike starts only once ice touches the skin, so before freezing the frog has much less blood glucose. B reverses the logic: before freezing, glycogen is higher. C: a frozen frog's heart has stopped. D: there is no ice yet. Students who mix up glycogen and glucose may pick B."},
+    "R039-04": {"answer": "C", "confidence": "high", "est_pct_correct": 64, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "This links P4 (more glycogen) to P3 (glycogen becomes the protective glucose). A is invented. B is backward, since the frog wants ice to form outside its cells. D contradicts P1."},
+    "R039-05": {"answer": "B", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium",
+      "flags": ["minor: D ('strengthened by exercise') is a throwaway that nobody would pick"],
+      "notes": "The fluid loses water, so it becomes less diluted. C ('gathered in one place') and A ('more focused') are the common-meaning traps."},
+    "R039-06": {"answer": "C", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": ["minor: the distractors are weak; B's 'identical' is extreme and D is unrelated"],
+      "notes": "The comparison to humans shows how extreme the frog's glucose level is."},
+    "R039-07": {"answer": "D", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Only D tests causation: frogs that cannot release glucose die. C is a trap because it restates a detail about timing but shows no protective effect. B is about urea. A is about an outcome that has nothing to do with protecting cells."},
+    "R039-08": {"answer": "A", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": ["minor: the key paraphrases P5's topic sentence ('for more than its own sake'), so the item is close to a lookup"],
+      "notes": "P5 explains why the frog matters for organ preservation. B is wrong because organs cannot currently be frozen. C overstates the passage's hedge. D: other animals are not discussed."},
+    "R039-09": {"answer": "B", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy",
+      "flags": ["Overlap with R039-02: its key D (ice forms around the cells rather than inside them) directly answers this item"],
+      "notes": "P2 says the water inside the cells mostly stays liquid. A, C and D are all stated in the passage. The NOT format adds a small amount of difficulty."}
+  },
+  "passage_flags": ["minor: calling glycogen 'stored starch' is loose wording (glycogen is sometimes called 'animal starch'), but it is acceptable at this level", "Science check: the passage is broadly accurate. It matches published wood frog work (Storey & Storey; Costanzo, Lee, Larson et al. on Alaskan frogs: larger liver glycogen, urea build-up in fall, survival to roughly -16 to -18 C versus a few degrees below freezing for southern frogs). The sentence about glucose being 'released within minutes after ice touches its skin' is consistent with the literature."]
+}

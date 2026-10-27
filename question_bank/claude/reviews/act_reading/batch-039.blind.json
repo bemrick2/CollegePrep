@@ -1,0 +1,32 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 39},
+  "answers": {
+    "R039-01": {"answer": "B", "confidence": "high", "est_pct_correct": 82, "difficulty_opinion": "easy",
+      "flags": ["minor: distractors are weak - A contradicts the opening paragraph (the frog does freeze), C ('already shown') and D ('completely different') are obvious overstatements, so B wins by elimination quickly"],
+      "notes": "Passage is about how the frog survives freezing (ice placement + glucose/urea), with variation and medical relevance as extensions. B captures the core; A, C, D are contradicted or overstated."},
+    "R039-02": {"answer": "D", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy",
+      "flags": ["Overlaps with R039-09: both test the fact that ice forms between cells rather than inside them; R039-02's key ('ice forms around them rather than inside them') hands away R039-09's answer (B)", "minor: key closely paraphrases 'Ice builds up in the spaces between its cells... while the water inside the cells mostly stays liquid' - essentially a lookup"],
+      "notes": "Para 2: ice between cells does little harm; frog controls where ice forms. B is contradicted by 'not because cold itself is harmful' (it's ice, not cold, but B is a misreading); A and C contradict the passage."},
+    "R039-03": {"answer": "A", "confidence": "high", "est_pct_correct": 58, "difficulty_opinion": "medium",
+      "flags": ["minor: passage calls glycogen 'stored starch'; glycogen is often called 'animal starch' but is not technically starch - acceptable simplification, could say 'a stored form of sugar called glycogen'"],
+      "notes": "Glucose release begins only after ice touches the skin, so an unfrozen frog has much less blood glucose. B is reversed (it would have MORE glycogen, not yet converted); C reversed (frozen heart is stopped); D reversed. Requires reasoning about the time sequence; B is a decent trap for students who confuse glycogen and glucose."},
+    "R039-04": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Connects para 4 (larger glycogen stores) with para 3 (liver converts glycogen into protective glucose when ice touches skin). A, B, D are unsupported/contradicted (ice outside cells is the desired outcome; heart stops)."},
+    "R039-05": {"answer": "B", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Cells lose water, so the remaining fluid is less diluted (more solute per water), hence harder to freeze. A 'more focused' is the common-meaning trap; C 'gathered in one place' is a tempting secondary sense."},
+    "R039-06": {"answer": "C", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": ["minor: distractors A, B ('identical'), D (unrelated to heart) are weak; C is the standard 'emphasize' purpose answer"],
+      "notes": "The comparison to a human dramatizes how extreme the rise to 'many times their normal level' is."},
+    "R039-07": {"answer": "D", "confidence": "high", "est_pct_correct": 58, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "A controlled comparison (glucose blocked vs. not) directly tests glucose's protective role. C restates a passage detail about timing but doesn't show protection - main trap; B is about urea; A concerns post-thaw performance, not cell protection."},
+    "R039-08": {"answer": "A", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "Para 5 opens 'interested in the wood frog for more than its own sake' and links it to organ preservation. B false (organs can't be safely frozen), C contradicts 'no one yet knows', D is not done in that paragraph."},
+    "R039-09": {"answer": "B", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy",
+      "flags": ["Overlaps with R039-02 (same tested fact: ice forms outside, not inside, cells); R039-02's key gives this answer away when both appear in one set"],
+      "notes": "Para 2: water inside cells mostly stays liquid. A, C, D are all stated. Slight trap: para 1 says 'much of the water in its body turns to ice', which might mislead a skimmer, and NOT-format costs some students."}
+  }
+}
