@@ -1,0 +1,291 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 36,
+  "reviewed_at": "2026-10-27T03:57:33+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 36
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000306",
+    "CLD-SAT-M-000307",
+    "CLD-SAT-M-000308",
+    "CLD-SAT-M-000309",
+    "CLD-SAT-M-000310",
+    "CLD-SAT-M-000311",
+    "CLD-SAT-M-000312",
+    "CLD-SAT-M-000313",
+    "CLD-SAT-M-000314",
+    "CLD-SAT-M-000315",
+    "CLD-SAT-M-000316"
+  ],
+  "results": [
+    {
+      "cand": "Q036-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "1480",
+      "computed_answer": "1480",
+      "blind_answer": "1480",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Per-guest = (1700-1150)/25 = 22; fixed = 1150-880 = 270. New per-guest 24.2; 270 + 50(24.2) = 1480. Trap: raising whole cost by 10% (1430*1.1=1573).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000306"
+    },
+    {
+      "cand": "Q036-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "m<0, b>0, so y=bx+m has positive slope, negative intercept: passes I, III, IV; misses II. Each choice is a single quadrant; all plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000307"
+    },
+    {
+      "cand": "Q036-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Line 4x+3y=17 (c=17 nonzero). Check: (8,-5): 32-15=17 yes. (-1,6): 14; (0,5): 15; (11,-8): 20 - none on line. Direction-vector step (3,-4) gives (8,-5) directly; distractors are near-misses of the pattern.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000308"
+    },
+    {
+      "cand": "Q036-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "p(3)=2*5*(3-k)=20 -> k=1, so p=(x-1)^2(x+2): distinct intercepts x=1, -2 -> 2. Trap: answering 3 (counting factors).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must find k and notice it repeats a zero; answering 3 from the three factors is the main trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000309"
+    },
+    {
+      "cand": "Q036-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5/2",
+      "computed_answer": "5/2",
+      "blind_answer": "5/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "u=2x-1: u^2-3u-10=0 -> u=5,-2 -> x=3, -1/2; sum 2.5 (accept 2.5 or 5/2). Expanded: 4x^2-10x-6=0, sum 10/4. Trap: 3 (sum of u).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000310"
+    },
+    {
+      "cand": "Q036-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "29%-41% of 4000 = 1160 to 1640. Only 1500 inside (1100=27.5%, 1700=42.5%, 1900=47.5%).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000311"
+    },
+    {
+      "cand": "Q036-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "A has at most 4 values <40 and B at most 4 values <40 (B's 5 largest are >=50), so at most 8 values <40: 9th and 10th >=40. Symmetrically at most 8 values >50. Median in [40,50]. A/B are tempting traps; D false.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must reason about counts above and below each median rather than compute; averaging the medians is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000312"
+    },
+    {
+      "cand": "Q036-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "(x+2)^2+(y-5)^2=k+29. Dist^2 from center (-2,5) to (1,2) = 18; inside requires k+29>18 -> k>-11. Only -5 works; -11 puts point on circle (good boundary distractor).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must complete the square, compute a squared distance and set up a strict inequality; the boundary value −11 is a trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000313"
+    },
+    {
+      "cand": "Q036-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "a^2+b^2=100, ab=40 -> (a+b)^2=180 -> a+b=6sqrt5; perimeter 10+6sqrt5 (legs real: (a-b)^2=20). Distractors: A (forgot hypotenuse), C (used ab=20), D (6-8-10 trap, area 24 not 20).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must use an identity rather than solve for the legs; assuming a familiar triple is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000314"
+    },
+    {
+      "cand": "Q036-11",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q035-08",
+          "status": "withdrawn after blind solve",
+          "reason": "blind solve: over-determined - the 294 total alone gives x = 54, so the conditional-probability step is not needed. Resubmitted without the total as Q036-11."
+        }
+      ],
+      "key": "9/17",
+      "computed_answer": "9/17",
+      "blind_answer": "9/17",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x/(x+66)=0.45 -> x=54. P(podcast | under 30) = 54/(54+48) = 54/102 = 9/17 ~ .5294 (accept .5294, .5295).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000315"
+    },
+    {
+      "cand": "Q036-12",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q035-09",
+          "status": "withdrawn after blind solve",
+          "reason": "blind solve: answer cue - the key 50.5% is the only non-integer choice. Resubmitted with new numbers and integer choices as Q036-12."
+        }
+      ],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: same margin-of-error interval skill as Q036-07 in one packet (no giveaway, just overlap of skill)."
+      ],
+      "blind_notes": "A: 50-58, B: 42-52; overlap 50-52 -> 51% only. 46 and 49 fail A; 53 fails B.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000316"
+    }
+  ]
+}

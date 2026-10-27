@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 35,
-  "updated_at": "2026-10-27T03:55:00+00:00",
+  "version": 36,
+  "updated_at": "2026-10-27T03:57:33+00:00",
   "passages": [],
   "questions": [
     {
@@ -21970,6 +21970,800 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-035.review.json",
         "computation": "checks/sat_math/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000306",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear cost model with one parameter changed by a percent",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A caterer charges a fixed fee plus a cost per guest. An event with 40 guests costs $1,150, and an event with 65 guests costs $1,700. If the cost per guest increases by 10% and the fixed fee does not change, what will an event with 50 guests cost, in dollars?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1480",
+      "accepted_answers": [
+        "1480"
+      ],
+      "common_errors": [
+        {
+          "value": "1370",
+          "rationale": "1370 is the cost of 50 guests before the increase.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1507",
+          "rationale": "1507 increases the whole cost, fee included, by 10%.",
+          "trap": null
+        }
+      ],
+      "explanation": "The cost per guest is (1,700 − 1,150)/(65 − 40) = 550/25 = 22 dollars, so the fixed fee is 1,150 − 40(22) = 270 dollars. After a 10% increase the cost per guest is 24.20 dollars. For 50 guests: 270 + 50(24.20) = 270 + 1,210 = 1,480 dollars.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the cost per guest from the two events."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Separate the fee from the per-guest rate before changing the rate."
+      },
+      "remember": "Only the rate changes; the fixed fee stays.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-01",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1480",
+        "blind_answer": "1480",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000307",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Quadrants of a line after slope and intercept switch roles",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = mx + b, where m and b are constants, has a negative slope and a positive y-intercept. Through which quadrant does the graph of y = bx + m NOT pass?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Quadrant I",
+        "B": "Quadrant II",
+        "C": "Quadrant III",
+        "D": "Quadrant IV"
+      },
+      "correct_answer": "B",
+      "explanation": "From the first line, m < 0 and b > 0. The line y = bx + m has positive slope b and negative y-intercept m. For x < 0, bx < 0 and m < 0, so y < 0: the line never has x < 0 and y > 0, which is Quadrant II. It passes through Quadrants III, IV and I.",
+      "distractor_explanations": {
+        "A": "Quadrant I is reached for large positive x, since the slope is positive.",
+        "C": "Quadrant III is reached for negative x, where y is negative.",
+        "D": "Quadrant IV is reached near x = 0, where y is about m < 0; this is the answer for the original line."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which sign does the new slope have? The new y-intercept?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try m = −2 and b = 3 and sketch y = 3x − 2."
+      },
+      "remember": "A line with positive slope and negative y-intercept misses Quadrant II.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-02",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000308",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Another solution of a linear equation from two known solutions",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The points (2, 3) and (5, −1) are both solutions to the equation ax + by = c, where a, b, and c are nonzero constants. Which of the following points must also be a solution to the equation?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(−1, 6)",
+        "B": "(0, 5)",
+        "C": "(8, −5)",
+        "D": "(11, −8)"
+      },
+      "correct_answer": "C",
+      "explanation": "All solutions lie on the line through (2, 3) and (5, −1), whose slope is (−1 − 3)/(5 − 2) = −4/3. Moving 3 units right and 4 down from (5, −1) gives (8, −5). The other points are off the line: the line passes through (−1, 7), (0, 17/3) and (11, −9).",
+      "distractor_explanations": {
+        "A": "(−1, 6) is close to the line point (−1, 7) but not on it.",
+        "B": "(0, 5) is close to the y-intercept 17/3 but not on the line.",
+        "D": "(11, −8) misses the line point (11, −9) by one unit."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the slope through the two given points?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Repeat the step from (2, 3) to (5, −1)."
+      },
+      "remember": "Solutions of a linear equation lie on one line.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-03",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000309",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Count of x-intercepts after a constant creates a repeated zero",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function p is defined by p(x) = (x − 1)(x + 2)(x − k), where k is a constant. If p(3) = 20, how many distinct x-intercepts does the graph of y = p(x) have in the xy-plane?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 counts three factors without checking whether two zeros coincide.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 is the value of k, not the number of intercepts.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "p(3) = (2)(5)(3 − k) = 10(3 − k) = 20, so 3 − k = 2 and k = 1. Then p(x) = (x − 1)²(x + 2), whose zeros are 1 and −2. The graph has 2 distinct x-intercepts.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find k first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute x = 3 to find k, then list the zeros."
+      },
+      "remember": "A repeated factor gives one intercept, not two.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-05",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000310",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Quadratic in a linear expression; sum of solutions in x",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all solutions to the equation (2x − 1)² − 3(2x − 1) − 10 = 0 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "5/2",
+      "accepted_answers": [
+        "5/2",
+        "2.5"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the sum of the values of 2x − 1, not of x.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "7/2",
+          "rationale": "7/2 drops the minus sign in 2x − 1 = −2.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Let u = 2x − 1. Then u² − 3u − 10 = 0 factors as (u − 5)(u + 2) = 0, so u = 5 or u = −2. Then 2x − 1 = 5 gives x = 3, and 2x − 1 = −2 gives x = −1/2. The sum is 3 − 1/2 = 5/2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Substitute u for 2x − 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Treat 2x − 1 as one quantity."
+      },
+      "remember": "After substituting, convert back to x.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-06",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "5/2",
+        "blind_answer": "5/2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000311",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Population count range from a sample proportion and margin of error",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A random sample of 250 of a school's 4,000 students were asked whether they walk to school; 35% of the sample said yes. The margin of error for this estimate is 6 percentage points. Based on these results, which of the following is a plausible number of students at the school who walk to school?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1,100",
+        "B": "1,500",
+        "C": "1,700",
+        "D": "1,900"
+      },
+      "correct_answer": "B",
+      "explanation": "The plausible percents are 35% ± 6%, or 29% to 41%. Of 4,000 students, that is 0.29 × 4,000 = 1,160 to 0.41 × 4,000 = 1,640. Only 1,500 is in this range.",
+      "distractor_explanations": {
+        "A": "1,100 is 27.5% of 4,000, below the lower bound.",
+        "C": "1,700 is 42.5% of 4,000, just above the upper bound.",
+        "D": "1,900 is 47.5%, which adds the margin of error twice."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Turn the margin of error into a range of percents."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale both ends of the interval to 4,000."
+      },
+      "remember": "Scale the whole interval, not only the estimate.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-07",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000312",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Bounding the median of two combined lists",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "List A contains 9 numbers and has a median of 40. List B contains 9 numbers and has a median of 50. The two lists are combined into one list of 18 numbers. Which of the following must be true about the median of the combined list?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "It is 45.",
+        "B": "It is greater than 45.",
+        "C": "It is between 40 and 50, inclusive.",
+        "D": "It cannot be determined; it could be less than 40."
+      },
+      "correct_answer": "C",
+      "explanation": "In each list of 9, at least 5 numbers are at or below its median and at least 5 are at or above it. So at least 5 + 5 = 10 of the 18 numbers are at most 50, which puts the 9th and 10th numbers at or below 50; likewise at least 10 numbers are at least 40. The median is between 40 and 50. It need not be 45: if every number in A is 40 and B is 0, 0, 0, 0, 50, 50, 50, 50, 50, the median is 40.",
+      "distractor_explanations": {
+        "A": "45 averages the medians; the example in the explanation gives 40.",
+        "B": "A median of 40 is possible, so it need not exceed 45.",
+        "D": "At least 10 numbers are 40 or more, so the median cannot be below 40."
+      },
+      "distractor_traps": {
+        "A": "overextend_trend",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many numbers in each list are at most its median?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Build extreme lists to test each choice."
+      },
+      "remember": "Medians of parts bound, but do not fix, the combined median.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-08",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000313",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Constant for which a point lies inside a circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of x² + y² + 4x − 10y = k, where k is a constant, is a circle. The point (1, 2) lies inside the circle. Which of the following could be the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−20",
+        "B": "−15",
+        "C": "−11",
+        "D": "−5"
+      },
+      "correct_answer": "D",
+      "explanation": "Completing the square gives (x + 2)² + (y − 5)² = k + 29, so the center is (−2, 5) and r² = k + 29. The squared distance from (1, 2) to the center is 3² + 3² = 18. The point is inside when 18 < k + 29, or k > −11. Only −5 works; k = −11 puts the point on the circle.",
+      "distractor_explanations": {
+        "A": "k = −20 gives r² = 9 < 18, so the point is outside.",
+        "B": "k = −15 gives r² = 14 < 18, so the point is outside.",
+        "C": "k = −11 gives r² = 18, so the point is on the circle, not inside."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Complete the square to find the center and r²."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the squared distance to r²."
+      },
+      "remember": "Inside means the distance to the center is less than r.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-09",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000314",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Perimeter of a right triangle from its hypotenuse and area",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right triangle has a hypotenuse of length 10 and an area of 20. What is the perimeter of the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6√5",
+        "B": "10 + 6√5",
+        "C": "10 + 2√35",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the legs be a and b. Then a² + b² = 100 and (1/2)ab = 20, so ab = 40. Then (a + b)² = a² + b² + 2ab = 100 + 80 = 180, so a + b = √180 = 6√5. The perimeter is 10 + 6√5. The legs are not whole numbers, so a 6-8-10 triangle (area 24) does not fit.",
+      "distractor_explanations": {
+        "A": "6√5 is the sum of the legs only.",
+        "C": "10 + 2√35 uses (a + b)² = 100 + 40, forgetting the factor 2 in 2ab.",
+        "D": "24 assumes a 6-8-10 triangle, whose area is 24, not 20."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is (a + b)² in terms of a² + b² and ab?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (a + b)² = a² + b² + 2ab."
+      },
+      "remember": "Find a + b without finding each leg.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-10",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000315",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Missing table cell from a conditional probability, then the reverse conditional",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A survey classified each person by age and preferred news source.\nNews source | Under 30 | 30 or older\nPodcasts | x | 66\nTelevision | 48 | 126\nIf a person who prefers podcasts is chosen at random, the probability that the person is under 30 is 0.45. If a person under 30 is chosen at random, what is the probability that the person prefers podcasts?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "9/17",
+      "accepted_answers": [
+        "9/17",
+        ".5294",
+        ".5295"
+      ],
+      "common_errors": [
+        {
+          "value": "0.45",
+          "rationale": "0.45 is the given probability with the condition reversed.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "54/120",
+          "rationale": "54/120 conditions on podcasts again instead of on being under 30.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "From x/(x + 66) = 0.45, x = 0.45x + 29.7, so 0.55x = 29.7 and x = 54. There are 54 + 48 = 102 people under 30, and 54 of them prefer podcasts, so the probability is 54/102 = 9/17.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use the given probability to find x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x first, then restrict to the under-30 column."
+      },
+      "remember": "The condition sets the denominator.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-11",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "9/17",
+        "blind_answer": "9/17",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000316",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Common value consistent with two margins of error",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Independent random polls estimated the percent of voters who support a measure in two cities. In City A the estimate was 54% with a margin of error of 4 percentage points. In City B the estimate was 47% with a margin of error of 5 percentage points. If the true percents of supporters in the two cities are in fact equal, which of the following is a plausible value of that common percent, based on the polls?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "46%",
+        "B": "49%",
+        "C": "51%",
+        "D": "53%"
+      },
+      "correct_answer": "C",
+      "explanation": "The plausible values are 50% to 58% for City A and 42% to 52% for City B. A common percent must lie in both ranges, from 50% to 52%. Only 51% does.",
+      "distractor_explanations": {
+        "A": "46% is plausible for City B but below City A's range.",
+        "B": "49% is plausible for City B but just below City A's lower bound of 50%.",
+        "D": "53% is plausible for City A but above City B's upper bound of 52%."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write each poll's plausible range."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both intervals on one number line."
+      },
+      "remember": "A value plausible for both must lie in both intervals.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "Q036-12",
+      "created_at": "2026-10-27T03:57:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: same margin-of-error interval skill as Q036-07 in one packet (no giveaway, just overlap of skill)."
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-036.review.json",
+        "computation": "checks/sat_math/batch_036.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

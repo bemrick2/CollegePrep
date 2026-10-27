@@ -1,0 +1,457 @@
+{
+ "bank": "sat_math",
+ "batch": 37,
+ "plan": "SAT Math batch 37: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 2; 4 student-produced responses. Ideas H06, H08, H10, H15, H19, H20, H26, H29, H30 from generated set 2 (independently pre-checked; no copy or template matches). G11 left out because it was never pre-checked. Plus Q037-10, a revised resubmission of Q036-04 with the domain of f stated.",
+ "candidates": [
+  {
+   "cand": "Q037-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Rate of change hidden in a standard-form model",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The height H, in inches, and the age A, in years, of a sapling are related by the equation 3H − 8A = 54. According to this model, by how many inches does the sapling's height increase each year?",
+   "explanation": "Solving for H gives 3H = 8A + 54, so H = (8/3)A + 18. The coefficient of A, 8/3, is the increase in height for each 1-year increase in age.",
+   "hints": [
+    "Solve the equation for H."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite in slope-intercept form."
+   },
+   "remember": "Solve for the output to read its rate of change.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3/8",
+    "B": "8/3",
+    "C": "8",
+    "D": "18"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3/8 inverts the rate, solving for A in terms of H.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "8 is the coefficient of A before dividing by 3.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "18 is the height at age 0, not the yearly increase.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q037-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Two travelers leaving at different times in opposite directions",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Car A leaves a town at 1:00 p.m. and drives east at 40 miles per hour. Car B leaves the same town at 1:30 p.m. and drives west at 60 miles per hour. At what time will the cars be 270 miles apart?",
+   "explanation": "Let t be the hours after 1:00 p.m. Car A has gone 40t miles and car B 60(t − 0.5) miles. They drive apart, so 40t + 60(t − 0.5) = 270, which gives 100t = 300 and t = 3. The time is 4:00 p.m.",
+   "hints": [
+    "How long has car B driven t hours after 1:00 p.m.?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the two distances and set the sum equal to 270."
+   },
+   "remember": "Measure every time from one starting moment.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3:42 p.m.",
+    "B": "3:54 p.m.",
+    "C": "4:00 p.m.",
+    "D": "4:30 p.m."
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "3:42 p.m. ignores car B's 30-minute later start (100t = 270).",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "3:54 p.m. applies the 30-minute delay to car A instead of car B.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4:30 p.m. measures the 3 hours from car B's start.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q037-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Expression for a cost with a rate change after a threshold",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A gym membership costs $35 per month for the first 3 months and $28 per month after that. Which expression gives the total cost, in dollars, of n months of membership, where n ≥ 3 ?",
+   "explanation": "The first 3 months cost 3(35) = 105 dollars. The remaining n − 3 months cost 28(n − 3) dollars. The total is 105 + 28(n − 3) = 105 + 28n − 84 = 28n + 21.",
+   "hints": [
+    "How many months are charged at $28?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test n = 4: the cost is 105 + 28 = 133."
+   },
+   "remember": "After a threshold, count only the months past it at the new rate.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "28n + 105",
+    "B": "28n + 21",
+    "C": "35n − 21",
+    "D": "63n − 84"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "28n + 105 charges $28 for all n months and adds the first 3 months again.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "35n − 21 charges $35 for every month and subtracts only $21.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "63n − 84 adds the two monthly rates; it is correct only when n = 3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q037-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum of a rational model by graphing",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The concentration of a medicine in the blood t hours after a dose is modeled by C(t) = 60t/(t² + 9), where C(t) is in milligrams per liter and t ≥ 0. According to the model, what is the maximum concentration, in milligrams per liter?",
+   "explanation": "Graphing y = 60x/(x² + 9) for x ≥ 0 shows a single peak at x = 3, where C(3) = 180/18 = 10. Algebraically, t² + 9 ≥ 6t because (t − 3)² ≥ 0, so C(t) ≤ 60t/(6t) = 10, with equality at t = 3.",
+   "hints": [
+    "Graph the model and find the highest point."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Use the calculator to locate the maximum."
+   },
+   "remember": "Check whether the question asks for the input or the output.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 is the time of the maximum, not the concentration.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "6",
+     "rationale": "6 is C(1), not the maximum.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q037-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Number of zeros from the signs of a and c",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = ax² + bx + c, where a, b, and c are constants, a < 0, and c > 0. How many distinct real zeros does f have?",
+   "explanation": "Since c > 0, f(0) = c is positive, so the graph is above the x-axis at x = 0. Since a < 0, the parabola opens downward and eventually goes below the x-axis on both sides. It must cross the axis once to the left of 0 and once to the right, so f has exactly 2 zeros. (Equivalently, b² − 4ac > 0 because −4ac > 0.)",
+   "hints": [
+    "What is f(0)? Which way does the parabola open?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch a downward parabola through a point above the axis."
+   },
+   "remember": "A downward parabola above the axis somewhere must cross it twice.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must reason from signs without numbers; many think b is needed."
+   },
+   "choices": {
+    "A": "0",
+    "B": "1",
+    "C": "2",
+    "D": "It cannot be determined without the value of b."
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "0 would require the parabola to stay above the axis, impossible when it opens downward.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1 would require the vertex on the axis, but the vertex is above f(0) > 0.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "b does not matter: −4ac is positive, so b² − 4ac > 0 for every b.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q037-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Compound growth run backward to an earlier value",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "An investment earns 5% interest compounded annually. It is worth $2,000 now. To the nearest cent, what was the investment worth 3 years ago, in dollars?",
+   "explanation": "If P was the value 3 years ago, then P(1.05)³ = 2,000. So P = 2,000/1.157625 ≈ 1,727.675, which rounds to 1,727.68 dollars.",
+   "hints": [
+    "Write the growth equation with the unknown earlier value."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide by the growth factor cubed."
+   },
+   "remember": "To undo growth, divide by the factor; do not multiply by 1 − r.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "1727.68",
+   "accepted_answers": [
+    "1727.68"
+   ],
+   "common_errors": [
+    {
+     "value": "1700",
+     "rationale": "1700 subtracts 15% from $2,000 instead of dividing by 1.05 three times.",
+     "trap": null
+    },
+    {
+     "value": "1714.75",
+     "rationale": "1714.75 multiplies $2,000 by 0.95 three times.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q037-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Converting a per-area rate between metric units",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A coating is applied at a rate of 0.4 gram per square centimeter. What is this rate in kilograms per square meter?",
+   "explanation": "One square meter is 100 cm × 100 cm = 10,000 square centimeters, so the rate is 0.4 × 10,000 = 4,000 grams per square meter. Dividing by 1,000 grams per kilogram gives 4 kilograms per square meter.",
+   "hints": [
+    "How many square centimeters are in a square meter?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert the area and the mass separately."
+   },
+   "remember": "Square the length factor when converting area.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "0.04",
+     "rationale": "0.04 uses 100 square centimeters per square meter instead of 10,000.",
+     "trap": null
+    },
+    {
+     "value": "4000",
+     "rationale": "4000 converts the area but not grams to kilograms.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q037-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Radius of an externally tangent circle from the distance between centers",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a circle with center (0, 0) has radius 5. A second circle has center (9, 12), touches the first circle at exactly one point, and lies outside the first circle. What is the radius of the second circle?",
+   "explanation": "The distance between the centers is √(9² + 12²) = 15. Circles that touch at one point with neither inside the other are externally tangent, so their radii add to 15. The second radius is 15 − 5 = 10.",
+   "hints": [
+    "Find the distance between the centers."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the two circles touching."
+   },
+   "remember": "External tangency: distance between centers = sum of radii.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 is the distance between the centers.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "20",
+     "rationale": "20 would make the second circle enclose the first.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q037-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Possible values from the triangle inequality with algebraic sides",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A triangle has sides of lengths x, x + 3, and 2x − 1. Which of the following describes all possible values of x ?",
+   "explanation": "Each pair of sides must sum to more than the third. x + (x + 3) > 2x − 1 is 3 > −1, always true. (x + 3) + (2x − 1) > x gives x > −1. x + (2x − 1) > x + 3 gives x > 2. With x > 2 every side is positive, so all possible values are x > 2.",
+   "hints": [
+    "Write all three triangle inequalities."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Check which inequality actually restricts x."
+   },
+   "remember": "Check all three triangle inequalities.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must write and simplify three inequalities and see that only one binds; assuming which side is longest is a strong trap."
+   },
+   "choices": {
+    "A": "x > 1/2",
+    "B": "x > 2",
+    "C": "2 < x < 4",
+    "D": "x > 4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "x > 1/2 only makes 2x − 1 positive.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2 < x < 4 wrongly assumes x + 3 must be the longest side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x > 4 assumes 2x − 1 must be longer than x + 3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q037-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a shifted, translated function equation from a table",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined only for x = 1, 2, 3, 4, and 5. The table gives all of its values.\nx | 1 | 2 | 3 | 4 | 5\nf(x) | 5 | 3 | 8 | 2 | 6\nThe function g is defined by g(x) = f(x + 1) − 2. For what value of x is g(x) = 6 ?",
+   "explanation": "g(x) = 6 means f(x + 1) − 2 = 6, so f(x + 1) = 8. The table shows f(3) = 8, and 8 is the only such output in the domain, so x + 1 = 3 and x = 2. Check: g(2) = f(3) − 2 = 6.",
+   "hints": [
+    "Rewrite g(x) = 6 as an equation about f."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Undo the −2, then undo the +1 inside."
+   },
+   "remember": "Solve inside-out: first the output, then the input.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 is the value of x + 1, not x.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "5",
+     "rationale": "5 solves f(x) = 6 instead of f(x + 1) = 8.",
+     "trap": null
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q036-04",
+     "status": "withdrawn after blind solve",
+     "reason": "blind solve: the table gave only \"selected values\" of f, so f could equal 8 at an x not shown; resubmitted with the domain stated as Q037-10."
+    }
+   ]
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 36,
- "plan": "SAT Math batch 36: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 4 student-produced responses. Ideas H04, H07, H09, H14, H18, H22, H24, H25, H28 from generated set 2 and G29 from set 1 (both independently pre-checked: no copy or template matches). H06 and H10 kept apart; H20 and H21 never together (H21 dropped). Plus revised resubmissions of Q035-08 (total removed) and Q035-09 (new numbers, integer choices) as Q036-11 and Q036-12.",
+ "plan": "SAT Math batch 36: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 4 student-produced responses. Ideas H04, H07, H09, H14, H18, H22, H24, H25, H28 from generated set 2 and G29 from set 1 (both independently pre-checked: no copy or template matches). H06 and H10 kept apart; H20 and H21 never together (H21 dropped). Plus revised resubmissions of Q035-08 (total removed) and Q035-09 (new numbers, integer choices) as Q036-11 and Q036-12. Relabelled to the blind solver's rating where it was lower: Q036-02 hard→medium, Q036-11 hard→medium, Q036-12 hard→medium.",
  "candidates": [
   {
    "cand": "Q036-01",
@@ -51,7 +51,7 @@
    "skill": "Algebra",
    "subskill": "Quadrants of a line after slope and intercept switch roles",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, the line y = mx + b, where m and b are constants, has a negative slope and a positive y-intercept. Through which quadrant does the graph of y = bx + m NOT pass?",
    "explanation": "From the first line, m < 0 and b > 0. The line y = bx + m has positive slope b and negative y-intercept m. For x < 0, bx < 0 and m < 0, so y < 0: the line never has x < 0 and y > 0, which is Quadrant II. It passes through Quadrants III, IV and I.",
    "hints": [
@@ -67,8 +67,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must transfer the sign conditions to new roles with no numbers; picking the quadrant the original line misses is a strong trap."
+    "single_correct": true
    },
    "choices": {
     "A": "Quadrant I",
@@ -139,48 +138,6 @@
    }
   },
   {
-   "cand": "Q036-04",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Solving a shifted, translated function equation from a table",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "The table gives selected values of the function f.\nx | 1 | 2 | 3 | 4 | 5\nf(x) | 5 | 3 | 8 | 2 | 6\nThe function g is defined by g(x) = f(x + 1) − 2. For what value of x is g(x) = 6 ?",
-   "explanation": "g(x) = 6 means f(x + 1) − 2 = 6, so f(x + 1) = 8. The table shows f(3) = 8, and 8 appears only once, so x + 1 = 3 and x = 2. Check: g(2) = f(3) − 2 = 6.",
-   "hints": [
-    "Rewrite g(x) = 6 as an equation about f."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Undo the −2, then undo the +1 inside."
-   },
-   "remember": "Solve inside-out: first the output, then the input.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "2",
-   "accepted_answers": [
-    "2"
-   ],
-   "common_errors": [
-    {
-     "value": "3",
-     "rationale": "3 is the value of x + 1, not x.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "5",
-     "rationale": "5 solves f(x) = 6 instead of f(x + 1) = 8.",
-     "trap": null
-    }
-   ]
-  },
-  {
    "cand": "Q036-05",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
@@ -236,7 +193,7 @@
     "Substitute u for 2x − 1."
    ],
    "strategy": {
-    "key": "rewrite_it",
+    "key": "translate_to_algebra",
     "explanation": "Treat 2x − 1 as one quantity."
    },
    "remember": "After substituting, convert back to x.",
@@ -419,7 +376,7 @@
     "What is (a + b)² in terms of a² + b² and ab?"
    ],
    "strategy": {
-    "key": "rewrite_it",
+    "key": "translate_to_algebra",
     "explanation": "Use (a + b)² = a² + b² + 2ab."
    },
    "remember": "Find a + b without finding each leg.",
@@ -459,7 +416,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Missing table cell from a conditional probability, then the reverse conditional",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A survey classified each person by age and preferred news source.\nNews source | Under 30 | 30 or older\nPodcasts | x | 66\nTelevision | 48 | 126\nIf a person who prefers podcasts is chosen at random, the probability that the person is under 30 is 0.45. If a person under 30 is chosen at random, what is the probability that the person prefers podcasts?",
    "explanation": "From x/(x + 66) = 0.45, x = 0.45x + 29.7, so 0.55x = 29.7 and x = 54. There are 54 + 48 = 102 people under 30, and 54 of them prefer podcasts, so the probability is 54/102 = 9/17.",
    "hints": [
@@ -475,8 +432,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find a missing cell from one conditional probability and then compute the reverse conditional; reusing 0.45 is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "9/17",
@@ -512,7 +468,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Common value consistent with two margins of error",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Independent random polls estimated the percent of voters who support a measure in two cities. In City A the estimate was 54% with a margin of error of 4 percentage points. In City B the estimate was 47% with a margin of error of 5 percentage points. If the true percents of supporters in the two cities are in fact equal, which of the following is a plausible value of that common percent, based on the polls?",
    "explanation": "The plausible values are 50% to 58% for City A and 42% to 52% for City B. A common percent must lie in both ranges, from 50% to 52%. Only 51% does.",
    "hints": [
@@ -528,8 +484,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must build both intervals and intersect them; each wrong choice is plausible for one city."
+    "single_correct": true
    },
    "choices": {
     "A": "46%",
@@ -560,6 +515,54 @@
      "reason": "blind solve: answer cue - the key 50.5% is the only non-integer choice. Resubmitted with new numbers and integer choices as Q036-12."
     }
    ]
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q036-04",
+   "reason": "blind solve: the table gave only \"selected values\" of f, so f could equal 8 at an x not shown; resubmitted with the domain stated as Q037-10.",
+   "item": {
+    "cand": "Q036-04",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Solving a shifted, translated function equation from a table",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "The table gives selected values of the function f.\nx | 1 | 2 | 3 | 4 | 5\nf(x) | 5 | 3 | 8 | 2 | 6\nThe function g is defined by g(x) = f(x + 1) − 2. For what value of x is g(x) = 6 ?",
+    "explanation": "g(x) = 6 means f(x + 1) − 2 = 6, so f(x + 1) = 8. The table shows f(3) = 8, and 8 appears only once, so x + 1 = 3 and x = 2. Check: g(2) = f(3) − 2 = 6.",
+    "hints": [
+     "Rewrite g(x) = 6 as an equation about f."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Undo the −2, then undo the +1 inside."
+    },
+    "remember": "Solve inside-out: first the output, then the input.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "format": "spr",
+    "answer": "2",
+    "accepted_answers": [
+     "2"
+    ],
+    "common_errors": [
+     {
+      "value": "3",
+      "rationale": "3 is the value of x + 1, not x.",
+      "trap": "partial_answer"
+     },
+     {
+      "value": "5",
+      "rationale": "5 solves f(x) = 6 instead of f(x + 1) = 8.",
+      "trap": null
+     }
+    ]
+   }
   }
  ]
 }
