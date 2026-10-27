@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 31,
-  "updated_at": "2026-10-27T09:00:37+00:00",
+  "version": 32,
+  "updated_at": "2026-10-27T09:07:58+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -344,6 +344,17 @@
       "word_count": 285,
       "text": "In the summer of 1858, a long spell of hot weather turned the River Thames into something close to an open sewer. Since 1800, London's population had {{1|grew}} to well over two million, and most of the city's waste flowed, by way of old drains and overflowing {{2|cesspool's,}} straight into the river. Newspapers soon gave the season a name: \"the Great Stink.\"\n\nDoctors at the time disagreed about what caused the city's repeated cholera {{3|outbreaks. Many}} blamed a poisonous \"bad air\" rising from filth, while a few argued that the disease spread through contaminated drinking water. Either way, the remedy pointed in the same direction: get the sewage out of the river.\n\nParliament, {{4|whose building stands beside the Thames,}} could hardly ignore the problem; lawmakers reportedly soaked the curtains in chemicals to block the smell. Within weeks, they passed a law giving the city's Metropolitan Board of Works the power and the money to act.\n\nThe board's chief engineer, Joseph Bazalgette, already had a plan. He proposed large intercepting sewers that would run alongside the river and catch waste before it reached the water. {{5|The sewers would carry the waste east. They would carry it to outfalls downstream of the city.}} Because much of the land was too flat for gravity alone to keep the flow moving, the system also needed {{6|four, large, pumping}} stations to lift the sewage. Bazalgette also planned for a city larger than the one he saw. {{7|}}\n\nLondon's population today is more than three times {{8|as large as}} it was in 1858, and many of Bazalgette's tunnels still carry its waste. One of the original pumping stations, at Crossness, {{9|have}} been restored, and visitors can tour its ornate iron engine house. {{10|}}",
       "batch": 31,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000032",
+      "title": "Word-Cross",
+      "genre": "informative essay",
+      "word_count": 252,
+      "text": "Most people who fill in a crossword never wonder who invented it. The answer is a British-born newspaper editor named Arthur Wynne. On December {{1|21 1913, the}} New York World printed his \"Word-Cross\" puzzle in its Sunday entertainment section. Wynne's grid was shaped like a diamond with an empty center, quite unlike the square grids of today's puzzles.\n\nThe puzzle caught on quickly, and readers {{2|went totally nuts for}} the new feature. Within a few weeks, a switch in the printed title had turned \"Word-Cross\" into \"Cross-Word,\" and readers had begun mailing in puzzles of their own. Neither the paper's editors nor Wynne {{3|were}} prepared for how many arrived.\n\n{{4|For about a decade, crosswords remained mostly a newspaper feature.}} Then, in 1924, two young publishers named Richard Simon and Max Schuster released a book of crossword puzzles with a pencil attached to each copy. The book {{5|did really well}}, and the success helped launch a publishing company that still exists. By the middle of the {{6|1920's}}, crosswords had become a national craze.\n\nNot everyone was charmed. Some critics complained that the puzzles were wasting {{7|peoples'}} time, and the New York Times ran editorials that {{8|inferred}} solvers had nothing better to do.\n\n[1] {{9|Still,}} the fad did not fade. [2] In 1942, the Times itself began publishing a crossword. [3] Its first puzzle editor, Margaret Farrar, set many of the rules that puzzle makers still follow. [4] Today, millions of people solve crosswords every day, in newspapers, in books, and on their phones. {{10|}}",
+      "batch": 32,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -22441,6 +22452,720 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-031.review.json",
         "computation": "checks/act_english/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000313",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas in a full date",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 1,
+      "evidence": "New York World printed his",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "21, 1913, the",
+        "C": "21, 1913 the",
+        "D": "21 1913 the"
+      },
+      "correct_answer": "B",
+      "explanation": "In a month-day-year date inside a sentence, commas go after the day and after the year: \"December 21, 1913, the New York World...\"",
+      "distractor_explanations": {
+        "A": "A comma is needed between the day and the year.",
+        "C": "When a full date appears mid-sentence, a comma must also follow the year.",
+        "D": "A full date needs commas after the day and after the year."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where do commas go in a date like this?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check both sides of the year."
+      },
+      "remember": "A full date in a sentence takes a comma after the day and after the year.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-01",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000314",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Register-appropriate wording",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 2,
+      "evidence": "The puzzle caught on quickly",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were super into",
+        "C": "eagerly took up",
+        "D": "got hooked big-time on"
+      },
+      "correct_answer": "C",
+      "explanation": "The essay is written in a straightforward informative style, so the clear, standard phrase \"eagerly took up\" fits; the others are slang.",
+      "distractor_explanations": {
+        "A": "\"Went totally nuts for\" is slang that does not match the essay's informative tone.",
+        "B": "\"Super into\" is too casual for this essay.",
+        "D": "\"Big-time\" is slang and too casual for this essay."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the phrase sound like the rest of the essay?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the essay's tone."
+      },
+      "remember": "Choose wording that fits the essay's formal or informal level.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-02",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000315",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement with \"neither ... nor\"",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 3,
+      "evidence": "Neither the paper's editors nor Wynne",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "have been",
+        "C": "are",
+        "D": "was"
+      },
+      "correct_answer": "D",
+      "explanation": "When subjects are joined by \"neither ... nor,\" the verb agrees with the subject closer to it. \"Wynne\" is singular, so the verb is \"was.\"",
+      "distractor_explanations": {
+        "A": "With \"neither ... nor,\" the verb agrees with the nearer subject, \"Wynne,\" which is singular.",
+        "B": "This is plural; the nearer subject, \"Wynne,\" is singular.",
+        "C": "This is plural and present tense; the essay describes a past event."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Which subject is closer to the verb?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the subject nearest the verb."
+      },
+      "remember": "With either/or and neither/nor, the verb agrees with the nearer subject.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-03",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000316",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Introducing a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 4,
+      "evidence": "Then, in 1924, two young publishers",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Arthur Wynne went on to edit puzzles for many more years.",
+        "C": "Newspapers in the early 1900s offered many kinds of entertainment.",
+        "D": "Many people today solve crosswords on their phones."
+      },
+      "correct_answer": "A",
+      "explanation": "The next sentence begins \"Then, in 1924,\" and describes the first crossword book. Saying that crosswords had remained mostly a newspaper feature sets up that change.",
+      "distractor_explanations": {
+        "B": "The paragraph is about the crossword's spread through a book, not about Wynne's later career.",
+        "C": "This general statement does not set up the shift from newspapers to a book.",
+        "D": "This jumps to the present and does not lead into \"Then, in 1924.\""
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"Then\" in the next sentence contrast with?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence that follows."
+      },
+      "remember": "A good opening sentence prepares for what the paragraph goes on to say.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-04",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000317",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise, specific detail",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 5,
+      "evidence": "and the success helped launch a publishing company",
+      "figure": null,
+      "stem": "Which choice most specifically conveys how well the book sold?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "sold out its first printing and was reprinted again and again",
+        "C": "turned out to be a much bigger success than most books",
+        "D": "was very popular with a large number of readers everywhere"
+      },
+      "correct_answer": "B",
+      "explanation": "Only B gives concrete evidence of strong sales: the first printing sold out and the book was reprinted repeatedly.",
+      "distractor_explanations": {
+        "A": "\"Did really well\" is vague and gives no specific information about sales.",
+        "C": "This is still general; it does not say anything specific about sales.",
+        "D": "\"Very popular\" and \"a large number\" are vague."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which choice gives something you could check?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Prefer concrete facts over general praise."
+      },
+      "remember": "\"Specific\" means concrete details, not stronger adjectives.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-05",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000318",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Apostrophes with decades",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 6,
+      "evidence": "By the middle of the",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "1920s'",
+        "C": "1920s",
+        "D": "1920's'"
+      },
+      "correct_answer": "C",
+      "explanation": "\"The 1920s\" simply names the ten years from 1920 to 1929; like other plurals that show no ownership, it takes no apostrophe.",
+      "distractor_explanations": {
+        "A": "A decade is a plural, not a possessive, so it takes no apostrophe before the s.",
+        "B": "Nothing belongs to the decade, so no possessive apostrophe is needed.",
+        "D": "This adds two apostrophes to a simple plural."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the decade own anything here?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask whether the word shows ownership."
+      },
+      "remember": "Write decades as plurals without apostrophes: the 1920s.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-06",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: some style guides still accept '1920's'; ACT treats '1920s' as the standard, so the key holds"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000319",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Possessive of an irregular plural",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 7,
+      "evidence": "Some critics complained that the puzzles were wasting",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "peoples",
+        "C": "peoples's",
+        "D": "people's"
+      },
+      "correct_answer": "D",
+      "explanation": "\"People\" is an irregular plural that does not end in s, so its possessive is formed by adding 's: \"people's time.\"",
+      "distractor_explanations": {
+        "A": "\"People\" is already plural and does not end in s, so it takes 's, not s'.",
+        "B": "The time belongs to the people, so a possessive apostrophe is needed.",
+        "C": "This adds both an extra s and an apostrophe to a word that is already plural."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Does \"people\" already mean more than one?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Form the plural first, then add the possessive."
+      },
+      "remember": "Plurals that don't end in s take 's: people's, children's.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-07",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000320",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Imply versus infer",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 8,
+      "evidence": "the New York Times ran editorials that",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "inferring",
+        "C": "implied",
+        "D": "imposed"
+      },
+      "correct_answer": "C",
+      "explanation": "The editorials suggested something without stating it directly; a writer or speaker implies, while a reader or listener infers.",
+      "distractor_explanations": {
+        "A": "To infer is to draw a conclusion; the editorials suggested something, which is implying.",
+        "B": "This is still the wrong word and also makes the sentence ungrammatical.",
+        "D": "To impose is to force something on someone; it does not fit \"that solvers had nothing better to do.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Who is suggesting, and who is concluding?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask whether the subject is sending or receiving the idea."
+      },
+      "remember": "Speakers imply; listeners infer.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-08",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000321",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (persistence despite criticism)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 9,
+      "evidence": "Not everyone was charmed.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Indeed,",
+        "C": "Likewise,",
+        "D": "Accordingly,"
+      },
+      "correct_answer": "A",
+      "explanation": "The previous paragraph describes critics mocking crosswords; this sentence says the fad lasted anyway. \"Still\" signals that contrast.",
+      "distractor_explanations": {
+        "B": "\"Indeed\" would confirm the critics' view, but the sentence says the fad lasted in spite of it.",
+        "C": "Nothing in the sentence is similar to the critics' complaints.",
+        "D": "The fad did not last because of the criticism."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Did the fad last because of the criticism or in spite of it?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship before reading the choices."
+      },
+      "remember": "\"Still\" can mean \"even so.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-09",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000322",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Sentence placement",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000032",
+      "underline": 10,
+      "evidence": "In 1942, the Times itself began publishing a crossword.",
+      "figure": null,
+      "stem": "The writer wants to add the following sentence to the paragraph:\n\nThe paper's editors reportedly believed that, in wartime, readers would welcome a distraction.\n\nThe sentence would most logically be placed after:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Sentence 1.",
+        "B": "Sentence 2.",
+        "C": "Sentence 3.",
+        "D": "Sentence 4."
+      },
+      "correct_answer": "B",
+      "explanation": "Sentence 2 says the Times began publishing a crossword in 1942, during World War II. The added sentence gives the editors' reason, so it belongs right after Sentence 2.",
+      "distractor_explanations": {
+        "A": "\"The paper\" would have no clear reference yet, and the Times has not begun its crossword.",
+        "C": "The sentence explains why the Times began the crossword; placing it after Farrar's rules separates it from that event.",
+        "D": "The sentence would interrupt the move to the present day and refer back to 1942 too late."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which sentence does the added sentence explain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find what \"the paper\" and \"in wartime\" refer to."
+      },
+      "remember": "An added sentence belongs right after the sentence it explains.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "E032-10",
+      "created_at": "2026-10-27T09:07:58+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: the passage ends with an empty '[]' marker, a harmless artifact of the packet"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-032.review.json",
+        "computation": "checks/act_english/batch_032.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
