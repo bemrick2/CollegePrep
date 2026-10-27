@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T18:10:38+00:00",
+  "updated_at": "2026-10-27T18:13:05+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 437,
     "act_reading": 451,
     "sat_reading_writing": 450,
-    "sat_math": 775
+    "sat_math": 788
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 43
     },
     "sat_math": {
-      "PASS": 805,
-      "REVISE": 24,
+      "PASS": 818,
+      "REVISE": 26,
       "REJECT": 6,
-      "candidates": 835,
+      "candidates": 850,
       "passed_after_revision": 29
     }
   },
@@ -1710,15 +1710,17 @@
       "passages": 477
     },
     "sat_math": {
-      "accepted": 775,
+      "accepted": 788,
       "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 258,
-        "Algebra": 232,
+        "Advanced Math": 259,
+        "Algebra": 244,
         "Geometry and Trigonometry": 150,
         "Problem-Solving and Data Analysis": 135
       },
       "by_subskill": {
+        "A line and its reflection across y = x": 1,
+        "A negative solution read as a past time": 1,
         "A number from the sum with its reciprocal": 1,
         "Additional time at a constant drain rate from fractions of an unknown amount": 1,
         "Allocating a total by two different rules": 1,
@@ -1876,8 +1878,10 @@
         "Counting factorizations of a trinomial": 1,
         "Counting from a conditional percent": 1,
         "Counting integer production levels with positive quadratic profit": 1,
+        "Counting integer solutions of a two-variable inequality": 1,
         "Counting integers in the overlap of two absolute value inequalities": 1,
         "Counting isosceles triangles with a fixed perimeter": 1,
+        "Counting lines through a point with integer intercepts": 1,
         "Counting solutions of a composed quadratic": 1,
         "Counting solutions of a compound inequality": 1,
         "Counting solutions of a radical equation with a parameter": 1,
@@ -2009,6 +2013,7 @@
         "Image height in a pinhole camera with mixed units": 1,
         "Individual rate from a percent relation and a combined rate": 1,
         "Inequality holding on a whole ray": 1,
+        "Inequality with a used amount and a unit conversion": 1,
         "Initial value of an exponential model with a shifted input": 1,
         "Inner arc length from the difference of two concentric arcs": 1,
         "Inner radius when a ring and the hole have equal areas": 1,
@@ -2020,6 +2025,8 @@
         "Inscribed angle that intercepts the major arc": 1,
         "Inscribed angles from equal chords": 1,
         "Integer intersection fixing a slope": 1,
+        "Intercept interval for an intersection in a given quadrant": 1,
+        "Intercept of a linear model fit to later data": 1,
         "Intercepts of a line in standard form": 1,
         "Interior angles from a ratio of exterior angles": 1,
         "Interpreting a change in a linear conversion formula": 1,
@@ -2135,6 +2142,7 @@
         "New average speed from a time difference": 1,
         "New water depth when a solid sticks out of the water": 1,
         "New x-intercept after scaling a line's coefficients": 1,
+        "No-solution system with a parameter in two coefficients": 1,
         "Nonresponse in a random-sample survey": 1,
         "Number of inputs with a given output": 1,
         "Number of real solutions of a quadratic equation": 1,
@@ -2158,6 +2166,7 @@
         "Parameter from the area of a triangle formed by two lines and a vertical line": 1,
         "Parameter that makes a linear equation an identity": 1,
         "Parameter that makes a rational equation have no solution": 1,
+        "Parameter that makes two linear functions commute": 1,
         "Part from a part-to-part ratio and a difference": 1,
         "Partly filled cone poured into a cylinder": 1,
         "Per-unit rate under a fractional power law": 1,
@@ -2182,7 +2191,9 @@
         "Perimeter of a right triangle from its hypotenuse and area": 1,
         "Perimeter of an equilateral triangle from its height": 1,
         "Perimeter of an octagon cut from a rectangle": 1,
+        "Perpendicular lines from their intercepts": 1,
         "Photo side from a border-to-photo area ratio": 1,
+        "Point inside a triangle bounded by lines": 1,
         "Point on a proportional line with a coordinate condition": 1,
         "Point with related coordinates on a line": 1,
         "Points on a proportional line": 1,
@@ -2397,6 +2408,7 @@
         "The one solution shared by a family of quadratics": 1,
         "Third angle of a triangle": 1,
         "Third zero of a cubic from its constant and leading coefficients": 1,
+        "Three unknowns from cyclic pair sums": 1,
         "Ticket counts when revenues, not counts, are in a given ratio": 1,
         "Time at which a rational concentration model reaches a value": 1,
         "Time for a falling object to reach a height": 1,
@@ -2433,6 +2445,7 @@
         "Unchanged component after drying": 1,
         "Undoing two successive percent losses": 1,
         "Unit cost from two rates": 1,
+        "Unit price from the difference of two bundles": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
         "Unknown count from a without-replacement probability": 1,
@@ -2496,19 +2509,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 104,
-        "hard": 109,
-        "medium": 562
+        "easy": 108,
+        "hard": 110,
+        "medium": 570
       },
       "by_difficulty_calibrated": {
-        "easy": 155,
-        "hard": 106,
-        "medium": 514
+        "easy": 159,
+        "hard": 107,
+        "medium": 522
       },
       "calibrated_share": {
-        "easy": 0.2,
-        "hard": 0.137,
-        "medium": 0.663
+        "easy": 0.202,
+        "hard": 0.136,
+        "medium": 0.662
       },
       "answer_key_balance": {
         "-1": 5,
@@ -2564,6 +2577,7 @@
         "19": 1,
         "193.5": 1,
         "2": 12,
+        "2.40": 1,
         "2.5": 1,
         "2/3": 1,
         "20": 6,
@@ -2581,6 +2595,7 @@
         "26": 2,
         "26/3": 1,
         "27500": 1,
+        "28": 1,
         "29": 1,
         "3": 15,
         "3.54": 1,
@@ -2594,9 +2609,10 @@
         "3600": 1,
         "37.5": 2,
         "39": 1,
-        "4": 18,
+        "4": 19,
         "4.05": 1,
         "4.2": 1,
+        "4/3": 1,
         "40": 6,
         "41.4": 1,
         "436": 1,
@@ -2611,7 +2627,7 @@
         "5/2": 1,
         "50": 4,
         "52": 1,
-        "6": 11,
+        "6": 12,
         "60": 3,
         "600": 2,
         "62.25": 1,
@@ -2625,7 +2641,7 @@
         "7.2": 2,
         "72": 1,
         "748": 1,
-        "8": 9,
+        "8": 10,
         "8.5": 1,
         "8/15": 1,
         "8/9": 1,
@@ -2639,15 +2655,15 @@
         "9/2": 2,
         "90": 1,
         "94": 1,
-        "95": 1,
+        "95": 2,
         "96": 1,
-        "A": 104,
-        "B": 156,
+        "A": 106,
+        "B": 158,
         "C": 141,
-        "D": 83
+        "D": 85
       },
       "modeling_items": 252,
-      "spr_items": 291,
+      "spr_items": 298,
       "passages": 0
     }
   },
@@ -2656,7 +2672,7 @@
     "act_english": 50,
     "act_reading": 57,
     "sat_reading_writing": 54,
-    "sat_math": 73
+    "sat_math": 74
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2688,30 +2704,39 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 74,
+    "next_batch": 75,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 42.8,
-      "Advanced Math": 16.8,
-      "Problem-Solving and Data Analysis": -17.2,
-      "Geometry and Trigonometry": -32.2
+      "Algebra": 35.3,
+      "Advanced Math": 20.3,
+      "Problem-Solving and Data Analysis": -15.3,
+      "Geometry and Trigonometry": -30.3
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 41.2,
-      "medium": -121.5,
-      "hard": 90.2
+      "easy": 40.5,
+      "medium": -123.0,
+      "hard": 92.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 43.2,
-      "B": -8.8,
-      "C": 6.2,
-      "D": 64.2
+      "A": 43.6,
+      "B": -8.4,
+      "C": 8.6,
+      "D": 64.6
     },
-    "spr_items": 291,
+    "spr_items": 298,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 55,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": -1.2,
+        "Information and Ideas": -13.4,
+        "Standard English Conventions": 27.6,
+        "Expression of Ideas": -3.0
+      }
+    },
     "act_reading": {
       "next_batch": 58,
       "skill_gap_for_next_10": {
@@ -2726,15 +2751,6 @@
         "Production of Writing": 52.0,
         "Knowledge of Language": 15.6,
         "Conventions of Standard English": -51.0
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 55,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": -1.2,
-        "Information and Ideas": -13.4,
-        "Standard English Conventions": 27.6,
-        "Expression of Ideas": -3.0
       }
     }
   },
@@ -2761,12 +2777,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 775,
-      "share_of_target": 0.775
+      "accepted": 788,
+      "share_of_target": 0.788
     }
   },
   "total_target": 3841,
-  "total_accepted": 2887,
+  "total_accepted": 2900,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -307454,7 +307470,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 73,
+      "bank_version": 74,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -307580,7 +307596,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T18:10:37+00:00",
+    "heartbeat_at": "2026-10-27T18:13:04+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

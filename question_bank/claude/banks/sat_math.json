@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 73,
-  "updated_at": "2026-10-27T18:09:47+00:00",
+  "version": 74,
+  "updated_at": "2026-10-27T18:12:04+00:00",
   "passages": [],
   "questions": [
     {
@@ -58312,6 +58312,982 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-073.review.json",
         "computation": "checks/sat_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000806",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Perpendicular lines from their intercepts",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, lines ℓ and m are perpendicular and intersect at a point on the positive x-axis. The y-intercept of line ℓ is 8, and the y-intercept of line m is −2. What is the x-coordinate of the point where ℓ and m intersect?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 is a², not a.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 is the distance between the two y-intercepts.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 subtracts the intercepts, 8 − 2.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let the lines meet at (a, 0) with a > 0. Line ℓ passes through (0, 8) and (a, 0), so its slope is −8/a; line m passes through (0, −2) and (a, 0), so its slope is 2/a. Perpendicular lines have slopes whose product is −1: (−8/a)(2/a) = −16/a² = −1, so a² = 16 and a = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write each slope in terms of the shared x-intercept."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Let the meeting point be (a, 0) and write both slopes."
+      },
+      "remember": "Perpendicular slopes multiply to −1.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-01",
+      "created_at": "2026-10-27T18:12:03+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000807",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Counting lines through a point with integer intercepts",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line passes through the point (3, 4), and both its x-intercept and its y-intercept are positive integers. How many such lines are there?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 counts unordered factor pairs of 12, treating (a, b) and (b, a) as the same line.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 counts only the line with equal intercepts, 7 and 7.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "11",
+          "rationale": "11 also counts lines whose intercepts are nonzero integers but not both positive.",
+          "trap": null
+        }
+      ],
+      "explanation": "A line with x-intercept a and y-intercept b is x/a + y/b = 1. Through (3, 4): 3/a + 4/b = 1, so 3b + 4a = ab, which rearranges to (a − 3)(b − 4) = 12. With a and b positive, a − 3 > −3 and b − 4 > −4, and negative factor pairs of 12 make one intercept zero or negative, so a − 3 and b − 4 are positive divisor pairs of 12: (1, 12), (2, 6), (3, 4), (4, 3), (6, 2), (12, 1). That gives 6 lines: (a, b) = (4, 16), (5, 10), (6, 8), (7, 7), (9, 6), (15, 5).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the line in intercept form, x/a + y/b = 1."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute the point and factor."
+      },
+      "remember": "Clear fractions, then factor to count integer solutions.",
+      "expected_time_seconds": 140,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-02",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000808",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "No-solution system with a parameter in two coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the system of equations below, k is a constant.\nkx + 2y = 6\n3x + (k + 1)y = 9\nFor which value(s) of k does the system have no solution?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−3 only",
+        "B": "2 only",
+        "C": "−3 and 2",
+        "D": "No value of k"
+      },
+      "correct_answer": "A",
+      "explanation": "The lines are parallel when k(k + 1) = 2 · 3 = 6, so k² + k − 6 = 0 and k = 2 or k = −3. At k = 2 the equations are 2x + 2y = 6 and 3x + 3y = 9, which are both x + y = 3, the same line, so there are infinitely many solutions. At k = −3 they are −3x + 2y = 6 and 3x − 2y = 9, which is −3x + 2y = −9: parallel and distinct, so there is no solution.",
+      "distractor_explanations": {
+        "B": "At k = 2 the two equations describe the same line.",
+        "C": "This stops at equal slopes without checking whether the lines coincide.",
+        "D": "This checks only k = 2 and misses k = −3."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "When are the two lines parallel, and when are they the same line?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the slopes equal, then test each k in the constants."
+      },
+      "remember": "No solution needs equal slopes and different lines.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-04",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000809",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "A negative solution read as a past time",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At the same moment, tree A was measured at 3.0 meters tall and tree B at 2.4 meters tall. Tree A grows 0.4 meter per year and tree B grows 0.3 meter per year, and both have grown at these constant rates since they were planted. According to these models, which statement is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The trees will have the same height 6 years after the measurements, when each will be 5.4 meters tall.",
+        "B": "The trees had the same height 6 years before the measurements, when each was 0.6 meter tall.",
+        "C": "The trees have never had the same height, because tree A is taller and grows faster.",
+        "D": "The trees had the same height 8 years before the measurements, when each was 0 meters tall."
+      },
+      "correct_answer": "B",
+      "explanation": "Let t be years after the measurements. Then 3.0 + 0.4t = 2.4 + 0.3t gives 0.1t = −0.6, so t = −6: six years earlier. Then each height was 3.0 − 0.4(6) = 0.6 meter, and 2.4 − 0.3(6) = 0.6 meter. Tree A was planted 7.5 years before and tree B 8 years before, so both existed then.",
+      "distractor_explanations": {
+        "A": "This drops the negative sign of t = −6.",
+        "C": "This ignores earlier times, when tree B was taller.",
+        "D": "Tree B was 0 meters tall 8 years earlier, but tree A was then −0.2 meter, which is impossible; the trees were planted at different times."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Let t be the number of years after the measurements."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the heights equal and interpret the sign of t."
+      },
+      "remember": "A negative time means before the starting moment.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-05",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000810",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Point inside a triangle bounded by lines",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a triangle is bounded by the x-axis, the line y = x, and the line y = −2x + 12. Which of the following points lies inside the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(5, 1)",
+        "B": "(3, 4)",
+        "C": "(2, −1)",
+        "D": "(6, 1)"
+      },
+      "correct_answer": "A",
+      "explanation": "The vertices are (0, 0), (6, 0), and (4, 4), so the inside satisfies y > 0, y < x, and y < −2x + 12. For (5, 1): 1 > 0, 1 < 5, and 1 < −10 + 12 = 2, so it is inside.",
+      "distractor_explanations": {
+        "B": "(3, 4) is above the line y = x, since 4 > 3.",
+        "C": "(2, −1) is below the x-axis.",
+        "D": "(6, 1) is above y = −2x + 12, since −2(6) + 12 = 0 < 1."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the three vertices first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and write one inequality per side."
+      },
+      "remember": "A point is inside a triangle only if it passes all three side tests.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-06",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000811",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Unit price from the difference of two bundles",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A store sells the same granola bars in boxes of 8 and boxes of 12, and the price per bar is the same for both boxes. A box of 12 costs $1.20 more than a box of 8. What is the price, in dollars, of a box of 8 bars?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2.40",
+      "accepted_answers": [
+        "2.40",
+        "2.4",
+        "12/5"
+      ],
+      "common_errors": [
+        {
+          "value": "3.60",
+          "rationale": "3.60 is the price of the box of 12.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0.30",
+          "rationale": "0.30 is the price per bar.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0.15",
+          "rationale": "0.15 divides 1.20 by 8 instead of by the 4 extra bars.",
+          "trap": null
+        }
+      ],
+      "explanation": "The box of 12 has 4 more bars, which cost $1.20, so each bar costs $0.30. A box of 8 costs 8 × $0.30 = $2.40.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What do the extra bars in the larger box cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 12p = 8p + 1.20."
+      },
+      "remember": "A price difference divided by a count difference gives the unit price.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-07",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2.40",
+        "blind_answer": "2.40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000812",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Counting integer solutions of a two-variable inequality",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A delivery drone can carry a total of at most 12 kilograms of parcels on each flight. Small parcels weigh 2 kilograms each, and large parcels weigh 3 kilograms each. Every flight carries at least 1 small parcel and at least 1 large parcel. How many different combinations of numbers of small and large parcels can a flight carry?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "19",
+          "rationale": "19 also allows 0 parcels of either size.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 counts only full 12-kilogram loads, 3 small and 2 large.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "7",
+          "rationale": "7 stops before y = 3.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Let x small and y large parcels be carried, with x ≥ 1, y ≥ 1, and 2x + 3y ≤ 12. For y = 1, 2x ≤ 9, so x = 1 to 4 (4 ways). For y = 2, 2x ≤ 6, so x = 1 to 3 (3 ways). For y = 3, 2x ≤ 3, so x = 1 (1 way). For y = 4, 2x ≤ 0, which is impossible. The total is 4 + 3 + 1 = 8.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Fix the number of large parcels and count the small ones."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a table with one row for each number of large parcels."
+      },
+      "remember": "Count lattice points row by row.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-08",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000813",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Three unknowns from cyclic pair sums",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Three suitcases are weighed in pairs at an airport. Suitcases A and B together weigh 41 kilograms, suitcases B and C together weigh 47 kilograms, and suitcases A and C together weigh 50 kilograms. What is the weight, in kilograms, of the heaviest suitcase?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "28",
+      "accepted_answers": [
+        "28"
+      ],
+      "common_errors": [
+        {
+          "value": "69",
+          "rationale": "69 is the total weight of the three suitcases.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "22",
+          "rationale": "22 is the weight of suitcase A.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "25",
+          "rationale": "25 is half the heaviest pair's weight.",
+          "trap": null
+        }
+      ],
+      "explanation": "Adding the three equations gives 2(A + B + C) = 41 + 47 + 50 = 138, so A + B + C = 69. Then C = 69 − 41 = 28, A = 69 − 47 = 22, and B = 69 − 50 = 19. The heaviest suitcase weighs 28 kilograms.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What happens if you add all three equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations, then subtract each pair."
+      },
+      "remember": "Add symmetric equations to find the total.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-09",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "28",
+        "blind_answer": "28",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000814",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Intercept of a linear model fit to later data",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the first 5 years after it was bought, the resale value of a laptop decreased linearly. One year after purchase, its value was 80% of the purchase price. Three years after purchase, its value was 62.5% of its value one year after purchase. If the linear model for years 1 through 5 is extended back to t = 0, where t is the number of years after purchase, the model's value at t = 0 is what percent of the purchase price?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "95",
+      "accepted_answers": [
+        "95"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 assumes the model must pass through the purchase price.",
+          "trap": null
+        },
+        {
+          "value": "50",
+          "rationale": "50 is the value at t = 3, as a percent of the purchase price.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "110",
+          "rationale": "110 uses a drop of 30 points over 2 years as the yearly drop.",
+          "trap": null
+        }
+      ],
+      "explanation": "The value at t = 3 is 0.625 × 80% = 50% of the purchase price. From t = 1 to t = 3 the value falls 30 percentage points, or 15 points per year. Extending back one year from t = 1 gives 80% + 15% = 95%.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Convert both values to percents of the purchase price."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Put both data points on the same base, then find the slope."
+      },
+      "remember": "Convert percents to one base before comparing.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-10",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "95",
+        "blind_answer": "95",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000815",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "A line and its reflection across y = x",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, line ℓ has equation y = 3x − 6. Line m is the reflection of line ℓ across the line y = x. What is the x-coordinate of the point where lines ℓ and m intersect?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−6",
+        "B": "0",
+        "C": "2",
+        "D": "3"
+      },
+      "correct_answer": "D",
+      "explanation": "Reflecting across y = x swaps x and y, so line m is x = 3y − 6, or y = (x + 6)/3. Setting 3x − 6 = (x + 6)/3 gives 9x − 18 = x + 6, so x = 3. Equivalently, a line meets its reflection on the mirror line y = x, where 3x − 6 = x, giving x = 3.",
+      "distractor_explanations": {
+        "A": "−6 is the x-intercept of line m.",
+        "B": "This writes m as y = (1/3)x − 6, inverting the slope but keeping the intercept.",
+        "C": "2 is the x-intercept of line ℓ."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Where must a line and its mirror image meet?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch ℓ and the mirror line y = x."
+      },
+      "remember": "A line meets its reflection on the mirror line.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-11",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000816",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Intercept interval for an intersection in a given quadrant",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, line ℓ has equation y = 2x + 1. Line m is perpendicular to line ℓ and has y-intercept b, where b is a constant. The lines intersect at a point in Quadrant II. Which of the following could be the value of b ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−0.5",
+        "B": "0.5",
+        "C": "1",
+        "D": "2"
+      },
+      "correct_answer": "B",
+      "explanation": "Line m is y = −x/2 + b. Setting 2x + 1 = −x/2 + b gives x = 0.4(b − 1), and then y = 0.8b + 0.2. Quadrant II needs x < 0 and y > 0, so b < 1 and b > −0.25. Only b = 0.5 works, giving the point (−0.2, 0.6).",
+      "distractor_explanations": {
+        "A": "b = −0.5 gives (−0.6, −0.2), in Quadrant III; this checks only x < 0.",
+        "C": "b = 1 gives (0, 1), on the y-axis and not in any quadrant.",
+        "D": "b = 2 gives (0.4, 1.8), in Quadrant I."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the intersection point in terms of b."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each value of b and locate the intersection point."
+      },
+      "remember": "Quadrant II needs a negative x and a positive y.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-12",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000817",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Parameter that makes two linear functions commute",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The linear functions f and g are defined by f(x) = 2x + 3 and g(x) = ax + 1, where a is a constant. If f(g(x)) = g(f(x)) for all values of x, what is the value of a ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4/3",
+      "accepted_answers": [
+        "4/3",
+        "1.333",
+        "1.334"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 assumes the functions must have the same slope.",
+          "trap": null
+        },
+        {
+          "value": "5/3",
+          "rationale": "5/3 drops the +1 in g(f(x)), giving 5 = 3a.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 guesses that g(x) = x + 1 commutes with f.",
+          "trap": null
+        }
+      ],
+      "explanation": "f(g(x)) = 2(ax + 1) + 3 = 2ax + 5, and g(f(x)) = a(2x + 3) + 1 = 2ax + 3a + 1. The x-terms always match, so the constant terms must be equal: 5 = 3a + 1, which gives a = 4/3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Expand both compositions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the constant terms of the two compositions."
+      },
+      "remember": "Equal for all x means matching coefficients.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-13",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4/3",
+        "blind_answer": "4/3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000818",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Inequality with a used amount and a unit conversion",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A phone has 128 gigabytes (GB) of storage, of which 22.5 GB is already used. A user wants to store x photos, each 4 megabytes (MB), and y minutes of video, each minute 120 MB, without exceeding the remaining storage. If 1 GB = 1,000 MB, which inequality represents this situation?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4x + 120y ≤ 105.5",
+        "B": "4x + 120y ≤ 128,000",
+        "C": "4x + 120y ≥ 105,500",
+        "D": "4x + 120y ≤ 105,500"
+      },
+      "correct_answer": "D",
+      "explanation": "The remaining storage is 128 − 22.5 = 105.5 GB, which is 105.5 × 1,000 = 105,500 MB. The photos and video use 4x + 120y MB, which must not exceed 105,500: 4x + 120y ≤ 105,500.",
+      "distractor_explanations": {
+        "A": "This compares megabytes on the left with gigabytes on the right.",
+        "B": "This ignores the 22.5 GB already used.",
+        "C": "This reverses \"without exceeding.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Put both sides in megabytes."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the remaining storage in MB first."
+      },
+      "remember": "Match units on both sides of an inequality.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "Q074-14",
+      "created_at": "2026-10-27T18:12:04+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-074.review.json",
+        "computation": "checks/sat_math/batch_074.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

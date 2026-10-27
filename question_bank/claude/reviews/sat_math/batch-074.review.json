@@ -1,0 +1,379 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 74,
+  "reviewed_at": "2026-10-27T18:12:04+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": "blind-sonnet-independent",
+  "counts": {
+    "PASS": 13,
+    "REVISE": 2,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000806",
+    "CLD-SAT-M-000807",
+    "CLD-SAT-M-000808",
+    "CLD-SAT-M-000809",
+    "CLD-SAT-M-000810",
+    "CLD-SAT-M-000811",
+    "CLD-SAT-M-000812",
+    "CLD-SAT-M-000813",
+    "CLD-SAT-M-000814",
+    "CLD-SAT-M-000815",
+    "CLD-SAT-M-000816",
+    "CLD-SAT-M-000817",
+    "CLD-SAT-M-000818"
+  ],
+  "results": [
+    {
+      "cand": "Q074-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "slopes -8/p and 2/p, product -1 -> p=4",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "No slope is given; the perpendicular condition becomes an equation for the shared intercept."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000806"
+    },
+    {
+      "cand": "Q074-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "3/a+4/b=1 -> (a-3)(b-4)=12, a>3,b>4; 6 factor pairs",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must rearrange to a factorable product and count ordered divisor pairs."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000807"
+    },
+    {
+      "cand": "Q074-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "d=2.5m-30; slope 2.5 days per gram. A/D reuse 0.4 (original slope); C wrong units",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must invert the model and attach the reciprocal units."
+      },
+      "structural_problems": [
+        "unknown trap familiar_meaning for C"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown trap familiar_meaning for C"
+    },
+    {
+      "cand": "Q074-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "det k^2+k-6=0 -> k=2,-3. k=2 gives identical lines (infinite solutions); k=-3 gives 0=15 (none)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "One root of the slope condition gives coincident lines and must be rejected by checking the constants."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000808"
+    },
+    {
+      "cand": "Q074-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "3+0.4t=2.4+0.3t -> t=-6, height 0.6. A uses future; C false; D heights not 0",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000809"
+    },
+    {
+      "cand": "Q074-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "vertices (0,0),(4,4),(6,0); (5,1): 0<1<5 and 1<2 inside. B above y=x, C below axis, D above second line",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Each wrong point fails exactly one of the three boundary inequalities."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000810"
+    },
+    {
+      "cand": "Q074-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2.40",
+      "computed_answer": "2.40",
+      "blind_answer": "2.40",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "4p=1.20, p=0.30, box of 8 = 2.40",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000811"
+    },
+    {
+      "cand": "Q074-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "l=1:4, l=2:3, l=3:1 -> 8",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must count integer points in a region, not on a line, with both minimums enforced."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000812"
+    },
+    {
+      "cand": "Q074-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "28",
+      "computed_answer": "28",
+      "blind_answer": "28",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "sum 69; C=69-41=28",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000813"
+    },
+    {
+      "cand": "Q074-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "95",
+      "computed_answer": "95",
+      "blind_answer": "95",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "v1=0.8P, v3=0.5P, slope -0.15P/yr, v0=0.95P",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The second value is a percent of a different base, and the model's intercept is not the purchase price."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000814"
+    },
+    {
+      "cand": "Q074-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "reflection y=(x+6)/3; intersect on y=x: x=3",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must reflect a whole line, not a point, or see that the intersection lies on y = x."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000815"
+    },
+    {
+      "cand": "Q074-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x=(b-1)/2.5<0, y>0 -> -0.25<b<1; only 0.5. -0.5 gives Q III, 1 on y-axis, 2 gives Q I",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both coordinates must have the right sign, which bounds b on both sides."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000816"
+    },
+    {
+      "cand": "Q074-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4/3",
+      "computed_answer": "4/3",
+      "blind_answer": "4/3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "2ax+5 = 2ax+3a+1 -> a=4/3",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The x-terms match automatically, so only the constant terms give an equation for the parameter."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000817"
+    },
+    {
+      "cand": "Q074-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "remaining 105.5 GB=105,500 MB",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000818"
+    },
+    {
+      "cand": "Q074-15",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "hint gave the computation away",
+          "change": "hint now names the form, not the product"
+        }
+      ],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "remainder 3",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "hint may give the answer away: 'Write the numerator as (2x + 3)(x + 2) plus a constant.'"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "hint may give the answer away: 'Write the numerator as (2x + 3)(x + 2) plus a constant.'"
+    }
+  ]
+}
