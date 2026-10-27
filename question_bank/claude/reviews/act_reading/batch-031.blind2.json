@@ -1,0 +1,33 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 31},
+  "passage_notes": "Science checks out: UHI is strongest on calm, clear nights and weakens with cloud/wind; evapotranspiration cooling, heat storage in built materials, canyon trapping and anthropogenic heat are standard causes; the winter heating penalty for cool roofs is real (often small because winter sun is weak, but 'part of the summer savings may be lost' is appropriately hedged). No factual problems found.",
+  "answers": {
+    "R031-01": {"answer": "C", "confidence": "high", "est_pct_correct": 68, "difficulty_opinion": "medium",
+      "flags": ["answer cue: key closely paraphrases the passage's final sentence ('a city's temperature is partly a product of the choices made in building it... can also be changed by... rebuilding it'), so students who read the conclusion can match it directly"],
+      "notes": "A, B, D are each accurate details from single paragraphs (1-2, 4-5, 3); only C covers the whole passage. Detail-but-true distractors give some pull, so it is upper medium / borderline easy."},
+    "R031-02": {"answer": "A", "confidence": "high", "est_pct_correct": 48, "difficulty_opinion": "medium",
+      "flags": ["minor: A relies on the dark-vs-pale absorption idea that the passage gives in paragraph 4 (roofs), not paragraph 2; students must infer that darker pavement stores more heat. The inference is reasonable but worth noting", "minor: B (noon gap) is a plausible trap because it describes the heat island, but it does not test the storage/release mechanism; the passage says the gap is larger at night"],
+      "notes": "Para 2 explanation: built materials absorb and store heat and release it at night, while vegetation cools through evaporation. A holds trees constant and changes only how much heat the surface stores, which isolates the mechanism. C weakens it, D is irrelevant, and B only restates that the effect exists."},
+    "R031-03": {"answer": "D", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy",
+      "flags": ["minor: C (health risks) and B (watering lawns) are distractors almost nobody would pick", "overlap: D's wording ('replacing vegetation with pavement makes a city warmer') restates the paragraph 2 explanation that R031-02 tests, and it echoes R031-01's main idea, so it gives a mild hint toward both"],
+      "notes": "The next sentence says that the city has replaced 'that cooling vegetation', so the detail explains why losing vegetation warms the city. A contradicts 'absorbs sunlight too'."},
+    "R031-04": {"answer": "B", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "'Carry real risks' means pose risks. 'Transport' is the literal sense and acts as the trap; support and win do not fit."},
+    "R031-05": {"answer": "A", "confidence": "high", "est_pct_correct": 77, "difficulty_opinion": "easy",
+      "flags": ["minor: close to a lookup of paragraph 3 ('hottest blocks... fewest trees and the most pavement'); B is the only competitive distractor (tall buildings trap heat, but it has large shade trees)"],
+      "notes": "A is in the city center, with the most pavement and almost no trees. B has heat-trapping buildings offset by trees; C has dense trees; D is beside farmland."},
+    "R031-06": {"answer": "A", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy",
+      "flags": ["minor: C (hot summers but long snowy winters) is the intended trap; B and D are weak"],
+      "notes": "Para 4 says savings are greatest where summers are hot and winters mild, and lost in part where winters are long and cold. A is the best match: long hot summers and rare frost."},
+    "R031-07": {"answer": "D", "confidence": "medium", "est_pct_correct": 62, "difficulty_opinion": "medium",
+      "flags": ["minor: D's 'heat island's timing' requires linking the paragraph 3 phrase back to the night-time peak described in paragraph 1. The link is fair, but the wording is abstract, and some students may hesitate or pick B because it appears in the same paragraph"],
+      "notes": "The phrase explains why lingering night heat endangers health. That ties the heat island's after-dark peak to harm. A is unsupported, B is a separate claim, and C comes from another paragraph."},
+    "R031-08": {"answer": "B", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy",
+      "flags": ["minor: distractors are weak. D contradicts the passage outright, and A (cost) and C (existing buildings) are never mentioned, so the item is solved by elimination", "minor: 'its two benefits' (shade plus cooling through leaves) needs a small inference, but no rival choice competes"],
+      "notes": "Long-horizon planners accept the slow growth of trees in exchange for the shade and the cooling through leaves. That is the only choice the passage supports."},
+    "R031-09": {"answer": "B", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": ["minor: A, C and D are plainly inconsistent with the passage (no theory is rejected, no two named cities, no history), so this is easy by elimination"],
+      "notes": "The passage goes from a pattern (para 1) to causes (para 2), effects (para 3), two responses (paras 4-5) and a conclusion. Overlaps somewhat with R031-01 as a second global item, but tests a different skill."}
+  }
+}
