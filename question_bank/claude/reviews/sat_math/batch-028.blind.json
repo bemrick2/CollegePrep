@@ -1,0 +1,26 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 28},
+  "answers": {
+    "Q028-01": {"answer": "20", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "(3/4 - 1/2)x = 3 + 2 -> (1/4)x = 5 -> x = 20. Single routine linear equation; unique answer."},
+    "Q028-02": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "3.52/32 = $0.11 per mile = 11 cents. A = answer in dollars (unit trap, good distractor), B = 32/3.52, D = 32*3.52. Rate plus unit conversion; all distractors are plausible errors."},
+    "Q028-03": {"answer": "B", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy",
+      "flags": ["minor: choice D (6.67 = 20/3) is an easy elimination, since tangent of a shallow ramp angle must be below 1"],
+      "notes": "tan = opposite/adjacent = 3/20 = 0.15. A = sin (3/sqrt(409) = 0.148), C = cos (0.989), D = reciprocal. One familiar fact."},
+    "Q028-04": {"answer": "A", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium",
+      "flags": ["minor: 'She buys the same number of movie tickets, at $8 each, and snacks, at $3 each' reads awkwardly; clearer: 'She buys movie tickets at $8 each and snacks at $3 each, buying the same number of each.'"],
+      "notes": "Each ticket+snack pair costs $11; 11n <= 50 -> n <= 4.55 -> 4. B = rounding 4.55 up, C = 50/8 ignoring snacks, D = 50/3. Inequality setup plus floor; unique answer."},
+    "Q028-05": {"answer": "C", "confidence": "high", "est_pct_correct": 88, "difficulty_opinion": "easy",
+      "flags": ["minor: choice A (y = -3, horizontal line not through origin) is easily eliminated"],
+      "notes": "Through origin means b = 0, slope -3 -> y = -3x. B has slope 1, D has y-intercept 3."},
+    "Q028-06": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "(-4)^3 = -64; real cube root is unique. D (+/-4) is a trap for students confusing it with square roots; A is -64/8 confusion. One familiar fact."},
+    "Q028-07": {"answer": "3", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "2x - 3 = 7 -> x = 5; 2x - 3 = -7 -> x = -2; sum = 3. Two cases plus a sum; main trap is giving only x = 5 or forgetting the negative case."}
+  }
+}

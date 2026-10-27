@@ -1,0 +1,187 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 28,
+  "reviewed_at": "2026-10-27T03:16:38+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 28
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000249",
+    "CLD-SAT-M-000250",
+    "CLD-SAT-M-000251",
+    "CLD-SAT-M-000252",
+    "CLD-SAT-M-000253",
+    "CLD-SAT-M-000254",
+    "CLD-SAT-M-000255"
+  ],
+  "results": [
+    {
+      "cand": "Q028-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "20",
+      "computed_answer": "20",
+      "blind_answer": "20",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "(3/4 - 1/2)x = 3 + 2 -> (1/4)x = 5 -> x = 20. Single routine linear equation; unique answer.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000249"
+    },
+    {
+      "cand": "Q028-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "3.52/32 = $0.11 per mile = 11 cents. A = answer in dollars (unit trap, good distractor), B = 32/3.52, D = 32*3.52. Rate plus unit conversion; all distractors are plausible errors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000250"
+    },
+    {
+      "cand": "Q028-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: choice D (6.67 = 20/3) is an easy elimination, since tangent of a shallow ramp angle must be below 1"
+      ],
+      "blind_notes": "tan = opposite/adjacent = 3/20 = 0.15. A = sin (3/sqrt(409) = 0.148), C = cos (0.989), D = reciprocal. One familiar fact.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000251"
+    },
+    {
+      "cand": "Q028-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: 'She buys the same number of movie tickets, at $8 each, and snacks, at $3 each' reads awkwardly; clearer: 'She buys movie tickets at $8 each and snacks at $3 each, buying the same number of each.'"
+      ],
+      "blind_notes": "Each ticket+snack pair costs $11; 11n <= 50 -> n <= 4.55 -> 4. B = rounding 4.55 up, C = 50/8 ignoring snacks, D = 50/3. Inequality setup plus floor; unique answer.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000252"
+    },
+    {
+      "cand": "Q028-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [
+        "minor: choice A (y = -3, horizontal line not through origin) is easily eliminated"
+      ],
+      "blind_notes": "Through origin means b = 0, slope -3 -> y = -3x. B has slope 1, D has y-intercept 3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000253"
+    },
+    {
+      "cand": "Q028-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "(-4)^3 = -64; real cube root is unique. D (+/-4) is a trap for students confusing it with square roots; A is -64/8 confusion. One familiar fact.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000254"
+    },
+    {
+      "cand": "Q028-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "2x - 3 = 7 -> x = 5; 2x - 3 = -7 -> x = -2; sum = 3. Two cases plus a sum; main trap is giving only x = 5 or forgetting the negative case.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000255"
+    }
+  ]
+}

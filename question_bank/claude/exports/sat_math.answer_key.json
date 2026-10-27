@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 27,
+  "bank_version": 28,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -4845,6 +4845,147 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the right triangle from O to P to the x-axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000249",
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of (1/4)x, not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "4",
+          "rationale": "4 subtracts 3 − 2 instead of adding 3 + 2, giving (1/4)x = 1.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Subtracting (1/2)x from both sides gives (1/4)x − 2 = 3, so (1/4)x = 5 and x = 20. Check: 15 − 2 = 13 and 10 + 3 = 13.",
+      "distractor_explanations": {},
+      "hints": [
+        "Collect the x-terms on one side."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply every term by 4 to clear the fractions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000250",
+      "correct_answer": "C",
+      "explanation": "Cost per mile = (dollars per gallon) ÷ (miles per gallon) = 3.52 ÷ 32 = $0.11 per mile, which is 11 cents.",
+      "distractor_explanations": {
+        "A": "0.11 is the cost in dollars, not cents.",
+        "B": "9.09 divides 32 by 3.52, giving miles per dollar.",
+        "D": "112.64 multiplies the two rates."
+      },
+      "hints": [
+        "Which units cancel to leave dollars per mile?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide dollars per gallon by miles per gallon."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000251",
+      "correct_answer": "B",
+      "explanation": "The rise is opposite the angle and the horizontal run is adjacent to it, so the tangent is 3/20 = 0.15.",
+      "distractor_explanations": {
+        "A": "0.148 is the sine: 3 divided by the ramp's length, √409 ≈ 20.2.",
+        "C": "0.989 is the cosine of the angle.",
+        "D": "6.67 inverts the ratio: run over rise."
+      },
+      "hints": [
+        "Which side is opposite the angle, and which is adjacent?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the right triangle formed by the ramp."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000252",
+      "correct_answer": "A",
+      "explanation": "Each ticket-and-snack pair costs 8 + 3 = $11. If she buys n of each, 11n ≤ 50, so n ≤ 4.5. The greatest whole number is 4.",
+      "distractor_explanations": {
+        "B": "5 rounds 4.5 up; 5 pairs would cost $55.",
+        "C": "6 ignores the snacks: 50 ÷ 8, rounded down.",
+        "D": "16 divides 50 by the snack price."
+      },
+      "hints": [
+        "What does one ticket plus one snack cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 8n + 3n ≤ 50 for the greatest whole n."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000253",
+      "correct_answer": "C",
+      "explanation": "A line through the origin has y-intercept 0, so it has the form y = mx. With slope −3, the equation is y = −3x.",
+      "distractor_explanations": {
+        "A": "y = −3 is a horizontal line with slope 0.",
+        "B": "This has slope 1 and y-intercept −3.",
+        "D": "This has the right slope but passes through (0, 3), not the origin."
+      },
+      "hints": [
+        "What is the y-intercept of a line through the origin?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check which equation gives y = 0 at x = 0 and has slope −3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000254",
+      "correct_answer": "B",
+      "explanation": "(−4)³ = −64, and a cube has exactly one real root, so x = −4. Unlike square roots, cube roots of negative numbers are real.",
+      "distractor_explanations": {
+        "A": "−8 is the square root of 64 with a negative sign.",
+        "C": "4³ = 64, not −64.",
+        "D": "±4 treats the equation like x² = 16; (4)³ is positive."
+      },
+      "hints": [
+        "What number cubed gives −64?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Cube each choice."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000255",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is only the solution from 2x − 3 = 7.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 is only the solution from 2x − 3 = −7.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "|2x − 3| = 7 means 2x − 3 = 7 or 2x − 3 = −7. The first gives x = 5 and the second gives x = −2. Both check, and their sum is 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "An absolute value equation has two cases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 2x − 3 = 7 and 2x − 3 = −7."
       }
     }
   ]

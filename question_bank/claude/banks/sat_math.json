@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 27,
-  "updated_at": "2026-10-27T03:14:19+00:00",
+  "version": 28,
+  "updated_at": "2026-10-27T03:16:38+00:00",
   "passages": [],
   "questions": [
     {
@@ -17838,6 +17838,513 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-027.review.json",
         "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000249",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear equation with fractional coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies the equation (3/4)x − 2 = (1/2)x + 3 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of (1/4)x, not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "4",
+          "rationale": "4 subtracts 3 − 2 instead of adding 3 + 2, giving (1/4)x = 1.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Subtracting (1/2)x from both sides gives (1/4)x − 2 = 3, so (1/4)x = 5 and x = 20. Check: 15 − 2 = 13 and 10 + 3 = 13.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Collect the x-terms on one side."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply every term by 4 to clear the fractions."
+      },
+      "remember": "Clear fractions by multiplying every term by a common denominator.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-01",
+      "created_at": "2026-10-27T03:16:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "20",
+        "blind_answer": "20",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000250",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Unit cost from two rates",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A car travels 32 miles per gallon of gasoline, and gasoline costs $3.52 per gallon. What is the cost of gasoline, in cents, for each mile the car travels?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.11",
+        "B": "9.09",
+        "C": "11",
+        "D": "112.64"
+      },
+      "correct_answer": "C",
+      "explanation": "Cost per mile = (dollars per gallon) ÷ (miles per gallon) = 3.52 ÷ 32 = $0.11 per mile, which is 11 cents.",
+      "distractor_explanations": {
+        "A": "0.11 is the cost in dollars, not cents.",
+        "B": "9.09 divides 32 by 3.52, giving miles per dollar.",
+        "D": "112.64 multiplies the two rates."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which units cancel to leave dollars per mile?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide dollars per gallon by miles per gallon."
+      },
+      "remember": "Track units: ($/gal) ÷ (mi/gal) = $/mi.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-02",
+      "created_at": "2026-10-27T03:16:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000251",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Tangent of a ramp angle from rise and run",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ramp rises 3 feet over a horizontal distance of 20 feet. What is the tangent of the angle the ramp makes with the level ground?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.148",
+        "B": "0.15",
+        "C": "0.989",
+        "D": "6.67"
+      },
+      "correct_answer": "B",
+      "explanation": "The rise is opposite the angle and the horizontal run is adjacent to it, so the tangent is 3/20 = 0.15.",
+      "distractor_explanations": {
+        "A": "0.148 is the sine: 3 divided by the ramp's length, √409 ≈ 20.2.",
+        "C": "0.989 is the cosine of the angle.",
+        "D": "6.67 inverts the ratio: run over rise."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Which side is opposite the angle, and which is adjacent?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the right triangle formed by the ramp."
+      },
+      "remember": "tan = opposite / adjacent = rise / run.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-03",
+      "created_at": "2026-10-27T03:16:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: choice D (6.67 = 20/3) is an easy elimination, since tangent of a shallow ramp angle must be below 1"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000252",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Greatest whole number under a budget with equal quantities",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Kia has $50 to spend. She buys the same number of movie tickets, at $8 each, and snacks, at $3 each. What is the greatest number of movie tickets she can buy?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "16"
+      },
+      "correct_answer": "A",
+      "explanation": "Each ticket-and-snack pair costs 8 + 3 = $11. If she buys n of each, 11n ≤ 50, so n ≤ 4.5. The greatest whole number is 4.",
+      "distractor_explanations": {
+        "B": "5 rounds 4.5 up; 5 pairs would cost $55.",
+        "C": "6 ignores the snacks: 50 ÷ 8, rounded down.",
+        "D": "16 divides 50 by the snack price."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does one ticket plus one snack cost?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 8n + 3n ≤ 50 for the greatest whole n."
+      },
+      "remember": "Round down when you cannot exceed a budget.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-04",
+      "created_at": "2026-10-27T03:16:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: 'She buys the same number of movie tickets, at $8 each, and snacks, at $3 each' reads awkwardly; clearer: 'She buys movie tickets at $8 each and snacks at $3 each, buying the same number of each.'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000253",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equation of a proportional line from its slope",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is an equation of the line in the xy-plane that passes through the origin and has a slope of −3 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "y = −3",
+        "B": "y = x − 3",
+        "C": "y = −3x",
+        "D": "y = −3x + 3"
+      },
+      "correct_answer": "C",
+      "explanation": "A line through the origin has y-intercept 0, so it has the form y = mx. With slope −3, the equation is y = −3x.",
+      "distractor_explanations": {
+        "A": "y = −3 is a horizontal line with slope 0.",
+        "B": "This has slope 1 and y-intercept −3.",
+        "D": "This has the right slope but passes through (0, 3), not the origin."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the y-intercept of a line through the origin?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check which equation gives y = 0 at x = 0 and has slope −3."
+      },
+      "remember": "Through the origin: y = mx.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-05",
+      "created_at": "2026-10-27T03:16:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [
+          "minor: choice A (y = -3, horizontal line not through origin) is easily eliminated"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000254",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Real cube root of a negative number",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x³ = −64, what is the value of x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−8",
+        "B": "−4",
+        "C": "4",
+        "D": "±4"
+      },
+      "correct_answer": "B",
+      "explanation": "(−4)³ = −64, and a cube has exactly one real root, so x = −4. Unlike square roots, cube roots of negative numbers are real.",
+      "distractor_explanations": {
+        "A": "−8 is the square root of 64 with a negative sign.",
+        "C": "4³ = 64, not −64.",
+        "D": "±4 treats the equation like x² = 16; (4)³ is positive."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What number cubed gives −64?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Cube each choice."
+      },
+      "remember": "Odd powers keep the sign; x³ = −64 has one real solution.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-06",
+      "created_at": "2026-10-27T03:16:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000255",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of the solutions of an absolute value equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all solutions to the equation |2x − 3| = 7 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is only the solution from 2x − 3 = 7.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 is only the solution from 2x − 3 = −7.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "|2x − 3| = 7 means 2x − 3 = 7 or 2x − 3 = −7. The first gives x = 5 and the second gives x = −2. Both check, and their sum is 3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "An absolute value equation has two cases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 2x − 3 = 7 and 2x − 3 = −7."
+      },
+      "remember": "|A| = k (k > 0) means A = k or A = −k.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "Q028-07",
+      "created_at": "2026-10-27T03:16:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-028.review.json",
+        "computation": "checks/sat_math/batch_028.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

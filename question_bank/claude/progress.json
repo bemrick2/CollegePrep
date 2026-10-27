@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:16:09+00:00",
+  "updated_at": "2026-10-27T03:16:40+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 238
+    "sat_math": 245
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 248,
+      "PASS": 255,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 250,
+      "candidates": 257,
       "passed_after_revision": 2
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 238,
+      "accepted": 245,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 82,
-        "Algebra": 71,
-        "Geometry and Trigonometry": 47,
-        "Problem-Solving and Data Analysis": 38
+        "Advanced Math": 84,
+        "Algebra": 74,
+        "Geometry and Trigonometry": 48,
+        "Problem-Solving and Data Analysis": 39
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1458,6 +1458,7 @@
         "Effect of sample size on the margin of error": 1,
         "Equal earnings at two hourly rates": 1,
         "Equation of a circle with an unknown constant": 1,
+        "Equation of a proportional line from its slope": 1,
         "Evaluating a cubic function at two inputs": 1,
         "Evaluating a linear function after finding its intercept": 1,
         "Evaluating a linear function at a related input": 1,
@@ -1479,6 +1480,7 @@
         "Finding a whole from a percent": 1,
         "Fuel remaining after a trip": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
+        "Greatest whole number under a budget with equal quantities": 1,
         "Height of a rectangular prism from its volume": 1,
         "Horizontal shift that matches an exponential function": 1,
         "Hypotenuse from area and a leg ratio": 1,
@@ -1505,6 +1507,7 @@
         "Length of the interval where a quadratic is positive": 1,
         "Line with equal intercepts through a given point": 1,
         "Linear equation from a ratio of quantities sold": 1,
+        "Linear equation with fractional coefficients": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
         "Linear model for depth below the surface": 1,
@@ -1544,6 +1547,7 @@
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Rate problem with a unit conversion": 1,
         "Ratio applied after excluding a group": 1,
+        "Real cube root of a negative number": 1,
         "Recognising an equivalent equation": 1,
         "Rectangle from its diagonal and one side": 1,
         "Remainder of a polynomial from its division form": 1,
@@ -1595,11 +1599,13 @@
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
         "Sum of solutions of an equation with variable denominators": 1,
+        "Sum of the solutions of an absolute value equation": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
         "System of equations for time at two speeds": 1,
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
+        "Tangent of a ramp angle from rise and run": 1,
         "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Tangent of an angle from a point on a circle": 1,
         "Third angle of a triangle": 1,
@@ -1610,6 +1616,7 @@
         "Translating a comparison of fractional parts": 1,
         "Translating a verbal equation with grouping": 1,
         "Translating a verbal statement into a linear equation": 1,
+        "Unit cost from two rates": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
         "Unknown count from a without-replacement probability": 1,
@@ -1646,19 +1653,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 58,
+        "easy": 62,
         "hard": 11,
-        "medium": 169
+        "medium": 172
       },
       "by_difficulty_calibrated": {
-        "easy": 102,
+        "easy": 106,
         "hard": 6,
-        "medium": 130
+        "medium": 133
       },
       "calibrated_share": {
-        "easy": 0.429,
-        "hard": 0.025,
-        "medium": 0.546
+        "easy": 0.433,
+        "hard": 0.024,
+        "medium": 0.543
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1677,12 +1684,13 @@
         "18": 1,
         "18/13": 1,
         "2": 4,
+        "20": 1,
         "20/3": 1,
         "200": 1,
         "24": 1,
         "240": 1,
         "26": 1,
-        "3": 5,
+        "3": 6,
         "30": 2,
         "36": 2,
         "4": 3,
@@ -1698,13 +1706,13 @@
         "80": 1,
         "9": 2,
         "90": 1,
-        "A": 37,
-        "B": 50,
-        "C": 48,
+        "A": 38,
+        "B": 52,
+        "C": 50,
         "D": 31
       },
-      "modeling_items": 65,
-      "spr_items": 72,
+      "modeling_items": 67,
+      "spr_items": 74,
       "passages": 0
     }
   },
@@ -1713,7 +1721,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 27
+    "sat_math": 28
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1745,27 +1753,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 28,
+    "next_batch": 29,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 15.8,
-      "Advanced Math": 4.8,
+      "Algebra": 15.2,
+      "Advanced Math": 5.2,
       "Problem-Solving and Data Analysis": -0.8,
       "Geometry and Trigonometry": -9.8
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -40.0,
-      "medium": -6.0,
-      "hard": 56.0
+      "easy": -42.2,
+      "medium": -5.5,
+      "hard": 57.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 9.5,
-      "B": -3.5,
-      "C": -1.5,
-      "D": 15.5
+      "A": 9.8,
+      "B": -4.2,
+      "C": -2.2,
+      "D": 16.8
     },
-    "spr_items": 72,
+    "spr_items": 74,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1778,20 +1786,20 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
         "Production of Writing": 28.8,
         "Knowledge of Language": 18.6,
         "Conventions of Standard English": -33.2
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1818,12 +1826,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 238,
-      "share_of_target": 0.238
+      "accepted": 245,
+      "share_of_target": 0.245
     }
   },
   "total_target": 3841,
-  "total_accepted": 1749,
+  "total_accepted": 1756,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48995,7 +49003,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 27,
+      "bank_version": 28,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49121,7 +49129,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:16:08+00:00",
+    "heartbeat_at": "2026-10-27T03:16:40+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
