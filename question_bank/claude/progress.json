@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:32:39+00:00",
+  "updated_at": "2026-10-27T00:35:18+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 698,
+    "act_math": 708,
     "act_english": 242,
     "act_reading": 199,
     "sat_reading_writing": 235
   },
   "review_totals": {
     "act_math": {
-      "PASS": 716,
+      "PASS": 726,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 721,
+      "candidates": 731,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,14 +52,14 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 698,
+      "accepted": 708,
       "retired_after_audit": 18,
       "by_skill": {
-        "Algebra": 126,
-        "Functions": 115,
-        "Geometry": 170,
-        "Integrating Essential Skills": 88,
-        "Number & Quantity": 90,
+        "Algebra": 127,
+        "Functions": 116,
+        "Geometry": 174,
+        "Integrating Essential Skills": 89,
+        "Number & Quantity": 93,
         "Statistics & Probability": 109
       },
       "by_subskill": {
@@ -104,6 +104,7 @@
         "Area of a circular segment": 1,
         "Area of a kite from its diagonals": 1,
         "Area of a quadrilateral in the coordinate plane": 1,
+        "Area of a region outside quarter circles": 1,
         "Area of a regular hexagon": 1,
         "Area of a regular octagon (cut corners)": 1,
         "Area of a rhombus from a side and a diagonal": 1,
@@ -208,6 +209,7 @@
         "Consecutive integer word problems": 1,
         "Consecutive successes to reach a target rate": 1,
         "Continuous uniform probability": 1,
+        "Contrapositive of a conditional statement": 1,
         "Converting cubic feet to cubic yards": 1,
         "Converting decimal hours to hours and minutes": 1,
         "Converting degrees to radians": 1,
@@ -249,6 +251,7 @@
         "Crossing versus touching at a repeated zero": 1,
         "Cylinder inscribed in a cube": 1,
         "Day-of-the-week cycles": 1,
+        "Degree of a product of polynomials": 1,
         "Density from dimensions": 1,
         "Determinant of a 2 × 2 matrix": 1,
         "Diagonal of a rectangle": 1,
@@ -522,6 +525,7 @@
         "Perpendicular line through a point: y-intercept": 1,
         "Perpendicular lines in the coordinate plane": 1,
         "Perpendicular slope from standard form": 1,
+        "Perpendicular vectors and the dot product": 1,
         "Piecewise functions": 1,
         "Point dividing a segment in a ratio": 1,
         "Point on a circle from its equation": 1,
@@ -591,11 +595,13 @@
         "Rational and irrational numbers": 1,
         "Rational equations and extraneous solutions": 1,
         "Rational equations from work rates": 1,
+        "Rationalizing a denominator": 1,
         "Ratios substituted into an expression": 1,
         "Ratios that change": 1,
         "Reading a box plot's quartiles": 1,
         "Reading point-slope form": 1,
         "Reading vertex form": 1,
+        "Reciprocal trigonometric functions": 1,
         "Recognizing independent events": 1,
         "Rectangle dimensions from a change in area": 1,
         "Rectangle from perimeter and area": 1,
@@ -609,6 +615,7 @@
         "Reflections to minimize a path": 1,
         "Relative speed on a circular track": 1,
         "Relative speed on a moving walkway": 1,
+        "Remainder of a large power": 1,
         "Remaining zeros of a cubic from a known zero": 1,
         "Repeated composition": 1,
         "Repeated dilution": 1,
@@ -628,6 +635,7 @@
         "Scaling a recipe with unit conversion": 1,
         "Scientific notation in a rate conversion": 1,
         "Scientific notation with negative exponents": 1,
+        "Sector area with a radian angle": 1,
         "Shortest path on the surface of a cylinder": 1,
         "Side lengths from the area ratio of similar triangles": 1,
         "Sign of a polynomial with a repeated zero": 1,
@@ -676,6 +684,7 @@
         "Sum of the multiples of 3 up to 100": 1,
         "Sum of the solutions of a quadratic": 1,
         "Sum of the squares of a quadratic's roots": 1,
+        "Sum of the tip angles of a five-pointed star": 1,
         "Supplementary angles in a given ratio": 1,
         "Surface area of a cube from its volume": 1,
         "Surface area of a rectangular prism": 1,
@@ -737,6 +746,7 @@
         "Volume of a cone filled to half its height": 1,
         "Volume of a cube from its surface area": 1,
         "Volume of a cylinder from its diameter": 1,
+        "Volume of a hemisphere": 1,
         "Volume of a pyramid": 1,
         "Volume of a sphere": 1,
         "Volume of a sphere from its surface area": 1,
@@ -762,25 +772,25 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 177,
-        "hard": 208,
-        "medium": 313
+        "easy": 180,
+        "hard": 209,
+        "medium": 319
       },
       "by_difficulty_calibrated": {
-        "easy": 235,
-        "hard": 85,
-        "medium": 378
+        "easy": 239,
+        "hard": 86,
+        "medium": 383
       },
       "calibrated_share": {
-        "easy": 0.337,
-        "hard": 0.122,
-        "medium": 0.542
+        "easy": 0.338,
+        "hard": 0.121,
+        "medium": 0.541
       },
       "answer_key_balance": {
-        "A": 164,
-        "B": 188,
-        "C": 189,
-        "D": 157
+        "A": 167,
+        "B": 189,
+        "C": 191,
+        "D": 161
       },
       "modeling_items": 136,
       "passages": 0
@@ -1294,50 +1304,41 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 72,
+    "act_math": 73,
     "act_english": 24,
     "act_reading": 25,
     "sat_reading_writing": 26
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 73,
+      "next_batch": 74,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -12.1,
-        "Algebra": 5.0,
-        "Functions": 16.0,
-        "Geometry": -39.0,
-        "Statistics & Probability": -13.4,
-        "Integrating Essential Skills": 53.6
+        "Number & Quantity": -14.0,
+        "Algebra": 5.8,
+        "Functions": 16.8,
+        "Geometry": -41.2,
+        "Statistics & Probability": -12.1,
+        "Integrating Essential Skills": 54.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -58.0,
+        "easy": -59.5,
         "medium": -24.0,
-        "hard": 92.0
+        "hard": 93.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 13.0,
-        "B": -11.0,
-        "C": -12.0,
-        "D": 20.0
+        "A": 12.5,
+        "B": -9.5,
+        "C": -11.5,
+        "D": 18.5
       }
     }
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 4.6,
-        "Information and Ideas": -0.3,
-        "Standard English Conventions": 6.7,
-        "Expression of Ideas": -1.0
-      }
-    },
     "act_english": {
       "next_batch": 25,
       "skill_gap_for_next_10": {
@@ -1353,13 +1354,22 @@
         "Craft and Structure": -9.3,
         "Integration of Knowledge and Ideas": -8.0
       }
+    },
+    "sat_reading_writing": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 4.6,
+        "Information and Ideas": -0.3,
+        "Standard English Conventions": 6.7,
+        "Expression of Ideas": -1.0
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 698,
-      "share_of_target": 0.349
+      "accepted": 708,
+      "share_of_target": 0.354
     },
     "act_english": {
       "target": 700,
@@ -1378,7 +1388,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1374,
+  "total_accepted": 1384,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_reading",
   "audits": [
@@ -48188,7 +48198,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 72,
+      "bank_version": 73,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -48325,7 +48335,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:32:38+00:00",
+    "heartbeat_at": "2026-10-27T00:35:18+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

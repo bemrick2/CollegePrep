@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 72,
-  "updated_at": "2026-10-27T00:30:27+00:00",
+  "version": 73,
+  "updated_at": "2026-10-27T00:35:15+00:00",
   "passages": [],
   "questions": [
     {
@@ -50098,6 +50098,712 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-072.review.json",
         "computation": "checks/act_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000717",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Reciprocal trigonometric functions",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For an angle θ, cos θ = 0.4. What is the value of sec θ ? (Note: sec θ = 1/cos θ.)",
+      "choices": {
+        "A": "2.5",
+        "B": "0.6",
+        "C": "−0.4",
+        "D": "0.16"
+      },
+      "correct_answer": "A",
+      "explanation": "sec θ = 1/cos θ = 1/0.4 = 2.5.",
+      "distractor_explanations": {
+        "B": "0.6 is 1 − 0.4, which is not a trigonometric identity.",
+        "C": "−0.4 changes the sign instead of taking the reciprocal.",
+        "D": "0.16 squares the cosine."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Use the note to rewrite sec θ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide 1 by 0.4."
+      },
+      "remember": "sec = 1/cos, csc = 1/sin, cot = 1/tan.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-01",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: formula given in stem makes this a one-step reciprocal"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000718",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Integrating Essential Skills",
+      "skill": "Integrating Essential Skills",
+      "subskill": "Contrapositive of a conditional statement",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The statement \"If a figure is a square, then it is a rectangle\" is true. Which of the following statements must also be true?",
+      "choices": {
+        "A": "If a figure is a rectangle, then it is a square.",
+        "B": "If a figure is not a square, then it is not a rectangle.",
+        "C": "If a figure is a rectangle, then it is not a square.",
+        "D": "If a figure is not a rectangle, then it is not a square."
+      },
+      "correct_answer": "D",
+      "explanation": "A conditional statement is logically equivalent to its contrapositive: \"If not rectangle, then not square.\" Since every square is a rectangle, a figure that is not a rectangle cannot be a square.",
+      "distractor_explanations": {
+        "A": "This is the converse, which is false: a 2-by-5 rectangle is not a square.",
+        "B": "This is the inverse, which is false: a 2-by-5 rectangle is not a square but is a rectangle.",
+        "C": "This is false: every square is a rectangle."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Can a figure be a square without being a rectangle?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each choice with a non-square rectangle."
+      },
+      "remember": "If P then Q is equivalent to if not Q then not P.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-02",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000719",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Sum of the tip angles of a five-pointed star",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A five-pointed star is formed by drawing all five diagonals of a regular pentagon and keeping only the outer outline. What is the sum of the measures of the five angles at the tips of the star?",
+      "choices": {
+        "A": "360°",
+        "B": "180°",
+        "C": "540°",
+        "D": "720°"
+      },
+      "correct_answer": "B",
+      "explanation": "Each interior angle of a regular pentagon is 108°. At each tip, the two star edges are diagonals from one vertex, which split that 108° angle into three equal 36° angles; the tip angle is the middle one, 36°. Five tips give 5 × 36° = 180°.",
+      "distractor_explanations": {
+        "A": "360° is the sum of the exterior angles of the pentagon.",
+        "C": "540° is the sum of the interior angles of the pentagon.",
+        "D": "720° is the angle sum of a hexagon, not of the star tips."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What is each interior angle of a regular pentagon, and how do the two diagonals from a vertex divide it?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the pentagon and the two diagonals from one vertex."
+      },
+      "remember": "Diagonals from a vertex of a regular pentagon cut its 108° angle into thirds.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-03",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [
+          "minor: no figure; 'keeping only the outer outline' is slightly awkward wording but the pentagram is unambiguous"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000720",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Perpendicular vectors and the dot product",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For vectors ⟨a, b⟩ and ⟨c, d⟩, the dot product is ac + bd, and two nonzero vectors are perpendicular when their dot product is 0. For what value of k are ⟨3, k⟩ and ⟨4, −6⟩ perpendicular?",
+      "choices": {
+        "A": "−2",
+        "B": "1/2",
+        "C": "9/2",
+        "D": "2"
+      },
+      "correct_answer": "D",
+      "explanation": "Set 3 · 4 + k · (−6) = 0: 12 − 6k = 0, so k = 2.",
+      "distractor_explanations": {
+        "A": "−2 makes a sign error in solving 12 − 6k = 0.",
+        "B": "1/2 inverts the solution, dividing 6 by 12.",
+        "C": "9/2 pairs the components wrongly, solving 3(−6) + 4k = 0."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Set the dot product equal to 0."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute 3 · 4 + k · (−6)."
+      },
+      "remember": "Perpendicular vectors have a dot product of 0.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-04",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000721",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Rationalizing a denominator",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is equal to 6/√3 ?",
+      "choices": {
+        "A": "2√3",
+        "B": "3√2",
+        "C": "√3",
+        "D": "6√3"
+      },
+      "correct_answer": "A",
+      "explanation": "Multiply the numerator and denominator by √3: 6√3/3 = 2√3.",
+      "distractor_explanations": {
+        "B": "3√2 confuses √3 and √2.",
+        "C": "√3 divides 6√3 by 6 instead of by 3.",
+        "D": "6√3 multiplies the numerator by √3 but forgets the denominator."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Multiply the top and bottom by √3."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare decimal values: 6/1.732 ≈ 3.46."
+      },
+      "remember": "Multiply by √n/√n to clear a root from the denominator.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-05",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000722",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Sector area with a radian angle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circle has radius 6 inches. What is the area, in square inches, of a sector of the circle with a central angle of 2π/3 radians?",
+      "choices": {
+        "A": "4π",
+        "B": "24π",
+        "C": "12π",
+        "D": "6π"
+      },
+      "correct_answer": "C",
+      "explanation": "A sector with central angle θ (in radians) has area (1/2)r²θ = (1/2)(36)(2π/3) = 12π. Equivalently, 2π/3 is one-third of a full turn, so the area is (1/3)(36π) = 12π.",
+      "distractor_explanations": {
+        "A": "4π is the arc length, rθ = 6 · 2π/3.",
+        "B": "24π forgets the factor 1/2.",
+        "D": "6π uses one-sixth of the circle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What fraction of a full turn is 2π/3 radians?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (1/2)r²θ."
+      },
+      "remember": "Sector area = (θ/2π) · πr² = (1/2)r²θ.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-06",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000723",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of a region outside quarter circles",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A square has side length 8. A quarter circle of radius 4 is drawn inside the square at each of its four corners, centered at that corner. What is the area of the part of the square that lies outside all four quarter circles?",
+      "choices": {
+        "A": "64 − 4π",
+        "B": "16π",
+        "C": "64 − 8π",
+        "D": "64 − 16π"
+      },
+      "correct_answer": "D",
+      "explanation": "The four quarter circles of radius 4 together make one full circle of area 16π. The remaining area is 64 − 16π.",
+      "distractor_explanations": {
+        "A": "64 − 4π subtracts only one quarter circle.",
+        "B": "16π is the area of the four quarter circles, not what is left.",
+        "C": "64 − 8π uses half the total area of the quarter circles."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "Four quarter circles together make what shape?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the square with the corner arcs."
+      },
+      "remember": "Combine matching pieces into whole shapes before computing.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-07",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: no figure; quarter circles are tangent at side midpoints (no overlap), which a figure would clarify"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000724",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Degree of a product of polynomials",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the degree of the polynomial (x³ + 2)²(x − 1) when it is multiplied out?",
+      "choices": {
+        "A": "6",
+        "B": "5",
+        "C": "7",
+        "D": "9"
+      },
+      "correct_answer": "C",
+      "explanation": "(x³ + 2)² has degree 6, and multiplying by (x − 1) adds 1, for a degree of 7.",
+      "distractor_explanations": {
+        "A": "6 ignores the factor (x − 1).",
+        "B": "5 adds 3 + 1 + 1 instead of squaring the first factor.",
+        "D": "9 cubes x³ instead of squaring it."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the degree of (x³ + 2)²?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the degrees of the factors."
+      },
+      "remember": "Degrees add when polynomials are multiplied.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-08",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000725",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Volume of a hemisphere",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A bowl is shaped like a hemisphere (half of a sphere) with an inside radius of 6 centimeters. What is the volume, in cubic centimeters, of the inside of the bowl? (Note: The volume of a sphere with radius r is (4/3)πr³.)",
+      "choices": {
+        "A": "288π",
+        "B": "72π",
+        "C": "48π",
+        "D": "144π"
+      },
+      "correct_answer": "D",
+      "explanation": "Half of a sphere's volume: (1/2)(4/3)π(6³) = (2/3)π(216) = 144π.",
+      "distractor_explanations": {
+        "A": "288π is the volume of the whole sphere.",
+        "B": "72π takes a quarter of the sphere.",
+        "C": "48π uses r² instead of r³ in (4/3)πr²."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What fraction of a sphere is a hemisphere?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Halve (4/3)πr³."
+      },
+      "remember": "A hemisphere holds half a sphere's volume: (2/3)πr³.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-09",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000726",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Remainder of a large power",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the remainder when 2¹⁰⁰ is divided by 5 ?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "explanation": "The remainders of 2¹, 2², 2³, 2⁴ when divided by 5 are 2, 4, 3, 1, and then the cycle repeats every 4 powers. Since 100 is a multiple of 4, 2¹⁰⁰ leaves the same remainder as 2⁴ = 16, which is 1.",
+      "distractor_explanations": {
+        "B": "2 is the remainder of 2¹, the start of the cycle.",
+        "C": "3 is the remainder of 2³.",
+        "D": "4 is the remainder of 2², perhaps from 100 ÷ 50 = 2."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find the remainders of the first few powers of 2."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "List remainders until they repeat."
+      },
+      "remember": "Powers repeat their remainders in cycles.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 73,
+      "draft_candidate": "B073-10",
+      "created_at": "2026-10-27T00:35:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-073.review.json",
+        "computation": "checks/act_math/batch_073.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
