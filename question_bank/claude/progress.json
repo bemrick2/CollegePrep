@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:37:45+00:00",
+  "updated_at": "2026-10-27T03:40:52+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 268
+    "sat_math": 278
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 278,
+      "PASS": 288,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 280,
+      "candidates": 290,
       "passed_after_revision": 2
     }
   },
@@ -1397,11 +1397,11 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 268,
+      "accepted": 278,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 92,
-        "Algebra": 85,
+        "Advanced Math": 100,
+        "Algebra": 87,
         "Geometry and Trigonometry": 50,
         "Problem-Solving and Data Analysis": 41
       },
@@ -1427,6 +1427,7 @@
         "Coefficient that makes two lines parallel": 1,
         "Coefficients from the vertex of a parabola": 1,
         "Coefficients of an equivalent linear expression": 1,
+        "Combining two exponential decay terms": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
@@ -1445,6 +1446,7 @@
         "Constant term from the distance between zeros": 1,
         "Constant term from the minimum value of a quadratic": 1,
         "Constant term in a circle equation from its radius": 1,
+        "Constant that gives a cubic exactly two distinct zeros": 1,
         "Constant that puts a parabola's vertex on the y-axis": 1,
         "Constant-rate projection to a limit": 1,
         "Converting a monthly growth rate to an annual rate": 1,
@@ -1465,11 +1467,13 @@
         "Equal earnings at two hourly rates": 1,
         "Equation of a circle with an unknown constant": 1,
         "Equation of a proportional line from its slope": 1,
+        "Equation that is quadratic in a square root": 1,
         "Equivalent form of a linear equation with fractions": 1,
         "Evaluating a cubic function at two inputs": 1,
         "Evaluating a linear function after finding its intercept": 1,
         "Evaluating a linear function at a related input": 1,
         "Evaluating a linear function given by a table": 1,
+        "Evaluating a product of exponential expressions from a known power": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
         "Evaluating a related exponential expression": 1,
         "Evaluating a related quadratic expression": 1,
@@ -1525,6 +1529,7 @@
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
         "Linear model for depth below the surface": 1,
+        "Linear model from a table with a change of time unit": 1,
         "Lines that avoid a quadrant": 1,
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
@@ -1537,6 +1542,7 @@
         "Multiplying powers with fractional exponents": 1,
         "Number of inputs with a given output": 1,
         "Number of real solutions of a quadratic equation": 1,
+        "Number of solutions of a circle-parabola system": 1,
         "Overlapping groups from two conditional percents": 1,
         "Parameter that makes a linear equation an identity": 1,
         "Part from a part-to-part ratio and a difference": 1,
@@ -1620,6 +1626,8 @@
         "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
         "Sum of solutions of an equation with variable denominators": 1,
+        "Sum of solutions when both sides share a factor": 1,
+        "Sum of the constants in a factored trinomial": 1,
         "Sum of the solutions of an absolute value equation": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
         "System of equations for time at two speeds": 1,
@@ -1649,6 +1657,7 @@
         "Using two values of a linear function": 1,
         "Value of a completed square from an equation": 1,
         "Value of a shifted exponential from a known power": 1,
+        "Value of x + 1/x from a quadratic equation": 1,
         "Vertex after a horizontal and vertical shift": 1,
         "Volume of a cone with a related radius": 1,
         "Volume of a rectangular box": 1,
@@ -1670,6 +1679,7 @@
         "Zeros of a horizontally shifted quadratic": 1,
         "Zeros of a quadratic in vertex form": 1,
         "Zeros of a vertically shifted quadratic": 1,
+        "x-intercept of a line from a point and a coefficient condition": 1,
         "x-intercept of a parallel line through a point": 1,
         "y-intercept from a slope and a point": 1,
         "y-intercept from an x-intercept and another point": 1,
@@ -1677,22 +1687,23 @@
       },
       "by_difficulty_author": {
         "easy": 71,
-        "hard": 11,
-        "medium": 186
+        "hard": 12,
+        "medium": 195
       },
       "by_difficulty_calibrated": {
         "easy": 115,
-        "hard": 6,
-        "medium": 147
+        "hard": 7,
+        "medium": 156
       },
       "calibrated_share": {
-        "easy": 0.429,
-        "hard": 0.022,
-        "medium": 0.549
+        "easy": 0.414,
+        "hard": 0.025,
+        "medium": 0.561
       },
       "answer_key_balance": {
         "-1": 1,
         "-12": 1,
+        "-4": 1,
         "-6": 1,
         "-9": 2,
         "1": 2,
@@ -1706,6 +1717,7 @@
         "16": 3,
         "18": 1,
         "18/13": 1,
+        "193.5": 1,
         "2": 4,
         "20": 1,
         "20/3": 1,
@@ -1719,7 +1731,7 @@
         "4": 3,
         "4.2": 1,
         "44": 2,
-        "5": 2,
+        "5": 3,
         "5.4": 1,
         "50": 2,
         "6": 5,
@@ -1731,12 +1743,12 @@
         "9": 2,
         "90": 1,
         "A": 40,
-        "B": 59,
-        "C": 58,
-        "D": 32
+        "B": 62,
+        "C": 61,
+        "D": 33
       },
-      "modeling_items": 71,
-      "spr_items": 79,
+      "modeling_items": 73,
+      "spr_items": 82,
       "passages": 0
     }
   },
@@ -1745,7 +1757,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 32
+    "sat_math": 33
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1777,27 +1789,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 33,
+    "next_batch": 34,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 12.3,
-      "Advanced Math": 5.3,
-      "Problem-Solving and Data Analysis": 0.7,
-      "Geometry and Trigonometry": -8.3
+      "Algebra": 13.8,
+      "Advanced Math": 0.8,
+      "Problem-Solving and Data Analysis": 2.2,
+      "Geometry and Trigonometry": -6.8
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -45.5,
-      "medium": -8.0,
-      "hard": 63.5
+      "easy": -43.0,
+      "medium": -12.0,
+      "hard": 65.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 12.1,
-      "B": -6.9,
-      "C": -5.9,
-      "D": 20.1
+      "A": 14.0,
+      "B": -8.0,
+      "C": -7.0,
+      "D": 21.0
     },
-    "spr_items": 79,
+    "spr_items": 82,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1850,12 +1862,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 268,
-      "share_of_target": 0.268
+      "accepted": 278,
+      "share_of_target": 0.278
     }
   },
   "total_target": 3841,
-  "total_accepted": 1779,
+  "total_accepted": 1789,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49027,7 +49039,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 32,
+      "bank_version": 33,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49153,7 +49165,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:37:45+00:00",
+    "heartbeat_at": "2026-10-27T03:40:52+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

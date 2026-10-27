@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 32,
-  "updated_at": "2026-10-27T03:37:42+00:00",
+  "version": 33,
+  "updated_at": "2026-10-27T03:40:44+00:00",
   "passages": [],
   "questions": [
     {
@@ -20016,6 +20016,728 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-032.review.json",
         "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000279",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear model from a table with a change of time unit",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A hiker climbs at a constant rate. The table shows the hiker's elevation E, in meters, at several times, in minutes, after starting.\nMinutes after start | 10 | 25 | 40\nElevation (m) | 1,240 | 1,540 | 1,840\nWhich equation gives the elevation E, in meters, h hours after the hiker starts?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "E = 1,040 + 20h",
+        "B": "E = 1,240 + 1,200h",
+        "C": "E = 1,040 + 300h",
+        "D": "E = 1,040 + 1,200h"
+      },
+      "correct_answer": "D",
+      "explanation": "The elevation rises 300 meters every 15 minutes, which is 20 meters per minute or 1,200 meters per hour. Back at 0 minutes, the elevation was 1,240 − 10(20) = 1,040 meters. So E = 1,040 + 1,200h.",
+      "distractor_explanations": {
+        "A": "20 is the rate per minute, but h is in hours.",
+        "B": "1,240 is the elevation at 10 minutes, not at the start.",
+        "C": "300 is the rise per 15 minutes, not per hour."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Find the rate per minute, then per hour."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the slope and the value at time 0, then convert units."
+      },
+      "remember": "Match the rate to the time unit of the variable.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-01",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000280",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "x-intercept of a line from a point and a coefficient condition",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The line y = mx + b passes through the point (3, 4), and m + b = 8. What is the x-intercept of the line?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the y-intercept b, not the x-intercept.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 is the slope m.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "From the point, 3m + b = 4. Subtracting m + b = 8 gives 2m = −4, so m = −2 and b = 10. The line y = −2x + 10 crosses the x-axis where −2x + 10 = 0, at x = 5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write two equations in m and b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the equations to eliminate b."
+      },
+      "remember": "Two conditions determine m and b.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-02",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "5",
+        "blind_answer": "5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000281",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of solutions when both sides share a factor",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Let S be the set of all real numbers x for which (x − 3)(x + 5) and (x − 3)(2x − 1) are equal. What is the sum of the numbers in S ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "6",
+        "C": "9",
+        "D": "12"
+      },
+      "correct_answer": "C",
+      "explanation": "Move everything to one side: (x − 3)(x + 5) − (x − 3)(2x − 1) = (x − 3)[(x + 5) − (2x − 1)] = (x − 3)(6 − x) = 0. The solutions are x = 3 and x = 6, and their sum is 9.",
+      "distractor_explanations": {
+        "A": "3 is only the solution from the shared factor.",
+        "B": "6 divides both sides by x − 3, losing the solution x = 3.",
+        "D": "12 doubles the solution 6."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Do not divide by a factor that could be zero."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor out x − 3 from the difference."
+      },
+      "remember": "Dividing by a variable expression can lose solutions.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-03",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000282",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equation that is quadratic in a square root",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies the equation x − √x = 6 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "9",
+        "C": "4 and 9",
+        "D": "36"
+      },
+      "correct_answer": "B",
+      "explanation": "Let u = √x, so u ≥ 0 and u² − u − 6 = 0. This factors as (u − 3)(u + 2) = 0, so u = 3 (u = −2 is impossible). Then x = 9. Check: 9 − 3 = 6. (x = 4 gives 4 − 2 = 2, so it is not a solution.)",
+      "distractor_explanations": {
+        "A": "4 comes from u = −2, but √x cannot be negative.",
+        "C": "Squaring can introduce the extraneous value 4; it does not satisfy the original equation.",
+        "D": "36 is the square of 6."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Substitute u = √x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each value in the original equation."
+      },
+      "remember": "A square root is never negative; check for extraneous solutions.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-04",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: choice C '4 and 9' does not match the singular stem 'What value of x'; the stem cues one value. Also 4 is a weak distractor because 4-2=2, so plugging in eliminates it quickly. Plugging in each choice solves the item at once (9-3=6), which makes it closer to easy."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000283",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Number of solutions of a circle-parabola system",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The system of equations x² + y² = 25 and y = x² − 5 has how many ordered-pair solutions (x, y) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "Substitute x² = y + 5 into the circle: y + 5 + y² = 25, so y² + y − 20 = 0 and y = 4 or y = −5. For y = 4, x² = 9 gives x = ±3 (two points). For y = −5, x² = 0 gives x = 0 (one point, where the parabola's vertex touches the circle). In all, 3 solutions.",
+      "distractor_explanations": {
+        "A": "1 counts only the vertex point (0, −5).",
+        "B": "2 counts only the points with y = 4.",
+        "D": "4 assumes each y-value gives two x-values, but y = −5 gives only x = 0."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Substitute x² = y + 5 into the circle's equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph the circle and the parabola and count the intersections."
+      },
+      "remember": "Each y-value can give two, one or no x-values.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-05",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000284",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant that gives a cubic exactly two distinct zeros",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x³ − 6x² + 9x + c, where c is a negative constant. If f has exactly two distinct real zeros, what is the value of c ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-4",
+      "accepted_answers": [
+        "-4"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 has the wrong sign; c must be negative.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "0",
+          "rationale": "0 also gives two distinct zeros, but it is not negative.",
+          "trap": null
+        }
+      ],
+      "explanation": "x³ − 6x² + 9x = x(x − 3)², which has a local maximum of 4 at x = 1 and a local minimum of 0 at x = 3. Adding c shifts the graph vertically. For exactly two distinct zeros, the graph must touch the x-axis at a turning point. With c negative, that happens when the local maximum is shifted to 0: c = −4. Then f(x) = (x − 1)²(x − 4).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Factor x³ − 6x² + 9x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph x³ − 6x² + 9x and slide it down until it touches the x-axis."
+      },
+      "remember": "A repeated zero occurs where the graph touches the x-axis.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-06",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-4",
+        "blind_answer": "-4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 20,
+        "blind_flags": [
+          "minor: the standard method uses derivatives or a local extremum, which is outside SAT algebra. It is solvable on the SAT by graphing y=x(x-3)^2, with its local max 4 at x=1, and shifting it down 4, so it is acceptable but at the edge of the domain."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000285",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of the constants in a factored trinomial",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The expression 6x² + 7x − 20 can be written as (ax + b)(cx + d), where a, b, c and d are integers and a and c are positive. What is the value of a + b + c + d ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−7",
+        "B": "4",
+        "C": "6",
+        "D": "14"
+      },
+      "correct_answer": "C",
+      "explanation": "6x² + 7x − 20 = (2x + 5)(3x − 4), since 2x · 3x = 6x², 5 · (−4) = −20 and −8x + 15x = 7x. So a + b + c + d = 2 + 5 + 3 + (−4) = 6.",
+      "distractor_explanations": {
+        "A": "−7 adds the coefficients of the trinomial: 6 + 7 − 20.",
+        "B": "4 comes from (2x − 5)(3x + 4), which gives −7x, not 7x.",
+        "D": "14 ignores the negative sign of d = −4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Look for integer factor pairs of the leading coefficient and the constant term."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check the expansion of each candidate factorization."
+      },
+      "remember": "Check the middle term after factoring.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-07",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000286",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating a product of exponential expressions from a known power",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 9ˣ = 5, what is the value of 27ˣ · 3⁻ˣ ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5/3",
+        "B": "5",
+        "C": "15",
+        "D": "25"
+      },
+      "correct_answer": "B",
+      "explanation": "Write each base as a power of 3: 27ˣ = 3^(3x) and 3⁻ˣ = 3^(−x). Their product is 3^(3x − x) = 3^(2x) = (3²)ˣ = 9ˣ, which equals 5.",
+      "distractor_explanations": {
+        "A": "5/3 divides 5 by 3, mixing up the bases and exponents.",
+        "C": "15 multiplies 5 by 3.",
+        "D": "25 squares 9ˣ instead of rewriting the expression."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write every base as a power of 3."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify to 3^(2x)."
+      },
+      "remember": "Rewrite with a common base before combining exponents.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-08",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000287",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Value of x + 1/x from a quadratic equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The number x satisfies x² − 5x + 1 = 0. What is the value of x + 1/x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "5",
+        "C": "23",
+        "D": "25"
+      },
+      "correct_answer": "B",
+      "explanation": "x is not 0 (0 is not a solution), so divide every term by x: x − 5 + 1/x = 0, which gives x + 1/x = 5. (Both solutions of the quadratic give the same value.)",
+      "distractor_explanations": {
+        "A": "1 is the product of the two solutions.",
+        "C": "23 is x² + 1/x² = 5² − 2.",
+        "D": "25 is (x + 1/x)²."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Divide the equation by x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by x and rearrange."
+      },
+      "remember": "Divide by x when x cannot be 0.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-09",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: the classic x + 1/x trick is a well-worn competition and test-prep pattern, but not a mirror of a specific released SAT item. A calculator route (solving the quadratic numerically, x about 4.79) also gives 5 quickly."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000288",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining two exponential decay terms",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "After a 200-milligram dose of a medicine, the amount remaining in the body t hours later is 200(0.8)ᵗ milligrams. A second 200-milligram dose is taken 3 hours after the first and decays the same way. To the nearest tenth of a milligram, how many milligrams of the medicine are in the body 5 hours after the first dose?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "193.5",
+      "accepted_answers": [
+        "193.5"
+      ],
+      "common_errors": [
+        {
+          "value": "65.5",
+          "rationale": "65.5 counts only the first dose.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "128",
+          "rationale": "128 counts only the second dose.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Five hours after the first dose, that dose has decayed for 5 hours: 200(0.8)⁵ = 65.536 mg. The second dose has decayed for 2 hours: 200(0.8)² = 128 mg. The total is 193.536, or 193.5 milligrams to the nearest tenth.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How long has each dose been decaying at t = 5?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add 200(0.8)⁵ and 200(0.8)²."
+      },
+      "remember": "Each dose decays from the time it was taken.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 33,
+      "draft_candidate": "Q033-10",
+      "created_at": "2026-10-27T03:40:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "193.5",
+        "blind_answer": "193.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-033.review.json",
+        "computation": "checks/sat_math/batch_033.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

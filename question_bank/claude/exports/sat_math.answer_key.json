@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 32,
+  "bank_version": 33,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -5432,6 +5432,209 @@
       "strategy": {
         "key": "backsolve",
         "explanation": "Test x = 8."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000279",
+      "correct_answer": "D",
+      "explanation": "The elevation rises 300 meters every 15 minutes, which is 20 meters per minute or 1,200 meters per hour. Back at 0 minutes, the elevation was 1,240 − 10(20) = 1,040 meters. So E = 1,040 + 1,200h.",
+      "distractor_explanations": {
+        "A": "20 is the rate per minute, but h is in hours.",
+        "B": "1,240 is the elevation at 10 minutes, not at the start.",
+        "C": "300 is the rise per 15 minutes, not per hour."
+      },
+      "hints": [
+        "Find the rate per minute, then per hour."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the slope and the value at time 0, then convert units."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000280",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the y-intercept b, not the x-intercept.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 is the slope m.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "From the point, 3m + b = 4. Subtracting m + b = 8 gives 2m = −4, so m = −2 and b = 10. The line y = −2x + 10 crosses the x-axis where −2x + 10 = 0, at x = 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write two equations in m and b."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the equations to eliminate b."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000281",
+      "correct_answer": "C",
+      "explanation": "Move everything to one side: (x − 3)(x + 5) − (x − 3)(2x − 1) = (x − 3)[(x + 5) − (2x − 1)] = (x − 3)(6 − x) = 0. The solutions are x = 3 and x = 6, and their sum is 9.",
+      "distractor_explanations": {
+        "A": "3 is only the solution from the shared factor.",
+        "B": "6 divides both sides by x − 3, losing the solution x = 3.",
+        "D": "12 doubles the solution 6."
+      },
+      "hints": [
+        "Do not divide by a factor that could be zero."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor out x − 3 from the difference."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000282",
+      "correct_answer": "B",
+      "explanation": "Let u = √x, so u ≥ 0 and u² − u − 6 = 0. This factors as (u − 3)(u + 2) = 0, so u = 3 (u = −2 is impossible). Then x = 9. Check: 9 − 3 = 6. (x = 4 gives 4 − 2 = 2, so it is not a solution.)",
+      "distractor_explanations": {
+        "A": "4 comes from u = −2, but √x cannot be negative.",
+        "C": "Squaring can introduce the extraneous value 4; it does not satisfy the original equation.",
+        "D": "36 is the square of 6."
+      },
+      "hints": [
+        "Substitute u = √x."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each value in the original equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000283",
+      "correct_answer": "C",
+      "explanation": "Substitute x² = y + 5 into the circle: y + 5 + y² = 25, so y² + y − 20 = 0 and y = 4 or y = −5. For y = 4, x² = 9 gives x = ±3 (two points). For y = −5, x² = 0 gives x = 0 (one point, where the parabola's vertex touches the circle). In all, 3 solutions.",
+      "distractor_explanations": {
+        "A": "1 counts only the vertex point (0, −5).",
+        "B": "2 counts only the points with y = 4.",
+        "D": "4 assumes each y-value gives two x-values, but y = −5 gives only x = 0."
+      },
+      "hints": [
+        "Substitute x² = y + 5 into the circle's equation."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph the circle and the parabola and count the intersections."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000284",
+      "correct_answer": "-4",
+      "accepted_answers": [
+        "-4"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 has the wrong sign; c must be negative.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "0",
+          "rationale": "0 also gives two distinct zeros, but it is not negative.",
+          "trap": null
+        }
+      ],
+      "explanation": "x³ − 6x² + 9x = x(x − 3)², which has a local maximum of 4 at x = 1 and a local minimum of 0 at x = 3. Adding c shifts the graph vertically. For exactly two distinct zeros, the graph must touch the x-axis at a turning point. With c negative, that happens when the local maximum is shifted to 0: c = −4. Then f(x) = (x − 1)²(x − 4).",
+      "distractor_explanations": {},
+      "hints": [
+        "Factor x³ − 6x² + 9x."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph x³ − 6x² + 9x and slide it down until it touches the x-axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000285",
+      "correct_answer": "C",
+      "explanation": "6x² + 7x − 20 = (2x + 5)(3x − 4), since 2x · 3x = 6x², 5 · (−4) = −20 and −8x + 15x = 7x. So a + b + c + d = 2 + 5 + 3 + (−4) = 6.",
+      "distractor_explanations": {
+        "A": "−7 adds the coefficients of the trinomial: 6 + 7 − 20.",
+        "B": "4 comes from (2x − 5)(3x + 4), which gives −7x, not 7x.",
+        "D": "14 ignores the negative sign of d = −4."
+      },
+      "hints": [
+        "Look for integer factor pairs of the leading coefficient and the constant term."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check the expansion of each candidate factorization."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000286",
+      "correct_answer": "B",
+      "explanation": "Write each base as a power of 3: 27ˣ = 3^(3x) and 3⁻ˣ = 3^(−x). Their product is 3^(3x − x) = 3^(2x) = (3²)ˣ = 9ˣ, which equals 5.",
+      "distractor_explanations": {
+        "A": "5/3 divides 5 by 3, mixing up the bases and exponents.",
+        "C": "15 multiplies 5 by 3.",
+        "D": "25 squares 9ˣ instead of rewriting the expression."
+      },
+      "hints": [
+        "Write every base as a power of 3."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify to 3^(2x)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000287",
+      "correct_answer": "B",
+      "explanation": "x is not 0 (0 is not a solution), so divide every term by x: x − 5 + 1/x = 0, which gives x + 1/x = 5. (Both solutions of the quadratic give the same value.)",
+      "distractor_explanations": {
+        "A": "1 is the product of the two solutions.",
+        "C": "23 is x² + 1/x² = 5² − 2.",
+        "D": "25 is (x + 1/x)²."
+      },
+      "hints": [
+        "Divide the equation by x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide by x and rearrange."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000288",
+      "correct_answer": "193.5",
+      "accepted_answers": [
+        "193.5"
+      ],
+      "common_errors": [
+        {
+          "value": "65.5",
+          "rationale": "65.5 counts only the first dose.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "128",
+          "rationale": "128 counts only the second dose.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Five hours after the first dose, that dose has decayed for 5 hours: 200(0.8)⁵ = 65.536 mg. The second dose has decayed for 2 hours: 200(0.8)² = 128 mg. The total is 193.536, or 193.5 milligrams to the nearest tenth.",
+      "distractor_explanations": {},
+      "hints": [
+        "How long has each dose been decaying at t = 5?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add 200(0.8)⁵ and 200(0.8)²."
       }
     }
   ]
