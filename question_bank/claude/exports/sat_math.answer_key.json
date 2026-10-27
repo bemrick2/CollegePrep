@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 75,
+  "bank_version": 76,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -17327,6 +17327,364 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Compare the ranges first, then the typical distances from the mean."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000833",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the axis of symmetry of g, not k, which is twice the axis.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "10",
+          "rationale": "10 adds the shift to f's constant, 4 + 6, ignoring the factor 2.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 treats the axis as (4 + 6)/2.",
+          "trap": null
+        }
+      ],
+      "explanation": "The graph of f is symmetric about x = 2. The graph of g is symmetric where 2x − 6 = 2, at x = 4. A graph symmetric about x = 4 satisfies g(x) = g(8 − x). Directly: g(8 − x) = f(2(8 − x) − 6) = f(10 − 2x) = f(4 − (2x − 6)) = f(2x − 6) = g(x).",
+      "distractor_explanations": {},
+      "hints": [
+        "Where is the axis of symmetry of f, and where does g reach the same input?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find g's axis, then double it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000834",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 keeps the extraneous value u = −4, which adds the solution x = 2.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 reports u = 8 instead of the sum of the x-values.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let u = x² − 4x. Then u = 2√(u + 8), so u² = 4u + 32 and u = 8 or u = −4. The value u = −4 is extraneous, because the right side is never negative. Then x² − 4x = 8 has the two real solutions 2 ± 2√3, whose sum is 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "What expression appears both inside and outside the radical?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute u for the repeated expression."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000835",
+      "correct_answer": "B",
+      "explanation": "x³ − 8 = (x − 2)(x² + 2x + 4) and x² − 4 = (x − 2)(x + 2), so the first fraction is (x² + 2x + 4)/(x + 2). Subtracting (x² + 4)/(x + 2) leaves 2x/(x + 2).",
+      "distractor_explanations": {
+        "A": "This factors x³ − 8 with the wrong middle sign, (x − 2)(x² − 2x + 4).",
+        "C": "This subtracts only the x² term of the second numerator and adds its 4.",
+        "D": "This factors x³ − 8 as (x − 2)(x² + 4), so the two fractions look identical."
+      },
+      "hints": [
+        "How does x³ − 8 factor?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor, cancel, then subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000836",
+      "correct_answer": "D",
+      "explanation": "x² − 1/x² = (x − 1/x)(x + 1/x). Also (x + 1/x)² = (x − 1/x)² + 4 = 13, and x + 1/x > 0 because x > 0, so x + 1/x = √13. The value is 3√13.",
+      "distractor_explanations": {
+        "A": "This squares both sides as if (x − 1/x)² equaled x² − 1/x².",
+        "B": "This finds x² + 1/x² = 9 + 2, a sum instead of the difference.",
+        "C": "This uses (x + 1/x)² = (x − 1/x)² − 4 = 5, with the wrong sign on the 4."
+      },
+      "hints": [
+        "Factor x² − 1/x² as a difference of squares."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x + 1/x from its square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000837",
+      "correct_answer": "18",
+      "accepted_answers": [
+        "18"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the number of $1 increases, not the price.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "24",
+          "rationale": "24 is the number of increases at which sales stop.",
+          "trap": null
+        },
+        {
+          "value": "36",
+          "rationale": "36 is the price at which no tickets are sold.",
+          "trap": null
+        }
+      ],
+      "explanation": "With x one-dollar increases, revenue is R = (12 + x)(360 − 15x). Its zeros are x = −12 and x = 24, so the maximum is midway, at x = 6. The best price is 12 + 6 = 18 dollars, giving 18 × 270 = 4,860 dollars.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the price and the number of tickets in terms of the number of $1 increases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build R(x), then find its vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000838",
+      "correct_answer": "D",
+      "explanation": "f(1/x) = (1/x + 1)/(1/x − 1). Multiplying the numerator and denominator by x gives (1 + x)/(1 − x), which equals −(x + 1)/(x − 1) = −f(x).",
+      "distractor_explanations": {
+        "A": "This multiplies by x but keeps the denominator as x − 1, losing the sign.",
+        "B": "This assumes replacing x with 1/x flips the output.",
+        "C": "This gets the sign change but also flips the fraction."
+      },
+      "hints": [
+        "Multiply the numerator and denominator by x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 2: f(2) = 3 and f(1/2) = −3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000839",
+      "correct_answer": "-2.5",
+      "accepted_answers": [
+        "-2.5",
+        "-5/2"
+      ],
+      "common_errors": [
+        {
+          "value": "-0.5",
+          "rationale": "−0.5 uses only the point (4, 3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 uses only the point (4, −3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.5",
+          "rationale": "2.5 reverses the subtraction in the slopes.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The other point has 16 + y² = 25, so it is (4, 3) or (4, −3). The slopes from (0, 5) are (3 − 5)/4 = −1/2 and (−3 − 5)/4 = −2. The sum is −5/2.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many points on the circle have x-coordinate 4?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and both points with x = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000840",
+      "correct_answer": "A",
+      "explanation": "f(g(x)) = (x + 2)² − 4(x + 2) = (x + 2)(x − 2), which is negative exactly when −2 < x < 2. Equivalently, f(u) < 0 for 0 < u < 4, and u = x + 2.",
+      "distractor_explanations": {
+        "B": "This solves f(x) < 0 and ignores the composition.",
+        "C": "This shifts the interval the wrong way, solving 0 < x − 2 < 4.",
+        "D": "This composes in the wrong order: g(f(x)) = x² − 4x + 2 < 0."
+      },
+      "hints": [
+        "Write f(g(x)) and factor it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand the composition, then find where it is negative."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000841",
+      "correct_answer": "C",
+      "explanation": "In triangle ABE, angle BAE = 180° − 50° − 75° = 55°. Angles BAC and BDC are inscribed angles that intercept the same arc BC, so angle BDC = 55°.",
+      "distractor_explanations": {
+        "A": "This subtracts the two given angles.",
+        "B": "This treats ABD and BDC as alternate interior angles, as if AB were parallel to CD.",
+        "D": "This is the supplement of angle AEB, an angle at E, not at D."
+      },
+      "hints": [
+        "Which angle intercepts the same arc as angle BDC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the circle, the chords, and triangle ABE."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000842",
+      "correct_answer": "B",
+      "explanation": "45 revolutions per minute is 45(2π) = 90π radians per minute, and 90π/60 = 3π/2 radians per second.",
+      "distractor_explanations": {
+        "A": "This uses π radians per revolution instead of 2π.",
+        "C": "This finds degrees per second, 45 × 360/60.",
+        "D": "This is radians per minute; it forgets to convert to seconds."
+      },
+      "hints": [
+        "How many radians are in one revolution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert revolutions to radians, then minutes to seconds."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000843",
+      "correct_answer": "314",
+      "accepted_answers": [
+        "314"
+      ],
+      "common_errors": [
+        {
+          "value": "157",
+          "rationale": "157 adds the three different face areas once each, forgetting that each appears twice.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "229",
+          "rationale": "229 counts the top and bottom twice but each pair of side faces once: 2(72) + 40 + 45.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 is the volume, not the surface area.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The height is 360/72 = 5. The surface area is 2(8 · 9 + 8 · 5 + 9 · 5) = 2(72 + 40 + 45) = 314.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the height first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the volume to find the height, then add all six faces."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000844",
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is CD, not BD.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes D is the midpoint of BC.",
+          "trap": null
+        }
+      ],
+      "explanation": "tan(angle ABC) = AC/BC = 6/12 = 1/2, and tan(angle CAD) = CD/AC, so CD = 6 × 1/2 = 3. Then BD = 12 − 3 = 9.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the tangent of angle ABC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the equal angles and use the tangent ratio in both triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000845",
+      "correct_answer": "B",
+      "explanation": "Solving for d gives d = (m − 12)/0.4 = 2.5m − 30. With m horizontal and d vertical, the slope is 2.5, measured in days per gram: the crystal takes 2.5 days to gain each gram.",
+      "distractor_explanations": {
+        "A": "This keeps the original slope and meaning, ignoring the swapped axes.",
+        "C": "This inverts the number but keeps the original units, grams per day.",
+        "D": "This keeps the original number but attaches the reciprocal units."
+      },
+      "hints": [
+        "Solve the equation for d."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite d in terms of m, then read the units."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000846",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the constant term of the numerator.",
+          "trap": null
+        },
+        {
+          "value": "15",
+          "rationale": "15 adds 6 instead of subtracting it.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 subtracts in the wrong order, 6 − 9.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "(2x + 3)(x + 2) = 2x² + 7x + 6, so 2x² + 7x + 9 = (2x + 3)(x + 2) + 3. Dividing by x + 2 gives 2x + 3 + 3/(x + 2), so k = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the numerator as the divisor times a linear quotient, plus a constant."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the product with the numerator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000847",
+      "correct_answer": "A",
+      "explanation": "Random assignment supports a causal conclusion, but only for the comparison the study made (drug A versus drug B) and only for people like the volunteers. The study had no untreated group, so it says nothing about drug A versus no medication.",
+      "distractor_explanations": {
+        "B": "The study had no untreated group to compare with.",
+        "C": "Random assignment between two treatments supports a causal comparison of those treatments; a placebo is not required.",
+        "D": "The volunteers at one clinic were not a random sample of all adults with allergies."
+      },
+      "hints": [
+        "What did the study actually compare?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each choice's comparison and population."
       }
     }
   ]

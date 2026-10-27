@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 75,
-  "updated_at": "2026-10-27T18:14:03+00:00",
+  "version": 76,
+  "updated_at": "2026-10-27T18:37:48+00:00",
   "passages": [],
   "questions": [
     {
@@ -60310,6 +60310,1113 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-075.review.json",
         "computation": "checks/sat_math/batch_075.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000833",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Symmetry carried through a shift and a compression",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The quadratic function f satisfies f(x) = f(4 − x) for all values of x. The function g is defined by g(x) = f(2x − 6). For all values of x, g(x) = g(k − x), where k is a constant. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the axis of symmetry of g, not k, which is twice the axis.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "10",
+          "rationale": "10 adds the shift to f's constant, 4 + 6, ignoring the factor 2.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 treats the axis as (4 + 6)/2.",
+          "trap": null
+        }
+      ],
+      "explanation": "The graph of f is symmetric about x = 2. The graph of g is symmetric where 2x − 6 = 2, at x = 4. A graph symmetric about x = 4 satisfies g(x) = g(8 − x). Directly: g(8 − x) = f(2(8 − x) − 6) = f(10 − 2x) = f(4 − (2x − 6)) = f(2x − 6) = g(x).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the axis of symmetry of f, and where does g reach the same input?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find g's axis, then double it."
+      },
+      "remember": "Symmetry about x = h means g(x) = g(2h − x).",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-01",
+      "created_at": "2026-10-27T18:37:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 28,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000834",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Extraneous root rejected after substitution",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all real solutions to the equation x² − 4x = 2√(x² − 4x + 8) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 keeps the extraneous value u = −4, which adds the solution x = 2.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 reports u = 8 instead of the sum of the x-values.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let u = x² − 4x. Then u = 2√(u + 8), so u² = 4u + 32 and u = 8 or u = −4. The value u = −4 is extraneous, because the right side is never negative. Then x² − 4x = 8 has the two real solutions 2 ± 2√3, whose sum is 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What expression appears both inside and outside the radical?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute u for the repeated expression."
+      },
+      "remember": "Check radical solutions; a square root is never negative.",
+      "expected_time_seconds": 130,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-02",
+      "created_at": "2026-10-27T18:37:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000835",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Difference of cubes in a rational expression",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x ≠ 2 and x ≠ −2, which of the following is equivalent to (x³ − 8)/(x² − 4) − (x² + 4)/(x + 2) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2x/(x + 2)",
+        "B": "2x/(x + 2)",
+        "C": "(2x + 8)/(x + 2)",
+        "D": "0"
+      },
+      "correct_answer": "B",
+      "explanation": "x³ − 8 = (x − 2)(x² + 2x + 4) and x² − 4 = (x − 2)(x + 2), so the first fraction is (x² + 2x + 4)/(x + 2). Subtracting (x² + 4)/(x + 2) leaves 2x/(x + 2).",
+      "distractor_explanations": {
+        "A": "This factors x³ − 8 with the wrong middle sign, (x − 2)(x² − 2x + 4).",
+        "C": "This subtracts only the x² term of the second numerator and adds its 4.",
+        "D": "This factors x³ − 8 as (x − 2)(x² + 4), so the two fractions look identical."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "How does x³ − 8 factor?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor, cancel, then subtract."
+      },
+      "remember": "a³ − b³ = (a − b)(a² + ab + b²).",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-03",
+      "created_at": "2026-10-27T18:37:47+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000836",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Difference of squares from a sum and a difference",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x > 0 and x − 1/x = 3, what is the value of x² − 1/x² ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "9",
+        "B": "11",
+        "C": "3√5",
+        "D": "3√13"
+      },
+      "correct_answer": "D",
+      "explanation": "x² − 1/x² = (x − 1/x)(x + 1/x). Also (x + 1/x)² = (x − 1/x)² + 4 = 13, and x + 1/x > 0 because x > 0, so x + 1/x = √13. The value is 3√13.",
+      "distractor_explanations": {
+        "A": "This squares both sides as if (x − 1/x)² equaled x² − 1/x².",
+        "B": "This finds x² + 1/x² = 9 + 2, a sum instead of the difference.",
+        "C": "This uses (x + 1/x)² = (x − 1/x)² − 4 = 5, with the wrong sign on the 4."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": "sign_error"
+      },
+      "hints": [
+        "Factor x² − 1/x² as a difference of squares."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x + 1/x from its square."
+      },
+      "remember": "(a + b)² = (a − b)² + 4ab.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-04",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000837",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Revenue model built from price increases",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A theater sells 360 tickets per show at a price of $12 per ticket. For each $1 increase in the ticket price, it sells 15 fewer tickets per show. Assuming this relationship continues, what ticket price, in dollars, gives the greatest revenue per show?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "18",
+      "accepted_answers": [
+        "18"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the number of $1 increases, not the price.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "24",
+          "rationale": "24 is the number of increases at which sales stop.",
+          "trap": null
+        },
+        {
+          "value": "36",
+          "rationale": "36 is the price at which no tickets are sold.",
+          "trap": null
+        }
+      ],
+      "explanation": "With x one-dollar increases, revenue is R = (12 + x)(360 − 15x). Its zeros are x = −12 and x = 24, so the maximum is midway, at x = 6. The best price is 12 + 6 = 18 dollars, giving 18 × 270 = 4,860 dollars.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the price and the number of tickets in terms of the number of $1 increases."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build R(x), then find its vertex."
+      },
+      "remember": "A parabola's vertex is midway between its zeros.",
+      "expected_time_seconds": 130,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-05",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "18",
+        "blind_answer": "18",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000838",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Function of a reciprocal input",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (x + 1)/(x − 1). For x ≠ 0, x ≠ 1, and x ≠ −1, which of the following is equal to f(1/x) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(x)",
+        "B": "1/f(x)",
+        "C": "−1/f(x)",
+        "D": "−f(x)"
+      },
+      "correct_answer": "D",
+      "explanation": "f(1/x) = (1/x + 1)/(1/x − 1). Multiplying the numerator and denominator by x gives (1 + x)/(1 − x), which equals −(x + 1)/(x − 1) = −f(x).",
+      "distractor_explanations": {
+        "A": "This multiplies by x but keeps the denominator as x − 1, losing the sign.",
+        "B": "This assumes replacing x with 1/x flips the output.",
+        "C": "This gets the sign change but also flips the fraction."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Multiply the numerator and denominator by x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try x = 2: f(2) = 3 and f(1/2) = −3."
+      },
+      "remember": "Clear a complex fraction by multiplying by the inner denominator.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-07",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [
+          "minor: restriction x≠−1 is not actually needed for f(1/x) or any choice except 1/f(x)/−1/f(x) (f(−1)=0); harmless"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000839",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Line through a known point meeting a circle again",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = mx + 5, where m is a constant, intersects the circle x² + y² = 25 at the point (0, 5) and at one other point, whose x-coordinate is 4. What is the sum of all possible values of m ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-2.5",
+      "accepted_answers": [
+        "-2.5",
+        "-5/2"
+      ],
+      "common_errors": [
+        {
+          "value": "-0.5",
+          "rationale": "−0.5 uses only the point (4, 3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 uses only the point (4, −3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.5",
+          "rationale": "2.5 reverses the subtraction in the slopes.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The other point has 16 + y² = 25, so it is (4, 3) or (4, −3). The slopes from (0, 5) are (3 − 5)/4 = −1/2 and (−3 − 5)/4 = −2. The sum is −5/2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How many points on the circle have x-coordinate 4?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle and both points with x = 4."
+      },
+      "remember": "Check whether a condition allows more than one point.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-08",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-2.5",
+        "blind_answer": "-2.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 33,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000840",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Inequality on a composition",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f and g are defined by f(x) = x² − 4x and g(x) = x + 2. Which of the following describes all values of x for which f(g(x)) < 0 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2 < x < 2",
+        "B": "0 < x < 4",
+        "C": "2 < x < 6",
+        "D": "2 − √2 < x < 2 + √2"
+      },
+      "correct_answer": "A",
+      "explanation": "f(g(x)) = (x + 2)² − 4(x + 2) = (x + 2)(x − 2), which is negative exactly when −2 < x < 2. Equivalently, f(u) < 0 for 0 < u < 4, and u = x + 2.",
+      "distractor_explanations": {
+        "B": "This solves f(x) < 0 and ignores the composition.",
+        "C": "This shifts the interval the wrong way, solving 0 < x − 2 < 4.",
+        "D": "This composes in the wrong order: g(f(x)) = x² − 4x + 2 < 0."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Write f(g(x)) and factor it."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand the composition, then find where it is negative."
+      },
+      "remember": "f(g(x)) means apply g first.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-09",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 52,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000841",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed angles on the same arc",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Points A, B, C, and D lie on a circle in that order, and chords AC and BD intersect at point E. The measure of angle ABD is 50°, and the measure of angle AEB is 75°. What is the measure of angle BDC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25°",
+        "B": "50°",
+        "C": "55°",
+        "D": "105°"
+      },
+      "correct_answer": "C",
+      "explanation": "In triangle ABE, angle BAE = 180° − 50° − 75° = 55°. Angles BAC and BDC are inscribed angles that intercept the same arc BC, so angle BDC = 55°.",
+      "distractor_explanations": {
+        "A": "This subtracts the two given angles.",
+        "B": "This treats ABD and BDC as alternate interior angles, as if AB were parallel to CD.",
+        "D": "This is the supplement of angle AEB, an angle at E, not at D."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which angle intercepts the same arc as angle BDC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the circle, the chords, and triangle ABE."
+      },
+      "remember": "Inscribed angles on the same arc are equal.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-11",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000842",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Revolutions per minute to radians per second",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A turntable rotates at a constant rate of 45 revolutions per minute. What is the turntable's rate of rotation, in radians per second?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3π/4",
+        "B": "3π/2",
+        "C": "270",
+        "D": "90π"
+      },
+      "correct_answer": "B",
+      "explanation": "45 revolutions per minute is 45(2π) = 90π radians per minute, and 90π/60 = 3π/2 radians per second.",
+      "distractor_explanations": {
+        "A": "This uses π radians per revolution instead of 2π.",
+        "C": "This finds degrees per second, 45 × 360/60.",
+        "D": "This is radians per minute; it forgets to convert to seconds."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "How many radians are in one revolution?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert revolutions to radians, then minutes to seconds."
+      },
+      "remember": "One revolution is 2π radians.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-12",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000843",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Surface area after finding a missing height",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A closed right rectangular prism has a volume of 360 cubic centimeters, and its base is a rectangle that is 8 centimeters by 9 centimeters. What is the total surface area of the prism, in square centimeters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "314",
+      "accepted_answers": [
+        "314"
+      ],
+      "common_errors": [
+        {
+          "value": "157",
+          "rationale": "157 adds the three different face areas once each, forgetting that each appears twice.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "229",
+          "rationale": "229 counts the top and bottom twice but each pair of side faces once: 2(72) + 40 + 45.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 is the volume, not the surface area.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The height is 360/72 = 5. The surface area is 2(8 · 9 + 8 · 5 + 9 · 5) = 2(72 + 40 + 45) = 314.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find the height first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the volume to find the height, then add all six faces."
+      },
+      "remember": "A box has three pairs of congruent faces.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-13",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "314",
+        "blind_answer": "314",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000844",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Equal angles inside a right triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, AC = 6, and BC = 12. Point D lies on side BC so that angle CAD has the same measure as angle ABC. What is the length of BD ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is CD, not BD.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes D is the midpoint of BC.",
+          "trap": null
+        }
+      ],
+      "explanation": "tan(angle ABC) = AC/BC = 6/12 = 1/2, and tan(angle CAD) = CD/AC, so CD = 6 × 1/2 = 3. Then BD = 12 − 3 = 9.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the tangent of angle ABC?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the equal angles and use the tangent ratio in both triangles."
+      },
+      "remember": "Equal angles have equal trigonometric ratios.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-14",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "9",
+        "blind_answer": "9",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 42,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000845",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope after swapping the axes",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A scientist models the mass m, in grams, of a growing crystal d days after it begins forming with the equation m = 0.4d + 12. A student graphs the same relationship with m on the horizontal axis and d on the vertical axis. What is the slope of the student's graph, and what does it represent?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.4; the crystal gains 0.4 gram per day.",
+        "B": "2.5; the crystal takes 2.5 days to gain each gram.",
+        "C": "2.5; the crystal gains 2.5 grams per day.",
+        "D": "0.4; the crystal takes 0.4 day to gain each gram."
+      },
+      "correct_answer": "B",
+      "explanation": "Solving for d gives d = (m − 12)/0.4 = 2.5m − 30. With m horizontal and d vertical, the slope is 2.5, measured in days per gram: the crystal takes 2.5 days to gain each gram.",
+      "distractor_explanations": {
+        "A": "This keeps the original slope and meaning, ignoring the swapped axes.",
+        "C": "This inverts the number but keeps the original units, grams per day.",
+        "D": "This keeps the original number but attaches the reciprocal units."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Solve the equation for d."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite d in terms of m, then read the units."
+      },
+      "remember": "Slope units are vertical units per horizontal unit.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-15",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 48,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000846",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Remainder from polynomial division",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x ≠ −2, the expression (2x² + 7x + 9)/(x + 2) is equivalent to 2x + 3 + k/(x + 2), where k is a constant. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the constant term of the numerator.",
+          "trap": null
+        },
+        {
+          "value": "15",
+          "rationale": "15 adds 6 instead of subtracting it.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 subtracts in the wrong order, 6 − 9.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "(2x + 3)(x + 2) = 2x² + 7x + 6, so 2x² + 7x + 9 = (2x + 3)(x + 2) + 3. Dividing by x + 2 gives 2x + 3 + 3/(x + 2), so k = 3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the numerator as the divisor times a linear quotient, plus a constant."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the product with the numerator."
+      },
+      "remember": "Dividend = quotient × divisor + remainder.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-16",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 2,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000847",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Scope of a causal conclusion from two active treatments",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a clinic, 120 adult volunteers with seasonal allergies were randomly assigned to take either drug A or drug B for one month. Patients who took drug A reported fewer days with symptoms, on average, than patients who took drug B, and the difference was too large to be explained by chance alone. Which conclusion is best supported?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking drug B does.",
+        "B": "For patients like those in the study, taking drug A likely causes fewer symptom days than taking no medication does.",
+        "C": "No conclusion about cause can be drawn, because the study did not include a placebo group.",
+        "D": "Drug A likely causes fewer symptom days than drug B does for all adults with seasonal allergies."
+      },
+      "correct_answer": "A",
+      "explanation": "Random assignment supports a causal conclusion, but only for the comparison the study made (drug A versus drug B) and only for people like the volunteers. The study had no untreated group, so it says nothing about drug A versus no medication.",
+      "distractor_explanations": {
+        "B": "The study had no untreated group to compare with.",
+        "C": "Random assignment between two treatments supports a causal comparison of those treatments; a placebo is not required.",
+        "D": "The volunteers at one clinic were not a random sample of all adults with allergies."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What did the study actually compare?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each choice's comparison and population."
+      },
+      "remember": "Random assignment supports cause; random sampling supports generalization.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "Q076-17",
+      "created_at": "2026-10-27T18:37:48+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-076.review.json",
+        "computation": "checks/sat_math/batch_076.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,0 +1,454 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 76,
+  "reviewed_at": "2026-10-27T18:37:48+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 76
+  },
+  "counts": {
+    "PASS": 15,
+    "REVISE": 1,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000833",
+    "CLD-SAT-M-000834",
+    "CLD-SAT-M-000835",
+    "CLD-SAT-M-000836",
+    "CLD-SAT-M-000837",
+    "CLD-SAT-M-000838",
+    "CLD-SAT-M-000839",
+    "CLD-SAT-M-000840",
+    "CLD-SAT-M-000841",
+    "CLD-SAT-M-000842",
+    "CLD-SAT-M-000843",
+    "CLD-SAT-M-000844",
+    "CLD-SAT-M-000845",
+    "CLD-SAT-M-000846",
+    "CLD-SAT-M-000847"
+  ],
+  "results": [
+    {
+      "cand": "Q076-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 28,
+      "blind_flags": [],
+      "blind_notes": "f symmetric about x=2; g(k-x)=f(2k-2x-6) must equal f(4-(2x-6))=f(10-2x), so 2k-6=10, k=8 (g's axis x=4). Trap: k=4 or 7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The identity must be carried through a shift and a compression, and k is twice the axis."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000833"
+    },
+    {
+      "cand": "Q076-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "u=x^2-4x: u=2sqrt(u+8) -> u^2-4u-32=0 -> u=8 (u=-4 extraneous). x^2-4x-8=0, two real roots 2±2√3, sum 4. Trap: including extraneous x=2 gives 6. Graphing also works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The extraneous root must be rejected at the level of u, before it produces a valid-looking x."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000834"
+    },
+    {
+      "cand": "Q076-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(x^3-8)/(x^2-4)=(x^2+2x+4)/(x+2); minus (x^2+4)/(x+2) = 2x/(x+2). Can verify with x=0 (choices A,B both give 0) then x=1: 2/3 -> B.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000835"
+    },
+    {
+      "cand": "Q076-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x+1/x=sqrt(9+4)=√13 (x>0); x^2-1/x^2=(x-1/x)(x+1/x)=3√13. 11 is x^2+1/x^2 trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The missing factor x + 1/x must be found from an identity, with the sign chosen from x > 0."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000836"
+    },
+    {
+      "cand": "Q076-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "18",
+      "computed_answer": "18",
+      "blind_answer": "18",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "R=(12+p)(360-15p); zeros p=-12, 24; vertex p=6; price $18 (revenue 270*18=4860). Trap: answering 6 (the increase).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must build the quadratic model and convert the best number of increases back into a price."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000837"
+    },
+    {
+      "cand": "Q076-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [],
+      "blind_notes": "Telescoping: (x-1)/x * x/(x+1) * (x+1)/(x+2) = (x-1)/(x+2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-M-000415",
+          "similarity": 0.86
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q076-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 52,
+      "blind_flags": [
+        "minor: restriction x≠−1 is not actually needed for f(1/x) or any choice except 1/f(x)/−1/f(x) (f(−1)=0); harmless"
+      ],
+      "blind_notes": "f(1/x)=(1+x)/(1-x)=-(x+1)/(x-1)=-f(x). Plugging x=2: f(1/2)=-3, f(2)=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must clear a complex fraction and recognize the opposite of the original."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000838"
+    },
+    {
+      "cand": "Q076-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-2.5",
+      "computed_answer": "-2.5",
+      "blind_answer": "-2.5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 33,
+      "blind_flags": [],
+      "blind_notes": "x=4 on circle -> y=±3. m=(3-5)/4=-1/2 or (-3-5)/4=-2. Sum -5/2 (-2.5). Trap: only one point found.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must notice that two points on the circle have x-coordinate 4."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000839"
+    },
+    {
+      "cand": "Q076-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 52,
+      "blind_flags": [],
+      "blind_notes": "f(g(x))=(x+2)^2-4(x+2)=x^2-4=(x-2)(x+2)<0 -> -2<x<2. B is f<0 itself; C is wrong-direction shift.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Each wrong choice is a specific order or direction error with compositions."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000840"
+    },
+    {
+      "cand": "Q076-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "90",
+      "computed_answer": "90",
+      "blind_answer": "90",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "over-determined: the 64° measure is irrelevant (same-side interior angles sum to 180, half-sums give 90 regardless); acceptable only if intended as a red herring",
+        "minor: classic textbook theorem (bisectors of same-side interior angles are perpendicular); wording is dense"
+      ],
+      "blind_notes": "Interior angles at A and B on same side sum to 180; halves sum 90; triangle APB angle P = 90.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The given 64° does not matter; halves of a supplementary pair always sum to 90°."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: over-determined: the 64° measure is irrelevant (same-side interior angles sum to 180, half-sums give 90 regardless); acceptable only if intended as a red herring"
+    },
+    {
+      "cand": "Q076-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Triangle ABE: angle BAE=180-50-75=55; angle BAC and BDC subtend arc BC, so 55. Arcs check: AD=100, AB+CD=150, BC=110 sum 360.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "A triangle angle sum must be combined with the equal-inscribed-angle fact."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000841"
+    },
+    {
+      "cand": "Q076-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "45 rev/min=0.75 rev/s ×2π=3π/2 rad/s. C=degrees/s, D=rad/min, A forgets factor 2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000842"
+    },
+    {
+      "cand": "Q076-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "314",
+      "computed_answer": "314",
+      "blind_answer": "314",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "h=360/72=5; SA=2(72+40+45)=314.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000843"
+    },
+    {
+      "cand": "Q076-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "9",
+      "computed_answer": "9",
+      "blind_answer": "9",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "tan(CAD)=CD/6=tan B=6/12 -> CD=3; BD=12-3=9.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000844"
+    },
+    {
+      "cand": "Q076-15",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "trap key not in math list",
+          "change": "trap for C set to None"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 48,
+      "blind_flags": [],
+      "blind_notes": "d=(m-12)/0.4=2.5m-30; slope 2.5 days per gram.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must invert the model and attach the reciprocal units."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000845"
+    },
+    {
+      "cand": "Q076-16",
+      "revision": 3,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "hint gave the computation away",
+          "change": "hint now names the form, not the product"
+        },
+        {
+          "round": 2,
+          "outcome": "REVISE",
+          "reason": "hint contained the digit of the answer",
+          "change": "hint reworded without numbers"
+        }
+      ],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "(x+2)(2x+3)=2x^2+7x+6; remainder 3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000846"
+    },
+    {
+      "cand": "Q076-17",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "verbal trap keys used on a math item",
+          "change": "traps for B and D set to None"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Random assignment supports causal comparison of A vs B; generalization limited to similar patients (no random sampling); no-medication comparison not studied.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000847"
+    }
+  ]
+}
