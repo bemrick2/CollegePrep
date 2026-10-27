@@ -1,0 +1,101 @@
+{
+  "ideas": "batch 25",
+  "results": {
+    "V02": [
+      {
+        "other_id": "CLD-ACT-M-000390",
+        "severity": "close",
+        "why": "Both distribute a negative coefficient and combine like terms into ax + b form; ACT-390 asks for the equivalent expression, V02 asks for a + b."
+      },
+      {
+        "other_id": "FIX-51 (fixtures.ts: (x + 3)(x − 5) = x² + bx + c, find b + c)",
+        "severity": "close",
+        "why": "Same 'expand to match coefficients, report their sum' framing, but the fixture multiplies two binomials while V02 is linear distribution."
+      }
+    ],
+    "V03": [
+      {
+        "other_id": "CLD-ACT-M-000441",
+        "severity": "template",
+        "why": "Same setup: compare the slope of a linear function given by an equation with one given by two points/values. ACT-441 also compares intercepts; V03 is the slope-only subset."
+      }
+    ],
+    "V04": [],
+    "V07": [
+      {
+        "other_id": "CLD-SAT-M-000118",
+        "severity": "close",
+        "why": "Both find a missing coordinate of a point on a line fixed by other given information. V07 first solves for the slope k in y = kx + 3, so the setup differs."
+      }
+    ],
+    "W01": [
+      {
+        "other_id": "CLD-ACT-M-000716",
+        "severity": "close",
+        "why": "Both ask for the price that maximizes a quadratic money model. ACT-716 only interprets the 15 in vertex form; W01 has to find the vertex from p(600 − 20p)."
+      }
+    ],
+    "W03": [
+      {
+        "other_id": "CLD-ACT-M-000051",
+        "severity": "close",
+        "why": "Both simplify a rational expression by factoring and cancelling a common factor. The structures differ (a monomial factor in W03, two trinomials in ACT-051)."
+      }
+    ],
+    "W05": [
+      {
+        "other_id": "CLD-SAT-M-000090",
+        "severity": "close",
+        "why": "Both set a quadratic equal to a constant that turns it into a perfect square, (x − 3)² = 0 vs (x − 1)² = 0. SAT-090 asks how many solutions; W05 asks for the solution."
+      }
+    ],
+    "W12": [],
+    "X04": [
+      {
+        "other_id": "CLD-ACT-M-000764",
+        "severity": "close",
+        "why": "Both find a trig ratio of an acute angle from two given legs. X04 puts it in a rectangle-and-diagonal setting and asks for tangent."
+      },
+      {
+        "other_id": "CLD-SAT-M-000023",
+        "severity": "close",
+        "why": "Uses the same 5:12 tangent ratio, but SAT-023 goes the other way (from the ratio and the hypotenuse to a side length)."
+      }
+    ],
+    "X05": [
+      {
+        "other_id": "CLD-SAT-M-000023",
+        "severity": "close",
+        "why": "Same approach: one trig ratio plus the hypotenuse gives the side lengths. X05 uses sin = 3/5 and asks for the perimeter (both legs), while SAT-023 uses tan = 5/12 and asks for one leg."
+      }
+    ],
+    "Y05": [
+      {
+        "other_id": "CLD-ACT-M-000464",
+        "severity": "close",
+        "why": "Both use the definition of range. ACT-464 computes the range from a list; Y05 works backward from the range and minimum to the maximum."
+      }
+    ],
+    "Y06": [
+      {
+        "other_id": "CLD-ACT-M-000028",
+        "severity": "template",
+        "why": "Same mixture template: an existing amount at one concentration, add an unknown amount of another concentration to reach a target percent, solve for the amount added. Y06 only swaps the context (nuts, and the added part is pure almonds at 100%)."
+      }
+    ],
+    "X08": [
+      {
+        "other_id": "CLD-ACT-M-000084",
+        "severity": "template",
+        "why": "Same template: vertical angles given as (ax + b)° and (cx − d)°, set them equal. ACT-084 asks for x; X08 asks for the angle measure, which is one substitution further."
+      }
+    ],
+    "V09": [
+      {
+        "other_id": "CLD-ACT-M-000413",
+        "severity": "template",
+        "why": "Near-identical: test answer-choice points against y ≥/> 2x − 1 and y ≤ −x + 5 (equivalent to x + y < 5 in ACT-413). Same first inequality, the same boundary line for the second, and choice (2, 4) appears in both."
+      }
+    ]
+  }
+}
