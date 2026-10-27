@@ -861,7 +861,7 @@ def screen(bank: str, n: int) -> None:
         if twins:
             print(f"  warn: subskill overlaps existing bank subskills {twins[:3]} (check for a concept repeat)")
         # Advisory only: blind solvers repeatedly flag a key that is clearly the longest choice as a test-wise tell.
-        lens = {k: len(v) for k, v in c['choices'].items() if v not in ('NO CHANGE', 'DELETE the underlined portion.')}
+        lens = {k: len(v) for k, v in (c.get('choices') or {}).items() if v not in ('NO CHANGE', 'DELETE the underlined portion.')}
         if verbal and c['answer'] in lens and len(lens) > 2:
             rest = max(v for k, v in lens.items() if k != c['answer'])
             if lens[c['answer']] > 1.15 * rest:
