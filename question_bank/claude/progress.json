@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:20:39+00:00",
+  "updated_at": "2026-10-27T00:24:34+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 678,
+    "act_math": 688,
     "act_english": 232,
     "act_reading": 199,
     "sat_reading_writing": 227
   },
   "review_totals": {
     "act_math": {
-      "PASS": 696,
+      "PASS": 706,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 701,
+      "candidates": 711,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 678,
+      "accepted": 688,
       "retired_after_audit": 18,
       "by_skill": {
         "Algebra": 126,
-        "Functions": 108,
-        "Geometry": 162,
+        "Functions": 111,
+        "Geometry": 168,
         "Integrating Essential Skills": 88,
         "Number & Quantity": 86,
-        "Statistics & Probability": 108
+        "Statistics & Probability": 109
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -114,6 +114,7 @@
         "Area of an equilateral triangle": 1,
         "Area of an isosceles trapezoid": 1,
         "Area of an isosceles triangle": 1,
+        "Area of the region |x| + |y| ≤ k": 1,
         "Area on a scale map": 1,
         "Area swept by a clock hand": 1,
         "Area with unit conversion": 1,
@@ -211,6 +212,7 @@
         "Converting miles per hour to feet per second": 1,
         "Converting odds to a probability": 1,
         "Converting square units": 1,
+        "Cosine from a given tangent": 1,
         "Cosine from a point on the terminal side": 1,
         "Counting codes with a restricted first digit": 1,
         "Counting codes with and without repetition": 1,
@@ -268,6 +270,7 @@
         "Distance from a midpoint to an endpoint": 1,
         "Distance from a point to a circle": 1,
         "Distance from a point to a line": 1,
+        "Distance from an angle of depression": 1,
         "Distance with mixed time units": 1,
         "Distances from a point to the corners of a rectangle": 1,
         "Distributing and combining like terms": 1,
@@ -340,6 +343,7 @@
         "Finding a linear function from its self-composition": 1,
         "Finite geometric series": 1,
         "First term of a geometric sequence": 1,
+        "Foci of an ellipse": 1,
         "Fourth vertex of a parallelogram": 1,
         "Fraction of a fraction": 1,
         "Fuel consumption per 100 kilometers": 1,
@@ -357,6 +361,7 @@
         "Greatest possible value with mean and median constraints": 1,
         "Group size from a combined mean": 1,
         "Height from two angles of elevation": 1,
+        "Hexagon and triangle with equal perimeters": 1,
         "Horizontal asymptote of an exponential function": 1,
         "Horizontal asymptotes of rational functions": 1,
         "Horizontal compression of a function": 1,
@@ -397,6 +402,7 @@
         "Inverse values from a table": 1,
         "Inverse variation with a square": 1,
         "Isosceles right triangle from its area": 1,
+        "Largest of consecutive integers from their mean": 1,
         "Largest prime factor of 2^10 − 1": 1,
         "Lateral area of a cone": 1,
         "Lateral area of a cylinder": 1,
@@ -411,6 +417,7 @@
         "Length of the major axis of an ellipse": 1,
         "Limiting ingredient in batches": 1,
         "Line tangent to a parabola": 1,
+        "Line through a rectangle that halves its area": 1,
         "Linear depreciation": 1,
         "Linear equation with a negative distributed coefficient": 1,
         "Linear equation with two fractional terms": 1,
@@ -553,6 +560,7 @@
         "Pythagorean theorem with a moving ladder": 1,
         "Quadratic equations: solutions": 1,
         "Quadratic formula with irrational roots": 1,
+        "Quadratic from its vertex and one point": 1,
         "Quadratic from the sum and product of its roots": 1,
         "Quadratic from three points": 1,
         "Quadratic functions from key features": 1,
@@ -560,6 +568,7 @@
         "Quadratic optimization in context": 1,
         "Quadratic pattern from second differences": 1,
         "Questions missed from a percent correct": 1,
+        "Quotient of polynomial division": 1,
         "Radical equations and extraneous solutions": 1,
         "Radius from a chord and its distance to the center": 1,
         "Range of a data set": 1,
@@ -623,6 +632,7 @@
         "Simplifying products and quotients of radicals": 1,
         "Simplifying radicals with variables": 1,
         "Simplifying rational expressions": 1,
+        "Simplifying with the Pythagorean identity": 1,
         "Sinusoidal models: time above a threshold": 1,
         "Slope from standard form": 1,
         "Slope from two points": 1,
@@ -743,24 +753,24 @@
       },
       "by_difficulty_author": {
         "easy": 177,
-        "hard": 206,
-        "medium": 295
+        "hard": 207,
+        "medium": 304
       },
       "by_difficulty_calibrated": {
-        "easy": 227,
-        "hard": 82,
-        "medium": 369
+        "easy": 230,
+        "hard": 85,
+        "medium": 373
       },
       "calibrated_share": {
-        "easy": 0.335,
-        "hard": 0.121,
-        "medium": 0.544
+        "easy": 0.334,
+        "hard": 0.124,
+        "medium": 0.542
       },
       "answer_key_balance": {
-        "A": 157,
+        "A": 161,
         "B": 187,
-        "C": 186,
-        "D": 148
+        "C": 187,
+        "D": 153
       },
       "modeling_items": 136,
       "passages": 0
@@ -1266,50 +1276,41 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 70,
+    "act_math": 71,
     "act_english": 23,
     "act_reading": 25,
     "sat_reading_writing": 25
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 71,
+      "next_batch": 72,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -10.3,
-        "Algebra": 1.3,
-        "Functions": 19.3,
-        "Geometry": -34.7,
-        "Statistics & Probability": -15.1,
-        "Integrating Essential Skills": 49.6
+        "Number & Quantity": -9.2,
+        "Algebra": 3.1,
+        "Functions": 18.1,
+        "Geometry": -38.9,
+        "Statistics & Probability": -14.8,
+        "Integrating Essential Skills": 51.6
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -55.0,
-        "medium": -25.0,
-        "hard": 90.0
+        "easy": -55.5,
+        "medium": -24.0,
+        "hard": 89.5
       },
       "answer_key_gap_for_next_10": {
-        "A": 15.0,
-        "B": -15.0,
-        "C": -14.0,
-        "D": 24.0
+        "A": 13.5,
+        "B": -12.5,
+        "C": -12.5,
+        "D": 21.5
       }
     }
   },
   "verbal_guidance": {
-    "sat_reading_writing": {
-      "next_batch": 26,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 5.4,
-        "Information and Ideas": -0.4,
-        "Standard English Conventions": 6.6,
-        "Expression of Ideas": -1.6
-      }
-    },
     "act_english": {
       "next_batch": 24,
       "skill_gap_for_next_10": {
@@ -1325,13 +1326,22 @@
         "Craft and Structure": -9.3,
         "Integration of Knowledge and Ideas": -8.0
       }
+    },
+    "sat_reading_writing": {
+      "next_batch": 26,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 5.4,
+        "Information and Ideas": -0.4,
+        "Standard English Conventions": 6.6,
+        "Expression of Ideas": -1.6
+      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 678,
-      "share_of_target": 0.339
+      "accepted": 688,
+      "share_of_target": 0.344
     },
     "act_english": {
       "target": 700,
@@ -1350,7 +1360,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1336,
+  "total_accepted": 1346,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_reading_writing",
   "audits": [
@@ -47611,12 +47621,556 @@
         "Relationship between paragraphs": 4
       },
       "scope": "automatic audit at 200 accepted"
+    },
+    {
+      "bank": "act_math",
+      "audited_at": "2026-10-27T00:24:32+00:00",
+      "accepted": 706,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-ACT-M-000014",
+          "b": "CLD-ACT-M-000542",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-M-000021",
+          "b": "CLD-ACT-M-000122",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-ACT-M-000021",
+          "b": "CLD-ACT-M-000502",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000030",
+          "b": "CLD-ACT-M-000661",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000031",
+          "b": "CLD-ACT-M-000181",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-M-000032",
+          "b": "CLD-ACT-M-000172",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-ACT-M-000032",
+          "b": "CLD-ACT-M-000281",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000035",
+          "b": "CLD-ACT-M-000575",
+          "similarity": 0.61
+        },
+        {
+          "a": "CLD-ACT-M-000039",
+          "b": "CLD-ACT-M-000463",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000041",
+          "b": "CLD-ACT-M-000080",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000041",
+          "b": "CLD-ACT-M-000528",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-M-000072",
+          "b": "CLD-ACT-M-000260",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000072",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000413",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000500",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000528",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000569",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-M-000080",
+          "b": "CLD-ACT-M-000661",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000260",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000479",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-ACT-M-000112",
+          "b": "CLD-ACT-M-000625",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-M-000115",
+          "b": "CLD-ACT-M-000222",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-ACT-M-000123",
+          "b": "CLD-ACT-M-000388",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000134",
+          "b": "CLD-ACT-M-000591",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-M-000152",
+          "b": "CLD-ACT-M-000620",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000164",
+          "b": "CLD-ACT-M-000337",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-ACT-M-000180",
+          "b": "CLD-ACT-M-000524",
+          "similarity": 0.75
+        },
+        {
+          "a": "CLD-ACT-M-000192",
+          "b": "CLD-ACT-M-000551",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000229",
+          "b": "CLD-ACT-M-000536",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000248",
+          "b": "CLD-ACT-M-000288",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000248",
+          "b": "CLD-ACT-M-000642",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000253",
+          "b": "CLD-ACT-M-000388",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-M-000260",
+          "b": "CLD-ACT-M-000291",
+          "similarity": 0.63
+        },
+        {
+          "a": "CLD-ACT-M-000260",
+          "b": "CLD-ACT-M-000625",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-ACT-M-000280",
+          "b": "CLD-ACT-M-000620",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000281",
+          "b": "CLD-ACT-M-000594",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-ACT-M-000328",
+          "b": "CLD-ACT-M-000546",
+          "similarity": 0.61
+        },
+        {
+          "a": "CLD-ACT-M-000344",
+          "b": "CLD-ACT-M-000354",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000350",
+          "b": "CLD-ACT-M-000539",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000352",
+          "b": "CLD-ACT-M-000378",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-ACT-M-000362",
+          "b": "CLD-ACT-M-000553",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000374",
+          "b": "CLD-ACT-M-000522",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000380",
+          "b": "CLD-ACT-M-000579",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-ACT-M-000411",
+          "b": "CLD-ACT-M-000683",
+          "similarity": 0.67
+        },
+        {
+          "a": "CLD-ACT-M-000413",
+          "b": "CLD-ACT-M-000528",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-M-000413",
+          "b": "CLD-ACT-M-000542",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-ACT-M-000426",
+          "b": "CLD-ACT-M-000528",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000479",
+          "b": "CLD-ACT-M-000642",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000488",
+          "b": "CLD-ACT-M-000491",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-ACT-M-000509",
+          "b": "CLD-ACT-M-000585",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000528",
+          "b": "CLD-ACT-M-000661",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-ACT-M-000569",
+          "b": "CLD-ACT-M-000661",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000613",
+          "b": "CLD-ACT-M-000661",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-ACT-M-000661",
+          "b": "CLD-ACT-M-000677",
+          "similarity": 0.6
+        }
+      ],
+      "answer_key_balance": {
+        "A": 164,
+        "B": 194,
+        "C": 189,
+        "D": 159
+      },
+      "by_skill": {
+        "Algebra": 128,
+        "Functions": 112,
+        "Geometry": 173,
+        "Integrating Essential Skills": 89,
+        "Number & Quantity": 93,
+        "Statistics & Probability": 111
+      },
+      "by_difficulty_author": {
+        "easy": 179,
+        "hard": 213,
+        "medium": 314
+      },
+      "by_difficulty_calibrated": {
+        "easy": 235,
+        "hard": 88,
+        "medium": 383
+      },
+      "thin_explanations": [
+        "CLD-ACT-M-000004",
+        "CLD-ACT-M-000064",
+        "CLD-ACT-M-000079",
+        "CLD-ACT-M-000093",
+        "CLD-ACT-M-000095",
+        "CLD-ACT-M-000098",
+        "CLD-ACT-M-000100",
+        "CLD-ACT-M-000120",
+        "CLD-ACT-M-000121",
+        "CLD-ACT-M-000124",
+        "CLD-ACT-M-000136",
+        "CLD-ACT-M-000146",
+        "CLD-ACT-M-000169",
+        "CLD-ACT-M-000172",
+        "CLD-ACT-M-000184",
+        "CLD-ACT-M-000192",
+        "CLD-ACT-M-000197",
+        "CLD-ACT-M-000199",
+        "CLD-ACT-M-000213",
+        "CLD-ACT-M-000214",
+        "CLD-ACT-M-000217",
+        "CLD-ACT-M-000225",
+        "CLD-ACT-M-000227",
+        "CLD-ACT-M-000231",
+        "CLD-ACT-M-000232",
+        "CLD-ACT-M-000236",
+        "CLD-ACT-M-000238",
+        "CLD-ACT-M-000239",
+        "CLD-ACT-M-000243",
+        "CLD-ACT-M-000247",
+        "CLD-ACT-M-000248",
+        "CLD-ACT-M-000250",
+        "CLD-ACT-M-000252",
+        "CLD-ACT-M-000254",
+        "CLD-ACT-M-000257",
+        "CLD-ACT-M-000258",
+        "CLD-ACT-M-000262",
+        "CLD-ACT-M-000264",
+        "CLD-ACT-M-000265",
+        "CLD-ACT-M-000267",
+        "CLD-ACT-M-000269",
+        "CLD-ACT-M-000272",
+        "CLD-ACT-M-000276",
+        "CLD-ACT-M-000277",
+        "CLD-ACT-M-000278",
+        "CLD-ACT-M-000279",
+        "CLD-ACT-M-000282",
+        "CLD-ACT-M-000286",
+        "CLD-ACT-M-000287",
+        "CLD-ACT-M-000290",
+        "CLD-ACT-M-000291",
+        "CLD-ACT-M-000292",
+        "CLD-ACT-M-000293",
+        "CLD-ACT-M-000294",
+        "CLD-ACT-M-000296",
+        "CLD-ACT-M-000298",
+        "CLD-ACT-M-000299",
+        "CLD-ACT-M-000301",
+        "CLD-ACT-M-000303",
+        "CLD-ACT-M-000305",
+        "CLD-ACT-M-000309",
+        "CLD-ACT-M-000312",
+        "CLD-ACT-M-000313",
+        "CLD-ACT-M-000315",
+        "CLD-ACT-M-000316",
+        "CLD-ACT-M-000318",
+        "CLD-ACT-M-000320",
+        "CLD-ACT-M-000321",
+        "CLD-ACT-M-000322",
+        "CLD-ACT-M-000324",
+        "CLD-ACT-M-000325",
+        "CLD-ACT-M-000327",
+        "CLD-ACT-M-000341",
+        "CLD-ACT-M-000342",
+        "CLD-ACT-M-000344",
+        "CLD-ACT-M-000345",
+        "CLD-ACT-M-000351",
+        "CLD-ACT-M-000353",
+        "CLD-ACT-M-000360",
+        "CLD-ACT-M-000368",
+        "CLD-ACT-M-000370",
+        "CLD-ACT-M-000372",
+        "CLD-ACT-M-000373",
+        "CLD-ACT-M-000378",
+        "CLD-ACT-M-000380",
+        "CLD-ACT-M-000381",
+        "CLD-ACT-M-000382",
+        "CLD-ACT-M-000387",
+        "CLD-ACT-M-000390",
+        "CLD-ACT-M-000392",
+        "CLD-ACT-M-000394",
+        "CLD-ACT-M-000397",
+        "CLD-ACT-M-000398",
+        "CLD-ACT-M-000401",
+        "CLD-ACT-M-000402",
+        "CLD-ACT-M-000403",
+        "CLD-ACT-M-000405",
+        "CLD-ACT-M-000408",
+        "CLD-ACT-M-000413",
+        "CLD-ACT-M-000414",
+        "CLD-ACT-M-000416",
+        "CLD-ACT-M-000418",
+        "CLD-ACT-M-000422",
+        "CLD-ACT-M-000423",
+        "CLD-ACT-M-000425",
+        "CLD-ACT-M-000426",
+        "CLD-ACT-M-000427",
+        "CLD-ACT-M-000430",
+        "CLD-ACT-M-000432",
+        "CLD-ACT-M-000434",
+        "CLD-ACT-M-000435",
+        "CLD-ACT-M-000438",
+        "CLD-ACT-M-000443",
+        "CLD-ACT-M-000444",
+        "CLD-ACT-M-000445",
+        "CLD-ACT-M-000447",
+        "CLD-ACT-M-000452",
+        "CLD-ACT-M-000453",
+        "CLD-ACT-M-000454",
+        "CLD-ACT-M-000455",
+        "CLD-ACT-M-000456",
+        "CLD-ACT-M-000461",
+        "CLD-ACT-M-000463",
+        "CLD-ACT-M-000464",
+        "CLD-ACT-M-000467",
+        "CLD-ACT-M-000468",
+        "CLD-ACT-M-000469",
+        "CLD-ACT-M-000470",
+        "CLD-ACT-M-000471",
+        "CLD-ACT-M-000472",
+        "CLD-ACT-M-000473",
+        "CLD-ACT-M-000474",
+        "CLD-ACT-M-000475",
+        "CLD-ACT-M-000478",
+        "CLD-ACT-M-000480",
+        "CLD-ACT-M-000481",
+        "CLD-ACT-M-000482",
+        "CLD-ACT-M-000483",
+        "CLD-ACT-M-000486",
+        "CLD-ACT-M-000488",
+        "CLD-ACT-M-000489",
+        "CLD-ACT-M-000490",
+        "CLD-ACT-M-000491",
+        "CLD-ACT-M-000493",
+        "CLD-ACT-M-000494",
+        "CLD-ACT-M-000495",
+        "CLD-ACT-M-000497",
+        "CLD-ACT-M-000500",
+        "CLD-ACT-M-000502",
+        "CLD-ACT-M-000503",
+        "CLD-ACT-M-000507",
+        "CLD-ACT-M-000509",
+        "CLD-ACT-M-000512",
+        "CLD-ACT-M-000516",
+        "CLD-ACT-M-000517",
+        "CLD-ACT-M-000519",
+        "CLD-ACT-M-000523",
+        "CLD-ACT-M-000527",
+        "CLD-ACT-M-000528",
+        "CLD-ACT-M-000532",
+        "CLD-ACT-M-000537",
+        "CLD-ACT-M-000539",
+        "CLD-ACT-M-000541",
+        "CLD-ACT-M-000542",
+        "CLD-ACT-M-000543",
+        "CLD-ACT-M-000548",
+        "CLD-ACT-M-000549",
+        "CLD-ACT-M-000550",
+        "CLD-ACT-M-000553",
+        "CLD-ACT-M-000558",
+        "CLD-ACT-M-000559",
+        "CLD-ACT-M-000561",
+        "CLD-ACT-M-000562",
+        "CLD-ACT-M-000563",
+        "CLD-ACT-M-000565",
+        "CLD-ACT-M-000566",
+        "CLD-ACT-M-000567",
+        "CLD-ACT-M-000568",
+        "CLD-ACT-M-000569",
+        "CLD-ACT-M-000570",
+        "CLD-ACT-M-000573",
+        "CLD-ACT-M-000576",
+        "CLD-ACT-M-000579",
+        "CLD-ACT-M-000582",
+        "CLD-ACT-M-000585",
+        "CLD-ACT-M-000586",
+        "CLD-ACT-M-000587",
+        "CLD-ACT-M-000588",
+        "CLD-ACT-M-000597",
+        "CLD-ACT-M-000598",
+        "CLD-ACT-M-000604",
+        "CLD-ACT-M-000608",
+        "CLD-ACT-M-000609",
+        "CLD-ACT-M-000610",
+        "CLD-ACT-M-000611",
+        "CLD-ACT-M-000612",
+        "CLD-ACT-M-000613",
+        "CLD-ACT-M-000617",
+        "CLD-ACT-M-000618",
+        "CLD-ACT-M-000619",
+        "CLD-ACT-M-000623",
+        "CLD-ACT-M-000627",
+        "CLD-ACT-M-000629",
+        "CLD-ACT-M-000635",
+        "CLD-ACT-M-000636",
+        "CLD-ACT-M-000638",
+        "CLD-ACT-M-000639",
+        "CLD-ACT-M-000643",
+        "CLD-ACT-M-000647",
+        "CLD-ACT-M-000650",
+        "CLD-ACT-M-000652",
+        "CLD-ACT-M-000655",
+        "CLD-ACT-M-000659",
+        "CLD-ACT-M-000660",
+        "CLD-ACT-M-000667",
+        "CLD-ACT-M-000669",
+        "CLD-ACT-M-000673",
+        "CLD-ACT-M-000675",
+        "CLD-ACT-M-000677",
+        "CLD-ACT-M-000678",
+        "CLD-ACT-M-000682",
+        "CLD-ACT-M-000683",
+        "CLD-ACT-M-000686",
+        "CLD-ACT-M-000694",
+        "CLD-ACT-M-000698",
+        "CLD-ACT-M-000699",
+        "CLD-ACT-M-000700",
+        "CLD-ACT-M-000702",
+        "CLD-ACT-M-000705"
+      ],
+      "subskills_used_more_than_twice": {},
+      "scope": "automatic audit at 706 accepted"
     }
   ],
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 70,
+      "bank_version": 71,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -47753,7 +48307,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:20:39+00:00",
+    "heartbeat_at": "2026-10-27T00:24:34+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

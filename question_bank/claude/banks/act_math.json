@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 70,
-  "updated_at": "2026-10-27T00:18:39+00:00",
+  "version": 71,
+  "updated_at": "2026-10-27T00:24:23+00:00",
   "passages": [],
   "questions": [
     {
@@ -48694,6 +48694,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-070.review.json",
         "computation": "checks/act_math/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000697",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Foci of an ellipse",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what are the coordinates of the foci of the ellipse x²/16 + y²/25 = 1 ? (Note: For an ellipse, c² = a² − b², where a is the semi-major axis, b is the semi-minor axis and c is the distance from the center to each focus.)",
+      "choices": {
+        "A": "(0, ±3)",
+        "B": "(±3, 0)",
+        "C": "(0, ±5)",
+        "D": "(0, ±√41)"
+      },
+      "correct_answer": "A",
+      "explanation": "The larger denominator, 25, is under y², so the major axis is vertical with a = 5 and b = 4. Then c² = 25 − 16 = 9, c = 3, and the foci are (0, ±3).",
+      "distractor_explanations": {
+        "B": "(±3, 0) puts the foci on the x-axis, but the major axis is vertical.",
+        "C": "(0, ±5) are the vertices on the major axis, not the foci.",
+        "D": "(0, ±√41) adds a² and b² instead of subtracting."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Which variable has the larger denominator?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the ellipse from its intercepts first."
+      },
+      "remember": "Foci lie on the major axis, c units from the center.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-01",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: note supplies c^2=a^2-b^2, which removes most of the challenge; key step is noticing the major axis is vertical (25 under y^2)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000698",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Cosine from a given tangent",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For an acute angle θ, tan θ = 2. What is the value of cos θ ?",
+      "choices": {
+        "A": "1/2",
+        "B": "2√5/5",
+        "C": "√3/2",
+        "D": "√5/5"
+      },
+      "correct_answer": "D",
+      "explanation": "Draw a right triangle with opposite side 2 and adjacent side 1. The hypotenuse is √(4 + 1) = √5, so cos θ = 1/√5 = √5/5.",
+      "distractor_explanations": {
+        "A": "1/2 is the reciprocal of tan θ, which is cot θ, not cos θ.",
+        "B": "2√5/5 is sin θ.",
+        "C": "√3/2 is the cosine of 30°, which has nothing to do with tan θ = 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "C": null
+      },
+      "hints": [
+        "Sketch a right triangle whose opposite and adjacent sides give tan θ = 2."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the legs, then find the hypotenuse."
+      },
+      "remember": "Build a triangle from one ratio to get the others.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-02",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000699",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Largest of consecutive integers from their mean",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The mean of 15 consecutive integers is 40. What is the largest of the 15 integers?",
+      "choices": {
+        "A": "47",
+        "B": "54",
+        "C": "55",
+        "D": "48"
+      },
+      "correct_answer": "A",
+      "explanation": "For consecutive integers the mean is the middle (8th) number, 40. The largest is 7 more: 47.",
+      "distractor_explanations": {
+        "B": "54 adds 14, treating 40 as the smallest number.",
+        "C": "55 adds 15 to the mean.",
+        "D": "48 adds 8, counting the middle number itself."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does the mean fall among evenly spaced numbers?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Write the list around its middle number."
+      },
+      "remember": "For evenly spaced numbers, the mean equals the middle value.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-03",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000700",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Quadratic from its vertex and one point",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A parabola in the standard (x,y) coordinate plane has its vertex at (2, −3) and passes through the point (4, 5). Its equation can be written as y = a(x − 2)² − 3. What is the value of a ?",
+      "choices": {
+        "A": "1/2",
+        "B": "4",
+        "C": "−2",
+        "D": "2"
+      },
+      "correct_answer": "D",
+      "explanation": "Substitute (4, 5): 5 = a(4 − 2)² − 3, so 8 = 4a and a = 2.",
+      "distractor_explanations": {
+        "A": "1/2 inverts the ratio 8/4.",
+        "B": "4 forgets to divide by (4 − 2)² and divides 8 by 2 instead.",
+        "C": "−2 subtracts 3 instead of adding it when isolating the term."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "sign_error"
+      },
+      "hints": [
+        "Substitute the point's coordinates for x and y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Plug in (4, 5) and solve for a."
+      },
+      "remember": "Any point on the graph satisfies its equation.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-04",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000701",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Area of the region |x| + |y| ≤ k",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, what is the area of the region of all points (x, y) that satisfy |x| + |y| ≤ 3 ?",
+      "choices": {
+        "A": "18",
+        "B": "9",
+        "C": "36",
+        "D": "12"
+      },
+      "correct_answer": "A",
+      "explanation": "The boundary |x| + |y| = 3 is a square (diamond) with vertices (±3, 0) and (0, ±3). Its diagonals each have length 6, so its area is (6 × 6)/2 = 18.",
+      "distractor_explanations": {
+        "B": "9 is the area of only the two triangles on one side of an axis, or (3 × 6)/2.",
+        "C": "36 is the 6-by-6 square that encloses the diamond.",
+        "D": "12 adds the four distances from the center to the intercepts."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Find where the boundary crosses each axis."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the four intercepts and connect them."
+      },
+      "remember": "Area of a rhombus = (product of diagonals)/2.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-05",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 38,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000702",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Simplifying with the Pythagorean identity",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For all values of θ with sin θ ≠ 0, the expression (1 − cos²θ)/sin θ is equivalent to which of the following?",
+      "choices": {
+        "A": "cos θ",
+        "B": "tan θ",
+        "C": "1",
+        "D": "sin θ"
+      },
+      "correct_answer": "D",
+      "explanation": "Since sin²θ + cos²θ = 1, 1 − cos²θ = sin²θ, and sin²θ/sin θ = sin θ.",
+      "distractor_explanations": {
+        "A": "cos θ results from treating 1 − cos²θ as cos²θ.",
+        "B": "tan θ results from dividing by sin θ in the wrong order.",
+        "C": "1 cancels sin θ completely, forgetting that the numerator is sin²θ."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "Rewrite 1 − cos²θ using sin²θ + cos²θ = 1."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test θ = 30°: (1 − 3/4)/(1/2) = 1/2."
+      },
+      "remember": "sin²θ + cos²θ = 1 for every θ.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-06",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000703",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Hexagon and triangle with equal perimeters",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A regular hexagon and an equilateral triangle have the same perimeter. What is the ratio of the area of the hexagon to the area of the triangle?",
+      "choices": {
+        "A": "2:1",
+        "B": "1:1",
+        "C": "3:2",
+        "D": "6:1"
+      },
+      "correct_answer": "C",
+      "explanation": "If the hexagon's side is s, the triangle's side is 2s. The hexagon is 6 equilateral triangles of side s: area 6 · (√3/4)s². The triangle's area is (√3/4)(2s)² = 4 · (√3/4)s². The ratio is 6:4 = 3:2.",
+      "distractor_explanations": {
+        "A": "2:1 compares the side lengths in reverse.",
+        "B": "1:1 assumes equal perimeters mean equal areas.",
+        "D": "6:1 compares the hexagon with one small triangle of side s."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "If the hexagon has side 1, what is the triangle's side?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the hexagon's side be 1 and the triangle's side be 2."
+      },
+      "remember": "A regular hexagon is six equilateral triangles.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-07",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 33,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000704",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Quotient of polynomial division",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the quotient when x³ − 2x² − 5x + 6 is divided by x − 3 ?",
+      "choices": {
+        "A": "x² + x − 2",
+        "B": "x² − 5x + 10",
+        "C": "x² − x − 2",
+        "D": "x² + x − 8"
+      },
+      "correct_answer": "A",
+      "explanation": "Synthetic division by 3: 1 → 1; −2 + 3 = 1; −5 + 3 = −2; 6 − 6 = 0. The quotient is x² + x − 2 with remainder 0.",
+      "distractor_explanations": {
+        "B": "x² − 5x + 10 divides by x + 3 (using −3).",
+        "C": "x² − x − 2 makes a sign error in the x-coefficient.",
+        "D": "x² + x − 8 subtracts 3 instead of adding 3 · 1 in the third step."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Use synthetic division with 3, the zero of x − 3."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Multiply each choice by x − 3 to check."
+      },
+      "remember": "Divide by x − c using c in synthetic division.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-08",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000705",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Line through a rectangle that halves its area",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, a rectangle has vertices (2, 0), (6, 0), (6, 4) and (2, 4). A line through the origin divides the rectangle into two regions of equal area. What is the slope of the line?",
+      "choices": {
+        "A": "1",
+        "B": "2/3",
+        "C": "2",
+        "D": "1/2"
+      },
+      "correct_answer": "D",
+      "explanation": "Any line through the center of a rectangle splits it into two congruent pieces, and a line through the origin that halves the area must pass through the center (4, 2). The slope is 2/4 = 1/2.",
+      "distractor_explanations": {
+        "A": "1 passes through (4, 4), the midpoint of the top side, which leaves unequal areas.",
+        "B": "2/3 passes through the corner (6, 4), cutting off less than half.",
+        "C": "2 inverts rise and run."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What special point do all area-halving lines of a rectangle pass through?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the rectangle and its center."
+      },
+      "remember": "Every line through a rectangle's center halves its area.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-09",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000706",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Distance from an angle of depression",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "From the top of a cliff 60 meters above the sea, the angle of depression to a boat is 30°. To the nearest meter, how far is the boat from the base of the cliff? (Note: tan 30° = √3/3 ≈ 0.577.)",
+      "choices": {
+        "A": "35",
+        "B": "60",
+        "C": "120",
+        "D": "104"
+      },
+      "correct_answer": "D",
+      "explanation": "The angle of depression equals the angle of elevation from the boat, 30°. Then tan 30° = 60/d, so d = 60/tan 30° = 60√3 ≈ 103.9, or 104 meters.",
+      "distractor_explanations": {
+        "A": "35 multiplies 60 by tan 30° instead of dividing.",
+        "B": "60 assumes the distance equals the height, as for a 45° angle.",
+        "C": "120 is the line-of-sight distance from the clifftop to the boat (60/sin 30°)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Which side of the right triangle is 60, and which side do you need?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the cliff, the boat and the line of sight."
+      },
+      "remember": "Angle of depression from above = angle of elevation from below.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "B071-10",
+      "created_at": "2026-10-27T00:24:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-071.review.json",
+        "computation": "checks/act_math/batch_071.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

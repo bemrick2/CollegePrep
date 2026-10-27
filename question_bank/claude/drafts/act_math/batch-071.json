@@ -1,0 +1,458 @@
+{
+ "bank": "act_math",
+ "batch": 71,
+ "plan": "Every idea checked against the subskill list and stems first (three first ideas re-created existing items and were dropped): ellipse foci, cosine from tangent, consecutive-integer mean, quadratic from vertex and point, diamond area, Pythagorean identity, hexagon/triangle area ratio, synthetic division, area-halving line (hard), angle of depression.",
+ "candidates": [
+  {
+   "cand": "B071-01",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Foci of an ellipse",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x,y) coordinate plane, what are the coordinates of the foci of the ellipse x²/16 + y²/25 = 1 ? (Note: For an ellipse, c² = a² − b², where a is the semi-major axis, b is the semi-minor axis and c is the distance from the center to each focus.)",
+   "choices": {
+    "A": "(0, ±3)",
+    "B": "(±3, 0)",
+    "C": "(0, ±5)",
+    "D": "(0, ±√41)"
+   },
+   "answer": "A",
+   "explanation": "The larger denominator, 25, is under y², so the major axis is vertical with a = 5 and b = 4. Then c² = 25 − 16 = 9, c = 3, and the foci are (0, ±3).",
+   "distractors": {
+    "B": {
+     "rationale": "(±3, 0) puts the foci on the x-axis, but the major axis is vertical.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(0, ±5) are the vertices on the major axis, not the foci.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "(0, ±√41) adds a² and b² instead of subtracting.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Which variable has the larger denominator?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the ellipse from its intercepts first."
+   },
+   "remember": "Foci lie on the major axis, c units from the center.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-02",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Cosine from a given tangent",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "For an acute angle θ, tan θ = 2. What is the value of cos θ ?",
+   "choices": {
+    "A": "1/2",
+    "B": "2√5/5",
+    "C": "√3/2",
+    "D": "√5/5"
+   },
+   "answer": "D",
+   "explanation": "Draw a right triangle with opposite side 2 and adjacent side 1. The hypotenuse is √(4 + 1) = √5, so cos θ = 1/√5 = √5/5.",
+   "distractors": {
+    "A": {
+     "rationale": "1/2 is the reciprocal of tan θ, which is cot θ, not cos θ.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2√5/5 is sin θ.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "√3/2 is the cosine of 30°, which has nothing to do with tan θ = 2.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Sketch a right triangle whose opposite and adjacent sides give tan θ = 2."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the legs, then find the hypotenuse."
+   },
+   "remember": "Build a triangle from one ratio to get the others.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-03",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Statistics & Probability",
+   "subskill": "Largest of consecutive integers from their mean",
+   "repo_skill_key": "act_statistics_probability",
+   "difficulty": "medium",
+   "stem": "The mean of 15 consecutive integers is 40. What is the largest of the 15 integers?",
+   "choices": {
+    "A": "47",
+    "B": "54",
+    "C": "55",
+    "D": "48"
+   },
+   "answer": "A",
+   "explanation": "For consecutive integers the mean is the middle (8th) number, 40. The largest is 7 more: 47.",
+   "distractors": {
+    "B": {
+     "rationale": "54 adds 14, treating 40 as the smallest number.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "55 adds 15 to the mean.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "48 adds 8, counting the middle number itself.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where does the mean fall among evenly spaced numbers?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Write the list around its middle number."
+   },
+   "remember": "For evenly spaced numbers, the mean equals the middle value.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-04",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Quadratic from its vertex and one point",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "A parabola in the standard (x,y) coordinate plane has its vertex at (2, −3) and passes through the point (4, 5). Its equation can be written as y = a(x − 2)² − 3. What is the value of a ?",
+   "choices": {
+    "A": "1/2",
+    "B": "4",
+    "C": "−2",
+    "D": "2"
+   },
+   "answer": "D",
+   "explanation": "Substitute (4, 5): 5 = a(4 − 2)² − 3, so 8 = 4a and a = 2.",
+   "distractors": {
+    "A": {
+     "rationale": "1/2 inverts the ratio 8/4.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "4 forgets to divide by (4 − 2)² and divides 8 by 2 instead.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−2 subtracts 3 instead of adding it when isolating the term.",
+     "trap": "sign_error"
+    }
+   },
+   "hints": [
+    "Substitute the point's coordinates for x and y."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Plug in (4, 5) and solve for a."
+   },
+   "remember": "Any point on the graph satisfies its equation.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-05",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Area of the region |x| + |y| ≤ k",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "In the standard (x,y) coordinate plane, what is the area of the region of all points (x, y) that satisfy |x| + |y| ≤ 3 ?",
+   "choices": {
+    "A": "18",
+    "B": "9",
+    "C": "36",
+    "D": "12"
+   },
+   "answer": "A",
+   "explanation": "The boundary |x| + |y| = 3 is a square (diamond) with vertices (±3, 0) and (0, ±3). Its diagonals each have length 6, so its area is (6 × 6)/2 = 18.",
+   "distractors": {
+    "B": {
+     "rationale": "9 is the area of only the two triangles on one side of an axis, or (3 × 6)/2.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "36 is the 6-by-6 square that encloses the diamond.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12 adds the four distances from the center to the intercepts.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Find where the boundary crosses each axis."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the four intercepts and connect them."
+   },
+   "remember": "Area of a rhombus = (product of diagonals)/2.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-06",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Simplifying with the Pythagorean identity",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "For all values of θ with sin θ ≠ 0, the expression (1 − cos²θ)/sin θ is equivalent to which of the following?",
+   "choices": {
+    "A": "cos θ",
+    "B": "tan θ",
+    "C": "1",
+    "D": "sin θ"
+   },
+   "answer": "D",
+   "explanation": "Since sin²θ + cos²θ = 1, 1 − cos²θ = sin²θ, and sin²θ/sin θ = sin θ.",
+   "distractors": {
+    "A": {
+     "rationale": "cos θ results from treating 1 − cos²θ as cos²θ.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "tan θ results from dividing by sin θ in the wrong order.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "1 cancels sin θ completely, forgetting that the numerator is sin²θ.",
+     "trap": "partial_answer"
+    }
+   },
+   "hints": [
+    "Rewrite 1 − cos²θ using sin²θ + cos²θ = 1."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test θ = 30°: (1 − 3/4)/(1/2) = 1/2."
+   },
+   "remember": "sin²θ + cos²θ = 1 for every θ.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-07",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Hexagon and triangle with equal perimeters",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "A regular hexagon and an equilateral triangle have the same perimeter. What is the ratio of the area of the hexagon to the area of the triangle?",
+   "choices": {
+    "A": "2:1",
+    "B": "1:1",
+    "C": "3:2",
+    "D": "6:1"
+   },
+   "answer": "C",
+   "explanation": "If the hexagon's side is s, the triangle's side is 2s. The hexagon is 6 equilateral triangles of side s: area 6 · (√3/4)s². The triangle's area is (√3/4)(2s)² = 4 · (√3/4)s². The ratio is 6:4 = 3:2.",
+   "distractors": {
+    "A": {
+     "rationale": "2:1 compares the side lengths in reverse.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1:1 assumes equal perimeters mean equal areas.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6:1 compares the hexagon with one small triangle of side s.",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "If the hexagon has side 1, what is the triangle's side?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let the hexagon's side be 1 and the triangle's side be 2."
+   },
+   "remember": "A regular hexagon is six equilateral triangles.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-08",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Functions",
+   "subskill": "Quotient of polynomial division",
+   "repo_skill_key": "act_functions",
+   "difficulty": "medium",
+   "stem": "What is the quotient when x³ − 2x² − 5x + 6 is divided by x − 3 ?",
+   "choices": {
+    "A": "x² + x − 2",
+    "B": "x² − 5x + 10",
+    "C": "x² − x − 2",
+    "D": "x² + x − 8"
+   },
+   "answer": "A",
+   "explanation": "Synthetic division by 3: 1 → 1; −2 + 3 = 1; −5 + 3 = −2; 6 − 6 = 0. The quotient is x² + x − 2 with remainder 0.",
+   "distractors": {
+    "B": {
+     "rationale": "x² − 5x + 10 divides by x + 3 (using −3).",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "x² − x − 2 makes a sign error in the x-coefficient.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "x² + x − 8 subtracts 3 instead of adding 3 · 1 in the third step.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Use synthetic division with 3, the zero of x − 3."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Multiply each choice by x − 3 to check."
+   },
+   "remember": "Divide by x − c using c in synthetic division.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  },
+  {
+   "cand": "B071-09",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Line through a rectangle that halves its area",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "hard",
+   "stem": "In the standard (x,y) coordinate plane, a rectangle has vertices (2, 0), (6, 0), (6, 4) and (2, 4). A line through the origin divides the rectangle into two regions of equal area. What is the slope of the line?",
+   "choices": {
+    "A": "1",
+    "B": "2/3",
+    "C": "2",
+    "D": "1/2"
+   },
+   "answer": "D",
+   "explanation": "Any line through the center of a rectangle splits it into two congruent pieces, and a line through the origin that halves the area must pass through the center (4, 2). The slope is 2/4 = 1/2.",
+   "distractors": {
+    "A": {
+     "rationale": "1 passes through (4, 4), the midpoint of the top side, which leaves unequal areas.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "2/3 passes through the corner (6, 4), cutting off less than half.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2 inverts rise and run.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What special point do all area-halving lines of a rectangle pass through?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the rectangle and its center."
+   },
+   "remember": "Every line through a rectangle's center halves its area.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students try to set up area equations with trapezoids; the key insight is that the line must pass through the rectangle's center."
+   }
+  },
+  {
+   "cand": "B071-10",
+   "reporting_category": "Preparing for Higher Math",
+   "skill": "Geometry",
+   "subskill": "Distance from an angle of depression",
+   "repo_skill_key": "act_geometry",
+   "difficulty": "medium",
+   "stem": "From the top of a cliff 60 meters above the sea, the angle of depression to a boat is 30°. To the nearest meter, how far is the boat from the base of the cliff? (Note: tan 30° = √3/3 ≈ 0.577.)",
+   "choices": {
+    "A": "35",
+    "B": "60",
+    "C": "120",
+    "D": "104"
+   },
+   "answer": "D",
+   "explanation": "The angle of depression equals the angle of elevation from the boat, 30°. Then tan 30° = 60/d, so d = 60/tan 30° = 60√3 ≈ 103.9, or 104 meters.",
+   "distractors": {
+    "A": {
+     "rationale": "35 multiplies 60 by tan 30° instead of dividing.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "60 assumes the distance equals the height, as for a 45° angle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "120 is the line-of-sight distance from the clifftop to the boat (60/sin 30°).",
+     "trap": "wrong_quantity"
+    }
+   },
+   "hints": [
+    "Which side of the right triangle is 60, and which side do you need?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the cliff, the boat and the line of sight."
+   },
+   "remember": "Angle of depression from above = angle of elevation from below.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   }
+  }
+ ]
+}
