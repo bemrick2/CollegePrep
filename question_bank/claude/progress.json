@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T09:00:40+00:00",
+  "updated_at": "2026-10-27T09:05:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,8 +19,8 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 278,
-    "act_reading": 286,
-    "sat_reading_writing": 308,
+    "act_reading": 296,
+    "sat_reading_writing": 292,
     "sat_math": 518
   },
   "review_totals": {
@@ -39,10 +39,10 @@
       "passed_after_revision": 7
     },
     "act_reading": {
-      "PASS": 321,
+      "PASS": 331,
       "REVISE": 28,
       "REJECT": 0,
-      "candidates": 349,
+      "candidates": 359,
       "passed_after_revision": 20
     },
     "sat_reading_writing": {
@@ -1097,12 +1097,12 @@
       "passages": 31
     },
     "act_reading": {
-      "accepted": 286,
+      "accepted": 296,
       "retired_after_audit": 35,
       "by_skill": {
-        "Craft and Structure": 102,
-        "Integration of Knowledge and Ideas": 84,
-        "Key Ideas and Details": 100
+        "Craft and Structure": 105,
+        "Integration of Knowledge and Ideas": 89,
+        "Key Ideas and Details": 102
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -1138,6 +1138,7 @@
         "Central idea of a narrative": 2,
         "Central idea of an informational passage": 2,
         "Characterization": 3,
+        "Characterization from self-description": 1,
         "Comparing perspectives (younger and older narrator)": 1,
         "Comparing the passages' focus": 1,
         "Connecting a proposal to an earlier constraint": 1,
@@ -1147,7 +1148,7 @@
         "Connecting the opening to the conclusion": 1,
         "Contrasting the passages' approaches": 1,
         "Contrasting two policies across passages": 1,
-        "Detail": 6,
+        "Detail": 7,
         "Detail (cross-passage trap)": 1,
         "Detail (paraphrased)": 6,
         "Effect of a narrative detail": 1,
@@ -1172,9 +1173,10 @@
         "Function of a sentence": 1,
         "Function of a short paragraph": 1,
         "Function of a short sentence": 1,
+        "Function of a simile": 1,
         "Function of a statement": 1,
         "Function of an early detail": 1,
-        "Function of an opening paragraph": 1,
+        "Function of an opening paragraph": 2,
         "Function of an opening statement": 1,
         "Function of evidence": 2,
         "Function of examples": 3,
@@ -1186,8 +1188,10 @@
         "Inference about a character": 1,
         "Inference about a character's action": 2,
         "Inference about a character's meaning": 1,
+        "Inference about a character’s attitude": 1,
         "Inference about a character’s observation": 1,
         "Inference about a character’s realization": 1,
+        "Inference about a character’s response": 1,
         "Inference about a character’s self-recognition": 1,
         "Inference about a mechanism": 2,
         "Inference about a narrator's view": 1,
@@ -1197,6 +1201,7 @@
         "Inference about an author's preferred explanation": 1,
         "Inference about evidence": 1,
         "Inference about historical understanding": 1,
+        "Inference about mixed feelings": 1,
         "Inference about motivation": 1,
         "Inference about planners’ reasoning": 1,
         "Inference about why outside rules failed": 1,
@@ -1224,6 +1229,7 @@
         "Interpreting a central statement": 1,
         "Interpreting a closing action": 1,
         "Interpreting a figurative statement": 5,
+        "Interpreting an ending": 1,
         "Interpreting how evidence is used": 1,
         "Linking a cause to a stated consequence": 1,
         "Locating a stated detail": 7,
@@ -1232,7 +1238,7 @@
         "Locating supporting details": 1,
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
-        "Main idea of a narrative": 2,
+        "Main idea of a narrative": 3,
         "Main idea of a passage": 4,
         "Main purpose of a passage": 8,
         "Main purpose of one passage": 1,
@@ -1270,55 +1276,53 @@
         "Synthesizing details about a character": 1,
         "Synthesizing the central claim": 1,
         "Synthesizing the passage": 1,
+        "Vocabulary in context": 1,
         "What an experiment adds to a correlation": 1
       },
       "by_difficulty_author": {
-        "easy": 94,
+        "easy": 101,
         "hard": 31,
-        "medium": 161
+        "medium": 164
       },
       "by_difficulty_calibrated": {
-        "easy": 164,
-        "medium": 122
+        "easy": 171,
+        "medium": 125
       },
       "calibrated_share": {
-        "easy": 0.573,
-        "medium": 0.427
+        "easy": 0.578,
+        "medium": 0.422
       },
       "answer_key_balance": {
-        "A": 82,
-        "B": 69,
-        "C": 69,
-        "D": 66
+        "A": 84,
+        "B": 72,
+        "C": 71,
+        "D": 69
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 39
+      "passages": 40
     },
     "sat_reading_writing": {
-      "accepted": 308,
-      "retired_after_audit": 11,
+      "accepted": 292,
+      "retired_after_audit": 27,
       "by_skill": {
-        "Craft and Structure": 90,
-        "Expression of Ideas": 66,
-        "Information and Ideas": 85,
-        "Standard English Conventions": 67
+        "Craft and Structure": 87,
+        "Expression of Ideas": 64,
+        "Information and Ideas": 81,
+        "Standard English Conventions": 60
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
-        "Boundaries (closing an appositive)": 1,
         "Boundaries (semicolon between independent clauses)": 1,
         "Boundaries between independent clauses": 1,
-        "Boundaries with a conjunctive adverb": 2,
+        "Boundaries with a conjunctive adverb": 1,
         "Central ideas": 9,
         "Central ideas (evaluating a view)": 1,
-        "Central ideas (literary)": 1,
         "Colon before a list": 1,
         "Colon before an explanation": 1,
         "Colon introducing an explanation": 1,
         "Command of evidence: quantitative": 15,
         "Command of evidence: quantitative (comparing differences)": 2,
-        "Command of evidence: quantitative (comparison)": 1,
         "Command of evidence: quantitative (computed values)": 1,
         "Command of evidence: quantitative (interaction)": 1,
         "Command of evidence: quantitative (isolating a cause)": 1,
@@ -1330,7 +1334,6 @@
         "Command of evidence: textual (supporting a hypothesis)": 3,
         "Command of evidence: textual (weaken a hypothesis)": 1,
         "Command of evidence: textual (weaken)": 1,
-        "Command of evidence: textual (weakening a hypothesis)": 1,
         "Commas around a nonessential appositive": 1,
         "Commas around a nonessential participial phrase": 1,
         "Compound predicate (no comma)": 1,
@@ -1343,7 +1346,7 @@
         "Function of a quotation": 1,
         "Function of a sentence": 8,
         "Function of a sentence (literary)": 2,
-        "Inferences": 24,
+        "Inferences": 23,
         "Inferences (alternative explanation)": 3,
         "Inferences (base rates)": 1,
         "Inferences (literary)": 4,
@@ -1358,16 +1361,14 @@
         "Modifier placement (introductory phrase)": 1,
         "No comma between a subject and its verb": 1,
         "No punctuation between a verb and its that-clause": 1,
-        "Overall text structure": 7,
+        "Overall text structure": 6,
         "Paired dashes": 2,
         "Parallel structure in a series": 1,
         "Participial phrase as a modifier": 1,
         "Plural noun without an apostrophe": 1,
         "Plural possessive (irregular noun)": 1,
-        "Plural possessives": 2,
-        "Possessive determiner (its)": 1,
+        "Plural possessives": 1,
         "Pronoun-antecedent agreement": 1,
-        "Pronoun-antecedent agreement (collective noun)": 1,
         "Punctuating a quotation followed by an appositive": 1,
         "Punctuation between subject and verb": 1,
         "Punctuation with parentheses": 1,
@@ -1395,7 +1396,6 @@
         "Rhetorical synthesis (explaining how something works)": 1,
         "Rhetorical synthesis (explaining value)": 1,
         "Rhetorical synthesis (introducing a subject)": 2,
-        "Rhetorical synthesis (introducing an artist and work)": 1,
         "Rhetorical synthesis (making a generalization)": 1,
         "Rhetorical synthesis (making a recommendation)": 1,
         "Rhetorical synthesis (method and limitation)": 1,
@@ -1417,14 +1417,14 @@
         "Subject-verb agreement (gerund subject)": 1,
         "Subject-verb agreement (intervening clause)": 1,
         "Subject-verb agreement (inverted compound subject)": 1,
-        "Subject-verb agreement (inverted order)": 2,
+        "Subject-verb agreement (inverted order)": 1,
         "Subject-verb agreement (long subject)": 2,
         "Subject-verb agreement (neither/nor)": 1,
         "Subject-verb agreement (title as subject)": 1,
         "Transitions": 1,
         "Transitions (addition)": 2,
         "Transitions (alternative)": 1,
-        "Transitions (concession)": 5,
+        "Transitions (concession)": 4,
         "Transitions (consequence)": 3,
         "Transitions (contrast with a prediction)": 1,
         "Transitions (contrast with an expectation)": 2,
@@ -1442,34 +1442,34 @@
         "Transitions (specification)": 2,
         "Transitions (time sequence)": 1,
         "Verb tense (future perfect)": 1,
-        "Verb tense (past perfect progressive)": 2,
+        "Verb tense (past perfect progressive)": 1,
         "Verb tense (past perfect)": 1,
         "Verb tense (sequence of events)": 1,
         "Verb tense with \"since\"": 1,
         "Who versus whom": 1,
-        "Words in context": 49,
+        "Words in context": 47,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 70,
-        "hard": 32,
-        "medium": 206
+        "easy": 66,
+        "hard": 31,
+        "medium": 195
       },
       "by_difficulty_calibrated": {
-        "easy": 170,
-        "hard": 9,
-        "medium": 129
+        "easy": 161,
+        "hard": 8,
+        "medium": 123
       },
       "calibrated_share": {
-        "easy": 0.552,
-        "hard": 0.029,
-        "medium": 0.419
+        "easy": 0.551,
+        "hard": 0.027,
+        "medium": 0.421
       },
       "answer_key_balance": {
-        "A": 78,
-        "B": 74,
-        "C": 76,
-        "D": 80
+        "A": 73,
+        "B": 70,
+        "C": 72,
+        "D": 77
       },
       "modeling_items": 0,
       "spr_items": 0,
@@ -2120,7 +2120,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 31,
-    "act_reading": 39,
+    "act_reading": 40,
     "sat_reading_writing": 34,
     "sat_math": 57
   },
@@ -2178,29 +2178,29 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 40,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 42.1,
-        "Craft and Structure": -14.7,
-        "Integration of Knowledge and Ideas": -17.4
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 35,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": -1.0,
-        "Information and Ideas": -2.3,
-        "Standard English Conventions": 15.7,
-        "Expression of Ideas": -2.4
-      }
-    },
     "act_english": {
       "next_batch": 32,
       "skill_gap_for_next_10": {
         "Production of Writing": 33.6,
         "Knowledge of Language": 15.0,
         "Conventions of Standard English": -34.4
+      }
+    },
+    "act_reading": {
+      "next_batch": 41,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 44.9,
+        "Craft and Structure": -14.7,
+        "Integration of Knowledge and Ideas": -20.1
+      }
+    },
+    "sat_reading_writing": {
+      "next_batch": 35,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": -2.4,
+        "Information and Ideas": -2.5,
+        "Standard English Conventions": 18.5,
+        "Expression of Ideas": -3.6
       }
     }
   },
@@ -2217,13 +2217,13 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 286,
-      "share_of_target": 0.418
+      "accepted": 296,
+      "share_of_target": 0.433
     },
     "sat_reading_writing": {
       "target": 694,
-      "accepted": 308,
-      "share_of_target": 0.444
+      "accepted": 292,
+      "share_of_target": 0.421
     },
     "sat_math": {
       "target": 1000,
@@ -2232,7 +2232,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2164,
+  "total_accepted": 2158,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -142930,6 +142930,17 @@
         "Recurring shapes noted as saturated: quiet-mentor narratives (001, 004, 011, 017), closing family shops, translator essays, 'source is imperfect but useful' essays.",
         "Both passage repeats were found only by reading; the similarity screen caught only the vocabulary copy."
       ]
+    },
+    {
+      "scope": "SAT Reading & Writing 300-item audit (written summary)",
+      "date": "2026-10-27",
+      "findings": [
+        "Independent concept-repeat audit (reviews/sat_reading_writing/audit-300-concept-repeats.json) read all 308 live items and proposed 20 groups / 23 retirements. After checking each group, 16 items were retired and 7 kept with recorded reasons.",
+        "Passage/premise repeats retired (8): 162 (trade inference, copy of 098), 120 (Teodor/Teodora revisit, 097), 138 (woman-muralist synthesis, 015), 121 (bike +8/car -8 table, 041), 102 (printing-press revisionist, 056), 283 (crow trapping, 113), 194 (rushed 300-page ending, 119), 242 ('measured'/'even-handed' historian, 018).",
+        "Template copies retired (8): 173, 245, 309, 021, 277, 299, 297, 319 - identical or one-form-swapped choice sets with the same keyed form. 319 (S034-10, accepted this session) repeats 146's tense forms exactly; lesson: compare choice sets, not just subskill names, before drafting a grammar item.",
+        "Kept: shared background settings where a different point is tested (228, 165, 233) and standard punctuation formats with different choice sets (308, 146, 267, 221).",
+        "Saturated shapes to avoid in new SAT R&W items: its/it's/their sets, were/was/are/have been agreement sets, 'By the time ... had been -ing', '; however,' sets, Even so/Therefore/Likewise/In other words transition sets."
+      ]
     }
   ],
   "files": {
@@ -142949,7 +142960,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 39,
+      "bank_version": 40,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -143089,7 +143100,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T09:00:39+00:00",
+    "heartbeat_at": "2026-10-27T09:05:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
