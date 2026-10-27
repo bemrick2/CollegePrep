@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 62,
-  "updated_at": "2026-10-27T16:12:43+00:00",
+  "version": 63,
+  "updated_at": "2026-10-27T16:17:57+00:00",
   "passages": [],
   "questions": [
     {
@@ -47607,6 +47607,1244 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-062.review.json",
         "computation": "checks/sat_math/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000660",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Shared zero of two quadratics found by subtracting",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graphs of y = x² − 7x + k and y = x² − 10x + 2k, where k is a positive constant, intersect at a point on the x-axis. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the x-coordinate of the intersection point, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0",
+          "rationale": "0 is excluded because k is positive.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting the expressions equal gives 3x = k, so the graphs meet only at x = k/3. That point is on the x-axis when (k/3)² − 7(k/3) + k = 0, which simplifies to k²/9 − 4k/3 = 0, so k = 12 (k = 0 is excluded). Check: x² − 7x + 12 and x² − 10x + 24 share the zero 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Subtract the two equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find where the graphs meet, then require y = 0 there."
+      },
+      "remember": "Subtracting two quadratics with the same x² term leaves a linear equation.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-01",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000661",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Distance between solutions of a perfect-square equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation 9x² − 6ax + a² = 36, a is a constant. The equation has two solutions, p and q, with p > q. What is the value of p − q ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 is the difference of the values of 3x; it forgets to divide by 3.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is the square root of 36.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 ignores the ± sign.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The left side is (3x − a)², so 3x − a = 6 or 3x − a = −6, and x = (a + 6)/3 or x = (a − 6)/3. The difference is 12/3 = 4 for every value of a.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Is the left side a perfect square?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take square roots of both sides."
+      },
+      "remember": "Recognize a² − 2ab + b² as (a − b)².",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-02",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: the answer does not depend on a, so setting a = 0 (x = ±2) gives the answer right away"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000662",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Third zero of a cubic from its constant and leading coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p is defined by p(x) = 3x³ + ax² + bx + 120, where a and b are constants. Two of the zeros of p are 2 and −4. What is the third zero of p ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−15",
+        "B": "−5",
+        "C": "5",
+        "D": "15"
+      },
+      "correct_answer": "C",
+      "explanation": "Write p(x) = 3(x − 2)(x + 4)(x − r). Its constant term is 3(−2)(4)(−r) = 24r, which must equal 120, so r = 5. Check: 3(x − 2)(x + 4)(x − 5) = 3x³ − 9x² − 54x + 120.",
+      "distractor_explanations": {
+        "A": "−15 ignores the leading coefficient and makes a sign slip.",
+        "B": "−5 makes a sign slip: 24r = −120.",
+        "D": "15 ignores the leading coefficient 3: (−2)(4)(−r) = 120."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write p in factored form with an unknown third zero."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Match the constant terms."
+      },
+      "remember": "The constant term of a(x − r)(x − s)(x − t) is −arst.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-03",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000663",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Composing a reflection and a translation of a graph",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (x − 2)(x − 5). The graph of y = g(x) is obtained by reflecting the graph of y = f(x) across the y-axis and then translating the result 3 units to the right. What are the zeros of g ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−8 and −5",
+        "B": "−5 and −2",
+        "C": "−2 and 1",
+        "D": "5 and 8"
+      },
+      "correct_answer": "C",
+      "explanation": "Reflecting across the y-axis sends the zeros 2 and 5 to −2 and −5. Translating 3 units to the right adds 3, giving 1 and −2. (Equivalently, g(x) = f(3 − x).)",
+      "distractor_explanations": {
+        "A": "−8 and −5 translates first and then reflects, which gives g(x) = f(−x − 3).",
+        "B": "−5 and −2 reflects but forgets the translation.",
+        "D": "5 and 8 reflects across the x-axis, which does not move the zeros, and then translates."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Where do the zeros go after each step?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Track the two zeros through each transformation in order."
+      },
+      "remember": "Apply transformations in the stated order and track key points.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-04",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000664",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Interpreting the period of a shifted exponential cooling model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The temperature of a bowl of soup, in degrees Fahrenheit, t minutes after it is served is modeled by T(t) = 70 + 110(0.5)^(t/20). Which of the following is the best interpretation of the number 20 in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Every 20 minutes, the amount by which the soup's temperature exceeds 70°F is cut in half.",
+        "B": "Every 20 minutes, the soup's temperature, in degrees Fahrenheit, is cut in half.",
+        "C": "Every 20 minutes, the soup's temperature drops by another 55 degrees Fahrenheit.",
+        "D": "Exactly 20 minutes after it is served, the soup's temperature is 70°F."
+      },
+      "correct_answer": "A",
+      "explanation": "T(t) − 70 = 110(0.5)^(t/20), so the excess of the temperature over 70°F is multiplied by 0.5 every 20 minutes. For example, T(0) = 180, T(20) = 125 and T(40) = 97.5: the excess goes from 110 to 55 to 27.5.",
+      "distractor_explanations": {
+        "B": "The temperature itself does not halve: 180°F becomes 125°F, not 90°F.",
+        "C": "The first drop is 55 degrees, but the next is 27.5; the decrease is not constant.",
+        "D": "The temperature approaches 70°F but never reaches it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does T(t) − 70 equal?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute T(0), T(20) and T(40)."
+      },
+      "remember": "In a + b(0.5)^(t/k), the part above a halves every k units.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-05",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000665",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Remainder of a polynomial built from a shifted input",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "When the polynomial p(x) is divided by x − 3, the remainder is 4. The polynomial q is defined by q(x) = x · p(x + 1) + 5. What is the remainder when q(x) is divided by x − 2 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 drops the factor x and adds 5 to the remainder of p.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "17",
+          "rationale": "17 evaluates at x = 3: 3 · 4 + 5.",
+          "trap": null
+        }
+      ],
+      "explanation": "By the remainder theorem, the remainder when q(x) is divided by x − 2 is q(2) = 2 · p(3) + 5. Since p(3) = 4, the remainder is 2(4) + 5 = 13.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the remainder when q(x) is divided by x − 2, in terms of q?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the remainder theorem twice."
+      },
+      "remember": "The remainder of f(x) ÷ (x − c) is f(c).",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-06",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "13",
+        "blind_answer": "13",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000666",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation with an excluded root",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the solution set of x/(x − 2) + 3/(x + 1) = 6/(x² − x − 2) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "{−6}",
+        "B": "{−6, 2}",
+        "C": "{2}",
+        "D": "There is no solution."
+      },
+      "correct_answer": "A",
+      "explanation": "Since x² − x − 2 = (x − 2)(x + 1), multiplying both sides by it gives x(x + 1) + 3(x − 2) = 6, so x² + 4x − 12 = 0 and x = −6 or x = 2. But x = 2 makes a denominator 0, so the solution set is {−6}.",
+      "distractor_explanations": {
+        "B": "{−6, 2} does not check for values that make a denominator 0.",
+        "C": "{2} keeps the excluded value and drops the valid solution.",
+        "D": "Only x = 2 is excluded; x = −6 is a valid solution."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Factor x² − x − 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear denominators, solve, then check each solution."
+      },
+      "remember": "Always check solutions of a rational equation against the excluded values.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-07",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000667",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Constant term after shifting both solutions",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The solutions of x² + bx + c = 0, where b and c are constants, are each 3 greater than the solutions of x² − 5x + 2 = 0. What is the value of c ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−4",
+        "B": "11",
+        "C": "17",
+        "D": "26"
+      },
+      "correct_answer": "D",
+      "explanation": "If r and s solve x² − 5x + 2 = 0, then r + s = 5 and rs = 2. The new solutions are r + 3 and s + 3, so c = (r + 3)(s + 3) = rs + 3(r + s) + 9 = 2 + 15 + 9 = 26. (Equivalently, the new equation is (x − 3)² − 5(x − 3) + 2 = x² − 11x + 26.)",
+      "distractor_explanations": {
+        "A": "−4 shifts the solutions the wrong way: rs − 3(r + s) + 9.",
+        "B": "11 drops the cross term: rs + 9.",
+        "C": "17 drops the 9."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What are the sum and product of the original solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand (r + 3)(s + 3) using r + s and rs."
+      },
+      "remember": "The product of the solutions of x² + bx + c = 0 is c.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-08",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000668",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Interpreting a coefficient in an average-cost model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A workshop's average cost per item, in dollars, of producing x items is C(x) = (2x + 600)/x. Which of the following is the best interpretation of the number 2 in this context?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "It costs $2 to set up production before any items are made.",
+        "B": "Each additional item produced adds $2 to the total cost.",
+        "C": "The average cost per item decreases by $2 for each additional item produced.",
+        "D": "When 2 items are produced, the average cost per item is $600."
+      },
+      "correct_answer": "B",
+      "explanation": "The total cost is x · C(x) = 2x + 600: a fixed $600 plus $2 for each item. So 2 is the cost added by each additional item.",
+      "distractor_explanations": {
+        "A": "This swaps the fixed cost ($600) and the per-item cost ($2).",
+        "C": "This reads 2 as a rate of change of the average cost, which is not constant.",
+        "D": "This reads 2 as an input; C(2) = 302."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the total cost of x items?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply C(x) by x before interpreting."
+      },
+      "remember": "Average cost × number of items = total cost.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-09",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000669",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Greatest squared distance from the origin to a point on a circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The point (a, b) lies on the circle (x − 3)² + (y − 4)² = 4 in the xy-plane. What is the greatest possible value of a² + b² ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25",
+        "B": "29",
+        "C": "49",
+        "D": "81"
+      },
+      "correct_answer": "C",
+      "explanation": "a² + b² is the square of the distance from the origin to (a, b). The center (3, 4) is 5 units from the origin, and the radius is 2, so the farthest point of the circle is 5 + 2 = 7 units away. The greatest value of a² + b² is 7² = 49.",
+      "distractor_explanations": {
+        "A": "25 is the squared distance to the center.",
+        "B": "29 adds the squared radius to 25.",
+        "D": "81 adds the squared radius, 4, to the distance: (5 + 4)²."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does a² + b² measure?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the origin, the center and the farthest point."
+      },
+      "remember": "x² + y² is the squared distance from (x, y) to the origin.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-10",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: a classic 'farthest point on a circle from the origin' problem; not a close copy of any particular item"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000670",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Y-intercept of a line from the sine of its angle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line passes through the point (−2, 0) and makes an acute angle θ with the positive x-axis, where sin θ = 5/13. What is the y-intercept of the line?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10/13",
+        "B": "5/6",
+        "C": "24/13",
+        "D": "24/5"
+      },
+      "correct_answer": "B",
+      "explanation": "Since sin θ = 5/13, cos θ = 12/13 and the slope is tan θ = 5/12. The line rises 5/12 for each unit to the right, so from (−2, 0) to x = 0 it rises 2(5/12) = 5/6.",
+      "distractor_explanations": {
+        "A": "10/13 uses sin θ as the slope.",
+        "C": "24/13 uses cos θ as the slope.",
+        "D": "24/5 uses 12/5, the reciprocal of tan θ, as the slope."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "What is the slope in terms of θ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the 5-12-13 right triangle for θ."
+      },
+      "remember": "The slope of a line is the tangent of its angle with the positive x-axis.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-11",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000671",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Trapezoid height from similar triangles formed by extended legs",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 16, and CD = 12. When legs AD and BC are extended beyond D and C, they meet at point E, which is 9 units from line CD. What is the distance between lines AB and CD ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "9/4",
+        "B": "3",
+        "C": "27/4",
+        "D": "12"
+      },
+      "correct_answer": "B",
+      "explanation": "Triangle EDC is similar to triangle EAB with ratio 12/16 = 3/4. So E is 9 × 16/12 = 12 units from line AB, and the distance between AB and CD is 12 − 9 = 3.",
+      "distractor_explanations": {
+        "A": "9/4 scales the wrong way (9 × 12/16 = 27/4) and then subtracts from 9.",
+        "C": "27/4 scales the wrong way and stops.",
+        "D": "12 is the distance from E to AB, not the trapezoid's height."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which two triangles are similar?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid and extend the legs."
+      },
+      "remember": "Parallel lines cut from a common vertex create similar triangles.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-12",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000672",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Surface area of a composite solid needing a slant height",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A solid is made by attaching a square pyramid to a cube with edges of length 10 centimeters. The base of the pyramid is exactly one face of the cube, and the pyramid's top vertex is 12 centimeters directly above the center of that face. What is the total surface area of the solid, in square centimeters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "660",
+        "B": "740",
+        "C": "760",
+        "D": "860"
+      },
+      "correct_answer": "C",
+      "explanation": "Each triangular face has slant height √(12² + 5²) = 13, so the four faces have area 4 × (1/2)(10)(13) = 260. The cube shows 5 faces, 500. The total is 760.",
+      "distractor_explanations": {
+        "A": "660 counts only 4 faces of the cube.",
+        "B": "740 uses the height 12 instead of the slant height 13.",
+        "D": "860 also counts the cube face covered by the pyramid."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the height of each triangular face?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle from the apex to the center and to a midpoint of a side."
+      },
+      "remember": "Leave out faces that are hidden where two solids are joined.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-13",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000673",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Radius of a circle through two points and tangent to a line",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle passes through the points (0, 0) and (12, 0) and is tangent to the line y = 9. What is the radius of the circle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "13/2",
+      "accepted_answers": [
+        "13/2",
+        "6.5"
+      ],
+      "common_errors": [
+        {
+          "value": "4.5",
+          "rationale": "4.5 puts the center halfway between the x-axis and y = 9.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 is half of the chord from (0, 0) to (12, 0).",
+          "trap": null
+        }
+      ],
+      "explanation": "The center is on the line x = 6, say (6, k). Then r² = 36 + k², and because the circle is tangent to y = 9 from below, r = 9 − k. So 36 + k² = 81 − 18k + k², giving k = 2.5 and r = 6.5.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where must the center be, given the two points on the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the chord, the center on x = 6 and the tangent line."
+      },
+      "remember": "A tangent line's distance from the center equals the radius.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-14",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "13/2",
+        "blind_answer": "13/2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000674",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Arc length from a chord cut by a horizontal line",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = 5 intersects the circle x² + y² = 100 at points P and Q. The length of minor arc PQ is kπ. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "20/3",
+      "accepted_answers": [
+        "20/3",
+        "6.666",
+        "6.667"
+      ],
+      "common_errors": [
+        {
+          "value": "5/3",
+          "rationale": "5/3 uses the 30° angle as the central angle.",
+          "trap": null
+        },
+        {
+          "value": "10/3",
+          "rationale": "10/3 uses a 60° central angle.",
+          "trap": null
+        },
+        {
+          "value": "40/3",
+          "rationale": "40/3 is the length of the major arc.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The points are (±5√3, 5). Each radius OP and OQ makes a 30° angle with the x-axis (the y-coordinate is half the radius), so the central angle POQ is 180° − 60° = 120°. The minor arc is (120/360)(2π)(10) = 20π/3, so k = 20/3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What angle does OP make with the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle, the line y = 5 and the two radii."
+      },
+      "remember": "If y is half the radius, the radius makes 30° with the x-axis.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-15",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "20/3",
+        "blind_answer": "20/3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000675",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Vertex coordinate from a right angle using perpendicular slopes",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the points A(0, 0), B(6, 2), and C(k, 11) are the vertices of a triangle in which angle ABC is a right angle. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 uses slope 3 instead of −3.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "33",
+          "rationale": "33 gives BC the same slope as AB, 1/3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope of AB is 2/6 = 1/3, so the slope of BC must be −3. Then (11 − 2)/(k − 6) = −3, so k − 6 = −3 and k = 3. Check: AB² + BC² = 40 + 90 = 130 = AC².",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the slope of AB?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the slope of BC equal to the negative reciprocal."
+      },
+      "remember": "Perpendicular lines have slopes that are negative reciprocals.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-16",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000676",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Swing angle in degrees from arc length",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A pendulum is 45 centimeters long. As it swings from one side to the other, its tip travels along a circular arc of length 12π centimeters. Through how many degrees does the pendulum swing?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "48",
+      "accepted_answers": [
+        "48"
+      ],
+      "common_errors": [
+        {
+          "value": "96",
+          "rationale": "96 leaves out the 2 in 2πr.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 uses 90 centimeters, twice the length, as the radius.",
+          "trap": null
+        }
+      ],
+      "explanation": "The angle in radians is 12π/45 = 4π/15. Converting, (4π/15)(180/π) = 48 degrees. Equivalently, (θ/360)(2π)(45) = 12π gives θ = 48.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the radius of the arc?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use arc length = (θ/360) × 2πr."
+      },
+      "remember": "Arc length = (θ/360) × 2πr when θ is in degrees.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 63,
+      "draft_candidate": "Q063-17",
+      "created_at": "2026-10-27T16:17:57+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "48",
+        "blind_answer": "48",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-063.review.json",
+        "computation": "checks/sat_math/batch_063.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

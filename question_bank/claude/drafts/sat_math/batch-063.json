@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 63,
- "plan": "SAT Math batch 63: 17 items from generated idea set 15 (Advanced Math and Geometry/Trig; pre-checked in ideas-063.repeats.json). Dropped from set 15: JB04, JB12, JB13, JD09 (templates of CLD-SAT-M-000043, CLD-ACT-M-000437, idea FA02, CLD-ACT-M-000723), JD01 (angle between lines, outside usual SAT scope), JB08 (classic solved by Desmos), JB03 (key the only whole-number exponent), JB06 (x = 0 and x = 1 eliminate all distractors), JB10 (consensus key), JB15 (key = sum of two choices), JB16 (key the only negative choice), JD04 (classic with bisector-theorem shortcut; key largest), JD10 (paired choices). Fixes: JB09 soup served at 180°F; JD07 and JD12 trap rationales corrected; JB02, JB11, JB14, JD06 labeled medium.",
+ "plan": "SAT Math batch 63: 17 items from generated idea set 15 (Advanced Math and Geometry/Trig; pre-checked in ideas-063.repeats.json). Dropped from set 15: JB04, JB12, JB13, JD09 (templates of CLD-SAT-M-000043, CLD-ACT-M-000437, idea FA02, CLD-ACT-M-000723), JD01 (angle between lines, outside usual SAT scope), JB08 (classic solved by Desmos), JB03 (key the only whole-number exponent), JB06 (x = 0 and x = 1 eliminate all distractors), JB10 (consensus key), JB15 (key = sum of two choices), JB16 (key the only negative choice), JD04 (classic with bisector-theorem shortcut; key largest), JD10 (paired choices). Fixes: JB09 soup served at 180°F; JD07 and JD12 trap rationales corrected; JB02, JB11, JB14, JD06 labeled medium. Relabelled to the lower of authored and blind difficulty: Q063-04 hard→medium, Q063-05 hard→medium, Q063-08 hard→medium, Q063-10 hard→medium.",
  "candidates": [
   {
    "cand": "Q063-01",
@@ -145,7 +145,7 @@
    "skill": "Advanced Math",
    "subskill": "Composing a reflection and a translation of a graph",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The function f is defined by f(x) = (x − 2)(x − 5). The graph of y = g(x) is obtained by reflecting the graph of y = f(x) across the y-axis and then translating the result 3 units to the right. What are the zeros of g ?",
    "explanation": "Reflecting across the y-axis sends the zeros 2 and 5 to −2 and −5. Translating 3 units to the right adds 3, giving 1 and −2. (Equivalently, g(x) = f(3 − x).)",
    "hints": [
@@ -192,7 +192,7 @@
    "skill": "Advanced Math",
    "subskill": "Interpreting the period of a shifted exponential cooling model",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The temperature of a bowl of soup, in degrees Fahrenheit, t minutes after it is served is modeled by T(t) = 70 + 110(0.5)^(t/20). Which of the following is the best interpretation of the number 20 in this context?",
    "explanation": "T(t) − 70 = 110(0.5)^(t/20), so the excess of the temperature over 70°F is multiplied by 0.5 every 20 minutes. For example, T(0) = 180, T(20) = 125 and T(40) = 97.5: the excess goes from 110 to 55 to 27.5.",
    "hints": [
@@ -327,7 +327,7 @@
    "skill": "Advanced Math",
    "subskill": "Constant term after shifting both solutions",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The solutions of x² + bx + c = 0, where b and c are constants, are each 3 greater than the solutions of x² − 5x + 2 = 0. What is the value of c ?",
    "explanation": "If r and s solve x² − 5x + 2 = 0, then r + s = 5 and rs = 2. The new solutions are r + 3 and s + 3, so c = (r + 3)(s + 3) = rs + 3(r + s) + 9 = 2 + 15 + 9 = 26. (Equivalently, the new equation is (x − 3)² − 5(x − 3) + 2 = x² − 11x + 26.)",
    "hints": [
@@ -420,7 +420,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Greatest squared distance from the origin to a point on a circle",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The point (a, b) lies on the circle (x − 3)² + (y − 4)² = 4 in the xy-plane. What is the greatest possible value of a² + b² ?",
    "explanation": "a² + b² is the square of the distance from the origin to (a, b). The center (3, 4) is 5 units from the origin, and the radius is 2, so the farthest point of the circle is 5 + 2 = 7 units away. The greatest value of a² + b² is 7² = 49.",
    "hints": [

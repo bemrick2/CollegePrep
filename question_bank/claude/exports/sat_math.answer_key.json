@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 62,
+  "bank_version": 63,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -13331,6 +13331,385 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Write each residual as actual minus predicted and subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000660",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the x-coordinate of the intersection point, not k.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "0",
+          "rationale": "0 is excluded because k is positive.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting the expressions equal gives 3x = k, so the graphs meet only at x = k/3. That point is on the x-axis when (k/3)² − 7(k/3) + k = 0, which simplifies to k²/9 − 4k/3 = 0, so k = 12 (k = 0 is excluded). Check: x² − 7x + 12 and x² − 10x + 24 share the zero 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Subtract the two equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find where the graphs meet, then require y = 0 there."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000661",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 is the difference of the values of 3x; it forgets to divide by 3.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is the square root of 36.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 ignores the ± sign.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The left side is (3x − a)², so 3x − a = 6 or 3x − a = −6, and x = (a + 6)/3 or x = (a − 6)/3. The difference is 12/3 = 4 for every value of a.",
+      "distractor_explanations": {},
+      "hints": [
+        "Is the left side a perfect square?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take square roots of both sides."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000662",
+      "correct_answer": "C",
+      "explanation": "Write p(x) = 3(x − 2)(x + 4)(x − r). Its constant term is 3(−2)(4)(−r) = 24r, which must equal 120, so r = 5. Check: 3(x − 2)(x + 4)(x − 5) = 3x³ − 9x² − 54x + 120.",
+      "distractor_explanations": {
+        "A": "−15 ignores the leading coefficient and makes a sign slip.",
+        "B": "−5 makes a sign slip: 24r = −120.",
+        "D": "15 ignores the leading coefficient 3: (−2)(4)(−r) = 120."
+      },
+      "hints": [
+        "Write p in factored form with an unknown third zero."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Match the constant terms."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000663",
+      "correct_answer": "C",
+      "explanation": "Reflecting across the y-axis sends the zeros 2 and 5 to −2 and −5. Translating 3 units to the right adds 3, giving 1 and −2. (Equivalently, g(x) = f(3 − x).)",
+      "distractor_explanations": {
+        "A": "−8 and −5 translates first and then reflects, which gives g(x) = f(−x − 3).",
+        "B": "−5 and −2 reflects but forgets the translation.",
+        "D": "5 and 8 reflects across the x-axis, which does not move the zeros, and then translates."
+      },
+      "hints": [
+        "Where do the zeros go after each step?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Track the two zeros through each transformation in order."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000664",
+      "correct_answer": "A",
+      "explanation": "T(t) − 70 = 110(0.5)^(t/20), so the excess of the temperature over 70°F is multiplied by 0.5 every 20 minutes. For example, T(0) = 180, T(20) = 125 and T(40) = 97.5: the excess goes from 110 to 55 to 27.5.",
+      "distractor_explanations": {
+        "B": "The temperature itself does not halve: 180°F becomes 125°F, not 90°F.",
+        "C": "The first drop is 55 degrees, but the next is 27.5; the decrease is not constant.",
+        "D": "The temperature approaches 70°F but never reaches it."
+      },
+      "hints": [
+        "What does T(t) − 70 equal?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute T(0), T(20) and T(40)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000665",
+      "correct_answer": "13",
+      "accepted_answers": [
+        "13"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 drops the factor x and adds 5 to the remainder of p.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "17",
+          "rationale": "17 evaluates at x = 3: 3 · 4 + 5.",
+          "trap": null
+        }
+      ],
+      "explanation": "By the remainder theorem, the remainder when q(x) is divided by x − 2 is q(2) = 2 · p(3) + 5. Since p(3) = 4, the remainder is 2(4) + 5 = 13.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the remainder when q(x) is divided by x − 2, in terms of q?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the remainder theorem twice."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000666",
+      "correct_answer": "A",
+      "explanation": "Since x² − x − 2 = (x − 2)(x + 1), multiplying both sides by it gives x(x + 1) + 3(x − 2) = 6, so x² + 4x − 12 = 0 and x = −6 or x = 2. But x = 2 makes a denominator 0, so the solution set is {−6}.",
+      "distractor_explanations": {
+        "B": "{−6, 2} does not check for values that make a denominator 0.",
+        "C": "{2} keeps the excluded value and drops the valid solution.",
+        "D": "Only x = 2 is excluded; x = −6 is a valid solution."
+      },
+      "hints": [
+        "Factor x² − x − 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear denominators, solve, then check each solution."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000667",
+      "correct_answer": "D",
+      "explanation": "If r and s solve x² − 5x + 2 = 0, then r + s = 5 and rs = 2. The new solutions are r + 3 and s + 3, so c = (r + 3)(s + 3) = rs + 3(r + s) + 9 = 2 + 15 + 9 = 26. (Equivalently, the new equation is (x − 3)² − 5(x − 3) + 2 = x² − 11x + 26.)",
+      "distractor_explanations": {
+        "A": "−4 shifts the solutions the wrong way: rs − 3(r + s) + 9.",
+        "B": "11 drops the cross term: rs + 9.",
+        "C": "17 drops the 9."
+      },
+      "hints": [
+        "What are the sum and product of the original solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand (r + 3)(s + 3) using r + s and rs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000668",
+      "correct_answer": "B",
+      "explanation": "The total cost is x · C(x) = 2x + 600: a fixed $600 plus $2 for each item. So 2 is the cost added by each additional item.",
+      "distractor_explanations": {
+        "A": "This swaps the fixed cost ($600) and the per-item cost ($2).",
+        "C": "This reads 2 as a rate of change of the average cost, which is not constant.",
+        "D": "This reads 2 as an input; C(2) = 302."
+      },
+      "hints": [
+        "What is the total cost of x items?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply C(x) by x before interpreting."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000669",
+      "correct_answer": "C",
+      "explanation": "a² + b² is the square of the distance from the origin to (a, b). The center (3, 4) is 5 units from the origin, and the radius is 2, so the farthest point of the circle is 5 + 2 = 7 units away. The greatest value of a² + b² is 7² = 49.",
+      "distractor_explanations": {
+        "A": "25 is the squared distance to the center.",
+        "B": "29 adds the squared radius to 25.",
+        "D": "81 adds the squared radius, 4, to the distance: (5 + 4)²."
+      },
+      "hints": [
+        "What does a² + b² measure?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the origin, the center and the farthest point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000670",
+      "correct_answer": "B",
+      "explanation": "Since sin θ = 5/13, cos θ = 12/13 and the slope is tan θ = 5/12. The line rises 5/12 for each unit to the right, so from (−2, 0) to x = 0 it rises 2(5/12) = 5/6.",
+      "distractor_explanations": {
+        "A": "10/13 uses sin θ as the slope.",
+        "C": "24/13 uses cos θ as the slope.",
+        "D": "24/5 uses 12/5, the reciprocal of tan θ, as the slope."
+      },
+      "hints": [
+        "What is the slope in terms of θ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the 5-12-13 right triangle for θ."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000671",
+      "correct_answer": "B",
+      "explanation": "Triangle EDC is similar to triangle EAB with ratio 12/16 = 3/4. So E is 9 × 16/12 = 12 units from line AB, and the distance between AB and CD is 12 − 9 = 3.",
+      "distractor_explanations": {
+        "A": "9/4 scales the wrong way (9 × 12/16 = 27/4) and then subtracts from 9.",
+        "C": "27/4 scales the wrong way and stops.",
+        "D": "12 is the distance from E to AB, not the trapezoid's height."
+      },
+      "hints": [
+        "Which two triangles are similar?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the trapezoid and extend the legs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000672",
+      "correct_answer": "C",
+      "explanation": "Each triangular face has slant height √(12² + 5²) = 13, so the four faces have area 4 × (1/2)(10)(13) = 260. The cube shows 5 faces, 500. The total is 760.",
+      "distractor_explanations": {
+        "A": "660 counts only 4 faces of the cube.",
+        "B": "740 uses the height 12 instead of the slant height 13.",
+        "D": "860 also counts the cube face covered by the pyramid."
+      },
+      "hints": [
+        "What is the height of each triangular face?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle from the apex to the center and to a midpoint of a side."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000673",
+      "correct_answer": "13/2",
+      "accepted_answers": [
+        "13/2",
+        "6.5"
+      ],
+      "common_errors": [
+        {
+          "value": "4.5",
+          "rationale": "4.5 puts the center halfway between the x-axis and y = 9.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 is half of the chord from (0, 0) to (12, 0).",
+          "trap": null
+        }
+      ],
+      "explanation": "The center is on the line x = 6, say (6, k). Then r² = 36 + k², and because the circle is tangent to y = 9 from below, r = 9 − k. So 36 + k² = 81 − 18k + k², giving k = 2.5 and r = 6.5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where must the center be, given the two points on the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the chord, the center on x = 6 and the tangent line."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000674",
+      "correct_answer": "20/3",
+      "accepted_answers": [
+        "20/3",
+        "6.666",
+        "6.667"
+      ],
+      "common_errors": [
+        {
+          "value": "5/3",
+          "rationale": "5/3 uses the 30° angle as the central angle.",
+          "trap": null
+        },
+        {
+          "value": "10/3",
+          "rationale": "10/3 uses a 60° central angle.",
+          "trap": null
+        },
+        {
+          "value": "40/3",
+          "rationale": "40/3 is the length of the major arc.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The points are (±5√3, 5). Each radius OP and OQ makes a 30° angle with the x-axis (the y-coordinate is half the radius), so the central angle POQ is 180° − 60° = 120°. The minor arc is (120/360)(2π)(10) = 20π/3, so k = 20/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "What angle does OP make with the x-axis?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the circle, the line y = 5 and the two radii."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000675",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 uses slope 3 instead of −3.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "33",
+          "rationale": "33 gives BC the same slope as AB, 1/3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope of AB is 2/6 = 1/3, so the slope of BC must be −3. Then (11 − 2)/(k − 6) = −3, so k − 6 = −3 and k = 3. Check: AB² + BC² = 40 + 90 = 130 = AC².",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the slope of AB?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the slope of BC equal to the negative reciprocal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000676",
+      "correct_answer": "48",
+      "accepted_answers": [
+        "48"
+      ],
+      "common_errors": [
+        {
+          "value": "96",
+          "rationale": "96 leaves out the 2 in 2πr.",
+          "trap": null
+        },
+        {
+          "value": "24",
+          "rationale": "24 uses 90 centimeters, twice the length, as the radius.",
+          "trap": null
+        }
+      ],
+      "explanation": "The angle in radians is 12π/45 = 4π/15. Converting, (4π/15)(180/π) = 48 degrees. Equivalently, (θ/360)(2π)(45) = 12π gives θ = 48.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the radius of the arc?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use arc length = (θ/360) × 2πr."
       }
     }
   ]

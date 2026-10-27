@@ -1,0 +1,422 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 63,
+  "reviewed_at": "2026-10-27T16:17:57+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 63
+  },
+  "counts": {
+    "PASS": 17,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000660",
+    "CLD-SAT-M-000661",
+    "CLD-SAT-M-000662",
+    "CLD-SAT-M-000663",
+    "CLD-SAT-M-000664",
+    "CLD-SAT-M-000665",
+    "CLD-SAT-M-000666",
+    "CLD-SAT-M-000667",
+    "CLD-SAT-M-000668",
+    "CLD-SAT-M-000669",
+    "CLD-SAT-M-000670",
+    "CLD-SAT-M-000671",
+    "CLD-SAT-M-000672",
+    "CLD-SAT-M-000673",
+    "CLD-SAT-M-000674",
+    "CLD-SAT-M-000675",
+    "CLD-SAT-M-000676"
+  ],
+  "results": [
+    {
+      "cand": "Q063-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Subtract: 3x - k = 0 so x = k/3; set y = 0: k^2/9 - 4k/3 = 0, k = 12 (k > 0). Check: x = 4 gives 16-28+12 = 0 and 16-40+24 = 0.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must find the single meeting point by subtracting, then require it to lie on the x-axis."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000660"
+    },
+    {
+      "cand": "Q063-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: the answer does not depend on a, so setting a = 0 (x = ±2) gives the answer right away"
+      ],
+      "blind_notes": "(3x-a)^2 = 36, so x = (a±6)/3 and p - q = 12/3 = 4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000661"
+    },
+    {
+      "cand": "Q063-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Product of zeros = -120/3 = -40; 2(-4)r = -40, so r = 5. Check: 3(x-2)(x+4)(x-5) has constant term 120.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000662"
+    },
+    {
+      "cand": "Q063-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Reflecting moves the zeros to -2 and -5; shifting right 3 gives 1 and -2. The distractors cover the expected errors (wrong order, wrong direction).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must compose two transformations in order; reversing the order or the axis gives strong traps."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000663"
+    },
+    {
+      "cand": "Q063-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "The excess over 70 is 110(0.5)^(t/20), which halves every 20 minutes. B is the classic trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The added 70 makes 'the temperature halves' tempting; students must see that only the excess halves."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000664"
+    },
+    {
+      "cand": "Q063-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "13",
+      "computed_answer": "13",
+      "blind_answer": "13",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "q(2) = 2p(3) + 5 = 2(4) + 5 = 13.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000665"
+    },
+    {
+      "cand": "Q063-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Multiply by (x-2)(x+1): x^2 + 4x - 12 = 0, so x = -6 or 2; 2 is extraneous.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000666"
+    },
+    {
+      "cand": "Q063-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(r+3)(s+3) = rs + 3(r+s) + 9 = 2 + 15 + 9 = 26.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The original solutions are irrational, so students must use their sum and product or substitute x − 3."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000667"
+    },
+    {
+      "cand": "Q063-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Total cost is 2x + 600, so 2 is the per-item (marginal) cost. C(x) = 2 + 600/x.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000668"
+    },
+    {
+      "cand": "Q063-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: a classic 'farthest point on a circle from the origin' problem; not a close copy of any particular item"
+      ],
+      "blind_notes": "The origin is 5 from the center; max distance = 5 + 2 = 7; 7^2 = 49.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must recognize the expression as a squared distance and maximize it geometrically."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000669"
+    },
+    {
+      "cand": "Q063-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "tan θ = 5/12 = slope; y-intercept = (5/12)(2) = 5/6. 10/13 is the trap from using sin as the slope.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000670"
+    },
+    {
+      "cand": "Q063-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Similar triangles: 12/16 = 9/(9+d), so 9 + d = 12 and d = 3. The verbal setup is clear without a figure.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000671"
+    },
+    {
+      "cand": "Q063-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "5 cube faces = 500; slant height = sqrt(144+25) = 13; lateral area = 4(1/2)(10)(13) = 260; total 760. The distractors are 860 (shared face counted) and 740 (slant 12).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000672"
+    },
+    {
+      "cand": "Q063-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "13/2",
+      "computed_answer": "13/2",
+      "blind_answer": "13/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Center (6,k): 9 - k = r and r^2 = 36 + k^2, so k = 2.5 and r = 6.5. The case of a center above the line gives no solution, so the answer is unique.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must combine a perpendicular-bisector condition with tangency to get two equations."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000673"
+    },
+    {
+      "cand": "Q063-15",
+      "revision": 1,
+      "revision_history": [],
+      "key": "20/3",
+      "computed_answer": "20/3",
+      "blind_answer": "20/3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "The points are at angles 30° and 150°; central angle 120°; arc = (1/3)(20π) = 20π/3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must find the intersection points and recognize the 30°-60°-90° geometry to get the central angle."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000674"
+    },
+    {
+      "cand": "Q063-16",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "BA·BC = (-6)(k-6) + (-2)(9) = 0, so k = 3. Slopes check: 1/3 and 9/(-3) = -3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000675"
+    },
+    {
+      "cand": "Q063-17",
+      "revision": 1,
+      "revision_history": [],
+      "key": "48",
+      "computed_answer": "48",
+      "blind_answer": "48",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "θ = 12π/45 = 4π/15 rad = 48°. Equivalently, 360 × 12π/(90π) = 48.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000676"
+    }
+  ]
+}

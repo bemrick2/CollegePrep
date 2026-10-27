@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T16:16:38+00:00",
+  "updated_at": "2026-10-27T16:18:01+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 377,
     "act_reading": 366,
     "sat_reading_writing": 379,
-    "sat_math": 629
+    "sat_math": 646
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 34
     },
     "sat_math": {
-      "PASS": 659,
+      "PASS": 676,
       "REVISE": 15,
       "REJECT": 1,
-      "candidates": 675,
+      "candidates": 692,
       "passed_after_revision": 21
     }
   },
@@ -1614,12 +1614,12 @@
       "passages": 406
     },
     "sat_math": {
-      "accepted": 629,
+      "accepted": 646,
       "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 207,
+        "Advanced Math": 216,
         "Algebra": 201,
-        "Geometry and Trigonometry": 109,
+        "Geometry and Trigonometry": 117,
         "Problem-Solving and Data Analysis": 112
       },
       "by_subskill": {
@@ -1641,6 +1641,7 @@
         "Applying a part-to-whole rate": 1,
         "Applying a percent increase": 1,
         "Approximating a solution of an exponential-linear equation by graphing": 1,
+        "Arc length from a chord cut by a horizontal line": 1,
         "Arc length from coordinates on a circle": 1,
         "Arc length of one sector from equal sector areas": 1,
         "Area from similar triangles where a segment to a midpoint meets a diagonal": 1,
@@ -1706,6 +1707,7 @@
         "Comparing volumes of a sphere and a cylinder": 1,
         "Comparing yearly percent decrease of models with different periods": 1,
         "Complementary angles and the sine-cosine relationship": 1,
+        "Composing a reflection and a translation of a graph": 1,
         "Composing a sphere volume with a linearly growing radius": 1,
         "Compound growth run backward to an earlier value": 1,
         "Compounding a percent change over a longer span": 1,
@@ -1725,6 +1727,7 @@
         "Constant in a circle equation from tangency to an axis": 1,
         "Constant in a factored quadratic from a point": 1,
         "Constant in an equivalent linear expression": 1,
+        "Constant term after shifting both solutions": 1,
         "Constant term from one irrational solution": 1,
         "Constant term from the distance between zeros": 1,
         "Constant term from the minimum value of a quadratic": 1,
@@ -1762,6 +1765,7 @@
         "Difference of two unknowns from a slope condition": 1,
         "Difference of two unknowns from subtracted equations, with unit conversion": 1,
         "Direction of error for a miscalibrated odometer": 1,
+        "Distance between solutions of a perfect-square equation": 1,
         "Distance fallen during a one-second window": 1,
         "Distance from a chord endpoint to the midpoint of its arc": 1,
         "Distance from a pace and a time": 1,
@@ -1834,6 +1838,7 @@
         "Greatest possible median after adding a value": 1,
         "Greatest probability bounded by the position of the median": 1,
         "Greatest production level with average cost at most a value": 1,
+        "Greatest squared distance from the origin to a point on a circle": 1,
         "Greatest value of an expression under a linear constraint": 1,
         "Greatest whole number under a budget with a minimum purchase": 1,
         "Group mean from a weighted combined mean with linked group means": 1,
@@ -1864,6 +1869,7 @@
         "Inscribed angle that intercepts the major arc": 1,
         "Intercepts of a line in standard form": 1,
         "Interpreting a change in a linear conversion formula": 1,
+        "Interpreting a coefficient in an average-cost model": 1,
         "Interpreting a coefficient nested in a product of two inputs": 1,
         "Interpreting a constant in a quadratic area model": 1,
         "Interpreting a constant that divides the variable in a linear model": 1,
@@ -1875,6 +1881,7 @@
         "Interpreting standard deviation": 1,
         "Interpreting the compounding frequency in an exponential model": 1,
         "Interpreting the initial value of an exponential model": 1,
+        "Interpreting the period of a shifted exponential cooling model": 1,
         "Interpreting the point in point-slope form in context": 1,
         "Interpreting the slope of a difference function": 1,
         "Intersection of a line and a parabola": 1,
@@ -2026,6 +2033,7 @@
         "Quotient of rational expressions that collapses to a constant": 1,
         "Radius from an arc length and a radian angle": 1,
         "Radius from the area between concentric circles": 1,
+        "Radius of a circle through two points and tangent to a line": 1,
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Radius of an externally tangent circle from the distance between centers": 1,
         "Random assignment undone by a confounding variable": 1,
@@ -2042,6 +2050,7 @@
         "Ratio of two exponential models (real purchasing power)": 1,
         "Ratio of variables from a homogeneous linear equation": 1,
         "Ratio of volumes of the two cylinders rolled from one sheet": 1,
+        "Rational equation with an excluded root": 1,
         "Rationalizing a denominator that contains a variable": 1,
         "Re-expressing a linear model with a new base year": 1,
         "Re-expressing a model’s input over a different time window": 1,
@@ -2057,6 +2066,7 @@
         "Rectangle area from a diagonal and its angle with a side": 1,
         "Rectangle from its diagonal and one side": 1,
         "Regular price from a per-unit discount and an add-on": 1,
+        "Remainder of a polynomial built from a shifted input": 1,
         "Remainder of a polynomial from its division form": 1,
         "Remaining distance when one runner finishes": 1,
         "Returning to an initial height in a quadratic model": 1,
@@ -2085,6 +2095,7 @@
         "Share of revenue from a subgroup": 1,
         "Shared force in two springs joined end to end": 1,
         "Shared height of triangles between parallel lines": 1,
+        "Shared zero of two quadratics found by subtracting": 1,
         "Sharing a fixed resource between two usage rates": 1,
         "Sign conditions on coefficients from the vertex quadrant": 1,
         "Signed residuals: where the line overestimates most": 1,
@@ -2160,8 +2171,10 @@
         "Sum of the solutions of an absolute value equation": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
         "Sum-and-difference system with three exclusive groups": 1,
+        "Surface area of a composite solid needing a slant height": 1,
         "Surface area of a cube with a cylindrical hole": 1,
         "Surface area of a fixed-volume cylinder as a function of radius": 1,
+        "Swing angle in degrees from arc length": 1,
         "System from two shared resources": 1,
         "System of equations for time at two speeds": 1,
         "System of linear equations in context": 1,
@@ -2172,6 +2185,7 @@
         "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Tangent of an angle from a point on a circle": 1,
         "Third angle of a triangle": 1,
+        "Third zero of a cubic from its constant and leading coefficients": 1,
         "Ticket counts when revenues, not counts, are in a given ratio": 1,
         "Time at which a rational concentration model reaches a value": 1,
         "Time for a falling object to reach a height": 1,
@@ -2190,6 +2204,7 @@
         "Translating a comparison of fractional parts": 1,
         "Translating a verbal equation with grouping": 1,
         "Translating a verbal statement into a linear equation": 1,
+        "Trapezoid height from similar triangles formed by extended legs": 1,
         "Triangle area from an arc length": 1,
         "Trigonometric ratios with an extraneous root": 1,
         "Two chained round-ups from a ratio and a capacity": 1,
@@ -2215,6 +2230,7 @@
         "Value of a shifted exponential from a known power": 1,
         "Value of x + 1/x from a quadratic equation": 1,
         "Vertex after a horizontal and vertical shift": 1,
+        "Vertex coordinate from a right angle using perpendicular slopes": 1,
         "Vertical stretch that makes a shifted parabola touch the axis": 1,
         "Volume of a box from its surface area": 1,
         "Volume of a cone with a related radius": 1,
@@ -2243,6 +2259,7 @@
         "Y-coordinate of the intersection of two exponential graphs": 1,
         "Y-intercept of a cubic built from crossing and touching behavior": 1,
         "Y-intercept of a horizontally shifted quadratic from zeros and an intercept": 1,
+        "Y-intercept of a line from the sine of its angle": 1,
         "Zero of an exponential function": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
@@ -2255,18 +2272,18 @@
       },
       "by_difficulty_author": {
         "easy": 88,
-        "hard": 74,
-        "medium": 467
+        "hard": 77,
+        "medium": 481
       },
       "by_difficulty_calibrated": {
         "easy": 139,
-        "hard": 63,
-        "medium": 427
+        "hard": 67,
+        "medium": 440
       },
       "calibrated_share": {
-        "easy": 0.221,
-        "hard": 0.1,
-        "medium": 0.679
+        "easy": 0.215,
+        "hard": 0.104,
+        "medium": 0.681
       },
       "answer_key_balance": {
         "-1": 3,
@@ -2289,11 +2306,13 @@
         "110": 1,
         "114": 1,
         "115": 1,
-        "12": 7,
+        "12": 8,
         "12.5": 1,
         "12/25": 1,
         "1260": 1,
+        "13": 1,
         "13.5": 1,
+        "13/2": 1,
         "132": 1,
         "14": 1,
         "14000": 1,
@@ -2314,7 +2333,7 @@
         "2": 9,
         "2.5": 1,
         "20": 6,
-        "20/3": 1,
+        "20/3": 2,
         "200": 2,
         "2000": 1,
         "22": 1,
@@ -2328,7 +2347,7 @@
         "26": 2,
         "27500": 1,
         "29": 1,
-        "3": 11,
+        "3": 12,
         "3.54": 1,
         "3/2": 1,
         "30": 3,
@@ -2339,7 +2358,7 @@
         "36": 4,
         "37.5": 1,
         "39": 1,
-        "4": 13,
+        "4": 14,
         "4.05": 1,
         "4.2": 1,
         "40": 5,
@@ -2347,6 +2366,7 @@
         "436": 1,
         "44": 2,
         "447": 1,
+        "48": 1,
         "49": 1,
         "5": 6,
         "5.4": 1,
@@ -2380,13 +2400,13 @@
         "94": 1,
         "95": 1,
         "96": 1,
-        "A": 88,
-        "B": 130,
-        "C": 115,
-        "D": 65
+        "A": 90,
+        "B": 133,
+        "C": 119,
+        "D": 66
       },
-      "modeling_items": 246,
-      "spr_items": 231,
+      "modeling_items": 248,
+      "spr_items": 238,
       "passages": 0
     }
   },
@@ -2395,7 +2415,7 @@
     "act_english": 43,
     "act_reading": 47,
     "sat_reading_writing": 45,
-    "sat_math": 62
+    "sat_math": 63
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2427,36 +2447,36 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 63,
+    "next_batch": 64,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 22.6,
-      "Advanced Math": 16.6,
-      "Problem-Solving and Data Analysis": -16.2,
-      "Geometry and Trigonometry": -13.2
+      "Algebra": 28.6,
+      "Advanced Math": 13.6,
+      "Problem-Solving and Data Analysis": -13.6,
+      "Geometry and Trigonometry": -18.6
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 20.8,
-      "medium": -107.5,
-      "hard": 96.8
+      "easy": 25.0,
+      "medium": -112.0,
+      "hard": 97.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 31.8,
-      "B": -10.2,
-      "C": 4.8,
-      "D": 54.8
+      "A": 33.0,
+      "B": -10.0,
+      "C": 4.0,
+      "D": 57.0
     },
-    "spr_items": 231,
+    "spr_items": 238,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 44,
+    "act_reading": {
+      "next_batch": 48,
       "skill_gap_for_next_10": {
-        "Production of Writing": 43.7,
-        "Knowledge of Language": 15.3,
-        "Conventions of Standard English": -43.3
+        "Key Ideas and Details": 49.5,
+        "Craft and Structure": -15.1,
+        "Integration of Knowledge and Ideas": -24.4
       }
     },
     "sat_reading_writing": {
@@ -2468,12 +2488,12 @@
         "Expression of Ideas": -3.2
       }
     },
-    "act_reading": {
-      "next_batch": 48,
+    "act_english": {
+      "next_batch": 44,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 49.5,
-        "Craft and Structure": -15.1,
-        "Integration of Knowledge and Ideas": -24.4
+        "Production of Writing": 43.7,
+        "Knowledge of Language": 15.3,
+        "Conventions of Standard English": -43.3
       }
     }
   },
@@ -2500,12 +2520,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 629,
-      "share_of_target": 0.629
+      "accepted": 646,
+      "share_of_target": 0.646
     }
   },
   "total_target": 3841,
-  "total_accepted": 2525,
+  "total_accepted": 2542,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -306045,7 +306065,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 62,
+      "bank_version": 63,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -306171,7 +306191,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T16:16:38+00:00",
+    "heartbeat_at": "2026-10-27T16:18:00+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
