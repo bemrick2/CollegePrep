@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 58,
-  "updated_at": "2026-10-27T19:55:07+00:00",
+  "version": 59,
+  "updated_at": "2026-10-27T20:08:13+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -619,6 +619,17 @@
       "word_count": 199,
       "text": "[1] On an October night in 1847, Maria Mitchell climbed to the roof of her family's home on Nantucket, Massachusetts, {{1|and, swept}} the sky with a small telescope. [2] Near the North Star she noticed a faint, fuzzy patch of light that had not been there {{2|before: a comet}} that no one had yet reported.\n\n[3] {{3|Having discovered the comet, a gold medal was awarded to Mitchell}} by the King of Denmark, under a standing royal offer of a medal to the first person to find each new comet through a telescope. [4] The next year, she became the first woman elected to the American Academy of Arts and Sciences. {{4|}}\n\n[5] In 1865, Mitchell joined the faculty of Vassar College, a new school for women, {{5|where}} she taught astronomy for more than twenty years. [6] She believed that students learned best by observing the sky for themselves rather than {{6|to read}} about it. [7] In 1878, she {{7|lead}} a group of students to Denver, Colorado, to observe a total eclipse of the Sun.\n\n[8] Mitchell also fought for fair treatment. [9] {{8|However,}} when she learned that younger male professors earned more than she did, she {{9|demanded—and received, a raise}}.",
       "batch": 58,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000059",
+      "title": "Side by Side",
+      "genre": "informative essay",
+      "word_count": 167,
+      "text": "[1] In 1887, {{1|a young clerk in a Washington, D.C., hat store named Matthew Henson}} was hired by Robert Peary, a naval engineer who needed an assistant for a survey in Nicaragua. [2] Peary soon recognized that Henson was far more than an assistant. [3] Over the next two decades, Henson {{2|accompanies}} Peary on seven expeditions to the Arctic.\n\n[4] Unlike most members of the expeditions, Henson learned the Inuit language, and he became expert at {{3|driving dog sleds, building igloos, and he hunted}} for food. [5] On April 6, 1909, Peary, Henson, and four Inuit men reached what they believed was the North Pole. {{4|}}\n\n[6] When the expedition returned, Peary received {{5|most of the credit; Henson}} was largely ignored. [7] Recognition {{6|were}} slow to come. [8] In 1944, Congress awarded Henson a medal, and in 1988 his remains {{7|was moved}} to Arlington National Cemetery, where he now lies {{8|alongside and next to}} Peary. [9] {{9|In death, at least, the two explorers were finally side by side.}}",
+      "batch": 59,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -39152,6 +39163,645 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-058.review.json",
         "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000544",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Misplaced modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 1,
+      "evidence": "was hired by Robert Peary",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Matthew Henson, a young clerk in a Washington, D.C., hat store",
+        "C": "a young Washington, D.C., hat store clerk named after Matthew Henson",
+        "D": "Matthew Henson, a young clerk in a Washington, D.C., hat store,"
+      },
+      "correct_answer": "D",
+      "explanation": "Putting the name first and the description in a set-off appositive makes clear that Henson was the clerk.",
+      "distractor_explanations": {
+        "A": "\"Named Matthew Henson\" seems to describe the hat store, not the clerk.",
+        "B": "The appositive opens with a comma but is never closed before the verb \"was hired.\"",
+        "C": "\"Named after\" changes the meaning: the clerk was Henson, not named for him."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does \"named Matthew Henson\" describe in the original?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Place each modifier next to what it describes."
+      },
+      "remember": "Keep a modifier next to the word it modifies.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-01",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000545",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 2,
+      "evidence": "Over the next two decades",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "has accompanied",
+        "C": "accompanied",
+        "D": "will accompany"
+      },
+      "correct_answer": "C",
+      "explanation": "The essay narrates events in the past, so the simple past \"accompanied\" is correct.",
+      "distractor_explanations": {
+        "A": "The present tense \"accompanies\" clashes with the past-tense narrative.",
+        "B": "The present perfect does not fit events completed long ago.",
+        "D": "The future tense does not fit past events."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "When did these expeditions happen?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the tense of the surrounding sentences."
+      },
+      "remember": "Keep verb tenses consistent within a narrative.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-02",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000546",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel structure in a series",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 3,
+      "evidence": "he became expert at",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "driving dog sleds, building igloos, and hunting",
+        "C": "driving dog sleds, to build igloos, and hunting",
+        "D": "driving dog sleds, building igloos, and he would hunt"
+      },
+      "correct_answer": "B",
+      "explanation": "Each item after \"expert at\" should be an -ing phrase: driving, building, and hunting.",
+      "distractor_explanations": {
+        "A": "\"He hunted\" is a clause, which breaks the series of -ing phrases.",
+        "C": "\"To build\" breaks the pattern of -ing phrases.",
+        "D": "\"He would hunt\" is a clause, which breaks the series."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What form do the first two items take?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the third item to the first two."
+      },
+      "remember": "Items in a series should share the same form.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-03",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000547",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Semicolon between independent clauses",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 5,
+      "evidence": "was largely ignored",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "most of the credit, Henson",
+        "C": "most of the credit Henson",
+        "D": "most of the credit; and Henson"
+      },
+      "correct_answer": "A",
+      "explanation": "Both parts are independent clauses, and a semicolon correctly joins them.",
+      "distractor_explanations": {
+        "B": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "Without punctuation, the two independent clauses run together.",
+        "D": "A semicolon should not be followed by \"and\" here; the conjunction is unnecessary."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can both parts stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "A semicolon can join two closely related independent clauses.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-05",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000548",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (plural noun)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 7,
+      "evidence": "in 1988 his remains",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were moved",
+        "C": "moving",
+        "D": "having been moved"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Remains\" is a plural noun, so the verb must be the plural \"were moved.\"",
+      "distractor_explanations": {
+        "A": "\"Remains\" is plural, so the singular \"was\" does not agree.",
+        "C": "\"Moving\" is not a finite verb, so the clause would lack a verb.",
+        "D": "\"Having been moved\" is not a finite verb, so the clause would lack a verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"remains\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the subject of the clause."
+      },
+      "remember": "Some nouns ending in -s are always plural.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-07",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000549",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 8,
+      "evidence": "where he now lies",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "next to and near",
+        "C": "alongside",
+        "D": "alongside, close by,"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Alongside\" expresses the idea once, without repetition.",
+      "distractor_explanations": {
+        "A": "\"Alongside\" and \"next to\" mean the same thing.",
+        "B": "\"Next to\" and \"near\" repeat the same idea.",
+        "D": "\"Alongside\" and \"close by\" repeat the same idea."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any words repeat an idea?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Pick the most concise choice that keeps the meaning."
+      },
+      "remember": "Avoid saying the same thing twice.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-08",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000550",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence (connecting to the essay's focus)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 9,
+      "evidence": "where he now lies",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by reflecting on the change in Henson's standing described in the last paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Arlington National Cemetery was established during the Civil War.",
+        "C": "Peary later wrote several books about his expeditions.",
+        "D": "The North Pole is covered by drifting sea ice."
+      },
+      "correct_answer": "A",
+      "explanation": "The last paragraph moves from Henson being ignored to being buried beside Peary; the current sentence reflects on that change by noting that the two were finally side by side.",
+      "distractor_explanations": {
+        "B": "This adds a fact about the cemetery, not about Henson's standing.",
+        "C": "This shifts focus to Peary's writing.",
+        "D": "This shifts to geography unrelated to Henson's recognition."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What change does the last paragraph describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the paragraph before choosing."
+      },
+      "remember": "A strong conclusion reflects on the essay's main point.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-09",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000551",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": null,
+      "evidence": "Recognition",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe the scientific findings of Peary's Arctic expeditions. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains how the expedition reached the North Pole.",
+        "B": "No, because it focuses on Henson's role and his delayed recognition.",
+        "C": "Yes, because it describes the skills Henson learned from the Inuit.",
+        "D": "No, because it never mentions any of Peary's expeditions."
+      },
+      "correct_answer": "B",
+      "explanation": "The essay traces Henson's career with Peary and the slow recognition he received; it reports no scientific findings.",
+      "distractor_explanations": {
+        "A": "The essay gives no scientific findings and treats the claim cautiously.",
+        "C": "Henson's skills are not scientific findings of the expeditions.",
+        "D": "The essay mentions the expeditions several times."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is most of the essay about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against the exact purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-10",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000552",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 4,
+      "evidence": "she became the first woman elected to the American Academy of Arts and Sciences",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nNantucket is an island about thirty miles south of Cape Cod.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why Mitchell received a medal from the King of Denmark.",
+        "B": "Yes, because it tells where Mitchell was elected to the American Academy.",
+        "C": "No, because it repeats information the essay has already given about Nantucket.",
+        "D": "No, because it interrupts the account of Mitchell's honors with geography."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph lists honors Mitchell received for her discovery; a fact about Nantucket's location distracts from that focus.",
+      "distractor_explanations": {
+        "A": "Geography does not explain the medal.",
+        "B": "The sentence is about Nantucket's location, not about where she was elected.",
+        "C": "Sentence 1 names Nantucket but does not give its location, so the sentence is not a repetition; it is irrelevant."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is this paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the sentence with the paragraph's focus."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's point.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 59,
+      "draft_candidate": "E059-11",
+      "created_at": "2026-10-27T20:08:13+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-059.review.json",
+        "computation": "checks/act_english/batch_059.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
