@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 82,
+  "bank_version": 83,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -19470,6 +19470,252 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Compute each interval's rate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000922",
+      "correct_answer": "9",
+      "accepted_answers": [
+        "9"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 rounds 8.8 down.",
+          "trap": null
+        },
+        {
+          "value": "12",
+          "rationale": "12 assumes the group must have 12 people.",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the difference between the two prices.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Twelve tickets at the group price cost 12 × 11 = $132. The group pays less when 132 < 15n, so n > 8.8, and the least whole number is 9. Check: 15 × 9 = 135 > 132, while 15 × 8 = 120 < 132.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the cost of 12 tickets at the group price?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the fixed group total with 15n."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000923",
+      "correct_answer": "360",
+      "accepted_answers": [
+        "360"
+      ],
+      "common_errors": [
+        {
+          "value": "90",
+          "rationale": "90 is each person's share.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the number of people.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With n people paying c each, cn = (c − 30)(n + 2) gives 2c − 30n = 60, and cn = (c + 30)(n − 1) gives c − 30n = −30. Subtracting gives c = 90, so n = 4 and the total is 360. Check: 360/6 = 60 and 360/3 = 120.",
+      "distractor_explanations": {},
+      "hints": [
+        "Let n be the number of people and c each share."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the total equal in each scenario and expand."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000924",
+      "correct_answer": "C",
+      "explanation": "The error is (2C + 30) − (1.8C + 32) = 0.2C − 2. The condition |0.2C − 2| ≤ 2 gives 0 ≤ 0.2C ≤ 4, so 0 ≤ C ≤ 20.",
+      "distractor_explanations": {
+        "A": "This writes |C − 10| ≤ 2, dividing the inside by 0.2 but not the bound.",
+        "B": "This solves only 0.2C − 2 ≤ 2 and drops the lower bound.",
+        "D": "This takes the error as 0.2C + 2, a sign slip in 30 − 32."
+      },
+      "hints": [
+        "Write the difference between the two formulas."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Form the error expression, then bound it on both sides."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000925",
+      "correct_answer": "B",
+      "explanation": "The slope is (3a − 2a)/(2a − a) = 1, so f(x) = x + b with a + b = 2a, which gives b = a. Then f(5a) = 5a + a = 6a.",
+      "distractor_explanations": {
+        "A": "This finds slope 1 but drops the intercept.",
+        "C": "This assumes f is proportional, using f(2a) = 3a to get f(x) = 1.5x.",
+        "D": "This assumes f is proportional, using f(a) = 2a to get f(x) = 2x."
+      },
+      "hints": [
+        "Find the slope from the two given points."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1: f(1) = 2 and f(2) = 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000926",
+      "correct_answer": "67",
+      "accepted_answers": [
+        "67"
+      ],
+      "common_errors": [
+        {
+          "value": "52",
+          "rationale": "52 is the target share of all votes.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "58",
+          "rationale": "58 adds the 6-point shortfall to 52.",
+          "trap": null
+        },
+        {
+          "value": "1340",
+          "rationale": "1340 is the number of votes, not a percent.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "R needs 0.52 × 7,000 = 3,640 votes and has 0.46 × 5,000 = 2,300, so R needs 1,340 of the remaining 2,000 votes, which is 67%.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many votes does R need in total?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the target to a vote count first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000927",
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 is the sum of the two middle numbers.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "18",
+          "rationale": "18 is the mean of the data set.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "18.5",
+          "rationale": "18.5 averages 10 and 27.",
+          "trap": null
+        }
+      ],
+      "explanation": "The total is 10 × 18 = 180. The 4 smallest sum to 40 and the 4 largest to 108, so the 5th and 6th numbers sum to 32. The median of 10 numbers is the mean of the 5th and 6th, so it is 16.",
+      "distractor_explanations": {},
+      "hints": [
+        "What do the two middle numbers add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the known sums from the total."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000928",
+      "correct_answer": "A",
+      "explanation": "Random assignment made the two full groups comparable, but the 55 who finished selected themselves, so they may differ from the rest in ways that also affect productivity.",
+      "distractor_explanations": {
+        "B": "Using volunteers limits whom the result applies to, not whether a cause can be shown.",
+        "C": "Unequal group sizes do not by themselves prevent a valid comparison.",
+        "D": "A missing placebo is a separate issue and does not explain the self-selection."
+      },
+      "hints": [
+        "Who decided which employees were among the 55?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask which choice explains why the comparison is biased."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000929",
+      "correct_answer": "C",
+      "explanation": "1,200 × 60 = 72,000 cubic meters pass each minute, and 72,000 ÷ 2,500 = 28.8 pools.",
+      "distractor_explanations": {
+        "A": "This finds pools per second and forgets to convert to minutes.",
+        "B": "This divides 2,500 by 1,200, the seconds needed to fill one pool.",
+        "D": "This multiplies by 3,600, giving pools per hour."
+      },
+      "hints": [
+        "How much water passes in one minute?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert to per minute, then divide by the pool volume."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000930",
+      "correct_answer": "2.7",
+      "accepted_answers": [
+        "2.7",
+        "27/10"
+      ],
+      "common_errors": [
+        {
+          "value": "1.8",
+          "rationale": "1.8 is the time before the meeting.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1.2",
+          "rationale": "1.2 assumes both cyclists take the same time.",
+          "trap": null
+        },
+        {
+          "value": "0.8",
+          "rationale": "0.8 scales 1.2 by 12/18 instead of 18/12.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first cyclist rides the remaining 12 km in 1.2 hours, so 10 km/h, and the meeting happened after 18/10 = 1.8 hours. The second cyclist rode 12 km in 1.8 hours, so 20/3 km/h, and needs 18 ÷ (20/3) = 2.7 more hours.",
+      "distractor_explanations": {},
+      "hints": [
+        "How long did the cyclists ride before they met?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the road with the meeting point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000931",
+      "correct_answer": "B",
+      "explanation": "The current capacity is 0.85 × 4,000 = 3,400 mAh, the charge is 0.40 × 3,400 = 1,360 mAh, and 1,360 ÷ 400 = 3.4 hours.",
+      "distractor_explanations": {
+        "A": "This subtracts 15 points from the charge and uses the original capacity.",
+        "C": "This ignores the battery health and uses 40% of 4,000 mAh.",
+        "D": "This uses the 60% already used instead of the 40% remaining."
+      },
+      "hints": [
+        "What is the battery's current capacity?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the 85% first, then the 40%."
       }
     }
   ]
