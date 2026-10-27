@@ -1,0 +1,231 @@
+{
+  "audit": "SAT Math concept-repeat check at 501 accepted (items 431+)",
+  "date": "2026-10-27",
+  "repeats": [
+    {
+      "sat_id": "CLD-SAT-M-000436",
+      "other_id": "CLD-SAT-M-000326",
+      "severity": "template",
+      "why": "Both: f is given only by a table and combined with a linear rule (f(g(a)) = 9 with g(x) = 3x - 3 vs g(x) = f(x + 1) - 2 = 6); read the table backward for the inner value, then solve a linear equation. Same steps, and both answers are 2."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000471",
+      "other_id": "CLD-SAT-M-000453",
+      "severity": "template",
+      "why": "Same frame, 'For the linear function f, f(a) = b, and [a disguised second value]. What is the value of f(0)?' 471 hides f(12) in a percent, 453 hides f(5) in a nested input; after decoding, both are a two-point line read at x = 0. This is the third use of the frame after SAT 410."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000507",
+      "other_id": "CLD-ACT-M-000214",
+      "severity": "template",
+      "why": "Both: a quantity varies inversely with the square of a distance, given one (distance, value) pair, find the value at a new distance (x 2->3, y=9 vs d 4->3, 360 lux). Same setup and ask; the lamp context is the only addition."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000437",
+      "other_id": "CLD-ACT-M-000207",
+      "severity": "close",
+      "why": "Scale a recipe to a new number of servings, then convert mass units. 437 adds a price per kilogram."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000440",
+      "other_id": "CLD-ACT-M-000196",
+      "severity": "close",
+      "why": "Comparing per-unit plans with fixed fees using strict inequalities. 440 extends to three plans and asks for an interval."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000442",
+      "other_id": "CLD-SAT-M-000362",
+      "severity": "close",
+      "why": "Both: recover constants in an inequality from its stated solution set (linear with an unknown coefficient vs absolute value)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000443",
+      "other_id": "CLD-SAT-M-000171",
+      "severity": "close",
+      "why": "Both: where two linear functions given only indirectly are equal (difference conditions vs tables). The difference function f - g is linear and its zero is the answer in both."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000444",
+      "other_id": "CLD-SAT-M-000071",
+      "severity": "close",
+      "why": "Same setup, g(x) = f(x - 3) for a quadratic f known from its zeros or factored form. 444 asks for g's y-intercept (f(-3)) and 071 for g's zeros, so the ask differs."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000452",
+      "other_id": "CLD-SAT-M-000399",
+      "severity": "close",
+      "why": "Both: least integer value of a constant so that the solution of an equation (or system) in that constant meets a strict inequality."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000453",
+      "other_id": "CLD-SAT-M-000410",
+      "severity": "close",
+      "why": "Same ask (f(0) of a linear function) after recovering two points from indirect information (a nested value vs a sum and a difference of outputs)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000465",
+      "other_id": "CLD-SAT-M-000129",
+      "severity": "close",
+      "why": "Same opening sentence (f(x) = a·b^x, a and b positive) and the same ask (recover a and b from two conditions, evaluate at a new input). 465 uses successive differences rather than two points. Retired SAT 392 used the same shell."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000467",
+      "other_id": "CLD-ACT-M-000136",
+      "severity": "close",
+      "why": "Residual = actual - predicted for a line of best fit. 467 asks which point has the most negative residual among choices."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000468",
+      "other_id": "CLD-ACT-M-000173",
+      "severity": "close",
+      "why": "Water level rise from placing a solid in a tank (displacement). 468 adds the twist that the cube sticks out of the water."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000473",
+      "other_id": "CLD-ACT-M-000020",
+      "severity": "close",
+      "why": "Two ticket types with a total count, solved as a 2x2 system. 473 gives a revenue ratio rather than a total revenue."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000476",
+      "other_id": "CLD-ACT-M-000515",
+      "severity": "close",
+      "why": "Both rely on the discriminant of x^2 + bx + c being negative over an integer parameter (least k so the denominator never vanishes vs count of k with no real roots)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000479",
+      "other_id": "CLD-SAT-M-000095",
+      "severity": "close",
+      "why": "Two solids with equal volumes; set the volume formulas equal and solve for a height (cone and cylinder with a radius ratio vs cone and sphere with the same radius)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000480",
+      "other_id": "CLD-ACT-M-000698",
+      "severity": "close",
+      "why": "Same given (tan of an acute angle = 2, so the 1-2-sqrt5 triangle) with a different ask (sin^2 A - cos^2 A vs cos theta). Also resembles fixture act-math-11 (right triangle ABC with C = 90 and a ratio of A given)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000485",
+      "other_id": "CLD-SAT-M-000453",
+      "severity": "close",
+      "why": "Linear function through a given point plus a condition that yields a second point (f(5) = 2f(5) means f(5) = 0), then f(0). Same two-point-to-intercept core as 453, 471 and 410."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000486",
+      "other_id": "CLD-SAT-M-000026",
+      "severity": "close",
+      "why": "Interpreting how the time variable is scaled in an exponential model's exponent (4t, compounding per year, vs t/2, growth per 2 years)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000487",
+      "other_id": "CLD-ACT-M-000398",
+      "severity": "close",
+      "why": "Average cost C(x)/x with a fixed cost compared to a target. 487 uses a quadratic cost and an 'at most' inequality, 398 a linear cost and an equation."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000490",
+      "other_id": "CLD-ACT-M-000085",
+      "severity": "close",
+      "why": "Altitude to the hypotenuse of right triangle ABC (C = 90), AD = 4 in both; the geometric-mean relation CD^2 = AD·DB is the key step. 490 is entered through an area and asks for an area."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000494",
+      "other_id": "CLD-SAT-M-000215",
+      "severity": "close",
+      "why": "Constant-rate projection from observed data to the time a target level is reached (battery % vs data used). 494 adds clock-time arithmetic."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000497",
+      "other_id": "CLD-SAT-M-000356",
+      "severity": "close",
+      "why": "Same construction: revenue x(price linear in x) minus a linear cost. 497 counts integer x with positive profit and 356 asks for the maximum profit. Also near SAT 435 (zeros of a profit quadratic)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000498",
+      "other_id": "CLD-ACT-M-000630",
+      "severity": "close",
+      "why": "Same open-box-from-cut-corners construction. 498 asks for the domain of V(x) and 630 for a volume, so the ask differs."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000502",
+      "other_id": "CLD-SAT-M-000019",
+      "severity": "close",
+      "why": "Convert a race distance and time into a rate in other units (minutes per mile from km vs km/h from m per min). Also near SAT 094 and 347."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000508",
+      "other_id": "CLD-ACT-M-000531",
+      "severity": "close",
+      "why": "Maximum height of a projectile quadratic. 508 first finds the constant k from the landing time."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000514",
+      "other_id": "CLD-ACT-M-000257",
+      "severity": "close",
+      "why": "Height from a proportion of similar triangles (heights proportional to distances), with mixed units in 514. Same idea as SAT 133."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000516",
+      "other_id": "CLD-SAT-M-000318",
+      "severity": "close",
+      "why": "Two travelers; find when they are a given distance apart (toward each other and the second time 2 miles apart, vs opposite directions with a staggered start)."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000519",
+      "other_id": "CLD-ACT-M-000259",
+      "severity": "close",
+      "why": "Same upstream/downstream setup (boat speed s, current c, equal distances). 519 asks for the total time as an expression and 259 for the current from two times."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000520",
+      "other_id": "CLD-SAT-M-000381",
+      "severity": "close",
+      "why": "Quadratic with a known vertex and minimum value; use one more fact to fix the function, then evaluate at another input (f >= 3 with f(2) = 3 and f(0) = 7, then f(5), vs symmetry f(x) = f(6 - x), min -4, then f(-1)). Also near SAT 101."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000524",
+      "other_id": "CLD-SAT-M-000294",
+      "severity": "close",
+      "why": "Percent change of a derived quantity when two underlying quantities change by percents. 524 divides factors (1.12/1.40) and 294 multiplies them (1.2 x 1.25). Also SAT 148."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000525",
+      "other_id": "CLD-ACT-M-000008",
+      "severity": "close",
+      "why": "Volume inflow rate into a tank related to the rise of the level, with unit conversions. 525 asks for the rise rate in a cylinder and 008 for the time to reach a depth."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000526",
+      "other_id": "CLD-ACT-M-000104",
+      "severity": "close",
+      "why": "Core step is the area of an isosceles trapezoid from its bases and legs (height from a right triangle under each leg). That is the template for which ACT 584 was retired as a repeat of ACT 104; 526 adds a prism length and a liter conversion."
+    }
+  ],
+  "official_mirrors": [
+    {
+      "sat_id": "CLD-SAT-M-000486",
+      "resembles": "Official SAT items asking what a constant in a compound-interest model P(1 + r/n)^(nt) represents",
+      "severity": "close",
+      "why": "A standard official framing, here asking about the compounding count. Pattern-level match, not verbatim."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000467",
+      "resembles": "Official SAT items on lines of best fit asking which data point the model over- or under-predicts by the most",
+      "severity": "close",
+      "why": "Common official structure, with new numbers and a negative slope."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000495",
+      "resembles": "Official-style SAT items using the speed-of-sound model v = 331 + 0.6T",
+      "severity": "close",
+      "why": "A widely used formula in SAT-style modeling items; the thunder-distance step is new. Pattern-level match."
+    },
+    {
+      "sat_id": "CLD-SAT-M-000438",
+      "resembles": "Official SAT items comparing the spread (range, IQR, SD) of two data sets",
+      "severity": "close",
+      "why": "A common official comparison question, here using five-number summaries. Not verbatim."
+    }
+  ],
+  "summary": "Checked the 96 live SAT items CLD-SAT-M-000431 to 000526 against all other live SAT items, all live ACT Math items, retired-item templates and the 22 math demo fixtures. Candidates came from TF-IDF stem similarity plus keyword and number searches, and each was judged by reading. No copies were found. There are 3 template repeats: 507 vs ACT 214 (inverse-square variation), 436 vs SAT 326 (table function composed with a linear rule, solved backward, same answer 2), and 471 vs 453 (the 'For the linear function f, ... f(0)?' frame). That frame is now used four times (410, 453, 471, 485) and should be rested. There are 30 close variants, which can be kept as deliberate variants. One new item touches a retired template: 526's core step is the isosceles-trapezoid area from bases and legs, which is why ACT 584 was retired; it is listed as close because of its extra prism and liter steps. 465 shares the f(x) = a·b^x opening and two-condition recovery with SAT 129 and retired SAT 392 (listed as close). No pair already reported in audits 100, 300 or 400 is repeated here. Official-SAT mirrors are pattern-level only (4 items); none is verbatim."
+}
