@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 22,
-  "updated_at": "2026-10-27T00:01:15+00:00",
+  "version": 23,
+  "updated_at": "2026-10-27T00:20:37+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -245,6 +245,17 @@
       "word_count": 260,
       "text": "Last fall, our history teacher, Ms. Ito, asked each pair of students in our class to interview a resident of the senior center across the street and write down one family recipe for a class cookbook. She assigned my partner and {{1|I}} to Mr. Okoye, a retired engineer who had moved to the city from Nigeria fifty years earlier.\n\nEach week we {{2|visit}} the center after school. Mr. Okoye was more willing to talk about his childhood {{3|then}} about cooking, and for the first two visits we wrote down only stories. We listened {{4|careful}}, though, and the stories turned out to matter. His recipe for pepper soup{{5|—which}} he had never written down, was one his mother had taught him in a kitchen with no measuring cups, and he described every ingredient by the size of a hand or the color of a broth.\n\n[1] The hardest part of the project was turning those descriptions into measurements. [2] Then we checked each batch with him. [3] We cooked the soup three times in the school's kitchen, adjusting the pepper each time. [4] On the third try, he tasted it, closed his eyes, and said only, \"Yes.\" {{6|}}\n\nOf the two Nigerian recipes in the cookbook, his turned out to be {{7|the most}} popular with the other residents. The finished book contained recipes from four {{8|countries: Mexico,}} Nigeria, Japan, and Poland. The {{9|affect}} of the project surprised all of us. Several residents asked for extra copies to send to their grandchildren, and Mr. Okoye now cooks pepper soup for the center's monthly dinner.",
       "batch": 22,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000023",
+      "title": "Setting the Shadow Straight",
+      "genre": "personal essay",
+      "word_count": 340,
+      "text": "For as long as anyone at Harlow Middle School could remember, a stone sundial had stood in the courtyard outside the library, and for just as long, it had been useless. Its bronze pointer, called a gnomon, had been bent sideways years earlier{{1|—probably by a falling branch, and}} its shadow pointed nowhere near the right hour.\n\nLast spring our science club decided to fix it. The club had less than forty dollars in {{2|their}} account, so we asked the hardware store on Main Street for help. The owner {{3|was nice about it and helped us out a lot}}, and our adviser, Ms. Varga, found an old diagram of the dial in the school archives.\n\n[1] The first problem was the angle. [2] For our town, that angle is about 42 degrees. [3] For the shadow to keep accurate time, the gnomon's slanted edge must point toward the North Star. [4] That means the edge has to rise from the dial at an angle equal to the latitude of the place where the sundial stands. [5] To set the angle, we {{4|needed: a protractor,}} a level, and a magnetic compass. {{5|}}\n\n{{6|Ms. Varga had once taught science in Arizona.}} A magnetic compass points to magnetic north, which in our area lies more than ten degrees away from true north. If we {{7|would have checked}} a map of these differences first, we could have saved ourselves a week of work. For the second attempt, we found true north by marking the shortest shadow of a stick at midday, and we were careful to comply {{8|to}} the principal's one rule: no power tools without an adult present.\n\nWe bent a new rod to 42 degrees, aimed it at true north, and bolted it in place. On the first sunny afternoon, {{9|therefore,}} the shadow still read about an hour behind the library clock. For a moment we thought we had failed again. Then Ms. Varga reminded us that the library clock had been moved ahead an hour for daylight saving {{10|time; the sun}} had not.",
+      "batch": 23,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -15948,6 +15959,708 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-022.review.json",
         "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000223",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Matching dashes around an interrupting phrase",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 1,
+      "evidence": "had been bent sideways years earlier",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "—probably by a falling branch—and",
+        "C": ", probably by a falling branch—and",
+        "D": "—probably by a falling branch; and"
+      },
+      "correct_answer": "B",
+      "explanation": "The interrupting phrase \"probably by a falling branch\" opens with a dash, so it must close with a dash before \"and.\"",
+      "distractor_explanations": {
+        "A": "A phrase opened with a dash must be closed with a dash, not a comma.",
+        "C": "This opens with a comma and closes with a dash; the marks must match.",
+        "D": "A semicolon cannot close a dash interruption, and \"; and\" is not standard here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How does the interrupting phrase begin?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the closing mark to the opening mark."
+      },
+      "remember": "Paired punctuation must match: dash with dash, comma with comma.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-01",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000224",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun agreement with a collective noun",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 2,
+      "evidence": "The club had less than forty dollars in",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "it's",
+        "C": "its",
+        "D": "its'"
+      },
+      "correct_answer": "C",
+      "explanation": "The antecedent is \"the club,\" a singular noun, so the singular possessive \"its\" is correct.",
+      "distractor_explanations": {
+        "A": "\"The club\" is a single group, so the plural \"their\" does not agree with it.",
+        "B": "\"It's\" means \"it is.\"",
+        "D": "\"Its'\" is not a word."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What noun does the pronoun refer to?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find the antecedent and check its number."
+      },
+      "remember": "A group acting as one unit takes \"its.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-02",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000225",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise, specific wording",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 3,
+      "evidence": "so we asked the hardware store on Main Street for help",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "lent us a small vise and sold us a bronze rod at cost",
+        "C": "did a number of different helpful things for the club",
+        "D": "was really, really helpful to all of us in the club"
+      },
+      "correct_answer": "B",
+      "explanation": "The essay is about the specific repair; saying exactly what the owner provided is precise and fits the formal tone.",
+      "distractor_explanations": {
+        "A": "This is vague and informal; it does not say what the owner did.",
+        "C": "This is still vague about what help was given.",
+        "D": "This is informal and repetitive and gives no detail."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice tells the reader what the owner actually did?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Prefer the specific choice when the others are vague."
+      },
+      "remember": "Specific beats vague when the essay needs a detail.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-03",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000226",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "No colon between a verb and its object",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 4,
+      "evidence": "a level, and a magnetic compass",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "needed; a protractor,",
+        "C": "needed, a protractor,",
+        "D": "needed a protractor,"
+      },
+      "correct_answer": "D",
+      "explanation": "The list is the direct object of \"needed,\" so no punctuation should separate the verb from it.",
+      "distractor_explanations": {
+        "A": "A colon cannot come between a verb and its object; the words before it are not a complete clause that sets up the list.",
+        "B": "A semicolon must join two independent clauses; \"a protractor, a level, and a magnetic compass\" is not one.",
+        "C": "No comma belongs between the verb and its object."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is \"To set the angle, we needed\" a complete thought by itself?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Remove punctuation between a verb and its object."
+      },
+      "remember": "Use a colon only after a complete clause.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-04",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000227",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical order of sentences",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 5,
+      "evidence": "an angle equal to the latitude of the place where the sundial stands",
+      "figure": null,
+      "stem": "For the sake of logic and coherence, Sentence 2 should be placed:",
+      "choices": {
+        "A": "where it is now.",
+        "B": "before Sentence 1.",
+        "C": "after Sentence 3.",
+        "D": "after Sentence 4."
+      },
+      "correct_answer": "D",
+      "explanation": "Sentence 4 says the angle must equal the local latitude; Sentence 2 then gives that value for the town, and Sentence 5 explains how they set it.",
+      "distractor_explanations": {
+        "A": "\"That angle\" needs a specific angle to refer to; Sentence 1 names only a general problem, and the angle equal to the latitude is not explained until Sentence 4.",
+        "B": "Sentence 1 introduces the paragraph's topic and must come first.",
+        "C": "Sentence 3 is about the North Star, not about an angle's size."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which sentence explains what \"that angle\" is?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the sentence Sentence 2 depends on."
+      },
+      "remember": "Place a sentence right after the idea its pronoun or \"that\" refers to.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-05",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: an empty position marker [] appears after Sentence 5 in this item's passage but the stem does not reference it; harmless but potentially confusing"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000228",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Topic sentence for a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 6,
+      "evidence": "A magnetic compass points to magnetic north",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the paragraph?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Sundials were common in ancient Egypt and Rome.",
+        "C": "Our first attempt failed because we trusted the compass.",
+        "D": "A compass is also a useful tool for hiking."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph explains why the first attempt went wrong (the compass points to magnetic north) and how the second attempt fixed it; the key sentence sets that up.",
+      "distractor_explanations": {
+        "A": "Ms. Varga's teaching history has nothing to do with the paragraph's explanation of the error.",
+        "B": "This is off the topic of the club's repair.",
+        "D": "This is irrelevant to why the attempt failed."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "out_of_scope",
+        "D": "true_but_irrelevant"
+      },
+      "hints": [
+        "What does the rest of the paragraph explain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize the paragraph, then pick its introduction."
+      },
+      "remember": "A topic sentence previews what the paragraph explains.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-06",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000229",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb form in a past conditional",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 7,
+      "evidence": "we could have saved ourselves a week of work",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "had checked",
+        "C": "have checked",
+        "D": "will have checked"
+      },
+      "correct_answer": "B",
+      "explanation": "For a condition contrary to past fact, the \"if\" clause uses the past perfect: \"If we had checked ..., we could have saved ....\"",
+      "distractor_explanations": {
+        "A": "\"Would have\" belongs in the result clause, not the \"if\" clause, of a past conditional.",
+        "C": "\"Have checked\" is present perfect and does not express a past condition.",
+        "D": "The future perfect does not fit a past condition."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which clause should contain \"would\" or \"could\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use had + past participle after \"if\" for the past."
+      },
+      "remember": "If + had done ..., would/could have done ....",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-07",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000230",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Idiom (preposition after a verb)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 8,
+      "evidence": "the principal's one rule",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "for",
+        "C": "at",
+        "D": "with"
+      },
+      "correct_answer": "D",
+      "explanation": "The verb \"comply\" takes the preposition \"with\": one complies with a rule.",
+      "distractor_explanations": {
+        "A": "The standard idiom is \"comply with,\" not \"comply to.\"",
+        "B": "\"Comply for\" is not standard.",
+        "C": "\"Comply at\" is not standard."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which preposition normally follows \"comply\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Trust the standard pairing: comply with."
+      },
+      "remember": "Comply with, agree with, consist of.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-08",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000231",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Transitions (contrast with an expected result)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 9,
+      "evidence": "For a moment we thought we had failed again.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "for example,",
+        "C": "however,",
+        "D": "similarly,"
+      },
+      "correct_answer": "C",
+      "explanation": "After a careful repair, readers expect the dial to read correctly; the shadow still being an hour off contrasts with that expectation, so \"however\" fits.",
+      "distractor_explanations": {
+        "A": "\"Therefore\" signals a result, but the shadow being off is the opposite of what the repair should have produced.",
+        "B": "The sentence is not an example of the previous one.",
+        "D": "The sentence does not describe a similar result."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Is the shadow being off what the club expected?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship, then choose the transition."
+      },
+      "remember": "Name the logical relationship before choosing a transition.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-09",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000232",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Semicolon joining two independent clauses",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000023",
+      "underline": 10,
+      "evidence": "reminded us that the library clock had been moved ahead an hour",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "time, the sun",
+        "C": "time the sun",
+        "D": "time; and the sun"
+      },
+      "correct_answer": "A",
+      "explanation": "\"The library clock had been moved ahead an hour for daylight saving time\" and \"the sun had not\" are both independent clauses, so the semicolon correctly joins them.",
+      "distractor_explanations": {
+        "B": "A comma alone between two independent clauses is a comma splice.",
+        "C": "Two independent clauses are run together with no punctuation.",
+        "D": "A semicolon should not be followed by \"and\" here."
+      },
+      "distractor_traps": {
+        "B": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each side stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check both sides of the punctuation."
+      },
+      "remember": "A semicolon joins two complete, closely related clauses.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 23,
+      "draft_candidate": "E023-10",
+      "created_at": "2026-10-27T00:20:37+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-023.review.json",
+        "computation": "checks/act_english/batch_023.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
