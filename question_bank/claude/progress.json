@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:50:19+00:00",
+  "updated_at": "2026-10-27T00:51:33+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -16,7 +16,7 @@
   },
   "accepted_by_section": {
     "act_math": 725,
-    "act_english": 242,
+    "act_english": 252,
     "act_reading": 212,
     "sat_reading_writing": 245
   },
@@ -29,10 +29,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 242,
+      "PASS": 252,
       "REVISE": 10,
       "REJECT": 0,
-      "candidates": 252,
+      "candidates": 262,
       "passed_after_revision": 7
     },
     "act_reading": {
@@ -813,12 +813,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 242,
+      "accepted": 252,
       "retired_after_audit": 0,
       "by_skill": {
-        "Conventions of Standard English": 132,
-        "Knowledge of Language": 35,
-        "Production of Writing": 75
+        "Conventions of Standard English": 138,
+        "Knowledge of Language": 36,
+        "Production of Writing": 78
       },
       "by_subskill": {
         "Adding a sentence (relevance)": 2,
@@ -834,17 +834,18 @@
         "Amount versus number": 1,
         "Between versus among": 1,
         "Choosing a phrase that fits the essay's point": 1,
+        "Choosing a sentence that supports what follows": 1,
         "Choosing content that states a purpose": 1,
         "Colon after a complete clause with a possessive": 1,
         "Colon before a list": 1,
-        "Colon introducing an explanation": 2,
+        "Colon introducing an explanation": 3,
         "Comma before a coordinating conjunction": 2,
         "Comma before a nonessential \"which\" clause": 1,
         "Comma splice": 5,
         "Comma splice fixed with an appositive": 1,
         "Comma splices": 1,
         "Comma with a coordinating conjunction": 1,
-        "Commas around a nonessential clause": 1,
+        "Commas around a nonessential clause": 2,
         "Commas around a nonessential element": 1,
         "Commas around a nonessential participial phrase": 1,
         "Commas around a nonessential phrase": 1,
@@ -852,6 +853,7 @@
         "Commas in a series": 1,
         "Commas in a series within a compound sentence": 1,
         "Commas with a nonessential clause": 1,
+        "Commonly confused words (involve/evolve)": 1,
         "Comparative with two items": 1,
         "Concision": 2,
         "Concision (redundancy)": 3,
@@ -896,7 +898,7 @@
         "Lose versus loose": 1,
         "Matching dashes around an interrupting phrase": 1,
         "Matching punctuation around a nonessential clause": 1,
-        "Modal verb form (\"could of\")": 1,
+        "Modal verb form (\"could of\")": 2,
         "No colon between a verb and its object": 1,
         "No comma between a subject and its verb": 1,
         "No comma in a \"so ... that\" construction": 1,
@@ -910,6 +912,7 @@
         "Participial phrases and sentence boundaries": 1,
         "Past participle (had + verb)": 1,
         "Past perfect tense": 1,
+        "Placing an added sentence": 1,
         "Plural possessive": 3,
         "Precise word choice": 2,
         "Precise, idiomatic wording": 1,
@@ -928,17 +931,18 @@
         "Relative pronoun to avoid a comma splice": 1,
         "Relevance": 1,
         "Relevance (supporting a point)": 1,
-        "Relevance of an added sentence": 2,
+        "Relevance of an added sentence": 3,
         "Relevance to a stated purpose": 1,
         "Restrictive appositive (no commas)": 1,
         "Restrictive appositive with a title": 1,
         "Semicolon between independent clauses": 1,
-        "Semicolon joining two independent clauses": 1,
+        "Semicolon joining two independent clauses": 2,
         "Semicolons joining independent clauses": 1,
         "Sentence boundaries": 2,
         "Sentence fragment": 1,
         "Sentence fragment (appositive)": 1,
         "Sentence fragment (finite verb)": 1,
+        "Sentence fragment (subordinate clause)": 1,
         "Sentence placement": 1,
         "Sentence placement (adding a sentence)": 1,
         "Singular possessive": 2,
@@ -953,7 +957,7 @@
         "Subjunctive mood": 1,
         "Supporting a claim with detail": 1,
         "Than versus then": 2,
-        "Their / there / they're": 2,
+        "Their / there / they're": 3,
         "Topic sentence for a paragraph": 1,
         "Transition to the essay's focus": 1,
         "Transitional sentences between paragraphs": 1,
@@ -991,28 +995,28 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 76,
+        "easy": 79,
         "hard": 27,
-        "medium": 139
+        "medium": 146
       },
       "by_difficulty_calibrated": {
-        "easy": 129,
+        "easy": 134,
         "hard": 4,
-        "medium": 109
+        "medium": 114
       },
       "calibrated_share": {
-        "easy": 0.533,
-        "hard": 0.017,
-        "medium": 0.45
+        "easy": 0.532,
+        "hard": 0.016,
+        "medium": 0.452
       },
       "answer_key_balance": {
-        "A": 63,
-        "B": 61,
-        "C": 60,
-        "D": 58
+        "A": 65,
+        "B": 63,
+        "C": 63,
+        "D": 61
       },
       "modeling_items": 0,
-      "passages": 24
+      "passages": 25
     },
     "act_reading": {
       "accepted": 212,
@@ -1328,7 +1332,7 @@
   },
   "last_completed_batch": {
     "act_math": 75,
-    "act_english": 24,
+    "act_english": 25,
     "act_reading": 27,
     "sat_reading_writing": 27
   },
@@ -1362,12 +1366,21 @@
     }
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 25,
+    "sat_reading_writing": {
+      "next_batch": 28,
       "skill_gap_for_next_10": {
-        "Production of Writing": 27.1,
-        "Knowledge of Language": 16.7,
-        "Conventions of Standard English": -29.9
+        "Craft and Structure": 5.4,
+        "Information and Ideas": -0.7,
+        "Standard English Conventions": 7.3,
+        "Expression of Ideas": -2.0
+      }
+    },
+    "act_english": {
+      "next_batch": 26,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.1,
+        "Knowledge of Language": 17.7,
+        "Conventions of Standard English": -31.9
       }
     },
     "act_reading": {
@@ -1376,15 +1389,6 @@
         "Key Ideas and Details": 30.6,
         "Craft and Structure": -10.5,
         "Integration of Knowledge and Ideas": -10.0
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 28,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 5.4,
-        "Information and Ideas": -0.7,
-        "Standard English Conventions": 7.3,
-        "Expression of Ideas": -2.0
       }
     }
   },
@@ -1396,8 +1400,8 @@
     },
     "act_english": {
       "target": 700,
-      "accepted": 242,
-      "share_of_target": 0.346
+      "accepted": 252,
+      "share_of_target": 0.36
     },
     "act_reading": {
       "target": 600,
@@ -1411,9 +1415,9 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1424,
+  "total_accepted": 1434,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
-  "next_bank": "act_english",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -48228,7 +48232,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 24,
+      "bank_version": 25,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -48368,7 +48372,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:50:18+00:00",
+    "heartbeat_at": "2026-10-27T00:51:33+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
