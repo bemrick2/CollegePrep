@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 57,
-  "updated_at": "2026-10-27T19:47:11+00:00",
+  "version": 58,
+  "updated_at": "2026-10-27T19:55:07+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -608,6 +608,17 @@
       "word_count": 228,
       "text": "[1] Frances Glessner Lee was born in 1878 into a wealthy Chicago family that expected her to marry, run a household, and stay out of {{1|public life, she did}} all three for many years. [2] A friendship in middle age changed her course.\n\n[3] Through her brother, Lee met George Burgess Magrath, a medical examiner {{2|whom}} described how often deaths were misjudged by investigators with no medical training. [4] Lee became convinced that careful observation could be taught, and in 1931 she helped fund a department of legal medicine at Harvard.\n\n[5] In the 1940s, Lee {{3|begins}} building a series of miniature rooms. [6] Each one, built at a scale of one inch to one foot, {{4|recreate}} a death scene, drawn from real cases, in painstaking detail. [7] The rooms contained windows that opened, calendars set to the right date, and {{5|tiny cans of food with readable labels}}.\n\n[8] Lee called the dioramas the \"Nutshell Studies of Unexplained Death.\" [9] Police officers attending her week-long seminars at Harvard {{6|carefully and meticulously studied them}}. [10] The officers were not expected to solve the cases. [11] {{7|Instead,}} they were asked to observe and describe what they saw, so that they would learn not to jump to conclusions.\n\n[12] Most of the dioramas survive today at the medical examiner's office in {{8|Baltimore, Maryland where}} they are still used to train investigators.",
       "batch": 57,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000058",
+      "title": "Miss Mitchell's Comet",
+      "genre": "informative essay",
+      "word_count": 199,
+      "text": "[1] On an October night in 1847, Maria Mitchell climbed to the roof of her family's home on Nantucket, Massachusetts, {{1|and, swept}} the sky with a small telescope. [2] Near the North Star she noticed a faint, fuzzy patch of light that had not been there {{2|before: a comet}} that no one had yet reported.\n\n[3] {{3|Having discovered the comet, a gold medal was awarded to Mitchell}} by the King of Denmark, under a standing royal offer of a medal to the first person to find each new comet through a telescope. [4] The next year, she became the first woman elected to the American Academy of Arts and Sciences. {{4|}}\n\n[5] In 1865, Mitchell joined the faculty of Vassar College, a new school for women, {{5|where}} she taught astronomy for more than twenty years. [6] She believed that students learned best by observing the sky for themselves rather than {{6|to read}} about it. [7] In 1878, she {{7|lead}} a group of students to Denver, Colorado, to observe a total eclipse of the Sun.\n\n[8] Mitchell also fought for fair treatment. [9] {{8|However,}} when she learned that younger male professors earned more than she did, she {{9|demanded—and received, a raise}}.",
+      "batch": 58,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -38431,6 +38442,716 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-057.review.json",
         "computation": "checks/act_english/batch_057.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000534",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma (compound predicate)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 1,
+      "evidence": "climbed to the roof of her family's home",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "and swept",
+        "C": "and she, swept",
+        "D": "and; swept"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Climbed\" and \"swept\" share the subject \"Maria Mitchell,\" so no comma is needed between \"and\" and \"swept.\"",
+      "distractor_explanations": {
+        "A": "A comma should not separate \"and\" from the verb it joins to the sentence.",
+        "C": "The comma wrongly separates the subject \"she\" from its verb.",
+        "D": "A semicolon cannot join a verb phrase to the rest of the sentence."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does \"swept\" have its own subject?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the subject of each verb."
+      },
+      "remember": "Do not use a comma to split a compound predicate after \"and.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-01",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000535",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon before an explanation",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 2,
+      "evidence": "Near the North Star she noticed a faint, fuzzy patch of light",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "before; a comet",
+        "C": "before. A comet",
+        "D": "before a comet"
+      },
+      "correct_answer": "A",
+      "explanation": "A colon can introduce a phrase that identifies what came before; \"a comet that no one had yet reported\" explains what the patch of light was.",
+      "distractor_explanations": {
+        "B": "A semicolon must join two independent clauses, and \"a comet that no one had yet reported\" is not one.",
+        "C": "This leaves \"A comet that no one had yet reported\" as a sentence fragment.",
+        "D": "Without punctuation, the sentence seems to say the light was there before a comet."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the part after the punctuation a full sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each choice for fragments and clause rules."
+      },
+      "remember": "A colon can introduce an explanation after a complete clause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-02",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000536",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Dangling modifier",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 3,
+      "evidence": "by the King of Denmark",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Having discovered the comet, Mitchell's gold medal was awarded",
+        "C": "Having discovered the comet, Mitchell was awarded a gold medal",
+        "D": "Having discovered the comet, the medal went to Mitchell"
+      },
+      "correct_answer": "C",
+      "explanation": "The person who discovered the comet was Mitchell, so \"Mitchell\" must come right after the opening phrase.",
+      "distractor_explanations": {
+        "A": "The opening phrase seems to say that the gold medal discovered the comet.",
+        "B": "The opening phrase now modifies \"gold medal,\" not Mitchell.",
+        "D": "The opening phrase now modifies \"the medal,\" not Mitchell."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "Who discovered the comet?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put the doer right after the introductory phrase."
+      },
+      "remember": "An introductory modifier must describe the word right after the comma.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-03",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000537",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative pronoun (where)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 5,
+      "evidence": "Vassar College, a new school for women",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "which",
+        "C": "when",
+        "D": "in that"
+      },
+      "correct_answer": "A",
+      "explanation": "The clause describes a place, Vassar College, so \"where\" correctly introduces it.",
+      "distractor_explanations": {
+        "B": "\"Which she taught astronomy\" leaves the clause without a logical link to the college.",
+        "C": "\"When\" refers to a time, but the clause describes a place.",
+        "D": "\"In that\" means \"because,\" which does not fit the meaning."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the clause describe a place, a time, or a thing?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute each choice and read the sentence."
+      },
+      "remember": "Use \"where\" to introduce a clause about a place.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-05",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000538",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Parallel structure (rather than)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 6,
+      "evidence": "students learned best by observing the sky for themselves",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "reading",
+        "C": "they read",
+        "D": "having read"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Rather than\" compares two things that should have the same form: \"observing\" and \"reading.\"",
+      "distractor_explanations": {
+        "A": "\"By observing ... rather than to read\" mixes a gerund with an infinitive.",
+        "C": "\"They read\" adds a clause that breaks the parallel with \"observing.\"",
+        "D": "\"Having read\" shifts the time and breaks the parallel."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What form is the word paired with this one?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the form of \"observing.\""
+      },
+      "remember": "Items joined by \"rather than\" should be parallel.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-06",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000539",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb form (lead vs. led)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 7,
+      "evidence": "In 1878, she",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "leaded",
+        "C": "has led",
+        "D": "led"
+      },
+      "correct_answer": "D",
+      "explanation": "The past tense of \"lead\" is \"led,\" which fits an event in 1878.",
+      "distractor_explanations": {
+        "A": "\"Lead\" is the present tense; the sentence describes 1878.",
+        "B": "\"Leaded\" is not the past tense of \"lead.\"",
+        "C": "The present perfect does not fit an event fixed in 1878."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the past tense of \"lead\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the time marker."
+      },
+      "remember": "\"Led\" is the past tense of \"lead.\"",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-07",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000540",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (example)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 8,
+      "evidence": "Mitchell also fought for fair treatment",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Instead,",
+        "C": "For instance,",
+        "D": "As a result,"
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 9 gives an example of the fair treatment she fought for, so \"For instance\" fits.",
+      "distractor_explanations": {
+        "A": "Demanding a raise does not contrast with fighting for fair treatment; it is an example of it.",
+        "B": "Her demand was not a replacement for fighting for fair treatment.",
+        "D": "Fighting for fair treatment did not cause her to learn about the pay gap."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does sentence 9 relate to sentence 8?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship first."
+      },
+      "remember": "Use \"For instance\" when a sentence illustrates the one before it.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-08",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000541",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Paired dashes",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": 9,
+      "evidence": "when she learned that younger male professors earned more",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "demanded, and received—a raise",
+        "C": "demanded—and received a raise",
+        "D": "demanded—and received—a raise"
+      },
+      "correct_answer": "D",
+      "explanation": "\"And received\" interrupts \"demanded ... a raise\" and must be set off with matching marks on both sides.",
+      "distractor_explanations": {
+        "A": "An interruption opened with a dash must close with a dash, not a comma.",
+        "B": "The interruption opens with a comma but closes with a dash.",
+        "C": "The interruption opens with a dash but is never closed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where does the interruption begin and end?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence without the interruption."
+      },
+      "remember": "Set off an interruption with matching punctuation on both sides.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-09",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000542",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000058",
+      "underline": null,
+      "evidence": "she became the first woman elected",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to explain the methods astronomers use to discover comets. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it describes Mitchell sweeping the sky with a telescope.",
+        "B": "No, because it traces Mitchell's career rather than explaining methods.",
+        "C": "Yes, because it explains why the King of Denmark offered a medal.",
+        "D": "No, because it never mentions that Mitchell discovered a comet."
+      },
+      "correct_answer": "B",
+      "explanation": "The essay covers Mitchell's discovery, honors, teaching and fight for fair pay; it does not explain how comets are discovered.",
+      "distractor_explanations": {
+        "A": "One sentence about her observing does not explain astronomers' methods.",
+        "C": "The essay mentions the medal but does not explain discovery methods.",
+        "D": "The essay says she discovered a comet."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does most of the essay discuss?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against the exact purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-10",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000543",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000057",
+      "underline": 6,
+      "evidence": "Police officers attending her week-long seminars",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "studied them closely and with care",
+        "C": "studied them closely",
+        "D": "closely studied them in a careful way"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Studied them closely\" expresses the idea once, without repetition.",
+      "distractor_explanations": {
+        "A": "\"Carefully\" and \"meticulously\" mean nearly the same thing, so using both is redundant.",
+        "B": "\"Closely\" and \"with care\" repeat the same idea.",
+        "D": "\"Closely\" and \"in a careful way\" repeat the same idea."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any words say the same thing twice?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Pick the most concise choice that keeps the meaning."
+      },
+      "remember": "Avoid words that repeat an idea.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 58,
+      "draft_candidate": "E058-11",
+      "created_at": "2026-10-27T19:55:07+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-058.review.json",
+        "computation": "checks/act_english/batch_058.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
