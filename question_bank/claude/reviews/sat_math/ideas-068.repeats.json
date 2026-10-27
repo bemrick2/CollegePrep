@@ -1,0 +1,458 @@
+{
+ "ideas": "generated set 21 (PB/PD)",
+ "results": {
+  "PB01": [
+   {
+    "other_id": "CLD-SAT-M-000263",
+    "severity": "close",
+    "why": "2^(x²) = 16, asking for the product of the solutions. PB01 must first merge 8 · 4^x into 2^(2x + 3) to reach a full quadratic, and it asks for the sum. Different key step."
+   }
+  ],
+  "PB02": [
+   {
+    "other_id": "CLD-SAT-M-000145",
+    "severity": "close",
+    "why": "√(x + 9) − √x = 1 also isolates one radical and squares twice. PB02 asks for the full solution set, and its trap is a root lost by dividing by a radical that equals 0. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-01 G12 / G13",
+    "severity": "close",
+    "why": "These are the lost-root and extraneous-root ideas the generator cites. Different equations."
+   }
+  ],
+  "PB03": [
+   {
+    "other_id": "CLD-SAT-M-000322 (ideas-gen-02 H20)",
+    "severity": "template",
+    "why": "$2,000 now at 5% compounded annually; value 3 years ago (2,000/1.05³). This is the same mechanism (undo n years of growth by dividing by the factor to the n) and the same asked quantity (the earlier value). Only the context, the numbers and the format (expression MC instead of numeric SPR) change. The 0.96 trap is a new distractor, but it does not add a new mechanism."
+   },
+   {
+    "other_id": "ideas-gen-17 LB03",
+    "severity": "close",
+    "why": "Works backward after finding the factor from two values. Different key step."
+   }
+  ],
+  "PB04": [
+   {
+    "other_id": "CLD-SAT-M-000508 (ideas-gen-08 CB06)",
+    "severity": "close",
+    "why": "Nearest item, not cited by the generator. A diver with h(t) = −16t² + 16t + k enters the water at t = 2, and the ask is the greatest height. Same leading coefficient, a given landing time and the same ask; in both, max = 16·(t_zero − t_vertex)². The only new step is placing the vertex by the equal-heights symmetry instead of by −b/2a. Borderline; revise the ask."
+   },
+   {
+    "other_id": "ideas-gen-17 LB02",
+    "severity": "close",
+    "why": "Generator-flagged. LB02 infers the leading coefficient from second differences of three table values, and its vertex lies between table times. PB04 gives a = −16 and uses symmetry plus a zero. The ask is the same (maximum height) but the key step differs. Allowed against LB02. 000508 is the closer match."
+   },
+   {
+    "other_id": "PB12 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both find the maximum of a parabola from symmetric data (equal heights in PB04, widths at two heights in PB12). Different contexts and key steps. Allowed, but do not place them next to each other."
+   }
+  ],
+  "PB05": [
+   {
+    "other_id": "ideas-gen-02 H19 / ideas-gen-01 G22",
+    "severity": "close",
+    "why": "Sign reasoning about zeros and a numeric sign chart. Different mechanism."
+   },
+   {
+    "other_id": "ideas-gen-07 BB08",
+    "severity": "close",
+    "why": "A quadratic with no real zeros (a denominator that is never 0). Different ask."
+   }
+  ],
+  "PB06": [
+   {
+    "other_id": "CLD-SAT-M-000155",
+    "severity": "close",
+    "why": "A pure horizontal shift of a known quadratic. Different: here f is unknown and the −2 turns the maximum into a minimum."
+   },
+   {
+    "other_id": "CLD-ACT-M-000122 (cross-exam note)",
+    "severity": "close",
+    "why": "(2, 5) on f; the point on −f(2x) + 1. Tracking the extreme point is the same point-mapping skill, but PB06 adds the switch from maximum to minimum. Allowed."
+   },
+   {
+    "other_id": "PB16 (this set)",
+    "severity": "close",
+    "why": "Within-list overlap that was not flagged. Both send the single point (2, 5) of f through a·f(inner) + c. If PB16 is kept, change PB06's point."
+   }
+  ],
+  "PB07": [
+   {
+    "other_id": "CLD-SAT-M-000444 (ideas-gen-06 AB03)",
+    "severity": "template",
+    "why": "Quadratic f; g(x) = f(x − 3); the y-intercept of g. This is the same mechanism (the new y-intercept is f(−h) and has to be recomputed) and the same asked quantity. Only the numbers and the way f is given (standard form instead of zeros and an intercept) change."
+   },
+   {
+    "other_id": "CLD-ACT-M-000580",
+    "severity": "close",
+    "why": "The vertex after a translation. Different ask."
+   }
+  ],
+  "PB08": [
+   {
+    "other_id": "CLD-SAT-M-000062",
+    "severity": "close",
+    "why": "Same trinomial x² + bx + 36, but solved with the discriminant (one solution). PB08 uses product and sum with the ratio 4 : 1. Different ask and key step."
+   },
+   {
+    "other_id": "PB09 / PB15 (this set)",
+    "severity": "close",
+    "why": "Within-list. All three are quadratic-parameter items (Vieta's formulas or the discriminant), with different asks: k in PB08, a range of c in PB09, the solution in PB15. All are allowed, but three in one set is heavy, so spread them across batches."
+   }
+  ],
+  "PB09": [
+   {
+    "other_id": "CLD-SAT-M-000077",
+    "severity": "close",
+    "why": "2x² − 12x + k = 0 has two distinct real solutions; all possible k (k < 18). PB09's distractor A is exactly that discriminant-only answer. PB09 adds the positive-roots condition (product > 0), so the key step differs. Allowed, but it is the closest bank neighbor."
+   },
+   {
+    "other_id": "ideas-gen-17 LB13 (CLD-SAT-M-000694) / ideas-gen-15 JB08",
+    "severity": "close",
+    "why": "Both roots nonnegative through the product condition, and u² − 6u + k with both u positive for 0 < k < 9 (JB08 uses the same quadratic). Different asks."
+   },
+   {
+    "other_id": "PB08 / PB15 (this set)",
+    "severity": "close",
+    "why": "See PB08."
+   }
+  ],
+  "PB10": [
+   {
+    "other_id": "CLD-SAT-M-000619 / ideas-gen-13 HB09",
+    "severity": "close",
+    "why": "A complex fraction. Different."
+   },
+   {
+    "other_id": "ideas-gen-19 NB02",
+    "severity": "close",
+    "why": "Subtracting fractions with conjugate radical denominators. Same type of operation, different structure. Allowed."
+   },
+   {
+    "other_id": "PB17 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both add or subtract rational expressions. PB10's numerator is a difference of squares; PB17 hinges on 3 − x = −(x − 3) and simplifies to a constant. Allowed; do not place them next to each other."
+   }
+  ],
+  "PB11": [
+   {
+    "other_id": "CLD-ACT-M-000172 (cross-exam note)",
+    "severity": "close",
+    "why": "f(x + 1) − f(x) for 3^x factors to 2 · 3^x, the same factoring step. PB11 then solves for a non-integer exponent. Different ask."
+   },
+   {
+    "other_id": "CLD-ACT-M-000745 / CLD-SAT-M-000219 / CLD-SAT-M-000072",
+    "severity": "close",
+    "why": "A single shifted power. Different."
+   }
+  ],
+  "PB12": [
+   {
+    "other_id": "CLD-SAT-M-000533 / ideas-gen-09 DB03",
+    "severity": "close",
+    "why": "The bridge cable has its vertex given and is evaluated at a point. PB12 solves for the vertex height from two widths. Different ask."
+   },
+   {
+    "other_id": "PB04 (this set)",
+    "severity": "close",
+    "why": "See PB04."
+   }
+  ],
+  "PB13": [
+   {
+    "other_id": "ideas-gen-13 HB16",
+    "severity": "close",
+    "why": "Cross-multiplying leads to a contradiction (no solution). PB13 leaves the single solution 0. Different outcome; allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000666 (ideas-gen-15 JB14)",
+    "severity": "close",
+    "why": "A rational equation's solution set with an excluded root. Different mechanism."
+   }
+  ],
+  "PB14": [
+   {
+    "other_id": "ideas-gen-19 NB10 (CLD-SAT-M-000736)",
+    "severity": "close",
+    "why": "Generator-flagged. NB10 has one no-solution value, from a vanishing x-coefficient. PB14 contains that case (k = 3) plus a second, different case (k = 0, where the only candidate is excluded or a fraction is set equal to 0), and asks for both. Allowed."
+   },
+   {
+    "other_id": "ideas-gen-17 LB15 (CLD-SAT-M-000695)",
+    "severity": "close",
+    "why": "Generator-flagged. LB15 has the same 'two ways' structure (a double root, or an excluded root) but asks about exactly one solution. PB14 asks about no solution and has no discriminant step. Allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000290 (ideas-gen-01 G21)",
+    "severity": "close",
+    "why": "The candidate is forced onto the excluded value. Same as PB14's second case. Allowed. Note: this is now the fourth or fifth rational-equation parameter item (000290, 000736, 000695, HB16, PB14), so the family is saturated."
+   }
+  ],
+  "PB15": [
+   {
+    "other_id": "CLD-SAT-M-000062",
+    "severity": "close",
+    "why": "Discriminant for exactly one solution, asking for the parameter. PB15 asks for the solution, and the discriminant is a perfect square. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-15 JB13 / ideas-gen-11 FA02",
+    "severity": "close",
+    "why": "A point (or root) shared by every member of a family. PB15's shortcut is the same insight but is used on solutions of an equation. Allowed."
+   },
+   {
+    "other_id": "PB08 / PB09 (this set)",
+    "severity": "close",
+    "why": "See PB08."
+   }
+  ],
+  "PB16": [
+   {
+    "other_id": "CLD-ACT-M-000122 (cross-exam)",
+    "severity": "template",
+    "why": "'The point (2, 5) lies on the graph of y = f(x). Which point must lie on the graph of y = −f(2x) + 1?' This has the same given point (2, 5), the same mechanism (solve inner = 2, then apply the outer operations) and the same ask (a point on g). PB16 only swaps the inner map (1 − x instead of 2x) and the outer constants. A cross-exam re-skin, so drop."
+   },
+   {
+    "other_id": "CLD-ACT-M-000021 (cross-exam)",
+    "severity": "close",
+    "why": "(3, 7) on f, with g(x) = f(x + 2) − 5. The same ask, with a simpler map."
+   },
+   {
+    "other_id": "ideas-gen-17 LB05 / ideas-gen-15 JB07",
+    "severity": "close",
+    "why": "An input equation with no output change, and zeros after reflection. Different."
+   },
+   {
+    "other_id": "PB06 (this set)",
+    "severity": "close",
+    "why": "Same starting point (2, 5); see PB06."
+   }
+  ],
+  "PB17": [
+   {
+    "other_id": "ideas-gen-11 FB07",
+    "severity": "close",
+    "why": "Dividing rational expressions down to 2. Different operation."
+   },
+   {
+    "other_id": "PB10 (this set)",
+    "severity": "close",
+    "why": "See PB10."
+   }
+  ],
+  "PB18": [
+   {
+    "other_id": "CLD-SAT-M-000330 (ideas-gen-03 K03)",
+    "severity": "close",
+    "why": "Exact division with an unknown numerator coefficient. PB18 asks for the remainder in quotient + k/(x + 2) form. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000665 / CLD-ACT-M-000070",
+    "severity": "close",
+    "why": "The remainder theorem applied to polynomials. Different."
+   }
+  ],
+  "PD01": [
+   {
+    "other_id": "CLD-ACT-M-000085 / ideas-gen-07 BD07 / ideas-gen-03 M05",
+    "severity": "close",
+    "why": "The altitude from the right angle to the hypotenuse. PD01 raises the perpendicular from a point on the hypotenuse, so the similar triangles are not in parallel position. Different key step."
+   }
+  ],
+  "PD02": [
+   {
+    "other_id": "CLD-SAT-M-000295 (ideas-gen-01 G27)",
+    "severity": "close",
+    "why": "A square in the right angle of a right triangle. PD02 rests the square on a side of a general triangle and uses the cut-off similar triangle. Same family, different setup and key step. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000386",
+    "severity": "close",
+    "why": "A square in a semicircle. Different."
+   }
+  ],
+  "PD03": [
+   {
+    "other_id": "CLD-ACT-M-000231 (cross-exam)",
+    "severity": "close",
+    "why": "Generator-flagged. Same 30°-45° triangle, solved with an altitude, but 231 asks for one side (opposite the 45° angle) and needs one special-triangle chain. PD03 asks for the area: it builds the base from both special triangles (BD + DC) and then applies (1/2)bh. Different ask and an extra step, so it is not a re-skin. Allowed."
+   }
+  ],
+  "PD04": [
+   {
+    "other_id": "CLD-ACT-M-000520 / CLD-ACT-M-000422",
+    "severity": "close",
+    "why": "Convert one area or side between similar figures. PD04 splits a sum of areas in the squared ratio. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-05 Y04",
+    "severity": "close",
+    "why": "Areas 9 and 16 in a DE ∥ BC configuration. Different ask."
+   }
+  ],
+  "PD05": [
+   {
+    "other_id": "CLD-ACT-M-000742 (cross-exam note)",
+    "severity": "close",
+    "why": "2 cos x = 1 on [0°, 180°]: the angle from a cosine value. PD05 adds a negative cosine and a sign condition on the sine over [0, 2π). Different key step."
+   },
+   {
+    "other_id": "CLD-ACT-M-000071 / CLD-ACT-M-000683 / ideas-gen-07 BD04",
+    "severity": "close",
+    "why": "Quadrant and sign reasoning used for different asks."
+   },
+   {
+    "other_id": "PD06 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both use the unit circle. PD05 recovers an angle from a value; PD06 rotates a point by π/2. Different asks; allowed, but do not place them next to each other."
+   }
+  ],
+  "PD06": [
+   {
+    "other_id": "ideas-gen-13 HD08 / ideas-gen-07 BD04",
+    "severity": "close",
+    "why": "Cofunction or supplement identities for a named angle. Different."
+   },
+   {
+    "other_id": "CLD-ACT-M-000659",
+    "severity": "close",
+    "why": "cos θ from a point on the terminal side. Different ask."
+   },
+   {
+    "other_id": "PD05 (this set)",
+    "severity": "close",
+    "why": "See PD05."
+   }
+  ],
+  "PD07": [
+   {
+    "other_id": "ideas-gen-17 LD10 / ideas-gen-04 T05",
+    "severity": "close",
+    "why": "In those the right angle is given. In PD07 the cofunction relation proves the right angle. Different key step."
+   },
+   {
+    "other_id": "PD08 (this set)",
+    "severity": "close",
+    "why": "Within-list. Both use sin(90° − x) = cos x. PD07 uses it to deduce the triangle's shape; PD08 evaluates both cofunctions. Different asks; allowed, but do not place them next to each other."
+   }
+  ],
+  "PD08": [
+   {
+    "other_id": "CLD-ACT-M-000401 (cross-exam note)",
+    "severity": "close",
+    "why": "For acute θ, sin θ = 0.6; find cos(90° − θ). That is exactly PD08's first half. PD08 adds the second cofunction and the Pythagorean step. Different key step; allowed."
+   },
+   {
+    "other_id": "ideas-gen-10 ED05 / ideas-gen-13 HD08",
+    "severity": "close",
+    "why": "See the generator's notes. Different."
+   },
+   {
+    "other_id": "PD07 (this set)",
+    "severity": "close",
+    "why": "See PD07."
+   }
+  ],
+  "PD09": [
+   {
+    "other_id": "CLD-SAT-M-000115",
+    "severity": "template",
+    "why": "Generator-flagged. 'x² + y² − 10x + 4y + k = 0 is a circle with radius 6. What is k?' The stem frame is the same (general-form circle, a given radius, find the parameter), and so is the mechanism: complete both squares and set r² = h² + k² − c. The only change is that the unknown sits in the y-coefficient instead of the constant, which makes the final equation k² = 16 instead of a linear one. The bank already holds two copies of this frame (000115 and 000022), so a third is a re-skin."
+   },
+   {
+    "other_id": "CLD-SAT-M-000022",
+    "severity": "template",
+    "why": "'x² + y² + 8x − 6y = k, radius 6, find k.' Same as above."
+   },
+   {
+    "other_id": "CLD-SAT-M-000625 (ideas-gen-13 HD01) / CLD-SAT-M-000313",
+    "severity": "close",
+    "why": "General-form circle with a parameter under a tangency or inside-point condition. Different ask."
+   }
+  ],
+  "PD10": [
+   {
+    "other_id": "CLD-SAT-M-000178",
+    "severity": "close",
+    "why": "A center-form circle through the origin, asking for a. Different ask."
+   },
+   {
+    "other_id": "CLD-ACT-M-000400 (cross-exam note)",
+    "severity": "close",
+    "why": "Center and radius from a general form. PD10 builds a new concentric circle. Different ask."
+   },
+   {
+    "other_id": "ideas-gen-19 ND08",
+    "severity": "close",
+    "why": "A circle through the origin, asking for its intercepts. Different."
+   }
+  ],
+  "PD11": [
+   {
+    "other_id": "CLD-ACT-M-000044 (cross-exam)",
+    "severity": "close",
+    "why": "A silo (cylinder + hemisphere) with the cylinder height given directly. PD11 gives the total length including two caps, so the radius has to be subtracted twice. Different key step; allowed."
+   },
+   {
+    "other_id": "ideas-gen-15 JD10",
+    "severity": "close",
+    "why": "Cone on a cylinder with a total height. A similar total-length bookkeeping idea, but it solves for a height from the volume. Different ask."
+   }
+  ],
+  "PD12": [
+   {
+    "other_id": "CLD-SAT-M-000630 (ideas-gen-13 HD09)",
+    "severity": "close",
+    "why": "Surface area of a cube with a drilled hole. Different modification."
+   },
+   {
+    "other_id": "CLD-SAT-M-000748 (ideas-gen-19 ND05)",
+    "severity": "close",
+    "why": "Surface area of 27 small cubes. Different."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "PB02": "Minor: for a 'which lists all solutions' item, checking the three listed values (1, 2, 5) in the original equation eliminates every distractor (A lacks 1, B lacks 5, D contains 2, which fails). This is standard for solution-set MC items and acceptable.",
+  "PB04": "No answer cue (SPR). See the 000508 note.",
+  "PB05": "Minor: the generator's note that 'no numbers are given, so the choices cannot be checked' is inaccurate. One concrete instance (a = 0, b = 1, r(x) = −x² − 1, test x = 0.5 and x = 2) eliminates B, C and D. This is acceptable for a 'must be true' item, but correct the note. A and B are also exact opposites.",
+  "PB06": "None. The point (2, 5) is shared with PB16.",
+  "PB09": "None significant. Testing c = −7, 9 and 10 is the reasoning itself.",
+  "PB10": "Minor: plugging in x = 1 gives 3/2 and separates all four choices (3/2, 1/2, −1, −3/2). C (−1) can also be ruled out by sign, because the expression is positive for x > 0. Typical for SAT equivalence items.",
+  "PB13": "Minor: C (x = ±1) consists of the excluded values, and testing x = 0 confirms B while x = 2 refutes D. Acceptable.",
+  "PB14": "Moderate: k = 0 is the first value any student tests, and 3/(x − 1) = 0 visibly has no solution. Only A contains 0, so A is found without the k = 3 analysis. Replace B ({1, −2}) or D with a choice that contains 0, e.g. '0 only', so that the k = 3 case still has to be found.",
+  "PB15": "None. The shortcut that x = −1 satisfies the equation for every k is a legitimate insight, not a cue.",
+  "PB17": "Minor: x = 0 gives 2 and separates D from A, B and C (all −2 at x = 0). Typical.",
+  "PD02": "Ambiguity (minor): the item needs both base angles acute so that the square's base lies on the side of length 15. Add 'acute triangle' or give a figure.",
+  "PD05": "None. The sign condition is the skill. The item may rate easier than medium-hard.",
+  "PD06": "Moderate: a quadrant check alone (θ is in Quadrant II, so θ + π/2 is in Quadrant III, where both coordinates are negative) eliminates all three distractors: A is in Quadrant IV, B in Quadrant I and D in Quadrant II. Make one distractor a Quadrant III point, e.g. (−0.6, −0.8) (negates both coordinates without swapping), so that the swap still has to be done.",
+  "PD07": "Minor: the sides 13 and 5 suggest a 5-12-13 triangle with hypotenuse 13, so a student who simply assumes the right angle is at C gets 30 without using sin A = cos B. Consider sides that are not a familiar triple, or give the two sides so that the hypotenuse is not obvious from size alone.",
+  "PD08": "Calculator shortcut: x = arccos(0.28) ≈ 73.74° can be entered directly, giving 0.28 + 0.96 = 1.24 with no trig reasoning. This is unavoidable with a numeric cosine on a calculator section. Acceptable but noted; for an identity-focused item, use cos x° = k with an algebraic answer instead.",
+  "PD10": "Moderate: the key is found without completing the square. Same center means the same x- and y-coefficients, and passing through the origin means a constant of 0. Plugging in (0, 0) eliminates A and C, and B is the only choice with different coefficients. Rewrite the choices in center-radius form, e.g. (x + 3)² + (y − 2)² = 13 (key), = 16, = √13, and (x − 3)² + (y + 2)² = 13. Then the origin test leaves two choices and the center must still be found.",
+  "PD12": "Major cue: the key 150 equals 6(5²), the surface area of the uncut cube. A student who ignores the cut entirely gets the key. Revise: cut the 2-cm cube from the middle of an edge (it touches 2 faces: −8 + 16, giving 158) or from the center of a face (−4 + 20, giving 166), so that the answer differs from the naive one."
+ },
+ "math_errors": {
+  "none (keys)": "All 30 keys were recomputed with sympy or by hand and are correct: PB01 2 (x = 3, −1), PB02 {1, 5}, PB03 5000/1.04⁵ ≈ 4109.6, PB04 100 (h = −16t² + 48t + 64), PB05 A, PB06 min −9 at x = 5, PB07 14 (x² − 6x + 14), PB08 15 (roots −3, −12), PB09 0 < c < 9, PB10 (2x + 1)/(x² + x), PB11 5/2, PB12 16, PB13 x = 0, PB14 {0, 3} (k = −6 gives x = 0), PB15 −1 (discriminant (k − 4)²), PB16 (−1, 11), PB17 2, PB18 3, PD01 4.5 (BE = 7.5 ≤ 8, so E is on BC), PD02 6, PD03 18 + 18√3 ≈ 49.18, PD04 16, PD05 4π/3, PD06 (−0.8, −0.6), PD07 30, PD08 1.24, PD09 4, PD10 x² + y² + 6x − 4y = 0, PD11 162π, PD12 150. Distractor values match their rationales (PB01 5 and 6; PB02 D {1, 2} from u² = u; PB04 64, 84, 6.25; PB07 54 and 4; PB12 28 and 9.33; PB14 D: k = −6 has the solution x = 0; PD01 3.6, 8, 7.5; PD02 4; PD03 18 + 6√3 and 36√2; PD12 138, 162, 126, 142).",
+  "PB15 (rationale only)": "Trap '3 (uses the other factor x + k − 3 without first finding k = 4)': the other factor gives x = 3 − k, which equals 3 only if k is taken as 0. Reword the rationale (e.g. 'sets k = 0') or replace the trap.",
+  "PD02 (rationale only)": "Trap 7.5 is described as 'the midsegment, assuming the square's top is halfway up'. A top at half height gives s = 5, which is the separate trap. The value 7.5 is the length of the midsegment, not a side of a square, so reword the rationale as 'takes the side as the midsegment length'."
+ },
+ "recommend_drop": [
+  "PB03",
+  "PB07",
+  "PB16",
+  "PD09"
+ ],
+ "recommend_revise": {
+  "PB04": "Near-template of CLD-SAT-M-000508 (same −16t², a given landing time, asks the maximum height). Change the ask, e.g. to the launch height c (64), which uses the same symmetry step, or drop it if 000508 already covers this.",
+  "PB14": "Add a distractor containing 0 (e.g. '0 only') so that the trivial k = 0 check does not single out the key.",
+  "PB15": "Fix the rationale for trap 3.",
+  "PB06": "If PB16 is kept anyway, change PB06's point from (2, 5).",
+  "PB05": "Correct the note claiming that the choices cannot be checked numerically.",
+  "PD02": "Specify an acute triangle (or give a figure), and fix the rationale for the 7.5 trap.",
+  "PD06": "Replace one distractor with a Quadrant III point such as (−0.6, −0.8).",
+  "PD07": "Optional: avoid the 5-12-13 triple so that the right angle cannot be assumed.",
+  "PD10": "Write the choices in center-radius form to remove the coefficient-matching shortcut.",
+  "PD12": "Major: the key equals the uncut cube's surface area. Move the cut to an edge (158) or the center of a face (166).",
+  "PB08/PB09/PB15": "All allowed, but spread them across batches."
+ }
+}
