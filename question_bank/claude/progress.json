@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T18:02:32+00:00",
+  "updated_at": "2026-10-27T18:04:24+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 437,
-    "act_reading": 443,
+    "act_reading": 451,
     "sat_reading_writing": 450,
     "sat_math": 752
   },
@@ -39,11 +39,11 @@
       "passed_after_revision": 20
     },
     "act_reading": {
-      "PASS": 478,
-      "REVISE": 46,
+      "PASS": 486,
+      "REVISE": 49,
       "REJECT": 1,
-      "candidates": 525,
-      "passed_after_revision": 36
+      "candidates": 536,
+      "passed_after_revision": 37
     },
     "sat_reading_writing": {
       "PASS": 477,
@@ -1202,12 +1202,12 @@
       "passages": 48
     },
     "act_reading": {
-      "accepted": 443,
+      "accepted": 451,
       "retired_after_audit": 35,
       "by_skill": {
-        "Craft and Structure": 155,
-        "Integration of Knowledge and Ideas": 135,
-        "Key Ideas and Details": 153
+        "Craft and Structure": 157,
+        "Integration of Knowledge and Ideas": 138,
+        "Key Ideas and Details": 156
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -1256,6 +1256,7 @@
         "Characterization": 3,
         "Characterization from an early scene": 1,
         "Characterization from self-description": 1,
+        "Characterization through a remark": 1,
         "Comparing passages (agreement)": 1,
         "Comparing passages (response)": 1,
         "Comparing perspectives (younger and older narrator)": 1,
@@ -1282,6 +1283,7 @@
         "Detail (eyesight explanation)": 1,
         "Detail (influence of the idea)": 1,
         "Detail (paraphrased)": 6,
+        "Detail (planting instructions)": 1,
         "Detail (quantity)": 1,
         "Detail (reason)": 2,
         "Detail (results of the jam study)": 1,
@@ -1291,6 +1293,7 @@
         "Detail (the mended bowl's use)": 1,
         "Detail (the termite explanation)": 1,
         "Detail (the transcription method)": 1,
+        "Detail (timing of a reply)": 1,
         "Detail (what the predator gains)": 1,
         "Detail (why customers came)": 1,
         "Detail (why experiments are slow)": 1,
@@ -1312,7 +1315,7 @@
         "Function of a comparison": 4,
         "Function of a conclusion": 1,
         "Function of a description": 1,
-        "Function of a detail": 9,
+        "Function of a detail": 10,
         "Function of a figurative comparison": 1,
         "Function of a final sentence": 1,
         "Function of a paragraph": 18,
@@ -1338,8 +1341,9 @@
         "How one author would respond to the other": 2,
         "How one passage complicates another": 1,
         "Inference (Passage A's reasoning)": 1,
+        "Inference (a character's behavior)": 1,
         "Inference (a character's feelings)": 1,
-        "Inference (a character's motive)": 1,
+        "Inference (a character's motive)": 2,
         "Inference (a qualified judgment)": 1,
         "Inference (a response to risk)": 1,
         "Inference (applying a standard)": 1,
@@ -1347,6 +1351,7 @@
         "Inference (comparing views)": 1,
         "Inference (how a side would respond)": 1,
         "Inference (interpreting ambiguity)": 1,
+        "Inference (interpreting another character)": 1,
         "Inference (meaning of a conclusion)": 1,
         "Inference (meaning of a remark)": 2,
         "Inference (meaning of a reply)": 1,
@@ -1420,7 +1425,7 @@
         "Main idea (Passage A)": 1,
         "Main idea of a literary passage": 1,
         "Main idea of a narrative": 4,
-        "Main idea of a passage": 15,
+        "Main idea of a passage": 16,
         "Main purpose of a passage": 9,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
@@ -1472,29 +1477,29 @@
         "Word in context": 4
       },
       "by_difficulty_author": {
-        "easy": 216,
+        "easy": 222,
         "hard": 32,
-        "medium": 195
+        "medium": 197
       },
       "by_difficulty_calibrated": {
-        "easy": 278,
+        "easy": 284,
         "hard": 2,
-        "medium": 163
+        "medium": 165
       },
       "calibrated_share": {
-        "easy": 0.628,
-        "hard": 0.005,
-        "medium": 0.368
+        "easy": 0.63,
+        "hard": 0.004,
+        "medium": 0.366
       },
       "answer_key_balance": {
-        "A": 125,
-        "B": 108,
-        "C": 105,
-        "D": 105
+        "A": 129,
+        "B": 109,
+        "C": 107,
+        "D": 106
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 55
+      "passages": 56
     },
     "sat_reading_writing": {
       "accepted": 450,
@@ -2624,7 +2629,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 50,
-    "act_reading": 56,
+    "act_reading": 57,
     "sat_reading_writing": 54,
     "sat_math": 71
   },
@@ -2682,14 +2687,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 57,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 64.4,
-        "Craft and Structure": -21.4,
-        "Integration of Knowledge and Ideas": -33.1
-      }
-    },
     "act_english": {
       "next_batch": 51,
       "skill_gap_for_next_10": {
@@ -2706,6 +2703,14 @@
         "Standard English Conventions": 27.6,
         "Expression of Ideas": -3.0
       }
+    },
+    "act_reading": {
+      "next_batch": 58,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 65.3,
+        "Craft and Structure": -21.0,
+        "Integration of Knowledge and Ideas": -34.3
+      }
     }
   },
   "section_targets": {
@@ -2721,8 +2726,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 443,
-      "share_of_target": 0.648
+      "accepted": 451,
+      "share_of_target": 0.659
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2736,7 +2741,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2856,
+  "total_accepted": 2864,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -306801,7 +306806,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 55,
+      "bank_version": 56,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -306941,7 +306946,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T18:02:31+00:00",
+    "heartbeat_at": "2026-10-27T18:04:23+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
