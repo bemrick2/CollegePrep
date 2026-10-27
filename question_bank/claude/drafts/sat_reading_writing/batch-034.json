@@ -1,7 +1,7 @@
 {
  "bank": "sat_reading_writing",
  "batch": 34,
- "plan": "Ten new items; topics checked against all verbal bank passages (a lichen central-idea item was replaced with Roman concrete because two lichen passages exist). inexhaustible/auspicious WIC, Roman concrete central idea, chess expertise inference, seed-dispersal two-part data, note-taking replication cross-text, Bessie Coleman synthesis (cause), 'Conversely,' transition, irregular plural possessive, past perfect progressive.",
+ "plan": "Ten new items; topics checked against all verbal bank passages (a lichen central-idea item was replaced with Roman concrete because two lichen passages exist). inexhaustible/auspicious WIC, Roman concrete central idea, chess expertise inference, seed-dispersal two-part data, note-taking replication cross-text, Bessie Coleman synthesis (cause), 'Conversely,' transition, irregular plural possessive, past perfect progressive. Relabelled to the blind solvers' rating where it was lower: S034-02 medium→easy, S034-03 medium→easy, S034-04 hard→easy, S034-05 hard→medium, S034-06 hard→easy, S034-07 medium→easy, S034-10 medium→easy.",
  "passages": [
   {
    "passage_id": "CLD-P-SAT-RW-000321",
@@ -70,8 +70,8 @@
    "passage_id": "CLD-P-SAT-RW-000330",
    "title": "Building a dam",
    "genre": "history",
-   "word_count": 32,
-   "text": "Construction of Hoover Dam began in 1931. By the time the dam was completed in 1936, thousands of workers ______ on the project for about five years, often in extreme desert heat."
+   "word_count": 28,
+   "text": "Construction of Hoover Dam began in 1931. By the time the dam was completed in 1936, thousands of workers ______ on the project, often in extreme desert heat."
   }
  ],
  "candidates": [
@@ -129,7 +129,7 @@
    "skill": "Craft and Structure",
    "subskill": "Words in context",
    "repo_skill_key": "sat_craft_structure",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice completes the text with the most logical and precise word or phrase?",
    "choices": {
     "A": "ominous",
@@ -176,7 +176,7 @@
    "skill": "Information and Ideas",
    "subskill": "Central ideas",
    "repo_skill_key": "sat_information_ideas",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice best states the main idea of the text?",
    "choices": {
     "A": "Features once seen as flaws in Roman concrete may have helped it repair cracks.",
@@ -223,7 +223,7 @@
    "skill": "Information and Ideas",
    "subskill": "Inferences",
    "repo_skill_key": "sat_information_ideas",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "Which choice most logically completes the text?",
    "choices": {
     "A": "chess experts have better memories than beginners for any kind of information.",
@@ -270,28 +270,28 @@
    "skill": "Information and Ideas",
    "subskill": "Command of evidence: quantitative (two-part claim)",
    "repo_skill_key": "sat_information_ideas",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Which choice best describes data from the table that support the researchers' conclusion?",
    "choices": {
-    "A": "Species B's longest recorded distance, 900 meters, was the greatest of any value in the table.",
+    "A": "Species B's median was 60 meters, half of A's 120, and B's longest trip, 900 meters, was 15 times B's own median.",
     "B": "Species A's median was 120 meters to B's 60, but B's longest trip was 900 meters to A's 400.",
-    "C": "Species A's median distance was 120 meters, twice that of species B.",
-    "D": "Species A's longest recorded distance was more than three times its median distance."
+    "C": "Species A's longest trip was 400 meters to B's 900, and A's median was more than a quarter of A's longest trip.",
+    "D": "Species A's median and longest trips, 120 and 400 meters, were both shorter than B's longest trip of 900 meters."
    },
    "answer": "B",
    "evidence": "species A usually carries seeds farther than species B does, but that species B occasionally",
-   "explanation": "The conclusion has two parts: usual distance (the median: A 120 vs B 60) and occasional long trips (the longest: B 900 vs A 400). Only B supports both.",
+   "explanation": "The conclusion has two parts: usual distance (the median: A 120 vs B 60) and occasional long trips (the longest: B 900 vs A 400). Only B compares the two species on both measures in the way the claim requires.",
    "distractors": {
     "A": {
-     "rationale": "This supports only the second part of the conclusion.",
+     "rationale": "The first part supports the claim about usual distances, but the second compares B only with itself, not with species A's longest trip.",
      "trap": "partial_answer"
     },
     "C": {
-     "rationale": "This supports only the first part of the conclusion.",
+     "rationale": "The first part supports the claim about occasional long trips, but the second compares two values for species A and says nothing about which species usually carries seeds farther.",
      "trap": "partial_answer"
     },
     "D": {
-     "rationale": "This compares two values for one species and addresses neither part of the conclusion.",
+     "rationale": "Comparing A's median with B's longest trip does not show which species usually carries seeds farther; that requires comparing the two medians.",
      "trap": "true_but_irrelevant"
     }
    },
@@ -317,7 +317,7 @@
    "skill": "Craft and Structure",
    "subskill": "Cross-text connections",
    "repo_skill_key": "sat_craft_structure",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "Based on the texts, how would the researchers in Text 2 most likely respond to the suggestion in Text 1?",
    "choices": {
     "A": "By agreeing that typing notes on laptops reliably harms students' learning",
@@ -364,7 +364,7 @@
    "skill": "Expression of Ideas",
    "subskill": "Rhetorical synthesis (explaining a cause)",
    "repo_skill_key": "sat_expression_of_ideas",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The student wants to explain why Coleman trained in France. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
    "choices": {
     "A": "Bessie Coleman earned an international pilot's license in France in the year 1921.",
@@ -505,7 +505,7 @@
    "skill": "Standard English Conventions",
    "subskill": "Verb tense (past perfect progressive)",
    "repo_skill_key": "sat_standard_english",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
    "choices": {
     "A": "have been working",
@@ -544,6 +544,12 @@
     "solved_independently": true,
     "single_correct": true
    }
+  }
+ ],
+ "revision_log": [
+  {
+   "round": 2,
+   "reason": "Round-1 blind solves matched all keys; both flagged S034-05 because the key was the only choice addressing both halves of the conclusion. Rewrote all three distractors as two-part statements with real table values that fail one half (within-species comparison, or median-vs-longest cross comparison). S034-10: removed 'for about five years', which restated the dates. Whole batch re-solved blind."
   }
  ]
 }
