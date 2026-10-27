@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 64,
+  "bank_version": 65,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -13755,6 +13755,392 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Solve the system for b and c."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000679",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 forgets the factor 1/2.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 is only the part of the triangle to the left of the y-axis.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is only the part of the triangle to the right of the y-axis.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Solving x² = x + 2 gives x² − x − 2 = 0, so x = −1 or x = 2, and A = (−1, 1), B = (2, 4). The segment from O to (0, 2) on the y-axis splits the triangle into two pieces with base 2: the left piece has height 1 and the right piece has height 2, so the area is (1/2)(2)(1) + (1/2)(2)(2) = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find A and B first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and split it along the y-axis."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000680",
+      "correct_answer": "A",
+      "explanation": "For −5 ≤ x ≤ 3 the left side always equals 8, so there are no solutions there. For x > 3, (x − 3) + (x + 5) = 10 gives x = 4. For x < −5, −(x − 3) − (x + 5) = 10 gives x = −6. The sum is 4 + (−6) = −2.",
+      "distractor_explanations": {
+        "B": "−1 is the midpoint of the two solutions, not their sum.",
+        "C": "2 reads the critical points as −3 and 5, giving solutions 6 and −4.",
+        "D": "4 finds only the solution greater than 3."
+      },
+      "hints": [
+        "What is the left side for x between −5 and 3?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Think of distances from 3 and from −5 on a number line."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000681",
+      "correct_answer": "C",
+      "explanation": "Set −0.05x² + 2x = 0.5x. Then −0.05x² + 1.5x = 0, so x(1.5 − 0.05x) = 0, and x = 0 (the nozzle) or x = 30.",
+      "distractor_explanations": {
+        "A": "15 is the height of the landing point, 0.5(30), not the horizontal distance.",
+        "B": "20 is the x-coordinate of the stream's highest point.",
+        "D": "40 is where the stream would reach level ground, y = 0."
+      },
+      "hints": [
+        "Where are the two heights equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the stream equal to the lawn and solve."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000682",
+      "correct_answer": "D",
+      "explanation": "Let the bisector make equal angles x with CD and with CB. Because the bisector is parallel to AB, the angle it makes with CD equals angle A (corresponding angles along line AD), and the angle it makes with CB equals angle B (alternate interior angles along line BC). So angle B = angle A = 50°, and angle ACB = 180° − 50° − 50° = 80°.",
+      "distractor_explanations": {
+        "A": "25° takes half of angle A.",
+        "B": "50° assumes angle C equals angle A.",
+        "C": "65° assumes AC = BC, giving (180 − 50)/2."
+      },
+      "hints": [
+        "Which angles does the parallel bisector make equal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the figure and mark the corresponding and alternate angles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000683",
+      "correct_answer": "D",
+      "explanation": "Angle ADC intercepts arc ABC, so that arc measures 140°. Equal chords cut off equal arcs, so arcs AB, BC, and CD each measure 70°. The remaining arc DA measures 360° − 210° = 150°, and inscribed angle ABD intercepts it, so angle ABD = 75°.",
+      "distractor_explanations": {
+        "A": "35° is angle CBD, half of arc CD.",
+        "B": "55° treats triangle ACD as isosceles with apex angle 70°.",
+        "C": "70° assumes angle ABD equals the given angle."
+      },
+      "hints": [
+        "What arc does angle ADC intercept?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label each arc's measure around the circle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000684",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "√19",
+          "rationale": "√19 (about 4.36) is the shorter diagonal.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "√34",
+          "rationale": "√34 treats the parallelogram as a rectangle.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 adds the side lengths.",
+          "trap": null
+        }
+      ],
+      "explanation": "The longer diagonal is opposite the 120° angle. Place the side of length 5 along the x-axis from (0, 0) to (5, 0); the side of length 3 at 60° ends at (1.5, 1.5√3). The far vertex is (6.5, 1.5√3), so the diagonal is √(6.5² + (1.5√3)²) = √(42.25 + 6.75) = √49 = 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which angle is the longer diagonal opposite?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Drop a perpendicular to form a 30°-60°-90° triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000685",
+      "correct_answer": "C",
+      "explanation": "Sides AB and CD are parallel and 10 apart, so the distances from P to AB and to CD add to 10. The two triangle areas are (1/2)(10)(h₁) + (1/2)(10)(h₂) = 5(10) = 50, so triangle PCD has area 50 − 18 = 32.",
+      "distractor_explanations": {
+        "A": "18 assumes P is equally far from AB and CD.",
+        "B": "25 is one fourth of the square's area.",
+        "D": "82 is 100 − 18, treating the two triangles as filling the square."
+      },
+      "hints": [
+        "What do the two heights add up to?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw P and the heights to AB and CD."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000686",
+      "correct_answer": "47",
+      "accepted_answers": [
+        "47"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 uses the center (−2, 6), which is in Quadrant II.",
+          "trap": null
+        },
+        {
+          "value": "−28",
+          "rationale": "−28 uses r = 10, the distance between the lines.",
+          "trap": null
+        },
+        {
+          "value": "72",
+          "rationale": "72 forgets to subtract r².",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Tangent to y = 1 and y = 11, the circle has diameter 10, so r = 5 and the center lies on y = 6. Then (2 − h)² + (9 − 6)² = 25 gives (2 − h)² = 16, so h = 6 or h = −2; Quadrant I requires h = 6. Expanding (x − 6)² + (y − 6)² = 25 gives c = 36 + 36 − 25 = 47.",
+      "distractor_explanations": {},
+      "hints": [
+        "How far apart are the two tangent lines?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the lines and the circle between them."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000687",
+      "correct_answer": "B",
+      "explanation": "Let the two equal sides be L and the third side 30 − 2L. The third side must be positive, so L < 15, and the triangle inequality requires 2L > 30 − 2L, so L > 7.5. Thus L = 8, 9, …, 14, which gives 7 triangles, including the equilateral 10-10-10.",
+      "distractor_explanations": {
+        "A": "6 leaves out the equilateral triangle, which also has two equal sides.",
+        "C": "8 allows L = 7, but 7 + 7 is not greater than 16.",
+        "D": "14 ignores the triangle inequality and counts L = 1 through 14."
+      },
+      "hints": [
+        "What must be true for the equal sides L?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the third side in terms of L, then apply both bounds."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000688",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 assumes the order of the transformations does not matter.",
+          "trap": null
+        },
+        {
+          "value": "12",
+          "rationale": "12 is 3 · 4; it forgets that h also adds 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "−8",
+          "rationale": "−8 computes h(x) − g(x).",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Shifting first and then stretching gives g(x) = 3(f(x) + 4) = 3f(x) + 12. Stretching first and then shifting gives h(x) = 3f(x) + 4. So g(x) − h(x) = 12 − 4 = 8 for every x.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write g(x) and h(x) in terms of f(x)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply each transformation to the expression in order."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000689",
+      "correct_answer": "62.25",
+      "accepted_answers": [
+        "62.25",
+        "249/4"
+      ],
+      "common_errors": [
+        {
+          "value": "61",
+          "rationale": "61 is the greatest given height, but the maximum occurs between t = 3 and t = 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 is the time of the maximum, not the height.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "71",
+          "rationale": "71 continues the first difference of +10 as if the model were linear.",
+          "trap": null
+        }
+      ],
+      "explanation": "Equal heights at t = 3 and t = 4 put the vertex at t = 3.5. The first differences are 10 and 0, so the second difference is −10 and the leading coefficient is −10/2 = −5. Then h(t) = −5t² + 35t + 1 (check: h(2) = 51, h(3) = 61, h(4) = 61), and h(3.5) = −61.25 + 122.5 + 1 = 62.25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where is the axis of symmetry?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Use the symmetric values to locate the vertex, then the differences to find the leading coefficient."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000690",
+      "correct_answer": "B",
+      "explanation": "Write (1/2)^(t/12) as 2^(−t/12). Then N(t) = 500 · 2^(t/4 − t/12) = 500 · 2^(t/6), so N doubles every 6 hours.",
+      "distractor_explanations": {
+        "A": "4 hours ignores the decay factor.",
+        "C": "8 hours subtracts the periods, 12 − 4, instead of the exponents.",
+        "D": "16 hours adds the periods, 4 + 12."
+      },
+      "hints": [
+        "Write both factors as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the exponents."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000691",
+      "correct_answer": "B",
+      "explanation": "q(x) = 0 whenever 2x − 1 = 3, that is, when x = 2. So q(2) = p(3) = 0, and by the factor theorem x − 2 is a factor of q.",
+      "distractor_explanations": {
+        "A": "x − 1 computes (3 − 1)/2, undoing the operations in the wrong order.",
+        "C": "x − 3 ignores the inner expression 2x − 1.",
+        "D": "x − 5 applies 2x − 1 to 3 instead of solving 2x − 1 = 3."
+      },
+      "hints": [
+        "For what x is the input to p equal to 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the inner expression equal to the known zero."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000692",
+      "correct_answer": "A",
+      "explanation": "Because f(2) = f(6), the axis of symmetry is x = 4. With a > 0 the parabola opens upward, so f(x) grows as x moves farther from 4. Since 0 is 4 units from the axis and 3 is 1 unit away, f(0) > f(3). B compares equal values, C reverses the minimum, and D has 3 closer to the axis than 8.",
+      "distractor_explanations": {
+        "B": "1 and 7 are both 3 units from x = 4, so f(1) = f(7).",
+        "C": "f(4) is the minimum value, so f(4) < f(5).",
+        "D": "8 is 4 units from the axis and 3 is 1 unit away, so f(3) < f(8)."
+      },
+      "hints": [
+        "Where is the axis of symmetry?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch an upward parabola with its axis at x = 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000693",
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 extends the 20-word gain linearly over the next 3 weeks.",
+          "trap": null
+        },
+        {
+          "value": "80",
+          "rationale": "80 doubles W itself every 3 weeks.",
+          "trap": null
+        },
+        {
+          "value": "55",
+          "rationale": "55 halves the 20-word gain instead of halving the gap below 60.",
+          "trap": null
+        }
+      ],
+      "explanation": "The gap 60 − W(t) = a · b^t is exponential. It is 40 at t = 0 and 20 at t = 3, so it halves every 3 weeks and is 10 at t = 6. Then W(6) = 60 − 10 = 50.",
+      "distractor_explanations": {},
+      "hints": [
+        "What does a · b^t equal at t = 0 and t = 3?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Apply the constant ratio to the gap below 60."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000694",
+      "correct_answer": "B",
+      "explanation": "Squaring gives x² − x − k = 0, and every solution of the original equation must satisfy x ≥ 0. Two solutions need two distinct nonnegative roots: the discriminant 1 + 4k > 0 and the product of the roots, −k, at least 0, so −1/4 < k ≤ 0. Only k = −0.2 qualifies; its roots, about 0.276 and 0.724, both check.",
+      "distractor_explanations": {
+        "A": "For k = −0.3 the discriminant 1 − 1.2 is negative, so there are no solutions.",
+        "C": "For k = 0.2 the roots are about 1.17 and −0.17; the negative root is extraneous, leaving one solution.",
+        "D": "For k = 2 the roots are 2 and −1; −1 is extraneous, leaving one solution."
+      },
+      "hints": [
+        "What must be true of x in √(x + k) = x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test each k and check the roots in the original equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000695",
+      "correct_answer": "D",
+      "explanation": "For x ≠ 2 the equation is x² − 2x − k = 0. It has a double root when the discriminant 4 + 4k = 0, so k = −1 (x = 1). It also has exactly one solution when one of two roots is the excluded value 2: then 4 − 4 − k = 0, so k = 0, with roots 0 and 2, and only x = 0 remains. So k = −1 or k = 0.",
+      "distractor_explanations": {
+        "A": "{−1} uses the discriminant only and misses the case where one root is the excluded value 2.",
+        "B": "{1} makes a sign error in the discriminant, 4 − 4k = 0.",
+        "C": "{−1, 2} confuses the excluded x-value 2 with a value of k; for k = 2 the roots are 1 ± √3, two solutions."
+      },
+      "hints": [
+        "Which value of x is not allowed?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear the fraction, then check both ways to get one solution."
       }
     }
   ]

@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 64,
-  "updated_at": "2026-10-27T16:57:25+00:00",
+  "version": 65,
+  "updated_at": "2026-10-27T17:02:10+00:00",
   "passages": [],
   "questions": [
     {
@@ -48989,6 +48989,1256 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-064.review.json",
         "computation": "checks/sat_math/batch_064.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000679",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Area of a triangle formed by a line, a parabola, and the origin",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = x + 2 intersects the parabola y = x² at points A and B. If O is the origin, what is the area of triangle OAB ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 forgets the factor 1/2.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 is only the part of the triangle to the left of the y-axis.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is only the part of the triangle to the right of the y-axis.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Solving x² = x + 2 gives x² − x − 2 = 0, so x = −1 or x = 2, and A = (−1, 1), B = (2, 4). The segment from O to (0, 2) on the y-axis splits the triangle into two pieces with base 2: the left piece has height 1 and the right piece has height 2, so the area is (1/2)(2)(1) + (1/2)(2)(2) = 3.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find A and B first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the triangle and split it along the y-axis."
+      },
+      "remember": "Split an awkward triangle into pieces with a common base.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-01",
+      "created_at": "2026-10-27T17:02:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000680",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of solutions of an absolute value equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all solutions to the equation |x − 3| + |x + 5| = 10 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2",
+        "B": "−1",
+        "C": "2",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "explanation": "For −5 ≤ x ≤ 3 the left side always equals 8, so there are no solutions there. For x > 3, (x − 3) + (x + 5) = 10 gives x = 4. For x < −5, −(x − 3) − (x + 5) = 10 gives x = −6. The sum is 4 + (−6) = −2.",
+      "distractor_explanations": {
+        "B": "−1 is the midpoint of the two solutions, not their sum.",
+        "C": "2 reads the critical points as −3 and 5, giving solutions 6 and −4.",
+        "D": "4 finds only the solution greater than 3."
+      },
+      "distractor_traps": {
+        "B": "wrong_quantity",
+        "C": "sign_error",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is the left side for x between −5 and 3?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Think of distances from 3 and from −5 on a number line."
+      },
+      "remember": "Read a sum of absolute values as a total distance on a number line.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-02",
+      "created_at": "2026-10-27T17:02:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000681",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Intersection of a parabola and a sloped line in context",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A garden hose sprays water up a sloped lawn. In a vertical cross section, with x and y in meters measured horizontally and vertically from the nozzle, the stream follows y = −0.05x² + 2x and the surface of the lawn follows y = 0.5x. How many meters from the nozzle, measured horizontally, does the water hit the lawn?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "15",
+        "B": "20",
+        "C": "30",
+        "D": "40"
+      },
+      "correct_answer": "C",
+      "explanation": "Set −0.05x² + 2x = 0.5x. Then −0.05x² + 1.5x = 0, so x(1.5 − 0.05x) = 0, and x = 0 (the nozzle) or x = 30.",
+      "distractor_explanations": {
+        "A": "15 is the height of the landing point, 0.5(30), not the horizontal distance.",
+        "B": "20 is the x-coordinate of the stream's highest point.",
+        "D": "40 is where the stream would reach level ground, y = 0."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Where are the two heights equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the stream equal to the lawn and solve."
+      },
+      "remember": "Where two graphs meet, set their equations equal.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-03",
+      "created_at": "2026-10-27T17:02:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000682",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Exterior angle bisector parallel to a side",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, the measure of angle A is 50°. Point D lies on the extension of side AC beyond C, and the bisector of angle BCD is parallel to side AB. What is the measure of angle ACB ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25°",
+        "B": "50°",
+        "C": "65°",
+        "D": "80°"
+      },
+      "correct_answer": "D",
+      "explanation": "Let the bisector make equal angles x with CD and with CB. Because the bisector is parallel to AB, the angle it makes with CD equals angle A (corresponding angles along line AD), and the angle it makes with CB equals angle B (alternate interior angles along line BC). So angle B = angle A = 50°, and angle ACB = 180° − 50° − 50° = 80°.",
+      "distractor_explanations": {
+        "A": "25° takes half of angle A.",
+        "B": "50° assumes angle C equals angle A.",
+        "C": "65° assumes AC = BC, giving (180 − 50)/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which angles does the parallel bisector make equal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the figure and mark the corresponding and alternate angles."
+      },
+      "remember": "A line parallel to a side creates equal corresponding and alternate angles.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-04",
+      "created_at": "2026-10-27T17:02:08+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000683",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Inscribed angles from equal chords",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Points A, B, C, and D lie on a circle in that order, so that ABCD is a convex quadrilateral. AB = BC = CD, and the measure of angle ADC is 70°. What is the measure of angle ABD ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "35°",
+        "B": "55°",
+        "C": "70°",
+        "D": "75°"
+      },
+      "correct_answer": "D",
+      "explanation": "Angle ADC intercepts arc ABC, so that arc measures 140°. Equal chords cut off equal arcs, so arcs AB, BC, and CD each measure 70°. The remaining arc DA measures 360° − 210° = 150°, and inscribed angle ABD intercepts it, so angle ABD = 75°.",
+      "distractor_explanations": {
+        "A": "35° is angle CBD, half of arc CD.",
+        "B": "55° treats triangle ACD as isosceles with apex angle 70°.",
+        "C": "70° assumes angle ABD equals the given angle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What arc does angle ADC intercept?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label each arc's measure around the circle."
+      },
+      "remember": "An inscribed angle is half its intercepted arc; equal chords give equal arcs.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-05",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000684",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Longer diagonal of a parallelogram",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A parallelogram has sides of lengths 5 and 3, and one of its angles measures 60°. What is the length of the longer diagonal of the parallelogram?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "√19",
+          "rationale": "√19 (about 4.36) is the shorter diagonal.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "√34",
+          "rationale": "√34 treats the parallelogram as a rectangle.",
+          "trap": null
+        },
+        {
+          "value": "8",
+          "rationale": "8 adds the side lengths.",
+          "trap": null
+        }
+      ],
+      "explanation": "The longer diagonal is opposite the 120° angle. Place the side of length 5 along the x-axis from (0, 0) to (5, 0); the side of length 3 at 60° ends at (1.5, 1.5√3). The far vertex is (6.5, 1.5√3), so the diagonal is √(6.5² + (1.5√3)²) = √(42.25 + 6.75) = √49 = 7.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which angle is the longer diagonal opposite?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Drop a perpendicular to form a 30°-60°-90° triangle."
+      },
+      "remember": "Split slanted lengths into horizontal and vertical parts, then use the Pythagorean theorem.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-06",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "7",
+        "blind_answer": "7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000685",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of triangles on opposite sides of a square",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Point P lies inside square ABCD, which has sides of length 10. The area of triangle PAB is 18. What is the area of triangle PCD ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "18",
+        "B": "25",
+        "C": "32",
+        "D": "82"
+      },
+      "correct_answer": "C",
+      "explanation": "Sides AB and CD are parallel and 10 apart, so the distances from P to AB and to CD add to 10. The two triangle areas are (1/2)(10)(h₁) + (1/2)(10)(h₂) = 5(10) = 50, so triangle PCD has area 50 − 18 = 32.",
+      "distractor_explanations": {
+        "A": "18 assumes P is equally far from AB and CD.",
+        "B": "25 is one fourth of the square's area.",
+        "D": "82 is 100 − 18, treating the two triangles as filling the square."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What do the two heights add up to?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw P and the heights to AB and CD."
+      },
+      "remember": "Triangles on opposite sides of a square share a total height equal to the side.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-07",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000686",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle tangent to two parallel lines",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle is tangent to the lines y = 1 and y = 11 and passes through the point (2, 9). The center of the circle lies in Quadrant I. The equation of the circle can be written as x² + y² + ax + by + c = 0, where a, b, and c are constants. What is the value of c ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "47",
+      "accepted_answers": [
+        "47"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 uses the center (−2, 6), which is in Quadrant II.",
+          "trap": null
+        },
+        {
+          "value": "−28",
+          "rationale": "−28 uses r = 10, the distance between the lines.",
+          "trap": null
+        },
+        {
+          "value": "72",
+          "rationale": "72 forgets to subtract r².",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Tangent to y = 1 and y = 11, the circle has diameter 10, so r = 5 and the center lies on y = 6. Then (2 − h)² + (9 − 6)² = 25 gives (2 − h)² = 16, so h = 6 or h = −2; Quadrant I requires h = 6. Expanding (x − 6)² + (y − 6)² = 25 gives c = 36 + 36 − 25 = 47.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How far apart are the two tangent lines?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the lines and the circle between them."
+      },
+      "remember": "Two parallel tangent lines are a diameter apart.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-08",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "47",
+        "blind_answer": "47",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000687",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Counting isosceles triangles with a fixed perimeter",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "How many different triangles with integer side lengths and a perimeter of 30 have at least two sides of equal length? (Triangles with the same three side lengths are considered the same triangle.)",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "14"
+      },
+      "correct_answer": "B",
+      "explanation": "Let the two equal sides be L and the third side 30 − 2L. The third side must be positive, so L < 15, and the triangle inequality requires 2L > 30 − 2L, so L > 7.5. Thus L = 8, 9, …, 14, which gives 7 triangles, including the equilateral 10-10-10.",
+      "distractor_explanations": {
+        "A": "6 leaves out the equilateral triangle, which also has two equal sides.",
+        "C": "8 allows L = 7, but 7 + 7 is not greater than 16.",
+        "D": "14 ignores the triangle inequality and counts L = 1 through 14."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What must be true for the equal sides L?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the third side in terms of L, then apply both bounds."
+      },
+      "remember": "The two shorter sides of a triangle must add to more than the longest.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-09",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000688",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Order of a vertical shift and a vertical stretch",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a function f, the graph of y = g(x) is obtained by translating the graph of y = f(x) up 4 units and then multiplying the y-coordinate of every point of the result by 3. The graph of y = h(x) is obtained by first multiplying every y-coordinate of the graph of y = f(x) by 3 and then translating the result up 4 units. For every x, what is the value of g(x) − h(x) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 assumes the order of the transformations does not matter.",
+          "trap": null
+        },
+        {
+          "value": "12",
+          "rationale": "12 is 3 · 4; it forgets that h also adds 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "−8",
+          "rationale": "−8 computes h(x) − g(x).",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Shifting first and then stretching gives g(x) = 3(f(x) + 4) = 3f(x) + 12. Stretching first and then shifting gives h(x) = 3f(x) + 4. So g(x) − h(x) = 12 − 4 = 8 for every x.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write g(x) and h(x) in terms of f(x)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply each transformation to the expression in order."
+      },
+      "remember": "A stretch applied after a shift also stretches the shift.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-10",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000689",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Maximum of a quadratic model from three values",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The height h(t), in meters, of a model rocket t seconds after launch is a quadratic function of t. The rocket's height was 51 meters at t = 2, 61 meters at t = 3, and 61 meters at t = 4. What was the rocket's maximum height, in meters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "62.25",
+      "accepted_answers": [
+        "62.25",
+        "249/4"
+      ],
+      "common_errors": [
+        {
+          "value": "61",
+          "rationale": "61 is the greatest given height, but the maximum occurs between t = 3 and t = 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.5",
+          "rationale": "3.5 is the time of the maximum, not the height.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "71",
+          "rationale": "71 continues the first difference of +10 as if the model were linear.",
+          "trap": null
+        }
+      ],
+      "explanation": "Equal heights at t = 3 and t = 4 put the vertex at t = 3.5. The first differences are 10 and 0, so the second difference is −10 and the leading coefficient is −10/2 = −5. Then h(t) = −5t² + 35t + 1 (check: h(2) = 51, h(3) = 61, h(4) = 61), and h(3.5) = −61.25 + 122.5 + 1 = 62.25.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the axis of symmetry?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Use the symmetric values to locate the vertex, then the differences to find the leading coefficient."
+      },
+      "remember": "Equal outputs of a quadratic are symmetric about the vertex.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-11",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "62.25",
+        "blind_answer": "62.25",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000690",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining exponential growth and decay factors",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A culture of bacteria is treated with a drug. The number of bacteria t hours after treatment begins is modeled by N(t) = 500 · 2^(t/4) · (1/2)^(t/12). Which of the following best describes how N changes over time?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "N doubles every 4 hours.",
+        "B": "N doubles every 6 hours.",
+        "C": "N doubles every 8 hours.",
+        "D": "N doubles every 16 hours."
+      },
+      "correct_answer": "B",
+      "explanation": "Write (1/2)^(t/12) as 2^(−t/12). Then N(t) = 500 · 2^(t/4 − t/12) = 500 · 2^(t/6), so N doubles every 6 hours.",
+      "distractor_explanations": {
+        "A": "4 hours ignores the decay factor.",
+        "C": "8 hours subtracts the periods, 12 − 4, instead of the exponents.",
+        "D": "16 hours adds the periods, 4 + 12."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write both factors as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine the exponents."
+      },
+      "remember": "Multiply powers of the same base by adding their exponents.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-12",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000691",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Factor of a composed polynomial",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function p is a polynomial, and p(3) = 0. Which of the following must be a factor of the polynomial q(x) = p(2x − 1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x − 1",
+        "B": "x − 2",
+        "C": "x − 3",
+        "D": "x − 5"
+      },
+      "correct_answer": "B",
+      "explanation": "q(x) = 0 whenever 2x − 1 = 3, that is, when x = 2. So q(2) = p(3) = 0, and by the factor theorem x − 2 is a factor of q.",
+      "distractor_explanations": {
+        "A": "x − 1 computes (3 − 1)/2, undoing the operations in the wrong order.",
+        "C": "x − 3 ignores the inner expression 2x − 1.",
+        "D": "x − 5 applies 2x − 1 to 3 instead of solving 2x − 1 = 3."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "For what x is the input to p equal to 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the inner expression equal to the known zero."
+      },
+      "remember": "A zero of p(2x − 1) solves 2x − 1 = (a zero of p).",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-13",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000692",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Comparing values of a quadratic by distance from the axis",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = ax² + bx + c, where a, b, and c are constants and a > 0. If f(2) = f(6), which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(0) > f(3)",
+        "B": "f(1) > f(7)",
+        "C": "f(4) > f(5)",
+        "D": "f(3) > f(8)"
+      },
+      "correct_answer": "A",
+      "explanation": "Because f(2) = f(6), the axis of symmetry is x = 4. With a > 0 the parabola opens upward, so f(x) grows as x moves farther from 4. Since 0 is 4 units from the axis and 3 is 1 unit away, f(0) > f(3). B compares equal values, C reverses the minimum, and D has 3 closer to the axis than 8.",
+      "distractor_explanations": {
+        "B": "1 and 7 are both 3 units from x = 4, so f(1) = f(7).",
+        "C": "f(4) is the minimum value, so f(4) < f(5).",
+        "D": "8 is 4 units from the axis and 3 is 1 unit away, so f(3) < f(8)."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where is the axis of symmetry?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch an upward parabola with its axis at x = 4."
+      },
+      "remember": "For an upward parabola, points farther from the axis have larger values.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-14",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000693",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential approach to a limit",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A student's typing speed W, in words per minute, t weeks after starting a typing course is modeled by W(t) = 60 − a · b^t, where a and b are positive constants. If W(0) = 20 and W(3) = 40, what is the value of W(6) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 extends the 20-word gain linearly over the next 3 weeks.",
+          "trap": null
+        },
+        {
+          "value": "80",
+          "rationale": "80 doubles W itself every 3 weeks.",
+          "trap": null
+        },
+        {
+          "value": "55",
+          "rationale": "55 halves the 20-word gain instead of halving the gap below 60.",
+          "trap": null
+        }
+      ],
+      "explanation": "The gap 60 − W(t) = a · b^t is exponential. It is 40 at t = 0 and 20 at t = 3, so it halves every 3 weeks and is 10 at t = 6. Then W(6) = 60 − 10 = 50.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What does a · b^t equal at t = 0 and t = 3?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Apply the constant ratio to the gap below 60."
+      },
+      "remember": "The gap below the limit shrinks by a constant factor.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-15",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "50",
+        "blind_answer": "50",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000694",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Counting solutions of a radical equation with a parameter",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation √(x + k) = x, k is a constant. For which of the following values of k does the equation have exactly two real solutions?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−0.3",
+        "B": "−0.2",
+        "C": "0.2",
+        "D": "2"
+      },
+      "correct_answer": "B",
+      "explanation": "Squaring gives x² − x − k = 0, and every solution of the original equation must satisfy x ≥ 0. Two solutions need two distinct nonnegative roots: the discriminant 1 + 4k > 0 and the product of the roots, −k, at least 0, so −1/4 < k ≤ 0. Only k = −0.2 qualifies; its roots, about 0.276 and 0.724, both check.",
+      "distractor_explanations": {
+        "A": "For k = −0.3 the discriminant 1 − 1.2 is negative, so there are no solutions.",
+        "C": "For k = 0.2 the roots are about 1.17 and −0.17; the negative root is extraneous, leaving one solution.",
+        "D": "For k = 2 the roots are 2 and −1; −1 is extraneous, leaving one solution."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What must be true of x in √(x + k) = x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test each k and check the roots in the original equation."
+      },
+      "remember": "A square root is never negative, so reject negative roots after squaring.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-16",
+      "created_at": "2026-10-27T17:02:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000695",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exactly one solution of a rational equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation k/(x − 2) = x, k is a constant. Which of the following lists all values of k for which the equation has exactly one real solution?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "{−1}",
+        "B": "{1}",
+        "C": "{−1, 2}",
+        "D": "{−1, 0}"
+      },
+      "correct_answer": "D",
+      "explanation": "For x ≠ 2 the equation is x² − 2x − k = 0. It has a double root when the discriminant 4 + 4k = 0, so k = −1 (x = 1). It also has exactly one solution when one of two roots is the excluded value 2: then 4 − 4 − k = 0, so k = 0, with roots 0 and 2, and only x = 0 remains. So k = −1 or k = 0.",
+      "distractor_explanations": {
+        "A": "{−1} uses the discriminant only and misses the case where one root is the excluded value 2.",
+        "B": "{1} makes a sign error in the discriminant, 4 − 4k = 0.",
+        "C": "{−1, 2} confuses the excluded x-value 2 with a value of k; for k = 2 the roots are 1 ± √3, two solutions."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Which value of x is not allowed?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Clear the fraction, then check both ways to get one solution."
+      },
+      "remember": "Check whether a root of the cleared equation makes a denominator zero.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 65,
+      "draft_candidate": "Q065-17",
+      "created_at": "2026-10-27T17:02:10+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-065.review.json",
+        "computation": "checks/sat_math/batch_065.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

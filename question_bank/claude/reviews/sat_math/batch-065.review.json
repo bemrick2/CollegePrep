@@ -1,0 +1,472 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 65,
+  "reviewed_at": "2026-10-27T17:02:10+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 65
+  },
+  "counts": {
+    "PASS": 17,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000679",
+    "CLD-SAT-M-000680",
+    "CLD-SAT-M-000681",
+    "CLD-SAT-M-000682",
+    "CLD-SAT-M-000683",
+    "CLD-SAT-M-000684",
+    "CLD-SAT-M-000685",
+    "CLD-SAT-M-000686",
+    "CLD-SAT-M-000687",
+    "CLD-SAT-M-000688",
+    "CLD-SAT-M-000689",
+    "CLD-SAT-M-000690",
+    "CLD-SAT-M-000691",
+    "CLD-SAT-M-000692",
+    "CLD-SAT-M-000693",
+    "CLD-SAT-M-000694",
+    "CLD-SAT-M-000695"
+  ],
+  "results": [
+    {
+      "cand": "Q065-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x^2=x+2 -> x=2,-1; A(2,4), B(-1,1). Area=1/2|2*1-(-1)*4|=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000679"
+    },
+    {
+      "cand": "Q065-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "x>3: 2x+2=10 -> x=4; x<-5: -2x-2=10 -> x=-6; between, sum is constant 8. Sum = -2. B -1: no basis (half of -2). C 2: sign error. D 4: only the positive-region solution.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must see the left side is constant between −5 and 3 and work both outer cases."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000680"
+    },
+    {
+      "cand": "Q065-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "-0.05x^2+2x=0.5x -> 0.05x^2=1.5x -> x=30 (x=0 is the nozzle). A 15: half. B 20: vertex of stream. D 40: where stream returns to y=0 (flat ground).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000681"
+    },
+    {
+      "cand": "Q065-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Let bisector CE. CE||AB gives angle DCE = A = 50 (corresponding) and angle BCE = B (alternate interior), so B=50, BCD=100, ACB=80. A 25: half of A. B 50: confuses ACB with A/B. C 65: (180-50)/2 isosceles trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must use two different pairs of parallel-line angles to show the triangle is isosceles."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000682"
+    },
+    {
+      "cand": "Q065-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Angle ADC=70 intercepts arc ABC=140, so arcs AB=BC=70, CD=70, arc DA=150. Angle ABD intercepts arc AD (not containing B) = 75. A 35 = angle ADB/ABD-type half of arc AB; B 55 = (180-70)/2 trap; C 70 = angle ADC.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must convert an angle to arcs, use equal chords, and find the leftover arc."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000683"
+    },
+    {
+      "cand": "Q065-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "7",
+      "computed_answer": "7",
+      "blind_answer": "7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Longer diagonal opposite the 120 deg angle: d^2=25+9-2*15*cos120=49 -> 7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must pick the correct diagonal and use both the offset and the height."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000684"
+    },
+    {
+      "cand": "Q065-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Heights from P to AB and to CD sum to 10. 5h=18 -> h=3.6; PCD=5*6.4=32 (equivalently PAB+PCD=50). A 18 equal-area trap; B 25 quarter; D 82 = 100-18.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000685"
+    },
+    {
+      "cand": "Q065-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "47",
+      "computed_answer": "47",
+      "blind_answer": "47",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Center y=6, r=5. (2-h)^2+9=25 -> h=6 or -2; Quadrant I -> (6,6). x^2+y^2-12x-12y+47=0, c=47.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must get the radius and center height from the lines, then choose the correct center."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000686"
+    },
+    {
+      "cand": "Q065-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Sides a,a,b with 2a+b=30, b>0, b<2a -> 7.5<a<15 -> a=8..14: 7 triangles (includes equilateral 10,10,10, which is counted once). A 6 excludes equilateral; C 8 boundary error; D 14 double counting.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students need both a positivity bound and the triangle inequality, and must count the equilateral case."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000687"
+    },
+    {
+      "cand": "Q065-10",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-01",
+          "status": "REVISE",
+          "reason": "solver noted plugging in f(x) = 0 bypasses the reasoning; that is a legitimate SAT strategy for an unspecified f, unchanged"
+        }
+      ],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "g=3(f+4)=3f+12, h=3f+4, g-h=8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The order of two vertical transformations changes the constant, and f is never given."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000688"
+    },
+    {
+      "cand": "Q065-11",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-02",
+          "status": "REVISE",
+          "reason": "solver asked that 249/4 be accepted; accepted_answers already lists 62.25 and 249/4, unchanged"
+        }
+      ],
+      "key": "62.25",
+      "computed_answer": "62.25",
+      "blind_answer": "62.25",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Symmetry: vertex at t=3.5. Second difference -10 -> a=-5. h(3)=-5(0.25)+k=61 -> k=62.25 (=249/4).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The model must be built from three values, and the maximum is not one of them."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000689"
+    },
+    {
+      "cand": "Q065-12",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-04",
+          "status": "REVISE",
+          "reason": "solver noted a calculator ratio check; options are checkable by design (interpretation item), unchanged"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "N=500*2^(t/4-t/12)=500*2^(t/6): doubles every 6 h. A ignores the drug factor; C 8 = (4+12)/2; D 16 = 4+12.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The doubling time comes from subtracting reciprocal periods, not the periods themselves."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000690"
+    },
+    {
+      "cand": "Q065-13",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-05",
+          "status": "REVISE",
+          "reason": "solver noted checking options in 2x − 1; inherent to the skill, unchanged"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "q(x)=0 when 2x-1=3 -> x=2. A gives p(1), C gives p(5), D gives p(9) (forward-substitution trap: 2*3-1=5), none known to be 0.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must solve the inner expression for x rather than apply it to 3."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000691"
+    },
+    {
+      "cand": "Q065-14",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-06",
+          "status": "REVISE",
+          "reason": "solver noted a test function eliminates distractors; standard for must-be-true items, unchanged"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Axis x=4, opens up; value grows with distance from 4. A: dist 4 vs 1, true. B: dist 3 vs 3, equal -> false. C: f(4) is minimum -> false. D: dist 1 vs 4 -> false.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000692"
+    },
+    {
+      "cand": "Q065-15",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-07",
+          "status": "REVISE",
+          "reason": "solver noted 60 is a likely trap; intended distractor, not a defect, unchanged"
+        }
+      ],
+      "key": "50",
+      "computed_answer": "50",
+      "blind_answer": "50",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "a=40; 40b^3=20 -> b^3=1/2; W(6)=60-40*(1/4)=50.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The constant ratio applies to the gap below 60, not to W."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000693"
+    },
+    {
+      "cand": "Q065-16",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-10",
+          "status": "REVISE",
+          "reason": "solver noted a Desmos bypass; extraneous-root counting remains the skill, unchanged"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Need x>=0 and x^2-x-k=0 with two nonneg roots: 1+4k>0 and -k>=0 -> -1/4<k<=0. k=-0.2: roots ~0.276, 0.724, both valid. A -0.3: discriminant negative, none. C 0.2 and D 2: one root negative, so one solution.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Clean roots for k = 2 invite counting an extraneous solution."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000694"
+    },
+    {
+      "cand": "Q065-17",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q064-12",
+          "status": "REVISE",
+          "reason": "solver: A was a subset of D only, cueing D as its extension; C changed to {−1, 2} so −1 appears in three choices"
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [],
+      "blind_notes": "x^2-2x-k=0, x!=2. Double root: k=-1 (x=1, valid). One root extraneous at x=2: k=0 -> roots 0,2, only x=0 valid. So {-1,0}. A misses k=0; B sign error; C: k=2 gives two valid roots 1+-sqrt3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Exactly one solution arises in two different ways, and the item asks for both."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000695"
+    }
+  ]
+}

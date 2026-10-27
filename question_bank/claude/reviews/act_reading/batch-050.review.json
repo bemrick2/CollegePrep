@@ -1,0 +1,362 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 50,
+  "reviewed_at": "2026-10-27T17:02:11+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 50
+  },
+  "counts": {
+    "PASS": 0,
+    "REVISE": 10,
+    "REJECT": 0
+  },
+  "appended_ids": [],
+  "results": [
+    {
+      "cand": "R050-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C is the only option that paraphrases the closing thesis ('deciding what the viewer should keep'); B and D are visibly narrow/unsupported, so the item is low-discrimination."
+        }
+      ],
+      "blind_notes": "C: the narrator moves from seeing subtitles as 'a translation with pieces missing' to 'deciding what the viewer should keep.' A: the opposite of the narrator's view, which was the view abandoned after the first year. B: dialect appears in only one anecdote; there is no claim that it is the hardest part. D: nothing is said about the supervisor's career or about how films are translated today.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C closely paraphrases the passage's 'not X but Y' framing (para 1 misconception vs. closing line), so it is easy to find by echo. A is the opposite view (the narrator's early mistaken belief); B and D inflate minor details (dialect, supervisor) into the main idea. No viable case for any distractor."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"C is the only option that paraphrases the closing thesis ('deciding what the viewer should keep'); B and D are visibly narrow/unsupported, so the item is low-discrimination.\"}; {'severity': 'nonblocking', 'note': \"C closely paraphrases the passage's 'not X but Y' framing (para 1 misconception vs. closing line), so it is easy to find by echo. A is the opposite view (the narrator's early mistaken belief); B and D inflate minor details (dialect, supervisor) into the main idea. No viable case for any distractor.\"}"
+    },
+    {
+      "cand": "R050-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "A echoes the passage directly ('filled four lines, stayed on screen for less than five seconds... unreadable'); a pure retrieval item."
+        }
+      ],
+      "blind_notes": "A: four lines shown for under five seconds made it unreadable. B: the narrator 'translated every insult,' so none were left out. C: the dialect belonged to the original speech, not to the subtitle. D: no joke replaced the speech; the in-laws joke was for a pun in a different film moment.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"A echoes the passage directly ('filled four lines, stayed on screen for less than five seconds... unreadable'); a pure retrieval item.\"}"
+    },
+    {
+      "cand": "R050-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "The distractors are weak (C reverses the outcome), so the item is easy for an inference question."
+        }
+      ],
+      "blind_notes": "D: 'doesn't need to know what she said... need to know that she won' means conveying the outcome and force of the speech rather than its full content. A: this is exactly what the supervisor rejected. B: no explanation of the dialect is suggested. C: the grandmother won, so the supplier was not shown to be right.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'The distractors are weak (C reverses the outcome), so the item is easy for an inference question.'}"
+    },
+    {
+      "cand": "R050-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C is a plausible overstatement of the gestures sentence: 'say things that no subtitle could' is not 'matter more than any film's spoken dialogue.' It is ruled out cleanly but will draw some test takers."
+        }
+      ],
+      "blind_notes": "B: every added word pulls the eyes away from faces, so readers miss gestures. A: the supervisor's single remark is in paragraph 2; paragraph 3 is not about training. C: an overstatement of the comparison, since the paragraph is about reading versus watching, not gestures against dialogue in general. D: the comedy is introduced in paragraph 2.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "A has a slight foothold ('That remark changed how I thought'), but the paragraph is about reading versus watching, not a description of training. C overstates: 'much of the meaning,' not 'more than any dialogue.' C is the strongest distractor for careless readers."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"C is a plausible overstatement of the gestures sentence: 'say things that no subtitle could' is not 'matter more than any film's spoken dialogue.' It is ruled out cleanly but will draw some test takers.\"}; {'severity': 'nonblocking', 'note': \"A has a slight foothold ('That remark changed how I thought'), but the paragraph is about reading versus watching, not a description of training. C overstates: 'much of the meaning,' not 'more than any dialogue.' C is the strongest distractor for careless readers.\"}"
+    },
+    {
+      "cand": "R050-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "B 'survives' is the closest trap through the life metaphor, but nothing suggests meaning is threatened. A fits cleanly."
+        }
+      ],
+      "blind_notes": "'Much of the meaning lives' in the faces means the meaning is located or found there. B: survival implies a threat, which the context does not support. C: no growth is described. D: faces do not record anything.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "B 'survives' is the common-meaning trap, but it does not fit 'where much of the meaning lives.' D 'is recorded' is weak. Only A works."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"B 'survives' is the closest trap through the life metaphor, but nothing suggests meaning is threatened. A fits cleanly.\"}; {'severity': 'nonblocking', 'note': \"B 'survives' is the common-meaning trap, but it does not fit 'where much of the meaning lives.' D 'is recorded' is weak. Only A works.\"}"
+    },
+    {
+      "cand": "R050-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Answer cue: C echoes 'made the test audience laugh at the same moment the original audience had' and 'does the same work in the scene.' D is a deliberate over-literal trap based on the in-laws example."
+        }
+      ],
+      "blind_notes": "C: a replacement joke 'does the same work in the scene', and the success test was the laugh at the same moment. A: the passage says the joke may say 'something else.' B: length is not the criterion for jokes, and the paragraph says the answer can be 'more than the dialogue contains.' D: the in-laws joke was one instance, not a rule.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "D echoes the 'in-laws' detail as a word-echo trap, but the narrator's criterion is the same effect (the audience laughing 'at the same moment'), not the topic. B (shorter) conflicts with 'more than the dialogue contains.' C is a clean inference."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must generalize the test from one example without overgeneralizing its content."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"Answer cue: C echoes 'made the test audience laugh at the same moment the original audience had' and 'does the same work in the scene.' D is a deliberate over-literal trap based on the in-laws example.\"}; {'severity': 'nonblocking', 'note': \"D echoes the 'in-laws' detail as a word-echo trap, but the narrator's criterion is the same effect (the audience laughing 'at the same moment'), not the topic. B (shorter) conflicts with 'more than the dialogue contains.' C is a clean inference.\"}"
+    },
+    {
+      "cand": "R050-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C is a reversal trap taken from the next sentence ('At other times the answer is more...'). The distinction is clear."
+        }
+      ],
+      "blind_notes": "A: 'Good morning' may be enough 'because the warmth is in the actor's voice.' B: the example shows that the greeting is easy to shorten, not hard to translate. C: describes the joke case, the opposite situation. D: no comparison with real life is made.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C deliberately swaps in the opposite case (the pun example from the same paragraph). It is a good distractor, not a defect."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"C is a reversal trap taken from the next sentence ('At other times the answer is more...'). The distinction is clear.\"}; {'severity': 'nonblocking', 'note': 'C deliberately swaps in the opposite case (the pun example from the same paragraph). It is a good distractor, not a defect.'}"
+    },
+    {
+      "cand": "R050-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Slight wording looseness: D's 'can tell what was cut' is a little stronger than the passage ('knows that I have made a choice'; 'can feel the difference'), but it is clearly the best answer. Not blocking."
+        }
+      ],
+      "blind_notes": "D: the audience 'hears the actors' real voices beneath every line', so they know a choice was made. A: contradicted, since subtitles keep fewer words. B: the test audience appears only in the pun anecdote and is not presented as a requirement. C: no claim is made about novel translators being careless; the point is about the reader's lack of access to the original.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "'and so can tell what was cut' slightly overstates the passage. The passage says viewers know 'that I have made a choice' and 'can feel the difference,' not that they can identify what specifically was cut, which a viewer who doesn't know the source language could not do. Suggest 'can tell that something was cut' or 'can sense that choices were made.' It is still clearly the best answer."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "The tempting answer equates honesty with completeness, which the passage reverses."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"Slight wording looseness: D's 'can tell what was cut' is a little stronger than the passage ('knows that I have made a choice'; 'can feel the difference'), but it is clearly the best answer. Not blocking.\"}; {'severity': 'nonblocking', 'note': \"'and so can tell what was cut' slightly overstates the passage. The passage says viewers know 'that I have made a choice' and 'can feel the difference,' not that they can identify what specifically was cut, which a viewer who doesn't know the source language could not do. Suggest 'can tell that something was cut' or 'can sense that choices were made.' It is still clearly the best answer.\"}"
+    },
+    {
+      "cand": "R050-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "B mirrors the final paragraph closely ('I still lose things... deciding what the viewer should keep'), which is a mild word-echo cue."
+        }
+      ],
+      "blind_notes": "B: 'I still lose things, of course' shows acceptance, and 'deciding what the viewer should keep' redefines the job. A: the narrator denies that subtitles are 'a lesser kind of translation.' C: the narrator admits losses. D: the viewers noticing is presented as honesty, not as a source of anxiety.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "A could tempt readers because of 'I still lose things,' but the narrator rejects 'lesser kind of translation.' C is ruled out by 'I still lose things, of course.' D misreads the viewer noticing as a positive (honesty). B has the most text support."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must hold together an admission of loss and a positive reframing."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"B mirrors the final paragraph closely ('I still lose things... deciding what the viewer should keep'), which is a mild word-echo cue.\"}; {'severity': 'nonblocking', 'note': \"A could tempt readers because of 'I still lose things,' but the narrator rejects 'lesser kind of translation.' C is ruled out by 'I still lose things, of course.' D misreads the viewer noticing as a positive (honesty). B has the most text support.\"}"
+    },
+    {
+      "cand": "R050-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Item 10 tests the same idea as items 1 and 9 (keep versus throw away), so the set is somewhat redundant."
+        }
+      ],
+      "blind_notes": "C: it reframes the job from throwing away to keeping. A: the original approach (keep every word) was rejected. B: no new problem is raised. D: the narrator, not the viewer, decides; 'what the viewer should keep' refers to the viewer's benefit.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C repeats the passage's kept/lost wording almost verbatim, so it is somewhat cued by echo. The distractors are clearly wrong: A reverses the narrator's change, and B and D are unsupported."
+        }
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Item 10 tests the same idea as items 1 and 9 (keep versus throw away), so the set is somewhat redundant.'}; {'severity': 'nonblocking', 'note': \"C repeats the passage's kept/lost wording almost verbatim, so it is somewhat cued by echo. The distractors are clearly wrong: A reverses the narrator's change, and B and D are unsupported.\"}"
+    }
+  ]
+}
