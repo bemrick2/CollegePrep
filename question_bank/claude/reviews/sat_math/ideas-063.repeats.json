@@ -1,0 +1,240 @@
+{
+ "ideas": "generated set 15 (JB/JD)",
+ "results": {
+  "JB01": [
+   {
+    "other_id": "CLD-SAT-M-000617",
+    "severity": "close",
+    "why": "Same setup (two parabolas, subtract the equations to locate the intersection); the 617 item asks for a chord slope, this one makes the single meeting point lie on y = 0 and solves for k. Different asked quantity. Set-13 HB07 is the 617 idea."
+   }
+  ],
+  "JB02": [
+   {
+    "other_id": "CLD-SAT-M-000043",
+    "severity": "close",
+    "why": "Distance between the two roots of a quadratic. 043 gives the separation and asks for c; here the separation is asked and does not depend on a. Also the same idea as JB04 run in reverse (see within_list_cues)."
+   }
+  ],
+  "JB03": [],
+  "JB04": [
+   {
+    "other_id": "CLD-SAT-M-000043",
+    "severity": "template",
+    "why": "Once the line and parabola are set equal, the task is 043 with new numbers: x^2 - 6x + (1 - k) has roots 2 apart, so find the constant ((r - s)^2 = (r + s)^2 - 4rs). The line-parabola wrapper is a single substitution step."
+   },
+   {
+    "other_id": "ideas-gen-03 K02 / ideas-gen-10 EB01",
+    "severity": "close",
+    "why": "Reuses the same line y = 2x + c/k and parabola family y = x^2 - 4x + (7 | 6 | 1). This is the third idea built on y = 2x + k meeting x^2 - 4x + c (tangency x-coordinate, then midpoint, now root separation)."
+   }
+  ],
+  "JB05": [
+   {
+    "other_id": "CLD-SAT-M-000378",
+    "severity": "close",
+    "why": "A cubic with unknown coefficient(s) and given zero(s): find another zero. 378 (and IG04 P05) uses a known factor to find k and then factors; here the constant term and leading coefficient fix the third zero (Vieta product)."
+   }
+  ],
+  "JB06": [],
+  "JB07": [],
+  "JB08": [],
+  "JB09": [
+   {
+    "other_id": "CLD-SAT-M-000451",
+    "severity": "close",
+    "why": "Same model form, ambient + A(0.5)^(t/k), for cooling soup or tea (also IG06 AB05). 451 solves for a time; this item interprets the period. Different ask, so not a template, but it is the same cooling scenario again."
+   }
+  ],
+  "JB10": [
+   {
+    "other_id": "web demo fixture (bacteria triples every 4 hours; expression after t days)",
+    "severity": "close",
+    "why": "Same task of rewriting an exponential growth model in a new time unit. This idea adds a shift in starting time (9:00 a.m. to noon). Also close to IG04 P07 (unit change only)."
+   }
+  ],
+  "JB11": [
+   {
+    "other_id": "CLD-ACT-M-000070",
+    "severity": "close",
+    "why": "Uses a known remainder to get a different remainder. Here p is unknown and the new polynomial is built from p(x + 1), so the key step is the matching shifted input. Not a template."
+   }
+  ],
+  "JB12": [
+   {
+    "other_id": "CLD-ACT-M-000437",
+    "severity": "template",
+    "why": "Same setup and same ask: an equation that is quadratic in a power of x (x^4 - 5x^2 + 4 vs x^(4/3) - 10x^(2/3) + 9), with the sum of the positive solutions asked. The only change is that the power is rational, so the back-substitution is u^(3/2) instead of sqrt(u). The generator's flag is confirmed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000310",
+    "severity": "close",
+    "why": "Also asks for the sum of all solutions of a quadratic-in-form equation via substitution."
+   }
+  ],
+  "JB13": [
+   {
+    "other_id": "ideas-gen-11 FA02",
+    "severity": "template",
+    "why": "Same template, cross-set: 'for every value of the constant, the graph passes through the same point'. Group the parameter terms and set their coefficient to 0. FA02 uses a line, (k + 2)x - 3k + 4, and its fixed point is (3, 10); this one uses a parabola and its fixed point is (-3, 10). Same y-value 10, so the numbers repeat too."
+   },
+   {
+    "other_id": "CLD-SAT-M-000302",
+    "severity": "close",
+    "why": "Also a one-parameter family of parabolas (302 and IG02 H12 ask for the locus of the vertex)."
+   }
+  ],
+  "JB14": [
+   {
+    "other_id": "CLD-ACT-M-000011",
+    "severity": "close",
+    "why": "Solution set of a rational equation with an extraneous root and an 'empty set' choice. Here one root survives and the denominators must be factored. Set-13 HB16 is another rational equation with a 'no solution' choice."
+   }
+  ],
+  "JB15": [],
+  "JB16": [
+   {
+    "other_id": "CLD-SAT-M-000326",
+    "severity": "close",
+    "why": "Same inversion step: g(x) = f(x + c) - d equals a value, so f(x + c) = known and you read off the input (326 and IG02 H14 use a table). This idea first gets the vertex from symmetry. Different enough to keep."
+   }
+  ],
+  "JB17": [],
+  "JB18": [
+   {
+    "other_id": "ideas-gen-14 IA03",
+    "severity": "close",
+    "why": "Cross-set cue: both ask for the 'best interpretation of 2' in a cost model, and in both the key is the per-unit cost (IA03: $2 per guest per hour; here $2 per item). The structures differ (rational average cost here)."
+   }
+  ],
+  "JD01": [],
+  "JD02": [],
+  "JD03": [
+   {
+    "other_id": "CLD-ACT-M-000773",
+    "severity": "close",
+    "why": "Slope = tan(angle with the positive x-axis). The angle here is given by its sine, and the y-intercept is asked."
+   },
+   {
+    "other_id": "web demo fixture (sin A = 5/13, find tan B)",
+    "severity": "close",
+    "why": "Reuses the 5-12-13 conversion from sin = 5/13 to a tangent."
+   }
+  ],
+  "JD04": [
+   {
+    "other_id": "CLD-ACT-M-000340",
+    "severity": "close",
+    "why": "Both use DE parallel to BC and similar triangles ADE and ABC to find BC. Here DE is not given and comes from the isosceles triangle formed by the bisector. Note that the angle-bisector theorem (ACT-157) does solve it in one line (see answer_errors)."
+   }
+  ],
+  "JD05": [],
+  "JD06": [
+   {
+    "other_id": "CLD-ACT-M-000785",
+    "severity": "close",
+    "why": "Surface area of a square pyramid from its slant height. Here the slant height must be found and the face shared with the cube is excluded. Set-13 HD09 is also a composite cube surface-area item."
+   }
+  ],
+  "JD07": [
+   {
+    "other_id": "CLD-SAT-M-000458",
+    "severity": "close",
+    "why": "Circle through two points on a horizontal line, center on the perpendicular bisector, r^2 = (half-chord)^2 + k^2 (also IG06 AD05). Here the radius is unknown and fixed by tangency."
+   }
+  ],
+  "JD08": [
+   {
+    "other_id": "CLD-ACT-M-000476",
+    "severity": "close",
+    "why": "Same radius 10. A chord of the circle gives a special central angle, which gives the minor arc length (ACT-476: chord 10 gives 60 degrees). Here the chord comes from y = 5 and the angle is 120 degrees."
+   },
+   {
+    "other_id": "CLD-SAT-M-000140",
+    "severity": "close",
+    "why": "Minor arc between coordinate points on x^2 + y^2 = r^2."
+   },
+   {
+    "other_id": "web demo fixture (120-degree central angle, minor arc)",
+    "severity": "close",
+    "why": "Same 120-degree minor-arc computation."
+   }
+  ],
+  "JD09": [
+   {
+    "other_id": "CLD-ACT-M-000723",
+    "severity": "template",
+    "why": "Same template: a regular polygon with sectors of radius half the side centered at every vertex, and the area inside the polygon and outside all the sectors is asked (ACT-723: a square with four quarter circles; here an equilateral triangle with three 60-degree sectors). Only the polygon changes."
+   }
+  ],
+  "JD10": [],
+  "JD11": [],
+  "JD12": [
+   {
+    "other_id": "CLD-SAT-M-000150",
+    "severity": "close",
+    "why": "s = r*theta solved for a missing quantity. 150 asks for the radius; here the angle is asked, in degrees."
+   },
+   {
+    "other_id": "CLD-SAT-M-000005 [RETIRED]",
+    "severity": "close",
+    "why": "The retired item's template (s = r*theta with arc 12*pi: r = 15 and theta = 4*pi/5 give 12*pi) run in reverse with the same arc 12*pi and a degree conversion added. Also close to ACT-755 (arc to degrees)."
+   }
+  ]
+ },
+ "within_list_cues": [
+  "JB02 vs JB04: both turn on the difference between the roots of a quadratic. JB02 asks for the difference; JB04 gives the difference (2) and asks for the constant. They are the same idea run in reverse.",
+  "JB06 vs JB12: both are quadratic in form with a u-substitution (u = x^2 + 2x; u = x^(2/3)). Set-13 HB03 is a third.",
+  "JB07 vs JB17 (and JB16): moving zeros/solutions horizontally by 3 (translate 3 right; solutions each 3 greater); JB16 also inverts a horizontal shift f(x + 4).",
+  "JB04 vs JB17: both use sum/product of roots (Vieta) on a monic quadratic with linear coefficient -5/-6.",
+  "JB09 vs JB10: two exponential models with a period parameter (0.5^(t/20), 2^(h/3)) in the same set.",
+  "JB09 vs JB18: two 'best interpretation of the number ...' items.",
+  "JD01 vs JD03: both use slope = tan(angle with the positive x-axis).",
+  "JD04 vs JD05: both use similar triangles from a parallel to a side or base (DE parallel to BC; trapezoid legs extended).",
+  "JD06 vs JD10: two composite solids (pyramid on a cube; cone on a cylinder).",
+  "JD08 vs JD09 vs JD12: three circle arc/sector items (120-degree arc; 60-degree sectors; arc to degrees).",
+  "JD02 vs JD07: both are coordinate circles that use the distance from the center."
+ ],
+ "answer_errors": [
+  "JD07: the trap '7.5, from writing r = 9 + k' is wrong. 36 + k^2 = (9 + k)^2 gives k = -2.5 and r = 6.5 again, so that error does not produce 7.5. Find a real source for 7.5 or replace it (e.g. 9 - 1.5, or r = 9 - k with k = 1.5 from 81 - 36 = 45 split wrongly).",
+  "JD12: the trap '24, from using 45 as the diameter' is wrong. With r = 22.5, theta = 12*pi/22.5 = 8*pi/15 = 96 degrees, the same value as the 'leaving out the 2' trap. 24 would come from using 90 (2*45) as the radius. The two stated 96/24 sources need to be fixed.",
+  "JD04: the claim that the angle-bisector theorem 'does not help here' is false. AE/EB = AD/DC (DE parallel to BC) = AB/BC (bisector theorem), so 6/9 = 15/BC and BC = 22.5 in one line. The key is right; only the novelty note is wrong.",
+  "JB10: the D rationale ('h = 60m') yields 400*2^(20m); 800*2^(20m) needs h = 3 + 60m (the start shift kept, the unit conversion inverted). The value is fine, but state the error fully.",
+  "All other stated keys were recomputed and are correct: JB01 12, JB02 4, JB03 x^2, JB04 -7, JB05 5, JB06 D, JB07 -2 and 1, JB08 9, JB09 D, JB10 A, JB11 13, JB12 28, JB13 10, JB14 {-6}, JB15 3, JB16 -2, JB17 26, JB18 B, JD01 15, JD02 49, JD03 5/6, JD04 22.5, JD05 3, JD06 760, JD07 6.5, JD08 20/3, JD09 36*sqrt(3) - 18*pi, JD10 6, JD11 3, JD12 48. The other distractor values check out."
+ ],
+ "cues_or_overdetermined": [
+  "JB03: the key x^2 is the only whole-number exponent among 13/6, 7/3 and 17/6 (roundness cue). One test value such as x = 64 also separates the choices.",
+  "JB06: x = 0 eliminates B and x = 1 eliminates A and C, so two plug-ins leave only D. The note says neither value alone works, but together they do. Replace a distractor with one that agrees with the expression at both x = 0 and x = 1 (e.g. a wrong factorization that still has the zeros 1 and -3 and the value -3 at x = 0).",
+  "JB09: B and C are quickly eliminated (T(20) = 135, not 70; drops of 65 then 32.5), so the item reduces to A vs D. D is the longer, more qualified choice and the only one that uses the model's 70.",
+  "JB10: the key is the 'consensus' choice. Its coefficient 800 appears in A, C and D, and its exponent m/180 appears in A and B, so a student can triangulate the key without solving.",
+  "JB14: plugging in x = 2 makes the denominators 0, which kills A and B at once. Then a single check of x = -6 decides between C and D.",
+  "JB15: the key 3 is the sum of choices B (1) and C (2), which is a cue for a 'sum of all possible values' ask. Finding either value and seeing the other in the choices gives the key.",
+  "JB16: the key -2 is the only negative choice. The singular wording 'the x-intercept' also tells the student that g touches the axis once, i.e. that its vertex is the intercept. B (1, a y-value) is weak.",
+  "JB18: D is eliminated by computing C(2) = 302, and C is unlikely, so the item is effectively A vs B (fixed cost vs per-item cost).",
+  "JD04: the key 22.5 is the largest choice, and B (15, 'BC = AB') is weak.",
+  "JD09: the key is the consensus of a 2x2 grid (36*sqrt(3) in A and C; 18*pi in A, B and D). It is also the smallest choice, and 72 - 18*pi (B) mixes in a non-radical area.",
+  "JD10: the key (6) and C (8) sum to the total height 14, and so do A and D (4 + 10). A natural wrong method (solving for the cylinder's height first and reporting it) gives C, so 'plausible wrong method gives a choice' works as intended. The pairing is a pattern a student might notice.",
+  "JB08 / JB13 / JB12: Desmos solves them directly (see likely_easier_than_labeled).",
+  "Over-determined stems: none found. Geometry wording that is ambiguous without a figure: none found (JD04, JD05, JD06 and JD09 are clear in text)."
+ ],
+ "grid_problems": [
+  "None. The SPR answers 12, 4, -7, 9, 13, 10, 15, 6.5 (13/2), 20/3 (6.666/6.667), 3 and 48 all fit; JD08 correctly lists 20/3, 6.666 and 6.667."
+ ],
+ "unrealistic": [
+  "JB09: soup served at 200 degrees F is just below boiling; soup is typically served at 160-185 degrees F. It is plausible but on the high side, so consider 70 + 110 (180 degrees F).",
+  "JD01: the angle between two lines via inclination angles (arctan of the slopes) is outside the usual SAT Geometry/Trig scope. It is fine for ACT. Flag if this is targeted to SAT."
+ ],
+ "likely_easier_than_labeled": [
+  "JB02 (medium-hard): the answer does not depend on a, so substituting a = 0 gives 9x^2 = 36, x = +/-2 and a difference of 4 at once. Likely medium.",
+  "JB07 (hard): tracking the two zeros 2 and 5 through 'reflect, then shift 3 right' is mechanical. Likely medium-hard.",
+  "JB11 (hard): a single substitution, q(2) = 2p(3) + 5. Likely medium-hard.",
+  "JB09 (hard): with B and C easy to eliminate, it is closer to medium-hard.",
+  "JB08 (hard): graphing y = x^2 - 6|x| in Desmos shows a W shape with minimum -9, so the line y = -k meets it exactly twice only at k = 9. Desmos solves it directly. The naive 'discriminant > 0' assumption is the trap, so the item still discriminates without Desmos.",
+  "JB13 (hard): a Desmos slider on a (or graphing a = 0 and a = 1) shows the fixed point (-3, 10) at once.",
+  "JB12 (medium-hard): graphing the left side in Desmos shows roots at 1 and 27. It is fine as medium-hard but is Desmos-solvable.",
+  "JB01 (hard): a Desmos slider on k with both parabolas finds k = 12 fairly quickly, and trying a shared factor such as (x - 4) also works.",
+  "JD06 (hard): a standard 5-12-13 slant height plus five cube faces. Likely medium-hard."
+ ],
+ "classics_or_official_mirrors": [
+  "Textbook/contest classics or well-known formats: JD04 (angle bisector plus parallel gives an isosceles triangle), JD02 (max of x^2 + y^2 on a circle = (distance to center + r)^2), JD09 (equilateral triangle with three vertex sectors), JB17 (shifted roots via Vieta / substituting x - 3), JB08 (x^2 - a|x| + k root count), JB13 (fixed point of a parameter family), JD01 (angle between lines via inclination). JB10 mirrors the official SAT format of rewriting an exponential model for a new time unit, and JB09 mirrors the official SAT 'interpret the constant in an exponential model' format; neither copies a specific released item that I can identify."
+ ]
+}
