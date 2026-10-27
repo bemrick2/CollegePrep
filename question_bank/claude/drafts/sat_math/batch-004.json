@@ -1,0 +1,457 @@
+{
+ "bank": "sat_math",
+ "batch": 4,
+ "plan": "SAT Math batch 4: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2; 3 student-produced responses; two hard items. Ideas that matched ACT 010, 197 and 100 or app demo templates were replaced before drafting.",
+ "candidates": [
+  {
+   "cand": "Q004-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "y-intercept from a slope and a point",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a line with slope −3/4 passes through the point (8, 1). What is the y-coordinate of the y-intercept of the line?",
+   "explanation": "y = −(3/4)x + b. Substituting (8, 1): 1 = −6 + b, so b = 7.",
+   "hints": [
+    "Substitute the point into y = mx + b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 1 = −(3/4)(8) + b."
+   },
+   "remember": "Use the point to solve for b.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "7",
+    "B": "9",
+    "C": "11",
+    "D": "13"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "9 adds 8 to 1 instead of using the slope.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "11 uses a slope of −5/4.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "13 adds 6 twice.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q004-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Conditions for a linear equation to have no solution",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the equation ax + 3 = 2x + b, a and b are constants. If the equation has no solution, which of the following must be true?",
+   "explanation": "Rewrite as (a − 2)x = b − 3. If a ≠ 2, there is exactly one solution. If a = 2, the equation becomes 0 = b − 3: no solution when b ≠ 3, and infinitely many when b = 3.",
+   "hints": [
+    "Collect the x-terms on one side."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write (a − 2)x = b − 3 and consider each case."
+   },
+   "remember": "No solution: same x-coefficient, different constants.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must separate two conditions on two unknown constants; choice A, which gives infinitely many solutions, is the common trap."
+   },
+   "choices": {
+    "A": "a = 2 and b = 3",
+    "B": "a = 2 and b ≠ 3",
+    "C": "a ≠ 2",
+    "D": "b = 3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This gives 0 = 0, so every x is a solution.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "If a ≠ 2, the equation has exactly one solution.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "b = 3 alone does not guarantee no solution; with a = 2 it gives infinitely many.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q004-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Points on a proportional line",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, line k passes through the origin and the point (6, −4). Which of the following points also lies on line k ?",
+   "explanation": "Line k has slope −4/6 = −2/3, so y = −(2/3)x. For x = −9, y = 6, so (−9, 6) is on the line.",
+   "hints": [
+    "What is the ratio y/x for every point on the line?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check which point has y/x = −2/3."
+   },
+   "remember": "A line through the origin has y/x constant.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(9, 6)",
+    "B": "(4, −6)",
+    "C": "(−6, −4)",
+    "D": "(−9, 6)"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "(9, 6) has a positive ratio y/x.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "(4, −6) swaps the roles of x and y (slope −3/2).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(−6, −4) has a positive ratio y/x.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q004-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a system with a given relationship",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "4(x + 2y) = 48\nx − y = 0\nIf (x, y) is the solution to the system above, what is the value of x ?",
+   "explanation": "Dividing the first equation by 4 gives x + 2y = 12. Since x = y, 3x = 12 and x = 4.",
+   "hints": [
+    "Divide the first equation by 4."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute y = x into the simplified equation."
+   },
+   "remember": "Simplify each equation before substituting.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 is the value of x + 2y.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "6",
+     "rationale": "6 treats the first equation as x + y = 12.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q004-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Identifying a quadratic equation with no real solutions",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Which of the following equations has no real solutions?",
+   "explanation": "The discriminant b² − 4ac is 36 − 40 = −4 for x² + 6x + 10 = 0, which is negative, so there are no real solutions. A has 4, B has 0 (one solution) and D has 76.",
+   "hints": [
+    "Compute b² − 4ac for each equation."
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Rule out equations that factor or have a positive discriminant."
+   },
+   "remember": "Negative discriminant: no real solutions.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x² + 6x + 8 = 0",
+    "B": "x² + 6x + 9 = 0",
+    "C": "x² + 6x + 10 = 0",
+    "D": "x² − 6x − 10 = 0"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This factors as (x + 2)(x + 4) = 0.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This has exactly one real solution, x = −3.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Its discriminant, 36 + 40 = 76, is positive.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q004-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Positive solution of a factorable quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the positive solution to the equation 3x² − 5x − 12 = 0 ?",
+   "explanation": "3x² − 5x − 12 = (3x + 4)(x − 3), so x = −4/3 or x = 3. The positive solution is 3.",
+   "hints": [
+    "Try factoring as (3x + p)(x + q)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor, or use the quadratic formula."
+   },
+   "remember": "Check the sign of each solution before answering.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "4/3",
+     "rationale": "4/3 is the absolute value of the negative solution, −4/3.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "4",
+     "rationale": "4 factors the equation incorrectly as (3x + 1)(x − 4).",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q004-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Leading coefficient from a maximum value",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function g is defined by g(x) = a(x − 3)(x + 5), where a is a constant. The maximum value of g is 32. What is the value of a ?",
+   "explanation": "The vertex is halfway between the zeros 3 and −5, at x = −1. g(−1) = a(−4)(4) = −16a = 32, so a = −2. (A maximum requires a < 0.)",
+   "hints": [
+    "Where is the vertex of a parabola with zeros 3 and −5?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Evaluate g at the x-coordinate of the vertex."
+   },
+   "remember": "A parabola's vertex is midway between its zeros.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must locate the vertex from the zeros, evaluate the product there, and use the sign of a for a maximum."
+   },
+   "choices": {
+    "A": "−4",
+    "B": "−2",
+    "C": "2",
+    "D": "4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−4 uses g(−1) = −8a, multiplying only one of the two factors correctly.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "2 has the wrong sign; a positive a would give a minimum.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "4 has the wrong sign and uses −8a.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q004-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Simplifying an expression with negative exponents",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For all positive values of x and y, which expression is equivalent to (x³y⁻²)² / (xy⁻³) ?",
+   "explanation": "(x³y⁻²)² = x⁶y⁻⁴. Dividing by xy⁻³ gives x⁵y⁻¹ = x⁵/y.",
+   "hints": [
+    "Square first, then divide by subtracting exponents."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 2 and y = 2."
+   },
+   "remember": "(aᵐ)ⁿ = aᵐⁿ; aᵐ/aⁿ = aᵐ⁻ⁿ.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "x⁵/y",
+    "B": "x⁵y",
+    "C": "x⁴/y",
+    "D": "x⁷/y⁷"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This subtracts the y-exponents in the wrong order.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "This adds exponents of x when squaring (3 + 2) instead of multiplying.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This adds the exponents when dividing.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q004-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Finding a whole from a percent",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In a class, 40% of the students walk to school, 35% ride a bus, and the rest are driven. If 18 students are driven, how many students are in the class?",
+   "explanation": "The students who are driven make up 100% − 40% − 35% = 25% of the class. If 25% is 18, the class has 18 ÷ 0.25 = 72 students.",
+   "hints": [
+    "What percent of the class is driven?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set 0.25n = 18."
+   },
+   "remember": "Find the percent that matches the given count first.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "45",
+    "B": "60",
+    "C": "72",
+    "D": "90"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "45 treats 18 as 40% of the class.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "60 treats 18 as 30% of the class.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "90 treats 18 as 20% of the class.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q004-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Comparing counts from two percents",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In 2020, 40% of a club's 1,200 members voted in an election. In 2024, 45% of the club's 1,600 members voted. How many more members voted in 2024 than in 2020?",
+   "explanation": "In 2020, 0.40 × 1,200 = 480 members voted. In 2024, 0.45 × 1,600 = 720 voted. The difference is 240.",
+   "hints": [
+    "Find each year's number of voters."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute both counts, then subtract."
+   },
+   "remember": "Percentage points and counts are different quantities.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "240",
+   "accepted_answers": [
+    "240"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the difference in percentage points, not members.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "400",
+     "rationale": "400 is the difference in the number of members, not voters.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  }
+ ]
+}
