@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 29,
-  "updated_at": "2026-10-27T03:19:07+00:00",
+  "version": 30,
+  "updated_at": "2026-10-27T03:21:43+00:00",
   "passages": [],
   "questions": [
     {
@@ -18708,6 +18708,225 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-029.review.json",
         "computation": "checks/sat_math/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000261",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Effect of scaling the input of a quadratic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The variables x and y are related by y = 3x². If the value of x is tripled, the value of y is multiplied by what number?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "9",
+        "C": "27",
+        "D": "81"
+      },
+      "correct_answer": "B",
+      "explanation": "If x becomes 3x, then y becomes 3(3x)² = 3 · 9x² = 9(3x²). So y is multiplied by 3² = 9. The coefficient 3 does not change the factor.",
+      "distractor_explanations": {
+        "A": "3 assumes y changes in the same proportion as x.",
+        "C": "27 multiplies the factor 9 by the coefficient 3.",
+        "D": "81 squares 9, as if x were squared twice."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Replace x with 3x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare y at x = 1 and x = 3."
+      },
+      "remember": "For y = kx², multiplying x by c multiplies y by c².",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "Q030-01",
+      "created_at": "2026-10-27T03:21:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: the coefficient 3 sets a trap (27 = 3*9), which is a fair distractor; 81 = 3^4 is weaker but plausible"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-030.review.json",
+        "computation": "checks/sat_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000262",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Square on the radius of a circle with a given area",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circle has an area of 50π square units. A square has sides equal in length to the radius of the circle. What is the area of the square, in square units?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5√2",
+        "B": "50",
+        "C": "50π",
+        "D": "200"
+      },
+      "correct_answer": "B",
+      "explanation": "πr² = 50π gives r² = 50. A square with side r has area r² = 50. There is no need to find r itself.",
+      "distractor_explanations": {
+        "A": "5√2 is the side length r, not the area.",
+        "C": "50π is the circle's area; the square's area has no π.",
+        "D": "200 uses the diameter, 2r, as the side: (2r)² = 4r²."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is r² for this circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area of the square = r²."
+      },
+      "remember": "Look for the quantity the question needs (here r²) rather than r.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "Q030-02",
+      "created_at": "2026-10-27T03:21:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: easy item; one key fact (area of square = r^2 = 50) with no computation of r needed"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-030.review.json",
+        "computation": "checks/sat_math/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000263",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential equation with a squared exponent",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the product of all real values of x that satisfy 2^(x²) = 16 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−4",
+        "B": "−2",
+        "C": "2",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "explanation": "16 = 2⁴, so x² = 4. This gives x = 2 or x = −2, and both check: 2^((±2)²) = 2⁴ = 16. Their product is 2 × (−2) = −4.",
+      "distractor_explanations": {
+        "B": "−2 is one of the solutions, not their product.",
+        "C": "2 is the other solution alone; it forgets x = −2.",
+        "D": "4 is the value of x², or the product with a sign error."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Write 16 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the exponents equal: x² = 4."
+      },
+      "remember": "x² = k (k > 0) has two solutions, ±√k.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "Q030-04",
+      "created_at": "2026-10-27T03:21:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: the wording 'all real values' and 'product' signals more than one root, which reduces the trap of missing x = -2"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-030.review.json",
+        "computation": "checks/sat_math/batch_030.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

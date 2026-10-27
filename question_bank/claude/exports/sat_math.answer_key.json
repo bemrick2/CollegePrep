@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 29,
+  "bank_version": 30,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -5082,6 +5082,57 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "The point (3, 0) satisfies the original equation; test it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000261",
+      "correct_answer": "B",
+      "explanation": "If x becomes 3x, then y becomes 3(3x)² = 3 · 9x² = 9(3x²). So y is multiplied by 3² = 9. The coefficient 3 does not change the factor.",
+      "distractor_explanations": {
+        "A": "3 assumes y changes in the same proportion as x.",
+        "C": "27 multiplies the factor 9 by the coefficient 3.",
+        "D": "81 squares 9, as if x were squared twice."
+      },
+      "hints": [
+        "Replace x with 3x."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare y at x = 1 and x = 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000262",
+      "correct_answer": "B",
+      "explanation": "πr² = 50π gives r² = 50. A square with side r has area r² = 50. There is no need to find r itself.",
+      "distractor_explanations": {
+        "A": "5√2 is the side length r, not the area.",
+        "C": "50π is the circle's area; the square's area has no π.",
+        "D": "200 uses the diameter, 2r, as the side: (2r)² = 4r²."
+      },
+      "hints": [
+        "What is r² for this circle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Area of the square = r²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000263",
+      "correct_answer": "A",
+      "explanation": "16 = 2⁴, so x² = 4. This gives x = 2 or x = −2, and both check: 2^((±2)²) = 2⁴ = 16. Their product is 2 × (−2) = −4.",
+      "distractor_explanations": {
+        "B": "−2 is one of the solutions, not their product.",
+        "C": "2 is the other solution alone; it forgets x = −2.",
+        "D": "4 is the value of x², or the product with a sign error."
+      },
+      "hints": [
+        "Write 16 as a power of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the exponents equal: x² = 4."
       }
     }
   ]

@@ -1,0 +1,95 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 30,
+  "reviewed_at": "2026-10-27T03:21:43+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 30
+  },
+  "counts": {
+    "PASS": 3,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000261",
+    "CLD-SAT-M-000262",
+    "CLD-SAT-M-000263"
+  ],
+  "results": [
+    {
+      "cand": "Q030-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: the coefficient 3 sets a trap (27 = 3*9), which is a fair distractor; 81 = 3^4 is weaker but plausible"
+      ],
+      "blind_notes": "y' = 3(3x)^2 = 27x^2 = 9*(3x^2), so y is multiplied by 9. A = linear thinking, C = keeping the coefficient, D = 3^4. Only B works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000261"
+    },
+    {
+      "cand": "Q030-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [
+        "minor: easy item; one key fact (area of square = r^2 = 50) with no computation of r needed"
+      ],
+      "blind_notes": "pi r^2 = 50 pi gives r^2 = 50; square area = r^2 = 50. A = side length 5*sqrt2, C = circle area, D = (2r)^2. Only B works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000262"
+    },
+    {
+      "cand": "Q030-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: the wording 'all real values' and 'product' signals more than one root, which reduces the trap of missing x = -2"
+      ],
+      "blind_notes": "16 = 2^4, so x^2 = 4 and x = +/-2; product = -4. C = only the positive root, D = 4 (x^2 value or 2*2), B = the negative root alone. Only A works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000263"
+    }
+  ]
+}

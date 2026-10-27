@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:21:14+00:00",
+  "updated_at": "2026-10-27T03:21:45+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 250
+    "sat_math": 253
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 260,
+      "PASS": 263,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 262,
+      "candidates": 265,
       "passed_after_revision": 2
     }
   },
@@ -1397,12 +1397,12 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 250,
+      "accepted": 253,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 86,
+        "Advanced Math": 88,
         "Algebra": 76,
-        "Geometry and Trigonometry": 48,
+        "Geometry and Trigonometry": 49,
         "Problem-Solving and Data Analysis": 40
       },
       "by_subskill": {
@@ -1456,6 +1456,7 @@
         "Dividing a polynomial by a monomial": 1,
         "Effect of replacing a value on the mean": 1,
         "Effect of sample size on the margin of error": 1,
+        "Effect of scaling the input of a quadratic": 1,
         "Equal earnings at two hourly rates": 1,
         "Equation of a circle with an unknown constant": 1,
         "Equation of a proportional line from its slope": 1,
@@ -1470,6 +1471,7 @@
         "Evaluating an exponential function at a fractional input": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
+        "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
         "Exterior angle of a triangle": 1,
         "Factored form of a quadratic given in vertex form": 1,
@@ -1597,6 +1599,7 @@
         "Solving an equation with two square roots": 1,
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
+        "Square on the radius of a circle with a given area": 1,
         "Square with a perimeter equal to a circle's circumference": 1,
         "Square with the same perimeter as an equilateral triangle": 1,
         "Squaring a product with a fractional exponent": 1,
@@ -1658,19 +1661,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 65,
+        "easy": 67,
         "hard": 11,
-        "medium": 174
+        "medium": 175
       },
       "by_difficulty_calibrated": {
-        "easy": 109,
+        "easy": 111,
         "hard": 6,
-        "medium": 135
+        "medium": 136
       },
       "calibrated_share": {
-        "easy": 0.436,
+        "easy": 0.439,
         "hard": 0.024,
-        "medium": 0.54
+        "medium": 0.538
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1711,8 +1714,8 @@
         "80": 1,
         "9": 2,
         "90": 1,
-        "A": 38,
-        "B": 54,
+        "A": 39,
+        "B": 56,
         "C": 52,
         "D": 31
       },
@@ -1726,7 +1729,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 29
+    "sat_math": 30
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1758,25 +1761,25 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 30,
+    "next_batch": 31,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 15.0,
-      "Advanced Math": 5.0,
-      "Problem-Solving and Data Analysis": -1.0,
-      "Geometry and Trigonometry": -9.0
+      "Algebra": 16.0,
+      "Advanced Math": 4.0,
+      "Problem-Solving and Data Analysis": -0.6,
+      "Geometry and Trigonometry": -9.6
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -44.0,
-      "medium": -5.0,
-      "hard": 59.0
+      "easy": -45.2,
+      "medium": -4.5,
+      "hard": 59.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 10.8,
-      "B": -5.2,
-      "C": -3.2,
-      "D": 17.8
+      "A": 10.3,
+      "B": -6.7,
+      "C": -2.7,
+      "D": 18.3
     },
     "spr_items": 75,
     "spr_target_share": 0.25
@@ -1791,20 +1794,20 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
-      }
-    },
     "act_reading": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 31.9,
         "Craft and Structure": -11.4,
         "Integration of Knowledge and Ideas": -10.5
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
       }
     }
   },
@@ -1831,12 +1834,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 250,
-      "share_of_target": 0.25
+      "accepted": 253,
+      "share_of_target": 0.253
     }
   },
   "total_target": 3841,
-  "total_accepted": 1761,
+  "total_accepted": 1764,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49008,7 +49011,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 29,
+      "bank_version": 30,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49134,7 +49137,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:21:14+00:00",
+    "heartbeat_at": "2026-10-27T03:21:45+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
