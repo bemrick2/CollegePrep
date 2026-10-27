@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 63,
-  "updated_at": "2026-10-27T16:17:57+00:00",
+  "version": 64,
+  "updated_at": "2026-10-27T16:57:25+00:00",
   "passages": [],
   "questions": [
     {
@@ -48845,6 +48845,150 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-063.review.json",
         "computation": "checks/sat_math/batch_063.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000677",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential decay worked backward from two later values",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A machine's value decreases by the same percent each year. Two years after it was purchased, its value was $40,500, and four years after it was purchased, its value was $32,805. What was the machine's value, in dollars, when it was purchased?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "$45,000",
+        "B": "$48,195",
+        "C": "$49,005",
+        "D": "$50,000"
+      },
+      "correct_answer": "D",
+      "explanation": "Over two years the value is multiplied by 32,805/40,500 = 0.81. The same two-year factor applies between purchase and year 2, so the purchase value is 40,500/0.81 = $50,000 (a 10% decrease per year).",
+      "distractor_explanations": {
+        "A": "$45,000 divides by the one-year factor 0.9 only once.",
+        "B": "$48,195 assumes a linear drop, adding back the two-year decrease of $7,695.",
+        "C": "$49,005 undoes each 10% decrease with a 10% increase, 40,500 · 1.1²."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the value multiplied by every two years?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Find the two-year factor, then divide by it."
+      },
+      "remember": "Undo a percent decrease by dividing by the factor, not by adding the percent back.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 64,
+      "draft_candidate": "Q064-03",
+      "created_at": "2026-10-27T16:57:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-064.review.json",
+        "computation": "checks/sat_math/batch_064.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000678",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Hidden zero of a cubic with no constant term",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p is defined by p(x) = x³ + bx² + cx, where b and c are constants. One zero of p is 2, and p(1) = −6. What is the value of p(−1) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "−12",
+          "rationale": "−12 makes a sign slip on the odd powers of −1.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes p(−1) = −p(1), but p is not an odd function.",
+          "trap": null
+        }
+      ],
+      "explanation": "From p(2) = 0: 8 + 4b + 2c = 0, so 2b + c = −4. From p(1) = −6: 1 + b + c = −6, so b + c = −7. Subtracting gives b = 3 and c = −10. Then p(−1) = −1 + 3 + 10 = 12. (Equivalently p(x) = x(x − 2)(x + 5).)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Substitute the two given facts to get two equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the system for b and c."
+      },
+      "remember": "With no constant term, 0 is always a zero of the polynomial.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 64,
+      "draft_candidate": "Q064-11",
+      "created_at": "2026-10-27T16:57:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "12",
+        "blind_answer": "12",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-064.review.json",
+        "computation": "checks/sat_math/batch_064.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

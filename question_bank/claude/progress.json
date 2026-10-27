@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T16:55:40+00:00",
+  "updated_at": "2026-10-27T17:00:52+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,10 +18,10 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 387,
+    "act_english": 395,
     "act_reading": 385,
     "sat_reading_writing": 393,
-    "sat_math": 646
+    "sat_math": 648
   },
   "review_totals": {
     "act_math": {
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 421,
-      "REVISE": 14,
-      "REJECT": 0,
-      "candidates": 435,
+      "PASS": 429,
+      "REVISE": 15,
+      "REJECT": 1,
+      "candidates": 445,
       "passed_after_revision": 12
     },
     "act_reading": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 34
     },
     "sat_math": {
-      "PASS": 676,
-      "REVISE": 15,
-      "REJECT": 1,
-      "candidates": 692,
+      "PASS": 678,
+      "REVISE": 23,
+      "REJECT": 3,
+      "candidates": 704,
       "passed_after_revision": 21
     }
   },
@@ -873,22 +873,23 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 387,
+      "accepted": 395,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 205,
-        "Knowledge of Language": 66,
-        "Production of Writing": 116
+        "Conventions of Standard English": 209,
+        "Knowledge of Language": 68,
+        "Production of Writing": 118
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
         "\"Supposed to\" (nonstandard \"suppose to\")": 1,
         "\"Used to\" (nonstandard \"use to\")": 1,
-        "Adding a sentence (relevance)": 4,
+        "Adding a sentence (relevance)": 5,
         "Adding a sentence: relevance": 1,
         "Adding a sentence: relevance and focus": 1,
         "Adjective versus adverb": 1,
         "Adjectives versus adverbs": 3,
+        "Adverb versus adjective": 1,
         "Affect versus effect": 2,
         "Agreement across an interrupting clause": 1,
         "Agreement in an inverted sentence (lie/lay)": 1,
@@ -923,9 +924,10 @@
         "Comma splice fixed with an appositive": 1,
         "Comma splices": 1,
         "Comma with a coordinating conjunction": 1,
+        "Comma with a coordinating conjunction between independent clauses": 1,
         "Commas around a conjunctive adverb": 1,
         "Commas around a nonessential \"which\" clause": 1,
-        "Commas around a nonessential clause": 4,
+        "Commas around a nonessential clause": 5,
         "Commas around a nonessential element": 1,
         "Commas around a nonessential participial phrase": 1,
         "Commas around a nonessential phrase": 2,
@@ -946,7 +948,7 @@
         "Commonly confused words (where / were)": 1,
         "Comparative adjectives (double comparative)": 1,
         "Comparative with two items": 1,
-        "Concision": 2,
+        "Concision": 3,
         "Concision (eliminating a redundant clause)": 1,
         "Concision (redundancy)": 4,
         "Concision (word choice)": 1,
@@ -979,7 +981,7 @@
         "Dividing a paragraph": 1,
         "Double negatives": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 11,
+        "Evaluating whether an essay meets a goal": 12,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 2,
         "Faulty comparison (\"any other\")": 1,
@@ -1090,7 +1092,7 @@
         "Sentence structure (compound verbs)": 1,
         "Sentence that sets up what follows": 1,
         "Simple past versus present perfect": 1,
-        "Singular possessive": 3,
+        "Singular possessive": 4,
         "Specific detail": 1,
         "Subject-verb agreement": 1,
         "Subject-verb agreement (\"each of\")": 1,
@@ -1120,6 +1122,7 @@
         "Transitions (contrast with an expected result)": 1,
         "Transitions (contrast)": 6,
         "Transitions (example)": 1,
+        "Transitions (explaining a cause)": 1,
         "Transitions (persistence despite criticism)": 1,
         "Transitions (reinforcing)": 1,
         "Transitions (response)": 1,
@@ -1151,29 +1154,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 180,
+        "easy": 188,
         "hard": 22,
         "medium": 185
       },
       "by_difficulty_calibrated": {
-        "easy": 215,
+        "easy": 222,
         "hard": 4,
-        "medium": 168
+        "medium": 169
       },
       "calibrated_share": {
-        "easy": 0.556,
+        "easy": 0.562,
         "hard": 0.01,
-        "medium": 0.434
+        "medium": 0.428
       },
       "answer_key_balance": {
-        "A": 98,
-        "B": 99,
-        "C": 102,
+        "A": 102,
+        "B": 101,
+        "C": 104,
         "D": 88
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 42
+      "passages": 43
     },
     "act_reading": {
       "accepted": 385,
@@ -1637,10 +1640,10 @@
       "passages": 420
     },
     "sat_math": {
-      "accepted": 646,
+      "accepted": 648,
       "retired_after_audit": 30,
       "by_skill": {
-        "Advanced Math": 216,
+        "Advanced Math": 218,
         "Algebra": 201,
         "Geometry and Trigonometry": 117,
         "Problem-Solving and Data Analysis": 112
@@ -1827,6 +1830,7 @@
         "Evaluating an exponential function at a fractional input": 1,
         "Evaluating an expression using a squared-sum identity": 1,
         "Expanding and combining polynomial expressions": 1,
+        "Exponential decay worked backward from two later values": 1,
         "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
         "Exponential function with an added constant through two points": 1,
@@ -1870,6 +1874,7 @@
         "Height of a rectangular prism from its volume": 1,
         "Height of a rotating point using cosine and a raised center": 1,
         "Height where a falling ball passes a rising drone": 1,
+        "Hidden zero of a cubic with no constant term": 1,
         "Horizontal shift that matches an exponential function": 1,
         "How moving one value between groups changes both means": 1,
         "Hypotenuse from a sine-cosine relationship": 1,
@@ -2296,17 +2301,17 @@
       "by_difficulty_author": {
         "easy": 88,
         "hard": 77,
-        "medium": 481
+        "medium": 483
       },
       "by_difficulty_calibrated": {
         "easy": 139,
         "hard": 67,
-        "medium": 440
+        "medium": 442
       },
       "calibrated_share": {
         "easy": 0.215,
-        "hard": 0.104,
-        "medium": 0.681
+        "hard": 0.103,
+        "medium": 0.682
       },
       "answer_key_balance": {
         "-1": 3,
@@ -2329,7 +2334,7 @@
         "110": 1,
         "114": 1,
         "115": 1,
-        "12": 8,
+        "12": 9,
         "12.5": 1,
         "12/25": 1,
         "1260": 1,
@@ -2426,19 +2431,19 @@
         "A": 90,
         "B": 133,
         "C": 119,
-        "D": 66
+        "D": 67
       },
       "modeling_items": 248,
-      "spr_items": 238,
+      "spr_items": 239,
       "passages": 0
     }
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 44,
+    "act_english": 45,
     "act_reading": 49,
     "sat_reading_writing": 47,
-    "sat_math": 63
+    "sat_math": 64
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2470,36 +2475,44 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 64,
+    "next_batch": 65,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 28.6,
-      "Advanced Math": 13.6,
-      "Problem-Solving and Data Analysis": -13.6,
-      "Geometry and Trigonometry": -18.6
+      "Algebra": 29.3,
+      "Advanced Math": 12.3,
+      "Problem-Solving and Data Analysis": -13.3,
+      "Geometry and Trigonometry": -18.3
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 25.0,
-      "medium": -112.0,
-      "hard": 97.0
+      "easy": 25.5,
+      "medium": -113.0,
+      "hard": 97.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 33.0,
-      "B": -10.0,
-      "C": 4.0,
-      "D": 57.0
+      "A": 33.4,
+      "B": -9.6,
+      "C": 4.4,
+      "D": 56.4
     },
-    "spr_items": 238,
+    "spr_items": 239,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
     "act_english": {
-      "next_batch": 45,
+      "next_batch": 46,
       "skill_gap_for_next_10": {
-        "Production of Writing": 44.8,
-        "Knowledge of Language": 15.4,
-        "Conventions of Standard English": -44.2
+        "Production of Writing": 46.0,
+        "Knowledge of Language": 15.0,
+        "Conventions of Standard English": -45.0
+      }
+    },
+    "act_reading": {
+      "next_batch": 50,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 52.6,
+        "Craft and Structure": -14.5,
+        "Integration of Knowledge and Ideas": -28.1
       }
     },
     "sat_reading_writing": {
@@ -2509,14 +2522,6 @@
         "Information and Ideas": -6.2,
         "Standard English Conventions": 22.8,
         "Expression of Ideas": -3.4
-      }
-    },
-    "act_reading": {
-      "next_batch": 50,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 52.6,
-        "Craft and Structure": -14.5,
-        "Integration of Knowledge and Ideas": -28.1
       }
     }
   },
@@ -2528,8 +2533,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 387,
-      "share_of_target": 0.562
+      "accepted": 395,
+      "share_of_target": 0.573
     },
     "act_reading": {
       "target": 684,
@@ -2543,14 +2548,14 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 646,
-      "share_of_target": 0.646
+      "accepted": 648,
+      "share_of_target": 0.648
     }
   },
   "total_target": 3841,
-  "total_accepted": 2585,
+  "total_accepted": 2595,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_english",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -306067,7 +306072,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 44,
+      "bank_version": 45,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -306088,7 +306093,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 63,
+      "bank_version": 64,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -306214,7 +306219,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T16:55:39+00:00",
+    "heartbeat_at": "2026-10-27T17:00:51+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

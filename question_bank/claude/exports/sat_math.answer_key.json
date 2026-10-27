@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 63,
+  "bank_version": 64,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -13710,6 +13710,51 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Use arc length = (θ/360) × 2πr."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000677",
+      "correct_answer": "D",
+      "explanation": "Over two years the value is multiplied by 32,805/40,500 = 0.81. The same two-year factor applies between purchase and year 2, so the purchase value is 40,500/0.81 = $50,000 (a 10% decrease per year).",
+      "distractor_explanations": {
+        "A": "$45,000 divides by the one-year factor 0.9 only once.",
+        "B": "$48,195 assumes a linear drop, adding back the two-year decrease of $7,695.",
+        "C": "$49,005 undoes each 10% decrease with a 10% increase, 40,500 · 1.1²."
+      },
+      "hints": [
+        "What is the value multiplied by every two years?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Find the two-year factor, then divide by it."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000678",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "−12",
+          "rationale": "−12 makes a sign slip on the odd powers of −1.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes p(−1) = −p(1), but p is not an odd function.",
+          "trap": null
+        }
+      ],
+      "explanation": "From p(2) = 0: 8 + 4b + 2c = 0, so 2b + c = −4. From p(1) = −6: 1 + b + c = −6, so b + c = −7. Subtracting gives b = 3 and c = −10. Then p(−1) = −1 + 3 + 10 = 12. (Equivalently p(x) = x(x − 2)(x + 5).)",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute the two given facts to get two equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the system for b and c."
       }
     }
   ]

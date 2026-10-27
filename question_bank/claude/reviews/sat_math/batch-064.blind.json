@@ -1,0 +1,153 @@
+{
+ "solver": {
+  "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+  "batch": 64
+ },
+ "answers": {
+  "Q064-01": {
+   "answer": "8",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Can be solved by plugging in f(x)=0 (g=12, h=4), bypassing transformation reasoning; acceptable for SAT."
+    }
+   ],
+   "notes": "g(x)=3(f(x)+4)=3f(x)+12; h(x)=3f(x)+4; difference 8. Likely trap answer 0 (thinking order doesn't matter)."
+  },
+  "Q064-02": {
+   "answer": "62.25",
+   "confidence": "high",
+   "est_pct_correct": 35,
+   "difficulty_opinion": "hard",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Answer key should accept 62.25 and 249/4 (both fit SPR grid). Trap answer 61 (the given equal heights) is likely."
+    },
+    {
+     "severity": "nonblocking",
+     "note": "Desmos regression on the 3 points gives the vertex directly."
+    }
+   ],
+   "notes": "Symmetry: h(3)=h(4) so vertex at t=3.5. Second difference -10 so a=-5. h(t)=-5(t-3.5)^2+k, h(3)=61 gives k=62.25. Check h(2)=-5(2.25)+62.25=51."
+  },
+  "Q064-03": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Two-year factor 32805/40500=0.81, annual factor 0.9; purchase value 40500/0.81=50000. A 45000=40500/0.9 (one year back only). B 48195=40500+7695 (linear extrapolation of the two-year drop). C 49005=40500*1.21 (inverting by multiplying by 1.1 twice)."
+  },
+  "Q064-04": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Can verify numerically: N(6)/N(0)=2 with a calculator, or check each option."
+    }
+   ],
+   "notes": "2^(t/4)*2^(-t/12)=2^(t/6), doubles every 6 hours. A ignores the decay factor; C uses 12-4=8; D uses 4+12=16."
+  },
+  "Q064-05": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Test-value check: plugging each option into 2x-1 and seeing which gives 3 identifies B quickly; inherent to the skill."
+    }
+   ],
+   "notes": "q(x)=0 when 2x-1=3, i.e., x=2. A: 2(1)-1=1, not 3. C: copies the zero of p (2*3-1=5). D: maps 3 forward via 2x-1 instead of solving."
+  },
+  "Q064-06": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Test function f(x)=(x-4)^2 eliminates all distractors immediately; standard for this item type."
+    }
+   ],
+   "notes": "Axis x=4, opens up; values increase with distance from 4. A: dist 4 vs 1, true. B: dist 3 vs 3, equal, false. C: f(4) is the minimum, false. D: dist 1 vs 4, reversed, false."
+  },
+  "Q064-07": {
+   "answer": "50",
+   "confidence": "high",
+   "est_pct_correct": 40,
+   "difficulty_opinion": "hard",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Trap 60 (linear extrapolation of +20 per 3 weeks) is likely."
+    }
+   ],
+   "notes": "a=40; 60-40b^3=40 so b^3=1/2; W(6)=60-40(1/4)=50."
+  },
+  "Q064-08": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 45,
+   "difficulty_opinion": "hard",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Desmos with a slider for a shows 3 intersections for any a>0, bypassing the algebra."
+    }
+   ],
+   "notes": "Let u=x-2: |u|=a u^2 gives u=0 or |u|=1/a, so x=2, 2+1/a, 2-1/a: three points. A counts only the vertex; B misses the shared vertex point; D overcounts."
+  },
+  "Q064-09": {
+   "answer": "5",
+   "confidence": "high",
+   "est_pct_correct": 45,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "a+b=6 (vertex x is the average of the zeros); f(3)=9-3(a+b)+ab=-9+ab=-4 so ab=5 (zeros 1 and 5)."
+  },
+  "Q064-10": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 30,
+   "difficulty_opinion": "hard",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Desmos: graphing y=sqrt(x+k) and y=x for each listed k resolves it without the algebra."
+    }
+   ],
+   "notes": "Need x>=0 and x^2-x-k=0 with two nonnegative roots: 1+4k>0 and -k>=0, so -1/4<k<=0. k=-0.2: roots ~0.276, 0.724, both valid. A k=-0.3: discriminant negative, no solutions. C k=0.2: roots of opposite sign, only one valid. D k=2: x=2 only (x=-1 extraneous)."
+  },
+  "Q064-11": {
+   "answer": "12",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "p(2)=0 gives 2b+c=-4; p(1)=-6 gives b+c=-7; b=3, c=-10. p(x)=x(x+5)(x-2); p(-1)=-1+3+10=12."
+  },
+  "Q064-12": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 25,
+   "difficulty_opinion": "hard",
+   "flags": [
+    {
+     "severity": "nonblocking",
+     "note": "Partial-credit cue: A is the discriminant-only answer, so the student who knows about the excluded value x=2 sees D as the extension of A."
+    }
+   ],
+   "notes": "x^2-2x-k=0 with x!=2. k=-1: double root x=1, valid. k=0: roots 0 and 2; x=2 excluded, leaving x=0 only. Otherwise discriminant>0 and neither root is 2, so two solutions; or no solution if k<-1. A misses k=0. B: k=1 gives 1+/-sqrt2, two solutions. C includes 1 (wrong) and leaves out -1."
+  }
+ }
+}

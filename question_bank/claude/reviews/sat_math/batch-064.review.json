@@ -1,0 +1,344 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 64,
+  "reviewed_at": "2026-10-27T16:57:24+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 64
+  },
+  "counts": {
+    "PASS": 2,
+    "REVISE": 8,
+    "REJECT": 2
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000677",
+    "CLD-SAT-M-000678"
+  ],
+  "results": [
+    {
+      "cand": "Q064-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Can be solved by plugging in f(x)=0 (g=12, h=4), bypassing transformation reasoning; acceptable for SAT."
+        }
+      ],
+      "blind_notes": "g(x)=3(f(x)+4)=3f(x)+12; h(x)=3f(x)+4; difference 8. Likely trap answer 0 (thinking order doesn't matter).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The order of two vertical transformations changes the constant, and f is never given."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Can be solved by plugging in f(x)=0 (g=12, h=4), bypassing transformation reasoning; acceptable for SAT.'}"
+    },
+    {
+      "cand": "Q064-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "62.25",
+      "computed_answer": "62.25",
+      "blind_answer": "62.25",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Answer key should accept 62.25 and 249/4 (both fit SPR grid). Trap answer 61 (the given equal heights) is likely."
+        },
+        {
+          "severity": "nonblocking",
+          "note": "Desmos regression on the 3 points gives the vertex directly."
+        }
+      ],
+      "blind_notes": "Symmetry: h(3)=h(4) so vertex at t=3.5. Second difference -10 so a=-5. h(t)=-5(t-3.5)^2+k, h(3)=61 gives k=62.25. Check h(2)=-5(2.25)+62.25=51.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The model must be built from three values, and the maximum is not one of them."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Answer key should accept 62.25 and 249/4 (both fit SPR grid). Trap answer 61 (the given equal heights) is likely.'}; {'severity': 'nonblocking', 'note': 'Desmos regression on the 3 points gives the vertex directly.'}"
+    },
+    {
+      "cand": "Q064-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Two-year factor 32805/40500=0.81, annual factor 0.9; purchase value 40500/0.81=50000. A 45000=40500/0.9 (one year back only). B 48195=40500+7695 (linear extrapolation of the two-year drop). C 49005=40500*1.21 (inverting by multiplying by 1.1 twice).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000677"
+    },
+    {
+      "cand": "Q064-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Can verify numerically: N(6)/N(0)=2 with a calculator, or check each option."
+        }
+      ],
+      "blind_notes": "2^(t/4)*2^(-t/12)=2^(t/6), doubles every 6 hours. A ignores the decay factor; C uses 12-4=8; D uses 4+12=16.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The doubling time comes from subtracting reciprocal periods, not the periods themselves."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Can verify numerically: N(6)/N(0)=2 with a calculator, or check each option.'}"
+    },
+    {
+      "cand": "Q064-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Test-value check: plugging each option into 2x-1 and seeing which gives 3 identifies B quickly; inherent to the skill."
+        }
+      ],
+      "blind_notes": "q(x)=0 when 2x-1=3, i.e., x=2. A: 2(1)-1=1, not 3. C: copies the zero of p (2*3-1=5). D: maps 3 forward via 2x-1 instead of solving.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must solve the inner expression for x rather than apply it to 3."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Test-value check: plugging each option into 2x-1 and seeing which gives 3 identifies B quickly; inherent to the skill.'}"
+    },
+    {
+      "cand": "Q064-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Test function f(x)=(x-4)^2 eliminates all distractors immediately; standard for this item type."
+        }
+      ],
+      "blind_notes": "Axis x=4, opens up; values increase with distance from 4. A: dist 4 vs 1, true. B: dist 3 vs 3, equal, false. C: f(4) is the minimum, false. D: dist 1 vs 4, reversed, false.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Test function f(x)=(x-4)^2 eliminates all distractors immediately; standard for this item type.'}"
+    },
+    {
+      "cand": "Q064-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "50",
+      "computed_answer": "50",
+      "blind_answer": "50",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Trap 60 (linear extrapolation of +20 per 3 weeks) is likely."
+        }
+      ],
+      "blind_notes": "a=40; 60-40b^3=40 so b^3=1/2; W(6)=60-40(1/4)=50.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The constant ratio applies to the gap below 60, not to W."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Trap 60 (linear extrapolation of +20 per 3 weeks) is likely.'}"
+    },
+    {
+      "cand": "Q064-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Desmos with a slider for a shows 3 intersections for any a>0, bypassing the algebra."
+        }
+      ],
+      "blind_notes": "Let u=x-2: |u|=a u^2 gives u=0 or |u|=1/a, so x=2, 2+1/a, 2-1/a: three points. A counts only the vertex; B misses the shared vertex point; D overcounts.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must notice that the count is the same for every a and not lose the shared vertex."
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000181",
+          "similarity": 0.62
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q064-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "a+b=6 (vertex x is the average of the zeros); f(3)=9-3(a+b)+ab=-9+ab=-4 so ab=5 (zeros 1 and 5).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000162",
+          "similarity": 0.65
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q064-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Desmos: graphing y=sqrt(x+k) and y=x for each listed k resolves it without the algebra."
+        }
+      ],
+      "blind_notes": "Need x>=0 and x^2-x-k=0 with two nonnegative roots: 1+4k>0 and -k>=0, so -1/4<k<=0. k=-0.2: roots ~0.276, 0.724, both valid. A k=-0.3: discriminant negative, no solutions. C k=0.2: roots of opposite sign, only one valid. D k=2: x=2 only (x=-1 extraneous).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Clean roots for k = 2 invite counting an extraneous solution."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Desmos: graphing y=sqrt(x+k) and y=x for each listed k resolves it without the algebra.'}"
+    },
+    {
+      "cand": "Q064-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "p(2)=0 gives 2b+c=-4; p(1)=-6 gives b+c=-7; b=3, c=-10. p(x)=x(x+5)(x-2); p(-1)=-1+3+10=12.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must set up and solve a system for two unknown coefficients before evaluating."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000678"
+    },
+    {
+      "cand": "Q064-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "Partial-credit cue: A is the discriminant-only answer, so the student who knows about the excluded value x=2 sees D as the extension of A."
+        }
+      ],
+      "blind_notes": "x^2-2x-k=0 with x!=2. k=-1: double root x=1, valid. k=0: roots 0 and 2; x=2 excluded, leaving x=0 only. Otherwise discriminant>0 and neither root is 2, so two solutions; or no solution if k<-1. A misses k=0. B: k=1 gives 1+/-sqrt2, two solutions. C includes 1 (wrong) and leaves out -1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Exactly one solution arises in two different ways, and the item asks for both."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': 'Partial-credit cue: A is the discriminant-only answer, so the student who knows about the excluded value x=2 sees D as the extension of A.'}"
+    }
+  ]
+}

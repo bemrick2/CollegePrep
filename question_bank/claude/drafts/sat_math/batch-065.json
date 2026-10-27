@@ -1,0 +1,873 @@
+{
+ "bank": "sat_math",
+ "batch": 65,
+ "plan": "SAT Math batch 65: 9 new items from idea set 17 (LB16-LB18, LD01-LD06; pre-checked in ideas-064.repeats.json) plus 8 batch-64 items resubmitted as revision 2. Q064-12 choice C changed to {−1, 2} to remove the A-subset-of-D cue; the other seven were flagged only for strategies inherent to the item type (test function, calculator or Desmos check, an intended trap, an already-accepted fraction form) and are unchanged, sent for a fresh blind solve. Q064-08 and Q064-09 stay rejected per the near-duplicate screen.",
+ "candidates": [
+  {
+   "cand": "Q065-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Area of a triangle formed by a line, a parabola, and the origin",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the line y = x + 2 intersects the parabola y = x² at points A and B. If O is the origin, what is the area of triangle OAB ?",
+   "explanation": "Solving x² = x + 2 gives x² − x − 2 = 0, so x = −1 or x = 2, and A = (−1, 1), B = (2, 4). The segment from O to (0, 2) on the y-axis splits the triangle into two pieces with base 2: the left piece has height 1 and the right piece has height 2, so the area is (1/2)(2)(1) + (1/2)(2)(2) = 3.",
+   "hints": [
+    "Find A and B first."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle and split it along the y-axis."
+   },
+   "remember": "Split an awkward triangle into pieces with a common base.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 forgets the factor 1/2.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "1",
+     "rationale": "1 is only the part of the triangle to the left of the y-axis.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2",
+     "rationale": "2 is only the part of the triangle to the right of the y-axis.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sum of solutions of an absolute value equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "What is the sum of all solutions to the equation |x − 3| + |x + 5| = 10 ?",
+   "explanation": "For −5 ≤ x ≤ 3 the left side always equals 8, so there are no solutions there. For x > 3, (x − 3) + (x + 5) = 10 gives x = 4. For x < −5, −(x − 3) − (x + 5) = 10 gives x = −6. The sum is 4 + (−6) = −2.",
+   "hints": [
+    "What is the left side for x between −5 and 3?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Think of distances from 3 and from −5 on a number line."
+   },
+   "remember": "Read a sum of absolute values as a total distance on a number line.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see the left side is constant between −5 and 3 and work both outer cases."
+   },
+   "choices": {
+    "A": "−2",
+    "B": "−1",
+    "C": "2",
+    "D": "4"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "−1 is the midpoint of the two solutions, not their sum.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "2 reads the critical points as −3 and 5, giving solutions 6 and −4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "4 finds only the solution greater than 3.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q065-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Intersection of a parabola and a sloped line in context",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A garden hose sprays water up a sloped lawn. In a vertical cross section, with x and y in meters measured horizontally and vertically from the nozzle, the stream follows y = −0.05x² + 2x and the surface of the lawn follows y = 0.5x. How many meters from the nozzle, measured horizontally, does the water hit the lawn?",
+   "explanation": "Set −0.05x² + 2x = 0.5x. Then −0.05x² + 1.5x = 0, so x(1.5 − 0.05x) = 0, and x = 0 (the nozzle) or x = 30.",
+   "hints": [
+    "Where are the two heights equal?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the stream equal to the lawn and solve."
+   },
+   "remember": "Where two graphs meet, set their equations equal.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "15",
+    "B": "20",
+    "C": "30",
+    "D": "40"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "15 is the height of the landing point, 0.5(30), not the horizontal distance.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "20 is the x-coordinate of the stream's highest point.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "40 is where the stream would reach level ground, y = 0.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q065-04",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Exterior angle bisector parallel to a side",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In triangle ABC, the measure of angle A is 50°. Point D lies on the extension of side AC beyond C, and the bisector of angle BCD is parallel to side AB. What is the measure of angle ACB ?",
+   "explanation": "Let the bisector make equal angles x with CD and with CB. Because the bisector is parallel to AB, the angle it makes with CD equals angle A (corresponding angles along line AD), and the angle it makes with CB equals angle B (alternate interior angles along line BC). So angle B = angle A = 50°, and angle ACB = 180° − 50° − 50° = 80°.",
+   "hints": [
+    "Which angles does the parallel bisector make equal?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the figure and mark the corresponding and alternate angles."
+   },
+   "remember": "A line parallel to a side creates equal corresponding and alternate angles.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use two different pairs of parallel-line angles to show the triangle is isosceles."
+   },
+   "choices": {
+    "A": "25°",
+    "B": "50°",
+    "C": "65°",
+    "D": "80°"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "25° takes half of angle A.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "50° assumes angle C equals angle A.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "65° assumes AC = BC, giving (180 − 50)/2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q065-05",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inscribed angles from equal chords",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Points A, B, C, and D lie on a circle in that order, so that ABCD is a convex quadrilateral. AB = BC = CD, and the measure of angle ADC is 70°. What is the measure of angle ABD ?",
+   "explanation": "Angle ADC intercepts arc ABC, so that arc measures 140°. Equal chords cut off equal arcs, so arcs AB, BC, and CD each measure 70°. The remaining arc DA measures 360° − 210° = 150°, and inscribed angle ABD intercepts it, so angle ABD = 75°.",
+   "hints": [
+    "What arc does angle ADC intercept?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label each arc's measure around the circle."
+   },
+   "remember": "An inscribed angle is half its intercepted arc; equal chords give equal arcs.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must convert an angle to arcs, use equal chords, and find the leftover arc."
+   },
+   "choices": {
+    "A": "35°",
+    "B": "55°",
+    "C": "70°",
+    "D": "75°"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "35° is angle CBD, half of arc CD.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "55° treats triangle ACD as isosceles with apex angle 70°.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "70° assumes angle ABD equals the given angle.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q065-06",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Longer diagonal of a parallelogram",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A parallelogram has sides of lengths 5 and 3, and one of its angles measures 60°. What is the length of the longer diagonal of the parallelogram?",
+   "explanation": "The longer diagonal is opposite the 120° angle. Place the side of length 5 along the x-axis from (0, 0) to (5, 0); the side of length 3 at 60° ends at (1.5, 1.5√3). The far vertex is (6.5, 1.5√3), so the diagonal is √(6.5² + (1.5√3)²) = √(42.25 + 6.75) = √49 = 7.",
+   "hints": [
+    "Which angle is the longer diagonal opposite?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Drop a perpendicular to form a 30°-60°-90° triangle."
+   },
+   "remember": "Split slanted lengths into horizontal and vertical parts, then use the Pythagorean theorem.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must pick the correct diagonal and use both the offset and the height."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "√19",
+     "rationale": "√19 (about 4.36) is the shorter diagonal.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "√34",
+     "rationale": "√34 treats the parallelogram as a rectangle.",
+     "trap": null
+    },
+    {
+     "value": "8",
+     "rationale": "8 adds the side lengths.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q065-07",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Areas of triangles on opposite sides of a square",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Point P lies inside square ABCD, which has sides of length 10. The area of triangle PAB is 18. What is the area of triangle PCD ?",
+   "explanation": "Sides AB and CD are parallel and 10 apart, so the distances from P to AB and to CD add to 10. The two triangle areas are (1/2)(10)(h₁) + (1/2)(10)(h₂) = 5(10) = 50, so triangle PCD has area 50 − 18 = 32.",
+   "hints": [
+    "What do the two heights add up to?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw P and the heights to AB and CD."
+   },
+   "remember": "Triangles on opposite sides of a square share a total height equal to the side.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "18",
+    "B": "25",
+    "C": "32",
+    "D": "82"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "18 assumes P is equally far from AB and CD.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "25 is one fourth of the square's area.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "82 is 100 − 18, treating the two triangles as filling the square.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q065-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Circle tangent to two parallel lines",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a circle is tangent to the lines y = 1 and y = 11 and passes through the point (2, 9). The center of the circle lies in Quadrant I. The equation of the circle can be written as x² + y² + ax + by + c = 0, where a, b, and c are constants. What is the value of c ?",
+   "explanation": "Tangent to y = 1 and y = 11, the circle has diameter 10, so r = 5 and the center lies on y = 6. Then (2 − h)² + (9 − 6)² = 25 gives (2 − h)² = 16, so h = 6 or h = −2; Quadrant I requires h = 6. Expanding (x − 6)² + (y − 6)² = 25 gives c = 36 + 36 − 25 = 47.",
+   "hints": [
+    "How far apart are the two tangent lines?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the lines and the circle between them."
+   },
+   "remember": "Two parallel tangent lines are a diameter apart.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must get the radius and center height from the lines, then choose the correct center."
+   },
+   "format": "spr",
+   "answer": "47",
+   "accepted_answers": [
+    "47"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 uses the center (−2, 6), which is in Quadrant II.",
+     "trap": null
+    },
+    {
+     "value": "−28",
+     "rationale": "−28 uses r = 10, the distance between the lines.",
+     "trap": null
+    },
+    {
+     "value": "72",
+     "rationale": "72 forgets to subtract r².",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Counting isosceles triangles with a fixed perimeter",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "How many different triangles with integer side lengths and a perimeter of 30 have at least two sides of equal length? (Triangles with the same three side lengths are considered the same triangle.)",
+   "explanation": "Let the two equal sides be L and the third side 30 − 2L. The third side must be positive, so L < 15, and the triangle inequality requires 2L > 30 − 2L, so L > 7.5. Thus L = 8, 9, …, 14, which gives 7 triangles, including the equilateral 10-10-10.",
+   "hints": [
+    "What must be true for the equal sides L?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the third side in terms of L, then apply both bounds."
+   },
+   "remember": "The two shorter sides of a triangle must add to more than the longest.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students need both a positivity bound and the triangle inequality, and must count the equilateral case."
+   },
+   "choices": {
+    "A": "6",
+    "B": "7",
+    "C": "8",
+    "D": "14"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6 leaves out the equilateral triangle, which also has two equal sides.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "8 allows L = 7, but 7 + 7 is not greater than 16.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "14 ignores the triangle inequality and counts L = 1 through 14.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q065-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Order of a vertical shift and a vertical stretch",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For a function f, the graph of y = g(x) is obtained by translating the graph of y = f(x) up 4 units and then multiplying the y-coordinate of every point of the result by 3. The graph of y = h(x) is obtained by first multiplying every y-coordinate of the graph of y = f(x) by 3 and then translating the result up 4 units. For every x, what is the value of g(x) − h(x) ?",
+   "explanation": "Shifting first and then stretching gives g(x) = 3(f(x) + 4) = 3f(x) + 12. Stretching first and then shifting gives h(x) = 3f(x) + 4. So g(x) − h(x) = 12 − 4 = 8 for every x.",
+   "hints": [
+    "Write g(x) and h(x) in terms of f(x)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Apply each transformation to the expression in order."
+   },
+   "remember": "A stretch applied after a shift also stretches the shift.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The order of two vertical transformations changes the constant, and f is never given."
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "0",
+     "rationale": "0 assumes the order of the transformations does not matter.",
+     "trap": null
+    },
+    {
+     "value": "12",
+     "rationale": "12 is 3 · 4; it forgets that h also adds 4.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "−8",
+     "rationale": "−8 computes h(x) − g(x).",
+     "trap": "sign_error"
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-01",
+     "status": "REVISE",
+     "reason": "solver noted plugging in f(x) = 0 bypasses the reasoning; that is a legitimate SAT strategy for an unspecified f, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-11",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum of a quadratic model from three values",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The height h(t), in meters, of a model rocket t seconds after launch is a quadratic function of t. The rocket's height was 51 meters at t = 2, 61 meters at t = 3, and 61 meters at t = 4. What was the rocket's maximum height, in meters?",
+   "explanation": "Equal heights at t = 3 and t = 4 put the vertex at t = 3.5. The first differences are 10 and 0, so the second difference is −10 and the leading coefficient is −10/2 = −5. Then h(t) = −5t² + 35t + 1 (check: h(2) = 51, h(3) = 61, h(4) = 61), and h(3.5) = −61.25 + 122.5 + 1 = 62.25.",
+   "hints": [
+    "Where is the axis of symmetry?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Use the symmetric values to locate the vertex, then the differences to find the leading coefficient."
+   },
+   "remember": "Equal outputs of a quadratic are symmetric about the vertex.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The model must be built from three values, and the maximum is not one of them."
+   },
+   "format": "spr",
+   "answer": "62.25",
+   "accepted_answers": [
+    "62.25",
+    "249/4"
+   ],
+   "common_errors": [
+    {
+     "value": "61",
+     "rationale": "61 is the greatest given height, but the maximum occurs between t = 3 and t = 4.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "3.5",
+     "rationale": "3.5 is the time of the maximum, not the height.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "71",
+     "rationale": "71 continues the first difference of +10 as if the model were linear.",
+     "trap": null
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-02",
+     "status": "REVISE",
+     "reason": "solver asked that 249/4 be accepted; accepted_answers already lists 62.25 and 249/4, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-12",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Combining exponential growth and decay factors",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A culture of bacteria is treated with a drug. The number of bacteria t hours after treatment begins is modeled by N(t) = 500 · 2^(t/4) · (1/2)^(t/12). Which of the following best describes how N changes over time?",
+   "explanation": "Write (1/2)^(t/12) as 2^(−t/12). Then N(t) = 500 · 2^(t/4 − t/12) = 500 · 2^(t/6), so N doubles every 6 hours.",
+   "hints": [
+    "Write both factors as powers of 2."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Combine the exponents."
+   },
+   "remember": "Multiply powers of the same base by adding their exponents.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The doubling time comes from subtracting reciprocal periods, not the periods themselves."
+   },
+   "choices": {
+    "A": "N doubles every 4 hours.",
+    "B": "N doubles every 6 hours.",
+    "C": "N doubles every 8 hours.",
+    "D": "N doubles every 16 hours."
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "4 hours ignores the decay factor.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "8 hours subtracts the periods, 12 − 4, instead of the exponents.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 hours adds the periods, 4 + 12.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-04",
+     "status": "REVISE",
+     "reason": "solver noted a calculator ratio check; options are checkable by design (interpretation item), unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-13",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Factor of a composed polynomial",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function p is a polynomial, and p(3) = 0. Which of the following must be a factor of the polynomial q(x) = p(2x − 1) ?",
+   "explanation": "q(x) = 0 whenever 2x − 1 = 3, that is, when x = 2. So q(2) = p(3) = 0, and by the factor theorem x − 2 is a factor of q.",
+   "hints": [
+    "For what x is the input to p equal to 3?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the inner expression equal to the known zero."
+   },
+   "remember": "A zero of p(2x − 1) solves 2x − 1 = (a zero of p).",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must solve the inner expression for x rather than apply it to 3."
+   },
+   "choices": {
+    "A": "x − 1",
+    "B": "x − 2",
+    "C": "x − 3",
+    "D": "x − 5"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "x − 1 computes (3 − 1)/2, undoing the operations in the wrong order.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "x − 3 ignores the inner expression 2x − 1.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "x − 5 applies 2x − 1 to 3 instead of solving 2x − 1 = 3.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-05",
+     "status": "REVISE",
+     "reason": "solver noted checking options in 2x − 1; inherent to the skill, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-14",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing values of a quadratic by distance from the axis",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = ax² + bx + c, where a, b, and c are constants and a > 0. If f(2) = f(6), which of the following must be true?",
+   "explanation": "Because f(2) = f(6), the axis of symmetry is x = 4. With a > 0 the parabola opens upward, so f(x) grows as x moves farther from 4. Since 0 is 4 units from the axis and 3 is 1 unit away, f(0) > f(3). B compares equal values, C reverses the minimum, and D has 3 closer to the axis than 8.",
+   "hints": [
+    "Where is the axis of symmetry?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch an upward parabola with its axis at x = 4."
+   },
+   "remember": "For an upward parabola, points farther from the axis have larger values.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(0) > f(3)",
+    "B": "f(1) > f(7)",
+    "C": "f(4) > f(5)",
+    "D": "f(3) > f(8)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "1 and 7 are both 3 units from x = 4, so f(1) = f(7).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "f(4) is the minimum value, so f(4) < f(5).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "8 is 4 units from the axis and 3 is 1 unit away, so f(3) < f(8).",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-06",
+     "status": "REVISE",
+     "reason": "solver noted a test function eliminates distractors; standard for must-be-true items, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-15",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exponential approach to a limit",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A student's typing speed W, in words per minute, t weeks after starting a typing course is modeled by W(t) = 60 − a · b^t, where a and b are positive constants. If W(0) = 20 and W(3) = 40, what is the value of W(6) ?",
+   "explanation": "The gap 60 − W(t) = a · b^t is exponential. It is 40 at t = 0 and 20 at t = 3, so it halves every 3 weeks and is 10 at t = 6. Then W(6) = 60 − 10 = 50.",
+   "hints": [
+    "What does a · b^t equal at t = 0 and t = 3?"
+   ],
+   "strategy": {
+    "key": "find_the_trend",
+    "explanation": "Apply the constant ratio to the gap below 60."
+   },
+   "remember": "The gap below the limit shrinks by a constant factor.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The constant ratio applies to the gap below 60, not to W."
+   },
+   "format": "spr",
+   "answer": "50",
+   "accepted_answers": [
+    "50"
+   ],
+   "common_errors": [
+    {
+     "value": "60",
+     "rationale": "60 extends the 20-word gain linearly over the next 3 weeks.",
+     "trap": null
+    },
+    {
+     "value": "80",
+     "rationale": "80 doubles W itself every 3 weeks.",
+     "trap": null
+    },
+    {
+     "value": "55",
+     "rationale": "55 halves the 20-word gain instead of halving the gap below 60.",
+     "trap": null
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-07",
+     "status": "REVISE",
+     "reason": "solver noted 60 is a likely trap; intended distractor, not a defect, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-16",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Counting solutions of a radical equation with a parameter",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the equation √(x + k) = x, k is a constant. For which of the following values of k does the equation have exactly two real solutions?",
+   "explanation": "Squaring gives x² − x − k = 0, and every solution of the original equation must satisfy x ≥ 0. Two solutions need two distinct nonnegative roots: the discriminant 1 + 4k > 0 and the product of the roots, −k, at least 0, so −1/4 < k ≤ 0. Only k = −0.2 qualifies; its roots, about 0.276 and 0.724, both check.",
+   "hints": [
+    "What must be true of x in √(x + k) = x?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test each k and check the roots in the original equation."
+   },
+   "remember": "A square root is never negative, so reject negative roots after squaring.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Clean roots for k = 2 invite counting an extraneous solution."
+   },
+   "choices": {
+    "A": "−0.3",
+    "B": "−0.2",
+    "C": "0.2",
+    "D": "2"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "For k = −0.3 the discriminant 1 − 1.2 is negative, so there are no solutions.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "For k = 0.2 the roots are about 1.17 and −0.17; the negative root is extraneous, leaving one solution.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "For k = 2 the roots are 2 and −1; −1 is extraneous, leaving one solution.",
+     "trap": "partial_answer"
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-10",
+     "status": "REVISE",
+     "reason": "solver noted a Desmos bypass; extraneous-root counting remains the skill, unchanged"
+    }
+   ]
+  },
+  {
+   "cand": "Q065-17",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exactly one solution of a rational equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the equation k/(x − 2) = x, k is a constant. Which of the following lists all values of k for which the equation has exactly one real solution?",
+   "explanation": "For x ≠ 2 the equation is x² − 2x − k = 0. It has a double root when the discriminant 4 + 4k = 0, so k = −1 (x = 1). It also has exactly one solution when one of two roots is the excluded value 2: then 4 − 4 − k = 0, so k = 0, with roots 0 and 2, and only x = 0 remains. So k = −1 or k = 0.",
+   "hints": [
+    "Which value of x is not allowed?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Clear the fraction, then check both ways to get one solution."
+   },
+   "remember": "Check whether a root of the cleared equation makes a denominator zero.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Exactly one solution arises in two different ways, and the item asks for both."
+   },
+   "choices": {
+    "A": "{−1}",
+    "B": "{1}",
+    "C": "{−1, 2}",
+    "D": "{−1, 0}"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "{−1} uses the discriminant only and misses the case where one root is the excluded value 2.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "{1} makes a sign error in the discriminant, 4 − 4k = 0.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "{−1, 2} confuses the excluded x-value 2 with a value of k; for k = 2 the roots are 1 ± √3, two solutions.",
+     "trap": null
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q064-12",
+     "status": "REVISE",
+     "reason": "solver: A was a subset of D only, cueing D as its extension; C changed to {−1, 2} so −1 appears in three choices"
+    }
+   ]
+  }
+ ]
+}
