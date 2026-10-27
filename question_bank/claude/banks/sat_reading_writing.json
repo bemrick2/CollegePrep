@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Reading and Writing",
   "id_prefix": "CLD-SAT-RW-",
-  "version": 48,
-  "updated_at": "2026-10-27T17:03:34+00:00",
+  "version": 49,
+  "updated_at": "2026-10-27T17:16:17+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-SAT-RW-000001",
@@ -4755,6 +4755,83 @@
       "word_count": 57,
       "text": "Early telescopes surrounded their images with fringes of false color, because their glass lenses bent different colors of light by different amounts. Isaac Newton concluded, wrongly as it turned out, that no arrangement of lenses could ever remove this flaw. ______ he built a telescope that gathered light with a curved mirror, which reflects all colors equally.",
       "batch": 48,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000447",
+      "title": "A careful report",
+      "genre": "government",
+      "word_count": 33,
+      "text": "The review committee's report on the proposed stadium was notably ______: it listed the plan's costs and benefits in detail but declined to say whether the city should go ahead with the project.",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000448",
+      "title": "Roman harbor concrete",
+      "genre": "materials science",
+      "word_count": 66,
+      "text": "Some concrete structures built in Roman harbors have survived roughly two thousand years of exposure to seawater, while modern concrete in similar conditions can crumble within decades. The difference long puzzled engineers. Analyzing samples from Roman harbors, researchers found that seawater seeping through the concrete reacted with volcanic ash in the original mix, growing new mineral crystals that filled cracks and strengthened the material over time.",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000449",
+      "title": "Crows and masks",
+      "genre": "animal behavior",
+      "word_count": 65,
+      "text": "In a long-term study, researchers wearing a distinctive mask briefly captured and released several wild crows on a college campus. For years afterward, crows on the campus scolded and dived at anyone wearing that mask but ignored people wearing a different, neutral mask. The researchers hypothesized that crows learn to recognize dangerous people not only from their own experience but also by observing other crows.",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000450",
+      "title": "Birds along trails",
+      "genre": "ecology",
+      "word_count": 57,
+      "text": "An ecologist surveyed bird species in a forest by having observers walk the forest's trails at dawn and record every species they heard singing. Observers recorded more species near trailheads than deep in the forest. However, because the observers walked only along trails and could hear birds only within about fifty meters, the ecologist cautioned that ______",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000451",
+      "title": "A shorter week",
+      "genre": "economics",
+      "word_count": 98,
+      "text": "Text 1\nAn economist studying companies that adopted a four-day workweek found that their output per employee rose by an average of 8 percent in the following year. She argues that a shorter week could raise productivity across the economy.\n\nText 2\nA labor researcher notes that the companies in the study chose to try the four-day week, and many were firms whose managers already believed their work could be done in less time. Results from such firms, he argues, may say little about how a shorter week would work at companies that would not have chosen it.",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000454",
+      "title": "Two writers",
+      "genre": "literature",
+      "word_count": 25,
+      "text": "Having spent a decade comparing the handwriting, ink, and paper of the letters, ______ that they were written by two different people rather than one.",
+      "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-SAT-RW-000455",
+      "title": "Load ratings",
+      "genre": "engineering",
+      "word_count": 38,
+      "text": "The new bridge across the river was designed to carry far heavier traffic than the one it replaced. ______ engineers rated it to support trucks weighing up to forty tons, about twice the limit on the old bridge.",
+      "batch": 49,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -35477,6 +35554,503 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_reading_writing/batch-048.review.json",
         "computation": "checks/sat_reading_writing/batch_048.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000433",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Words in context",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000447",
+      "underline": null,
+      "evidence": "declined to say whether the city should go ahead",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "partisan",
+        "B": "redundant",
+        "C": "noncommittal",
+        "D": "inflammatory"
+      },
+      "correct_answer": "C",
+      "explanation": "A report that lays out costs and benefits but refuses to recommend a course is \"noncommittal.\"",
+      "distractor_explanations": {
+        "A": "A partisan report would take a side, but this one declines to recommend anything.",
+        "B": "Nothing suggests the report repeated itself or duplicated another report.",
+        "D": "Nothing suggests the report was meant to provoke anger; it simply avoided a recommendation."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What did the report decline to do?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"not taking a position.\""
+      },
+      "remember": "Use the explanation after the colon to define the blank.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-01",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000434",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Text structure and purpose",
+      "modeling": false,
+      "repo_skill_key": "sat_craft_structure",
+      "passage_id": "CLD-P-SAT-RW-000448",
+      "underline": null,
+      "evidence": "The difference long puzzled engineers.",
+      "figure": null,
+      "stem": "Which choice best states the main purpose of the text?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "To explain how a puzzle about an ancient material's durability was solved",
+        "B": "To argue that builders today should stop using modern concrete in harbors",
+        "C": "To compare the harbors built by Romans with those built by later empires",
+        "D": "To describe the methods Romans used to mine volcanic ash for construction"
+      },
+      "correct_answer": "A",
+      "explanation": "The text presents a puzzle (why Roman harbor concrete lasted so long) and then reports the finding that explains it.",
+      "distractor_explanations": {
+        "B": "The text explains a finding; it makes no recommendation about modern building.",
+        "C": "No later empires or their harbors are discussed.",
+        "D": "The text mentions ash in the mix but not how it was obtained."
+      },
+      "distractor_traps": {
+        "B": "extreme_language",
+        "C": "out_of_scope",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What problem does the text raise, and what does the rest of it do?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each sentence's job."
+      },
+      "remember": "Purpose answers describe what the whole text does.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-02",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000435",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Command of evidence: textual (supporting a hypothesis)",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000449",
+      "underline": null,
+      "evidence": "but also by observing other crows",
+      "figure": null,
+      "stem": "Which finding, if true, would most directly support the researchers' hypothesis?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Crows that had been captured scolded people wearing the captors' mask more often than any other crows did.",
+        "B": "Crows on the campus scolded people wearing the captors' mask whether or not those people came near them.",
+        "C": "Crows on the campus ignored people wearing the neutral mask even when those people carried food.",
+        "D": "Crows hatched after the captures, never captured themselves, also scolded people wearing the captors' mask."
+      },
+      "correct_answer": "D",
+      "explanation": "Crows that were never captured can only have learned to fear the mask from other crows, which is exactly the social learning the hypothesis proposes.",
+      "distractor_explanations": {
+        "A": "This reflects the crows' own experience and says nothing about learning from other crows.",
+        "B": "This concerns how the crows react, not how they learned to react.",
+        "C": "This shows the crows discriminate between masks but not that they learned from other crows."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "true_but_irrelevant",
+        "C": "true_but_irrelevant"
+      },
+      "hints": [
+        "Which part of the hypothesis goes beyond a crow's own experience?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find a group of crows that could not have learned on their own."
+      },
+      "remember": "Support for a hypothesis must test the part that is new or disputed.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-03",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000436",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Inferences (sampling)",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000450",
+      "underline": null,
+      "evidence": "could hear birds only within about fifty meters",
+      "figure": null,
+      "stem": "Which choice most logically completes the text?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "birds in the forest probably prefer to live near trailheads rather than in the interior.",
+        "B": "the survey may not show how the number of species changes away from the trails.",
+        "C": "dawn is the only time of day when singing birds can be reliably counted.",
+        "D": "trails reduce the number of bird species living in nearby parts of the forest."
+      },
+      "correct_answer": "B",
+      "explanation": "Observers sampled only a narrow band along the trails, so the survey cannot speak to areas away from them; the caution is about what the data can show.",
+      "distractor_explanations": {
+        "A": "This is the conclusion the ecologist is cautioning against drawing from the survey.",
+        "C": "The caution concerns where observers could detect birds, not when.",
+        "D": "This contradicts the finding of more species near trailheads and is not what the caution is about."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "What part of the forest did the observers never sample?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Ask what the method could and could not detect."
+      },
+      "remember": "A sample can only describe the places and conditions it covered.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-04",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000437",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Information and Ideas",
+      "skill": "Information and Ideas",
+      "subskill": "Cross-text connections",
+      "modeling": false,
+      "repo_skill_key": "sat_information_ideas",
+      "passage_id": "CLD-P-SAT-RW-000451",
+      "underline": null,
+      "evidence": "companies that would not have chosen it",
+      "figure": null,
+      "stem": "Based on the texts, how would the labor researcher (Text 2) most likely respond to the economist's argument in Text 1?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "He would agree that the firms' gains show that all companies should adopt a four-day week soon.",
+        "B": "He would argue that productivity at the firms studied actually fell after the four-day week began.",
+        "C": "He would say the firms studied may not be typical, so their gains may not apply elsewhere.",
+        "D": "He would argue that most workers would rather keep a five-day week than switch to a shorter one."
+      },
+      "correct_answer": "C",
+      "explanation": "Text 2 accepts the results but points out that the firms chose the policy and expected it to work, so generalizing to all firms is unwarranted.",
+      "distractor_explanations": {
+        "A": "He questions whether the results apply to other companies, so he would not agree.",
+        "B": "He does not dispute the reported gain, only what it implies for other firms.",
+        "D": "Worker preferences are never discussed in Text 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Does the researcher dispute the data or how far it can be applied?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Separate what he accepts from what he questions."
+      },
+      "remember": "A self-selected sample may not represent the whole population.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-05",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000438",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Standard English Conventions",
+      "skill": "Standard English Conventions",
+      "subskill": "Modifier placement (introductory phrase)",
+      "modeling": false,
+      "repo_skill_key": "sat_standard_english",
+      "passage_id": "CLD-P-SAT-RW-000454",
+      "underline": null,
+      "evidence": "Having spent a decade comparing",
+      "figure": null,
+      "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "the historian's conclusion was",
+        "B": "it was concluded by the historian",
+        "C": "the conclusion the historian reached was",
+        "D": "the historian concluded"
+      },
+      "correct_answer": "D",
+      "explanation": "The introductory phrase describes whoever spent a decade comparing the letters, so \"the historian\" must come right after the comma.",
+      "distractor_explanations": {
+        "A": "The phrase \"Having spent a decade\" must describe a person, but here it would describe a conclusion.",
+        "B": "\"It\" did not spend a decade comparing the letters.",
+        "C": "A conclusion cannot spend a decade comparing letters."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "C": "misplaced_modifier"
+      },
+      "hints": [
+        "Who spent a decade comparing the letters?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Put that person right after the comma."
+      },
+      "remember": "An introductory modifier describes the noun right after it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-08",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-RW-000439",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Reading and Writing",
+      "reporting_category": "Expression of Ideas",
+      "skill": "Expression of Ideas",
+      "subskill": "Transitions (specification)",
+      "modeling": false,
+      "repo_skill_key": "sat_expression_of_ideas",
+      "passage_id": "CLD-P-SAT-RW-000455",
+      "underline": null,
+      "evidence": "trucks weighing up to forty tons",
+      "figure": null,
+      "stem": "Which choice completes the text with the most logical transition?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Nevertheless,",
+        "B": "Instead,",
+        "C": "Specifically,",
+        "D": "Likewise,"
+      },
+      "correct_answer": "C",
+      "explanation": "The second sentence gives exact figures for the general claim in the first, so \"Specifically\" fits.",
+      "distractor_explanations": {
+        "A": "Nothing in the second sentence goes against the first.",
+        "B": "The second sentence does not replace the first; it gives details of it.",
+        "D": "The second sentence does not describe a similar but separate case."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Does the second sentence contrast, add a new case, or give details?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label the relationship before reading the choices."
+      },
+      "remember": "Use \"specifically\" when a sentence gives precise details of a general claim.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 49,
+      "draft_candidate": "S049-09",
+      "created_at": "2026-10-27T17:16:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_reading_writing/batch-049.review.json",
+        "computation": "checks/sat_reading_writing/batch_049.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
