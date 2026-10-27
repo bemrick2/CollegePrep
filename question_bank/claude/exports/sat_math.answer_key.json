@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 70,
+  "bank_version": 71,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -15899,6 +15899,252 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Set up the inequality and solve."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000772",
+      "correct_answer": "1800",
+      "accepted_answers": [
+        "1800"
+      ],
+      "common_errors": [
+        {
+          "value": "2400",
+          "rationale": "2400 is the total sample size, not the increase.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "600",
+          "rationale": "600 scales the sample size linearly (600 · 2 − 600).",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the factor by which the sample must grow.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Halving the margin of error requires multiplying the square root of the sample size by 2, so the sample size must be multiplied by 2² = 4. The new sample is 600 · 4 = 2,400, which is 1,800 more than 600.",
+      "distractor_explanations": {},
+      "hints": [
+        "By what factor must the margin of error shrink?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Square the factor to get the sample-size change."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000773",
+      "correct_answer": "D",
+      "explanation": "The reported margin of error applies to the whole sample of 1,200. An estimate based on only 300 voters is less precise, so its margin of error is larger than 3 percentage points (about twice as large, since the sample is one-fourth the size).",
+      "distractor_explanations": {
+        "A": "The whole sample's margin of error does not apply to a subgroup.",
+        "B": "A smaller sample gives a larger, not smaller, margin of error.",
+        "C": "This scales the margin of error linearly; it grows with the square root of the size ratio."
+      },
+      "hints": [
+        "How many voters is the subgroup estimate based on?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Ask whether a smaller sample is more or less precise."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000774",
+      "correct_answer": "B",
+      "explanation": "On the original map, the road measures 9/1.25 = 7.2 centimeters, which represents 7.2 · 2 = 14.4 kilometers. (On the copy, 1 centimeter represents 1.6 kilometers.)",
+      "distractor_explanations": {
+        "A": "13.5 undoes the enlargement by taking 25% off: 9 · 0.75 · 2.",
+        "C": "18 applies the original scale to the copy.",
+        "D": "22.5 multiplies by 1.25 instead of dividing."
+      },
+      "hints": [
+        "How long is the road on the original map?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Undo the enlargement, then apply the scale."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000775",
+      "correct_answer": "D",
+      "explanation": "Plausible values for A's support are 45.7% to 52.3%, and for B's, 41.7% to 48.3%. Values such as 46% for A and 47% for B are both plausible, so the poll does not establish that A leads among all likely voters.",
+      "distractor_explanations": {
+        "A": "This compares the lead with a single margin of error, but both percents are uncertain.",
+        "B": "This treats the sample result as the population value.",
+        "C": "A random sample of 900 can be informative; size alone is not the problem."
+      },
+      "hints": [
+        "What range of values is plausible for each candidate?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Find each candidate's plausible interval and check whether they overlap."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000776",
+      "correct_answer": "C",
+      "explanation": "The non-water mass is 20% of 50 = 10 kilograms and does not change. In the raisins it makes up 80% of the mass, so the raisins weigh 10/0.8 = 12.5 kilograms.",
+      "distractor_explanations": {
+        "A": "10 forgets that raisins still contain water.",
+        "B": "12 adds water equal to 20% of the solids rather than 20% of the raisins.",
+        "D": "20 subtracts 60 percentage points from the grapes' mass."
+      },
+      "hints": [
+        "Which part of the grapes does not change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Track the non-water mass."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000777",
+      "correct_answer": "1800",
+      "accepted_answers": [
+        "1800"
+      ],
+      "common_errors": [
+        {
+          "value": "2000",
+          "rationale": "2000 ignores the lost tags.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2200",
+          "rationale": "2200 adds 10% to the 120 tagged fish instead of removing it.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "After 10% lose their tags, 108 tagged fish remain. Setting 9/150 = 108/N gives N = 108 · 150/9 = 1,800.",
+      "distractor_explanations": {},
+      "hints": [
+        "How many fish still had tags?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Correct the tagged count, then set up the proportion."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000778",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "0.333",
+          "rationale": "1/3 inverts the ratio.",
+          "trap": null
+        },
+        {
+          "value": "2.5",
+          "rationale": "2.5 uses only the older cars' share ratio.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1.2",
+          "rationale": "1.2 is 0.90/0.75.",
+          "trap": null
+        }
+      ],
+      "explanation": "Older cars have 25% of accidents and make up 10% of cars, a rate proportional to 0.25/0.10 = 2.5. Newer cars have 0.75/0.90 ≈ 0.833. The ratio is 2.5/0.833 = 3, so older cars had 3 times as many accidents per car.",
+      "distractor_explanations": {},
+      "hints": [
+        "What share of the cars and of the accidents belongs to older cars?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Suppose there are 100 cars and 100 accidents."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000779",
+      "correct_answer": "19",
+      "accepted_answers": [
+        "19"
+      ],
+      "common_errors": [
+        {
+          "value": "14.5",
+          "rationale": "14.5 is the estimate from the interval midpoints.",
+          "trap": null
+        },
+        {
+          "value": "20",
+          "rationale": "20 rounds 19.5 up, but the mean must be less than 19.5.",
+          "trap": null
+        },
+        {
+          "value": "19.5",
+          "rationale": "19.5 treats the upper ends of the intervals as attainable.",
+          "trap": null
+        }
+      ],
+      "explanation": "Each time is less than the upper end of its interval, so the total is less than 6(10) + 9(20) + 5(30) = 390, and the mean is less than 19.5. A mean of 19 is possible (for example, with times just below the upper ends), so the greatest integer is 19.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the largest each time could be?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Bound the total using the interval ends."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000780",
+      "correct_answer": "A",
+      "explanation": "The model was built from children ages 2 to 10. Using it for age 30 extrapolates far beyond the data, and growth stops in adulthood, so the prediction is not justified.",
+      "distractor_explanations": {
+        "B": "A good fit within the data does not justify predictions far outside it.",
+        "C": "Correct arithmetic does not make an extrapolation valid.",
+        "D": "A model can predict for new individuals within the range of its data."
+      },
+      "hints": [
+        "What ages were used to build the model?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether 30 is inside the data's range."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000781",
+      "correct_answer": "B",
+      "explanation": "22 pounds is 10 kilograms, so the daily amount is 12 · 10 = 120 milligrams, or 40 milligrams per dose. At 250 milligrams per 5 milliliters, 40 milligrams is 40/250 · 5 = 0.8 milliliter.",
+      "distractor_explanations": {
+        "A": "0.16 treats 250 milligrams as 1 milliliter: 40/250.",
+        "C": "1.76 uses 22 as the mass in kilograms.",
+        "D": "2.4 gives the daily volume, not one of the 3 doses."
+      },
+      "hints": [
+        "What is the child's mass in kilograms?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert step by step, tracking units."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000782",
+      "correct_answer": "C",
+      "explanation": "The number who swim or run is 90 + 70 − 30 = 130. Of these, 30 do both, so the probability is 30/130 = 3/13.",
+      "distractor_explanations": {
+        "A": "3/20 divides by all 200 members.",
+        "B": "3/16 divides by 90 + 70 = 160, counting the 30 members twice.",
+        "D": "1/3 divides by the 90 swimmers only."
+      },
+      "hints": [
+        "How many members swim or run?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use inclusion-exclusion for the denominator."
       }
     }
   ]

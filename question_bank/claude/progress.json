@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T17:38:54+00:00",
+  "updated_at": "2026-10-27T17:39:10+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 423,
     "act_reading": 424,
     "sat_reading_writing": 437,
-    "sat_math": 741
+    "sat_math": 752
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 42
     },
     "sat_math": {
-      "PASS": 771,
+      "PASS": 782,
       "REVISE": 23,
       "REJECT": 4,
-      "candidates": 798,
+      "candidates": 809,
       "passed_after_revision": 29
     }
   },
@@ -1685,13 +1685,13 @@
       "passages": 464
     },
     "sat_math": {
-      "accepted": 741,
+      "accepted": 752,
       "retired_after_audit": 30,
       "by_skill": {
         "Advanced Math": 246,
         "Algebra": 232,
         "Geometry and Trigonometry": 139,
-        "Problem-Solving and Data Analysis": 124
+        "Problem-Solving and Data Analysis": 135
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1745,6 +1745,7 @@
         "Before-and-after comparison without a control group": 1,
         "Billing threshold from a cube-root inequality": 1,
         "Bound on a constant from a value that is not a solution": 1,
+        "Bound on a mean from grouped data": 1,
         "Bounding the median of two combined lists": 1,
         "Break-even sales between a plan with and without a threshold": 1,
         "Building a function from a verbal chain of operations": 1,
@@ -1781,6 +1782,7 @@
         "Common value consistent with two margins of error": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing a sum of two circle areas with one larger circle": 1,
+        "Comparing accident rates from shares": 1,
         "Comparing changes in mean and median under unequal increases": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
@@ -1806,6 +1808,7 @@
         "Condition for two real solutions": 1,
         "Condition on a slope for an intersection with a negative x-coordinate": 1,
         "Conditional percent within a complement of a two-stage chain": 1,
+        "Conditional probability given a union": 1,
         "Conditional probability where the mean defines the group": 1,
         "Conditional probability with a complement after finding an overlap": 1,
         "Conditions for a linear equation to have no solution": 1,
@@ -1875,6 +1878,7 @@
         "Distributing a monomial over a binomial": 1,
         "Dividing a polynomial by a monomial": 1,
         "Domain of a volume model implied by its context": 1,
+        "Dosage through several unit conversions": 1,
         "Doubling time from an exponential model with base 4": 1,
         "Drain-and-replace mixture": 1,
         "Edge of a cube from mass and density": 1,
@@ -1919,6 +1923,7 @@
         "Expression for a cost with a rate change after a threshold": 1,
         "Exterior angle bisector parallel to a side": 1,
         "Extra fuel cost per hour saved, independent of trip length": 1,
+        "Extrapolating beyond the data": 1,
         "Extreme x-value in a system of two linear inequalities": 1,
         "Factor of a composed polynomial": 1,
         "Factor theorem fixes a constant, then the remaining zeros": 1,
@@ -2015,6 +2020,7 @@
         "Inverse-square law with a change of distance": 1,
         "Inverting a power-law proportion": 1,
         "Joining fee when one condition is an average": 1,
+        "Judging a claimed lead with margins of error": 1,
         "Last score needed under a weighted course grade": 1,
         "Leading coefficient from a maximum value": 1,
         "Least apex angle of an isosceles triangle from one exterior angle": 1,
@@ -2059,6 +2065,7 @@
         "Lines that avoid a quadrant": 1,
         "Liquid depth after transfer from a hemisphere to a cylinder": 1,
         "Longer diagonal of a parallelogram": 1,
+        "Margin of error for a subgroup": 1,
         "Mass of a product needed to raise a concentration": 1,
         "Mass of one component from a volume ratio and two densities": 1,
         "Matching a rational expression to a quotient-and-remainder form": 1,
@@ -2227,6 +2234,8 @@
         "Rule of a function from its value at a shifted input": 1,
         "Same-side interior angles with algebra": 1,
         "Same-slope linear formulas: what equal outputs imply about inputs": 1,
+        "Sample size for a target margin of error": 1,
+        "Scale after enlarging a map": 1,
         "Scale model with a unit conversion": 1,
         "Scaled-input equation that reduces to a linear equation": 1,
         "Second isosceles triangle with equal legs and equal area": 1,
@@ -2336,6 +2345,7 @@
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
         "System with no solution when the parameter appears twice": 1,
+        "Tag-and-recapture with lost tags": 1,
         "Tangent of a ramp angle from rise and run": 1,
         "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Tangent of an angle from a point on a circle": 1,
@@ -2374,6 +2384,7 @@
         "Two travelers leaving at different times in opposite directions": 1,
         "Two unknowns from a percent speed change": 1,
         "Two-purchase system with a percent discount on one item": 1,
+        "Unchanged component after drying": 1,
         "Undoing two successive percent losses": 1,
         "Unit cost from two rates": 1,
         "Unit rate in a proportion": 1,
@@ -2437,19 +2448,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 101,
-        "hard": 101,
-        "medium": 539
+        "easy": 102,
+        "hard": 103,
+        "medium": 547
       },
       "by_difficulty_calibrated": {
-        "easy": 152,
-        "hard": 95,
-        "medium": 494
+        "easy": 153,
+        "hard": 99,
+        "medium": 500
       },
       "calibrated_share": {
-        "easy": 0.205,
-        "hard": 0.128,
-        "medium": 0.667
+        "easy": 0.203,
+        "hard": 0.132,
+        "medium": 0.665
       },
       "answer_key_balance": {
         "-1": 4,
@@ -2499,6 +2510,8 @@
         "18.75": 1,
         "18/13": 1,
         "180": 1,
+        "1800": 2,
+        "19": 1,
         "193.5": 1,
         "2": 11,
         "2.5": 1,
@@ -2519,7 +2532,7 @@
         "26/3": 1,
         "27500": 1,
         "29": 1,
-        "3": 14,
+        "3": 15,
         "3.54": 1,
         "3/2": 1,
         "30": 4,
@@ -2578,13 +2591,13 @@
         "94": 1,
         "95": 1,
         "96": 1,
-        "A": 101,
-        "B": 150,
-        "C": 135,
-        "D": 78
+        "A": 102,
+        "B": 152,
+        "C": 137,
+        "D": 80
       },
-      "modeling_items": 251,
-      "spr_items": 277,
+      "modeling_items": 252,
+      "spr_items": 281,
       "passages": 0
     }
   },
@@ -2593,7 +2606,7 @@
     "act_english": 48,
     "act_reading": 54,
     "sat_reading_writing": 52,
-    "sat_math": 70
+    "sat_math": 71
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2625,27 +2638,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 71,
+    "next_batch": 72,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 30.8,
-      "Advanced Math": 16.8,
-      "Problem-Solving and Data Analysis": -11.4,
-      "Geometry and Trigonometry": -26.4
+      "Algebra": 34.7,
+      "Advanced Math": 20.7,
+      "Problem-Solving and Data Analysis": -20.7,
+      "Geometry and Trigonometry": -24.7
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 35.8,
-      "medium": -118.5,
-      "hard": 92.8
+      "easy": 37.5,
+      "medium": -119.0,
+      "hard": 91.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 39.8,
-      "B": -9.2,
-      "C": 5.8,
-      "D": 62.8
+      "A": 40.9,
+      "B": -9.1,
+      "C": 5.9,
+      "D": 62.9
     },
-    "spr_items": 277,
+    "spr_items": 281,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -2698,12 +2711,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 741,
-      "share_of_target": 0.741
+      "accepted": 752,
+      "share_of_target": 0.752
     }
   },
   "total_target": 3841,
-  "total_accepted": 2799,
+  "total_accepted": 2810,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -306782,7 +306795,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 70,
+      "bank_version": 71,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -306908,7 +306921,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T17:38:54+00:00",
+    "heartbeat_at": "2026-10-27T17:39:10+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
