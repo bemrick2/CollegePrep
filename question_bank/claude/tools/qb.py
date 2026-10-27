@@ -46,10 +46,17 @@ BANKS = {
     'sat_reading_writing': {'exam': 'SAT', 'section': 'Reading and Writing', 'prefix': 'CLD-SAT-RW-', 'family': 'sat', 'repo_section': 'reading_writing'},
     'sat_math': {'exam': 'SAT', 'section': 'Math', 'prefix': 'CLD-SAT-M-', 'family': 'sat', 'repo_section': 'math'},
 }
-# Long-term targets: 4,000 accepted items, 2,000 ACT Math and 2,000 verbal split across the three verbal banks.
-TARGETS = {'act_math': 2000, 'act_english': 700, 'act_reading': 600, 'sat_reading_writing': 700, 'sat_math': 700}
-# 2026-10-27: the user asked to work only on SAT Math until it has 700 accepted items.
+# 2026-10-27 revision: targets are COMBINED ChatGPT + Claude bank totals (1,000 each for SAT Math, SAT R&W, ACT English
+# and ACT Reading; ACT Math paused at its baseline). The combined baselines given by the user already include this
+# workstream's export (774 / 262 / 219 / 263). The numbers below are this workstream's live-item targets: its live count
+# plus the user's 'more needed' figure, less any items since held (SAT R&W 6, ACT English 1). The other workstream's
+# additions are not visible here, so combined reconciliation is pending (see progress.json combined_tracking).
+TARGETS = {'act_math': 774, 'act_english': 689, 'act_reading': 684, 'sat_reading_writing': 694, 'sat_math': 1000}
+# SAT Math goes first until this checkpoint (counting this workstream's live SAT Math items; combined count pending).
 FOCUS_BANK = 'sat_math'
+FOCUS_CHECKPOINT = 500
+# ACT Math: no bulk expansion; only targeted replacements or missing skills. Rotation covers these banks only.
+GROWTH_BANKS = ('sat_math', 'sat_reading_writing', 'act_english', 'act_reading')
 # ACT Math is worked first until this many are accepted; after that the bank furthest behind its target goes next.
 MATH_FIRST_UNTIL = 200
 WORKSTREAM_BRANCH = 'ccr-78c91309-anlh8e'
@@ -785,7 +792,7 @@ def write_progress(files: dict) -> None:
                                 'share_of_target': round(sections[b]['accepted'] / TARGETS[b], 3)} for b in BANKS},
         'total_target': sum(TARGETS.values()),
         'total_accepted': sum(sections[b]['accepted'] for b in BANKS),
-        'next_bank_policy': f'ACT Math until {MATH_FIRST_UNTIL} accepted; then the bank with the lowest share of its target',
+        'next_bank_policy': f'{FOCUS_BANK} until {FOCUS_CHECKPOINT} live items; then whichever of {", ".join(GROWTH_BANKS)} has the lowest share of its target. ACT Math: no bulk expansion.',
         'next_bank': next_bank({b: sections[b]['accepted'] for b in BANKS}),
         'audits': prev.get('audits', []),
         'files': files,
@@ -801,7 +808,7 @@ def write_progress(files: dict) -> None:
 
 def sat_math_guidance(m: dict, last_batch: int) -> dict:
     n = m['accepted']
-    return {'next_batch': last_batch + 1, 'target': TARGETS['sat_math'],
+    return {'next_batch': last_batch + 1, 'target': TARGETS['sat_math'], 'checkpoint': FOCUS_CHECKPOINT,
             'skill_gap_for_next_10': {k: round(v * (n + 10) - m['by_skill'].get(k, 0), 1) for k, v in SAT_MATH_BLUEPRINT.items()},
             'calibrated_difficulty_gap_for_next_10': {k: round(t * (n + 10) - m['by_difficulty_calibrated'].get(k, 0), 1)
                                                       for k, t in DIFFICULTY_TARGET.items()},
@@ -874,11 +881,9 @@ def screen(bank: str, n: int) -> None:
 
 
 def next_bank(accepted: dict) -> str:
-    if FOCUS_BANK and accepted.get(FOCUS_BANK, 0) < TARGETS[FOCUS_BANK]:
+    if FOCUS_BANK and accepted.get(FOCUS_BANK, 0) < FOCUS_CHECKPOINT:
         return FOCUS_BANK
-    if accepted['act_math'] < MATH_FIRST_UNTIL:
-        return 'act_math'
-    return min(BANKS, key=lambda b: (accepted[b] / TARGETS[b], b != 'act_math'))
+    return min(GROWTH_BANKS, key=lambda b: (accepted[b] / TARGETS[b], b))
 
 
 def record_audit(bank: str, report: dict) -> None:

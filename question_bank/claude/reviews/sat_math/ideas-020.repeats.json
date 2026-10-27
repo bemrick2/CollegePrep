@@ -1,0 +1,113 @@
+{
+  "ideas": "batch 20",
+  "results": {
+    "I03": [
+      {
+        "other_id": "CLD-ACT-M-000480",
+        "severity": "template",
+        "why": "Same template: solve a single linear inequality and report the extreme integer that satisfies it (x/3 − 2 > 1, least integer). I03 adds distribution and variables on both sides, and asks for the greatest instead of the least, but the reasoning is the same."
+      },
+      {
+        "other_id": "CLD-ACT-M-000250",
+        "severity": "close",
+        "why": "Also asks for the greatest integer satisfying an inequality, but it is a compound inequality in a word context."
+      }
+    ],
+    "I05": [],
+    "I07": [],
+    "I10": [],
+    "I14": [
+      {
+        "other_id": "CLD-ACT-M-000168",
+        "severity": "close",
+        "why": "Also adds values to a list and compares summary statistics, but it asks which statistic stays the same, not whether the mean or the median is now larger."
+      }
+    ],
+    "I18": [],
+    "I19": [
+      {
+        "other_id": "CLD-ACT-M-000241",
+        "severity": "close",
+        "why": "Ladder against a wall solved with the Pythagorean theorem. I19 is only the first step of 241, which goes on to ask how far the top slides."
+      }
+    ],
+    "I20": [],
+    "I22": [],
+    "I23": [],
+    "I24": [],
+    "I26": [
+      {
+        "other_id": "batch-019 draft 'When two linear quantities are equal' (no id)",
+        "severity": "template",
+        "why": "Same template: two linear quantities a + bt and c + dt, asking when they are equal (battery levels in the draft, gym costs in I26)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000196",
+        "severity": "close",
+        "why": "Break-even between two linear plans, but it asks for the least whole number where a strict inequality holds."
+      }
+    ],
+    "I27": [
+      {
+        "other_id": "CLD-ACT-M-000565",
+        "severity": "template",
+        "why": "Same template: a 5-value list with one unknown x and a fixed median, asking which values of x keep that median (565 counts them; I27 describes them)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000590",
+        "severity": "close",
+        "why": "Finds a missing value from the median, but with an even-sized list and a single answer."
+      }
+    ],
+    "I28": [
+      {
+        "other_id": "fixture sat-math (bacteria triples every 4 hours, t in days)",
+        "severity": "close",
+        "why": "Also converts time units inside an exponent, but the fixture builds the exponent from a tripling period, while I28 plugs t = 1/2 into a given model."
+      },
+      {
+        "other_id": "CLD-SAT-M-000112",
+        "severity": "close",
+        "why": "Also converts time units in exponential growth, but it changes a monthly rate into an annual percent."
+      }
+    ],
+    "I29": [
+      {
+        "other_id": "CLD-SAT-M-000020",
+        "severity": "template",
+        "why": "Same template: a rectangle with a given diagonal and one side; use Pythagoras to get the other side, then finish (13/5 then area, against 25/7 then perimeter). Only the last arithmetic step differs."
+      }
+    ],
+    "I30": [
+      {
+        "other_id": "CLD-SAT-M-000118",
+        "severity": "template",
+        "why": "Same template: a line through two given points, asking the x-coordinate where y is a given value (y = 4 in 118; y = 0, the x-intercept, in I30)."
+      },
+      {
+        "other_id": "CLD-SAT-M-000169",
+        "severity": "close",
+        "why": "Also a line with one point and an intercept, but it gives the x-intercept and asks for the y-intercept."
+      }
+    ],
+    "I31": [
+      {
+        "other_id": "CLD-ACT-M-000549",
+        "severity": "template",
+        "why": "Same template: take a percent of a total and ask for the complement count (85% of 40 correct, so how many incorrect; 18% of 45,000 under 10, so how many 10 or older)."
+      }
+    ],
+    "I32": [
+      {
+        "other_id": "CLD-ACT-M-000588",
+        "severity": "template",
+        "why": "Same template: an equivalent single power of x for a product and quotient of powers ((x³)(x⁴)/x²), using add and subtract exponents. I32 adds negative and fractional exponents."
+      },
+      {
+        "other_id": "CLD-SAT-M-000063",
+        "severity": "close",
+        "why": "A product of fractional powers of x, with only 2 factors."
+      }
+    ]
+  }
+}

@@ -22,11 +22,26 @@ python3 -I question_bank/claude/tools/qb.py lock acquire <HOLDER>
 - If any `lock checkpoint` exits **4**, you have lost the lease. Stop writing at once.
 - For the import validator, run `cd web && npm ci --no-audit --no-fund --ignore-scripts` once if `web/node_modules` is missing. Nothing is deployed; it only reads files.
 
-## Current stop point (set by the user, 2026-10-27)
+## Current goals (revised by the user, 2026-10-27, later the same day)
 
-**Work only on SAT Math (`sat_math`, IDs `CLD-SAT-M-`) and stop when it has 700 live (accepted, not retired) items.** Do not write ACT or verbal items. When 700 is reached: checkpoint, release the lock, start no new batch, and disable the scheduled check-in.
+Targets are **combined ChatGPT + Claude bank totals**, not extra generation amounts:
 
-History: ACT/verbal generation stopped 2026-10-26 about 20:13 US Central at the user's request (ACT Math 774, English 262, Reading 219, SAT R&W 263 live); a complete export of those banks is in `exports/prep-and-price-claude-complete-export.zip`. On 2026-10-27 the user asked to continue with SAT Math only, to 700.
+| Section | Combined target | Combined baseline (user) | Notes |
+|---|---|---|---|
+| SAT Math | 1,000 (checkpoint at 500) | not given | Work first, until this workstream has 500 live SAT Math items. Mix ~35% Algebra, 35% Advanced Math, 15% PSDA, 15% Geometry/Trig; include SPR and calculator-aware items; never relabel ACT items. |
+| SAT Reading & Writing | 1,000 | 569 | ~28% Craft and Structure, 26% Information and Ideas, 20% Expression of Ideas, 26% Standard English Conventions. Prioritise hard inference, cross-text, evidence/data, rhetorical synthesis, plausible distractors. |
+| ACT English | 1,000 | 573 | Varied original passage sets, balanced skills, precise edit targets, stronger upper difficulty; current enhanced-ACT specs; complete passage sets. |
+| ACT Reading | 1,000 | 535 | Same as English. |
+| ACT Math | paused | 1,568 | No bulk expansion: resolve review findings; targeted replacements or missing skills only. |
+| ACT Science | — | — | Do not add. |
+
+The baselines already include this workstream's complete export (774 ACT Math, 262 ACT English, 219 ACT Reading, 263 SAT R&W); never count it again. `tools/combined_tracking.py` writes `audits/combined_tracking.json` with the six required figures per section (baseline, verified new additions, holds/removals/duplicates, reconciled total and remaining, current-version AI-reviewed, unreviewed and human-approved). Run it at every checkpoint.
+
+**Pending (material blocker):** `prep-and-price-combined-bank-screening.zip` was not available in this environment, so combined-count reconciliation, the combined SAT Math baseline, the other workstream's screening findings (including ACT Math review findings) and cross-bank duplicate screening against the other workstream remain pending. Never claim they were inspected.
+
+**Quality rules added with this revision:** literally insert every fill-in choice into the text (scan: `audits/insertion_scan_2026-10-27.json`; 7 defective items were held); reject ambiguous answers, missing context, unlabeled empty choices and faulty explanations; screen substantive duplicates (new names or numbers alone are not originality); re-review any substantive revision; keep difficulty provisional; no rights clearance or human approval claims without evidence. Save every passing batch before starting another. Do not import, deploy, publish or overwrite another workstream's canonical files.
+
+History: ACT/verbal generation stopped 2026-10-26 about 20:13 US Central at the user's request; a complete export is in `exports/prep-and-price-claude-complete-export.zip`. On 2026-10-27 the user asked for SAT Math only (to 700), then revised the goals as above.
 
 ### SAT Math batches
 
