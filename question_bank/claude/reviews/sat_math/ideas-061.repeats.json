@@ -1,0 +1,183 @@
+{
+ "ideas": "generated set 13 (HB/HD)",
+ "results": {
+  "HB01": [],
+  "HB02": [],
+  "HB03": [
+   {
+    "other_id": "CLD-ACT-M-000081",
+    "severity": "template",
+    "why": "Same setup: 4^x − c·2^x − d = 0 solved as a quadratic in u = 2^x with the negative root rejected; ACT-081 (4^x − 3·2^x − 4 = 0) even has the same positive root u = 4 (x = 2). Asking 8^x instead of x adds only a cube at the end."
+   }
+  ],
+  "HB04": [],
+  "HB05": [
+   {
+    "other_id": "CLD-SAT-M-000539",
+    "severity": "close",
+    "why": "Same figure, the triangle formed by a parabola's two x-intercepts and a third point. The ask is different (k from an equilateral condition, not an area), so this is only a light neighbour."
+   }
+  ],
+  "HB06": [
+   {
+    "other_id": "CLD-ACT-M-000248",
+    "severity": "close",
+    "why": "Absolute value of a quadratic set equal to a constant, split into ± cases (|x² − 4| = 3). Here the ask is a sum and one branch is tangent; the structure is similar but the reasoning differs."
+   }
+  ],
+  "HB07": [],
+  "HB08": [],
+  "HB09": [],
+  "HB10": [
+   {
+    "other_id": "CLD-ACT-M-000431",
+    "severity": "close",
+    "why": "Same model a(b)^x + c with the long-run value equal to c. Here that value is given and is combined with the y-intercept and an evaluation."
+   }
+  ],
+  "HB11": [
+   {
+    "other_id": "CLD-ACT-M-000456",
+    "severity": "close",
+    "why": "Same asked quantity: by what factor f(x + 2) exceeds f(x) for an exponential. HB11 adds a base below 1 with a negative fractional exponent, but plugging in f(2)/f(0) = 6/3 answers both items the same way."
+   }
+  ],
+  "HB12": [
+   {
+    "other_id": "CLD-SAT-M-000378",
+    "severity": "close",
+    "why": "Factor theorem used to find k (substitute the root of the given factor and set the result to 0). The root here is fractional and the ask stops at k. Also in earlier idea set gen-04 as P05."
+   }
+  ],
+  "HB13": [],
+  "HB14": [
+   {
+    "other_id": "CLD-ACT-M-000701",
+    "severity": "template",
+    "why": "The enclosed region is exactly |x + 1| + |y + 1| ≤ 3, a translate of ACT-701's |x| + |y| ≤ 3, with the same square and the same answer, 18. It is only dressed up as two V-graphs. Change the shape (unequal arms or slopes) or the size."
+   }
+  ],
+  "HB15": [
+   {
+    "other_id": "CLD-SAT-M-000303",
+    "severity": "close",
+    "why": "Converts a percent change over one span of an exponential to a different span (6 → 3 years there; 2 → 4 units here)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000392(RET)",
+    "severity": "close",
+    "why": "Retired template (also gen-04 P11 and draft Q043-08): an f(x) = a·b^x ratio over a 2-unit span is given and used to step to another input."
+   }
+  ],
+  "HB16": [],
+  "HB17": [
+   {
+    "other_id": "CLD-SAT-M-000089",
+    "severity": "close",
+    "why": "Same symmetric-function trick: a² + b² and ab (or a + b) give (a ± b)². Here the inputs come from matching coefficients first."
+   }
+  ],
+  "HB18": [
+   {
+    "other_id": "CLD-ACT-M-000556",
+    "severity": "close",
+    "why": "Build f values step by step from f(0) = 2 and a rule for f(x + 1) in terms of f(x). ACT-556 also uses f(0) = 2 and a constant step; here the step is linear in x. Distractor B (a constant step of 6) is ACT-556's method exactly."
+   }
+  ],
+  "HD01": [
+   {
+    "other_id": "CLD-SAT-M-000115(RET)",
+    "severity": "close",
+    "why": "Retired template: a circle in general form x² + y² − 10x + … + k = 0 with an unknown constant, found by completing the square from a known radius. This idea gets the radius from tangency to the x-axis instead (as in SAT-240 and ACT-747). It is a merge of two existing templates and shares −10x with the retired item."
+   },
+   {
+    "other_id": "CLD-SAT-M-000022",
+    "severity": "close",
+    "why": "Live version of the same 'find the constant of a general-form circle' template."
+   }
+  ],
+  "HD02": [],
+  "HD03": [],
+  "HD04": [],
+  "HD05": [],
+  "HD06": [],
+  "HD07": [
+   {
+    "other_id": "CLD-ACT-M-000232 / CLD-SAT-M-000134 / CLD-ACT-M-000624(RET)",
+    "severity": "close",
+    "why": "Scaling a cylinder's radius and tracking the volume factor. Here it runs in reverse: the height is compensated so the volume stays fixed, and the answer is a percent."
+   }
+  ],
+  "HD08": [
+   {
+    "other_id": "ideas-gen-07 BD04",
+    "severity": "close",
+    "why": "Same sine/cosine radian-symmetry MC: 'which has the same sine as 2π/9' with distractors from the complement, supplement and π + θ. HD08 uses the complement with cosine, and the distractor logic mirrors BD04."
+   },
+   {
+    "other_id": "official SAT (released practice item: 'Which of the following is equal to sin(π/5)?', key cos(3π/10))",
+    "severity": "close",
+    "why": "Closely mirrors a well-known released SAT question in both format and key type."
+   }
+  ],
+  "HD09": [],
+  "HD10": [],
+  "HD11": [
+   {
+    "other_id": "CLD-ACT-M-000664",
+    "severity": "close",
+    "why": "Partly filled inverted cone needs a similar-triangle radius. Combined with the SAT-348 'pour into a cylinder, find depth' template, so the idea merges two existing items."
+   }
+  ],
+  "HD12": []
+ },
+ "within_list_cues": [
+  "HB11 / HB15: both are f = a·b^x items about the change over a 2-unit span of x (HB11 asks the factor for x + 2; HB15 gives the factor over x = 1 → 3). Seeing one primes the 'ratio over the span = b²' step in the other.",
+  "HB04 / HB06: both hinge on a repeated (tangent) root counting once among distinct solutions, which cues the trap in the other.",
+  "HB10 / HB11: both use base 0.5 exponentials in the same set. This is minor."
+ ],
+ "answer_errors": [
+  "None of the keys is wrong. All 30 recomputed (HB04 25/3 = 4 + 13/3, HB05 22, HB14 18, HB15 43.75%, HD05 25 by shoelace with P = (10/3, 4), HD10 78 + 6√3, HD11 8/9 all confirmed).",
+  "HB02 choice B: the stated error, 'multiplies by the expression itself instead of the conjugate', does not produce √(x + 9) − 3. Multiplying by (√(x + 9) − 3)/(√(x + 9) − 3) gives x(√(x + 9) − 3)/(√(x + 9) − 3)². Reword the rationale (e.g. a sign error on the conjugate) or change the choice.",
+  "HD06: the key holds only for a convex kite. If the quadrilateral is a dart (A inside triangle BCD, angle BAD = 70° as the non-reflex angle), angle ABC = 65° − 55° = 10°. 10° is not among the choices, so the MC key stays unique, but the stem should say 'convex quadrilateral'."
+ ],
+ "cues_or_overdetermined": [
+  "HB13: one test value, x = 0, eliminates every wrong choice. The original equals +20, and A, B and C all equal −20 at x = 0, so all three fail for one shared reason (constant-term sign).",
+  "HB16: the key is the only verbal choice ('no solution'), and plugging −3, −1/2 and 7 into the original equation quickly eliminates all three numeric choices.",
+  "HD08: a sign check eliminates C and D (cos(5π/7) and cos(11π/14) are negative, but sin(2π/7) > 0). That leaves A or B, and B only works for π/4.",
+  "HD04: D (54√3) is the whole hexagon's area, so it is eliminated because the inscribed triangle must be smaller, and the key is exactly half of D, which cues the well-known half-hexagon fact.",
+  "HB02 / HB09 / HB08: one test value (x = 7 for HB02, x = 2 for HB09, x = 1 for HB08) separates every choice. This is normal for equivalent-expression MC but makes them easier.",
+  "HD07: the key (55.6%) and choice B (44.4%) sum to 100, a recognizable complement pair. The key is also the largest choice. This is minor.",
+  "HB18: the word 'quadratic' is never needed (f(0) and the difference rule alone fix f(3)). It is harmless but over-determined.",
+  "HB11: f(2)/f(0) = 6/3 = 2 by direct evaluation bypasses the exponent-rule reasoning that the distractors target."
+ ],
+ "grid_problems": [
+  "HB04: 25/3 fits the grid, but as a decimal it repeats (8.333…), so accept 25/3, 8.333 and 8.334.",
+  "HD11: 8/9 fits, but as a decimal it repeats (.8888…), so accept 8/9, .8888 and .8889."
+ ],
+ "unrealistic": [],
+ "likely_easier_than_labeled": [
+  "HB17 (hard): a + b = 10 and a² + b² = 58 are solved at once by guessing 7 and 3, so it is medium-hard at most.",
+  "HB06 (hard): Desmos solves it directly (graph |x² − 8x| and 16, read 3 points, sum 12). The naive 'both cases by Vieta' gives the trap 16, but graphing gives the key.",
+  "HB07 (medium-hard): Desmos gives both intersection points immediately.",
+  "HB03 (medium-hard): Desmos gives x = 2 at once. It is also a near-repeat of ACT-081.",
+  "HB10 (medium-hard): c is handed over directly, so this is two one-step substitutions (medium).",
+  "HB11 (medium-hard): f(0) = 3 and f(2) = 6 give the factor by plugging in (medium).",
+  "HB18 (medium-hard): three additions (medium).",
+  "HB13 (medium): with the x = 0 cue it is closer to easy.",
+  "HB16 (medium-hard): back-solving eliminates every numeric choice.",
+  "HD06 (medium): (360 − 120)/2 is easy.",
+  "HD12 (medium-hard): one height computation plus one area (medium).",
+  "HD01 (hard): completing the square plus r = |k| is standard (medium-hard).",
+  "HD02 (hard): two formula applications (medium-hard)."
+ ],
+ "well_known_or_classic": [
+  "HD08 mirrors the released SAT item 'Which of the following is equal to sin(π/5)?' (key cos(3π/10)).",
+  "HD03 (square and regular pentagon sharing a side, angle ADG = 9°) is a common contest/textbook classic.",
+  "HD04 (triangle ACE is half of a regular hexagon) is a textbook classic.",
+  "HD09 (cube with a cylindrical hole, surface area) is a textbook classic.",
+  "HB13 (factoring a four-term cubic by grouping) and HB09 (complex fraction 1 − 1/x over 1 − 1/x²) are textbook classics.",
+  "HB02 (x/(√(x + 9) − 3) → √(x + 9) + 3) is the classic precalculus limit-rationalization example.",
+  "HD07 (radius up 50%, height compensation) is a textbook classic."
+ ]
+}

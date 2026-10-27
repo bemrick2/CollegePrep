@@ -1,0 +1,1094 @@
+{
+ "bank": "sat_math",
+ "batch": 60,
+ "plan": "SAT Math batch 60: 23 items from generated idea set 12 (Algebra and PSDA; pre-checked in ideas-060.repeats.json) plus Q059-12 resubmitted as revision 2 (wording only). Dropped from set 12: GC02 (mirrors CLD-ACT-M-000234's margin-of-error trap), GC08 (key cue and implausible slope), GC10 (reused numbers), GC11 (close to CLD-ACT-M-000025 and pairs with GC07), GC13 (contradicts growth charts), GA06 and GA14 (textbook classics; GA14 also cued). Fixes: GC05 gained an 18% distractor so the key is not the only value above both percents; GA03, GA04 and GC03 labeled medium because a convenient value or the naive guess works; GA09 accepts only 447 and lists 446 as a rounding trap.",
+ "candidates": [
+  {
+   "cand": "Q060-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solution of a system after a substitution maps it onto a known system",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "The system ax + by = c and dx + ey = f, where a, b, c, d, e and f are constants, has exactly one solution, (2, 5). What is the solution (x, y) of the system a(x − 3) + 2by = c and d(x − 3) + 2ey = f ?",
+   "explanation": "Let u = x − 3 and v = 2y. Then the new system is au + bv = c and du + ev = f, which is the original system, so u = 2 and v = 5. Therefore x = 5 and y = 5/2.",
+   "hints": [
+    "What expressions play the roles of x and y in the new system?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rename x − 3 and 2y, then compare with the original system."
+   },
+   "remember": "A substitution can turn a new system into one whose solution you already know.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The constants cannot be found, so students must see the substitution rather than solve directly."
+   },
+   "choices": {
+    "A": "(−1, 5/2)",
+    "B": "(−1, 10)",
+    "C": "(5, 5/2)",
+    "D": "(5, 10)"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "(−1, 5/2) solves x − 3 = 2 as x = 2 − 3.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "(−1, 10) makes both errors: subtracts 3 and doubles 5.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "(5, 10) reads 2y = 5 as y = 2 · 5.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q060-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting the slope of a rearranged budget equation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A café spends exactly $600 on x pounds of Colombian coffee beans at $12 per pound and y pounds of Ethiopian coffee beans at $15 per pound, so 12x + 15y = 600. This equation is equivalent to y = 40 − 0.8x. What is the best interpretation of 0.8 in this context?",
+   "explanation": "In y = 40 − 0.8x, each 1-pound increase in x (Colombian) decreases y (Ethiopian) by 0.8 pound, since 12 dollars spent on Colombian beans is 0.8 of 15 dollars.",
+   "hints": [
+    "What happens to y when x increases by 1?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Read the slope as the change in y per unit change in x."
+   },
+   "remember": "In a budget equation solved for y, the slope tells how much of y you give up per unit of x.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The number of pounds of Ethiopian beans the café must buy less of for each additional pound of Colombian beans it buys",
+    "B": "The number of pounds of Ethiopian beans the café buys for each pound of Colombian beans it buys",
+    "C": "The number of pounds of Colombian beans the café must buy less of for each additional pound of Ethiopian beans it buys",
+    "D": "The number of pounds of Ethiopian beans the café buys if it buys no Colombian beans"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This reads the slope as a fixed ratio of the two amounts, but the amounts trade off; they do not grow together.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This reverses the trade; giving up one pound of Ethiopian beans frees $15, enough for 1.25 pounds of Colombian beans.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This describes the y-intercept, 40, not the slope.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q060-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Intersection coordinate that does not depend on a parameter",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, line ℓ has x-intercept (a, 0) and y-intercept (0, 6), and line m has x-intercept (2a, 0) and y-intercept (0, 4), where a is a positive constant. What is the y-coordinate of the point where ℓ and m intersect?",
+   "explanation": "Line ℓ is x/a + y/6 = 1 and line m is x/(2a) + y/4 = 1. Doubling the second gives x/a + y/2 = 2. Subtracting the first equation leaves y/2 − y/6 = 1, so y/3 = 1 and y = 3, whatever the value of a.",
+   "hints": [
+    "Write each line in intercept form."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a = 2 and find where the two lines meet."
+   },
+   "remember": "If an answer must hold for every value of a parameter, a convenient value can reveal it.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "2",
+     "rationale": "2 sets the two y-intercepts' average aside and uses 6 − 4.",
+     "trap": null
+    },
+    {
+     "value": "5",
+     "rationale": "5 averages the two y-intercepts.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "New x-intercept after scaling a line's coefficients",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The graph of y = ax + b in the xy-plane, where a and b are nonzero constants, has an x-intercept at (6, 0). What is the x-coordinate of the x-intercept of the graph of y = 3ax + 2b ?",
+   "explanation": "The x-intercept of y = ax + b is −b/a = 6. The x-intercept of y = 3ax + 2b is −2b/(3a) = (2/3)(−b/a) = (2/3)(6) = 4.",
+   "hints": [
+    "Write the x-intercept in terms of a and b."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try a = 1 and b = −6, then find the new intercept."
+   },
+   "remember": "The x-intercept of y = ax + b is −b/a; scale the numerator and denominator separately.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 scales the intercept by 3/2 instead of 2/3.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "6",
+     "rationale": "6 assumes scaling the coefficients does not move the intercept.",
+     "trap": null
+    },
+    {
+     "value": "18",
+     "rationale": "18 scales the intercept by 3 only.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q060-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Average cost under a two-tier price",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A print shop charges $0.12 per page for each of the first 500 pages of an order and $0.08 per page for each page after the first 500. For one order, the average cost per page was $0.09. How many pages were in the order?",
+   "explanation": "For n pages (n > 500), the cost is 0.12(500) + 0.08(n − 500) = 60 + 0.08n − 40 = 0.08n + 20. Setting the average equal to 0.09 gives (0.08n + 20)/n = 0.09, so 20 = 0.01n and n = 2,000. Check: the cost is $180 for 2,000 pages.",
+   "hints": [
+    "Write the total cost of an order of n pages."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set total cost divided by n equal to 0.09."
+   },
+   "remember": "Average cost = total cost ÷ number of units.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build a piecewise cost and set the average equal to a value between the two rates."
+   },
+   "format": "spr",
+   "answer": "2000",
+   "accepted_answers": [
+    "2000"
+   ],
+   "common_errors": [
+    {
+     "value": "1500",
+     "rationale": "1,500 is the number of pages after the first 500, not the total.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q060-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Recovering two linear functions from combinations",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The linear functions f and g satisfy f(x) + g(x) = 7x + 1 and f(x) − 2g(x) = x + 13 for all values of x. Which of the following defines f ?",
+   "explanation": "Subtracting the second equation from the first gives 3g(x) = 6x − 12, so g(x) = 2x − 4. Then f(x) = 7x + 1 − (2x − 4) = 5x + 5.",
+   "hints": [
+    "Eliminate f or g as in a system of equations."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Treat f(x) and g(x) as two unknowns."
+   },
+   "remember": "Equations in two unknown functions can be solved like a system in two variables.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(x) = 2x − 4",
+    "B": "f(x) = 5x + 5",
+    "C": "f(x) = 5x − 3",
+    "D": "f(x) = 9x − 3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2x − 4 is g, not f.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "5x − 3 does not distribute the minus sign: 7x + 1 − 2x − 4.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "9x − 3 adds g instead of subtracting it.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q060-07",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Difference of two unknowns from subtracted equations, with unit conversion",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a market, a bag of 4 peaches and 3 plums weighs 1.15 kilograms, and a bag of 2 peaches and 5 plums weighs 0.95 kilogram. Every peach has the same weight, and every plum has the same weight. How many grams more does a peach weigh than a plum?",
+   "explanation": "Subtracting the second equation from the first: (4p + 3q) − (2p + 5q) = 1.15 − 0.95, so 2p − 2q = 0.2 and p − q = 0.1 kilogram, or 100 grams.",
+   "hints": [
+    "What happens if you subtract the two equations?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Subtract to get a multiple of p − q directly."
+   },
+   "remember": "Look for a combination of equations that gives the asked quantity directly.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "10",
+    "B": "50",
+    "C": "100",
+    "D": "200"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "10 converts 0.1 kilogram using 100 grams per kilogram instead of 1,000.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "50 divides 0.2 by 4, the number of peaches.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "200 stops at 2p − 2q = 0.2 kilogram without dividing by 2.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q060-08",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Least price meeting a profit target after a commission",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A gallery keeps 35% of the sale price of each painting it sells, and the artist receives the rest. An artist's materials cost $40 per painting. What is the least whole-dollar sale price for which the artist's profit on a painting (the amount the artist receives minus the cost of materials) is at least $250 ?",
+   "explanation": "The artist receives 0.65p, so the profit is 0.65p − 40. Then 0.65p − 40 ≥ 250 gives p ≥ 290/0.65 ≈ 446.15, so the least whole-dollar price is $447.",
+   "hints": [
+    "What fraction of the sale price does the artist receive?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the profit in terms of the price and solve the inequality."
+   },
+   "remember": "A commission comes off the price; dividing by the remaining fraction is not the same as marking up.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The markup-versus-commission confusion (392) is a strong trap, and the answer must be rounded up."
+   },
+   "format": "spr",
+   "answer": "447",
+   "accepted_answers": [
+    "447"
+   ],
+   "common_errors": [
+    {
+     "value": "392",
+     "rationale": "392 marks up the needed $290 by 35%, treating the gallery's share as 35% of the artist's amount.",
+     "trap": null
+    },
+    {
+     "value": "829",
+     "rationale": "829 uses 35% of the price as the artist's share.",
+     "trap": null
+    },
+    {
+     "value": "446",
+     "rationale": "446 rounds 446.15 down; at $446 the profit is $249.90.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q060-09",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Output change from a percent change in the input",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A theater estimates that the number of tickets it sells for a show is n = 1,500 − 15p, where p is the ticket price in dollars. According to the estimate, if the price is raised 20% from $40, by how many tickets does the number sold decrease?",
+   "explanation": "A 20% increase from $40 is $8, so the price becomes $48. The number sold decreases by 15 × 8 = 120.",
+   "hints": [
+    "How many dollars is a 20% increase from $40?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the change in p, then multiply by the slope."
+   },
+   "remember": "The change in a linear output is the slope times the change in the input.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "120",
+    "B": "180",
+    "C": "300",
+    "D": "600"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "180 takes 20% of the 900 tickets sold at $40, applying the percent to the output.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "300 treats the 20% increase as a $20 increase.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "600 multiplies 15 by the original price, $40.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q060-10",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving for an expression as a single unknown",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "If (3/5)(4x + 7) + 2 = (1/5)(4x + 7) + 10, what is the value of 4x + 7 ?",
+   "explanation": "Let u = 4x + 7, so the equation becomes (3/5)u + 2 = (1/5)u + 10. Subtracting (1/5)u and 2 from both sides gives (2/5)u = 8, so u = 20.",
+   "hints": [
+    "Treat 4x + 7 as one quantity."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute u for 4x + 7 and solve for u."
+   },
+   "remember": "If the question asks for an expression, solve for the expression directly.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "13/4",
+    "B": "8",
+    "C": "20",
+    "D": "40"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "13/4 is the value of x, not of 4x + 7.",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "8 stops at (2/5)u = 8.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "40 multiplies 8 by 5 but forgets to divide by 2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-11",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Eliminating a shared variable between two models",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "During a descent, a hiker's elevation E, in meters, t hours after leaving a summit is E = 2,400 − 300t, and the air temperature T, in degrees Celsius, at the hiker's location is T = 8 + 1.8t. Which equation gives T in terms of E ?",
+   "explanation": "From the elevation model, t = (2,400 − E)/300. Substituting, T = 8 + 1.8(2,400 − E)/300 = 8 + 0.006(2,400 − E) = 8 + 14.4 − 0.006E = 22.4 − 0.006E.",
+   "hints": [
+    "Solve the elevation model for t."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Eliminate t by substitution."
+   },
+   "remember": "To relate two models that share a variable, solve one for it and substitute.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "T = 8 − 0.006E",
+    "B": "T = 8 + 0.006E",
+    "C": "T = 0.006E − 6.4",
+    "D": "T = 22.4 − 0.006E"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "8 − 0.006E drops the 0.006 × 2,400 term.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "8 + 0.006E uses t = E/300, ignoring the starting elevation.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "0.006E − 6.4 uses t = (E − 2,400)/300, a sign error.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q060-12",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Converting a compound inequality between temperature scales",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A vaccine must be stored at temperatures from 36°F to 46°F, inclusive. Temperatures are related by F = 1.8C + 32, where F is in degrees Fahrenheit and C is in degrees Celsius. Which inequality gives, to the nearest tenth of a degree, the storage temperatures in degrees Celsius?",
+   "explanation": "C = (F − 32)/1.8. For F = 36, C = 4/1.8 ≈ 2.2; for F = 46, C = 14/1.8 ≈ 7.8. So 2.2 ≤ C ≤ 7.8.",
+   "hints": [
+    "Solve F = 1.8C + 32 for C."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Undo the operations in reverse order."
+   },
+   "remember": "To invert a formula, undo the last operation first.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−12.0 ≤ C ≤ −6.4",
+    "B": "2.2 ≤ C ≤ 7.8",
+    "C": "4.0 ≤ C ≤ 14.0",
+    "D": "7.2 ≤ C ≤ 25.2"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−12.0 ≤ C ≤ −6.4 divides by 1.8 before subtracting 32.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4.0 ≤ C ≤ 14.0 subtracts 32 but does not divide by 1.8.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "7.2 ≤ C ≤ 25.2 multiplies by 1.8 instead of dividing.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-13",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Difference of two unknowns from a slope condition",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a line with slope 3 passes through the points (a, b) and (b, a + 6), where a and b are constants and a ≠ b. What is the value of b − a ?",
+   "explanation": "The slope is ((a + 6) − b)/(b − a) = 3. Let d = b − a; then (6 − d)/d = 3, so 6 − d = 3d and d = 3/2.",
+   "hints": [
+    "Write the slope formula with these two points."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Replace b − a with a single variable."
+   },
+   "remember": "When only a difference is determined, solve for the difference itself.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Neither a nor b can be found; students must rewrite the slope equation in terms of b − a."
+   },
+   "format": "spr",
+   "answer": "3/2",
+   "accepted_answers": [
+    "3/2",
+    "1.5"
+   ],
+   "common_errors": [
+    {
+     "value": "-3/2",
+     "rationale": "-3/2 makes a sign slip in the slope formula.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "2",
+     "rationale": "2 divides 6 by 3.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-14",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Speed from a gear ratio, a circumference and unit conversions",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "On a bicycle, the chain connects a front gear with 48 teeth to a rear gear with 16 teeth, and the rear gear turns with the rear wheel; the chain moves the same number of teeth past each gear. A cyclist turns the front gear at 80 revolutions per minute, and the rear wheel's circumference is 2.1 meters. What is the bicycle's speed, in kilometers per hour?",
+   "explanation": "Each turn of the front gear moves 48 teeth, which turns the rear gear 48/16 = 3 times. So the wheel turns 240 times per minute, covering 240 × 2.1 = 504 meters per minute, or 504 × 60/1,000 = 30.24 kilometers per hour.",
+   "hints": [
+    "How many times does the rear gear turn for one turn of the front gear?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Chain the rates: turns per minute, meters per turn, then convert units."
+   },
+   "remember": "Linked gears share teeth per unit time; their turns are in the inverse ratio of their teeth.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "30.24",
+   "accepted_answers": [
+    "30.24"
+   ],
+   "common_errors": [
+    {
+     "value": "3.36",
+     "rationale": "3.36 uses the inverted gear ratio, 16/48.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "10.08",
+     "rationale": "10.08 ignores the gears, using 80 wheel turns per minute.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q060-15",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Greatest possible median after adding a value",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A data set consists of 9 numbers and has a median of 48. The number 50 is added to the data set. What is the greatest possible median of the 10 numbers?",
+   "explanation": "With 10 numbers, the median is the mean of the 5th and 6th values. The old 5th value, 48, stays 5th (50 is larger). The new 6th value is the smaller of 50 and the old 6th value, so it is at most 50. The greatest median is (48 + 50)/2 = 49, reached when the old 6th value is at least 50.",
+   "hints": [
+    "Which positions determine the median of 10 numbers?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Track where 50 lands in the ordered list."
+   },
+   "remember": "For an even count, the median is the mean of the two middle values.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "49",
+   "accepted_answers": [
+    "49"
+   ],
+   "common_errors": [
+    {
+     "value": "50",
+     "rationale": "50 assumes the added value becomes the median.",
+     "trap": null
+    },
+    {
+     "value": "48",
+     "rationale": "48 assumes the median cannot change.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-16",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Number of zeros from two means",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Each of 50 students reported the number of books they read over the summer, and the mean of the 50 reports was 2.4 books. Among the students who read at least one book, the mean was 3.0 books. How many of the students read no books?",
+   "explanation": "The 50 students read 50 × 2.4 = 120 books. Removing students who read 0 books does not change the total, so 120/(50 − z) = 3.0, which gives 50 − z = 40 and z = 10.",
+   "hints": [
+    "What is the total number of books read?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use total = mean × count for both groups."
+   },
+   "remember": "Removing zeros changes the count but not the sum.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that the sum is unchanged when zeros are removed."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "40",
+     "rationale": "40 is the number of students who read at least one book.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "30",
+     "rationale": "30 divides 2.4 × 50 by 4, a misapplied average.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-17",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Percent change of a difference",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "In 2023, a company's costs were 75% of its revenue. From 2023 to 2024, the company's revenue increased by 10% and its costs increased by 8%. By what percent did the company's profit (revenue minus costs) increase?",
+   "explanation": "Let revenue be 100 in 2023, so costs are 75 and profit is 25. In 2024 revenue is 110 and costs are 81, so profit is 29. The profit increased by 4/25 = 16%.",
+   "hints": [
+    "Pick a convenient revenue for 2023."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Use revenue 100 and compute profit both years."
+   },
+   "remember": "Percent change of a difference must be computed from the actual amounts.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The profit's percent change is much larger than either input percent; subtracting the percents is a strong trap."
+   },
+   "choices": {
+    "A": "2%",
+    "B": "4%",
+    "C": "16%",
+    "D": "18%"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "2% subtracts the percent increases: 10% − 8%.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "4% finds the 4-unit rise in profit but divides by the revenue, 100.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "18% adds the percent increases: 10% + 8%.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-18",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "One part of a three-term ratio, divided into containers",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A concrete mix is made from cement, sand, and gravel in the ratio 1 : 2 : 3 by volume. Cement is sold in bags that each hold 0.035 cubic meter. Assuming the volumes of the ingredients add, what is the least number of bags of cement needed to make 4.5 cubic meters of the mix?",
+   "explanation": "Cement is 1/(1 + 2 + 3) = 1/6 of the mix, or 0.75 cubic meter. Then 0.75/0.035 ≈ 21.4, so 22 bags are needed.",
+   "hints": [
+    "What fraction of the mix is cement?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the cement volume, divide by the bag size, round up."
+   },
+   "remember": "A part of a ratio a : b : c is a/(a + b + c) of the whole.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "21",
+    "B": "22",
+    "C": "43",
+    "D": "129"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "21 rounds 21.4 down, which leaves too little cement.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "43 takes cement as 1/3 of the mix, adding only two ratio terms.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "129 treats all 4.5 cubic meters as cement.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-19",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Missing table cell from equal conditional and overall probabilities",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "The table gives all the shoppers in a survey, classified by age and by where they usually shop.\nUnder 40: online 72, in store 48\n40 or older: online x, in store 120\nIf a shopper under 40 is selected at random, the probability that the shopper shops online is equal to the probability that a shopper selected at random from all the shoppers in the table shops online. What is the value of x ?",
+   "explanation": "For shoppers under 40, the probability is 72/120 = 0.6. For all shoppers, it is (72 + x)/(240 + x). Setting (72 + x)/(240 + x) = 0.6 gives 72 + x = 144 + 0.6x, so 0.4x = 72 and x = 180.",
+   "hints": [
+    "What is the probability for shoppers under 40?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the overall probability in terms of x and set it equal."
+   },
+   "remember": "Both the numerator and the denominator of an overall probability can contain the unknown.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The overall probability's denominator also contains x, so students must set up and solve a rational equation."
+   },
+   "format": "spr",
+   "answer": "180",
+   "accepted_answers": [
+    "180"
+   ],
+   "common_errors": [
+    {
+     "value": "72",
+     "rationale": "72 sets x/120 equal to 72/120, using the wrong denominator.",
+     "trap": null
+    },
+    {
+     "value": "80",
+     "rationale": "80 solves x/(x + 120) = 0.4.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-20",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Nonresponse in a random-sample survey",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A city mailed a survey about a proposed bike lane to 2,000 households selected at random from all the households in the city. Of these, 340 households returned the survey, and most of the returned surveys opposed the bike lane. Which statement is most appropriate?",
+   "explanation": "Although the 2,000 households were chosen at random, only 340 returned the survey. The households that chose to respond may differ systematically from those that did not, so the results may not represent the city.",
+   "hints": [
+    "Who actually answered the survey?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Consider who was selected and who responded."
+   },
+   "remember": "Random selection helps only if those selected actually respond.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The results can be generalized to all households in the city, because the households were selected at random.",
+    "B": "The results can be generalized to all households in the city, because 340 households is a large enough sample.",
+    "C": "The results may not represent all households in the city, because 2,000 households is too small a part of the city.",
+    "D": "The results may not represent all households in the city, because the households that returned the survey may differ from those that did not."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Random selection does not protect against bias when most selected households do not respond.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "A larger sample does not remove bias from who chose to respond.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The size of the sample relative to the city is not the problem; nonresponse is.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-21",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Weight of snow from depth ratio and density",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Fresh snow covers a 1,500-square-foot flat roof to a depth of 18 inches. When this snow melts, the water is 1/10 as deep as the snow was. Water weighs 62.4 pounds per cubic foot. What is the weight, in pounds, of the snow on the roof?",
+   "explanation": "The meltwater is 1.8 inches, or 0.15 foot, deep. Its volume is 1,500 × 0.15 = 225 cubic feet, and its weight is 225 × 62.4 = 14,040 pounds, which equals the weight of the snow.",
+   "hints": [
+    "How deep is the meltwater, in feet?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the water's volume, then multiply by its density."
+   },
+   "remember": "Convert all lengths to the same unit before computing a volume.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "14040",
+   "accepted_answers": [
+    "14040"
+   ],
+   "common_errors": [
+    {
+     "value": "140400",
+     "rationale": "140,400 skips the 1/10 ratio and weighs the full snow volume as water.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "168480",
+     "rationale": "168,480 does not convert the depth from inches to feet.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q060-22",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Time-lapse scale between two time units",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A time-lapse camera records a flower garden so that 6 hours of real time play as 45 seconds of video. In the video, a flower takes 18 seconds to open. How many minutes did the flower take to open in real time?",
+   "explanation": "Six hours is 21,600 seconds, so each second of video shows 21,600/45 = 480 seconds, or 8 minutes, of real time. The flower took 18 × 8 = 144 minutes.",
+   "hints": [
+    "How much real time does one second of video show?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the scale per video second, then multiply."
+   },
+   "remember": "Convert to one unit before setting up a scale, and check the unit asked for.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2.25",
+    "B": "2.4",
+    "C": "144",
+    "D": "8,640"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "2.25 inverts the scale: 18 × 45/360.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2.4 is the real time in hours, reported as minutes.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "8,640 is the real time in seconds.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q060-23",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Successive percent increases with a known difference in amounts",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A club's membership increased by 20% during its first year and by 25% during its second year. The number of members added during the second year was 300 more than the number added during the first year. How many members did the club have at the start of the first year?",
+   "explanation": "With M members at the start, the first year adds 0.2M, and the second year adds 0.25(1.2M) = 0.3M. Then 0.3M − 0.2M = 0.1M = 300, so M = 3,000.",
+   "hints": [
+    "What is the base for the second year's 25%?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write each year's added members in terms of M."
+   },
+   "remember": "A second percent increase applies to the already-increased amount.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The second percent applies to a grown base; applying both to the start (6,000) is a strong trap."
+   },
+   "choices": {
+    "A": "1,200",
+    "B": "1,500",
+    "C": "3,000",
+    "D": "6,000"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1,200 treats 300 as 25% of the starting membership.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "1,500 treats 300 as 20% of the starting membership.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6,000 applies both percents to the starting number: 0.25M − 0.2M = 0.05M = 300.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q060-24",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Initial value of an exponential model with a shifted input",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The number of subscribers to an app t months after its launch is modeled by S(t) = 1,200(1.15)^(t − 4), for 0 ≤ t ≤ 24. According to the model, to the nearest whole number, how many subscribers did the app have at launch?",
+   "explanation": "At launch, t = 0, so S(0) = 1,200(1.15)⁻⁴ = 1,200/1.15⁴ ≈ 686.1, or 686. The 1,200 is the number of subscribers 4 months after launch.",
+   "hints": [
+    "What is t at launch?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Evaluate S(0)."
+   },
+   "remember": "With a shifted exponent, the coefficient is the value at the shift.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognize that the coefficient is not the initial value and evaluate a negative exponent."
+   },
+   "choices": {
+    "A": "480",
+    "B": "686",
+    "C": "750",
+    "D": "1,043"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "480 removes 15% of 1,200 four times without compounding: 1,200 − 4(180).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "750 divides by 1 + 4(0.15) instead of by 1.15⁴.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,043 divides by 1.15 only once.",
+     "trap": "partial_answer"
+    }
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q059-12",
+     "status": "REVISE",
+     "reason": "remember is over 16 words"
+    }
+   ]
+  }
+ ]
+}

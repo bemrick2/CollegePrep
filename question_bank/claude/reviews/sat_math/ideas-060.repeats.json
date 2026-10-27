@@ -1,0 +1,208 @@
+{
+ "ideas": "generated set 12 (GA/GC)",
+ "results": {
+  "GA01": [],
+  "GA02": [
+   {
+    "other_id": "CLD-SAT-M-000135",
+    "severity": "close",
+    "why": "Same setup (two per-unit rates in a fixed budget, ax + by = C) and the same underlying quantity (how much less y per extra unit of x); 135 asks for the number, GA02 asks for the meaning of the slope after rearranging. Not a template repeat."
+   },
+   {
+    "other_id": "CLD-SAT-M-000242",
+    "severity": "close",
+    "why": "Same two-rate fixed-total equation (15x + 9y = 135) with an interpret-a-feature MC ask; 242 interprets the x-intercept, GA02 the slope (and uses the intercept as distractor D)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000531",
+    "severity": "close",
+    "why": "Interpreting a simplified coefficient of a fixed-total two-ingredient cost model; same 'what does the rewritten coefficient mean' skill, different form (y in terms of x vs cost in terms of x)."
+   }
+  ],
+  "GA03": [],
+  "GA04": [],
+  "GA05": [
+   {
+    "other_id": "CLD-ACT-M-000398",
+    "severity": "close",
+    "why": "Average cost per item set equal to a target and solved for the number of items; here the average falls through a two-tier price instead of a fixed cost. Structure of the equation differs; ACT-758 (tiered kWh price) is context-level only."
+   }
+  ],
+  "GA06": [],
+  "GA07": [
+   {
+    "other_id": "CLD-SAT-M-000410",
+    "severity": "close",
+    "why": "Both recover linear-function information by eliminating from a sum and a difference relation; 410 uses outputs at two inputs and asks f(0), GA07 uses identities in f and g and asks for f. Different ask."
+   }
+  ],
+  "GA08": [],
+  "GA09": [],
+  "GA10": [],
+  "GA11": [],
+  "GA12": [
+   {
+    "other_id": "CLD-SAT-M-000550",
+    "severity": "close",
+    "why": "Combining two linear models into one equation (ideas-gen-10 EA08); GA12 must first invert E(t) before substituting, so the reasoning step differs."
+   }
+  ],
+  "GA13": [],
+  "GA14": [
+   {
+    "other_id": "CLD-SAT-M-000117",
+    "severity": "close",
+    "why": "Line through a given point with a condition linking its two intercepts (equal intercepts in 117; point is midpoint of the intercept segment here). Different condition and ask; SAT-169 (generator's flag) is only broad-skill, not a repeat."
+   }
+  ],
+  "GA15": [
+   {
+    "other_id": "CLD-SAT-M-000092",
+    "severity": "close",
+    "why": "Slope given, points with unknown coordinates, solve the slope equation for the unknown; here both points use the same two unknowns so only b − a is determined."
+   },
+   {
+    "other_id": "CLD-SAT-M-000397",
+    "severity": "close",
+    "why": "Two points built from swapped coordinates of unknowns (f(3) = k, f(k) = 3); same 'swapped coordinates force the slope equation' insight, different ask."
+   }
+  ],
+  "GC01": [
+   {
+    "other_id": "CLD-ACT-M-000140",
+    "severity": "close",
+    "why": "Gear-teeth ratio chain; GC01 adds circumference and unit conversions to get a speed. Not a template repeat."
+   }
+  ],
+  "GC02": [
+   {
+    "other_id": "CLD-ACT-M-000234",
+    "severity": "close",
+    "why": "Same 'which conclusion is supported by an estimate and its margin of error' ask with a trap that puts the interval on the sample itself (ACT-234 D vs GC02 C); here a mean instead of a proportion, plus individual-value and one-sided traps."
+   },
+   {
+    "other_id": "CLD-SAT-M-000311",
+    "severity": "close",
+    "why": "Sample estimate plus margin of error applied to the population; 311 scales to a count."
+   }
+  ],
+  "GC03": [
+   {
+    "other_id": "CLD-SAT-M-000312",
+    "severity": "close",
+    "why": "Bounding a median after lists are combined; GC03 adds one known value and asks the exact maximum. SAT-185 and ACT-168 (adding values) are broad-skill only."
+   }
+  ],
+  "GC04": [],
+  "GC05": [
+   {
+    "other_id": "CLD-SAT-M-000524",
+    "severity": "close",
+    "why": "Percent change of a quantity derived from two quantities that change by different percents (density there, profit = difference here)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000131",
+    "severity": "close",
+    "why": "Two parts change by different percents; 131 asks a new share, GC05 the percent change of the difference."
+   }
+  ],
+  "GC06": [
+   {
+    "other_id": "CLD-SAT-M-000292",
+    "severity": "close",
+    "why": "Find a required amount, divide by a container size and round up to the least number of bags (SAT-292 fertilizer bags); the ratio step is new. ideas-gen-11 FC05 shares the three-term ratio only."
+   }
+  ],
+  "GC07": [
+   {
+    "other_id": "CLD-SAT-M-000315",
+    "severity": "close",
+    "why": "Missing two-way-table cell x found from a probability condition; here the condition equates a conditional with an overall probability (x in both numerator and denominator). Same table frame and same asked quantity (x), different condition."
+   }
+  ],
+  "GC08": [
+   {
+    "other_id": "CLD-SAT-M-000346",
+    "severity": "close",
+    "why": "Line of best fit with scaled units; 346 rewrites the equation, GC08 interprets the slope over a non-unit increment with both axes scaled. SAT-274 (per-minute slope to per-hour change) is also a neighbour."
+   }
+  ],
+  "GC09": [
+   {
+    "other_id": "CLD-SAT-M-000055",
+    "severity": "close",
+    "why": "Generalizing a random sample's result; GC09's issue is nonresponse, not the sampling frame. ACT-205 (sampling bias) is broad-skill only. No nonresponse item exists in the bank."
+   }
+  ],
+  "GC10": [
+   {
+    "other_id": "CLD-ACT-M-000455",
+    "severity": "close",
+    "why": "Reuses the same specific numbers (8 liters per 100 km, $1.50 per liter, giving $12 per 100 km); the ask (break-even distance vs electric) differs. Also ideas-gen-04 R04 / SAT-382 use 8 L per 100 km. Change the gasoline numbers."
+   }
+  ],
+  "GC11": [
+   {
+    "other_id": "CLD-ACT-M-000025",
+    "severity": "close",
+    "why": "Conditional probability from a two-way table with the reversed conditional as the main trap; GC11 uses percent-of-whole cells. Very standard SAT format; SAT-315 and ideas-gen-03 L01 are also neighbours."
+   }
+  ],
+  "GC12": [
+   {
+    "other_id": "CLD-SAT-M-000488",
+    "severity": "close",
+    "why": "Water depth over a roof/lawn area converted to a volume (inches to feet) and then to another unit; GC12 adds the snow-to-water ratio and density."
+   }
+  ],
+  "GC13": [],
+  "GC14": [],
+  "GC15": []
+ },
+ "within_list_cues": [
+  "GA06, GA07, GA08: three linear-system elimination items in one Algebra set (points table, f/g identities, peach/plum weights); GA07 and GA08 both reward subtracting the given equations. Not answer cues, but redundant if all are used.",
+  "GA03, GA04, GA14: three line-intercept items (intercept-form lines with parameter a, scaled-coefficient x-intercept, midpoint of the intercept segment). GA03 and GA14 both reduce to x/p + y/q = 1 reasoning.",
+  "GA01 and GA11: both rely on treating an expression as a single unknown (u = x − 3, v = 2y; u = 4x + 7); seeing one primes the other.",
+  "GC07 and GC11: both two-way tables split by age (under 40 / under 30) with a conditional probability; GC11's 'reversed conditional' trap teaches the GC07 reading. Use one per set.",
+  "GC08 and GC13: both line-of-best-fit interpretation items with business/children data; different asks but the same frame.",
+  "GC05 and GC15: both percent changes applied to a base that differs from the one the student naturally uses (profit vs revenue; grown membership); GC15's 'subtract the percents' trap mirrors GC05's 2% distractor."
+ ],
+ "answer_errors": [],
+ "cues_or_overdetermined": [
+  "GA10: over-determined - the intercept 1,500 is never needed for the key (only the slope 15 and the $8 change matter); it exists only to feed distractor B (180).",
+  "GA12: one test value plus a sign check eliminates everything: at E = 2,400 (t = 0) T must be 8, which kills A (−6.4) and B (22.4); C also gives 8 there but has a positive slope, while T must rise as E falls. Acceptable for medium-hard but quick.",
+  "GA07: plugging x = 0 gives f(0) + g(0) = 1 and f(0) − 2g(0) = 13, so f(0) = 5; B is the only choice with constant 5 (and A is g itself). That is the method, not a shortcut, but the constant term alone decides the item.",
+  "GA14: the key 8 = 2 × 4 (doubling the given y-coordinate) is obvious to anyone who knows the midpoint fact; the slope distractor 25/4 is the only non-integer.",
+  "GC08: all four choices are 52 × 10^k, so the item tests only the power of ten; the key ($52,000) is the extreme (largest) value.",
+  "GC05: the key 16% is the only choice larger than either given percent; a student who knows 'profit changes faster than revenue when costs grow slower' can pick it without computing.",
+  "GC03 (hard): the naive first guess 'the new median is the average of 48 and 50' gives the correct answer 49 without any of the bounding reasoning.",
+  "GA03 and GA04 (hard): choosing a convenient value for the parameter (a = 1 in GA03; a = 1, b = −6 in GA04) solves each in under a minute, and the stems guarantee the answer does not depend on it.",
+  "GA10: medium-hard label but distractor C (300, from a $20 increase) and D (600) are eliminated by noticing 20% of $40 is $8; mild."
+ ],
+ "grid_problems": [],
+ "unrealistic": [
+  "GC08: slope 5.2 thousand dollars of sales per hundred dollars of advertising means $52 of sales per $1 of advertising, and the key ($52,000 per $1,000) is an implausible return for a group of stores; scale the slope down (e.g. 0.52, or x in thousands with a smaller slope).",
+  "GC13: the models predict girls taller than boys at 24-30 months, which contradicts growth charts (boys are slightly taller on average throughout 2-5 years); predicted heights (85-106 cm) also run a few cm below typical values. Swap the labels or use a context without a known real-world direction.",
+  "GC06 (minor): 'assuming the volumes of the ingredients add' is stated, so acceptable, though real concrete mixes do not have additive volumes."
+ ],
+ "likely_easier_than_labeled": [
+  "GA03 (hard): substituting a = 1 makes it a routine two-line intersection; medium-hard at most.",
+  "GA04 (hard): a = 1, b = −6 gives y = 3x − 12 and x = 4 at once; medium-hard.",
+  "GC03 (hard): the naive 'average of 48 and 50' answer is correct; medium-hard.",
+  "GA10 (medium-hard): one multiplication after 0.2 × 40 = 8; medium.",
+  "GA11 (medium-hard): solving for x first (x = 13/4) then computing 4x + 7 = 20 is routine; medium.",
+  "GC14 (medium-hard): 18/45 of 6 hours = 2.4 hours = 144 minutes is a single proportion; medium.",
+  "GA14 (medium): with the midpoint fact it is a one-step doubling; easy-medium.",
+  "GC04 (hard): total 120 then 120/3 = 40 students is two steps; medium-hard."
+ ],
+ "official_or_textbook": [
+  "GA06: win/draw/loss points system is a textbook classic.",
+  "GA13: converting a Fahrenheit range to Celsius via a compound inequality is a textbook classic (and the 2-8 °C vaccine range is the real one).",
+  "GA14: point as midpoint of the intercept segment (intercepts at twice the coordinates) is a textbook classic.",
+  "GA02: mirrors the official SAT 'best interpretation of the coefficient' format for a budget equation.",
+  "GC02: mirrors the official SAT margin-of-error 'it is plausible that the mean of all ... is between' format.",
+  "GC09: mirrors the official SAT 'can the results be generalized ... because' four-choice format (two yes/two no with reasons).",
+  "GC11: standard official-style two-way-table conditional probability."
+ ],
+ "overused_frame_linear_f0": "None of GA/GC uses the 'linear f with a disguised second point, asks f(0)' frame."
+}
