@@ -1,0 +1,275 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 38,
+  "reviewed_at": "2026-10-27T04:15:26+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 38
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000327",
+    "CLD-SAT-M-000328",
+    "CLD-SAT-M-000329",
+    "CLD-SAT-M-000330",
+    "CLD-SAT-M-000331",
+    "CLD-SAT-M-000332",
+    "CLD-SAT-M-000333",
+    "CLD-SAT-M-000334",
+    "CLD-SAT-M-000335",
+    "CLD-SAT-M-000336",
+    "CLD-SAT-M-000337"
+  ],
+  "results": [
+    {
+      "cand": "Q038-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "a+s=150; overcharge = (9a+14s)-(14a+9s)=5(s-a)=150 so s-a=30, s=90, a=60. Distractors: 30 (difference), 60 (adult count), 75 (half).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000327"
+    },
+    {
+      "cand": "Q038-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-1",
+      "computed_answer": "-1",
+      "blind_answer": "-1",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "x=5 not a solution means 8 >= 10+2k, so k <= -1; greatest k = -1. Trap: using strict inequality or flipping direction.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000328"
+    },
+    {
+      "cand": "Q038-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "26",
+      "computed_answer": "26",
+      "blind_answer": "26",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "f(x)=mx+b: 2mx+b = 2mx+2b+7 gives b=-7; m-7=4 gives m=11; f(3)=33-7=26.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must generate a second point from the functional equation; the given information never states it directly."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000329"
+    },
+    {
+      "cand": "Q038-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x^2+kx-12=(x-2)(x+c)=x^2+(c-2)x-2c, so -2c=-12, c=6 (k=4).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000330"
+    },
+    {
+      "cand": "Q038-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(1.15/1.06)^n > 3 gives n > 13.48, so 14 (at n=13: A about 12302, B about 12799). Checked by brute force. B=13 is a rounding/off-by-one trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000331"
+    },
+    {
+      "cand": "Q038-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "2a+3b=12, a=b+1 gives 5b=10, b=2 (a=3; 4^3*8^2=2^12). 12/5 comes from dropping the +2; 14/5 from a=b-1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000332"
+    },
+    {
+      "cand": "Q038-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "k(k-5)=-1 gives k^2-5k+1=0, discriminant 21>0, two real roots, sum 5 (Vieta).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must form a quadratic from the perpendicular condition and use the sum of roots instead of finding messy roots."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000333"
+    },
+    {
+      "cand": "Q038-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "240",
+      "computed_answer": "240",
+      "blind_answer": "240",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "P(S)=0.24/0.6=0.4; 0.4*600=240. Trap: 0.24*600=144 or 0.6*600=360.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000334"
+    },
+    {
+      "cand": "Q038-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "12",
+      "computed_answer": "12",
+      "blind_answer": "12",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "1.25C to 1.10C; decrease 0.15/1.25 = 12%. Trap: 15.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000335"
+    },
+    {
+      "cand": "Q038-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "8*theta = 16pi/3 gives theta=2pi/3 (120 deg). Area = 1/2*64*sin120 = 16 sqrt3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000336"
+    },
+    {
+      "cand": "Q038-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "200",
+      "computed_answer": "200",
+      "blind_answer": "200",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "2s^2+4s(s+3)=210 gives s^2+2s-35=0, s=5, h=8, V=25*8=200.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000337"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{"solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 38},
+ "answers": {
+  "Q038-01": {"answer": "D", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "a+s=150; overcharge = (9a+14s)-(14a+9s)=5(s-a)=150 so s-a=30, s=90, a=60. Distractors: 30 (difference), 60 (adult count), 75 (half)."},
+  "Q038-02": {"answer": "-1", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "x=5 not a solution means 8 >= 10+2k, so k <= -1; greatest k = -1. Trap: using strict inequality or flipping direction."},
+  "Q038-03": {"answer": "A", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": ["minor: only one choice is <= 3, so once a student sees that the band between parallel lines must be empty, the other choices drop out together; consider a choice at exactly 3 vs 3.5-ish to test the boundary"], "notes": "Parallel boundaries; there are no solutions iff k <= 3. Only 2 qualifies."},
+  "Q038-04": {"answer": "26", "confidence": "high", "est_pct_correct": 35, "difficulty_opinion": "hard", "flags": [], "notes": "f(x)=mx+b: 2mx+b = 2mx+2b+7 gives b=-7; m-7=4 gives m=11; f(3)=33-7=26."},
+  "Q038-05": {"answer": "6", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "x^2+kx-12=(x-2)(x+c)=x^2+(c-2)x-2c, so -2c=-12, c=6 (k=4)."},
+  "Q038-06": {"answer": "C", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "(1.15/1.06)^n > 3 gives n > 13.48, so 14 (at n=13: A about 12302, B about 12799). Checked by brute force. B=13 is a rounding/off-by-one trap."},
+  "Q038-07": {"answer": "A", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "2a+3b=12, a=b+1 gives 5b=10, b=2 (a=3; 4^3*8^2=2^12). 12/5 comes from dropping the +2; 14/5 from a=b-1."},
+  "Q038-08": {"answer": "5", "confidence": "high", "est_pct_correct": 30, "difficulty_opinion": "hard", "flags": [], "notes": "k(k-5)=-1 gives k^2-5k+1=0, discriminant 21>0, two real roots, sum 5 (Vieta)."},
+  "Q038-09": {"answer": "240", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "P(S)=0.24/0.6=0.4; 0.4*600=240. Trap: 0.24*600=144 or 0.6*600=360."},
+  "Q038-10": {"answer": "12", "confidence": "high", "est_pct_correct": 40, "difficulty_opinion": "medium", "flags": [], "notes": "1.25C to 1.10C; decrease 0.15/1.25 = 12%. Trap: 15."},
+  "Q038-11": {"answer": "16", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "8*theta = 16pi/3 gives theta=2pi/3 (120 deg). Area = 1/2*64*sin120 = 16 sqrt3."},
+  "Q038-12": {"answer": "200", "confidence": "high", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": [], "notes": "2s^2+4s(s+3)=210 gives s^2+2s-35=0, s=5, h=8, V=25*8=200."}
+ }}

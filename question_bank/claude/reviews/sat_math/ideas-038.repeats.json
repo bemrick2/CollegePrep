@@ -1,0 +1,271 @@
+{
+ "ideas": "generated set 3 (J/K/L/M)",
+ "results": {
+  "J01": [
+   {
+    "other_id": "CLD-ACT-M-000020",
+    "severity": "close",
+    "why": "same theater adult/student tickets at the same $12/$8 prices; structure differs (price-swap difference, no total), so not a template, but change the prices/context to avoid looking recycled"
+   },
+   {
+    "other_id": "CLD-ACT-M-000138",
+    "severity": "close",
+    "why": "same 'swap produces a known difference' mechanism (digit reversal), different context and asked quantity"
+   }
+  ],
+  "J02": [],
+  "J03": [],
+  "J04": [],
+  "J05": [],
+  "J06": [],
+  "J07": [],
+  "J08": [
+   {
+    "other_id": "CLD-ACT-M-000068",
+    "severity": "close",
+    "why": "same out-and-back-at-two-speeds setup; ACT-068 gives the distance and asks average speed, J08 gives total time and asks distance (asked quantity changes the work)"
+   }
+  ],
+  "J09": [
+   {
+    "other_id": "CLD-ACT-M-000242",
+    "severity": "close",
+    "why": "interpret a constant in a linear 'gallons remaining' model; J09's twist (constant is a divisor, i.e. reciprocal of the rate) changes the reasoning"
+   },
+   {
+    "other_id": "CLD-SAT-M-000157",
+    "severity": "close",
+    "why": "same fuel-tank-remaining context (tank gallons minus miles/mpg), computational rather than interpretive"
+   }
+  ],
+  "J10": [],
+  "J11": [],
+  "J12": [],
+  "J13": [],
+  "K01": [],
+  "K02": [
+   {
+    "other_id": "CLD-ACT-M-000665",
+    "severity": "close",
+    "why": "same setup: line y = 2x + c tangent to an upward parabola; ACT-665 asks c, K02 asks the tangency x-coordinate (c not needed). Same double-root idea, different asked quantity"
+   },
+   {
+    "other_id": "fixture-21 (web/src/lib/data/demo/fixtures.ts)",
+    "severity": "close",
+    "why": "line/parabola 'exactly one solution' with a parameter; fixture asks the parameter"
+   }
+  ],
+  "K03": [],
+  "K04": [],
+  "K05": [],
+  "K06": [],
+  "K07": [],
+  "K08": [],
+  "K09": [
+   {
+    "other_id": "CLD-ACT-M-000531",
+    "severity": "close",
+    "why": "projectile h(t) = −5t² + 30t + 2, asks maximum height numerically; K09 asks for the form that displays it"
+   },
+   {
+    "other_id": "CLD-SAT-M-000182",
+    "severity": "close",
+    "why": "equivalent-form conversion of a quadratic (vertex to factored); K09 goes standard to vertex in context"
+   }
+  ],
+  "K10": [],
+  "K11": [
+   {
+    "other_id": "CLD-SAT-M-000026",
+    "severity": "close",
+    "why": "interpreting an exponential with a t/2 exponent; K11 compares two models per year"
+   },
+   {
+    "other_id": "CLD-ACT-M-000302",
+    "severity": "close",
+    "why": "machine value with 0.9 decay factor, interpret the factor"
+   }
+  ],
+  "K12": [],
+  "K13": [
+   {
+    "other_id": "CLD-SAT-M-000232",
+    "severity": "close",
+    "why": "quadratic revenue maximization with ticket price; K13 subtracts a cost and asks the maximum profit value"
+   }
+  ],
+  "L01": [
+   {
+    "other_id": "CLD-SAT-M-000315 / batch-036 Q036-11 (and withdrawn Q035-08)",
+    "severity": "close",
+    "why": "same 'under 30' group and the same 0.45 conditional probability used to recover a count; L01 uses joint vs conditional with no table. Change the 0.45 and the age group"
+   }
+  ],
+  "L02": [],
+  "L03": [
+   {
+    "other_id": "CLD-SAT-M-000018",
+    "severity": "close",
+    "why": "random selection + random assignment experiment; SAT-018 gives the design and asks the conclusion, L03 gives the goal and asks the design (reverse direction)"
+   }
+  ],
+  "L04": [
+   {
+    "other_id": "CLD-SAT-M-000065",
+    "severity": "close",
+    "why": "markup above cost then a sale price; SAT-065 asks a dollar cost, L04 asks the discount percent with no prices"
+   }
+  ],
+  "L05": [],
+  "L06": [],
+  "L07": [],
+  "M01": [
+   {
+    "other_id": "fixture-56 (web/src/lib/data/demo/fixtures.ts)",
+    "severity": "close",
+    "why": "same 'points A and B on a circle with center O', 120° central angle, minor arc AB; fixture computes arc length from angle, M01 reverses it and adds a triangle area"
+   },
+   {
+    "other_id": "CLD-ACT-M-000005",
+    "severity": "close",
+    "why": "arc AB with center O, arc length given; asks radius via sector area"
+   }
+  ],
+  "M02": [],
+  "M03": [
+   {
+    "other_id": "CLD-ACT-M-000725",
+    "severity": "close",
+    "why": "same 'bowl shaped like a hemisphere with an inside radius' wording; ACT-725 asks only the volume, M03 transfers it to a cylinder"
+   }
+  ],
+  "M04": [],
+  "M05": [
+   {
+    "other_id": "CLD-ACT-M-000085",
+    "severity": "close",
+    "why": "altitude to the hypotenuse in right triangle ABC (right angle C, D on AB); ACT-085 gets CD from AD and DB, M05 from sin A and AB"
+   },
+   {
+    "other_id": "CLD-SAT-M-000170",
+    "severity": "close",
+    "why": "altitude from the right angle splitting the hypotenuse, 3-4-5 family (9,12); asks a segment"
+   }
+  ],
+  "M06": [],
+  "M07": []
+ },
+ "within_list_cues": [
+  {
+   "pair": [
+    "K02",
+    "K07"
+   ],
+   "why": "both hinge on 'exactly one intersection means the vertex/double root touches'; seeing one solved cues the method for the other (technique, not the numeric answer). Avoid placing in the same module."
+  },
+  {
+   "pair": [
+    "K05",
+    "K08"
+   ],
+   "why": "both rewrite 4/8 (or nested radicals) as powers of 2 with the same 8 = 2^3 step; mild method overlap only."
+  },
+  {
+   "pair": [
+    "M01",
+    "M06"
+   ],
+   "why": "both use arc length = r·θ to convert between arc and angle/radius; mild method overlap, no answer cue."
+  }
+ ],
+ "answer_errors": [],
+ "answer_notes": [
+  "All 40 stated answers recomputed and correct (J01 90, J02 −1, J03 1, J04 26, J05 40, J06 $10.80, J07 (5,3), J08 75, J09 mpg, J10 11, J11 19, J12 1, J13 240, K01 5, K02 3, K03 6, K04 14 [14,151 vs 13,565; t=13 12,306 vs 12,798], K05 2, K06 5, K07 2, K08 16, K09 −4.9(t−3)²+44.1, K10 b<0 & b²>4c, K11 g faster (0.9487/yr), K12 11, K13 600, L01 200, L02 250x+1000, L03 random sample + random assignment, L04 12, L05 6.67%, L06 A/closer, L07 12/25, M01 16, M02 200, M03 13.5, M04 5, M05 12, M06 16/9, M07 8 (8.45)). Minor: J02 trap '−1.5 from a strict boundary' does not follow from any natural error; replace with a real one (e.g. −2 from 5 > 7 + 2k reversed)."
+ ],
+ "cues_or_overdetermined": [
+  {
+   "id": "J06",
+   "issue": "format cue: key $10.80 is the only choice with nonzero cents ($9.00, $15.00, $18.00); same flaw that withdrew Q035-09. Make distractors non-round (e.g. $10.00/$12.96) or the key round."
+  },
+  {
+   "id": "J12",
+   "issue": "key 1 is the only positive choice and the only one > −2; −2 equals the given x-coordinate and self-eliminates. One sign sketch picks it. Any added choice > −2 would also be correct, so the item needs a sharper condition (e.g. a slope bound) to support several right-of-−2 choices."
+  },
+  {
+   "id": "J03",
+   "issue": "key 1 repeats the constant in y > 2x + 1, so 'pick the matching number' guessing works; consider choices like −1, 3, 5, 7 or asking for the greatest k."
+  },
+  {
+   "id": "J08",
+   "issue": "mild: 75 is the only choice not a multiple of 20 (60, 80, 160)."
+  },
+  {
+   "id": "K09",
+   "issue": "mild: key is the intersection choice (shares (t − 3) with one choice and 44.1 with another); 'displays the maximum as a constant' also eliminates the factored form at sight. Also mirrors the well-known official SAT 'which equivalent form displays ... as a constant or coefficient' format."
+  },
+  {
+   "id": "L06",
+   "issue": "stem wording gives the answer: A is described as 'very close to the line', B as 'widely scattered', and the key repeats 'lie closer to its line'. Describe the plots neutrally (or show them) so the slope trap actually bites."
+  },
+  {
+   "id": "L03",
+   "issue": "mild: the key is the only choice that is both random-selection and random-assignment and the longest; inherent to the format, but balance lengths."
+  }
+ ],
+ "overdetermined": [],
+ "official_mirrors": [
+  "K09 mirrors the released official SAT 'equivalent form that displays [max/min/intercepts] as a constant or coefficient' item format. J08 (round trip at two speeds), J13 (give-$20 puzzle) and M04 (shared-angle similar triangles AD·AC = AB²) are textbook classics but not close to a specific released SAT item."
+ ],
+ "likely_easier_than_labeled": [
+  {
+   "id": "J12",
+   "labeled": "medium-hard",
+   "why": "one sign sketch; key is the only choice right of −2"
+  },
+  {
+   "id": "J03",
+   "labeled": "hard",
+   "why": "parallel strip is empty by sight; key is the only choice ≤ 1"
+  },
+  {
+   "id": "L06",
+   "labeled": "medium",
+   "why": "stem describes the scatter directly; easy"
+  },
+  {
+   "id": "L02",
+   "labeled": "medium-hard",
+   "why": "multiply every y by 100 is a one-step idea; medium at most"
+  },
+  {
+   "id": "K01",
+   "labeled": "medium-hard",
+   "why": "4 = 2², doubling in half the quadrupling time; medium"
+  },
+  {
+   "id": "L03",
+   "labeled": "medium-hard",
+   "why": "standard SAT fact (random sampling + random assignment); medium"
+  },
+  {
+   "id": "K05",
+   "labeled": "medium",
+   "why": "routine 2-equation system after base rewrite; easy-medium"
+  },
+  {
+   "id": "J11",
+   "labeled": "medium",
+   "why": "constant f(x) − 2x is a direct slope cue; easy-medium"
+  },
+  {
+   "id": "L07",
+   "labeled": "hard",
+   "why": "once the 13th value is the median, 12/25 is immediate; medium-hard"
+  },
+  {
+   "id": "M06",
+   "labeled": "hard",
+   "why": "two-step ratio (radius then square); medium-hard"
+  }
+ ]
+}

@@ -1,0 +1,549 @@
+{
+ "bank": "sat_math",
+ "batch": 39,
+ "plan": "SAT Math batch 39: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 4 student-produced responses. Ideas J05-J08, K07, K08, K10, K11, L02, L05, M03, M04 from generated set 3 (independently pre-checked: no copy or template matches). Fixes from the pre-check: J06's numbers changed so no choice stands out by format; J08's choices changed so the key is not the only non-multiple of 20. MC keys placed at A or D where natural.",
+ "candidates": [
+  {
+   "cand": "Q039-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Distance recovered from a three-part linear fare, then a speed",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A rideshare fare is $2.50 plus $1.75 per mile plus $0.40 per minute. A 15-minute ride cost $26.00. What was the average speed of the ride, in miles per hour?",
+   "explanation": "The time charge is 0.40 × 15 = $6.00, so 2.50 + 6.00 + 1.75m = 26.00 and 1.75m = 17.50, giving m = 10 miles. The ride took 15 minutes, or 1/4 hour, so the average speed is 10 ÷ (1/4) = 40 miles per hour.",
+   "hints": [
+    "How much of the fare is for the minutes?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for the miles, then divide by the time in hours."
+   },
+   "remember": "Convert minutes to hours before finding miles per hour.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "40",
+   "accepted_answers": [
+    "40"
+   ],
+   "common_errors": [
+    {
+     "value": "10",
+     "rationale": "10 is the distance in miles, not the speed.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2/3",
+     "rationale": "2/3 is the speed in miles per minute.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q039-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Unknown rate after a percent raise, compared across different hours",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A tutor raised her hourly rate by 20%. At the new rate, 5 hours of tutoring cost $30 more than 4 hours of tutoring cost at the old rate. What is the tutor's new hourly rate?",
+   "explanation": "Let x be the old rate, so the new rate is 1.2x. Then 5(1.2x) = 4x + 30, so 6x = 4x + 30 and x = 15. The new rate is 1.2 × 15 = $18.",
+   "hints": [
+    "Write the new rate in terms of the old rate x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set 5(1.2x) equal to 4x + 30."
+   },
+   "remember": "Answer for the rate the question asks about: old or new.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$15",
+    "B": "$18",
+    "C": "$25",
+    "D": "$30"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "$15 is the old rate, not the new rate.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "$25 raises both sides by 20%: 6x = 4.8x + 30.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$30 is the new rate that follows from raising both sides by 20%.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q039-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Choosing the half-plane that contains the origin",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, which of the following points lies on the same side of the graph of 4x − 3y = 12 as the origin?",
+   "explanation": "At the origin, 4x − 3y = 0, which is less than 12, so the origin's side is where 4x − 3y < 12. Check each point: (5, 3) gives 20 − 9 = 11 < 12; (4, 1) gives 13; (6, 3) gives 15; (0, −5) gives 15. Only (5, 3) is on the origin's side.",
+   "hints": [
+    "What is the value of 4x − 3y at the origin?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute each point into 4x − 3y."
+   },
+   "remember": "Points on the same side give the same inequality sign.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "(5, 3)",
+    "B": "(4, 1)",
+    "C": "(6, 3)",
+    "D": "(0, −5)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "(4, 1) looks close to the origin but gives 13 > 12.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "(6, 3) gives 15 > 12.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "(0, −5) is on the y-axis below the origin but gives 15 > 12.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q039-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Distance from a round trip at two speeds and a total time",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Kim drove from home to a lake at an average speed of 50 miles per hour and returned home on the same route at an average speed of 30 miles per hour. The round trip took 4 hours of driving. How far, in miles, is the lake from Kim's home?",
+   "explanation": "Let d be the one-way distance. The times are d/50 and d/30, so d/50 + d/30 = 4. Multiplying by 150 gives 3d + 5d = 600, so d = 75 miles.",
+   "hints": [
+    "Write each leg's time in terms of the distance d."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the two times and set the sum equal to 4."
+   },
+   "remember": "Average speed is not the average of the speeds.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "75",
+    "B": "80",
+    "C": "100",
+    "D": "160"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "80 averages the speeds to 40 mph and uses 2 hours each way.",
+     "trap": "overextend_trend"
+    },
+    "C": {
+     "rationale": "100 assumes 2 hours each way at 50 mph.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "160 is a round trip of 4 hours at an average of 40 mph.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q039-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Vertical stretch that makes a shifted parabola touch the axis",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = k(x + 1)(x − 3), where k is a nonzero constant, and the function g is defined by g(x) = f(x) + 8. If the graph of y = g(x) in the xy-plane has exactly one x-intercept, what is the value of k ?",
+   "explanation": "The zeros of f are −1 and 3, so the vertex of f is at x = 1, where f(1) = k(2)(−2) = −4k. The graph of g has one x-intercept only if its vertex lies on the x-axis: −4k + 8 = 0, so k = 2. (For k < 0 the vertex of g is above the axis and opens down, giving two intercepts.)",
+   "hints": [
+    "Where is the vertex of f?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the parabola and shift it up 8."
+   },
+   "remember": "One x-intercept for a parabola: its vertex is on the x-axis.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must locate the vertex from the zeros and see that the shift must bring it exactly to the axis."
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "-2",
+     "rationale": "−2 makes a sign error in f(1) = −4k.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "1",
+     "rationale": "1 is the x-coordinate of the vertex, not k.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q039-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Nested radical rewritten as one rational exponent",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "If x > 0 and √(x√x) = 8, what is the value of x ?",
+   "explanation": "x√x = x^(3/2), so √(x√x) = x^(3/4). Then x^(3/4) = 8, so x = 8^(4/3) = (8^(1/3))^4 = 2^4 = 16. Check: √(16 · 4) = √64 = 8.",
+   "hints": [
+    "Write x√x as a single power of x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Turn each radical into a fractional exponent."
+   },
+   "remember": "√(x^a) = x^(a/2).",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "16",
+    "C": "64",
+    "D": "512"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "4 is 8^(2/3), from using the wrong exponent.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "64 is x√x, the value after squaring once.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "512 is 8³, which treats the exponent as 1/3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q039-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sign conditions on coefficients from the vertex quadrant",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the vertex of the graph of y = x² + bx + c, where b and c are constants, lies in Quadrant IV. Which of the following must be true?",
+   "explanation": "The vertex is at x = −b/2 and y = c − b²/4. In Quadrant IV, x > 0 and y < 0. So −b/2 > 0 gives b < 0, and c − b²/4 < 0 gives b² > 4c. The constant c can be positive: y = x² − 4x + 3 has vertex (2, −1).",
+   "hints": [
+    "Write the vertex coordinates in terms of b and c."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test a parabola with its vertex in Quadrant IV, such as y = x² − 4x + 3."
+   },
+   "remember": "The y-intercept c is not the vertex's y-coordinate.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must express the vertex in terms of b and c; assuming a vertex below the axis means c < 0 is a strong trap."
+   },
+   "choices": {
+    "A": "b < 0 and b² > 4c",
+    "B": "b < 0 and c < 0",
+    "C": "b > 0 and c < 0",
+    "D": "b > 0 and b² > 4c"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "c need not be negative: y = x² − 4x + 3 has its vertex in Quadrant IV with c = 3.",
+     "trap": "overextend_trend"
+    },
+    "C": {
+     "rationale": "b > 0 would put the vertex to the left of the y-axis.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "b > 0 would put the vertex to the left of the y-axis.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q039-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing yearly percent decrease of models with different periods",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The value of one machine is modeled by f(t) = 800(0.95)^t dollars and the value of another is modeled by g(t) = 800(0.9)^(t/2) dollars, where t is the number of years since purchase. Which statement is true?",
+   "explanation": "Each year g is multiplied by 0.9^(1/2) ≈ 0.9487, a decrease of about 5.13%, while f is multiplied by 0.95, a decrease of 5%. So g decreases by a greater percent each year.",
+   "hints": [
+    "What is g's growth factor for one year?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite 0.9^(t/2) as (0.9^(1/2))^t."
+   },
+   "remember": "Compare growth factors over the same time period.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must convert a 2-year factor to a 1-year factor; halving 10% to 5% is a strong trap."
+   },
+   "choices": {
+    "A": "Each value decreases by 5% per year.",
+    "B": "The value f decreases by a greater percent each year than g does.",
+    "C": "The value g decreases by 10% each year.",
+    "D": "The value g decreases by a greater percent each year than f does."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "10% every 2 years is not 5% per year; g's yearly factor is about 0.9487.",
+     "trap": "overextend_trend"
+    },
+    "B": {
+     "rationale": "f's yearly decrease is 5%, which is less than g's 5.13%.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "10% is g's decrease every 2 years, not each year.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q039-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Line of best fit after a change of units",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A scatterplot shows the price y, in dollars, of each of several snacks and its weight x, in ounces. The line of best fit is y = 2.5x + 10. If every price is rewritten in cents and the weights are unchanged, which equation is the line of best fit for the new data?",
+   "explanation": "Every y-value is multiplied by 100 and the x-values are unchanged, so the fitted line is also multiplied by 100: y = 100(2.5x + 10) = 250x + 1,000.",
+   "hints": [
+    "What happens to each y-value?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the whole equation's right side by 100."
+   },
+   "remember": "Scaling every y-value scales both slope and intercept.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "y = 250x + 1,000",
+    "B": "y = 250x + 10",
+    "C": "y = 2.5x + 1,000",
+    "D": "y = 0.025x + 0.1"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "y = 250x + 10 converts the slope but not the intercept.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "y = 2.5x + 1,000 converts the intercept but not the slope.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "y = 0.025x + 0.1 divides by 100 instead of multiplying.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q039-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Percent change in speed when pace improves",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A runner's average pace improved from 8 minutes per mile to 7 minutes 30 seconds per mile. By approximately what percent did the runner's average speed increase?",
+   "explanation": "Speed is the reciprocal of pace. At 8 minutes per mile the speed is 60/8 = 7.5 miles per hour; at 7.5 minutes per mile it is 60/7.5 = 8 miles per hour. The increase is 0.5/7.5 ≈ 0.0667, about 6.67%.",
+   "hints": [
+    "Convert each pace to a speed in miles per hour."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find both speeds, then the percent change."
+   },
+   "remember": "Pace and speed are reciprocals; their percent changes differ.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see that pace and speed are reciprocals; treating the pace change as the speed change gives 6.25%."
+   },
+   "choices": {
+    "A": "6.25%",
+    "B": "6.67%",
+    "C": "93.75%",
+    "D": "106.67%"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6.25% is the percent decrease in pace, 0.5/8, not the increase in speed.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "93.75% is the new pace as a percent of the old pace.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "106.67% is the new speed as a percent of the old speed, not the increase.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q039-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Liquid depth after transfer from a hemisphere to a cylinder",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A bowl shaped like a hemisphere with an inside radius of 9 centimeters is full of water. All of the water is poured into an empty cylindrical glass with an inside radius of 6 centimeters that is tall enough to hold it. How deep, in centimeters, is the water in the glass?",
+   "explanation": "The hemisphere holds (1/2)(4/3)π(9³) = (2/3)π(729) = 486π cubic centimeters. In the cylinder, π(6²)h = 36πh, so 36πh = 486π and h = 13.5 centimeters.",
+   "hints": [
+    "What is the volume of a hemisphere of radius 9?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two volumes equal."
+   },
+   "remember": "A hemisphere is half of (4/3)πr³.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "13.5",
+   "accepted_answers": [
+    "13.5",
+    "27/2"
+   ],
+   "common_errors": [
+    {
+     "value": "27",
+     "rationale": "27 uses the volume of a full sphere.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "6.75",
+     "rationale": "6.75 uses (1/3)πr³ for the hemisphere.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q039-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Segment length from similar triangles with a non-obvious correspondence",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In triangle ABC, point D lies on side AC so that angle ABD has the same measure as angle ACB. If AB = 6 and AC = 9, what is the length of segment DC ?",
+   "explanation": "Triangles ABD and ACB share angle A, and angle ABD = angle ACB, so they are similar with A ↔ A, B ↔ C, D ↔ B. Then AD/AB = AB/AC, so AD = 6²/9 = 4. Therefore DC = AC − AD = 9 − 4 = 5.",
+   "hints": [
+    "Which two triangles share angle A?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the triangle and mark the equal angles."
+   },
+   "remember": "Match vertices by equal angles, not by position.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find the similar triangles and their correspondence; stopping at AD = 4 is a trap."
+   },
+   "format": "spr",
+   "answer": "5",
+   "accepted_answers": [
+    "5"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 is the length of AD, not DC.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "3",
+     "rationale": "3 assumes AD = AB = 6.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}

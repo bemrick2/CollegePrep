@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 37,
+  "bank_version": 38,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -6247,6 +6247,281 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Undo the −2, then undo the +1 inside."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000327",
+      "correct_answer": "D",
+      "explanation": "Let a and s be the numbers of adult and student tickets. The mistake changes each student ticket by +$5 and each adult ticket by −$5, so the extra money is 5s − 5a = 150, which gives s − a = 30. With s + a = 150, adding the equations gives 2s = 180, so s = 90 (and a = 60).",
+      "distractor_explanations": {
+        "A": "30 is the difference s − a, not the number of student tickets.",
+        "B": "60 is the number of adult tickets.",
+        "C": "75 splits the tickets evenly and ignores the extra $150."
+      },
+      "hints": [
+        "How much does the mistake change the money for each kind of ticket?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the extra money as 5s − 5a."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000328",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "-2",
+          "rationale": "−2 treats the boundary as excluded (k < −1) and takes the next integer.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "0",
+          "rationale": "0 treats x = 5 as a solution (k > −1) and picks a value above −1.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "At x = 5 the inequality reads 8 < 10 + 2k. For x = 5 not to be a solution, this must be false: 8 ≥ 10 + 2k, so 2k ≤ −2 and k ≤ −1. The greatest possible value is −1. (Check: with k = −1 the inequality is 8 < 8, which is false.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute x = 5. What must be true for that statement to be false?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Negate the inequality at x = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000329",
+      "correct_answer": "26",
+      "accepted_answers": [
+        "26"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 is f(2), not f(3).",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "11",
+          "rationale": "11 is the slope of f.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Substituting x = 0 gives f(0) = 2f(0) + 7, so f(0) = −7. With f(1) = 4, the slope is 4 − (−7) = 11, so f(x) = 11x − 7 and f(3) = 33 − 7 = 26. (Alternatively, x = 1 gives f(2) = 2(4) + 7 = 15, and the slope is 15 − 4 = 11.)",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute a convenient value of x into the equation."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use x = 0 or x = 1 to find a second point."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000330",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the value of k, not c.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-6",
+          "rationale": "−6 makes a sign error in −2c = −12.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "For all x ≠ 2, x² + kx − 12 = (x − 2)(x + c) = x² + (c − 2)x − 2c. Matching constant terms gives −2c = −12, so c = 6, and then k = c − 2 = 4. Check: x² + 4x − 12 = (x − 2)(x + 6).",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by x − 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand (x − 2)(x + c) and match coefficients."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000331",
+      "correct_answer": "C",
+      "explanation": "Culture A has 2,000(1.15)^t and culture B has 6,000(1.06)^t bacteria after t hours. At t = 13, A ≈ 12,306 and B ≈ 12,798, so A is still smaller. At t = 14, A ≈ 14,151 and B ≈ 13,565, so A is larger. The answer is 14 hours (a calculator table or graph shows this quickly).",
+      "distractor_explanations": {
+        "A": "5 is when culture A first exceeds half of culture B.",
+        "B": "13 is the last hour at which A is still smaller; it also comes from subtracting the rates and solving 1.09^t > 3.",
+        "D": "23 divides a 200% gap by 9 percentage points, treating the growth as linear."
+      },
+      "hints": [
+        "Write both models and compare them hour by hour."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph both functions or use a table."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000332",
+      "correct_answer": "A",
+      "explanation": "Rewrite with base 2: 4^a · 8^b = 2^(2a) · 2^(3b) = 2^(2a + 3b), so 2a + 3b = 12. With a = b + 1, 2(b + 1) + 3b = 12, so 5b = 10 and b = 2.",
+      "distractor_explanations": {
+        "B": "12/5 assumes a = b.",
+        "C": "14/5 uses b − a = 1 instead of a − b = 1.",
+        "D": "3 is the value of a, not b."
+      },
+      "hints": [
+        "Write 4 and 8 as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the exponent equation into a linear equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000333",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 is the product of the possible values, not their sum.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-5",
+          "rationale": "−5 makes a sign error in the sum of the roots.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Perpendicular slopes multiply to −1: k(k − 5) = −1, so k² − 5k + 1 = 0. The discriminant 25 − 4 = 21 is positive, so there are two values, (5 ± √21)/2. Their sum is 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is true of the product of perpendicular slopes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the product of the slopes equal to −1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000334",
+      "correct_answer": "240",
+      "accepted_answers": [
+        "240"
+      ],
+      "common_errors": [
+        {
+          "value": "144",
+          "rationale": "144 is the number of students who work part-time.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "360",
+          "rationale": "360 is 0.6 × 600, using the conditional probability as a share of everyone.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The number of adults who are students and work part-time is 0.24 × 600 = 144. These 144 are 60% of the students, so the number of students is 144 ÷ 0.6 = 240.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which probability refers to all 600 adults?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the joint count first, then divide by the conditional rate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000335",
+      "correct_answer": "12",
+      "accepted_answers": [
+        "12"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 subtracts the percents, 25 − 10.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "88",
+          "rationale": "88 is the sale price as a percent of the original price.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let the cost be 100 dollars. The original price is 125 and the sale price is 110. The price fell by 15 dollars, and 15/125 = 0.12, so the price was lowered by 12%.",
+      "distractor_explanations": {},
+      "hints": [
+        "Pick a cost, such as $100."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use a cost of $100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000336",
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 forgets the factor 1/2 in the triangle's area.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "8",
+          "rationale": "8 uses only one of the two 30°-60°-90° halves.",
+          "trap": null
+        }
+      ],
+      "explanation": "The central angle is (16π/3)/8 = 2π/3 radians, or 120°. Triangle AOB has two sides of 8 with a 120° angle between them. Its height from O to AB is 8 cos 60° = 4, and half of AB is 8 sin 60° = 4√3, so AB = 8√3 and the area is (1/2)(8√3)(4) = 16√3. So k = 16.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the arc length to find the central angle."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude from O to AB."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000337",
+      "correct_answer": "200",
+      "accepted_answers": [
+        "200"
+      ],
+      "common_errors": [
+        {
+          "value": "125",
+          "rationale": "125 treats the box as a cube with side 5.",
+          "trap": null
+        },
+        {
+          "value": "5",
+          "rationale": "5 is the side length of the base, not the volume.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let s be the side of the base, so the height is s + 3. The surface area is 2s² + 4s(s + 3) = 6s² + 12s = 210, so s² + 2s − 35 = 0 and (s + 7)(s − 5) = 0. Since s > 0, s = 5 and the height is 8. The volume is 5 · 5 · 8 = 200 cubic inches.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the surface area in terms of the base side s."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Two square faces plus four rectangular faces."
       }
     }
   ]
