@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 35,
-  "updated_at": "2026-10-27T09:29:07+00:00",
+  "version": 36,
+  "updated_at": "2026-10-27T09:56:02+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -388,6 +388,17 @@
       "word_count": 282,
       "text": "In the spring of 1860, a letter sent from Missouri to California by stagecoach usually took three weeks or more to arrive. A new company promised to deliver mail in about ten days, saving customers more than a {{1|weeks}} wait. Its service soon became known as the Pony Express.\n\nThe plan depended on speed at every step. The company set up a chain of relay stations across roughly 1,900 miles of prairie, mountains, and desert. Each rider, along with the mail he carried, {{2|were}} expected to cover about seventy-five to one hundred miles before handing off to a fresh rider. At each station along the way, he swapped his tired horse for a fresh {{3|one, and}} rode on. Station keepers had the next horse saddled and waiting, so each change took {{4|some time}}. Riders needed to be both brave and {{5|have a light weight}}, since every extra pound slowed the horses.\n\nThe mail itself traveled in a leather cover called a mochila, which fit over the saddle and could be moved from one horse to the next in seconds. Because of this system, the service was {{6|capable to}} remarkable feats. In March 1861, riders carried the text of Abraham Lincoln's first inaugural address between the ends of the telegraph lines in Nebraska and Nevada in under eight days. {{7|}} Despite such feats, the company was losing money. Postage was expensive, at first five dollars for every half ounce of mail, but the cost of the stations, horses, and riders was far greater. {{8|}}\n\nIn October 1861, workers completed the first transcontinental telegraph line, which could carry a message across the country almost instantly. Two days later, the Pony Express {{9|announces}} that it would close. {{10|}}",
       "batch": 35,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000036",
+      "title": "The Ice King",
+      "genre": "informative essay",
+      "word_count": 222,
+      "text": "Before electric refrigerators, ice in summer was a luxury in most of the world. In 1806, a young Boston merchant named Frederic Tudor set out to sell it in the tropics. He loaded a ship with about 130 tons of ice cut from New England ponds and sent it to the Caribbean island of Martinique. Much of the cargo melted before it could be sold, and {{1|much}} people in Boston laughed at the scheme.\n\nTudor's {{2|principle}} problem was keeping the ice frozen. On a long voyage, even thick blocks slowly {{3|evaporated}} in the ship's hold. After years of experiments, he found that packing the blocks in {{4|a certain material}} slowed melting dramatically. Within a few decades, ships carried ice to cities as far away as Calcutta, India{{5|, cut from New England ponds}}.\n\n{{6|Ponds are common throughout New England.}} Each winter, crews marked the frozen ponds into grids, sawed out heavy blocks, and floated them to icehouses on shore. The workers {{7|theirselves}} were often farmers who needed wages during the months when their fields lay idle.\n\nBy the 1850s, ice had become an ordinary part of life in American cities. Tudor, once mocked, became known as the {{8|\"Ice King,\" and}} his company shipped ice around the world. By the early 1900s, however, mechanical ice-making and cheaper electricity {{9|was}} steadily ending the natural-ice trade. {{10|}}",
+      "batch": 36,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -25335,6 +25346,720 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-035.review.json",
         "computation": "checks/act_english/batch_035.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000353",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Many versus much",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 1,
+      "evidence": "people in Boston laughed at the scheme",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "many",
+        "C": "a great deal of",
+        "D": "an amount of"
+      },
+      "correct_answer": "B",
+      "explanation": "\"People\" is a countable plural noun, so it takes \"many.\"",
+      "distractor_explanations": {
+        "A": "\"Much\" is used with things that cannot be counted; \"people\" can be counted.",
+        "C": "\"A great deal of\" is used with uncountable nouns, not with \"people.\"",
+        "D": "\"Amount\" is used with uncountable nouns, not with \"people.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you count people?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide whether the noun is countable."
+      },
+      "remember": "Many/number/fewer for countable nouns; much/amount/less for uncountable ones.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-01",
+      "created_at": "2026-10-27T09:56:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000354",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Commonly confused words (principal / principle)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 2,
+      "evidence": "problem was keeping the ice frozen",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "principals",
+        "C": "principal",
+        "D": "principle's"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Principal\" as an adjective means \"main\": Tudor's main problem.",
+      "distractor_explanations": {
+        "A": "A \"principle\" is a rule or belief; the sentence needs an adjective meaning \"main.\"",
+        "B": "This is a plural noun and cannot describe \"problem.\"",
+        "D": "This possessive noun makes no sense before \"problem.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the word mean \"main\" or \"rule\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute \"main\" to test."
+      },
+      "remember": "Principal = main (or a school head); principle = a rule.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-02",
+      "created_at": "2026-10-27T09:56:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000355",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precise word choice",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 3,
+      "evidence": "even thick blocks slowly",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "melted",
+        "C": "dissolved",
+        "D": "boiled"
+      },
+      "correct_answer": "B",
+      "explanation": "Ice warming in a ship's hold turns into liquid water, which is melting; the paragraph also uses \"melting\" in the next sentence.",
+      "distractor_explanations": {
+        "A": "Ice in a ship's hold turns to water by melting; it does not mainly turn directly into vapor.",
+        "C": "Dissolving means mixing into a liquid, which is not what happens to ice in a hold.",
+        "D": "Boiling requires far higher temperatures than a ship's hold."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What happens to ice as it warms?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Picture the process each word describes."
+      },
+      "remember": "Choose the word that names the exact process.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-03",
+      "created_at": "2026-10-27T09:56:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [
+          "minor: ice in a ship's hold can technically sublimate a little, but 'melted' is clearly the intended answer, and the context ('keeping the ice frozen', 'slowed melting') confirms it"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000356",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Specific detail",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 4,
+      "evidence": "slowed melting dramatically",
+      "figure": null,
+      "stem": "Which choice provides the most specific description of the insulation Tudor used?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "something he found that worked well",
+        "C": "one of several kinds of packing materials",
+        "D": "sawdust, a cheap waste product of lumber mills,"
+      },
+      "correct_answer": "D",
+      "explanation": "Only D names the material (sawdust) and adds a concrete detail about it.",
+      "distractor_explanations": {
+        "A": "\"A certain material\" does not say what the material was.",
+        "B": "This is vague and names no material.",
+        "C": "This is general and names no material."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which choice actually names the material?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Prefer concrete names over general words."
+      },
+      "remember": "\"Most specific\" means the choice that names and describes, not one that only gestures.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-04",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000357",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Placement of a modifying phrase",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 5,
+      "evidence": "ships carried ice to cities as far away as Calcutta",
+      "figure": null,
+      "stem": "The best placement for the underlined portion (adjusting the punctuation as needed) would be:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "where it is now",
+        "B": "after the word \"ships\"",
+        "C": "after the word \"ice\"",
+        "D": "after the word \"cities\""
+      },
+      "correct_answer": "C",
+      "explanation": "The phrase describes the ice, so it belongs right after \"ice\": \"ships carried ice cut from New England ponds to cities as far away as Calcutta, India.\"",
+      "distractor_explanations": {
+        "A": "At the end of the sentence, the phrase seems to describe Calcutta, India, which was not cut from ponds.",
+        "B": "The ships were not cut from New England ponds.",
+        "D": "The cities were not cut from New England ponds."
+      },
+      "distractor_traps": {
+        "A": "misplaced_modifier",
+        "B": "misplaced_modifier",
+        "D": "misplaced_modifier"
+      },
+      "hints": [
+        "What was cut from New England ponds?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Place the phrase next to the noun it describes."
+      },
+      "remember": "A modifying phrase belongs next to the word it modifies.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-05",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000358",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Introducing a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 6,
+      "evidence": "Each winter, crews marked the frozen ponds into grids",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Tudor eventually grew very wealthy from the ice trade.",
+        "C": "Some New England ponds have since been turned into parks.",
+        "D": "Harvesting the ice was hard, cold work."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph describes crews sawing and moving heavy blocks and the farmers who did the work; D introduces that focus on the harvest as labor.",
+      "distractor_explanations": {
+        "A": "This fact does not lead into the description of how crews cut and moved the ice.",
+        "B": "The paragraph is about the harvest and the workers, not Tudor's wealth.",
+        "C": "This shifts to the present and does not introduce the harvest."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does the rest of the paragraph describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph, then choose its opening."
+      },
+      "remember": "A good topic sentence names what the paragraph is about.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-06",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000359",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Reflexive pronouns (nonstandard \"theirselves\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 7,
+      "evidence": "were often farmers who needed wages",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "themselves",
+        "C": "themself",
+        "D": "their selves"
+      },
+      "correct_answer": "B",
+      "explanation": "The standard plural reflexive (or intensive) pronoun is \"themselves.\"",
+      "distractor_explanations": {
+        "A": "\"Theirselves\" is not standard English.",
+        "C": "\"Themself\" does not match the plural \"workers.\"",
+        "D": "\"Their selves\" is not the standard reflexive form."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which form is standard English?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the pronoun to \"workers.\""
+      },
+      "remember": "Standard reflexives: myself, yourself, himself, herself, itself, ourselves, themselves.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-07",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000360",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas with quotation marks",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 8,
+      "evidence": "his company shipped ice around the world",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "\"Ice King\", and",
+        "C": "\"Ice King\" and,",
+        "D": "\"Ice King\" and"
+      },
+      "correct_answer": "A",
+      "explanation": "The sentence joins two independent clauses with \"and,\" so a comma is needed, and in American usage it goes inside the closing quotation mark.",
+      "distractor_explanations": {
+        "B": "In American usage, a comma that follows a quotation goes inside the closing quotation mark.",
+        "C": "The comma belongs before \"and,\" not after it.",
+        "D": "Two independent clauses joined by \"and\" need a comma before the conjunction."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "comma_splice"
+      },
+      "hints": [
+        "Where does the comma go relative to the quotation mark?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check whether a comma is needed, then where."
+      },
+      "remember": "Commas and periods go inside closing quotation marks.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-08",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: D (no comma) is close for short clauses, but ACT convention requires a comma before 'and' joining two independent clauses"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000361",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Agreement with a compound subject",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 9,
+      "evidence": "mechanical ice-making and cheaper electricity",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is",
+        "C": "were",
+        "D": "has been"
+      },
+      "correct_answer": "C",
+      "explanation": "Two subjects joined by \"and\" form a plural subject, which takes \"were.\"",
+      "distractor_explanations": {
+        "A": "\"Mechanical ice-making and cheaper electricity\" is a compound subject joined by \"and,\" so it is plural.",
+        "B": "This is singular; the compound subject is plural.",
+        "D": "This is singular; the compound subject is plural."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How many things are doing the action?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Count the subjects joined by \"and.\""
+      },
+      "remember": "X and Y = plural verb.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-09",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000362",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion returning to the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000036",
+      "underline": 10,
+      "evidence": "Before electric refrigerators, ice in summer was a luxury in most of the world.",
+      "figure": null,
+      "stem": "The writer wants to conclude the essay by returning to the idea in the essay's first sentence. Which choice best accomplishes this goal?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Within a lifetime, ice had gone from a rare summer luxury to something nearly everyone took for granted.",
+        "B": "Some of the old icehouses that once stored Tudor's ice still stand along the shores of New England ponds today.",
+        "C": "Mechanical refrigeration was developed gradually by many different inventors working over several decades.",
+        "D": "On their return voyages, Tudor's ships often carried fruit, cotton, and other goods back to Boston."
+      },
+      "correct_answer": "A",
+      "explanation": "The first sentence calls summer ice a luxury; A returns to that idea by showing how ice became ordinary.",
+      "distractor_explanations": {
+        "B": "This adds a detail about icehouses and does not return to the idea of ice as a luxury.",
+        "C": "This continues the topic of refrigeration but does not connect to the essay's opening idea.",
+        "D": "This adds a new detail unrelated to the opening sentence."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What idea does the first sentence introduce?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the first sentence, then match."
+      },
+      "remember": "When a question names the opening, the answer must echo it.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 36,
+      "draft_candidate": "E036-10",
+      "created_at": "2026-10-27T09:56:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-036.review.json",
+        "computation": "checks/act_english/batch_036.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
