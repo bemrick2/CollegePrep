@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 8,
+ "plan": "SAT Math batch 8: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses. Screened out before drafting: perpendicular through a point (ACT 553/034), percents of an unknown whole (197), altitude to the hypotenuse (085), standard deviation (047), adding rational expressions (415), half-life interpretation (SAT 026), removing an outlier (768), scale-map area (651), chord distance (511), rhombus (221/562), Venn overlaps (088), dice (075/263), cube surface area (529), circle from diameter endpoints (014). A recipe-ratio item that copied ACT 582 word for word was replaced after screening.",
+ "candidates": [
+  {
+   "cand": "Q008-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Constant in an equivalent linear expression",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "In the expression 5(2x − k) + 3x, k is a constant. If the expression is equivalent to 13x − 35, what is the value of k ?",
+   "explanation": "5(2x − k) + 3x = 13x − 5k. For this to equal 13x − 35, 5k = 35, so k = 7.",
+   "hints": [
+    "Distribute the 5 and compare constant terms."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set −5k equal to −35."
+   },
+   "remember": "Equivalent expressions have matching coefficients and constants.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−7",
+    "B": "5",
+    "C": "7",
+    "D": "35"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−7 drops the negative sign in −5k.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "5 is the coefficient that multiplies k.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "35 is the value of 5k, not k.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q008-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Writing a system of inequalities from a context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Priya will spend at most 10 hours this week on math practice and reading practice combined. She wants to spend at least twice as many hours on math practice as on reading practice. If m is the number of hours of math practice and r is the number of hours of reading practice, which system of inequalities represents these conditions?",
+   "explanation": "\"At most 10 hours combined\" is m + r ≤ 10. \"At least twice as many hours on math as on reading\" means m is at least 2 times r: m ≥ 2r.",
+   "hints": [
+    "Translate \"at most\" and \"at least twice\" separately."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test m = 6, r = 3, which meets both conditions."
+   },
+   "remember": "\"A is at least twice B\" translates to A ≥ 2B.",
+   "expected_time_seconds": 50,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "m + r ≤ 10\nm ≥ 2r",
+    "B": "m + r ≤ 10\nr ≥ 2m",
+    "C": "m + r ≥ 10\nm ≥ 2r",
+    "D": "m + r ≤ 10\n2m ≥ r"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "r ≥ 2m says reading is at least twice math.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "m + r ≥ 10 means at least 10 hours, not at most.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2m ≥ r says math is at least half of reading.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q008-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Coefficient that makes two lines parallel",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graphs of 3x − 2y = 8 and ax + 6y = 5, where a is a constant, are parallel lines. What is the value of a ?",
+   "explanation": "The first line has slope 3/2. The second line, y = −(a/6)x + 5/6, has slope −a/6. Parallel lines have equal slopes, so −a/6 = 3/2 and a = −9.",
+   "hints": [
+    "Rewrite each equation in slope-intercept form."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the two slopes equal."
+   },
+   "remember": "Parallel lines have the same slope.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "-9",
+   "accepted_answers": [
+    "-9"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 has the wrong sign: the slopes would be 3/2 and −3/2.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "-4",
+     "rationale": "−4 makes the lines perpendicular, not parallel.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q008-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Zeros of a horizontally shifted quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = x² − 2x − 15. The function g is defined by g(x) = f(x − 3). What are the zeros of g ?",
+   "explanation": "The zeros of f are −3 and 5, because f(x) = (x + 3)(x − 5). g(x) = f(x − 3) is the graph of f shifted 3 units right, so its zeros are −3 + 3 = 0 and 5 + 3 = 8.",
+   "hints": [
+    "Find the zeros of f first."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check g(8) = f(5) = 0."
+   },
+   "remember": "f(x − h) shifts the graph h units to the right.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−8 and 0",
+    "B": "−6 and 2",
+    "C": "−3 and 5",
+    "D": "0 and 8"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "−8 and 0 negates the shifted zeros.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "−6 and 2 shifts the zeros 3 units left instead of right.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "−3 and 5 are the zeros of f, not g.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q008-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Condition for two real solutions",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "In the equation 2x² − 12x + k = 0, k is a constant. The equation has two distinct real solutions. Which of the following must be true?",
+   "explanation": "Two distinct real solutions require a positive discriminant: (−12)² − 4(2)(k) = 144 − 8k > 0, so k < 18.",
+   "hints": [
+    "What must be true of b² − 4ac?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try k = 20: 144 − 160 < 0, so k = 20 does not work."
+   },
+   "remember": "Two real solutions ↔ b² − 4ac > 0.",
+   "expected_time_seconds": 55,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "k > 18",
+    "B": "k < 18",
+    "C": "k < 36",
+    "D": "k < 72"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "k > 18 reverses the inequality, giving no real solutions.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "k < 36 omits the leading coefficient 2 from 4ac.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "k < 72 uses 2ac instead of 4ac.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q008-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving an exponential equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies the equation 3 · 2^(x + 1) = 96 ?",
+   "explanation": "Dividing by 3 gives 2^(x + 1) = 32 = 2⁵, so x + 1 = 5 and x = 4.",
+   "hints": [
+    "Divide both sides by 3 first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 4: 3 · 2⁵ = 96."
+   },
+   "remember": "Write both sides as powers of the same base.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "16",
+    "D": "31"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "5 is the value of x + 1.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "16 divides 32 by 2 instead of writing 32 as a power of 2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "31 subtracts 1 from 32 instead of from the exponent.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q008-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Comparing a per-use cost with a flat rate",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Phone plan A charges $0.15 for each text message sent. Phone plan B charges a flat $12 per month for unlimited text messages. What is the least whole number of text messages sent in a month for which plan B costs less than plan A?",
+   "explanation": "Plan B costs less when 0.15n > 12, that is, when n > 80. At exactly 80 messages both plans cost $12, so the least whole number is 81.",
+   "hints": [
+    "When do the two plans cost the same?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 0.15n > 12 and take the next whole number."
+   },
+   "remember": "\"Less than\" excludes the break-even point.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "8",
+    "B": "80",
+    "C": "81",
+    "D": "100"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "8 misplaces the decimal point when dividing 12 by 0.15.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "At 80 messages the plans cost the same, so plan B is not less.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "100 uses $0.12 per message, confusing the $12 fee with the per-message price.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q008-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Score needed to reach a target mean",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Jae's mean score on 3 tests is 84. What score on a fourth test would make Jae's mean score on all 4 tests equal to 87 ?",
+   "explanation": "The total for 3 tests is 3 × 84 = 252. A mean of 87 on 4 tests requires a total of 4 × 87 = 348. The fourth score must be 348 − 252 = 96.",
+   "hints": [
+    "Work with totals, not means."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve (252 + s)/4 = 87."
+   },
+   "remember": "Mean × count = total.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "96",
+   "accepted_answers": [
+    "96"
+   ],
+   "common_errors": [
+    {
+     "value": "90",
+     "rationale": "90 adds 3 to 87 instead of using the totals.",
+     "trap": null
+    },
+    {
+     "value": "3",
+     "rationale": "3 is the increase in the mean.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q008-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area of a triangle that is a right triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A triangle has sides of lengths 7, 24 and 25 centimeters. What is the area of the triangle, in square centimeters?",
+   "explanation": "Since 7² + 24² = 49 + 576 = 625 = 25², the triangle is a right triangle with legs 7 and 24. Its area is (1/2)(7)(24) = 84.",
+   "hints": [
+    "Check whether the triangle is a right triangle."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Test a² + b² = c², then use the legs as base and height."
+   },
+   "remember": "The legs of a right triangle are a base and height.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "56",
+    "B": "84",
+    "C": "168",
+    "D": "300"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "56 is the perimeter.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "168 omits the factor 1/2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "300 uses the hypotenuse and a leg, (1/2)(24)(25).",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q008-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Angle sum of a quadrilateral",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "The measures of the four interior angles of a quadrilateral are x°, 2x°, (3x − 20)° and 110°. What is the measure, in degrees, of the largest angle?",
+   "explanation": "The interior angles of a quadrilateral sum to 360°: x + 2x + 3x − 20 + 110 = 360, so 6x + 90 = 360 and x = 45. The angles are 45°, 90°, 115° and 110°, so the largest is 115°.",
+   "hints": [
+    "What is the sum of the interior angles of a quadrilateral?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 6x + 90 = 360, then evaluate each angle."
+   },
+   "remember": "Find x, then compare all four angles.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "115",
+   "accepted_answers": [
+    "115"
+   ],
+   "common_errors": [
+    {
+     "value": "45",
+     "rationale": "45 is the value of x.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "110",
+     "rationale": "110 is the given angle, but 3x − 20 = 115 is larger.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}

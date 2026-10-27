@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 7,
-  "updated_at": "2026-10-27T01:58:26+00:00",
+  "version": 8,
+  "updated_at": "2026-10-27T02:01:34+00:00",
   "passages": [],
   "questions": [
     {
@@ -4817,6 +4817,655 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-007.review.json",
         "computation": "checks/sat_math/batch_007.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000068",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Constant in an equivalent linear expression",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the expression 5(2x − k) + 3x, k is a constant. If the expression is equivalent to 13x − 35, what is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−7",
+        "B": "5",
+        "C": "7",
+        "D": "35"
+      },
+      "correct_answer": "C",
+      "explanation": "5(2x − k) + 3x = 13x − 5k. For this to equal 13x − 35, 5k = 35, so k = 7.",
+      "distractor_explanations": {
+        "A": "−7 drops the negative sign in −5k.",
+        "B": "5 is the coefficient that multiplies k.",
+        "D": "35 is the value of 5k, not k."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Distribute the 5 and compare constant terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set −5k equal to −35."
+      },
+      "remember": "Equivalent expressions have matching coefficients and constants.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-01",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000069",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Writing a system of inequalities from a context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Priya will spend at most 10 hours this week on math practice and reading practice combined. She wants to spend at least twice as many hours on math practice as on reading practice. If m is the number of hours of math practice and r is the number of hours of reading practice, which system of inequalities represents these conditions?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "m + r ≤ 10\nm ≥ 2r",
+        "B": "m + r ≤ 10\nr ≥ 2m",
+        "C": "m + r ≥ 10\nm ≥ 2r",
+        "D": "m + r ≤ 10\n2m ≥ r"
+      },
+      "correct_answer": "A",
+      "explanation": "\"At most 10 hours combined\" is m + r ≤ 10. \"At least twice as many hours on math as on reading\" means m is at least 2 times r: m ≥ 2r.",
+      "distractor_explanations": {
+        "B": "r ≥ 2m says reading is at least twice math.",
+        "C": "m + r ≥ 10 means at least 10 hours, not at most.",
+        "D": "2m ≥ r says math is at least half of reading."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Translate \"at most\" and \"at least twice\" separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test m = 6, r = 3, which meets both conditions."
+      },
+      "remember": "\"A is at least twice B\" translates to A ≥ 2B.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-02",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000070",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Coefficient that makes two lines parallel",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graphs of 3x − 2y = 8 and ax + 6y = 5, where a is a constant, are parallel lines. What is the value of a ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-9",
+      "accepted_answers": [
+        "-9"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 has the wrong sign: the slopes would be 3/2 and −3/2.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes the lines perpendicular, not parallel.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first line has slope 3/2. The second line, y = −(a/6)x + 5/6, has slope −a/6. Parallel lines have equal slopes, so −a/6 = 3/2 and a = −9.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Rewrite each equation in slope-intercept form."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two slopes equal."
+      },
+      "remember": "Parallel lines have the same slope.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-03",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-9",
+        "blind_answer": "-9",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000071",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Zeros of a horizontally shifted quadratic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² − 2x − 15. The function g is defined by g(x) = f(x − 3). What are the zeros of g ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−8 and 0",
+        "B": "−6 and 2",
+        "C": "−3 and 5",
+        "D": "0 and 8"
+      },
+      "correct_answer": "D",
+      "explanation": "The zeros of f are −3 and 5, because f(x) = (x + 3)(x − 5). g(x) = f(x − 3) is the graph of f shifted 3 units right, so its zeros are −3 + 3 = 0 and 5 + 3 = 8.",
+      "distractor_explanations": {
+        "A": "−8 and 0 negates the shifted zeros.",
+        "B": "−6 and 2 shifts the zeros 3 units left instead of right.",
+        "C": "−3 and 5 are the zeros of f, not g."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Find the zeros of f first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check g(8) = f(5) = 0."
+      },
+      "remember": "f(x − h) shifts the graph h units to the right.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-04",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000072",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving an exponential equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies the equation 3 · 2^(x + 1) = 96 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "16",
+        "D": "31"
+      },
+      "correct_answer": "A",
+      "explanation": "Dividing by 3 gives 2^(x + 1) = 32 = 2⁵, so x + 1 = 5 and x = 4.",
+      "distractor_explanations": {
+        "B": "5 is the value of x + 1.",
+        "C": "16 divides 32 by 2 instead of writing 32 as a power of 2.",
+        "D": "31 subtracts 1 from 32 instead of from the exponent."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Divide both sides by 3 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 4: 3 · 2⁵ = 96."
+      },
+      "remember": "Write both sides as powers of the same base.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-06",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000073",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing a per-use cost with a flat rate",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Phone plan A charges $0.15 for each text message sent. Phone plan B charges a flat $12 per month for unlimited text messages. What is the least whole number of text messages sent in a month for which plan B costs less than plan A?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "8",
+        "B": "80",
+        "C": "81",
+        "D": "100"
+      },
+      "correct_answer": "C",
+      "explanation": "Plan B costs less when 0.15n > 12, that is, when n > 80. At exactly 80 messages both plans cost $12, so the least whole number is 81.",
+      "distractor_explanations": {
+        "A": "8 misplaces the decimal point when dividing 12 by 0.15.",
+        "B": "At 80 messages the plans cost the same, so plan B is not less.",
+        "D": "100 uses $0.12 per message, confusing the $12 fee with the per-message price."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "When do the two plans cost the same?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 0.15n > 12 and take the next whole number."
+      },
+      "remember": "\"Less than\" excludes the break-even point.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-07",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [
+          "minor: Plan A apparently has no monthly base fee; consider stating 'and no monthly fee' so the comparison is explicit."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000074",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Score needed to reach a target mean",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Jae's mean score on 3 tests is 84. What score on a fourth test would make Jae's mean score on all 4 tests equal to 87 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "96",
+      "accepted_answers": [
+        "96"
+      ],
+      "common_errors": [
+        {
+          "value": "90",
+          "rationale": "90 adds 3 to 87 instead of using the totals.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the increase in the mean.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The total for 3 tests is 3 × 84 = 252. A mean of 87 on 4 tests requires a total of 4 × 87 = 348. The fourth score must be 348 − 252 = 96.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Work with totals, not means."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (252 + s)/4 = 87."
+      },
+      "remember": "Mean × count = total.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-08",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "96",
+        "blind_answer": "96",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000075",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of a triangle that is a right triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A triangle has sides of lengths 7, 24 and 25 centimeters. What is the area of the triangle, in square centimeters?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "56",
+        "B": "84",
+        "C": "168",
+        "D": "300"
+      },
+      "correct_answer": "B",
+      "explanation": "Since 7² + 24² = 49 + 576 = 625 = 25², the triangle is a right triangle with legs 7 and 24. Its area is (1/2)(7)(24) = 84.",
+      "distractor_explanations": {
+        "A": "56 is the perimeter.",
+        "C": "168 omits the factor 1/2.",
+        "D": "300 uses the hypotenuse and a leg, (1/2)(24)(25)."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Check whether the triangle is a right triangle."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Test a² + b² = c², then use the legs as base and height."
+      },
+      "remember": "The legs of a right triangle are a base and height.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-09",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: missing serial comma ('7, 24, and 25')."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000076",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle sum of a quadrilateral",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The measures of the four interior angles of a quadrilateral are x°, 2x°, (3x − 20)° and 110°. What is the measure, in degrees, of the largest angle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "115",
+      "accepted_answers": [
+        "115"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is the value of x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "110",
+          "rationale": "110 is the given angle, but 3x − 20 = 115 is larger.",
+          "trap": null
+        }
+      ],
+      "explanation": "The interior angles of a quadrilateral sum to 360°: x + 2x + 3x − 20 + 110 = 360, so 6x + 90 = 360 and x = 45. The angles are 45°, 90°, 115° and 110°, so the largest is 115°.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the sum of the interior angles of a quadrilateral?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 6x + 90 = 360, then evaluate each angle."
+      },
+      "remember": "Find x, then compare all four angles.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 8,
+      "draft_candidate": "Q008-10",
+      "created_at": "2026-10-27T02:01:34+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "115",
+        "blind_answer": "115",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-008.review.json",
+        "computation": "checks/sat_math/batch_008.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

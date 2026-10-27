@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T01:58:29+00:00",
+  "updated_at": "2026-10-27T02:02:00+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 67
+    "sat_math": 76
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 67,
-      "REVISE": 0,
+      "PASS": 76,
+      "REVISE": 1,
       "REJECT": 0,
-      "candidates": 67,
+      "candidates": 77,
       "passed_after_revision": 0
     }
   },
@@ -1401,22 +1401,27 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 67,
+      "accepted": 76,
       "retired_after_audit": 0,
       "by_skill": {
-        "Advanced Math": 22,
-        "Algebra": 22,
-        "Geometry and Trigonometry": 11,
-        "Problem-Solving and Data Analysis": 12
+        "Advanced Math": 24,
+        "Algebra": 25,
+        "Geometry and Trigonometry": 13,
+        "Problem-Solving and Data Analysis": 14
       },
       "by_subskill": {
+        "Angle sum of a quadrilateral": 1,
         "Arc length with a radian measure": 1,
+        "Area of a triangle that is a right triangle": 1,
         "Coefficient that gives a quadratic exactly one real solution": 1,
+        "Coefficient that makes two lines parallel": 1,
+        "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Complementary angles and the sine-cosine relationship": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for a line to meet a parabola once": 1,
         "Conditions for a linear equation to have no solution": 1,
+        "Constant in an equivalent linear expression": 1,
         "Constant term from the distance between zeros": 1,
         "Converting a rate between units": 1,
         "Cosine from two sides of a right triangle": 1,
@@ -1456,6 +1461,7 @@
         "Rewriting exponential expressions with a common base": 1,
         "Right-triangle trigonometry with a given ratio": 1,
         "Same-side interior angles with algebra": 1,
+        "Score needed to reach a target mean": 1,
         "Simplifying a difference of polynomial products": 1,
         "Simplifying a rational expression": 1,
         "Simplifying an expression with negative exponents": 1,
@@ -1468,36 +1474,40 @@
         "Solving a linear system for an expression": 1,
         "Solving a rational equation": 1,
         "Solving a system with a given relationship": 1,
+        "Solving an exponential equation": 1,
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
         "Working backward through a markup and a discount": 1,
         "Writing a linear inequality from a context": 1,
+        "Writing a system of inequalities from a context": 1,
         "Writing an exponential growth model": 1,
         "Zeros of a factorable cubic polynomial": 1,
+        "Zeros of a horizontally shifted quadratic": 1,
         "y-intercept from a slope and a point": 1
       },
       "by_difficulty_author": {
-        "easy": 8,
+        "easy": 10,
         "hard": 6,
-        "medium": 53
+        "medium": 60
       },
       "by_difficulty_calibrated": {
-        "easy": 26,
+        "easy": 31,
         "hard": 1,
-        "medium": 40
+        "medium": 44
       },
       "calibrated_share": {
-        "easy": 0.388,
-        "hard": 0.015,
-        "medium": 0.597
+        "easy": 0.408,
+        "hard": 0.013,
+        "medium": 0.579
       },
       "answer_key_balance": {
-        "-9": 1,
+        "-9": 2,
         "1.5": 1,
         "11": 2,
         "114": 1,
+        "115": 1,
         "12": 2,
         "15": 2,
         "2": 1,
@@ -1511,13 +1521,14 @@
         "8": 1,
         "80": 1,
         "9": 1,
-        "A": 13,
-        "B": 11,
-        "C": 12,
-        "D": 11
+        "96": 1,
+        "A": 15,
+        "B": 12,
+        "C": 14,
+        "D": 12
       },
-      "modeling_items": 17,
-      "spr_items": 20,
+      "modeling_items": 20,
+      "spr_items": 23,
       "passages": 0
     }
   },
@@ -1526,7 +1537,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 7
+    "sat_math": 8
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1558,26 +1569,26 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 8,
+    "next_batch": 9,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 4.9,
-      "Advanced Math": 4.9,
-      "Problem-Solving and Data Analysis": -0.5,
-      "Geometry and Trigonometry": 0.5
+      "Algebra": 5.1,
+      "Advanced Math": 6.1,
+      "Problem-Solving and Data Analysis": -1.1,
+      "Geometry and Trigonometry": -0.1
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -6.8,
-      "medium": -1.5,
-      "hard": 18.2
+      "easy": -9.5,
+      "medium": -1.0,
+      "hard": 20.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 1.4,
-      "B": 3.4,
-      "C": 2.4,
-      "D": 3.4
+      "A": 1.1,
+      "B": 4.1,
+      "C": 2.1,
+      "D": 4.1
     },
-    "spr_items": 20,
+    "spr_items": 23,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1589,14 +1600,6 @@
         "Integration of Knowledge and Ideas": -10.5
       }
     },
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 29.2,
-        "Knowledge of Language": 18.8,
-        "Conventions of Standard English": -33.8
-      }
-    },
     "sat_reading_writing": {
       "next_batch": 30,
       "skill_gap_for_next_10": {
@@ -1604,6 +1607,14 @@
         "Information and Ideas": -0.0,
         "Standard English Conventions": 8.0,
         "Expression of Ideas": -1.4
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 29.2,
+        "Knowledge of Language": 18.8,
+        "Conventions of Standard English": -33.8
       }
     }
   },
@@ -1630,12 +1641,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 67,
-      "share_of_target": 0.096
+      "accepted": 76,
+      "share_of_target": 0.109
     }
   },
   "total_target": 4700,
-  "total_accepted": 1585,
+  "total_accepted": 1594,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48473,7 +48484,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 7,
+      "bank_version": 8,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48599,7 +48610,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T01:58:28+00:00",
+    "heartbeat_at": "2026-10-27T02:01:59+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

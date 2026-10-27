@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 7,
+  "bank_version": 8,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -1360,6 +1360,192 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the height and label the half-base."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000068",
+      "correct_answer": "C",
+      "explanation": "5(2x − k) + 3x = 13x − 5k. For this to equal 13x − 35, 5k = 35, so k = 7.",
+      "distractor_explanations": {
+        "A": "−7 drops the negative sign in −5k.",
+        "B": "5 is the coefficient that multiplies k.",
+        "D": "35 is the value of 5k, not k."
+      },
+      "hints": [
+        "Distribute the 5 and compare constant terms."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set −5k equal to −35."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000069",
+      "correct_answer": "A",
+      "explanation": "\"At most 10 hours combined\" is m + r ≤ 10. \"At least twice as many hours on math as on reading\" means m is at least 2 times r: m ≥ 2r.",
+      "distractor_explanations": {
+        "B": "r ≥ 2m says reading is at least twice math.",
+        "C": "m + r ≥ 10 means at least 10 hours, not at most.",
+        "D": "2m ≥ r says math is at least half of reading."
+      },
+      "hints": [
+        "Translate \"at most\" and \"at least twice\" separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test m = 6, r = 3, which meets both conditions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000070",
+      "correct_answer": "-9",
+      "accepted_answers": [
+        "-9"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 has the wrong sign: the slopes would be 3/2 and −3/2.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes the lines perpendicular, not parallel.",
+          "trap": null
+        }
+      ],
+      "explanation": "The first line has slope 3/2. The second line, y = −(a/6)x + 5/6, has slope −a/6. Parallel lines have equal slopes, so −a/6 = 3/2 and a = −9.",
+      "distractor_explanations": {},
+      "hints": [
+        "Rewrite each equation in slope-intercept form."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two slopes equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000071",
+      "correct_answer": "D",
+      "explanation": "The zeros of f are −3 and 5, because f(x) = (x + 3)(x − 5). g(x) = f(x − 3) is the graph of f shifted 3 units right, so its zeros are −3 + 3 = 0 and 5 + 3 = 8.",
+      "distractor_explanations": {
+        "A": "−8 and 0 negates the shifted zeros.",
+        "B": "−6 and 2 shifts the zeros 3 units left instead of right.",
+        "C": "−3 and 5 are the zeros of f, not g."
+      },
+      "hints": [
+        "Find the zeros of f first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check g(8) = f(5) = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000072",
+      "correct_answer": "A",
+      "explanation": "Dividing by 3 gives 2^(x + 1) = 32 = 2⁵, so x + 1 = 5 and x = 4.",
+      "distractor_explanations": {
+        "B": "5 is the value of x + 1.",
+        "C": "16 divides 32 by 2 instead of writing 32 as a power of 2.",
+        "D": "31 subtracts 1 from 32 instead of from the exponent."
+      },
+      "hints": [
+        "Divide both sides by 3 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 4: 3 · 2⁵ = 96."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000073",
+      "correct_answer": "C",
+      "explanation": "Plan B costs less when 0.15n > 12, that is, when n > 80. At exactly 80 messages both plans cost $12, so the least whole number is 81.",
+      "distractor_explanations": {
+        "A": "8 misplaces the decimal point when dividing 12 by 0.15.",
+        "B": "At 80 messages the plans cost the same, so plan B is not less.",
+        "D": "100 uses $0.12 per message, confusing the $12 fee with the per-message price."
+      },
+      "hints": [
+        "When do the two plans cost the same?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 0.15n > 12 and take the next whole number."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000074",
+      "correct_answer": "96",
+      "accepted_answers": [
+        "96"
+      ],
+      "common_errors": [
+        {
+          "value": "90",
+          "rationale": "90 adds 3 to 87 instead of using the totals.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the increase in the mean.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The total for 3 tests is 3 × 84 = 252. A mean of 87 on 4 tests requires a total of 4 × 87 = 348. The fourth score must be 348 − 252 = 96.",
+      "distractor_explanations": {},
+      "hints": [
+        "Work with totals, not means."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (252 + s)/4 = 87."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000075",
+      "correct_answer": "B",
+      "explanation": "Since 7² + 24² = 49 + 576 = 625 = 25², the triangle is a right triangle with legs 7 and 24. Its area is (1/2)(7)(24) = 84.",
+      "distractor_explanations": {
+        "A": "56 is the perimeter.",
+        "C": "168 omits the factor 1/2.",
+        "D": "300 uses the hypotenuse and a leg, (1/2)(24)(25)."
+      },
+      "hints": [
+        "Check whether the triangle is a right triangle."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Test a² + b² = c², then use the legs as base and height."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000076",
+      "correct_answer": "115",
+      "accepted_answers": [
+        "115"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is the value of x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "110",
+          "rationale": "110 is the given angle, but 3x − 20 = 115 is larger.",
+          "trap": null
+        }
+      ],
+      "explanation": "The interior angles of a quadrilateral sum to 360°: x + 2x + 3x − 20 + 110 = 360, so 6x + 90 = 360 and x = 45. The angles are 45°, 90°, 115° and 110°, so the largest is 115°.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the sum of the interior angles of a quadrilateral?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 6x + 90 = 360, then evaluate each angle."
       }
     }
   ]

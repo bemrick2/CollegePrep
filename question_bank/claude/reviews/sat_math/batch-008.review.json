@@ -1,0 +1,254 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 8,
+  "reviewed_at": "2026-10-27T02:01:34+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 8
+  },
+  "counts": {
+    "PASS": 9,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000068",
+    "CLD-SAT-M-000069",
+    "CLD-SAT-M-000070",
+    "CLD-SAT-M-000071",
+    "CLD-SAT-M-000072",
+    "CLD-SAT-M-000073",
+    "CLD-SAT-M-000074",
+    "CLD-SAT-M-000075",
+    "CLD-SAT-M-000076"
+  ],
+  "results": [
+    {
+      "cand": "Q008-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "10x - 5k + 3x = 13x - 5k; -5k = -35 so k = 7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000068"
+    },
+    {
+      "cand": "Q008-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Total at most 10: m + r <= 10; math at least twice reading: m >= 2r. D (2m >= r) reverses the relationship.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000069"
+    },
+    {
+      "cand": "Q008-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-9",
+      "computed_answer": "-9",
+      "blind_answer": "-9",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Slope of the first line is 3/2; slope of the second is -a/6 = 3/2, so a = -9. -9x + 6y = 5 vs -9x + 6y = -24: distinct parallel lines, not coincident.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000070"
+    },
+    {
+      "cand": "Q008-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f zeros at 5 and -3; g(x) = f(x - 3) has zeros where x - 3 = 5 or -3, so x = 8, 0. Trap A (shifting the wrong way).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000071"
+    },
+    {
+      "cand": "Q008-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "Multiple defensible answers: the discriminant gives 144 - 8k > 0, so k < 18. But k < 18 implies k < 36 and k < 72, so C and D are also 'must be true'. As worded ('Which of the following must be true?'), B, C and D are all correct. Reword to 'Which of the following describes all possible values of k?' or change C and D to statements that are not implied (e.g., k > 18, k < 9, k = 18)."
+      ],
+      "blind_notes": "Discriminant (-12)^2 - 4(2)k = 144 - 8k > 0 gives k < 18. C (k < 36 from forgetting the leading coefficient 2) and D (k < 72) are intended as distractors but are logically implied.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Multiple defensible answers: the discriminant gives 144 - 8k > 0, so k < 18. But k < 18 implies k < 36 and k < 72, so C and D are also 'must be true'. As worded ('Which of the following must be true?'), B, C and D are all correct. Reword to 'Which of the following describes all possible values of k?' or change C and D to statements that are not implied (e.g., k > 18, k < 9, k = 18)."
+    },
+    {
+      "cand": "Q008-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "2^(x+1) = 32 = 2^5, so x + 1 = 5 and x = 4. Trap B (5 = x + 1). Borderline easy/medium.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000072"
+    },
+    {
+      "cand": "Q008-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 58,
+      "blind_flags": [
+        "minor: Plan A apparently has no monthly base fee; consider stating 'and no monthly fee' so the comparison is explicit."
+      ],
+      "blind_notes": "0.15n > 12 gives n > 80; at n = 80 the costs are equal, so the least n is 81. Trap B (80).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000073"
+    },
+    {
+      "cand": "Q008-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "96",
+      "computed_answer": "96",
+      "blind_answer": "96",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "4(87) - 3(84) = 348 - 252 = 96.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000074"
+    },
+    {
+      "cand": "Q008-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: missing serial comma ('7, 24, and 25')."
+      ],
+      "blind_notes": "7^2 + 24^2 = 625 = 25^2, so it is a right triangle; area = (1/2)(7)(24) = 84. Trap C (168, forgetting the 1/2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000075"
+    },
+    {
+      "cand": "Q008-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "115",
+      "computed_answer": "115",
+      "blind_answer": "115",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "x + 2x + 3x - 20 + 110 = 360 gives 6x = 270, x = 45. Angles 45, 90, 115, 110; largest is 115. Trap: entering 45, or 110.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000076"
+    }
+  ]
+}

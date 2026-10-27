@@ -1,0 +1,15 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 8},
+  "answers": {
+    "Q008-01": {"answer": "C", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": [], "notes": "10x - 5k + 3x = 13x - 5k; -5k = -35 so k = 7."},
+    "Q008-02": {"answer": "A", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": [], "notes": "Total at most 10: m + r <= 10; math at least twice reading: m >= 2r. D (2m >= r) reverses the relationship."},
+    "Q008-03": {"answer": "-9", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Slope of the first line is 3/2; slope of the second is -a/6 = 3/2, so a = -9. -9x + 6y = 5 vs -9x + 6y = -24: distinct parallel lines, not coincident."},
+    "Q008-04": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "f zeros at 5 and -3; g(x) = f(x - 3) has zeros where x - 3 = 5 or -3, so x = 8, 0. Trap A (shifting the wrong way)."},
+    "Q008-05": {"answer": "B", "confidence": "medium", "est_pct_correct": 50, "difficulty_opinion": "medium", "flags": ["Multiple defensible answers: the discriminant gives 144 - 8k > 0, so k < 18. But k < 18 implies k < 36 and k < 72, so C and D are also 'must be true'. As worded ('Which of the following must be true?'), B, C and D are all correct. Reword to 'Which of the following describes all possible values of k?' or change C and D to statements that are not implied (e.g., k > 18, k < 9, k = 18)."], "notes": "Discriminant (-12)^2 - 4(2)k = 144 - 8k > 0 gives k < 18. C (k < 36 from forgetting the leading coefficient 2) and D (k < 72) are intended as distractors but are logically implied."},
+    "Q008-06": {"answer": "A", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy", "flags": [], "notes": "2^(x+1) = 32 = 2^5, so x + 1 = 5 and x = 4. Trap B (5 = x + 1). Borderline easy/medium."},
+    "Q008-07": {"answer": "C", "confidence": "high", "est_pct_correct": 58, "difficulty_opinion": "medium", "flags": ["minor: Plan A apparently has no monthly base fee; consider stating 'and no monthly fee' so the comparison is explicit."], "notes": "0.15n > 12 gives n > 80; at n = 80 the costs are equal, so the least n is 81. Trap B (80)."},
+    "Q008-08": {"answer": "96", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": [], "notes": "4(87) - 3(84) = 348 - 252 = 96."},
+    "Q008-09": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy", "flags": ["minor: missing serial comma ('7, 24, and 25')."], "notes": "7^2 + 24^2 = 625 = 25^2, so it is a right triangle; area = (1/2)(7)(24) = 84. Trap C (168, forgetting the 1/2)."},
+    "Q008-10": {"answer": "115", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "x + 2x + 3x - 20 + 110 = 360 gives 6x = 270, x = 45. Angles 45, 90, 115, 110; largest is 115. Trap: entering 45, or 110."}
+  }
+}
