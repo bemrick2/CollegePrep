@@ -1,0 +1,308 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 46,
+  "reviewed_at": "2026-10-27T15:10:42+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 46
+  },
+  "counts": {
+    "PASS": 5,
+    "REVISE": 5,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000382",
+    "CLD-ACT-R-000383",
+    "CLD-ACT-R-000384",
+    "CLD-ACT-R-000385",
+    "CLD-ACT-R-000386"
+  ],
+  "results": [
+    {
+      "cand": "R046-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Retrospective summer-job narrative ending 'I noticed the signs along the route for the first time... and I found that I could tell.' A is not a how-to; B rivalry is only background in P3; D contradicted (sign was left, owner came to admire it).",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000382"
+    },
+    {
+      "cand": "R046-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": null,
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "'\"a sign business\" in the tone people use for a relative who has taken up the accordion' = odd, not quite serious. A opposite tone; C, D unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must interpret a humorous simile about tone rather than the literal words \"a sign business.\""
+      },
+      "structural_problems": [
+        "unknown repo skill key act_craft"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown repo skill key act_craft"
+    },
+    {
+      "cand": "R046-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "Rosalind scrapes each O; asked 'how many more,' she answers 'That depends on the O' = until the O is good enough. Confirmed by 'By the third week, my O's had stopped sagging. I was promoted.' A, B unsupported; C misreads as a variety of O shapes.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "The remark is indirect; students must connect it to the narrator's question and the scraped-off attempts."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000383"
+    },
+    {
+      "cand": "R046-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": null,
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [
+        "minor: B, C, D are all print-shop advantages (speed, 400 typefaces, lower price), so A is the only option that favors Rosalind; this makes the item very easy"
+      ],
+      "blind_notes": "'when an owner wanted the gold leaf that the print shop could not imitate.' B/C/D describe the print shop's advantages.",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: near-verbatim lift of 'the gold leaf that the print shop could not imitate'; B/C/D are all print-shop advantages, so very easy"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [
+        "unknown repo skill key act_detail"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown repo skill key act_detail"
+    },
+    {
+      "cand": "R046-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": null,
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [],
+      "blind_notes": "'studied them the way other people read letters' (letters = correspondence) suggests close, personal attention. B 'copy exactly' is overstated; C confuses the pun; D contradicted, since the signs were 'by painters who had died before I was born.'",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [
+        "unknown repo skill key act_craft"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown repo skill key act_craft"
+    },
+    {
+      "cand": "R046-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": null,
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "'By the third week, my O's had stopped sagging. I was promoted to the rest of the alphabet and then, in August, to a real job: the name of a hardware store'; the bus comes at the end. The order is C, B, A, D.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [
+        "unknown repo skill key act_detail"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown repo skill key act_detail"
+    },
+    {
+      "cand": "R046-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "'The owner, who had been frowning at the S, seemed to decide that he had been admiring it all along' comes right after Rosalind's 'Leave it... machine' remark, so he changes his view. A contradicted (the narrator noticed first, from the curb); C unsupported; D contradicted, since he had been frowning at the S.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must read the irony of \"admiring it all along\" against the earlier frowning."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000384"
+    },
+    {
+      "cand": "R046-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "'I have since come to doubt that she believed this entirely; she scraped her own mistakes off without a second look.' This implies her remark was partly a kindness or tact. B contradicted (she made mistakes); C unsupported; D contradicted (she said 'Leave it').",
+      "blind2_answer": "A",
+      "blind2_flags": [
+        "minor: B ('never'), C, D are eliminable quickly; B by absolute wording; preceding clause 'I have since come to doubt that she believed this entirely' nearly states the answer"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Students must infer an unstated motive by contrasting Rosalind's words with her own practice."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000385"
+    },
+    {
+      "cand": "R046-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": null,
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [
+        "minor: the passage's own simile, 'like water collecting in a footprint,' supplies the key word 'collecting' right next to the tested word, so the item is nearly a giveaway"
+      ],
+      "blind_notes": "'the paint pooled at the bottom of each stroke like water collecting in a footprint.' A 'shared' is the trap of the common meaning; B, C don't fit.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: the simile 'like water collecting in a footprint' supplies the key word 'collecting' directly"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [
+        "unknown repo skill key act_vocab"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "unknown repo skill key act_vocab"
+    },
+    {
+      "cand": "R046-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [
+        "minor: the stem says 'by the end of the summer,' but the bus ride is 'that evening' in August after the hardware job; this is close enough and does not change the key"
+      ],
+      "blind_notes": "'I noticed the signs along the route for the first time—which ones had been cut and which had been painted—and I found that I could tell.' A, C, D unsupported.",
+      "blind2_answer": "B",
+      "blind2_flags": [
+        "minor: stem says 'by the end of the summer' though the scene is the evening of the August hardware-store job; acceptable but slightly loose"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000386"
+    }
+  ]
+}

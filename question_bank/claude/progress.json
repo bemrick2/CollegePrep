@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T15:09:06+00:00",
+  "updated_at": "2026-10-27T15:10:45+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 359,
-    "act_reading": 346,
+    "act_reading": 351,
     "sat_reading_writing": 372,
     "sat_math": 563
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 8
     },
     "act_reading": {
-      "PASS": 381,
-      "REVISE": 28,
+      "PASS": 386,
+      "REVISE": 33,
       "REJECT": 0,
-      "candidates": 409,
+      "candidates": 419,
       "passed_after_revision": 20
     },
     "sat_reading_writing": {
@@ -1163,12 +1163,12 @@
       "passages": 39
     },
     "act_reading": {
-      "accepted": 346,
+      "accepted": 351,
       "retired_after_audit": 35,
       "by_skill": {
         "Craft and Structure": 121,
-        "Integration of Knowledge and Ideas": 103,
-        "Key Ideas and Details": 122
+        "Integration of Knowledge and Ideas": 105,
+        "Key Ideas and Details": 125
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -1269,6 +1269,7 @@
         "Inference about a character": 1,
         "Inference about a character's action": 2,
         "Inference about a character's meaning": 1,
+        "Inference about a character's statement": 1,
         "Inference about a character’s action": 1,
         "Inference about a character’s attitude": 1,
         "Inference about a character’s observation": 1,
@@ -1277,6 +1278,7 @@
         "Inference about a character’s self-recognition": 1,
         "Inference about a limitation": 1,
         "Inference about a mechanism": 2,
+        "Inference about a minor character": 1,
         "Inference about a narrator's view": 1,
         "Inference about a phrase": 1,
         "Inference about a program’s design": 1,
@@ -1326,6 +1328,7 @@
         "Locating supporting details": 1,
         "Main claim of one passage": 1,
         "Main focus of a passage": 1,
+        "Main idea of a literary passage": 1,
         "Main idea of a narrative": 4,
         "Main idea of a passage": 8,
         "Main purpose of a passage": 8,
@@ -1335,6 +1338,8 @@
         "Meaning of a figurative phrase": 1,
         "Meaning of a phrase in context": 4,
         "Meaning of a word in context": 25,
+        "Narrator's change in perception": 1,
+        "Narrator's later reflection": 1,
         "Overall structure of a narrative": 1,
         "Overall structure of a passage": 1,
         "Overall structure of an argument": 1,
@@ -1368,29 +1373,29 @@
         "What an experiment adds to a correlation": 1
       },
       "by_difficulty_author": {
-        "easy": 142,
+        "easy": 146,
         "hard": 32,
-        "medium": 172
+        "medium": 173
       },
       "by_difficulty_calibrated": {
-        "easy": 211,
+        "easy": 213,
         "hard": 1,
-        "medium": 134
+        "medium": 137
       },
       "calibrated_share": {
-        "easy": 0.61,
+        "easy": 0.607,
         "hard": 0.003,
-        "medium": 0.387
+        "medium": 0.39
       },
       "answer_key_balance": {
-        "A": 99,
-        "B": 84,
-        "C": 80,
-        "D": 83
+        "A": 100,
+        "B": 86,
+        "C": 81,
+        "D": 84
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 45
+      "passages": 46
     },
     "sat_reading_writing": {
       "accepted": 372,
@@ -2285,7 +2290,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 40,
-    "act_reading": 45,
+    "act_reading": 46,
     "sat_reading_writing": 43,
     "sat_math": 59
   },
@@ -2343,12 +2348,13 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 46,
+    "sat_reading_writing": {
+      "next_batch": 44,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 48.9,
-        "Craft and Structure": -16.0,
-        "Integration of Knowledge and Ideas": -22.9
+        "Craft and Structure": -6.0,
+        "Information and Ideas": -4.7,
+        "Standard English Conventions": 23.3,
+        "Expression of Ideas": -2.6
       }
     },
     "act_english": {
@@ -2359,13 +2365,12 @@
         "Conventions of Standard English": -40.6
       }
     },
-    "sat_reading_writing": {
-      "next_batch": 44,
+    "act_reading": {
+      "next_batch": 47,
       "skill_gap_for_next_10": {
-        "Craft and Structure": -6.0,
-        "Information and Ideas": -4.7,
-        "Standard English Conventions": 23.3,
-        "Expression of Ideas": -2.6
+        "Key Ideas and Details": 48.3,
+        "Craft and Structure": -14.5,
+        "Integration of Knowledge and Ideas": -23.8
       }
     }
   },
@@ -2382,8 +2387,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 346,
-      "share_of_target": 0.506
+      "accepted": 351,
+      "share_of_target": 0.513
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2397,7 +2402,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2414,
+  "total_accepted": 2419,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -143125,7 +143130,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 45,
+      "bank_version": 46,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -143265,7 +143270,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T15:09:06+00:00",
+    "heartbeat_at": "2026-10-27T15:10:44+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
