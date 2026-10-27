@@ -1,0 +1,24 @@
+{
+ "bank": "act_math",
+ "date": "2026-10-27",
+ "scope": "700-item audit: stem+choices similarity >= 0.40 for items 627+ against the whole bank, compared by hand, plus the redundancy list from the whole-bank rater (calibration/act_math_rater_2026-10-27a.json).",
+ "method": "Retired the later item of a same-idea pair. Kept: 005/534 (radius from arc and area vs arc from area), 004/570 (polynomial vs exponential composition), 154/229 (linear vs rational inverse), 683/411 (different quadrant and units), 709/235 (solve for a singular entry vs evaluate a determinant), 657/617 (angle sum vs single interior angle).",
+ "retired": [
+  {
+   "id": "CLD-ACT-M-000601",
+   "duplicate_of": "CLD-ACT-M-000113",
+   "shared_idea": "Value of a $24,000 car losing 15% a year (same numbers, same model; only the number of years differs)."
+  },
+  {
+   "id": "CLD-ACT-M-000562",
+   "duplicate_of": "CLD-ACT-M-000221",
+   "shared_idea": "Rhombus from a side and one diagonal; 562 asks for the other diagonal, which is the first step of 221."
+  },
+  {
+   "id": "CLD-ACT-M-000627",
+   "duplicate_of": "CLD-ACT-M-000121",
+   "shared_idea": "Extreme value of a·sin x + b vs a·cos x + b (max vs min) with no additional twist. 000694 (minimum of 5 − 2cos 3x) kept: the negative coefficient changes which extreme of cosine gives the minimum."
+  }
+ ],
+ "calibration": "Whole-bank re-rate of 708 live items: 217 easy, 399 medium, 92 hard; every rater answer matches its key. Calibrated (median of all ratings): 238 easy, 395 medium, 93 hard over all 726 records. The two listed mismatches (000130, 000136) come from older rater files and were resolved at earlier audits."
+}

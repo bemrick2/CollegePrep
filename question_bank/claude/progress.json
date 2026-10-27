@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T00:40:48+00:00",
+  "updated_at": "2026-10-27T00:41:28+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,7 +15,7 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 708,
+    "act_math": 705,
     "act_english": 242,
     "act_reading": 205,
     "sat_reading_writing": 245
@@ -52,12 +52,12 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 708,
-      "retired_after_audit": 18,
+      "accepted": 705,
+      "retired_after_audit": 21,
       "by_skill": {
         "Algebra": 127,
-        "Functions": 116,
-        "Geometry": 174,
+        "Functions": 114,
+        "Geometry": 173,
         "Integrating Essential Skills": 89,
         "Number & Quantity": 93,
         "Statistics & Probability": 109
@@ -256,7 +256,6 @@
         "Determinant of a 2 × 2 matrix": 1,
         "Diagonal of a rectangle": 1,
         "Diagonal of a rectangular box": 1,
-        "Diagonal of a rhombus from its side": 1,
         "Diagonal of a square from its area": 1,
         "Diagonal of a square from its perimeter": 1,
         "Diagonals of a trapezoid (similar triangles)": 1,
@@ -328,7 +327,6 @@
         "Exponent rules with different bases": 1,
         "Exponent substitution": 1,
         "Exponential decay models": 1,
-        "Exponential depreciation over two years": 1,
         "Exponential equations by factoring": 1,
         "Exponential equations by substitution": 1,
         "Exponential equations with a common base": 1,
@@ -454,7 +452,6 @@
         "Matrix multiplication": 1,
         "Maximizing a linear expression over a region": 1,
         "Maximum height of a projectile model": 1,
-        "Maximum value of a sinusoidal function": 1,
         "Mean after adding position numbers": 1,
         "Mean after dropping the lowest score": 1,
         "Mean and total": 1,
@@ -772,27 +769,27 @@
         "Zeros of a quadratic function": 1
       },
       "by_difficulty_author": {
-        "easy": 180,
+        "easy": 179,
         "hard": 209,
-        "medium": 319
+        "medium": 317
       },
       "by_difficulty_calibrated": {
-        "easy": 239,
-        "hard": 86,
+        "easy": 232,
+        "hard": 90,
         "medium": 383
       },
       "calibrated_share": {
-        "easy": 0.338,
-        "hard": 0.121,
-        "medium": 0.541
+        "easy": 0.329,
+        "hard": 0.128,
+        "medium": 0.543
       },
       "answer_key_balance": {
         "A": 167,
         "B": 189,
-        "C": 191,
-        "D": 161
+        "C": 189,
+        "D": 160
       },
-      "modeling_items": 136,
+      "modeling_items": 135,
       "passages": 0
     },
     "act_english": {
@@ -1322,23 +1319,23 @@
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -14.0,
-        "Algebra": 5.8,
-        "Functions": 16.8,
-        "Geometry": -41.2,
-        "Statistics & Probability": -12.1,
-        "Integrating Essential Skills": 54.6
+        "Number & Quantity": -14.3,
+        "Algebra": 5.3,
+        "Functions": 18.3,
+        "Geometry": -40.7,
+        "Statistics & Probability": -12.5,
+        "Integrating Essential Skills": 54.0
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -59.5,
-        "medium": -24.0,
-        "hard": 93.5
+        "easy": -53.2,
+        "medium": -25.5,
+        "hard": 88.8
       },
       "answer_key_gap_for_next_10": {
-        "A": 12.5,
-        "B": -9.5,
-        "C": -11.5,
-        "D": 18.5
+        "A": 11.8,
+        "B": -10.2,
+        "C": -10.2,
+        "D": 18.8
       }
     }
   },
@@ -1351,6 +1348,14 @@
         "Conventions of Standard English": -29.9
       }
     },
+    "act_reading": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 29.2,
+        "Craft and Structure": -10.6,
+        "Integration of Knowledge and Ideas": -8.6
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 28,
       "skill_gap_for_next_10": {
@@ -1359,21 +1364,13 @@
         "Standard English Conventions": 7.3,
         "Expression of Ideas": -2.0
       }
-    },
-    "act_reading": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 29.2,
-        "Craft and Structure": -10.6,
-        "Integration of Knowledge and Ideas": -8.6
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 708,
-      "share_of_target": 0.354
+      "accepted": 705,
+      "share_of_target": 0.352
     },
     "act_english": {
       "target": 700,
@@ -1392,7 +1389,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1400,
+  "total_accepted": 1397,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_reading",
   "audits": [
@@ -48339,12 +48336,17 @@
       "date": "2026-10-27",
       "bank": "act_reading",
       "summary": "200-item audit (207 live before retirements): whole-bank re-rate calibration/act_reading_rater_2026-10-27a.json. Rater: 95 easy, 112 medium, 0 hard. Calibrated (median with per-batch blind ratings): 122 easy, 86 medium, 0 hard, against author labels of 29 hard. No answer mismatches. Two same-passage overlaps retired (000016 restates 000002; 000063 restates 000062); see audits/act_reading_overlaps_2026-10-27.json. Finding: the Reading bank currently has no item that independent raters judge hard; new Reading batches need items whose difficulty comes from synthesis across paragraphs or a literally-true-but-wrong trap, not from length."
+    },
+    {
+      "date": "2026-10-27",
+      "bank": "act_math",
+      "summary": "700-item audit: whole-bank re-rate of 708 live items (calibration/act_math_rater_2026-10-27a.json): 217 easy / 399 medium / 92 hard, all answers match keys. Calibrated: 238 / 395 / 93. Three concept repeats retired (000601, 000562, 000627); see audits/act_math_concept_repeats_2026-10-27.json. Rater's lowest-percent item: 000674 (British flag theorem, ~20%)."
     }
   ],
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T00:40:48+00:00",
+    "heartbeat_at": "2026-10-27T00:41:28+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
