@@ -22,13 +22,21 @@ python3 -I question_bank/claude/tools/qb.py lock acquire <HOLDER>
 - If any `lock checkpoint` exits **4**, you have lost the lease. Stop writing at once.
 - For the import validator, run `cd web && npm ci --no-audit --no-fund --ignore-scripts` once if `web/node_modules` is missing. Nothing is deployed; it only reads files.
 
-## Current stop point (set by the user, 2026-10-26; raised the same day)
+## Current stop point (set by the user, 2026-10-27)
 
-GENERATION STOPPED on 2026-10-26 at about 20:13 US Central at the user's instruction ("stop generating questions after the next set is complete but no later than 830 central"), after ACT Math batch 80. Do not produce new batches; the scheduled check-in is disabled. The user then asked for a complete export (exports/complete/). The first stop point (Math 500, verbal 500) was reached on 2026-10-26. The user then asked for another 500 each. Stop producing when **ACT Math reaches 1,000 live items** and **ACT English + ACT Reading + SAT Reading & Writing reach 1,000 live items combined**. Until then, alternate Math and verbal batches; among verbal banks, pick the one furthest behind its target share. Run the 100-item audits as each bank crosses them. Once both limits are met, checkpoint, release the lock, do not start new batches, and disable the scheduled check-in.
+**Work only on SAT Math (`sat_math`, IDs `CLD-SAT-M-`) and stop when it has 700 live (accepted, not retired) items.** Do not write ACT or verbal items. When 700 is reached: checkpoint, release the lock, start no new batch, and disable the scheduled check-in.
 
-Repeat prevention (added at the 600 audit): eight Math items and three SAT items written on 2026-10-26 turned out to re-create existing bank items from memory, sometimes with the same numbers. Before drafting each item, search the bank for its concept, key word or numbers (for example `grep -i "slant height" banks/act_math.json`), and compare by hand every "stem+choices close to" warning that `qb.py screen` prints. Prefer contexts and question types the bank does not yet have. Search subskill names as well as stems: batch 70's first draft re-created three items (law of sines with 30° and 45°, the series 3, 6, 12, ..., and a two-way-table conditional probability) that a stem-only keyword search missed because the existing stems used different notation.
+History: ACT/verbal generation stopped 2026-10-26 about 20:13 US Central at the user's request (ACT Math 774, English 262, Reading 219, SAT R&W 263 live); a complete export of those banks is in `exports/prep-and-price-claude-complete-export.zip`. On 2026-10-27 the user asked to continue with SAT Math only, to 700.
 
-Verbal "hard" labels: blind solvers have repeatedly rated verbal items labelled hard as easy. Label a verbal item hard only when it has a trap that most quick readers fall for (a literally true but wrong choice, a partial disagreement, a percent-versus-raw comparison buried in a long table); otherwise label it medium.
+### SAT Math batches
+
+- **Format:** digital SAT Math. Four-choice items plus **student-produced responses (SPR) for about 25%** of each batch (2-3 per 10). Desmos and the reference sheet are available on every SAT Math question, so `calculator: "allowed"`; do not print formulas the reference sheet already gives, and never print others (lesson from the ACT bank: formula notes made hard items easy).
+- **Domains (`skill`) and repo keys:** Algebra (`sat_algebra`, ~35%), Advanced Math (`sat_advanced_math`, ~35%), Problem-Solving and Data Analysis (`sat_problem_solving_data`, ~15%), Geometry and Trigonometry (`sat_geometry_trig`, ~15%). `reporting_category` = the domain; `subskill` = the specific skill. Follow `progress.json -> sat_math_guidance` for gaps.
+- **SPR candidate shape:** `"format": "spr"`, no `choices`/`distractors`; `"answer"` (canonical string) and `"accepted_answers"` (every equivalent spelling that fits the grid: e.g. `["3/4", ".75", "0.75"]`; 5 characters max, 6 with a minus sign); `"common_errors": [{"value", "rationale", "trap"}]` (at least one). The check function in `checks/sat_math/batch_NNN.py` returns the **value** (it receives `None`), and the tool compares it with the accepted answers.
+- **Repeats:** the screen and review also compare against the live ACT Math bank. Same skill is fine; the same setup, numbers or template as an ACT item is not. Search both banks with `kw.py` before drafting.
+- **Difficulty (from the "how do we make them harder" review):** build at least two wrong choices from specific student errors; no answer-revealing style (key longest, only exact form, only hedged); hard items need a non-routine step that a quick Desmos graph does not settle. Labels stay provisional.
+- **Blind solve:** one separate solver per batch, as for ACT Math; for SPR items the packet has no choices and the solver records a number.
+- Audits every 100 SAT Math items: whole-bank re-rate (`calibrate.py sat_math`) and a concept-repeat check against both math banks.
 
 ## 1. Pick up where the last run stopped
 
