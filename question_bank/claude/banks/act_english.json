@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 55,
-  "updated_at": "2026-10-27T19:24:26+00:00",
+  "version": 56,
+  "updated_at": "2026-10-27T19:38:02+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -586,6 +586,17 @@
       "word_count": 221,
       "text": "[1] In 1965, the chemist Stephanie Kwolek was searching for a lightweight fiber strong enough to replace the steel wires in car tires. [2] One of the polymer solutions she prepared looked {{1|wrong. It}} was thin and cloudy, while successful solutions were usually thick and clear. [3] Most chemists would have thrown it out.\n\n[4] Kwolek, {{2|who's}} curiosity outweighed her doubts, asked a technician to spin the solution into fibers. [5] He refused at first, worried that the cloudy liquid would clog the spinning machine. [6] She persuaded him to try, and the fibers that came out were remarkably {{3|strong and stiff, and they weighed little}}. [7] {{4|Tested in the laboratory, the fibers proved}} several times stronger than steel of the same weight.\n\n[8] DuPont, the company where Kwolek worked, developed the material into a product called Kevlar, which went on sale in the early 1970s. [9] {{5|However,}} it is used in bicycle tires, firefighters' gear, and the protective vests worn by police officers. {{6|}}\n\n[10] Kwolek later said that she had never set out to invent anything {{7|dramatic, she}} simply paid attention to a result that did not fit. [11] She received many honors for her work, {{8|such as being}} induction into the National Inventors Hall of Fame. [12] {{9|The vests made from her fiber have since protected thousands of officers.}}",
       "batch": 55,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000056",
+      "title": "A Wallpaper Nobody Wanted",
+      "genre": "informative essay",
+      "word_count": 184,
+      "text": "[1] In 1957, two engineers in New Jersey, Alfred Fielding and Marc Chavannes, set out to make a new kind of wallpaper. [2] They sealed two plastic sheets together in a way that trapped rows of air {{1|bubbles, they hoped}} the textured surface would appeal to home decorators.\n\n[3] Almost no one wanted it. [4] The engineers then tried to sell the material as insulation for {{2|greenhouses, which}} also failed. [5] Neither of these {{3|attempts were}} successful, but the inventors noticed something else about their product: it cushioned whatever it was wrapped around.\n\n[6] {{4|As a result,}} in 1960 they founded a company, Sealed Air, to sell the material for packaging. [7] One of their earliest customers was IBM, which used the bubbly sheets to protect {{5|it's}} new computers during shipping. {{6|}}\n\n[8] Today the material is sold in rolls in nearly every office-supply store, and many people find that {{7|popping}} the bubbles is oddly satisfying. [9] Some fans even celebrate an annual Bubble Wrap Appreciation Day {{8|on, the last Monday in January}}. [10] {{9|The product that failed as wallpaper had found its true purpose.}}",
+      "batch": 56,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -37131,6 +37142,574 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-055.review.json",
         "computation": "checks/act_english/batch_055.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000516",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 1,
+      "evidence": "the textured surface would appeal to home decorators",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "bubbles. They hoped",
+        "C": "bubbles they hoped",
+        "D": "bubbles, and, they hoped"
+      },
+      "correct_answer": "B",
+      "explanation": "Both parts are independent clauses, so a period correctly separates them.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "Without punctuation, the two independent clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from the clause it introduces."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone as a sentence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "Separate two independent clauses with a period or semicolon.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-01",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000517",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 4,
+      "evidence": "it cushioned whatever it was wrapped around",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "However,",
+        "C": "For example,",
+        "D": "Similarly,"
+      },
+      "correct_answer": "A",
+      "explanation": "Noticing that the material cushioned objects led them to sell it for packaging, so a cause-and-effect transition fits.",
+      "distractor_explanations": {
+        "B": "Founding a packaging company follows from noticing the cushioning; it does not contrast with it.",
+        "C": "Founding the company is not an example of the cushioning.",
+        "D": "Founding the company is not similar to the earlier failures."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "How does sentence 6 relate to the end of sentence 5?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship before choosing."
+      },
+      "remember": "Use a result transition when one event leads to another.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-04",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000518",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Possessive pronoun (its vs. it's)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 5,
+      "evidence": "One of their earliest customers was IBM",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "its",
+        "C": "their",
+        "D": "its'"
+      },
+      "correct_answer": "B",
+      "explanation": "The computers belonged to IBM, a single company, so the possessive \"its\" is correct.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is,\" which does not make sense before \"new computers.\"",
+        "C": "\"Their\" is plural, but it refers to the singular company IBM.",
+        "D": "\"Its'\" is not a word."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you replace it with \"it is\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Expand contractions to test them."
+      },
+      "remember": "\"Its\" is possessive; \"it's\" means \"it is.\"",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-05",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000519",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 6,
+      "evidence": "used the bubbly sheets to protect",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nEarly computers were large machines that often filled an entire room.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains why IBM needed a special kind of packaging.",
+        "B": "Yes, because it gives an example of another early customer.",
+        "C": "No, because it contradicts the claim that IBM shipped computers.",
+        "D": "No, because it shifts focus from the packaging to the size of computers."
+      },
+      "correct_answer": "D",
+      "explanation": "The paragraph is about how the material found a market in packaging; a detail about the size of computers distracts from that focus.",
+      "distractor_explanations": {
+        "A": "The sentence is about computer size, not about why the packaging was needed.",
+        "B": "The sentence names no customer.",
+        "C": "The sentence does not contradict that IBM shipped computers."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is the paragraph about?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the sentence with the paragraph's focus."
+      },
+      "remember": "Add a sentence only if it supports the paragraph's point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-06",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000520",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Gerund as subject of a clause",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 7,
+      "evidence": "the bubbles is oddly satisfying",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "they pop",
+        "C": "pop",
+        "D": "popped"
+      },
+      "correct_answer": "A",
+      "explanation": "The gerund phrase \"popping the bubbles\" correctly serves as the subject of \"is.\"",
+      "distractor_explanations": {
+        "B": "\"Many people find that they pop the bubbles is satisfying\" creates two verbs with no connection.",
+        "C": "\"Find that pop the bubbles is\" uses a bare verb where a subject is needed.",
+        "D": "\"Popped the bubbles\" leaves the clause without a proper subject."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the subject of \"is\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each choice as the subject."
+      },
+      "remember": "A gerund phrase can be the subject of a clause.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-07",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000521",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Unnecessary comma",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 8,
+      "evidence": "celebrate an annual Bubble Wrap Appreciation Day",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "on the last Monday, in January",
+        "C": "on the last Monday in January",
+        "D": "on the last, Monday in January"
+      },
+      "correct_answer": "C",
+      "explanation": "\"On the last Monday in January\" is one prepositional phrase and needs no internal commas.",
+      "distractor_explanations": {
+        "A": "A comma should not separate the preposition \"on\" from its object.",
+        "B": "The comma wrongly separates \"in January\" from the date it identifies.",
+        "D": "The comma wrongly splits \"last Monday.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does anything in the phrase need to be set off?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Read the phrase without any commas."
+      },
+      "remember": "Do not separate a preposition from its object.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-08",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000522",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence (connecting to the opening)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 9,
+      "evidence": "set out to make a new kind of wallpaper",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting to its opening?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Bubble wrap is now made by many companies around the world.",
+        "C": "Some people prefer to use crumpled paper for packing instead.",
+        "D": "Plastic sheets can be recycled in many communities."
+      },
+      "correct_answer": "A",
+      "explanation": "The essay opens with the failed wallpaper; the current sentence returns to that idea by noting that the product found its true purpose.",
+      "distractor_explanations": {
+        "B": "This adds a fact about production, not a link to the opening.",
+        "C": "This introduces an unrelated alternative.",
+        "D": "This shifts to recycling, which the essay does not discuss."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How does the essay begin?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread sentence 1 before choosing."
+      },
+      "remember": "A strong conclusion can echo the opening.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-09",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000523",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": null,
+      "evidence": "The engineers then tried to sell the material as insulation",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe how a product found success after failing at its original purpose. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it explains how the material is manufactured today.",
+        "B": "No, because it focuses mainly on why people enjoy popping the bubbles.",
+        "C": "Yes, because it shows the material failing twice before succeeding as packaging.",
+        "D": "No, because the inventors never found a use for the material."
+      },
+      "correct_answer": "C",
+      "explanation": "The essay traces the material's failures as wallpaper and insulation and its later success as packaging.",
+      "distractor_explanations": {
+        "A": "The essay does not explain manufacturing.",
+        "B": "Popping is mentioned only briefly near the end.",
+        "D": "The essay says they founded a packaging company and gained IBM as a customer."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the essay show both the failure and the success?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check both parts of the purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 56,
+      "draft_candidate": "E056-10",
+      "created_at": "2026-10-27T19:38:02+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-056.review.json",
+        "computation": "checks/act_english/batch_056.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,0 +1,296 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 56,
+  "reviewed_at": "2026-10-27T19:38:02+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 56
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 1,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-ACT-E-000516",
+    "CLD-ACT-E-000517",
+    "CLD-ACT-E-000518",
+    "CLD-ACT-E-000519",
+    "CLD-ACT-E-000520",
+    "CLD-ACT-E-000521",
+    "CLD-ACT-E-000522",
+    "CLD-ACT-E-000523"
+  ],
+  "results": [
+    {
+      "cand": "E056-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "Original is a comma splice: two independent clauses ('They sealed... bubbles' / 'they hoped the textured surface would appeal...') joined by a comma alone. B splits them into two sentences. C is a fused sentence and also misreads as 'bubbles they hoped'. D puts a comma after 'and' with nothing to set off, so the punctuation is wrong.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000516"
+    },
+    {
+      "cand": "E056-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "In the original, 'which' sits right after 'greenhouses', so the sentence reads as if the greenhouses failed; the vague pronoun is the problem. D names the antecedent ('an effort that also failed'). B uses a semicolon before a dependent 'which' clause, so the second part is a fragment. C 'and they also failed' is grammatical, but 'they' could mean the engineers or the greenhouses, so it is still ambiguous and changes the subject from the effort to the people. Testing the vague pronoun 'which' is subtle, so many takers will keep NO CHANGE.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        {
+          "severity": "nonblocking",
+          "note": "C ('greenhouses, and they also failed') is grammatical and could be defended if 'they' is read as the engineers (the subject). It is weaker because 'they' sits right after 'greenhouses' and is ambiguous, so D is still clearly best. Still, C is a stronger distractor than a typical ACT item would use. Consider changing C to something plainly wrong (e.g., 'greenhouses, they')."
+        }
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: {'severity': 'nonblocking', 'note': \"C ('greenhouses, and they also failed') is grammatical and could be defended if 'they' is read as the engineers (the subject). It is weaker because 'they' sits right after 'greenhouses' and is ambiguous, so D is still clearly best. Still, C is a stronger distractor than a typical ACT item would use. Consider changing C to something plainly wrong (e.g., 'greenhouses, they').\"}"
+    },
+    {
+      "cand": "E056-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "The subject is 'Neither', which is singular, so it needs 'was'. A 'were' and B 'have been' are plural. D 'are' is plural and also present tense in a past-tense narrative. The plural noun 'attempts' right before the verb is the intended trap.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-E-000379",
+          "similarity": 0.6
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "E056-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Sentence 5 says they noticed the material cushioned things, and sentence 6 says they founded a packaging company. That is cause and effect, so 'As a result' fits. B 'However' signals a contrast that isn't there. C 'For example' fits nothing, since founding the company is not an example. D 'Similarly' wrongly suggests the two ideas are parallel.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000517"
+    },
+    {
+      "cand": "E056-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "This needs the possessive of IBM, which is singular ('IBM, which'). A 'it's' means 'it is', so it is wrong. C 'their' is plural and doesn't agree with singular IBM. D 'its'' is not a real word.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000518"
+    },
+    {
+      "cand": "E056-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "medium",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "The added sentence is a tangent about how big early computers were, and it pulls attention away from the bubble-wrap story. A is the tempting choice, but the sentence never connects size to a need for packaging, and the essay is about the material, not about IBM's needs. B is wrong because the sentence names no other customer. C is wrong because nothing in it contradicts the shipping.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000519"
+    },
+    {
+      "cand": "E056-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "The gerund phrase 'popping the bubbles' is the subject of 'is'. B gives 'find that they pop the bubbles is', which has two finite verbs and doesn't parse. C 'pop the bubbles is' and D 'popped the bubbles is' don't work as subjects.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000520"
+    },
+    {
+      "cand": "E056-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "No commas are needed in the prepositional phrase 'on the last Monday in January'. A puts a comma between the preposition and its object. B splits 'Monday' from 'in January'. D splits the adjective 'last' from the noun it modifies.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000521"
+    },
+    {
+      "cand": "E056-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "Only A goes back to the opening, where the product failed as wallpaper, and wraps up the essay's arc. B, C and D are new side topics: other manufacturers, crumpled paper and recycling.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000522"
+    },
+    {
+      "cand": "E056-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "The essay describes the material failing as wallpaper and then as greenhouse insulation before it succeeded as packaging, so 'Yes' with C's reason is right. A misstates the essay, which never explains manufacturing. B's 'focuses mainly' is false, since popping the bubbles is only a minor detail. D is factually contradicted by the essay.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000523"
+    }
+  ]
+}
