@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:13:50+00:00",
+  "updated_at": "2026-10-27T03:14:22+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 231
+    "sat_math": 238
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 241,
+      "PASS": 248,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 243,
+      "candidates": 250,
       "passed_after_revision": 2
     }
   },
@@ -1397,12 +1397,12 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 231,
+      "accepted": 238,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 78,
-        "Algebra": 69,
-        "Geometry and Trigonometry": 46,
+        "Advanced Math": 82,
+        "Algebra": 71,
+        "Geometry and Trigonometry": 47,
         "Problem-Solving and Data Analysis": 38
       },
       "by_subskill": {
@@ -1493,6 +1493,7 @@
         "Interpreting a change in a linear conversion formula": 1,
         "Interpreting a linear equation in two variables": 1,
         "Interpreting an exponential growth factor": 1,
+        "Interpreting an intercept of a linear equation in context": 1,
         "Interpreting the initial value of an exponential model": 1,
         "Intersection of a line and a parabola": 1,
         "Intersection of a line in point-slope form with a horizontal line": 1,
@@ -1536,6 +1537,7 @@
         "Possible third side of a triangle": 1,
         "Price that maximizes a quadratic revenue model": 1,
         "Product of the solutions of a quadratic equation": 1,
+        "Product of the solutions with an unknown coefficient": 1,
         "Product of x-coordinates where a line meets a circle": 1,
         "Radius from an arc length and a radian angle": 1,
         "Radius from the area between concentric circles": 1,
@@ -1599,6 +1601,7 @@
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
         "Tangent of an angle formed by a rectangle's diagonal": 1,
+        "Tangent of an angle from a point on a circle": 1,
         "Third angle of a triangle": 1,
         "Time for a falling object to reach a height": 1,
         "Time for a whole job from a partial job": 1,
@@ -1610,11 +1613,13 @@
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
         "Unknown count from a without-replacement probability": 1,
+        "Unknown exponents from two exponent rules": 1,
         "Using a quadratic condition with a linear equation": 1,
         "Using symmetry of a parabola": 1,
         "Using two values of a linear function": 1,
         "Value of a completed square from an equation": 1,
         "Value of a shifted exponential from a known power": 1,
+        "Vertex after a horizontal and vertical shift": 1,
         "Volume of a cone with a related radius": 1,
         "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
@@ -1626,12 +1631,14 @@
         "Writing a linear inequality from a context": 1,
         "Writing a linear model for savings": 1,
         "Writing a quadratic equation from its solutions": 1,
+        "Writing a system of equations from a context": 1,
         "Writing a system of inequalities from a context": 1,
         "Writing an exponential growth model": 1,
         "Writing one equation for three related lengths": 1,
         "Zero of an exponential function": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
+        "Zeros of a quadratic in vertex form": 1,
         "Zeros of a vertically shifted quadratic": 1,
         "x-intercept of a parallel line through a point": 1,
         "y-intercept from a slope and a point": 1,
@@ -1639,23 +1646,24 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 55,
+        "easy": 58,
         "hard": 11,
-        "medium": 165
+        "medium": 169
       },
       "by_difficulty_calibrated": {
-        "easy": 99,
+        "easy": 102,
         "hard": 6,
-        "medium": 126
+        "medium": 130
       },
       "calibrated_share": {
         "easy": 0.429,
-        "hard": 0.026,
-        "medium": 0.545
+        "hard": 0.025,
+        "medium": 0.546
       },
       "answer_key_balance": {
         "-1": 1,
         "-12": 1,
+        "-6": 1,
         "-9": 2,
         "1": 2,
         "1.5": 2,
@@ -1668,7 +1676,7 @@
         "16": 2,
         "18": 1,
         "18/13": 1,
-        "2": 3,
+        "2": 4,
         "20/3": 1,
         "200": 1,
         "24": 1,
@@ -1691,12 +1699,12 @@
         "9": 2,
         "90": 1,
         "A": 37,
-        "B": 49,
-        "C": 46,
-        "D": 29
+        "B": 50,
+        "C": 48,
+        "D": 31
       },
-      "modeling_items": 63,
-      "spr_items": 70,
+      "modeling_items": 65,
+      "spr_items": 72,
       "passages": 0
     }
   },
@@ -1705,7 +1713,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 26
+    "sat_math": 27
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1737,36 +1745,36 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 27,
+    "next_batch": 28,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 15.3,
-      "Advanced Math": 6.3,
-      "Problem-Solving and Data Analysis": -1.9,
-      "Geometry and Trigonometry": -9.9
+      "Algebra": 15.8,
+      "Advanced Math": 4.8,
+      "Problem-Solving and Data Analysis": -0.8,
+      "Geometry and Trigonometry": -9.8
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -38.8,
-      "medium": -5.5,
-      "hard": 54.2
+      "easy": -40.0,
+      "medium": -6.0,
+      "hard": 56.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 8.2,
-      "B": -3.8,
-      "C": -0.8,
-      "D": 16.2
+      "A": 9.5,
+      "B": -3.5,
+      "C": -1.5,
+      "D": 15.5
     },
-    "spr_items": 70,
+    "spr_items": 72,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_reading": {
-      "next_batch": 29,
+    "act_english": {
+      "next_batch": 27,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
       }
     },
     "sat_reading_writing": {
@@ -1778,12 +1786,12 @@
         "Expression of Ideas": -2.6
       }
     },
-    "act_english": {
-      "next_batch": 27,
+    "act_reading": {
+      "next_batch": 29,
       "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1810,12 +1818,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 231,
-      "share_of_target": 0.231
+      "accepted": 238,
+      "share_of_target": 0.238
     }
   },
   "total_target": 3841,
-  "total_accepted": 1742,
+  "total_accepted": 1749,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48987,7 +48995,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 26,
+      "bank_version": 27,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49113,7 +49121,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:13:50+00:00",
+    "heartbeat_at": "2026-10-27T03:14:21+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

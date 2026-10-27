@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 27,
- "plan": "SAT Math batch 27 (7 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 1; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-027.repeats.json): one template (ACT 569 and a demo fixture) dropped.",
+ "plan": "SAT Math batch 27 (7 items): Algebra 2, Advanced Math 4, Geometry and Trigonometry 1; 2 student-produced responses; 1 item labelled hard. Ideas pre-checked (reviews/sat_math/ideas-027.repeats.json): one template (ACT 569 and a demo fixture) dropped. Relabelled to the blind solver's rating where it was lower: Q027-01 medium→easy, Q027-02 medium→easy, Q027-03 hard→medium.",
  "candidates": [
   {
    "cand": "Q027-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Interpreting an intercept of a linear equation in context",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Dana earns $15 per hour at job A and $9 per hour at job B. The equation 15x + 9y = 135 represents the numbers of hours x at job A and y at job B that Dana works to earn exactly $135. What is the best interpretation of the x-intercept of the graph of this equation in the xy-plane?",
    "explanation": "At the x-intercept, y = 0, so 15x = 135 and x = 9. This means Dana earns $135 by working 9 hours at job A and no hours at job B.",
    "hints": [
@@ -55,7 +55,7 @@
    "skill": "Algebra",
    "subskill": "Writing a system of equations from a context",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A school bought a total of 40 notebooks and pens. Each notebook cost $3.00 and each pen cost $1.50, and the school spent $87.00 in all. If n is the number of notebooks and p is the number of pens, which system of equations represents this situation?",
    "explanation": "The total number of items gives n + p = 40. The total cost gives 3.00n + 1.50p = 87.00. So the system is n + p = 40 and 3n + 1.5p = 87.",
    "hints": [
@@ -101,7 +101,7 @@
    "skill": "Advanced Math",
    "subskill": "Product of the solutions with an unknown coefficient",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the equation 2x² + kx − 12 = 0, k is a constant, and the equation has two real solutions. What is the product of the solutions?",
    "explanation": "For ax² + bx + c = 0 with solutions r and s, a(x − r)(x − s) expands to ax² − a(r + s)x + ars, so rs = c/a. Here rs = −12/2 = −6, whatever the value of k. (For example, with k = 2 the solutions are 2 and −3.)",
    "hints": [
@@ -117,8 +117,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students cannot solve for the roots because k is unknown; they must see that the product does not depend on k, or test a convenient k."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "-6",

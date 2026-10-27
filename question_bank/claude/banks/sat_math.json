@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 26,
-  "updated_at": "2026-10-27T03:11:04+00:00",
+  "version": 27,
+  "updated_at": "2026-10-27T03:14:19+00:00",
   "passages": [],
   "questions": [
     {
@@ -17333,6 +17333,511 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-026.review.json",
         "computation": "checks/sat_math/batch_026.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000242",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Interpreting an intercept of a linear equation in context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Dana earns $15 per hour at job A and $9 per hour at job B. The equation 15x + 9y = 135 represents the numbers of hours x at job A and y at job B that Dana works to earn exactly $135. What is the best interpretation of the x-intercept of the graph of this equation in the xy-plane?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Dana earns $9 per hour at job B.",
+        "B": "Dana earns $135 by working 9 hours at job A and no hours at job B.",
+        "C": "Dana earns $135 by working 9 hours at job B and no hours at job A.",
+        "D": "Dana earns $135 per hour when working both jobs."
+      },
+      "correct_answer": "B",
+      "explanation": "At the x-intercept, y = 0, so 15x = 135 and x = 9. This means Dana earns $135 by working 9 hours at job A and no hours at job B.",
+      "distractor_explanations": {
+        "A": "$9 per hour is the job B rate, a coefficient in the equation, not the intercept.",
+        "C": "This describes the y-intercept, which is 15 hours at job B, not 9.",
+        "D": "135 is the total earned, not an hourly rate."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is y at the x-intercept?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set y = 0 and interpret the result."
+      },
+      "remember": "At the x-intercept, the y-quantity is 0.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-01",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: choices A and D are implausible as intercept interpretations (A restates a rate, D is nonsensical $135/hour), so the item is effectively a two-way choice between B and C"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000243",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Writing a system of equations from a context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A school bought a total of 40 notebooks and pens. Each notebook cost $3.00 and each pen cost $1.50, and the school spent $87.00 in all. If n is the number of notebooks and p is the number of pens, which system of equations represents this situation?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "n + p = 87\n3n + 1.5p = 40",
+        "B": "n + p = 40\n1.5n + 3p = 87",
+        "C": "n + p = 40\n3n + 1.5p = 87",
+        "D": "n + p = 40\n4.5(n + p) = 87"
+      },
+      "correct_answer": "C",
+      "explanation": "The total number of items gives n + p = 40. The total cost gives 3.00n + 1.50p = 87.00. So the system is n + p = 40 and 3n + 1.5p = 87.",
+      "distractor_explanations": {
+        "A": "This swaps the total number of items and the total cost.",
+        "B": "This swaps the prices of notebooks and pens.",
+        "D": "This charges every item the combined price of a notebook and a pen."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write one equation for the count and one for the cost."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "The solution n = 18, p = 22 should satisfy the correct system."
+      },
+      "remember": "Match each coefficient to the quantity it multiplies.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-02",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: D (4.5(n+p)=87) is weak; with n+p=40 it gives 180=87, an inconsistent system, so it is easily eliminated"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000244",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Product of the solutions with an unknown coefficient",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation 2x² + kx − 12 = 0, k is a constant, and the equation has two real solutions. What is the product of the solutions?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-6",
+      "accepted_answers": [
+        "-6"
+      ],
+      "common_errors": [
+        {
+          "value": "-12",
+          "rationale": "−12 is the constant term; the product is the constant divided by the leading coefficient.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "6",
+          "rationale": "6 has the wrong sign.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "For ax² + bx + c = 0 with solutions r and s, a(x − r)(x − s) expands to ax² − a(r + s)x + ars, so rs = c/a. Here rs = −12/2 = −6, whatever the value of k. (For example, with k = 2 the solutions are 2 and −3.)",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the quadratic as 2(x − r)(x − s) and expand."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Choose a value for k, such as k = 2, and solve."
+      },
+      "remember": "The product of the roots of ax² + bx + c is c/a.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-03",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-6",
+        "blind_answer": "-6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000245",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Zeros of a quadratic in vertex form",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = −(x + 1)² + 9. What are the x-intercepts of the graph of y = f(x) in the xy-plane?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "x = −1 and x = 9",
+        "B": "x = −2 and x = 4",
+        "C": "x = −10 and x = 8",
+        "D": "x = −4 and x = 2"
+      },
+      "correct_answer": "D",
+      "explanation": "Setting f(x) = 0 gives (x + 1)² = 9, so x + 1 = 3 or x + 1 = −3. Then x = 2 or x = −4.",
+      "distractor_explanations": {
+        "A": "These are the vertex's coordinates, not the zeros.",
+        "B": "These have the wrong signs, from solving (x − 1)² = 9.",
+        "C": "This uses ±9 instead of ±3 for x + 1."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Set f(x) = 0."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each pair in f."
+      },
+      "remember": "Take both square roots when solving (x + h)² = k.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-04",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000246",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Vertex after a horizontal and vertical shift",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x², and g(x) = f(x − 2) + 3. What is the vertex of the graph of y = g(x) in the xy-plane?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(−2, 3)",
+        "B": "(2, −3)",
+        "C": "(2, 3)",
+        "D": "(3, 2)"
+      },
+      "correct_answer": "C",
+      "explanation": "g(x) = (x − 2)² + 3. Replacing x with x − 2 shifts the graph 2 units right, and adding 3 shifts it 3 units up, so the vertex moves from (0, 0) to (2, 3).",
+      "distractor_explanations": {
+        "A": "This shifts left instead of right.",
+        "B": "This shifts down instead of up.",
+        "D": "This swaps the coordinates."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Write g in vertex form."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "g(2) = 3 is the minimum value."
+      },
+      "remember": "f(x − h) + k moves the vertex to (h, k).",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-05",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000247",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Unknown exponents from two exponent rules",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x > 1, (xᵃ)(x³) = x¹² and (xᵃ)ᵇ = x¹⁸. What is the value of b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the value of a, not b.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "6",
+          "rationale": "6 divides 18 by 3 instead of by a.",
+          "trap": null
+        }
+      ],
+      "explanation": "Multiplying powers adds exponents, so a + 3 = 12 and a = 9. Raising a power to a power multiplies exponents, so ab = 18 and b = 18 ÷ 9 = 2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use the first equation to find a."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "a + 3 = 12, then 9b = 18."
+      },
+      "remember": "Multiply powers: add exponents. Power of a power: multiply.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-06",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000248",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Tangent of an angle from a point on a circle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, point P lies on the circle x² + y² = 100 in Quadrant I, and the x-coordinate of P is 6. If O is the origin, what is the tangent of the angle that segment OP makes with the positive x-axis?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/5",
+        "B": "3/4",
+        "C": "4/5",
+        "D": "4/3"
+      },
+      "correct_answer": "D",
+      "explanation": "Substituting x = 6 gives 36 + y² = 100, so y = 8 (Quadrant I). The angle has opposite side 8 and adjacent side 6, so its tangent is 8/6 = 4/3.",
+      "distractor_explanations": {
+        "A": "3/5 is the cosine, 6/10.",
+        "B": "3/4 inverts the tangent: adjacent/opposite.",
+        "C": "4/5 is the sine, 8/10."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": "wrong_quantity"
+      },
+      "hints": [
+        "Find the y-coordinate of P first."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the right triangle from O to P to the x-axis."
+      },
+      "remember": "tan = y/x for a point on the terminal side.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 27,
+      "draft_candidate": "Q027-07",
+      "created_at": "2026-10-27T03:14:19+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-027.review.json",
+        "computation": "checks/sat_math/batch_027.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

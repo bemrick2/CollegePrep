@@ -1,0 +1,185 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 27,
+  "reviewed_at": "2026-10-27T03:14:19+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 27
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000242",
+    "CLD-SAT-M-000243",
+    "CLD-SAT-M-000244",
+    "CLD-SAT-M-000245",
+    "CLD-SAT-M-000246",
+    "CLD-SAT-M-000247",
+    "CLD-SAT-M-000248"
+  ],
+  "results": [
+    {
+      "cand": "Q027-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: choices A and D are implausible as intercept interpretations (A restates a rate, D is nonsensical $135/hour), so the item is effectively a two-way choice between B and C"
+      ],
+      "blind_notes": "x-intercept: y=0, 15x=135, x=9 -> 9 hours at job A, none at B. C swaps the jobs.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000242"
+    },
+    {
+      "cand": "Q027-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: D (4.5(n+p)=87) is weak; with n+p=40 it gives 180=87, an inconsistent system, so it is easily eliminated"
+      ],
+      "blind_notes": "Count: n+p=40; cost: 3n+1.5p=87. Consistent solution n=18, p=22. A swaps totals, B swaps prices.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000243"
+    },
+    {
+      "cand": "Q027-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-6",
+      "computed_answer": "-6",
+      "blind_answer": "-6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Product of roots = c/a = -12/2 = -6. Discriminant k^2+96>0 for every k, so the 'two real solutions' condition always holds; the answer does not depend on k. Needs Vieta (or test k=0: x^2=6, product -6).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000244"
+    },
+    {
+      "cand": "Q027-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "(x+1)^2=9 -> x+1=+/-3 -> x=2 or x=-4. B is the sign-error trap (x-1=+/-3); A misreads vertex values; C uses +/-9. Graphing makes it quick.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000245"
+    },
+    {
+      "cand": "Q027-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "f(x-2)+3 shifts the vertex (0,0) right 2, up 3 -> (2,3). A and B are sign-error distractors, D swaps coordinates.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000246"
+    },
+    {
+      "cand": "Q027-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "a+3=12 -> a=9; ab=18 -> b=2. The x>1 condition makes exponent matching valid. Two routine steps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000247"
+    },
+    {
+      "cand": "Q027-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "6^2+y^2=100, y=8 (Quadrant I). tan = y/x = 8/6 = 4/3. 3/4 is the reciprocal trap; 3/5 and 4/5 are cos and sin.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000248"
+    }
+  ]
+}
