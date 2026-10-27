@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 79,
+  "bank_version": 80,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -18624,6 +18624,328 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Compute y/x for each row of each table."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000888",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 uses f(k)/k = k − 4 instead of the change in f over the change in x.",
+          "trap": null
+        },
+        {
+          "value": "4.449",
+          "rationale": "4.449 sets f(k) − f(1) = 5 and forgets to divide by k − 1.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "f(1) = −3, so the average rate of change is (k² − 4k + 3)/(k − 1) = (k − 1)(k − 3)/(k − 1) = k − 3. Setting k − 3 = 5 gives k = 8.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the average rate of change as a fraction in k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor the numerator and cancel k − 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000889",
+      "correct_answer": "A",
+      "explanation": "f(x) > 5 means 12/(x − 2) > 2. For x > 2 the denominator is positive, so 12 > 2(x − 2), x − 2 < 6, and x < 8. So 2 < x < 8.",
+      "distractor_explanations": {
+        "B": "This solves 12/x > 2, dropping the shift of 2 in the denominator.",
+        "C": "This reverses the inequality when multiplying by x − 2, as if it were negative.",
+        "D": "This assumes f(x) > 5 whenever 12/(x − 2) is positive."
+      },
+      "hints": [
+        "Is x − 2 positive or negative when x > 2?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 5 and x = 10."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000890",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 writes f(x + 3) as (x − 3)², shifting the wrong way.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 is the vertex of y = f(x + 3), not the intersection.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set the two graphs equal: x² + 3 = (x + 3)² = x² + 6x + 9. The x² terms cancel, leaving 6x = −6, so x = −1.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write both equations in terms of x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two expressions equal and expand."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000891",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "13",
+          "rationale": "13 matches only the first product's x-coefficient, k − 3 = 10.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "5",
+          "rationale": "5 matches only the k-terms, 2k = 10, forgetting the −6.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-2",
+          "rationale": "−2 subtracts the coefficients in the wrong order.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "(x + k)(x − 3) = x² + (k − 3)x − 3k and (x − k)(x + 3) = x² + (3 − k)x − 3k, so the difference is (2k − 6)x. Then 2k − 6 = 10 and k = 8.",
+      "distractor_explanations": {},
+      "hints": [
+        "Expand both products."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand, subtract, and match the x-coefficients."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000892",
+      "correct_answer": "20",
+      "accepted_answers": [
+        "20"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 takes the vertex's y-coordinate as 16 − c.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "16",
+          "rationale": "16 puts the vertex on the x-axis instead of on y = x.",
+          "trap": null
+        },
+        {
+          "value": "4",
+          "rationale": "4 is the vertex's x-coordinate.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Completing the square gives y = (x − 4)² + c − 16, so the vertex is (4, c − 16). On y = x, c − 16 = 4, so c = 20.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the vertex in terms of c?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square, then apply y = x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000893",
+      "correct_answer": "39",
+      "accepted_answers": [
+        "39"
+      ],
+      "common_errors": [
+        {
+          "value": "49",
+          "rationale": "49 squares the sum and stops.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "44",
+          "rationale": "44 subtracts ab instead of 2ab.",
+          "trap": null
+        },
+        {
+          "value": "59",
+          "rationale": "59 adds 2ab instead of subtracting it.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "For x² − 7x + 5 = 0, the solutions satisfy a + b = 7 and ab = 5. So a² + b² = (a + b)² − 2ab = 49 − 10 = 39.",
+      "distractor_explanations": {},
+      "hints": [
+        "What are a + b and ab?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the sum and product of the solutions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000894",
+      "correct_answer": "169",
+      "accepted_answers": [
+        "169"
+      ],
+      "common_errors": [
+        {
+          "value": "65",
+          "rationale": "65 is AC, not AB.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "156",
+          "rationale": "156 is BC, the other leg.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "144",
+          "rationale": "144 is BD, the part of AB next to B.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With D the foot of the altitude, triangle ADC has a right angle at D, so CD = AC · sin A. Since sin A = 12/13, AC = 60 ÷ (12/13) = 65. In triangle ABC, cos A = AC/AB, so AB = 65 ÷ (5/13) = 169.",
+      "distractor_explanations": {},
+      "hints": [
+        "In which triangle is CD a leg opposite angle A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude and label both right triangles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000895",
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "72",
+          "rationale": "72 is a base angle, not angle BAC.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "60",
+          "rationale": "60 takes angle BDC equal to angle A instead of the exterior angle 2a.",
+          "trap": null
+        },
+        {
+          "value": "45",
+          "rationale": "45 assumes BD is perpendicular to AC.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let angle BAC = a. AD = BD makes angle ABD = a, so the exterior angle BDC of triangle ABD is 2a. BD = BC makes angle BCD = 2a. AB = AC makes angle ABC = 2a. Then a + 2a + 2a = 180, so a = 36.",
+      "distractor_explanations": {},
+      "hints": [
+        "Label angle BAC as a and use each pair of equal sides."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Mark the equal sides and chase angles."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000896",
+      "correct_answer": "B",
+      "explanation": "5π/6 is in Quadrant II with reference angle π/6, so P = (4 cos(5π/6), 4 sin(5π/6)) = (4 · (−√3/2), 4 · (1/2)) = (−2√3, 2).",
+      "distractor_explanations": {
+        "A": "This swaps sine and cosine, giving the point at 2π/3.",
+        "C": "This uses the reference angle in Quadrant IV, the direction −π/6.",
+        "D": "This gives unit-circle coordinates and forgets to multiply by the radius 4."
+      },
+      "hints": [
+        "What is the reference angle, and in which quadrant is P?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the angle and its reference triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000897",
+      "correct_answer": "C",
+      "explanation": "The diameter AE through A passes through the midpoint D of BC and is perpendicular to it. Angle ABE is inscribed in a semicircle, so it is a right angle, and AB² = AD · AE, so 64 = 10 · AD and AD = 6.4. Then BD = √(64 − 6.4²) = 4.8, and BC = 9.6.",
+      "distractor_explanations": {
+        "A": "This finds BD and forgets to double it.",
+        "B": "This reports the altitude AD.",
+        "D": "This assumes BC is a diameter, which would need AB = AC = 5√2."
+      },
+      "hints": [
+        "Where does the axis of symmetry of the triangle meet the circle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the diameter through A."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000898",
+      "correct_answer": "24",
+      "accepted_answers": [
+        "24"
+      ],
+      "common_errors": [
+        {
+          "value": "25.6",
+          "rationale": "25.6 uses the person's distance from the building, 32 meters, instead of the mirror's.",
+          "trap": null
+        },
+        {
+          "value": "37.5",
+          "rationale": "37.5 inverts the ratio: 30 · 2/1.6.",
+          "trap": null
+        },
+        {
+          "value": "15",
+          "rationale": "15 uses the distance ratio and forgets the eye height.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The equal angles at the mirror and the right angles at the person and the building make the two triangles similar, so h/30 = 1.6/2 and h = 24.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which two triangles are similar?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw both triangles meeting at the mirror."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000899",
+      "correct_answer": "A",
+      "explanation": "The height of the triangle is √(2.5² − 2²) = 1.5, so its area is (1/2)(4)(1.5) = 3, and the volume is 3 × 3 = 9.",
+      "distractor_explanations": {
+        "B": "This uses the slanted side 2.5 as the triangle's height.",
+        "C": "This forgets the 1/2 in the triangle's area.",
+        "D": "This multiplies 4 × 2.5 × 3, treating the prism as a box."
+      },
+      "hints": [
+        "What is the height of the triangular face?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the triangle and split it into two right triangles."
       }
     }
   ]

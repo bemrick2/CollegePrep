@@ -1,0 +1,336 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 80,
+  "reviewed_at": "2026-10-27T19:18:09+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 80
+  },
+  "counts": {
+    "PASS": 12,
+    "REVISE": 0,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000888",
+    "CLD-SAT-M-000889",
+    "CLD-SAT-M-000890",
+    "CLD-SAT-M-000891",
+    "CLD-SAT-M-000892",
+    "CLD-SAT-M-000893",
+    "CLD-SAT-M-000894",
+    "CLD-SAT-M-000895",
+    "CLD-SAT-M-000896",
+    "CLD-SAT-M-000897",
+    "CLD-SAT-M-000898",
+    "CLD-SAT-M-000899"
+  ],
+  "results": [
+    {
+      "cand": "Q080-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Let u=2x, x=u/2: 4(u/2)^2-6(u/2)+1=u^2-3u+1. A divides whole expression by 2; B substitutes 2x for x; D only fixes x^2 term.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Only f(2x) is known; recovering f requires undoing the inner 2x in every term."
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000369",
+          "similarity": 0.69
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q080-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(f(k)-f(1))/(k-1)=k+1-4=k-3=5 so k=8; check (32-(-3))/7=5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The quotient becomes linear only after factoring out k − 1."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000888"
+    },
+    {
+      "cand": "Q080-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "12/(x-2)>2 with x-2>0 gives x-2<6, so 2<x<8. Graphing confirms. B from >3 error; C reverses inequality; D ignores condition.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must use the sign of the denominator to keep the inequality direction."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000889"
+    },
+    {
+      "cand": "Q080-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-1",
+      "computed_answer": "-1",
+      "blind_answer": "-1",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "x^2+3=(x+3)^2 gives 6x+9=3, so x=-1 (point (-1,4)). Easily graphed.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000890"
+    },
+    {
+      "cand": "Q080-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Expand: (x^2+(k-3)x-3k)-(x^2+(3-k)x-3k)=(2k-6)x=10x so k=8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000891"
+    },
+    {
+      "cand": "Q080-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "20",
+      "computed_answer": "20",
+      "blind_answer": "20",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Vertex x=4, y=c-16; on y=x: c-16=4, c=20.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000892"
+    },
+    {
+      "cand": "Q080-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "39",
+      "computed_answer": "39",
+      "blind_answer": "39",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: very standard Vieta template (a+b)^2-2ab; widely seen in prep materials"
+      ],
+      "blind_notes": "a+b=7, ab=5; 49-10=39. Can also compute numerically from quadratic formula.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000893"
+    },
+    {
+      "cand": "Q080-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "169",
+      "computed_answer": "169",
+      "blind_answer": "169",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Sides 5k,12k,13k with AB=13k hypotenuse; altitude=5k*12k/13k=60k/13=60, k=13, AB=169.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The given length is an altitude, so the ratio must be applied in two triangles in turn."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000894"
+    },
+    {
+      "cand": "Q080-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "36",
+      "computed_answer": "36",
+      "blind_answer": "36",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: classic 36-72-72 golden-triangle puzzle, well known from competition math (not a released SAT item as far as known)"
+      ],
+      "blind_notes": "Let angle A=x. AD=BD gives angle ABD=x, so angle BDC=2x; BD=BC gives angle C=2x; AB=AC gives angle ABC=2x. x+2x+2x=180, x=36.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "No angle is given; three equal segments must be turned into one equation."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000895"
+    },
+    {
+      "cand": "Q080-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [
+        "minor: D (unit-circle values, ignores radius 4) is an easy elimination; A is the 2pi/3 point, C a sign error"
+      ],
+      "blind_notes": "P=4(cos150 deg, sin150 deg)=4(-sqrt3/2,1/2)=(-2sqrt3,2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000896"
+    },
+    {
+      "cand": "Q080-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Put A=(0,5); B on x^2+y^2=25 and x^2+(y-5)^2=64 gives y=-1.4, x=4.8, BC=9.6. A is half of BC; D is the diameter; B=64/10 from a misused chord relation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must locate the center on the axis of symmetry and use a right triangle on a diameter."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000897"
+    },
+    {
+      "cand": "Q080-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "24",
+      "computed_answer": "24",
+      "blind_answer": "24",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: the reflection-law sentence makes the setup fully specified; fine"
+      ],
+      "blind_notes": "Similar triangles: 1.6/2 = h/30 so h=24 m. Realistic magnitudes.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000898"
+    },
+    {
+      "cand": "Q080-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Triangle height sqrt(2.5^2-2^2)=1.5; area 0.5*4*1.5=3; volume 3*3=9. B uses slant 2.5 as height with 1/2; C omits 1/2; D uses 2.5 and omits 1/2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000899"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+ "solver": {
+  "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+  "batch": 80
+ },
+ "answers": {
+  "Q080-01": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Let u=2x, x=u/2: 4(u/2)^2-6(u/2)+1=u^2-3u+1. A divides whole expression by 2; B substitutes 2x for x; D only fixes x^2 term."
+  },
+  "Q080-02": {
+   "answer": "8",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "(f(k)-f(1))/(k-1)=k+1-4=k-3=5 so k=8; check (32-(-3))/7=5."
+  },
+  "Q080-03": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "12/(x-2)>2 with x-2>0 gives x-2<6, so 2<x<8. Graphing confirms. B from >3 error; C reverses inequality; D ignores condition."
+  },
+  "Q080-04": {
+   "answer": "-1",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "x^2+3=(x+3)^2 gives 6x+9=3, so x=-1 (point (-1,4)). Easily graphed."
+  },
+  "Q080-05": {
+   "answer": "8",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Expand: (x^2+(k-3)x-3k)-(x^2+(3-k)x-3k)=(2k-6)x=10x so k=8."
+  },
+  "Q080-06": {
+   "answer": "20",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Vertex x=4, y=c-16; on y=x: c-16=4, c=20."
+  },
+  "Q080-07": {
+   "answer": "39",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [
+    "minor: very standard Vieta template (a+b)^2-2ab; widely seen in prep materials"
+   ],
+   "notes": "a+b=7, ab=5; 49-10=39. Can also compute numerically from quadratic formula."
+  },
+  "Q080-08": {
+   "answer": "169",
+   "confidence": "high",
+   "est_pct_correct": 35,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Sides 5k,12k,13k with AB=13k hypotenuse; altitude=5k*12k/13k=60k/13=60, k=13, AB=169."
+  },
+  "Q080-09": {
+   "answer": "36",
+   "confidence": "high",
+   "est_pct_correct": 30,
+   "difficulty_opinion": "hard",
+   "flags": [
+    "minor: classic 36-72-72 golden-triangle puzzle, well known from competition math (not a released SAT item as far as known)"
+   ],
+   "notes": "Let angle A=x. AD=BD gives angle ABD=x, so angle BDC=2x; BD=BC gives angle C=2x; AB=AC gives angle ABC=2x. x+2x+2x=180, x=36."
+  },
+  "Q080-10": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [
+    "minor: D (unit-circle values, ignores radius 4) is an easy elimination; A is the 2pi/3 point, C a sign error"
+   ],
+   "notes": "P=4(cos150 deg, sin150 deg)=4(-sqrt3/2,1/2)=(-2sqrt3,2)."
+  },
+  "Q080-11": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 30,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Put A=(0,5); B on x^2+y^2=25 and x^2+(y-5)^2=64 gives y=-1.4, x=4.8, BC=9.6. A is half of BC; D is the diameter; B=64/10 from a misused chord relation."
+  },
+  "Q080-12": {
+   "answer": "24",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [
+    "minor: the reflection-law sentence makes the setup fully specified; fine"
+   ],
+   "notes": "Similar triangles: 1.6/2 = h/30 so h=24 m. Realistic magnitudes."
+  },
+  "Q080-13": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Triangle height sqrt(2.5^2-2^2)=1.5; area 0.5*4*1.5=3; volume 3*3=9. B uses slant 2.5 as height with 1/2; C omits 1/2; D uses 2.5 and omits 1/2."
+  }
+ }
+}
