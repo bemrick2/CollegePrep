@@ -1,0 +1,90 @@
+{
+  "ideas": "generated set 10 (EA/EB/EC/ED)",
+  "results": {
+    "EA01": [{"other_id": "CLD-SAT-M-000431", "severity": "close", "why": "Both count whole-number values between two bounds from a linear setting; here the bounds come from dividing a fixed total by an inclusive interval (they flip), so the reasoning differs. Not a template."}],
+    "EA02": [{"other_id": "CLD-SAT-M-000365", "severity": "close", "why": "Both use linearity in a table with unequal x-steps. 365 solves for unknown entries; EA02 finds the one wrong entry and corrects it. Different asked quantity."}],
+    "EA03": [],
+    "EA04": [],
+    "EA05": [{"other_id": "CLD-SAT-M-000338", "severity": "close", "why": "Both recover miles from a total bill made of a fixed part and a per-mile part. EA05 adds a per-day allowance that grows with the days. Same family, different structure."}],
+    "EA06": [],
+    "EA07": [{"other_id": "CLD-SAT-M-000319", "severity": "close", "why": "Both have a rate that changes after a threshold (gym fee after 3 months). EA07 asks a total time, not an expression. The phone-battery context also repeats SAT-494 / ACT-203 / SAT-173."}],
+    "EA08": [],
+    "EA09": [],
+    "EA10": [],
+    "EB01": [
+      {"other_id": "ideas-gen-03 K02", "severity": "template", "why": "Same line y = 2x + c/k against the same parabola family y = x² − 4x + (7 vs 6), the same combined quadratic x² − 6x + (const − k), the same insight (half the sum of the roots, independent of the constant), the same answer 3 and the same trap 2 (the parabola's vertex). Only the tangent point changes to the midpoint of two intersections."},
+      {"other_id": "CLD-ACT-M-000300", "severity": "close", "why": "Sum of the intersection x-coordinates of a line and a parabola. EB01 halves it and makes k unknown, but the Vieta step is the same."},
+      {"other_id": "CLD-SAT-M-000042 (retired)", "severity": "close", "why": "Same line y = 2x + k meeting a parabola, where k is the unknown. The retired item asks for k at tangency, a different ask."}
+    ],
+    "EB02": [
+      {"other_id": "ideas-gen-06 AB13", "severity": "close", "why": "The maximum of a downward quadratic is found at the midpoint of two known inputs: −5(x + 1)(x − 7) there vs −40(p − 6)(p − 14) + 2,250 here. EB02 adds the offset and the profit context."},
+      {"other_id": "CLD-SAT-M-000101", "severity": "close", "why": "Equal values at two inputs give the axis. 101 gives the extreme value; EB02 has to build it."}
+    ],
+    "EB03": [],
+    "EB04": [{"other_id": "CLD-SAT-M-000455", "severity": "close", "why": "Solve a rational model a/(a + k) = value for its input. EB04 does it twice and takes the difference."}],
+    "EB05": [],
+    "EB06": [{"other_id": "CLD-ACT-M-000092", "severity": "close", "why": "The same 3-sided fence against a wall. ACT-092 maximizes the area; EB06 fixes the area, solves the quadratic and picks the root."}],
+    "EB07": [],
+    "EB08": [
+      {"other_id": "ideas-gen-05 V02 / CLD-SAT-M-000402", "severity": "close", "why": "Both rest on the same fact: for a·bˣ the middle output is the geometric mean of its neighbours (V02's E(1) = √(50·98) = 70). EB08 strips this to just that fact with only the product given. V02 asks L(1) − E(1). That is a different asked quantity, so this is close, not a template."},
+      {"other_id": "CLD-SAT-M-000129", "severity": "close", "why": "The same f(x) = a·bˣ, 'a and b positive constants' stem wording, with values at two inputs."}
+    ],
+    "EB09": [{"other_id": "CLD-SAT-M-000355", "severity": "close", "why": "Recover two constants of a transformed parent function from two points, then evaluate (exponential + b there, shifted square root here)."}],
+    "EB10": [{"other_id": "CLD-SAT-M-000244 (retired)", "severity": "close", "why": "Product of the solutions read off letter coefficients (Vieta). EB10 turns this into 'which must also be a solution' (reciprocal). It is not the retired template, but it uses the same Vieta-product move."}],
+    "EC01": [],
+    "EC02": [{"other_id": "CLD-SAT-M-000347 / CLD-SAT-M-000502", "severity": "close", "why": "The same min-per-mile pace context, including the '6 minutes 30 seconds' type of mixed-unit pace. The asked quantity (distance remaining when the other runner finishes) is new."}],
+    "EC03": [],
+    "EC04": [],
+    "EC05": [{"other_id": "CLD-SAT-M-000371", "severity": "close", "why": "Cube edge from a volume via a cube root with rounding. EC05 adds an inequality and a round-up from a billing rule."}],
+    "ED01": [
+      {"other_id": "CLD-ACT-M-000140", "severity": "close", "why": "Linked rotations scale inversely with size (gears by teeth there, belt and pulleys by radius here)."},
+      {"other_id": "CLD-SAT-M-000405 / ideas-gen-05 Y01", "severity": "close", "why": "Two circles linked by arc length and angle. 405 has the same angle with different arcs; ED01 has the same arc with different angles."}
+    ],
+    "ED02": [{"other_id": "CLD-SAT-M-000458", "severity": "close", "why": "Circle geometry in the plane with a chord of length 2·(leg) and two candidate positions plus a 'least/greatest' ask."}],
+    "ED03": [{"other_id": "CLD-SAT-M-000492", "severity": "close", "why": "A measurement tolerance carried through a transformation. Here it goes through squaring and the item asks for a range width, not an inequality."}],
+    "ED04": [
+      {"other_id": "CLD-SAT-M-000086 (retired) / CLD-ACT-M-000466", "severity": "close", "why": "Tangent line to a circle where you solve for the line's parameter. This is the retired item's template family; ACT-466 is a live twin of it. ED04 changes the unknown to the slope through the origin with an off-center circle, so it is close, not a template."},
+      {"other_id": "CLD-ACT-M-000787 / CLD-ACT-M-000054", "severity": "close", "why": "Tangent from an external point with a radius-tangent right triangle (5-12-13 there, 3-4-5 here)."}
+    ],
+    "ED05": [{"other_id": "CLD-SAT-M-000057", "severity": "close", "why": "Trig ratios written as linear expressions in a constant. 057 uses the complement relation; ED05 uses the Pythagorean identity. Different reasoning."}]
+  },
+  "within_list_cues": [
+    "EB01, EB02, EB07: all three hinge on 'the axis/vertex is the midpoint (half the sum) of two inputs'. Three items in one set with the same key insight; consider dropping one (EB01 is also a template of gen-03 K02).",
+    "EA06 and EA10: both are 'greatest possible' asks whose key is the smallest choice, and in both every distractor comes from omitting a subtraction and so is too large. The same choice pattern twice.",
+    "EB01 and EB10: both are Vieta (sum/product of the roots read from coefficients) in the same set.",
+    "EB03 and EB06: both are rectangle optimization/quadratic-from-geometry (perimeter under a parabola; fenced pen at a wall). Mild.",
+    "EA04 and EC02: both are two constant speeds over a common course where a gap (time vs distance) is the link. Mild."
+  ],
+  "answer_errors": [
+    "EB10 choice C: the rationale does not produce r − b/a. A sign error in the sum gives b/a − r, not r − b/a. r − b/a comes from writing s − r = −b/a (a difference, not a sum). The value is fine as a distractor, but the stated error is wrong.",
+    "All keys verified correct: EA01 4, EA02 20, EA03 0.5 in (man), EA04 168, EA05 680, EA06 4.25 h, EA07 70, EA08 5.70 + 0.48b, EA09 57, EA10 1,700, EB01 3, EB02 2,890 (b = 800, c = −1,110), EB03 34, EB04 5, EB05 6, EB06 40, EB07 5/2, EB08 12, EB09 7, EB10 1/r, EC01 8.5, EC02 0.77, EC03 15,360, EC04 1,560, EC05 36, ED01 5π/3, ED02 25 (r = 39 is also valid), ED03 8, ED04 3/4, ED05 8/15. All other stated distractor errors reproduce their values."
+  ],
+  "cues_or_overdetermined": [
+    "EB05: over-determined. The coefficient 120 (and the 'thousands of dollars' unit) cancels in the ratio C(80)/C(40); only p/(100 − p) matters.",
+    "EA06: the key is the least choice for a 'greatest' ask, and all three distractors fail for one shared reason (they drop a deduction, so they exceed the true limit). A student who knows the answer must be the most restrictive picks the smallest.",
+    "EA10: same pattern as EA06. The key $1,700 is the smallest and roundest choice for a 'greatest' ask, and every distractor drops or mis-signs the debt subtraction and is larger.",
+    "EB08: a shortcut makes it trivial. b = 1 (allowed, since b only has to be positive) gives a² = 144, a = 12, f(3) = 12; a = 1 gives b³ = 12 the same way. No structural insight is needed.",
+    "EC01: assuming at the outset that 6.0 and 9.5 are dropped gives 8.5 directly. The case analysis only confirms the answer, so the intended 'decide its position first' step never bites.",
+    "ED02: the 'least' ask matches the natural near-side chord (x = 8). The second case (x = −8 → 39) is never needed to get the key, so 'both positions must be considered' does not affect the answer.",
+    "EA09 (minor): the key 57 and distractor D 330 are integers, while A (−0.3) and B (29.7) are decimals. A weak roundness cue."
+  ],
+  "grid_problems": [],
+  "unrealistic": [],
+  "likely_easier_than_labeled": [
+    "EA03 (medium-hard): set the two expressions equal; the slopes cancel at once. Closer to medium.",
+    "EA07 (medium): two one-step rate divisions. Easy-medium.",
+    "EB04 (medium-hard): two cross-multiplications that give linear equations, then subtract. Medium.",
+    "EB05 (medium-hard): evaluate the function twice and divide. Medium.",
+    "EB08 (hard): the b = 1 or a = 1 plug-in shortcut makes it medium.",
+    "EB09 (hard): 5 − a and 13 − a as perfect squares 1 and 9 are easy to spot by trial. Medium-hard.",
+    "EC01 (hard): the naive 'drop 6.0 and 9.5' route gives the key. Medium.",
+    "ED02 (hard): the near-side case alone gives the least r. Medium-hard.",
+    "ED03 (medium-hard): direct squaring with a calculator. Medium.",
+    "ED05 (hard): many students spot 8-15-17 and x = 11 without solving the quadratic. Medium-hard."
+  ],
+  "notes": [
+    "No idea uses the over-used frame 'linear f with a disguised second point, asks f(0)'.",
+    "No idea closely mirrors a specific released official SAT item that I could identify. EB06 (barn-wall fencing with a fixed area) and EA04 (P/S-wave distance) are classic textbook setups, not official SAT items.",
+    "Generator-flagged pairs, judged independently: EB08 vs gen-05 V02 = close (same geometric-mean fact, different ask). EB01 vs ACT-300 = close, BUT EB01 is a template of gen-03 K02, which the generator did not flag."
+  ]
+}
