@@ -1,0 +1,29 @@
+{
+  "ideas": "batch 31",
+  "results": {
+    "HH01": [
+      {"other_id": "CLD-ACT-M-000145", "severity": "close", "why": "Same exponential-vs-linear comparison family (2^x vs 4x), but it counts integers 1-10 where f >= g by tabulating; HH01 asks for the number of real intersections of 2^x and x + 3 (graph/calculator crossing count). Different asked quantity."},
+      {"other_id": "CLD-SAT-M-000181", "severity": "close", "why": "Also asks how many points two graphs intersect, but for a line and an absolute-value graph solved algebraically; the exponential curve makes the reasoning different."}
+    ],
+    "HH03": [
+      {"other_id": "CLD-SAT-M-000016", "severity": "close", "why": "Intersection of two graphs, asking for an x-coordinate, but with a line and a parabola (quadratic); HH03 uses a square-root graph, solved by squaring and rejecting x = 0. Different algebra."},
+      {"other_id": "CLD-SAT-M-000011", "severity": "close", "why": "Same '(a, b) intersection point' framing, but both graphs are lines and it asks for b."}
+    ],
+    "HH04": [
+      {"other_id": "CLD-ACT-M-000145", "severity": "close", "why": "Exponential vs linear compared at integer inputs, but it counts integers in a range where f >= g; HH04 asks for the first integer crossover with a 1.1 growth factor and needs a table or calculator."},
+      {"other_id": "CLD-ACT-M-000331", "severity": "close", "why": "Least integer exponent with 3^n > 1000, against a constant rather than a linear function."}
+    ],
+    "HH05": [],
+    "HH14": [
+      {"other_id": "CLD-SAT-M-000029", "severity": "close", "why": "Near-identical equation surface (ax + 3 = 2x + b vs ax + 3 = 2x + a), and both rearrange to (a - 2)x = constant. But SAT-029 asks for the no-solution condition (a = 2, b != 3), while HH14 asks to solve for x in terms of a. Change the numbers or form so it does not look like a reused stem."}
+    ],
+    "HH16": [
+      {"other_id": "CLD-ACT-M-000438", "severity": "template", "why": "Same template: evaluate a self-composition of a given f at x = 1 (f(f(f(1))) with f(x) = 2x + 1). HH16 only switches to a quadratic f and uses two layers instead of three."},
+      {"other_id": "CLD-ACT-M-000004", "severity": "close", "why": "Numerically evaluates a composition g(f(3)) of a quadratic and a linear function; same inside-out evaluation, but with two different functions."}
+    ]
+  },
+  "official_notes": {
+    "HH05": "Generic official SAT format: choose the line of best fit for given data, usually shown as a scatterplot. It does not mirror one specific released item. Here the data come as points instead of a graph.",
+    "HH14": "Official SAT items use the 'ax + 3 = 2x + b' family, mostly as no-solution or infinitely-many-solutions variants. Solving for x in terms of a is not a known released copy."
+  }
+}
