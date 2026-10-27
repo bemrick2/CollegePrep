@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T07:09:14+00:00",
+  "updated_at": "2026-10-27T07:10:05+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 237,
     "sat_reading_writing": 257,
-    "sat_math": 499
+    "sat_math": 509
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 526,
+      "PASS": 536,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 528,
+      "candidates": 538,
       "passed_after_revision": 10
     }
   },
@@ -1409,12 +1409,12 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 499,
+      "accepted": 509,
       "retired_after_audit": 27,
       "by_skill": {
-        "Advanced Math": 170,
-        "Algebra": 160,
-        "Geometry and Trigonometry": 89,
+        "Advanced Math": 173,
+        "Algebra": 166,
+        "Geometry and Trigonometry": 90,
         "Problem-Solving and Data Analysis": 80
       },
       "by_subskill": {
@@ -1445,6 +1445,8 @@
         "Area of an isosceles triangle with 30° base angles": 1,
         "Area of the square formed by changing a rectangle’s sides": 1,
         "Area ratio of circles from equal arcs at different central angles": 1,
+        "Balance condition summing products on one side": 1,
+        "Base perimeter from dividing a volume polynomial by the height": 1,
         "Bound on a constant from a value that is not a solution": 1,
         "Bounding the median of two combined lists": 1,
         "Capacity from a percent relation inside a volume total": 1,
@@ -1537,6 +1539,7 @@
         "Effect of sample size on the margin of error": 1,
         "Effect of scaling the input of a quadratic": 1,
         "Equal earnings at two hourly rates": 1,
+        "Equal estimated times for two routes under a two-variable rule": 1,
         "Equal gaps in a row with end margins": 1,
         "Equal outputs at inputs two units apart": 1,
         "Equal values of two linear models with different reference years": 1,
@@ -1585,7 +1588,9 @@
         "Greatest whole number under a budget with a minimum purchase": 1,
         "Group mean from a weighted combined mean with linked group means": 1,
         "Group size from a joint and a conditional probability": 1,
+        "Height of a parabolic cable built from a vertex and two equal points": 1,
         "Height of a rectangular prism from its volume": 1,
+        "Height of a rotating point using cosine and a raised center": 1,
         "Height where a falling ball passes a rising drone": 1,
         "Horizontal shift that matches an exponential function": 1,
         "How moving one value between groups changes both means": 1,
@@ -1600,6 +1605,7 @@
         "Inner arc length from the difference of two concentric arcs": 1,
         "Input at which a linear function equals its input": 1,
         "Input for a given output of a quadratic": 1,
+        "Input where a miscalibrated linear reading is a stated percent of the truth": 1,
         "Input whose output is the average of two outputs of a linear function": 1,
         "Inscribed and central angles with algebra": 1,
         "Inscribed angle that intercepts the major arc": 1,
@@ -1609,6 +1615,7 @@
         "Interpreting a constant that divides the variable in a linear model": 1,
         "Interpreting a linear equation in two variables": 1,
         "Interpreting a product of constants in a taxed linear model": 1,
+        "Interpreting a simplified coefficient when the total is fixed": 1,
         "Interpreting an exponential growth factor": 1,
         "Interpreting an intercept of a linear equation in context": 1,
         "Interpreting standard deviation": 1,
@@ -1748,6 +1755,7 @@
         "Ratio of two conditional probabilities from a table without totals": 1,
         "Ratio of variables from a homogeneous linear equation": 1,
         "Ratio of volumes of the two cylinders rolled from one sheet": 1,
+        "Re-expressing a linear model with a new base year": 1,
         "Re-expressing a model’s input over a different time window": 1,
         "Real cube root of a negative number": 1,
         "Recognising an equivalent equation": 1,
@@ -1819,6 +1827,7 @@
         "Solving an exponential equation": 1,
         "Solving an exponential equation by factoring out a common power": 1,
         "Solving for a coordinate from a given slope": 1,
+        "Speed at which a quadratic consumption model reaches a percent above its minimum": 1,
         "Speed from a quadratic stopping-distance model": 1,
         "Splitting a trip between two fuel rates": 1,
         "Square inscribed in a right triangle": 1,
@@ -1854,6 +1863,7 @@
         "Time for a falling object to reach a height": 1,
         "Time for a projectile to reach the ground": 1,
         "Time for a whole job from a partial job": 1,
+        "Time for one leg when two leg speeds are linked by a ratio": 1,
         "Time from a cooling model after isolating the exponential part": 1,
         "Time to empty a tank with inflow and outflow": 1,
         "Total amount from two transfer conditions": 1,
@@ -1919,19 +1929,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 81,
+        "easy": 82,
         "hard": 49,
-        "medium": 369
+        "medium": 378
       },
       "by_difficulty_calibrated": {
-        "easy": 132,
+        "easy": 133,
         "hard": 42,
-        "medium": 325
+        "medium": 334
       },
       "calibrated_share": {
-        "easy": 0.265,
-        "hard": 0.084,
-        "medium": 0.651
+        "easy": 0.261,
+        "hard": 0.083,
+        "medium": 0.656
       },
       "answer_key_balance": {
         "-1": 3,
@@ -1955,6 +1965,7 @@
         "12": 7,
         "12.5": 1,
         "12/25": 1,
+        "1260": 1,
         "13.5": 1,
         "14": 1,
         "1480": 1,
@@ -2000,11 +2011,12 @@
         "50": 3,
         "6": 8,
         "60": 3,
-        "600": 1,
+        "600": 2,
         "625": 1,
         "63": 1,
         "64": 1,
         "640": 1,
+        "67": 1,
         "7": 6,
         "7.2": 2,
         "748": 1,
@@ -2017,13 +2029,13 @@
         "9/17": 1,
         "9/2": 1,
         "90": 1,
-        "A": 72,
-        "B": 105,
-        "C": 87,
-        "D": 54
+        "A": 73,
+        "B": 107,
+        "C": 89,
+        "D": 56
       },
-      "modeling_items": 175,
-      "spr_items": 181,
+      "modeling_items": 184,
+      "spr_items": 184,
       "passages": 0
     }
   },
@@ -2032,7 +2044,7 @@
     "act_english": 26,
     "act_reading": 30,
     "sat_reading_writing": 29,
-    "sat_math": 55
+    "sat_math": 56
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2064,38 +2076,30 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 56,
+    "next_batch": 57,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 18.1,
-      "Advanced Math": 8.1,
-      "Problem-Solving and Data Analysis": -3.7,
-      "Geometry and Trigonometry": -12.7
+      "Algebra": 15.6,
+      "Advanced Math": 8.6,
+      "Problem-Solving and Data Analysis": -2.2,
+      "Geometry and Trigonometry": -12.2
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -4.8,
-      "medium": -70.5,
-      "hard": 85.2
+      "easy": -3.2,
+      "medium": -74.5,
+      "hard": 87.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 23.4,
-      "B": -9.6,
-      "C": 8.4,
-      "D": 41.4
+      "A": 24.3,
+      "B": -9.7,
+      "C": 8.3,
+      "D": 41.3
     },
-    "spr_items": 181,
+    "spr_items": 184,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 28.8,
-        "Knowledge of Language": 18.6,
-        "Conventions of Standard English": -33.2
-      }
-    },
     "act_reading": {
       "next_batch": 31,
       "skill_gap_for_next_10": {
@@ -2111,6 +2115,14 @@
         "Information and Ideas": -1.6,
         "Standard English Conventions": 12.4,
         "Expression of Ideas": -2.6
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 28.8,
+        "Knowledge of Language": 18.6,
+        "Conventions of Standard English": -33.2
       }
     }
   },
@@ -2137,14 +2149,14 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 499,
-      "share_of_target": 0.499
+      "accepted": 509,
+      "share_of_target": 0.509
     }
   },
   "total_target": 3841,
-  "total_accepted": 2028,
+  "total_accepted": 2038,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "sat_math",
+  "next_bank": "act_reading",
   "audits": [
     {
       "bank": "act_math",
@@ -50398,7 +50410,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 55,
+      "bank_version": 56,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -50524,7 +50536,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T07:09:14+00:00",
+    "heartbeat_at": "2026-10-27T07:10:04+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

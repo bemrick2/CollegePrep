@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 55,
+  "bank_version": 56,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -10507,6 +10507,209 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Sketch the cross section and drop heights from the bottom corners."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000527",
+      "correct_answer": "600",
+      "accepted_answers": [
+        "600"
+      ],
+      "common_errors": [
+        {
+          "value": "300",
+          "rationale": "300 sets the reading equal to the true mass: 0.04m = 12.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "588",
+          "rationale": "588 is the reading for that object, not its true mass.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "A reading 2% less than the true mass is 0.98m. Setting 0.96m + 12 = 0.98m gives 0.02m = 12, so m = 600 grams. Check: the reading is 0.96(600) + 12 = 588 = 0.98 × 600.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write '2% less than the true mass' in terms of m."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the reading equal to 0.98m."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000528",
+      "correct_answer": "D",
+      "explanation": "The year is x = t + 2015, so x − 2010 = t + 5. Then y = 3.2(t + 5) + 45 = 3.2t + 16 + 45 = 3.2t + 61. Check: in 2015 (t = 0), both models give 61.",
+      "distractor_explanations": {
+        "A": "y = 3.2t + 29 shifts the wrong way: 3.2(t − 5) + 45.",
+        "B": "y = 3.2t + 45 keeps the old intercept.",
+        "C": "y = 3.2t + 50 adds the 5-year shift to the constant instead of 3.2 × 5."
+      },
+      "hints": [
+        "Write x in terms of t."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check the year 2015 in both models."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000529",
+      "correct_answer": "1260",
+      "accepted_answers": [
+        "1260"
+      ],
+      "common_errors": [
+        {
+          "value": "900",
+          "rationale": "900 gives route B the same ascent as route A.",
+          "trap": null
+        },
+        {
+          "value": "360",
+          "rationale": "360 is only the extra ascent route B needs.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Route A takes 10/5 + 900/600 = 2 + 1.5 = 3.5 hours. Route B's distance takes 7/5 = 1.4 hours, so its ascent must account for 3.5 − 1.4 = 2.1 hours: a/600 = 2.1 and a = 1,260 meters.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find route A's estimated time first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set route B's time equal to 3.5 hours."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000530",
+      "correct_answer": "C",
+      "explanation": "The children's side gives 30(2) + 20(1.2) = 60 + 24 = 84. The adult must give 48d = 84, so d = 1.75 meters.",
+      "distractor_explanations": {
+        "A": "1.25 uses only the first child: 60/48.",
+        "B": "1.67 puts the 50 kilograms at the average distance 1.6 meters: 80/48.",
+        "D": "2.08 uses 2 meters for both children: 100/48."
+      },
+      "hints": [
+        "Compute each child's mass times distance."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two sides' sums equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000531",
+      "correct_answer": "A",
+      "explanation": "The cost is 2.40x + 1.50(12 − x) = 0.9x + 18. Increasing x by 1 adds a liter of juice A and removes a liter of juice B, so the cost rises by 2.40 − 1.50 = 0.9 dollar.",
+      "distractor_explanations": {
+        "B": "The blend is always 12 liters; x is the amount of juice A, not the blend's size.",
+        "C": "Juice A costs $2.40 per liter; 0.9 is a difference of prices.",
+        "D": "The cost of a blend of only juice B is 18, the constant term."
+      },
+      "hints": [
+        "Write the cost before simplifying."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand 2.40x + 1.50(12 − x)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000532",
+      "correct_answer": "B",
+      "explanation": "Let s be the swimming speed in kilometers per hour. The total time is 1/s + 30/(10s) = 1/s + 3/s = 4/s = 2, so s = 2. The bike ride took 30/20 = 1.5 hours, or 90 minutes.",
+      "distractor_explanations": {
+        "A": "60 splits the 2 hours equally between the legs.",
+        "C": "109 splits the time in the ratio of the speeds, 10 : 1.",
+        "D": "116 splits the time in the ratio of the distances, 30 : 1."
+      },
+      "hints": [
+        "Write each leg's time in terms of the swimming speed."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the two times and set the sum to 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000533",
+      "correct_answer": "C",
+      "explanation": "Put one tower at x = 0, so the vertex is (50, 10) and y = a(x − 50)² + 10. At x = 0, 2,500a + 10 = 30, so a = 0.008. At x = 20, y = 0.008(900) + 10 = 17.2 meters.",
+      "distractor_explanations": {
+        "A": "7.2 forgets the + 10: 0.008 × 900.",
+        "B": "13.2 measures the 20 meters from the middle: 0.008 × 400 + 10.",
+        "D": "22.0 interpolates linearly from the tower top toward the lowest point."
+      },
+      "hints": [
+        "Where is the vertex if one tower is at x = 0?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the towers and the cable on axes."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000534",
+      "correct_answer": "67",
+      "accepted_answers": [
+        "67"
+      ],
+      "common_errors": [
+        {
+          "value": "205",
+          "rationale": "205 forgets the square root: 55 + 150.",
+          "trap": null
+        },
+        {
+          "value": "55",
+          "rationale": "55 is the speed of least fuel use.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "At 55 mph, g = 0.03. 25% more is 0.0375, so 0.00005(v − 55)² = 0.0075 and (v − 55)² = 150. Then v = 55 + √150 ≈ 67.25, which rounds to 67.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the fuel use at 55 miles per hour?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set g(v) equal to 1.25 × 0.03."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000535",
+      "correct_answer": "D",
+      "explanation": "The base area is V(x) ÷ (x + 1) = x² + 6x + 8, which factors as (x + 2)(x + 4). The perimeter is 2(x + 2) + 2(x + 4) = 4x + 12.",
+      "distractor_explanations": {
+        "A": "2x + 6 adds the two side lengths only once.",
+        "B": "4x + 6 uses a face with the height: x + 1 and x + 2.",
+        "C": "4x + 10 uses a face with the height: x + 1 and x + 4."
+      },
+      "hints": [
+        "Divide the volume by the height."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Factor the quotient to find the base's sides."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000536",
+      "correct_answer": "B",
+      "explanation": "The center is 2 + 25 = 27 meters above the ground. After turning 60° from the bottom, the car is 25 cos 60° = 12.5 meters below the center, so its height is 27 − 12.5 = 14.5 meters.",
+      "distractor_explanations": {
+        "A": "12.5 forgets the 2 meters below the wheel.",
+        "C": "23.7 uses sine instead of cosine: 2 + 25 sin 60°.",
+        "D": "39.5 adds instead of subtracting, measuring from the top."
+      },
+      "hints": [
+        "How high is the center of the wheel?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the wheel and the 60° angle from the bottom."
       }
     }
   ]
