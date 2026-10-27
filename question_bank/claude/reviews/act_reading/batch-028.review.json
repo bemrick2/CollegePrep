@@ -1,0 +1,251 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 28,
+  "reviewed_at": "2026-10-27T01:01:01+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 28
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000216",
+    "CLD-ACT-R-000217",
+    "CLD-ACT-R-000218",
+    "CLD-ACT-R-000219",
+    "CLD-ACT-R-000220",
+    "CLD-ACT-R-000221",
+    "CLD-ACT-R-000222"
+  ],
+  "results": [
+    {
+      "cand": "R028-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 75,
+      "blind_flags": [
+        "minor: overlaps conceptually with R028-06 (both hinge on the established-individual-role vs. doubtful-sharing distinction); C here and D in 06 are near paraphrases, so answering one cues the other"
+      ],
+      "blind_notes": "Last paragraph states the thesis directly: fungal supply of individual trees is well established; inter-tree sharing/signaling is uncertain. A contradicts para 5; B is the popular claim being questioned; D is a detail.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: R028-01 choice C and R028-06 choice D state nearly the same thesis (basic role accepted, sharing claims doubted); solving one gives away the other."
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000216"
+    },
+    {
+      "cand": "R028-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "Para 1: fungi trade water and nutrients for sugars the trees make by photosynthesis. A reverses direction of exchange (mild trap).",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000217"
+    },
+    {
+      "cand": "R028-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: 'before the passage tests it' is slightly loose; the passage reports a 2023 review's evaluation rather than testing the idea itself. 'before the passage evaluates it' or 'before a review questions it' would be more precise"
+      ],
+      "blind_notes": "Para 3 describes how popular books/documentaries expanded the idea ('grown in the retelling'), setting up the review in para 4. C is the trap: the paragraph reports the appealing image, it does not argue for it.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: 'before the passage tests it' is loose; the passage reports a 2023 review that tests the claims rather than testing them itself. Consider 'before the passage examines the evidence for it'."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000218"
+    },
+    {
+      "cand": "R028-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "Alternative pathways (soil, root grafts) were not excluded, so the fungal route was not isolated. B overstates; C and D unsupported. Near the easy/medium boundary.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Choice B, which says no carbon moved, sounds like the review's skepticism, but it contradicts paragraph 2; the doubt concerns the route, not the transfer itself."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "labelled hard but the rubric rater judged it easy; make it genuinely hard or relabel"
+    },
+    {
+      "cand": "R028-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Context: claims about mother trees and warnings, then review finds evidence thinner than popular accounts; 'grown in the retelling' = exaggerated through repetition.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000219"
+    },
+    {
+      "cand": "R028-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "Final sentence explains that keeping the claims apart matters for forest management because policies based on an exaggerated picture might misallocate protection. A misreads the mother-tree example.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000220"
+    },
+    {
+      "cand": "R028-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [
+        "minor: choice A says 'in the experiment' without any experiment having been introduced in the stem; harmless but slightly odd"
+      ],
+      "blind_notes": "The dramatic claim is that the network channels resources between trees in a way that matters; a growth benefit transmitted only via fungal threads directly supports it and addresses both critiques (alternate routes, no measurable effect). B is a strong trap: it is the original evidence the passage says is inconclusive. A supports only the individual-tree role; C is popular description, not evidence.",
+      "blind2_answer": "D",
+      "blind2_flags": [
+        "minor: D could be strengthened, e.g. by stating that the linking fungus also connected the seedling to a mature tree and that the benefit came from carbon received from that tree. As written, a skeptic could say the fungus helped the seedling directly, which is the well-established role, but D is still clearly the best choice."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Choice C repeats the very evidence the passage calls inconclusive, and A supports the established claim; recognizing both requires combining paragraphs 1, 4 and 5."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000221"
+    },
+    {
+      "cand": "R028-09",
+      "revision": 2,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Passage B concedes parts of the story but says few systems tracked the small share of borrowers who keep popular items for months. A contradicts B's measured stance; B (agreeing no harm) is opposite; D distorts the children's-fines suggestion. Only item from passage 000027 in this packet; no overlap issues.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "minor: this is the only item from passage CLD-P-ACT-R-000027 in this batch, so its sibling items could not be checked for overlap."
+      ],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced",
+        "hardness": "Choice A sounds like the skeptic's view but contradicts it; students must see that Passage B questions what the average conceals, not the average itself."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000222"
+    }
+  ]
+}

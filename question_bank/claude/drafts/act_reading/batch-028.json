@@ -29,10 +29,10 @@
    "difficulty": "medium",
    "stem": "Which choice best states the main idea of the passage?",
    "choices": {
-    "A": "Fungal networks beneath forests turned out not to exist at all.",
-    "B": "Mother trees recognize their offspring and feed them through fungal networks.",
-    "C": "Fungi clearly help individual trees, but evidence that trees share or signal through them is weak.",
-    "D": "Seedlings grown in sterilized soil grow poorly without fungal partners."
+    "A": "Fungal networks beneath forests turned out not to exist at all, the review found.",
+    "B": "Mother trees recognize their own offspring and feed them through fungal networks.",
+    "C": "Fungi clearly aid single trees, but evidence of sharing between trees is weak.",
+    "D": "Seedlings grown in sterilized soil without fungal partners usually grow poorly."
    },
    "answer": "C",
    "evidence": "What remains uncertain is the more dramatic claim",
@@ -126,9 +126,9 @@
    "stem": "The main function of the third paragraph is to:",
    "choices": {
     "A": "present the experimental evidence that first supported the network idea.",
-    "B": "explain why fungi need sugars from trees.",
+    "B": "explain why mycorrhizal fungi need the sugars that trees produce.",
     "C": "argue that forests are cooperative communities rather than competitors.",
-    "D": "describe how popular accounts expanded the original idea before the passage evaluates it."
+    "D": "show how popular accounts expanded the idea before the passage tests it."
    },
    "answer": "D",
    "evidence": "In the decades since, the idea has grown in the retelling.",
@@ -173,10 +173,10 @@
    "difficulty": "hard",
    "stem": "The review's observation that tracer carbon \"could have moved between trees through the soil, or through roots that had grown together\" suggests that many early experiments:",
    "choices": {
-    "A": "did not rule out other routes by which carbon could reach a neighboring tree.",
-    "B": "showed that no carbon at all moved from one tree to another.",
-    "C": "proved that fungal threads carry more carbon than roots do.",
-    "D": "used carbon that was not actually labeled with isotopes."
+    "A": "did not rule out other routes by which the carbon could have traveled.",
+    "B": "showed that no carbon at all moved from one tree to another tree.",
+    "C": "proved that fungal threads carry more carbon than tree roots do.",
+    "D": "used carbon that had not actually been labeled with rare isotopes."
    },
    "answer": "A",
    "evidence": "rather than through fungal threads",
@@ -261,55 +261,6 @@
    }
   },
   {
-   "cand": "R028-06",
-   "passage_id": "CLD-P-ACT-R-000028",
-   "reporting_category": "Integration of Knowledge and Ideas",
-   "skill": "Integration of Knowledge and Ideas",
-   "subskill": "Author's attitude",
-   "repo_skill_key": "act_inference",
-   "difficulty": "hard",
-   "stem": "The author's attitude toward the \"wood wide web\" idea is best described as:",
-   "choices": {
-    "A": "dismissive of the idea that fungi help trees in any way.",
-    "B": "enthusiastic about the evidence for mother trees.",
-    "C": "neutral, presenting the popular accounts without any evaluation.",
-    "D": "accepting the networks' basic role while doubting the more dramatic claims about them."
-   },
-   "answer": "D",
-   "evidence": "None of this means that the networks do not exist or that they are unimportant.",
-   "explanation": "The author affirms that the networks exist and help individual trees but treats the sharing and signaling claims as unproven.",
-   "distractors": {
-    "A": {
-     "rationale": "The author calls the fungi's role in supplying trees \"well established.\"",
-     "trap": "extreme_language"
-    },
-    "B": {
-     "rationale": "The author reports that this evidence is thin and mixed.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "The author evaluates the claims, relying on the 2023 review.",
-     "trap": null
-    }
-   },
-   "hints": [
-    "What does the author say in the first two sentences of the last paragraph?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Eliminate attitudes that are all-or-nothing."
-   },
-   "remember": "A qualified attitude accepts part of a claim and doubts the rest.",
-   "expected_time_seconds": 50,
-   "modeling": false,
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "choice_lengths": "balanced",
-    "hardness": "Students who focus on the review's criticism choose \"dismissive\"; the last paragraph explicitly preserves the networks' established role."
-   }
-  },
-  {
    "cand": "R028-07",
    "passage_id": "CLD-P-ACT-R-000028",
    "reporting_category": "Craft and Structure",
@@ -367,10 +318,10 @@
    "difficulty": "hard",
    "stem": "Which finding, if true, would most directly support the \"more dramatic claim\" described in the last paragraph?",
    "choices": {
-    "A": "Seedlings grown in sterilized soil without fungi grew poorly.",
-    "B": "Tracer carbon from one tree was later detected in a neighboring tree.",
-    "C": "Popular books have described trees warning one another of insects.",
-    "D": "Seedlings linked to a mature tree only by fungal threads grew better than unlinked seedlings."
+    "A": "Seedlings grown in sterilized soil without any fungi grew poorly in the experiment.",
+    "B": "Tracer carbon taken up by one tree was later detected in a neighboring tree.",
+    "C": "Several popular books have described trees warning one another of insect attacks.",
+    "D": "Seedlings linked to a tree only by fungal threads grew better than unlinked ones."
    },
    "answer": "D",
    "evidence": "a channel through which trees share resources with, or send signals to, one another",
@@ -456,6 +407,61 @@
    },
    "revision": 2,
    "revision_note": "R027-08 resubmitted unchanged: its only non-minor flag was overlap with R027-06, which was withdrawn before review."
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "R028-06",
+   "reason": "withdrawn before review: both blind solvers noted its key ('accepting the networks' basic role but doubting the dramatic claims') nearly paraphrases R028-01's key, so each cues the other. Not resubmitted: R028-01 covers the idea.",
+   "item": {
+    "cand": "R028-06",
+    "passage_id": "CLD-P-ACT-R-000028",
+    "reporting_category": "Integration of Knowledge and Ideas",
+    "skill": "Integration of Knowledge and Ideas",
+    "subskill": "Author's attitude",
+    "repo_skill_key": "act_inference",
+    "difficulty": "hard",
+    "stem": "The author's attitude toward the \"wood wide web\" idea is best described as:",
+    "choices": {
+     "A": "dismissive of the idea that fungi help trees in any meaningful way.",
+     "B": "enthusiastic about the evidence that mother trees feed their seedlings.",
+     "C": "neutral, presenting the popular accounts without any evaluation.",
+     "D": "accepting the networks' basic role but doubting the dramatic claims."
+    },
+    "answer": "D",
+    "evidence": "None of this means that the networks do not exist or that they are unimportant.",
+    "explanation": "The author affirms that the networks exist and help individual trees but treats the sharing and signaling claims as unproven.",
+    "distractors": {
+     "A": {
+      "rationale": "The author calls the fungi's role in supplying trees \"well established.\"",
+      "trap": "extreme_language"
+     },
+     "B": {
+      "rationale": "The author reports that this evidence is thin and mixed.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "The author evaluates the claims, relying on the 2023 review.",
+      "trap": null
+     }
+    },
+    "hints": [
+     "What does the author say in the first two sentences of the last paragraph?"
+    ],
+    "strategy": {
+     "key": "process_of_elimination",
+     "explanation": "Eliminate attitudes that are all-or-nothing."
+    },
+    "remember": "A qualified attitude accepts part of a claim and doubts the rest.",
+    "expected_time_seconds": 50,
+    "modeling": false,
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "choice_lengths": "balanced",
+     "hardness": "Students who focus on the review's criticism choose \"dismissive\"; the last paragraph explicitly preserves the networks' established role."
+    }
+   }
   }
  ]
 }

@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 27,
-  "updated_at": "2026-10-27T00:47:06+00:00",
+  "version": 28,
+  "updated_at": "2026-10-27T01:01:01+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -300,6 +300,17 @@
       "word_count": 555,
       "text": "SOCIAL SCIENCE: Passage A is from an essay by a librarian; Passage B is from an essay by a city budget analyst. Both are original texts written for this practice set.\n\nPassage A\n\nFor most of the twentieth century, the overdue fine seemed as natural a part of the public library as the card catalog. A few cents a day, the reasoning went, would remind borrowers that a book belonged to everyone. Over the past decade, however, many library systems in the United States have stopped charging fines, and the results have persuaded a number of librarians that the old reasoning was backward.\n\nThe first surprise was who had been paying. When library systems examined their records, they often found that blocked accounts (cards suspended because of unpaid fines) were concentrated in the poorest neighborhoods. A child who owed eight dollars could not check out another book until the debt was paid, and many such children simply stopped coming. The fine had not taught responsibility; it had taught some families that the library was not for them.\n\nThe second surprise was what happened to the books. Many systems that ended fines reported that most borrowers continued to return items on time, and several saw long-overdue materials come back as patrons who had stayed away for years returned. Without the embarrassment of an unpayable bill, bringing back a late book became an ordinary errand rather than a confession.\n\nNor were fines ever a large part of library budgets. In most systems they brought in less than one percent of revenue, and collecting them took staff time at the desk that could have been spent helping readers. Measured against the library's mission, fines were expensive.\n\nPassage B\n\nAdvocates of ending library fines have assembled an appealing story, and parts of it are true. Fines do fall hardest on families with the least money, and a suspended card can keep a child away from the library at exactly the age when reading habits form. Any library that blocks children's accounts over a few dollars should rethink that policy.\n\nBut the evidence that fine-free policies cause no harm is thinner than the story suggests. Most of the reports come from the libraries themselves, typically comparing a single year before the change with a single year after it. Circulation, staffing, and the local economy all shift from year to year, and a library that has just made a well-publicized change has every reason to emphasize good news. Few systems have tracked what happens to the small share of borrowers who keep popular items for months, and those are precisely the borrowers a fine was meant to influence. When a library owns only three copies of a new bestseller, one patron who keeps a copy for an extra six weeks makes dozens of others wait longer.\n\nNor is the budget question as simple as it sounds. Fines may amount to less than one percent of a large system's revenue, but in a small rural library the same few thousand dollars may be a meaningful share of the money available for new books. A policy that works in a city of a million people may not transfer to a town of four thousand.\n\nNone of this is an argument for keeping fines exactly as they were. It is an argument for measuring carefully before declaring victory, and for designing policies, such as forgiving children's fines while keeping modest charges for adults, that address the real harms without assuming that removing fines costs nothing.",
       "batch": 27,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000028",
+      "title": "The Web Beneath the Forest",
+      "genre": "natural science",
+      "word_count": 404,
+      "text": "Beneath almost any forest floor runs a web of fungal threads finer than a human hair. Many of these fungi are mycorrhizal: they wrap around or grow into the roots of trees and trade water and mineral nutrients, which their threads gather from the soil, for sugars that the trees make by photosynthesis. The partnership is ancient and, for most land plants, essential. Tree seedlings grown in sterilized soil, without such fungi, often grow poorly.\n\nBecause a single fungus can connect to the roots of several trees at once, researchers in the 1990s began to ask whether the network might do more than serve each tree individually. Could it carry resources from one tree to another? Early experiments using carbon labeled with rare isotopes found that small amounts of carbon taken up by one tree later turned up in a neighbor. A journal cover in 1997 called the system a \"wood wide web,\" and the phrase stuck.\n\nIn the decades since, the idea has grown in the retelling. Popular books and documentaries have described large \"mother trees\" that recognize their own offspring and nourish them through the network, and forests in which trees warn one another of insect attacks. The image is appealing: a forest not as a crowd of competitors but as a cooperative community.\n\nA review published in 2023 examined the field studies behind these claims and found the evidence far thinner than the popular accounts suggested. In many experiments, the tracer carbon could have moved between trees through the soil, or through roots that had grown together, rather than through fungal threads. The amounts transferred were usually small, and few studies showed that they made a measurable difference to the receiving tree's growth or survival. Whether mature trees preferentially help their own seedlings had been tested in only a handful of cases, with mixed results.\n\nNone of this means that the networks do not exist or that they are unimportant. The fungi's role in supplying individual trees with water and nutrients is well established. What remains uncertain is the more dramatic claim: that the network serves as a channel through which trees share resources with, or send signals to, one another. Keeping those two claims apart, the reviewers argued, matters for forest management as well as for science, since policies built on an exaggerated picture might, for instance, protect particular \"mother trees\" at the expense of approaches better supported by evidence.",
+      "batch": 28,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -15637,6 +15648,502 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-027.review.json",
         "computation": "checks/act_reading/batch_027.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000216",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Central idea of an informational passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "What remains uncertain is the more dramatic claim",
+      "figure": null,
+      "stem": "Which choice best states the main idea of the passage?",
+      "choices": {
+        "A": "Fungal networks beneath forests turned out not to exist at all, the review found.",
+        "B": "Mother trees recognize their own offspring and feed them through fungal networks.",
+        "C": "Fungi clearly aid single trees, but evidence of sharing between trees is weak.",
+        "D": "Seedlings grown in sterilized soil without fungal partners usually grow poorly."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage distinguishes the well-established role of fungi in supplying individual trees from the poorly supported claim that trees share or communicate through the network.",
+      "distractor_explanations": {
+        "A": "The author says the networks exist and are important.",
+        "B": "This is the popular claim the passage questions.",
+        "D": "This is a supporting detail from paragraph 1, not the main idea."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What does the last paragraph say is established and what is uncertain?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for the distinction the passage builds to."
+      },
+      "remember": "A main idea often contrasts what is known with what is not.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-01",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: overlaps conceptually with R028-06 (both hinge on the established-individual-role vs. doubtful-sharing distinction); C here and D in 06 are near paraphrases, so answering one cues the other"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000217",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Locating a stated detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "for sugars that the trees make by photosynthesis",
+      "figure": null,
+      "stem": "According to the passage, mycorrhizal fungi receive which of the following from trees?",
+      "choices": {
+        "A": "Water gathered from the soil",
+        "B": "Sugars made by photosynthesis",
+        "C": "Carbon labeled with rare isotopes",
+        "D": "Warnings about insect attacks"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says the fungi trade water and nutrients for sugars the trees produce by photosynthesis.",
+      "distractor_explanations": {
+        "A": "The fungi supply water to the trees, not the reverse.",
+        "C": "Labeled carbon was a research tool, not something trees normally give fungi.",
+        "D": "Warning signals are part of the disputed popular claims."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Who gives what to whom in the trade?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Reread the second sentence of paragraph 1."
+      },
+      "remember": "Track the direction of an exchange carefully.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-02",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000218",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "In the decades since, the idea has grown in the retelling.",
+      "figure": null,
+      "stem": "The main function of the third paragraph is to:",
+      "choices": {
+        "A": "present the experimental evidence that first supported the network idea.",
+        "B": "explain why mycorrhizal fungi need the sugars that trees produce.",
+        "C": "argue that forests are cooperative communities rather than competitors.",
+        "D": "show how popular accounts expanded the idea before the passage tests it."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 3 describes the popular, expanded version of the idea (mother trees, warnings), which paragraph 4 then tests against the evidence.",
+      "distractor_explanations": {
+        "A": "The isotope experiments are in paragraph 2.",
+        "B": "The paragraph does not discuss the fungi's needs.",
+        "C": "The paragraph reports this popular image; the author does not endorse it."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What does paragraph 4 do with the claims in paragraph 3?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look at what comes right after the paragraph."
+      },
+      "remember": "A paragraph that reports a view may be setting it up for evaluation.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-03",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: 'before the passage tests it' is slightly loose; the passage reports a 2023 review's evaluation rather than testing the idea itself. 'before the passage evaluates it' or 'before a review questions it' would be more precise"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000219",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Meaning of a phrase in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "Popular books and documentaries have described large \"mother trees\"",
+      "figure": null,
+      "stem": "As used in paragraph 3, the phrase \"grown in the retelling\" most nearly means that the idea has:",
+      "choices": {
+        "A": "been tested in more and more experiments.",
+        "B": "spread to forests in many countries.",
+        "C": "become exaggerated as it was repeated.",
+        "D": "become harder for scientists to understand."
+      },
+      "correct_answer": "C",
+      "explanation": "The examples that follow (mother trees, warnings) show the idea becoming bigger and more dramatic as it was retold in popular accounts.",
+      "distractor_explanations": {
+        "A": "The paragraph is about popular accounts, not new experiments.",
+        "B": "The phrase concerns how the idea was told, not where forests are.",
+        "D": "Nothing suggests the idea became confusing."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What happens to the idea in the books and documentaries?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict \"exaggerated,\" then match."
+      },
+      "remember": "Read a phrase in light of the examples that follow it.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-05",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000220",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a final sentence",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "matters for forest management as well as for science",
+      "figure": null,
+      "stem": "The last sentence of the passage mainly serves to:",
+      "choices": {
+        "A": "argue that mother trees should be protected in all forests.",
+        "B": "explain why separating the two claims has practical consequences.",
+        "C": "summarize the results of the 1990s isotope experiments.",
+        "D": "introduce a new study that confirms the popular accounts."
+      },
+      "correct_answer": "B",
+      "explanation": "The sentence explains that confusing the established claim with the dramatic one could lead to forest policies built on weak evidence.",
+      "distractor_explanations": {
+        "A": "The sentence warns that protecting mother trees might come at the expense of better-supported approaches.",
+        "C": "Those results appear in paragraph 2.",
+        "D": "No new study is introduced."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Why does the distinction matter, according to the reviewers?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the word \"matters\" and read what follows."
+      },
+      "remember": "Closing sentences often state why an argument matters.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-07",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000221",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Evaluating evidence for a claim",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000028",
+      "underline": null,
+      "evidence": "a channel through which trees share resources with, or send signals to, one another",
+      "figure": null,
+      "stem": "Which finding, if true, would most directly support the \"more dramatic claim\" described in the last paragraph?",
+      "choices": {
+        "A": "Seedlings grown in sterilized soil without any fungi grew poorly in the experiment.",
+        "B": "Tracer carbon taken up by one tree was later detected in a neighboring tree.",
+        "C": "Several popular books have described trees warning one another of insect attacks.",
+        "D": "Seedlings linked to a tree only by fungal threads grew better than unlinked ones."
+      },
+      "correct_answer": "D",
+      "explanation": "The dramatic claim needs evidence that resources move through the fungi (not soil or roots) and make a difference. Only D isolates the fungal route and shows a measurable benefit.",
+      "distractor_explanations": {
+        "A": "This supports the fungi's role for individual trees, which is already established, not sharing between trees.",
+        "B": "This is the kind of evidence the review found inconclusive, because the carbon could have moved through soil or roots.",
+        "C": "Popular descriptions are not evidence."
+      },
+      "distractor_traps": {
+        "A": "true_but_irrelevant",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "What two weaknesses did the review find in earlier evidence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Rule out evidence the passage has already shown to be inconclusive."
+      },
+      "remember": "Strong evidence rules out the alternatives a critic has raised.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-08",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: choice A says 'in the experiment' without any experiment having been introduced in the stem; harmless but slightly odd"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000222",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "How one author would respond to the other",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000027",
+      "underline": null,
+      "evidence": "Few systems have tracked what happens to the small share of borrowers who keep popular items for months",
+      "figure": null,
+      "stem": "The author of Passage B would most likely respond to Passage A's report that \"most borrowers continued to return items on time\" by:",
+      "choices": {
+        "A": "arguing that most borrowers in fact began returning their items late once fines ended.",
+        "B": "agreeing that it proves fine-free policies cause no harm to libraries at all.",
+        "C": "accepting it but noting that it ignores the few who keep popular items for months.",
+        "D": "pointing out that the report applies only to the return of children's books."
+      },
+      "correct_answer": "C",
+      "explanation": "Passage B's objection is not that most borrowers return late but that averages hide a small, costly group, so the author would grant the claim and point to what it leaves out.",
+      "distractor_explanations": {
+        "A": "Passage B does not dispute that most borrowers return items on time.",
+        "B": "Passage B says the evidence that such policies cause no harm is thin.",
+        "D": "Nothing limits the report to children's books."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does Passage B ever say most borrowers return items late?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Separate disagreement about the claim from disagreement about what it leaves out."
+      },
+      "remember": "A response can accept a claim yet say it is incomplete.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 28,
+      "draft_candidate": "R028-09",
+      "created_at": "2026-10-27T01:01:01+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-028.review.json",
+        "computation": "checks/act_reading/batch_028.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
