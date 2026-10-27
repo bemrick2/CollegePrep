@@ -10,7 +10,7 @@
    "subskill": "Equal outputs at inputs two units apart",
    "repo_skill_key": "sat_advanced_math",
    "difficulty": "medium",
-   "stem": "The function f is defined by f(x) = x² − 4x. If f(a) = f(a + 2), what is the value of a ?",
+   "stem": "For the function f(x) = x² − 4x, the output at x = a equals the output at x = a + 2. What is the value of a ?",
    "explanation": "The parabola y = x² − 4x is symmetric about x = 2. Two inputs give the same output when they are equally far from 2, so a and a + 2 must be 1 and 3. Algebraically, a² − 4a = (a + 2)² − 4(a + 2) = a² − 4, so −4a = −4 and a = 1.",
    "hints": [
     "Where is the axis of symmetry of y = x² − 4x?"
@@ -96,48 +96,44 @@
    "cand": "Q034-03",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
-   "subskill": "Integer inputs where a factored polynomial is positive",
+   "subskill": "Solving an exponential equation by factoring out a common power",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "The polynomial p is defined by p(x) = (x − 2)²(x + 1)(3 − x). For how many integer values of x is p(x) > 0 ?",
-   "explanation": "(x − 2)² is positive except at x = 2, where p = 0. The factor (x + 1)(3 − x) is positive only for −1 < x < 3. So p(x) > 0 for −1 < x < 3 with x ≠ 2, and the integers are 0 and 1: two values.",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = 5(3)^x. If f(t + 2) − f(t) = 360, what is the value of t ?",
+   "explanation": "f(t + 2) = 5(3)^(t + 2) = 9 · 5(3)^t = 9f(t). So f(t + 2) − f(t) = 8f(t) = 360, which gives f(t) = 45. Then 5(3)^t = 45, so 3^t = 9 and t = 2.",
    "hints": [
-    "Which factor never changes sign?"
+    "Use an exponent rule to rewrite the shifted term."
    ],
    "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Make a sign chart for each factor."
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite the shifted term using exponent rules, then factor."
    },
-   "remember": "A squared factor is never negative but equals 0 at its zero.",
-   "expected_time_seconds": 70,
+   "remember": "Adding 2 to the exponent multiplies the power by b².",
+   "expected_time_seconds": 75,
    "modeling": false,
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
     "single_correct": true,
-    "hardness": "Students must track signs across four factors and exclude the double root; counting x = 2 is a common trap."
+    "hardness": "Students must see that the shift multiplies f(t) by 9; guess-and-check also works, so medium."
    },
-   "choices": {
-    "A": "0",
-    "B": "1",
-    "C": "2",
-    "D": "3"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "0 assumes the squared factor makes p negative or zero everywhere.",
-     "trap": null
+   "answer": "2",
+   "format": "spr",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "45",
+     "rationale": "45 is f(t), the value found before solving for t.",
+     "trap": "wrong_quantity"
     },
-    "B": {
-     "rationale": "1 counts only x = 1 or only x = 0.",
+    {
+     "value": "3",
+     "rationale": "3 comes from 3^t = 9 by dividing 9 by 3 instead of finding the exponent.",
      "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "3 includes x = 2, where p(2) = 0, not greater than 0.",
-     "trap": null
     }
-   }
+   ]
   },
   {
    "cand": "Q034-04",
@@ -456,6 +452,59 @@
     "D": {
      "rationale": "130° is the sum of angles B and C.",
      "trap": "partial_answer"
+    }
+   }
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q034-03",
+   "reason": "screen: concept repeat of CLD-ACT-M-000211 (sign of a polynomial with a repeated zero); counting integers is not enough of a change",
+   "item": {
+    "cand": "Q034-03",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Integer inputs where a factored polynomial is positive",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "hard",
+    "stem": "The polynomial p is defined by p(x) = (x − 2)²(x + 1)(3 − x). For how many integer values of x is p(x) > 0 ?",
+    "explanation": "(x − 2)² is positive except at x = 2, where p = 0. The factor (x + 1)(3 − x) is positive only for −1 < x < 3. So p(x) > 0 for −1 < x < 3 with x ≠ 2, and the integers are 0 and 1: two values.",
+    "hints": [
+     "Which factor never changes sign?"
+    ],
+    "strategy": {
+     "key": "draw_it_out",
+     "explanation": "Make a sign chart for each factor."
+    },
+    "remember": "A squared factor is never negative but equals 0 at its zero.",
+    "expected_time_seconds": 70,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true,
+     "hardness": "Students must track signs across four factors and exclude the double root; counting x = 2 is a common trap."
+    },
+    "choices": {
+     "A": "0",
+     "B": "1",
+     "C": "2",
+     "D": "3"
+    },
+    "answer": "C",
+    "distractors": {
+     "A": {
+      "rationale": "0 assumes the squared factor makes p negative or zero everywhere.",
+      "trap": null
+     },
+     "B": {
+      "rationale": "1 counts only x = 1 or only x = 0.",
+      "trap": "partial_answer"
+     },
+     "D": {
+      "rationale": "3 includes x = 2, where p(2) = 0, not greater than 0.",
+      "trap": null
+     }
     }
    }
   }
