@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Math",
   "id_prefix": "CLD-ACT-M-",
-  "version": 77,
-  "updated_at": "2026-10-27T00:59:22+00:00",
+  "version": 78,
+  "updated_at": "2026-10-27T01:03:45+00:00",
   "passages": [],
   "questions": [
     {
@@ -53612,6 +53612,710 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_math/batch-077.review.json",
         "computation": "checks/act_math/batch_077.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000767",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Interval containing the median from a histogram",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A histogram shows the test scores of 30 students, grouped into intervals: 60–69: 4 students; 70–79: 9 students; 80–89: 12 students; 90–99: 5 students. Which interval contains the median score?",
+      "choices": {
+        "A": "60–69",
+        "B": "70–79",
+        "C": "80–89",
+        "D": "90–99"
+      },
+      "correct_answer": "C",
+      "explanation": "With 30 scores, the median is the average of the 15th and 16th scores in order. The first two intervals hold 4 + 9 = 13 scores, so the 15th and 16th scores fall in the 80–89 interval.",
+      "distractor_explanations": {
+        "A": "60–69 holds only the lowest 4 scores.",
+        "B": "70–79 holds the 5th through 13th scores, which stop short of the middle.",
+        "D": "90–99 holds the highest 5 scores."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which positions are the middle of 30 ordered scores?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Add the frequencies until you pass 15."
+      },
+      "remember": "Use cumulative counts to locate the median.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-01",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: called a histogram but data given only as text; fine as-is, or say 'frequency table'"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000768",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Statistics & Probability",
+      "subskill": "Effect of removing an outlier on the mean",
+      "modeling": false,
+      "repo_skill_key": "act_statistics_probability",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The data set 12, 14, 15, 15, 16, 18, 95 contains one value that is far larger than the others. If the value 95 is removed, by about how much does the mean of the data decrease?",
+      "choices": {
+        "A": "11.4",
+        "B": "80",
+        "C": "13.6",
+        "D": "0"
+      },
+      "correct_answer": "A",
+      "explanation": "The original mean is 185/7 ≈ 26.4. Without 95, the mean is 90/6 = 15. The mean decreases by about 11.4.",
+      "distractor_explanations": {
+        "B": "80 is the difference between 95 and the median, 15.",
+        "C": "13.6 is 95/7, the outlier's contribution to the original mean, not the change.",
+        "D": "0 is the change in the median, which stays 15."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Compute the mean with and without 95."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both means, then subtract."
+      },
+      "remember": "Outliers pull the mean far more than the median.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-02",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000769",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Algebra",
+      "subskill": "Complete factorization",
+      "modeling": false,
+      "repo_skill_key": "act_algebra_linear",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is the complete factorization of 2x³ − 8x ?",
+      "choices": {
+        "A": "2x(x² − 4)",
+        "B": "2x(x − 2)(x + 2)",
+        "C": "2(x − 2)(x + 2)",
+        "D": "2x(x − 4)(x + 1)"
+      },
+      "correct_answer": "B",
+      "explanation": "Factor out 2x to get 2x(x² − 4), then factor the difference of squares: 2x(x − 2)(x + 2).",
+      "distractor_explanations": {
+        "A": "2x(x² − 4) is equivalent but not completely factored; x² − 4 still factors.",
+        "C": "2(x − 2)(x + 2) leaves out a factor of x.",
+        "D": "2x(x − 4)(x + 1) multiplies out to 2x³ − 6x² − 8x, not 2x³ − 8x."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What common factor do both terms share?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check that the factors cannot be factored further."
+      },
+      "remember": "Factor out the GCF first, then look for a difference of squares.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-03",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000770",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Absolute value of a negative number",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If x < 0, which of the following expressions must equal 0 ?",
+      "choices": {
+        "A": "|x| − x",
+        "B": "x · |x|",
+        "C": "|x|/x",
+        "D": "|x| + x"
+      },
+      "correct_answer": "D",
+      "explanation": "When x is negative, |x| = −x, so |x| + x = −x + x = 0.",
+      "distractor_explanations": {
+        "A": "|x| − x = −2x, which is positive when x < 0.",
+        "B": "x · |x| = −x², which is negative, not 0.",
+        "C": "|x|/x = −1 when x < 0."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What is |x| equal to when x is negative?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = −3 in each choice."
+      },
+      "remember": "For negative x, |x| = −x.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-04",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000771",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Product of radical conjugates",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the value of (3 + √2)(3 − √2) ?",
+      "choices": {
+        "A": "11",
+        "B": "9 − 2√2",
+        "C": "6",
+        "D": "7"
+      },
+      "correct_answer": "D",
+      "explanation": "This is a difference of squares: 3² − (√2)² = 9 − 2 = 7.",
+      "distractor_explanations": {
+        "A": "11 adds 2 instead of subtracting it.",
+        "B": "9 − 2√2 multiplies only some of the terms.",
+        "C": "6 adds 3 + 3 instead of multiplying."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "What pattern does (a + b)(a − b) follow?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use a² − b²."
+      },
+      "remember": "(a + b)(a − b) = a² − b².",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-05",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000772",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Lattice points on a circle",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, how many points with integer coordinates lie on the circle x² + y² = 25 ?",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "12",
+        "D": "16"
+      },
+      "correct_answer": "C",
+      "explanation": "Integer solutions come from 25 = 0² + 5² = 3² + 4². The first gives (±5, 0) and (0, ±5): 4 points. The second gives (±3, ±4) and (±4, ±3): 8 points. The total is 12.",
+      "distractor_explanations": {
+        "A": "4 counts only the points on the axes.",
+        "B": "8 counts only the (±3, ±4) and (±4, ±3) points.",
+        "D": "16 double-counts the axis points."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which pairs of perfect squares add to 25?"
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "List x from 0 to 5 and check whether 25 − x² is a perfect square."
+      },
+      "remember": "Use all sign combinations and both orders.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-06",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000773",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Functions",
+      "subskill": "Slope from an angle of inclination",
+      "modeling": false,
+      "repo_skill_key": "act_functions",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A line in the standard (x,y) coordinate plane makes a 135° angle with the positive x-axis, measured counterclockwise. What is the slope of the line?",
+      "choices": {
+        "A": "−1",
+        "B": "1",
+        "C": "−√3",
+        "D": "√3/3"
+      },
+      "correct_answer": "A",
+      "explanation": "The slope equals the tangent of the angle of inclination: tan 135° = −1.",
+      "distractor_explanations": {
+        "B": "1 is tan 45°, the slope of a line rising at 45°.",
+        "C": "−√3 is tan 120°.",
+        "D": "√3/3 is tan 30°."
+      },
+      "distractor_traps": {
+        "B": "sign_error",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does a line at 135° rise or fall from left to right?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the line through the origin at 135°."
+      },
+      "remember": "Slope = tan(angle with the positive x-axis).",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-07",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000774",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Chord length from a central angle",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle with radius 10, a chord subtends a central angle of 60°. What is the length of the chord?",
+      "choices": {
+        "A": "10π/3",
+        "B": "10",
+        "C": "5",
+        "D": "10√3"
+      },
+      "correct_answer": "B",
+      "explanation": "The two radii and the chord form a triangle with two sides of 10 and a 60° angle between them, so it is equilateral and the chord is 10.",
+      "distractor_explanations": {
+        "A": "10π/3 is the length of the arc, not the chord.",
+        "C": "5 is half the chord, the distance from its midpoint to an endpoint.",
+        "D": "10√3 is the chord for a 120° central angle."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "What kind of triangle do the two radii and the chord form?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the triangle formed by the radii and the chord."
+      },
+      "remember": "Radii, chord and a 60° angle form an equilateral triangle.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-08",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000775",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Number & Quantity",
+      "subskill": "Simplifying a quotient of factorials",
+      "modeling": false,
+      "repo_skill_key": "act_number_quantity",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For a positive integer n, n! means the product of all integers from 1 through n. What is the value of 10!/8! ?",
+      "choices": {
+        "A": "2",
+        "B": "20",
+        "C": "90",
+        "D": "10/8"
+      },
+      "correct_answer": "C",
+      "explanation": "10!/8! = (10 × 9 × 8!)/8! = 10 × 9 = 90.",
+      "distractor_explanations": {
+        "A": "2 subtracts 8 from 10.",
+        "B": "20 is 10 × 2, multiplying by the difference instead of by 9.",
+        "D": "10/8 cancels the factorial signs as if they were ordinary numbers."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write 10! as 10 × 9 × 8!."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cancel the common 8!."
+      },
+      "remember": "Cancel the shared part of factorials before multiplying.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-09",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [
+          "minor: the definition of n! is given, which makes it even easier"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-M-000776",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Math",
+      "reporting_category": "Preparing for Higher Math",
+      "skill": "Geometry",
+      "subskill": "Distance between intersection points of a line and a parabola",
+      "modeling": false,
+      "repo_skill_key": "act_geometry",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the standard (x,y) coordinate plane, the graphs of y = x² and y = 2x intersect at two points. What is the distance between those points?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "2√5"
+      },
+      "correct_answer": "D",
+      "explanation": "Setting x² = 2x gives x(x − 2) = 0, so the points are (0, 0) and (2, 4). The distance is √(2² + 4²) = √20 = 2√5.",
+      "distractor_explanations": {
+        "A": "2 is only the horizontal change.",
+        "B": "4 is only the vertical change.",
+        "C": "6 adds the horizontal and vertical changes."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "C": null
+      },
+      "hints": [
+        "Solve x² = 2x first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find both points, then use the distance formula."
+      },
+      "remember": "Find intersection points before measuring between them.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 78,
+      "draft_candidate": "B078-10",
+      "created_at": "2026-10-27T01:03:45+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_math/batch-078.review.json",
+        "computation": "checks/act_math/batch_078.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

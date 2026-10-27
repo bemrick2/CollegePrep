@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T01:01:10+00:00",
+  "updated_at": "2026-10-27T01:03:47+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -15,17 +15,17 @@
     "sat_reading_writing": 700
   },
   "accepted_by_section": {
-    "act_math": 745,
+    "act_math": 755,
     "act_english": 252,
     "act_reading": 219,
     "sat_reading_writing": 255
   },
   "review_totals": {
     "act_math": {
-      "PASS": 766,
+      "PASS": 776,
       "REVISE": 3,
       "REJECT": 2,
-      "candidates": 771,
+      "candidates": 781,
       "passed_after_revision": 3
     },
     "act_english": {
@@ -52,15 +52,15 @@
   },
   "sections": {
     "act_math": {
-      "accepted": 745,
+      "accepted": 755,
       "retired_after_audit": 21,
       "by_skill": {
-        "Algebra": 132,
-        "Functions": 122,
-        "Geometry": 187,
+        "Algebra": 133,
+        "Functions": 123,
+        "Geometry": 190,
         "Integrating Essential Skills": 92,
-        "Number & Quantity": 101,
-        "Statistics & Probability": 111
+        "Number & Quantity": 104,
+        "Statistics & Probability": 113
       },
       "by_subskill": {
         "30°-60°-90° triangles": 1,
@@ -70,6 +70,7 @@
         "Absolute value graph from symmetric points": 1,
         "Absolute value inequality as an interval": 1,
         "Absolute value inequality for a tolerance": 1,
+        "Absolute value of a negative number": 1,
         "Absolute value of numerical expressions": 1,
         "Absolute-value inequality for a tolerance": 1,
         "Adding fractions with unlike denominators": 1,
@@ -152,6 +153,7 @@
         "Choosing a pair from a group (combinations)": 1,
         "Choosing mean or median for skewed data": 1,
         "Chord cut by a line on a circle": 1,
+        "Chord length from a central angle": 1,
         "Chords and distance from the center": 1,
         "Circle area from its center and a point": 1,
         "Circle circumference and area": 1,
@@ -192,6 +194,7 @@
         "Complement and supplement of an angle": 1,
         "Complement of a fraction of a group": 1,
         "Complementary angles with algebra": 1,
+        "Complete factorization": 1,
         "Completing a two-way table": 1,
         "Completing the square": 1,
         "Complex number arithmetic": 1,
@@ -282,6 +285,7 @@
         "Dimensions of a matrix product": 1,
         "Direct variation": 1,
         "Discriminant with a degenerate case": 1,
+        "Distance between intersection points of a line and a parabola": 1,
         "Distance between opposite sides of a regular hexagon": 1,
         "Distance between parallel lines": 1,
         "Distance between two points": 1,
@@ -305,6 +309,7 @@
         "Effect of added values on summary statistics": 1,
         "Effect of an added value on standard deviation": 1,
         "Effect of correcting a data value on mean and median": 1,
+        "Effect of removing an outlier on the mean": 1,
         "Effective discount of a promotion": 1,
         "Effective tax rate with brackets": 1,
         "Elapsed time across time zones": 1,
@@ -422,6 +427,7 @@
         "Interquartile range": 1,
         "Intersecting chords": 1,
         "Intersections of a line and a parabola": 1,
+        "Interval containing the median from a histogram": 1,
         "Intervals where a quadratic increases": 1,
         "Inverse functions and excluded values": 1,
         "Inverse of a linear function": 1,
@@ -434,6 +440,7 @@
         "Largest prime factor of 2^10 − 1": 1,
         "Lateral area of a cone": 1,
         "Lateral area of a cylinder": 1,
+        "Lattice points on a circle": 1,
         "Law of cosines": 1,
         "Law of cosines for an angle": 1,
         "Law of sines": 1,
@@ -587,6 +594,7 @@
         "Probability that the sum of two draws is even": 1,
         "Probability that three rolls are all different": 1,
         "Probability with arrangements of repeated letters": 1,
+        "Product of radical conjugates": 1,
         "Product of solutions of a simple system": 1,
         "Product of the GCF and LCM": 1,
         "Products of complex conjugates": 1,
@@ -669,6 +677,7 @@
         "Similar triangles with shadows": 1,
         "Similar triangles: area ratios": 1,
         "Simplifying a complex fraction": 1,
+        "Simplifying a quotient of factorials": 1,
         "Simplifying expressions with rational exponents": 1,
         "Simplifying products and quotients of radicals": 1,
         "Simplifying radicals with variables": 1,
@@ -676,6 +685,7 @@
         "Simplifying with the Pythagorean identity": 1,
         "Sine in a right triangle": 1,
         "Sinusoidal models: time above a threshold": 1,
+        "Slope from an angle of inclination": 1,
         "Slope from standard form": 1,
         "Slope from two points": 1,
         "Slope with an unknown coordinate": 1,
@@ -809,25 +819,25 @@
         "y-intercept of an exponential function": 1
       },
       "by_difficulty_author": {
-        "easy": 189,
-        "hard": 214,
-        "medium": 342
+        "easy": 191,
+        "hard": 215,
+        "medium": 349
       },
       "by_difficulty_calibrated": {
-        "easy": 252,
+        "easy": 255,
         "hard": 91,
-        "medium": 402
+        "medium": 409
       },
       "calibrated_share": {
         "easy": 0.338,
-        "hard": 0.122,
-        "medium": 0.54
+        "hard": 0.121,
+        "medium": 0.542
       },
       "answer_key_balance": {
-        "A": 176,
-        "B": 200,
-        "C": 197,
-        "D": 172
+        "A": 178,
+        "B": 202,
+        "C": 200,
+        "D": 175
       },
       "modeling_items": 138,
       "passages": 0
@@ -1354,41 +1364,50 @@
     }
   },
   "last_completed_batch": {
-    "act_math": 77,
+    "act_math": 78,
     "act_english": 25,
     "act_reading": 28,
     "sat_reading_writing": 28
   },
   "next_batch_guidance": {
     "act_math": {
-      "next_batch": 78,
+      "next_batch": 79,
       "underrepresented_skills_vs_blueprint": [
         "Integrating Essential Skills",
         "Functions",
         "Algebra"
       ],
       "skill_gap_for_next_10": {
-        "Number & Quantity": -18.0,
-        "Algebra": 7.7,
-        "Functions": 17.7,
-        "Geometry": -47.3,
-        "Statistics & Probability": -9.1,
-        "Integrating Essential Skills": 59.0
+        "Number & Quantity": -19.8,
+        "Algebra": 8.5,
+        "Functions": 18.5,
+        "Geometry": -48.5,
+        "Statistics & Probability": -9.7,
+        "Integrating Essential Skills": 61.0
       },
       "calibrated_difficulty_gap_for_next_10": {
-        "easy": -63.2,
-        "medium": -24.5,
-        "hard": 97.8
+        "easy": -63.8,
+        "medium": -26.5,
+        "hard": 100.2
       },
       "answer_key_gap_for_next_10": {
-        "A": 12.8,
-        "B": -11.2,
-        "C": -8.2,
-        "D": 16.8
+        "A": 13.2,
+        "B": -10.8,
+        "C": -8.8,
+        "D": 16.2
       }
     }
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 4.2,
+        "Information and Ideas": -0.1,
+        "Standard English Conventions": 7.9,
+        "Expression of Ideas": -2.0
+      }
+    },
     "act_reading": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
@@ -1404,22 +1423,13 @@
         "Knowledge of Language": 17.7,
         "Conventions of Standard English": -31.9
       }
-    },
-    "sat_reading_writing": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 4.2,
-        "Information and Ideas": -0.1,
-        "Standard English Conventions": 7.9,
-        "Expression of Ideas": -2.0
-      }
     }
   },
   "section_targets": {
     "act_math": {
       "target": 2000,
-      "accepted": 745,
-      "share_of_target": 0.372
+      "accepted": 755,
+      "share_of_target": 0.378
     },
     "act_english": {
       "target": 700,
@@ -1438,7 +1448,7 @@
     }
   },
   "total_target": 4000,
-  "total_accepted": 1471,
+  "total_accepted": 1481,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "act_english",
   "audits": [
@@ -48248,7 +48258,7 @@
   "files": {
     "act_math": {
       "bank": "banks/act_math.json",
-      "bank_version": 77,
+      "bank_version": 78,
       "student_export": "exports/act_math.student.json",
       "answer_export": "exports/act_math.answer_key.json",
       "import_export": "exports/import/act_math.jsonl"
@@ -48395,7 +48405,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-26T22:50:18+00:00",
-    "heartbeat_at": "2026-10-27T01:01:10+00:00",
+    "heartbeat_at": "2026-10-27T01:03:47+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
