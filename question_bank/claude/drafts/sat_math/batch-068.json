@@ -1,0 +1,841 @@
+{
+ "bank": "sat_math",
+ "batch": 68,
+ "plan": "SAT Math batch 68: 18 Advanced Math items from idea set 19 (NB01-NB18; pre-checked in ideas-066.repeats.json, no drops). Fixes from the pre-check: NB03 rewritten as (cube root of (x - 1))^2 = 4 to remove the negative-base rational-exponent ambiguity; NB14 renumbered (9% less, p = 30) away from CLD-ACT-M-000469; NB15 uses g(x) = 6x - 13 so it no longer matches CLD-SAT-M-000155; NB10 uses (3x + 2)/(x - 4) instead of the CLD-ACT-M-000229 function; NB01 trap rationale corrected. NB08 keeps its fixed-point check (a legitimate reflection insight, noted as a moderate cue). Choice orders changed for NB02 and NB18; NB03/NB04 and NB10/NB11 kept apart. Geometry ideas follow in batch 69.",
+ "candidates": [
+  {
+   "cand": "Q068-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Coefficient matching in a product of quadratics",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "For all values of x, (x² − kx + 9)(x² + kx + 9) = x⁴ + 2x² + 81, where k is a positive constant. What is the value of k ?",
+   "explanation": "The product is a difference of squares: (x² + 9)² − (kx)² = x⁴ + 18x² + 81 − k²x² = x⁴ + (18 − k²)x² + 81. Matching the x² coefficients, 18 − k² = 2, so k² = 16 and k = 4.",
+   "hints": [
+    "Group the factors as (x² + 9) − kx and (x² + 9) + kx."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use (a − b)(a + b) = a² − b², then match coefficients."
+   },
+   "remember": "Spot a difference of squares before multiplying out.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The unknown appears only in the x² coefficient, where it combines with 18 from the constant terms."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "16",
+     "rationale": "16 is k², not k.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "1.414",
+     "rationale": "√2 sets k² = 2, forgetting the 18x² from the constant terms.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q068-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Combining fractions with conjugate denominators",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For x > 1, which of the following is equivalent to 1/(√x − 1) − 1/(√x + 1) ?",
+   "explanation": "The common denominator is (√x − 1)(√x + 1) = x − 1. The numerator is (√x + 1) − (√x − 1) = 2, so the expression equals 2/(x − 1).",
+   "hints": [
+    "What is (√x − 1)(√x + 1)?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the product of conjugates as the common denominator."
+   },
+   "remember": "The product of conjugates √x − 1 and √x + 1 is x − 1.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2/(x − 1)",
+    "B": "2/(x + 1)",
+    "C": "−2/(x − 1)",
+    "D": "2√x/(x − 1)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "2/(x + 1) multiplies the conjugates as x + 1 instead of x − 1.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−2/(x − 1) subtracts the numerators in the wrong order.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "2√x/(x − 1) adds the numerators instead of subtracting them.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Hidden negative solution of a radical equation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "What is the least solution to the equation (∛(x − 1))² = 4 ?",
+   "explanation": "Taking square roots, ∛(x − 1) = 2 or ∛(x − 1) = −2. Cubing gives x − 1 = 8 or x − 1 = −8, so x = 9 or x = −7. The least solution is −7. Check: ∛(−8) = −2, and (−2)² = 4.",
+   "hints": [
+    "What two values can ∛(x − 1) have?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Take both square roots, then cube."
+   },
+   "remember": "Taking a square root gives two cases: positive and negative.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The squared cube root hides a negative branch, and the question asks for that branch."
+   },
+   "format": "spr",
+   "answer": "-7",
+   "accepted_answers": [
+    "-7"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 takes only the positive square root of 4.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "-1",
+     "rationale": "−1 solves ∛(x − 1) = −2 but forgets to cube: x − 1 = −2.",
+     "trap": null
+    },
+    {
+     "value": "3.52",
+     "rationale": "3.52 raises 4 to the 2/3 power instead of the 3/2 power: 1 + 4^(2/3).",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q068-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sum of squares from a sum of reciprocals",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The real numbers x and y satisfy 1/x + 1/y = 4/3 and x + y = 8. What is the value of x² + y² ?",
+   "explanation": "Since 1/x + 1/y = (x + y)/(xy), 8/(xy) = 4/3, so xy = 6. Then x² + y² = (x + y)² − 2xy = 64 − 12 = 52.",
+   "hints": [
+    "Write 1/x + 1/y as a single fraction."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find xy, then use (x + y)² − 2xy."
+   },
+   "remember": "x² + y² equals (x + y)² minus 2xy.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "xy must first be extracted from a sum of reciprocals, and x and y themselves are not integers."
+   },
+   "format": "spr",
+   "answer": "52",
+   "accepted_answers": [
+    "52"
+   ],
+   "common_errors": [
+    {
+     "value": "64",
+     "rationale": "64 squares the sum without subtracting 2xy.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "76",
+     "rationale": "76 adds 2xy instead of subtracting it.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "6",
+     "rationale": "6 is the value of xy.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q068-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Squares of two different binomials",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What is the sum of all solutions to the equation (x − 3)² = (2x + 1)² ?",
+   "explanation": "If a² = b², then a = b or a = −b. From x − 3 = 2x + 1, x = −4. From x − 3 = −(2x + 1), 3x = 2, so x = 2/3. The sum is −4 + 2/3 = −10/3. (Equivalently, 3x² + 10x − 8 = 0, whose roots sum to −10/3.)",
+   "hints": [
+    "If two squares are equal, how are the bases related?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve both cases a = b and a = −b."
+   },
+   "remember": "a² = b² means a = b or a = −b.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "-10/3",
+   "accepted_answers": [
+    "-10/3",
+    "-3.333"
+   ],
+   "common_errors": [
+    {
+     "value": "-4",
+     "rationale": "−4 keeps only the case x − 3 = 2x + 1.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "-8/3",
+     "rationale": "−8/3 distributes the negative to only one term of 2x + 1.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "10/3",
+     "rationale": "10/3 makes a sign error in the sum of the roots.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q068-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Counting solutions of a composed quadratic",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = x² + 4x. How many distinct real solutions does the equation f(f(x)) = 0 have?",
+   "explanation": "f(u) = 0 when u = 0 or u = −4. So f(f(x)) = 0 when f(x) = 0 (x = 0 or x = −4) or f(x) = −4 (x² + 4x + 4 = 0, so only x = −2, since −4 is the minimum value of f). That gives 3 distinct solutions.",
+   "hints": [
+    "For which inputs u is f(u) = 0?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set f(x) equal to each zero of f."
+   },
+   "remember": "To solve f(f(x)) = 0, set f(x) equal to each zero of f.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "One inner equation lands exactly on the minimum of f, so it has only one solution."
+   },
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1 solves only f(x) = −4.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "2 assumes f(f(x)) = 0 requires f(x) = 0.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4 assumes both inner equations have two solutions, but f(x) = −4 has only one.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Reflecting an exponential across a vertical line",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = 2^x. In the xy-plane, the graph of y = g(x) is the reflection of the graph of y = f(x) across the line x = 1. Which of the following defines g ?",
+   "explanation": "Reflecting across x = 1 sends the point (a, 2^a) to (2 − a, 2^a), so g(x) = f(2 − x) = 2^(2 − x) = 4 · 2^(−x) = 4(0.5)^x. Check: points on the line x = 1 stay fixed, and g(1) = 2 = f(1).",
+   "hints": [
+    "Where does the point (a, 2^a) go after the reflection?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the curve and the mirror line x = 1."
+   },
+   "remember": "Reflecting across x = c replaces x with 2c − x.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The mirror is a vertical line other than the y-axis, and the result must be rewritten as a decreasing exponential."
+   },
+   "choices": {
+    "A": "g(x) = 2(0.5)^x",
+    "B": "g(x) = 0.25(0.5)^x",
+    "C": "g(x) = 2 − 2^x",
+    "D": "g(x) = 4(0.5)^x"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This is f(1 − x), which reflects a distance of 1 instead of 2.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This reflects across the y-axis and then shifts left 2, giving f(−x − 2).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This reflects across the horizontal line y = 1, not the vertical line x = 1.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Equal compositions with a double root",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The functions f and g are defined by f(x) = x² − 2 and g(x) = 2x + 1. For what value of x is f(g(x)) = g(f(x)) ?",
+   "explanation": "f(g(x)) = (2x + 1)² − 2 = 4x² + 4x − 1 and g(f(x)) = 2(x² − 2) + 1 = 2x² − 3. Setting them equal gives 2x² + 4x + 2 = 0, or 2(x + 1)² = 0, so x = −1.",
+   "hints": [
+    "Compute each composition separately."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Expand both compositions, then set them equal."
+   },
+   "remember": "f(g(x)) and g(f(x)) are usually different functions.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must expand both compositions correctly; the resulting quadratic has a double root."
+   },
+   "format": "spr",
+   "answer": "-1",
+   "accepted_answers": [
+    "-1"
+   ],
+   "common_errors": [
+    {
+     "value": "0",
+     "rationale": "0 distributes the 2 to only x² in g(f(x)), giving 2x² + 4x = 0.",
+     "trap": null
+    },
+    {
+     "value": "1",
+     "rationale": "1 makes a sign error when factoring.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q068-09",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Horizontal scaling inside a square root",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Which of the following describes how the graph of y = √(9x) can be obtained from the graph of y = √x ?",
+   "explanation": "For x ≥ 0, √(9x) = √9 · √x = 3√x, so every y-value of y = √x is multiplied by 3: a vertical stretch by a factor of 3.",
+   "hints": [
+    "Can you take the 9 out of the square root?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Simplify √(9x) first."
+   },
+   "remember": "√(ab) = √a · √b when a and b are nonnegative.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "A vertical stretch by a factor of 3",
+    "B": "A vertical stretch by a factor of 9",
+    "C": "A horizontal stretch by a factor of 9",
+    "D": "A vertical translation up 3 units"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The 9 is inside the root, so the outputs are multiplied by √9 = 3, not 9.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Multiplying the input by 9 would compress, not stretch, horizontally.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This splits √(9x) into √9 + √x, which is not valid.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-10",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Output a rational function never takes",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = (3x + 2)/(x − 4). For what value of k does the equation f(x) = k have no solution?",
+   "explanation": "Multiplying by x − 4 gives 3x + 2 = kx − 4k, so (3 − k)x = −4k − 2. When k = 3, this reads 0 = −14, which has no solution. For any other k, x = (4k + 2)/(k − 3), which is never 4, so it is a solution.",
+   "hints": [
+    "Solve f(x) = k for x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Look for a value of k that makes the x-coefficient zero."
+   },
+   "remember": "If the x-terms cancel and the constants do not, there is no solution.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The missing output comes from a vanishing coefficient, not from the excluded input."
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 is the excluded x-value, an input rather than an output.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "-0.5",
+     "rationale": "−0.5 is f(0).",
+     "trap": null
+    },
+    {
+     "value": "-0.667",
+     "rationale": "−2/3 is the zero of the numerator.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q068-11",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum of a quadratic on a restricted interval",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A model for a company's weekly profit, in thousands of dollars, is P(x) = −x² + 6x − 5, where x is the number of machines operating. The model is valid only for 4 ≤ x ≤ 7. According to the model, what is the greatest weekly profit, in thousands of dollars, for values of x in this interval?",
+   "explanation": "The vertex is at x = 3, which is outside the interval. The parabola opens downward, so P decreases for x > 3, and the greatest value on 4 ≤ x ≤ 7 is P(4) = −16 + 24 − 5 = 3.",
+   "hints": [
+    "Is the vertex inside the interval?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the parabola and shade the allowed inputs."
+   },
+   "remember": "If the vertex is outside the allowed inputs, check the endpoints.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The vertex lies outside the domain, so the maximum is at an endpoint."
+   },
+   "choices": {
+    "A": "−12",
+    "B": "−2.25",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−12 is P(7); it assumes more machines means more profit.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "−2.25 is P(5.5), the value at the interval's midpoint.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4 is the vertex value, but the vertex is outside the allowed inputs.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-12",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Line through only the hole of a rational graph",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, k is a constant greater than 1, and the line y = kx does not intersect the graph of y = (x² − 9)/(x − 3). What is the value of k ?",
+   "explanation": "For x ≠ 3, the graph is the line y = x + 3 with the point (3, 6) removed. The line y = kx meets y = x + 3 where kx = x + 3, so x = 3/(k − 1). There is no intersection only if this point is the removed one, x = 3, which gives k = 2. Check: y = 2x passes through (3, 6).",
+   "hints": [
+    "Simplify the rational expression and note any excluded point."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the line with a hole at (3, 6)."
+   },
+   "remember": "A removable factor leaves a hole that other graphs can pass through.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The only way to avoid intersecting is to pass exactly through the hole."
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is the y-coordinate of the hole.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "3",
+     "rationale": "3 is the x-coordinate of the hole.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "1",
+     "rationale": "1 gives a parallel line, but k must be greater than 1.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q068-13",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Counting factorizations of a trinomial",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The expression x² + bx + 12, where b is a constant, can be written as (x + p)(x + q), where p and q are integers. How many different values of b are possible?",
+   "explanation": "Since pq = 12 and b = p + q, the factor pairs {1, 12}, {2, 6}, {3, 4} and their negatives give b = 13, 8, 7, −13, −8, −7, which is 6 values.",
+   "hints": [
+    "What must pq and p + q equal?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "List all integer factor pairs of 12, including negatives."
+   },
+   "remember": "Include negative factor pairs when listing integer factorizations.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 counts only the positive factor pairs of 12.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "12",
+     "rationale": "12 counts ordered pairs (p, q).",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q068-14",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Equal percent changes recovered from an area change",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The length of a rectangle is increased by p% and its width is decreased by p%. The area of the new rectangle is 9% less than the area of the original rectangle. What is the value of p ?",
+   "explanation": "The area is multiplied by (1 + p/100)(1 − p/100) = 1 − (p/100)². Setting this equal to 0.91 gives (p/100)² = 0.09, so p/100 = 0.3 and p = 30.",
+   "hints": [
+    "What single factor multiplies the area?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let the original length and width be 10."
+   },
+   "remember": "An increase and a decrease of the same percent do not cancel.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "30",
+   "accepted_answers": [
+    "30"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 assumes the area changes by p%.",
+     "trap": null
+    },
+    {
+     "value": "4.5",
+     "rationale": "4.5 splits the 9% evenly between the two dimensions.",
+     "trap": null
+    },
+    {
+     "value": "0.3",
+     "rationale": "0.3 is the decimal rate, not the percent.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q068-15",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Least vertical gap between two graphs",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The functions f and g are defined by f(x) = x² and g(x) = 6x − 13. In the xy-plane, the graphs of f and g do not intersect. What is the least possible value of f(x) − g(x) ?",
+   "explanation": "f(x) − g(x) = x² − 6x + 13 = (x − 3)² + 4, which is least when x = 3. The least value is 4.",
+   "hints": [
+    "Write f(x) − g(x) as one quadratic."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Complete the square."
+   },
+   "remember": "The minimum of (x − h)² + k is k.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 is the x-value where the least gap occurs.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "13",
+     "rationale": "13 is the constant term of x² − 6x + 13.",
+     "trap": null
+    },
+    {
+     "value": "-4",
+     "rationale": "−4 makes a sign error when completing the square.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q068-16",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Minimum after a horizontal stretch",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The quadratic function f has zeros at x = 1 and x = 5, and f(0) = 5. The function g is defined by g(x) = f(x/2). What is the minimum value of g ?",
+   "explanation": "f(x) = (x − 1)(x − 5), since f(0) = 5. Its minimum is f(3) = −4. g(x) = f(x/2) stretches the graph horizontally, moving the vertex to x = 6 but leaving every output value unchanged, so the minimum of g is also −4. (g(x) = (1/4)(x − 2)(x − 10).)",
+   "hints": [
+    "Does a horizontal stretch change the y-values?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch f and stretch it sideways."
+   },
+   "remember": "Horizontal stretches move points sideways; they do not change output values.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The tempting route rebuilds g from its zeros and drops the leading coefficient."
+   },
+   "choices": {
+    "A": "−16",
+    "B": "−4",
+    "C": "−2",
+    "D": "−1"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "−16 rebuilds g from its zeros 2 and 10 with leading coefficient 1, giving (6 − 2)(6 − 10).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "−2 assumes a horizontal stretch halves the outputs.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "−1 applies the 1/4 coefficient to the old minimum.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-17",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Zeros of a product of shifted polynomials",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The polynomial p is defined by p(x) = (x + 1)(x − 2)(x − 3). The polynomial q is defined by q(x) = p(x) · p(x − 1). How many distinct real zeros does q have?",
+   "explanation": "p(x) = 0 at x = −1, 2, and 3. p(x − 1) = 0 when x − 1 = −1, 2, or 3, so at x = 0, 3, and 4. Together the distinct zeros are −1, 0, 2, 3, and 4, which is 5 zeros (3 is shared).",
+   "hints": [
+    "Where is p(x − 1) equal to 0?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "List the zeros of each factor, then remove repeats."
+   },
+   "remember": "A product is zero when any factor is zero.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1",
+    "B": "3",
+    "C": "5",
+    "D": "6"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1 counts only the shared zero, as if both factors had to be 0.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "3 assumes p(x − 1) has the same zeros as p(x).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6 adds 3 + 3 without noticing that 3 is a zero of both.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q068-18",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Growth followed by decay",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A town's population was 2,000 at t = 0. It increased by 10% each year for 5 years, and from then on it decreased by 10% each year. Which of the following gives the population t years after t = 0, for t ≥ 5 ?",
+   "explanation": "After 5 years the population is 2,000(1.1)^5. From then on, it decreases by 10% for each of the t − 5 years after year 5, so the population is 2,000(1.1)^5(0.9)^(t − 5).",
+   "hints": [
+    "How many years of decrease have there been at time t?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check t = 5 and t = 6."
+   },
+   "remember": "Count how many periods each factor actually applies to.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2,000(1.1)^5(0.9)^t",
+    "B": "2,000(1.1)^5(0.9)^(t − 5)",
+    "C": "2,000(0.99)^t",
+    "D": "2,000(1.1)^t(0.9)^(t − 5)"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This applies the decrease for all t years instead of t − 5 years.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This combines +10% and −10% into a single yearly factor.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This lets the growth continue past year 5.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}
