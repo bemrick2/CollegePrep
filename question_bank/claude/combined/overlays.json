@@ -486,6 +486,29 @@
    "requires_source_adoption": true,
    "found_by": "T8 blind solvers (chatgpt-sat_rw-05, both flagged minor); the original version passed both solves but the label form fails the literal-insertion rule",
    "note": "Source file not edited. The proposed version counts as reviewed only after fresh blind solves bound to this content hash."
+  },
+  "PP-VERBAL-20261023-O-014": {
+   "kind": "proposed_content_repair",
+   "owner": "ChatGPT",
+   "source_bank": "prep-and-price-verbal-pilot-001.json",
+   "source_content_version": 1,
+   "reason": "stem/passage mismatch: the stem asks which choice \"illustrates the caution\", but the passage contains no caution (flagged as blocking by both T8 blind solvers, packet chatgpt-sat_rw-08)",
+   "method": "stem reworded to match the passage; passage, choices and key unchanged",
+   "proposed": {
+    "stem": "Which choice most effectively uses the data to support the analyst’s statement?",
+    "passage": "In a hypothetical filling trial, a tank starts empty. Its cumulative volume is 10 liters at the end of day 1, 30 at the end of day 2, and 60 at the end of day 3. No liquid is removed. An analyst states that the amount added each day increases over the three days.",
+    "choices": {
+     "A": "The final volume is 60 liters, so exactly 60 liters were added on each day.",
+     "B": "The daily additions are 10, 20, and 30 liters, respectively.",
+     "C": "The cumulative volumes show that exactly 10 liters were added on every day.",
+     "D": "The final volume exceeds the first day’s volume, proving that the second and third daily additions were equal."
+    },
+    "key": "B"
+   },
+   "content_hash": "cfecb99a46e0b0dc",
+   "status_until_reviewed": "hold",
+   "requires_source_adoption": true,
+   "note": "Source file not edited. The proposed version counts as reviewed only after fresh blind solves bound to this content hash."
   }
  }
 }
