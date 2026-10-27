@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 29,
-  "updated_at": "2026-10-27T08:26:53+00:00",
+  "version": 30,
+  "updated_at": "2026-10-27T08:43:56+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -322,6 +322,17 @@
       "word_count": 242,
       "text": "In the winter of 1902, Mary Anderson, a visitor from Alabama, rode a streetcar through New York City during a snowstorm. The driver, she noticed, could barely see. Every few minutes he {{1|opened}} the front window, reached outside, and {{2|wiping}} the snow from the glass by hand. Each time, cold air and snow blew in, and the passengers shivered.\n\nAnderson sketched a solution {{3|before returning home; a}} rubber blade mounted outside the glass and connected to a lever inside the car. With it, a driver could clear the windshield without ever opening a window. {{4|}} In 1903 she received a patent for her \"window cleaning device.\"\n\nAnderson then offered the rights to her invention to a Canadian firm. The {{5|firms'}} reply, which arrived some {{6|weeks later was}} discouraging: its engineers saw no commercial value in the device. Others worried that a blade sweeping back and forth in front of a driver {{7|would end up being more of a distraction to the driver than it would end up being a help}}. In those early years of the automobile, the idea struck many people as more likely to cause accidents than to prevent them.\n\nAnderson's patent expired in 1920 without earning her any money. By then, {{8|therefore,}} automobiles had multiplied, and mechanical wipers were becoming common. Today it is hard to imagine a car without them, though few drivers {{9|knows}} the name of the woman who first noticed what a streetcar driver could not see. {{10|}}",
       "batch": 29,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000030",
+      "title": "Messages from the Window",
+      "genre": "informative essay",
+      "word_count": 232,
+      "text": "When the engineer Washington Roebling became too ill to visit the construction site of the Brooklyn Bridge, the work did not stop. Instead, messages traveled back and forth {{1|between he}} and the site through a single person: his wife, Emily Warren Roebling.\n\nWashington had developed a crippling illness in 1872 after working in the caissons, the pressurized chambers sunk into the riverbed to build the bridge's foundations. For years afterward he {{2|laid}} in a room overlooking the river, following the work as best he could from a distance.\n\nEmily had no formal training as an engineer. {{3|She studied higher mathematics. She also studied the strength of materials and the construction of cables.}} Before long she could discuss the bridge's technical problems {{4|knowledgeable}} with the engineers and contractors who came to the house.\n\n{{5|}} Some visitors assumed that the instructions she delivered were her husband's alone. Over time, however, many came to believe that Emily was making a number of the decisions herself. {{6|For example,}} the bridge kept rising: the towers were finished, the cables were spun, and the roadway was hung beneath them.\n\nShortly before the bridge opened on May 24, 1883, Emily Roebling {{7|was the first person to cross it by carriage before anyone else did}}{{8|. Carrying}} a rooster as a symbol of victory. Today a plaque on the bridge honors {{9|her, her husband, and his father,}} who first designed the bridge. {{10|}}",
+      "batch": 30,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -20989,6 +21000,722 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-029.review.json",
         "computation": "checks/act_english/batch_029.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000293",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case (object of a preposition)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 1,
+      "evidence": "messages traveled back and forth",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "between his",
+        "C": "between him",
+        "D": "between himself"
+      },
+      "correct_answer": "C",
+      "explanation": "Pronouns that are objects of a preposition such as \"between\" take the object form: \"between him and the site.\"",
+      "distractor_explanations": {
+        "A": "\"Between\" is a preposition, so it takes the object pronoun \"him,\" not \"he.\"",
+        "B": "\"His\" is a possessive and leaves \"between his and the site\" incomplete.",
+        "D": "A reflexive pronoun needs an earlier \"he\" in the same clause to refer back to."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Would you say \"between he\" if the second item were removed?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test the pronoun on its own after the preposition."
+      },
+      "remember": "Use object pronouns (him, her, them) after prepositions.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-01",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000294",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Lie versus lay",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 2,
+      "evidence": "in a room overlooking the river",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "lain",
+        "C": "lied",
+        "D": "lay"
+      },
+      "correct_answer": "D",
+      "explanation": "The past tense of \"lie\" (to recline) is \"lay\": \"he lay in a room.\"",
+      "distractor_explanations": {
+        "A": "\"Laid\" is the past tense of \"lay\" (to put something down), which needs an object.",
+        "B": "\"Lain\" is a past participle and needs a helping verb such as \"had.\"",
+        "C": "\"Lied\" means told a falsehood."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is he putting something down, or reclining?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide between \"lie\" and \"lay\" first."
+      },
+      "remember": "Lie (recline): lie, lay, lain. Lay (put): lay, laid, laid.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-02",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000295",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Combining sentences",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 3,
+      "evidence": "Emily had no formal training as an engineer.",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "She studied higher mathematics, the strength of materials, and the construction of cables.",
+        "C": "She studied higher mathematics; she also studied, too, the strength of materials and cables' construction.",
+        "D": "Higher mathematics was studied by her, and also the strength of materials and the construction of cables were."
+      },
+      "correct_answer": "B",
+      "explanation": "Listing all three subjects in one sentence states the same information concisely and clearly.",
+      "distractor_explanations": {
+        "A": "The two short sentences repeat \"She studied\" and read choppily.",
+        "C": "\"Also\" and \"too\" are redundant, and the phrasing is awkward.",
+        "D": "The passive phrasing is wordy and the second clause is incomplete."
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": null
+      },
+      "hints": [
+        "Which version says the same thing most clearly?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Choose the clearest, least repetitive version."
+      },
+      "remember": "Combine short sentences that repeat the same subject and verb.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-03",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: A is grammatical; B wins only on concision, which is standard ACT practice."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000296",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Adjectives versus adverbs",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 4,
+      "evidence": "she could discuss the bridge's technical problems",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "more knowledgeable",
+        "C": "knowledgeably",
+        "D": "knowledge"
+      },
+      "correct_answer": "C",
+      "explanation": "The word describes how she discussed the problems, so it must be an adverb: \"knowledgeably.\"",
+      "distractor_explanations": {
+        "A": "An adjective cannot describe how she discussed the problems.",
+        "B": "This is still an adjective, and there is no comparison.",
+        "D": "A noun does not fit here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the word describe a person or an action?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Identify what the word modifies."
+      },
+      "remember": "Adverbs modify verbs.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-04",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000297",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Introductory sentence for a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 5,
+      "evidence": "many came to believe that Emily was making a number of the decisions herself",
+      "figure": null,
+      "stem": "Which choice, if added here, would most effectively introduce the paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Her role soon went well beyond carrying messages.",
+        "B": "The Brooklyn Bridge took about fourteen years to build.",
+        "C": "Washington Roebling's father had first designed the bridge.",
+        "D": "Many people still visit the bridge today."
+      },
+      "correct_answer": "A",
+      "explanation": "The paragraph moves from people thinking Emily only relayed instructions to believing she made decisions herself, so an introduction about her role growing beyond messages fits best.",
+      "distractor_explanations": {
+        "B": "This is a detail about the project, not an introduction to Emily's growing role.",
+        "C": "This introduces a different person and does not lead into the paragraph's point.",
+        "D": "This jumps to the present and has nothing to do with the paragraph."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the rest of the paragraph say about Emily's role?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the paragraph, then pick the sentence that sets it up."
+      },
+      "remember": "An introductory sentence should preview the paragraph's main point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-05",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000298",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (time)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 6,
+      "evidence": "the bridge kept rising",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "In contrast,",
+        "C": "Likewise,",
+        "D": "Meanwhile,"
+      },
+      "correct_answer": "D",
+      "explanation": "The sentence describes what was happening during the same period, so \"Meanwhile\" is the logical transition.",
+      "distractor_explanations": {
+        "A": "The bridge's progress is not an example of people's beliefs about Emily.",
+        "B": "The construction continuing is not opposed to the previous point.",
+        "C": "The bridge's progress is not similar to the previous point about Emily's decisions."
+      },
+      "distractor_traps": {
+        "A": "wrong_transition",
+        "B": "wrong_transition",
+        "C": "wrong_transition"
+      },
+      "hints": [
+        "How is the bridge's progress related in time to the previous sentence?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict the relationship first."
+      },
+      "remember": "Use \"meanwhile\" for events happening at the same time.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-06",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "medium",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: Even with 'Meanwhile', the sentence about the bridge rising is loosely tied to the claim about Emily's decisions. It works as a time transition, but the paragraph ends a bit abruptly."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000299",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (redundancy)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 7,
+      "evidence": "Shortly before the bridge opened on May 24, 1883",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "was the first person to cross it by carriage",
+        "C": "was the very first person, earlier than all others, to cross it by carriage",
+        "D": "crossed it by carriage first, ahead of everyone else who crossed it"
+      },
+      "correct_answer": "B",
+      "explanation": "\"The first person\" already means before anyone else, so the concise version drops the repetition.",
+      "distractor_explanations": {
+        "A": "\"Before anyone else did\" repeats \"the first person.\"",
+        "C": "\"Earlier than all others\" repeats \"the very first.\"",
+        "D": "\"Ahead of everyone else\" repeats \"first.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which words repeat the idea of \"first\"?"
+      ],
+      "strategy": {
+        "key": "concise_is_correct",
+        "explanation": "Cut words that repeat a meaning."
+      },
+      "remember": "\"First\" already means before everyone else.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-07",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: answer cue - the key is the shortest choice, as is typical for redundancy items; A, C and D all restate 'first'."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000300",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Sentence fragment (participial phrase)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 8,
+      "evidence": "a rooster as a symbol of victory",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "; carrying",
+        "C": ", carrying",
+        "D": ". She carrying"
+      },
+      "correct_answer": "C",
+      "explanation": "The participial phrase describes Emily as she crossed, so it should attach to the sentence with a comma.",
+      "distractor_explanations": {
+        "A": "\"Carrying a rooster as a symbol of victory\" is not a complete sentence.",
+        "B": "A semicolon must be followed by an independent clause.",
+        "D": "\"She carrying\" has no finite verb, so it is still a fragment."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Can the words after the period stand alone?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each version for a complete sentence."
+      },
+      "remember": "A participial phrase must attach to a main clause.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-08",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000301",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas in a series",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 9,
+      "evidence": "honors",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "her her husband, and his father,",
+        "C": "her, her husband and, his father,",
+        "D": "her; her husband; and his father,"
+      },
+      "correct_answer": "A",
+      "explanation": "The three items in the series are separated by commas, including one before \"and,\" so the original is correct.",
+      "distractor_explanations": {
+        "B": "Without a comma after the first \"her,\" the series runs together.",
+        "C": "The comma belongs before \"and,\" not after it.",
+        "D": "Semicolons are used in a series only when the items contain commas."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where do commas go in a list of three?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check the commas between each item."
+      },
+      "remember": "Separate items in a series with commas.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-09",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000302",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Conclusion that echoes the opening",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000030",
+      "underline": 10,
+      "evidence": "through a single person: his wife, Emily Warren Roebling",
+      "figure": null,
+      "stem": "Which choice would most effectively conclude the essay by returning to an idea from its opening paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The Brooklyn Bridge was the longest suspension bridge in the world when it opened.",
+        "B": "Washington Roebling lived until 1926, decades after the bridge was finished.",
+        "C": "Many more bridges were built across New York's rivers in the following decades.",
+        "D": "The person through whom all that work once flowed is now honored on the bridge itself."
+      },
+      "correct_answer": "D",
+      "explanation": "The opening describes messages traveling 'through a single person,' Emily. Calling her 'the person through whom the work once flowed' echoes that idea and ties it to the plaque.",
+      "distractor_explanations": {
+        "A": "This is a fact about the bridge, but it does not return to the opening's idea of Emily as the link to the site.",
+        "B": "This adds a new detail rather than echoing the opening.",
+        "C": "This shifts to other bridges and does not echo the opening."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What image does the first paragraph end with?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Reread the opening before choosing."
+      },
+      "remember": "An echoing conclusion repeats a key idea or phrase from the opening.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 30,
+      "draft_candidate": "E030-10",
+      "created_at": "2026-10-27T08:43:56+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-030.review.json",
+        "computation": "checks/act_english/batch_030.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
