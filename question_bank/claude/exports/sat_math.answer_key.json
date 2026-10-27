@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 19,
+  "bank_version": 20,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -3463,6 +3463,164 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Find x² rather than x."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000180",
+      "correct_answer": "B",
+      "explanation": "Subtracting 2 from both sides gives x/5 = 4, and multiplying both sides by 5 gives x = 20. Check: 20/5 + 2 = 4 + 2 = 6.",
+      "distractor_explanations": {
+        "A": "4 is the value of x/5, not x.",
+        "C": "30 multiplies 6 by 5 without first subtracting 2.",
+        "D": "40 adds 2 to 6 before multiplying by 5."
+      },
+      "hints": [
+        "Undo the addition first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 20."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000181",
+      "correct_answer": "B",
+      "explanation": "For x ≥ 1, |x − 1| = x − 1, and x − 1 = −x + 7 gives x = 4 (point (4, 3)). For x < 1, |x − 1| = 1 − x, and 1 − x = −x + 7 gives 1 = 7, which has no solution: the left branch of the V has slope −1, parallel to the line. So there is exactly 1 intersection point.",
+      "distractor_explanations": {
+        "A": "The line does meet the right branch at (4, 3).",
+        "C": "2 assumes a line always crosses both branches of a V; here it is parallel to the left branch.",
+        "D": "The line coincides with neither branch."
+      },
+      "hints": [
+        "Consider each branch of the absolute value graph separately."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the V with vertex (1, 0) and the line with slope −1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000182",
+      "correct_answer": "D",
+      "explanation": "3(x − 2)² − 12 = 3[(x − 2)² − 4] = 3[(x − 2) − 2][(x − 2) + 2] = 3(x − 4)(x). Expanding checks it: 3x² − 12x = 3(x² − 4x + 4) − 12.",
+      "distractor_explanations": {
+        "A": "This factors x² − 4 instead of (x − 2)² − 4.",
+        "B": "This has the wrong sign in the factor x − 4.",
+        "C": "This distributes the 3 into only one factor and changes the zeros."
+      },
+      "hints": [
+        "Factor out 3, then use a difference of squares."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 0: 3(4) − 12 = 0, and 3(0)(−4) = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000183",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is only the positive solution.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 makes a sign error when clearing the denominators.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Multiplying both sides by x² gives 3x + 4 = x², or x² − 3x − 4 = 0. This factors as (x − 4)(x + 1) = 0, so x = 4 or x = −1. Neither is 0, so both are valid, and their sum is 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by x²."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rearrange into a quadratic and solve."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000184",
+      "correct_answer": "C",
+      "explanation": "f(2) = 3(2²) = 12 and f(1) = 3(1²) = 3, so f(2) − f(1) = 12 − 3 = 9. Note that this is not f(2 − 1) = f(1) = 3.",
+      "distractor_explanations": {
+        "A": "3 is f(1), or f(2 − 1).",
+        "B": "6 uses 3(2x) instead of 3x²: 3(4) − 3(2) = 6.",
+        "D": "12 is f(2) alone."
+      },
+      "hints": [
+        "Evaluate f at each input."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute 3(4) and 3(1)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000185",
+      "correct_answer": "A",
+      "explanation": "The mean is (70 + 75 + 80 + 85 + 90 + 100)/6 = 500/6 ≈ 83.3. The median of six ordered values is the average of the 3rd and 4th: (80 + 85)/2 = 82.5. So the mean is greater than the median.",
+      "distractor_explanations": {
+        "B": "The high score pulls the mean up more than the median.",
+        "C": "Before the 100 was added both were 80; adding it changes them by different amounts.",
+        "D": "All six values are known, so both can be computed."
+      },
+      "hints": [
+        "Find the median of an even number of values."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute both statistics."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000186",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is r², not r.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2.598",
+          "rationale": "2.598 uses only the larger circle's area: 4πr² = 27π.",
+          "trap": null
+        }
+      ],
+      "explanation": "The region's area is π(2r)² − πr² = 4πr² − πr² = 3πr². Setting 3πr² = 27π gives r² = 9 and r = 3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Subtract the two circle areas."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3πr² = 27π."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000187",
+      "correct_answer": "C",
+      "explanation": "Let the leg be x, so the hypotenuse is x + 2. Then x² + 6² = (x + 2)², so x² + 36 = x² + 4x + 4, 4x = 32 and x = 8. The hypotenuse is 10 (a 6-8-10 triangle).",
+      "distractor_explanations": {
+        "A": "6 is the given leg.",
+        "B": "8 is the unknown leg, not the hypotenuse.",
+        "D": "12 doubles the given leg."
+      },
+      "hints": [
+        "Write the hypotenuse as x + 2."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice: 10 and 8 work with 6."
       }
     }
   ]

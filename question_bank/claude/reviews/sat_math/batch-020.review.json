@@ -1,0 +1,208 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 20,
+  "reviewed_at": "2026-10-27T02:47:36+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 20
+  },
+  "counts": {
+    "PASS": 8,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000180",
+    "CLD-SAT-M-000181",
+    "CLD-SAT-M-000182",
+    "CLD-SAT-M-000183",
+    "CLD-SAT-M-000184",
+    "CLD-SAT-M-000185",
+    "CLD-SAT-M-000186",
+    "CLD-SAT-M-000187"
+  ],
+  "results": [
+    {
+      "cand": "Q020-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "x/5 = 4, so x = 20. Distractors: 4 (stops at x/5), 40 (5*8 from adding 2), 30 (5*6, ignores the +2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000180"
+    },
+    {
+      "cand": "Q020-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "For x>=1: x-1 = -x+7, so x=4, y=3 (valid). For x<1: 1-x = -x+7 gives 1=7, no solution, because the line is parallel to the left branch. Exactly 1 point. Trap: C (2), from assuming a line always crosses a V twice. Easy to check by graphing.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000181"
+    },
+    {
+      "cand": "Q020-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "3(x^2-4x+4)-12 = 3x^2-12x = 3x(x-4). A = 3x^2-12; B = 3x^2+12x (sign error); C = 3x^2-16x+16. Only D is equivalent.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000182"
+    },
+    {
+      "cand": "Q020-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Multiply by x^2: 3x+4 = x^2, so x^2-3x-4 = 0 and (x-4)(x+1) = 0, giving x = 4 and x = -1. Neither is 0, so both are valid. Sum = 3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000183"
+    },
+    {
+      "cand": "Q020-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "f(2)=12, f(1)=3, difference 9. Distractors: 3 (computes f(2-1)) and 6 ((3*2)^2 confusion or 3*2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000184"
+    },
+    {
+      "cand": "Q020-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        "minor: choice D is a throwaway; all the data is given"
+      ],
+      "blind_notes": "Mean = 500/6 ≈ 83.33. Median = (80+85)/2 = 82.5. Mean > median. Students familiar with the idea that a high outlier pulls the mean up can shortcut, but the gap is small, so many will compute.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000185"
+    },
+    {
+      "cand": "Q020-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "pi(2r)^2 - pi r^2 = 3 pi r^2 = 27 pi, so r^2 = 9 and r = 3. Trap: using 2 pi r^2 for the larger area gives r^2 = 27.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000186"
+    },
+    {
+      "cand": "Q020-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: easy elimination; A (6) is impossible because the hypotenuse must exceed the leg of 6, and backsolving C quickly confirms a 6-8-10 triple"
+      ],
+      "blind_notes": "Leg a, hypotenuse a+2: a^2+36 = a^2+4a+4, so a = 8 and the hypotenuse is 10. Check D: leg 10 gives 136 ≠ 144. Trap B (8): misreading the problem as hypotenuse = 6+2. The wording 'one of the legs' / 'the other leg' is unambiguous.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000187"
+    }
+  ]
+}

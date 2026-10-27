@@ -1,0 +1,14 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 20},
+  "answers": {
+    "Q020-01": {"answer": "B", "confidence": "high", "est_pct_correct": 90, "difficulty_opinion": "easy", "flags": [], "notes": "x/5 = 4, so x = 20. Distractors: 4 (stops at x/5), 40 (5*8 from adding 2), 30 (5*6, ignores the +2)."},
+    "Q020-02": {"answer": "B", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "For x>=1: x-1 = -x+7, so x=4, y=3 (valid). For x<1: 1-x = -x+7 gives 1=7, no solution, because the line is parallel to the left branch. Exactly 1 point. Trap: C (2), from assuming a line always crosses a V twice. Easy to check by graphing."},
+    "Q020-03": {"answer": "D", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "3(x^2-4x+4)-12 = 3x^2-12x = 3x(x-4). A = 3x^2-12; B = 3x^2+12x (sign error); C = 3x^2-16x+16. Only D is equivalent."},
+    "Q020-04": {"answer": "3", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Multiply by x^2: 3x+4 = x^2, so x^2-3x-4 = 0 and (x-4)(x+1) = 0, giving x = 4 and x = -1. Neither is 0, so both are valid. Sum = 3."},
+    "Q020-05": {"answer": "C", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "f(2)=12, f(1)=3, difference 9. Distractors: 3 (computes f(2-1)) and 6 ((3*2)^2 confusion or 3*2)."},
+    "Q020-06": {"answer": "A", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": ["minor: choice D is a throwaway; all the data is given"], "notes": "Mean = 500/6 ≈ 83.33. Median = (80+85)/2 = 82.5. Mean > median. Students familiar with the idea that a high outlier pulls the mean up can shortcut, but the gap is small, so many will compute."},
+    "Q020-07": {"answer": "B", "confidence": "high", "est_pct_correct": 95, "difficulty_opinion": "easy", "flags": ["minor: very low rigor for the digital SAT (one-step rate); distractors 236 and 960 are implausible and easy to eliminate"], "notes": "240/4 = 60."},
+    "Q020-08": {"answer": "3", "confidence": "high", "est_pct_correct": 68, "difficulty_opinion": "medium", "flags": [], "notes": "pi(2r)^2 - pi r^2 = 3 pi r^2 = 27 pi, so r^2 = 9 and r = 3. Trap: using 2 pi r^2 for the larger area gives r^2 = 27."},
+    "Q020-09": {"answer": "C", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": ["minor: easy elimination; A (6) is impossible because the hypotenuse must exceed the leg of 6, and backsolving C quickly confirms a 6-8-10 triple"], "notes": "Leg a, hypotenuse a+2: a^2+36 = a^2+4a+4, so a = 8 and the hypotenuse is 10. Check D: leg 10 gives 136 ≠ 144. Trap B (8): misreading the problem as hypotenuse = 6+2. The wording 'one of the legs' / 'the other leg' is unambiguous."}
+  }
+}
