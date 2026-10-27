@@ -36,8 +36,7 @@ def c04(ch):
 
 
 def c05(ch):
-    x = F(21, 3)
-    return pick(ch, 6 * x - 10)
+    return pick(ch, F(78 - 18, 12))
 
 
 def c06(ch):

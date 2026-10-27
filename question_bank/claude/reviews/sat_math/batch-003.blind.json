@@ -1,0 +1,15 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 3},
+  "answers": {
+    "Q003-01": {"answer": "44", "confidence": "high", "est_pct_correct": 25, "difficulty_opinion": "hard", "flags": [], "notes": "ab=15, a+b=8 -> {a,b}={3,5}. c=7a+3b: (a,b)=(3,5) gives 36, (5,3) gives 44. Max 44. Trap: stopping at 36 or not realizing two orderings."},
+    "Q003-02": {"answer": "11", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "(x+4)^2+(y-3)^2 = k+25 = 36 -> k=11."},
+    "Q003-03": {"answer": "B", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy", "flags": [], "notes": "tan A = BC/AC = 5/12, 5-12-13 scaled by 2 -> BC=10. Distractor A (5) for unscaled."},
+    "Q003-04": {"answer": "A", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy", "flags": [], "notes": "-2x>8 -> x<-4; only -6 works (-4 fails strict inequality)."},
+    "Q003-05": {"answer": "C", "confidence": "high", "est_pct_correct": 88, "difficulty_opinion": "easy", "flags": [], "notes": "12h=60 -> h=5."},
+    "Q003-06": {"answer": "C", "confidence": "high", "est_pct_correct": 65, "difficulty_opinion": "medium", "flags": [], "notes": "A:1900 cal; B:1920 cal; C:2130 cal, 27 mi OK; D:35 mi too far."},
+    "Q003-07": {"answer": "A", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "2(x-3)^2-11 expands to 2x^2-12x+7; min -11 shown. B, C, D not equivalent."},
+    "Q003-08": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Factor 1.05 per 2 years. C is near-miss (actual ~2.47%/yr), B/A wrong."},
+    "Q003-09": {"answer": "B", "confidence": "high", "est_pct_correct": 92, "difficulty_opinion": "easy", "flags": [], "notes": "1.8*15+12=39."},
+    "Q003-10": {"answer": "8", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy", "flags": [], "notes": "4(x-5)=2(x-2) -> 2x=16 -> x=8; not extraneous."}
+  }
+}

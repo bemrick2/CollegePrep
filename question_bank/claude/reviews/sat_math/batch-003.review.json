@@ -1,0 +1,183 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 3,
+  "reviewed_at": "2026-10-27T01:45:16+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 3
+  },
+  "counts": {
+    "PASS": 7,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000021",
+    "CLD-SAT-M-000022",
+    "CLD-SAT-M-000023",
+    "CLD-SAT-M-000024",
+    "CLD-SAT-M-000025",
+    "CLD-SAT-M-000026",
+    "CLD-SAT-M-000027"
+  ],
+  "results": [
+    {
+      "cand": "Q003-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "44",
+      "computed_answer": "44",
+      "blind_answer": "44",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [],
+      "blind_notes": "ab=15, a+b=8 -> {a,b}={3,5}. c=7a+3b: (a,b)=(3,5) gives 36, (5,3) gives 44. Max 44. Trap: stopping at 36 or not realizing two orderings.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must expand, set up ab = 15 with a + b = 8, and then notice that the two assignments of 3 and 5 give different values of c."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000021"
+    },
+    {
+      "cand": "Q003-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "11",
+      "computed_answer": "11",
+      "blind_answer": "11",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(x+4)^2+(y-3)^2 = k+25 = 36 -> k=11.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000022"
+    },
+    {
+      "cand": "Q003-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "tan A = BC/AC = 5/12, 5-12-13 scaled by 2 -> BC=10. Distractor A (5) for unscaled.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000023"
+    },
+    {
+      "cand": "Q003-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "-2x>8 -> x<-4; only -6 works (-4 fails strict inequality).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000024"
+    },
+    {
+      "cand": "Q003-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "A:1900 cal; B:1920 cal; C:2130 cal, 27 mi OK; D:35 mi too far.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000025"
+    },
+    {
+      "cand": "Q003-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Factor 1.05 per 2 years. C is near-miss (actual ~2.47%/yr), B/A wrong.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Choices A and C are tempting shortcuts; students must see that the growth factor applies per 2 years and that halving a percent is not the same as taking a square root."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000026"
+    },
+    {
+      "cand": "Q003-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "4(x-5)=2(x-2) -> 2x=16 -> x=8; not extraneous.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000027"
+    }
+  ]
+}

@@ -181,52 +181,6 @@
    }
   },
   {
-   "cand": "Q003-05",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Evaluating an expression from a related equation",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
-   "stem": "If 3x − 5 = 16, what is the value of 6x − 10 ?",
-   "explanation": "6x − 10 = 2(3x − 5) = 2(16) = 32. (Or x = 7 and 6(7) − 10 = 32.)",
-   "hints": [
-    "How is 6x − 10 related to 3x − 5?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Multiply the whole equation by 2."
-   },
-   "remember": "Look for a multiple of a known expression before solving.",
-   "expected_time_seconds": 30,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "26",
-    "B": "30",
-    "C": "32",
-    "D": "42"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "26 is 16 + 10.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "30 is 6(7) − 12, a subtraction error.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "42 is 6x, forgetting to subtract 10.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
    "cand": "Q003-06",
    "reporting_category": "Algebra",
    "skill": "Algebra",
@@ -269,52 +223,6 @@
     "D": {
      "rationale": "This burns enough calories but covers 35 miles.",
      "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q003-07",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Vertex form that displays a minimum",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "f(x) = 2x² − 12x + 7\nWhich of the following equivalent forms of f(x) shows the minimum value of f as a constant or coefficient?",
-   "explanation": "f(x) = 2(x² − 6x) + 7 = 2(x − 3)² − 18 + 7 = 2(x − 3)² − 11, which shows the minimum value −11.",
-   "hints": [
-    "Factor 2 out of the x-terms first."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Check x = 0 in each choice: only A and D give 7, and only A also matches at x = 1."
-   },
-   "remember": "Vertex form a(x − h)² + k shows the minimum k when a > 0.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "2(x − 3)² − 11",
-    "B": "2(x − 6)² − 65",
-    "C": "2(x + 3)² − 11",
-    "D": "(2x − 3)² − 2"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "This completes the square with 6 instead of half of 6.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "This has the wrong sign inside the square, which changes the function.",
-     "trap": "sign_error"
-    },
-    "D": {
-     "rationale": "This is not equivalent; it expands to 4x² − 12x + 7.",
-     "trap": null
     }
    }
   },
@@ -366,52 +274,6 @@
    }
   },
   {
-   "cand": "Q003-09",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Prediction from a line of best fit",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "easy",
-   "stem": "For a group of students, the line of best fit for test score y versus hours of practice x is y = 1.8x + 12. According to the line of best fit, what is the predicted test score for a student who practiced 15 hours?",
-   "explanation": "y = 1.8(15) + 12 = 27 + 12 = 39.",
-   "hints": [
-    "Substitute x = 15."
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Evaluate the line at x = 15."
-   },
-   "remember": "A line of best fit predicts by substitution.",
-   "expected_time_seconds": 25,
-   "modeling": true,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "27",
-    "B": "39",
-    "C": "42",
-    "D": "45"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "27 is only 1.8 × 15, without the 12.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "42 adds 15 to 27.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "45 multiplies 15 by 3.",
-     "trap": null
-    }
-   }
-  },
-  {
    "cand": "Q003-10",
    "reporting_category": "Advanced Math",
    "skill": "Advanced Math",
@@ -452,6 +314,158 @@
      "trap": "sign_error"
     }
    ]
+  }
+ ],
+ "withdrawn": [
+  {
+   "cand": "Q003-05",
+   "reason": "withdrawn before review: same template as an app demo item (fixed fee plus per-unit rate; solve for the count from a bill; web/src/lib/data/demo/fixtures.ts). Not resubmitted.",
+   "item": {
+    "cand": "Q003-05",
+    "reporting_category": "Algebra",
+    "skill": "Algebra",
+    "subskill": "Solving a linear model for its input",
+    "repo_skill_key": "sat_algebra",
+    "difficulty": "easy",
+    "stem": "The total cost C, in dollars, to rent a kayak for h hours is given by C = 18 + 12h. A customer paid $78 to rent a kayak. For how many hours did the customer rent it?",
+    "explanation": "78 = 18 + 12h, so 12h = 60 and h = 5.",
+    "hints": [
+     "Subtract the fixed fee first."
+    ],
+    "strategy": {
+     "key": "translate_to_algebra",
+     "explanation": "Set 18 + 12h equal to 78."
+    },
+    "remember": "Remove the starting value before dividing by the rate.",
+    "expected_time_seconds": 30,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "3",
+     "B": "4",
+     "C": "5",
+     "D": "6"
+    },
+    "answer": "C",
+    "distractors": {
+     "A": {
+      "rationale": "3 subtracts 18 twice.",
+      "trap": null
+     },
+     "B": {
+      "rationale": "4 divides 60 by 15.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "6 divides 78 by 12 and rounds, ignoring the $18 fee.",
+      "trap": "partial_answer"
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q003-07",
+   "reason": "withdrawn before review: same template as an app demo item (minimum of 3x² − 12x + 7); this item used 2x² − 12x + 7. Not resubmitted.",
+   "item": {
+    "cand": "Q003-07",
+    "reporting_category": "Advanced Math",
+    "skill": "Advanced Math",
+    "subskill": "Vertex form that displays a minimum",
+    "repo_skill_key": "sat_advanced_math",
+    "difficulty": "medium",
+    "stem": "f(x) = 2x² − 12x + 7\nWhich of the following equivalent forms of f(x) shows the minimum value of f as a constant or coefficient?",
+    "explanation": "f(x) = 2(x² − 6x) + 7 = 2(x − 3)² − 18 + 7 = 2(x − 3)² − 11, which shows the minimum value −11.",
+    "hints": [
+     "Factor 2 out of the x-terms first."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Check x = 0 in each choice: only A and D give 7, and only A also matches at x = 1."
+    },
+    "remember": "Vertex form a(x − h)² + k shows the minimum k when a > 0.",
+    "expected_time_seconds": 60,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "2(x − 3)² − 11",
+     "B": "2(x − 6)² − 65",
+     "C": "2(x + 3)² − 11",
+     "D": "(2x − 3)² − 2"
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "This completes the square with 6 instead of half of 6.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "This has the wrong sign inside the square, which changes the function.",
+      "trap": "sign_error"
+     },
+     "D": {
+      "rationale": "This is not equivalent; it expands to 4x² − 12x + 7.",
+      "trap": null
+     }
+    }
+   }
+  },
+  {
+   "cand": "Q003-09",
+   "reason": "withdrawn before review: same template as an app demo item (predicted test score from a study-hours line of best fit). Not resubmitted.",
+   "item": {
+    "cand": "Q003-09",
+    "reporting_category": "Problem-Solving and Data Analysis",
+    "skill": "Problem-Solving and Data Analysis",
+    "subskill": "Prediction from a line of best fit",
+    "repo_skill_key": "sat_problem_solving_data",
+    "difficulty": "easy",
+    "stem": "For a group of students, the line of best fit for test score y versus hours of practice x is y = 1.8x + 12. According to the line of best fit, what is the predicted test score for a student who practiced 15 hours?",
+    "explanation": "y = 1.8(15) + 12 = 27 + 12 = 39.",
+    "hints": [
+     "Substitute x = 15."
+    ],
+    "strategy": {
+     "key": "plug_in_numbers",
+     "explanation": "Evaluate the line at x = 15."
+    },
+    "remember": "A line of best fit predicts by substitution.",
+    "expected_time_seconds": 25,
+    "modeling": true,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
+    },
+    "choices": {
+     "A": "27",
+     "B": "39",
+     "C": "42",
+     "D": "45"
+    },
+    "answer": "B",
+    "distractors": {
+     "A": {
+      "rationale": "27 is only 1.8 × 15, without the 12.",
+      "trap": "partial_answer"
+     },
+     "C": {
+      "rationale": "42 adds 15 to 27.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "45 multiplies 15 by 3.",
+      "trap": null
+     }
+    }
+   }
   }
  ]
 }

@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 2,
-  "updated_at": "2026-10-27T01:43:37+00:00",
+  "version": 3,
+  "updated_at": "2026-10-27T01:45:16+00:00",
   "passages": [],
   "questions": [
     {
@@ -1445,6 +1445,509 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-002.review.json",
         "computation": "checks/sat_math/batch_002.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000021",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Matching coefficients of a product",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "(ax + 3)(bx + 7) = 15x² + cx + 21\nIn the equation above, a, b and c are constants, the equation is true for all values of x, and a + b = 8. What is the greatest possible value of c ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "44",
+      "accepted_answers": [
+        "44"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the value of c when a = 3 and b = 5, the smaller of the two possibilities.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 adds 3 and 7 without the coefficients a and b.",
+          "trap": null
+        }
+      ],
+      "explanation": "Expanding: abx² + (7a + 3b)x + 21. So ab = 15 and a + b = 8, giving {a, b} = {3, 5}. If a = 3, b = 5, then c = 21 + 15 = 36; if a = 5, b = 3, then c = 35 + 9 = 44. The greatest is 44.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Expand the left side and match each coefficient."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find a and b from ab = 15 and a + b = 8, then test both orders."
+      },
+      "remember": "Matching coefficients can leave more than one case; check them all.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-01",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "44",
+        "blind_answer": "44",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000022",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Equation of a circle with an unknown constant",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of x² + y² + 8x − 6y = k is a circle with radius 6. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "11",
+      "accepted_answers": [
+        "11"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the square of the radius, before accounting for the completed squares.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "61",
+          "rationale": "61 adds 25 instead of subtracting it.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Complete the squares: (x + 4)² − 16 + (y − 3)² − 9 = k, so (x + 4)² + (y − 3)² = k + 25. The radius is 6, so k + 25 = 36 and k = 11.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Complete the square for x and for y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the equation in center-radius form."
+      },
+      "remember": "Completing the square adds constants to both sides.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-02",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "11",
+        "blind_answer": "11",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000023",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Right-triangle trigonometry with a given ratio",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, tan A = 5/12 and AB = 26. What is the length of BC ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5",
+        "B": "10",
+        "C": "12",
+        "D": "24"
+      },
+      "correct_answer": "B",
+      "explanation": "tan A = BC/AC = 5/12, so the sides are in the ratio 5 : 12 : 13. Since AB = 26 = 2 × 13, BC = 2 × 5 = 10.",
+      "distractor_explanations": {
+        "A": "5 uses the ratio without scaling by 2.",
+        "C": "12 is the unscaled adjacent side.",
+        "D": "24 is AC, the side adjacent to A."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which side is opposite angle A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the triangle with 5k, 12k and 13k."
+      },
+      "remember": "A trig ratio gives a side ratio; scale it to the given side.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-03",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000024",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solutions of a linear inequality",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following values of x is a solution to the inequality 3 − 2x > 11 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−6",
+        "B": "−4",
+        "C": "0",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "explanation": "3 − 2x > 11 gives −2x > 8, so x < −4. Only −6 is less than −4.",
+      "distractor_explanations": {
+        "B": "−4 makes the two sides equal, so it is not a solution of the strict inequality.",
+        "C": "0 gives 3 > 11, which is false.",
+        "D": "4 results from forgetting to reverse the inequality when dividing by −2."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "What happens to the inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute each choice."
+      },
+      "remember": "Dividing by a negative reverses the inequality.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-04",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000025",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "System of linear inequalities in context",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Each week Maya runs r miles and bikes b miles. Running burns 110 calories per mile, and biking burns 40 calories per mile. She wants to burn at least 2,000 calories while covering no more than 30 miles in all. Which of the following choices of (r, b) meets both goals?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(10, 20)",
+        "B": "(12, 15)",
+        "C": "(15, 12)",
+        "D": "(20, 15)"
+      },
+      "correct_answer": "C",
+      "explanation": "(15, 12): 110(15) + 40(12) = 1,650 + 480 = 2,130 ≥ 2,000, and 15 + 12 = 27 ≤ 30. A burns 1,900, B burns 1,920, and D covers 35 miles.",
+      "distractor_explanations": {
+        "A": "This covers 30 miles but burns only 1,900 calories.",
+        "B": "This burns only 1,920 calories.",
+        "D": "This burns enough calories but covers 35 miles."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Write one inequality for calories and one for distance."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each pair in both inequalities."
+      },
+      "remember": "A solution of a system must satisfy every inequality.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-06",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000026",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Interpreting an exponential growth factor",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The population of a town t years after 2020 is modeled by P(t) = 8,000(1.05)^(t/2). Which statement best describes how the population changes according to the model?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "It increases by 5% each year.",
+        "B": "It increases by 10% every 2 years.",
+        "C": "It increases by 2.5% each year.",
+        "D": "It increases by 5% every 2 years."
+      },
+      "correct_answer": "D",
+      "explanation": "When t increases by 2, the exponent t/2 increases by 1, so P is multiplied by 1.05: a 5% increase every 2 years. (The yearly rate is √1.05 − 1 ≈ 2.47%, not exactly 2.5%.)",
+      "distractor_explanations": {
+        "A": "This ignores the division of t by 2 in the exponent.",
+        "B": "This doubles the percent instead of the time period.",
+        "C": "This halves the percent; compound growth makes the yearly rate about 2.47%, not 2.5%."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What happens to the exponent when t increases by 2?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare P(0), P(1) and P(2)."
+      },
+      "remember": "In a(b)^(t/k), the factor b applies every k units of t.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-08",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000027",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a rational equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "4/(x − 2) = 2/(x − 5)\nWhat value of x satisfies the equation above?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 cross-multiplies as 4(x − 2) = 2(x − 5).",
+          "trap": null
+        },
+        {
+          "value": "−8",
+          "rationale": "−8 makes a sign error when collecting terms.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Cross-multiply: 4(x − 5) = 2(x − 2), so 4x − 20 = 2x − 4, 2x = 16 and x = 8. Neither denominator is 0 at x = 8.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Cross-multiply to clear the fractions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cross-multiply, then check the denominators."
+      },
+      "remember": "Check that the solution doesn't make a denominator 0.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 3,
+      "draft_candidate": "Q003-10",
+      "created_at": "2026-10-27T01:45:16+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-003.review.json",
+        "computation": "checks/sat_math/batch_003.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

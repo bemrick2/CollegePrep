@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 2,
+  "bank_version": 3,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -406,6 +406,158 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Draw the rectangle and its diagonal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000021",
+      "correct_answer": "44",
+      "accepted_answers": [
+        "44"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the value of c when a = 3 and b = 5, the smaller of the two possibilities.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "10",
+          "rationale": "10 adds 3 and 7 without the coefficients a and b.",
+          "trap": null
+        }
+      ],
+      "explanation": "Expanding: abx² + (7a + 3b)x + 21. So ab = 15 and a + b = 8, giving {a, b} = {3, 5}. If a = 3, b = 5, then c = 21 + 15 = 36; if a = 5, b = 3, then c = 35 + 9 = 44. The greatest is 44.",
+      "distractor_explanations": {},
+      "hints": [
+        "Expand the left side and match each coefficient."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find a and b from ab = 15 and a + b = 8, then test both orders."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000022",
+      "correct_answer": "11",
+      "accepted_answers": [
+        "11"
+      ],
+      "common_errors": [
+        {
+          "value": "36",
+          "rationale": "36 is the square of the radius, before accounting for the completed squares.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "61",
+          "rationale": "61 adds 25 instead of subtracting it.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Complete the squares: (x + 4)² − 16 + (y − 3)² − 9 = k, so (x + 4)² + (y − 3)² = k + 25. The radius is 6, so k + 25 = 36 and k = 11.",
+      "distractor_explanations": {},
+      "hints": [
+        "Complete the square for x and for y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the equation in center-radius form."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000023",
+      "correct_answer": "B",
+      "explanation": "tan A = BC/AC = 5/12, so the sides are in the ratio 5 : 12 : 13. Since AB = 26 = 2 × 13, BC = 2 × 5 = 10.",
+      "distractor_explanations": {
+        "A": "5 uses the ratio without scaling by 2.",
+        "C": "12 is the unscaled adjacent side.",
+        "D": "24 is AC, the side adjacent to A."
+      },
+      "hints": [
+        "Which side is opposite angle A?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the triangle with 5k, 12k and 13k."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000024",
+      "correct_answer": "A",
+      "explanation": "3 − 2x > 11 gives −2x > 8, so x < −4. Only −6 is less than −4.",
+      "distractor_explanations": {
+        "B": "−4 makes the two sides equal, so it is not a solution of the strict inequality.",
+        "C": "0 gives 3 > 11, which is false.",
+        "D": "4 results from forgetting to reverse the inequality when dividing by −2."
+      },
+      "hints": [
+        "What happens to the inequality when you divide by a negative number?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute each choice."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000025",
+      "correct_answer": "C",
+      "explanation": "(15, 12): 110(15) + 40(12) = 1,650 + 480 = 2,130 ≥ 2,000, and 15 + 12 = 27 ≤ 30. A burns 1,900, B burns 1,920, and D covers 35 miles.",
+      "distractor_explanations": {
+        "A": "This covers 30 miles but burns only 1,900 calories.",
+        "B": "This burns only 1,920 calories.",
+        "D": "This burns enough calories but covers 35 miles."
+      },
+      "hints": [
+        "Write one inequality for calories and one for distance."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each pair in both inequalities."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000026",
+      "correct_answer": "D",
+      "explanation": "When t increases by 2, the exponent t/2 increases by 1, so P is multiplied by 1.05: a 5% increase every 2 years. (The yearly rate is √1.05 − 1 ≈ 2.47%, not exactly 2.5%.)",
+      "distractor_explanations": {
+        "A": "This ignores the division of t by 2 in the exponent.",
+        "B": "This doubles the percent instead of the time period.",
+        "C": "This halves the percent; compound growth makes the yearly rate about 2.47%, not 2.5%."
+      },
+      "hints": [
+        "What happens to the exponent when t increases by 2?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare P(0), P(1) and P(2)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000027",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 cross-multiplies as 4(x − 2) = 2(x − 5).",
+          "trap": null
+        },
+        {
+          "value": "−8",
+          "rationale": "−8 makes a sign error when collecting terms.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Cross-multiply: 4(x − 5) = 2(x − 2), so 4x − 20 = 2x − 4, 2x = 16 and x = 8. Neither denominator is 0 at x = 8.",
+      "distractor_explanations": {},
+      "hints": [
+        "Cross-multiply to clear the fractions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Cross-multiply, then check the denominators."
       }
     }
   ]
