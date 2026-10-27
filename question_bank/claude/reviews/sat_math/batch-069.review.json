@@ -1,0 +1,278 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 69,
+  "reviewed_at": "2026-10-27T17:36:46+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 69
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000745",
+    "CLD-SAT-M-000746",
+    "CLD-SAT-M-000747",
+    "CLD-SAT-M-000748",
+    "CLD-SAT-M-000749",
+    "CLD-SAT-M-000750",
+    "CLD-SAT-M-000751",
+    "CLD-SAT-M-000752",
+    "CLD-SAT-M-000753",
+    "CLD-SAT-M-000754",
+    "CLD-SAT-M-000755"
+  ],
+  "results": [
+    {
+      "cand": "Q069-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Minute hand at 180 deg; hour hand at 60+15=75 deg; difference 105 deg = 7pi/12. A (5pi/12=75 deg) is the hour-hand position alone; B (pi/2) assumes hour hand on the 3; D (2pi/3=120 deg) ignores the hour hand's half-hour advance (hour hand on the 2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000745"
+    },
+    {
+      "cand": "Q069-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 25,
+      "blind_flags": [],
+      "blind_notes": "Center lies on the bisector at distance d from the vertex; r = d sin(30 deg) = d/2; tangent to arc: d + r = 12, so 3r = 12, r = 4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must combine a 30-60-90 relationship with internal tangency to the arc."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000746"
+    },
+    {
+      "cand": "Q069-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(1/2) r^2 (2pi/3) = r (2pi/3) gives r = 2 (r > 0). The angle cancels, so any angle gives r = 2; this is not a flaw.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000747"
+    },
+    {
+      "cand": "Q069-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Original side 3: SA 54. 27 unit cubes: 27*6 = 162, ratio 3. A assumes SA is conserved; C is the area scale (ratio of the side squared) used the wrong way; D is the cube count.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000748"
+    },
+    {
+      "cand": "Q069-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "The exterior angles sum to 360: 90, 120, 150. The interior angles are 90, 60, 30, so the smallest is 30. B: 180/(3+4+5)*3 = 45, treating the ratio as interior angles. C: the smallest exterior angle. D: no consistent route (it may come from using 3:4:5 on 180 for the largest exterior angle, 75, and taking 180-75).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000749"
+    },
+    {
+      "cand": "Q069-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "sin A = a/c = k, b/c = sqrt(1-k^2); tan B = b/a = sqrt(1-k^2)/k. A = tan A (wrong angle); B = csc A; C is an algebra slip, using 1-k instead of sqrt(1-k^2).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The triangle is symbolic, and the student must switch from angle A to angle B."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000750"
+    },
+    {
+      "cand": "Q069-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "120",
+      "computed_answer": "120",
+      "blind_answer": "120",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "y=0: (x-5)^2 = 25, so x = 0 or 10, P = (10,0). x=0: (y-12)^2 = 144, so y = 0 or 24, Q = (0,24). Area = 10*24/2 = 120. (PQ is a diameter, 26.)",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both intercepts come from the circle's equation, and the center's coordinates are a tempting shortcut."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000751"
+    },
+    {
+      "cand": "Q069-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "72",
+      "computed_answer": "72",
+      "blind_answer": "72",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Triangles CPD and APB are similar with ratio 1:2, so APB = 32. Triangles APD and BPC each have area 2*8 = 16 (they share a height with CPD, and AP:PC = 2:1). Total 8+32+16+16 = 72.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must use both the similarity ratio and shared heights."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000752"
+    },
+    {
+      "cand": "Q069-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "About leg 3: r=4, h=3, V = 16pi. About leg 4: r=3, h=4, V = 12pi. Difference 4pi. C and D are the individual volumes; B (7pi) does not follow from a natural error (possibly 16pi - 9pi, mixing the base area with the volume).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000753"
+    },
+    {
+      "cand": "Q069-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "The midpoint quadrilateral is a rectangle with sides AC/2 = 5 and BD/2 = 7, so its area is 35 (half of the original area, 70). A = a quarter of the original area; C = the original area; D = AC*BD.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The midsegment theorem must be applied to turn the diagonals into the sides of a rectangle."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000754"
+    },
+    {
+      "cand": "Q069-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "The projection on the base is the base diagonal, 5; the space diagonal is sqrt(25+144) = 13; cos = 5/13. A uses a base side instead of the diagonal; C = tan theta; D = sin theta.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000755"
+    }
+  ]
+}

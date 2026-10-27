@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 68,
+  "bank_version": 69,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -15282,6 +15282,257 @@
       "strategy": {
         "key": "plug_in_numbers",
         "explanation": "Check t = 5 and t = 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000745",
+      "correct_answer": "C",
+      "explanation": "At 2:30 the minute hand points at 6, which is 180° from 12. The hour hand moves 30° per hour, so it is halfway from 2 to 3: 60° + 15° = 75°. The angle between the hands is 180° − 75° = 105°, which is 105 · π/180 = 7π/12 radians.",
+      "distractor_explanations": {
+        "A": "5π/12 is 75°, the hour hand's angle from 12, not the angle between the hands.",
+        "B": "π/2 moves the hour hand all the way to the 3.",
+        "D": "2π/3 is 120°; it leaves the hour hand on the 2."
+      },
+      "hints": [
+        "Where is the hour hand at 2:30?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the clock and mark both hands."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000746",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is 12 · sin(π/6), treating the inscribed circle's center as if it were on the arc.",
+          "trap": null
+        },
+        {
+          "value": "3.46",
+          "rationale": "3.46 is the inradius of the equilateral triangle formed by the radii and the chord, not of the sector.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 assumes the center is 3r from the vertex.",
+          "trap": null
+        }
+      ],
+      "explanation": "The inscribed circle's center lies on the bisector of the π/3 angle at distance d from the sector's vertex. Its distance to each radius is d · sin(π/6) = d/2, so r = d/2. Tangency to the arc means d + r = 12. Then 2r + r = 12, so r = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where does the inscribed circle's center lie?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the bisector and a radius to a point of tangency."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000747",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 uses r²θ for the area, forgetting the 1/2.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 compares one-third of the circle's area with the whole circumference.",
+          "trap": null
+        },
+        {
+          "value": "4.19",
+          "rationale": "4.19 (4π/3) is the arc length for r = 2, not the radius.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sector's area is (1/2)r²θ and its arc length is rθ. Setting them equal gives (1/2)r²θ = rθ, so r = 2 (the angle cancels).",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the area and arc length in terms of r and θ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two formulas equal and solve for r."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000748",
+      "correct_answer": "B",
+      "explanation": "If the original edge is s, each small cube has edge s/3 and surface area 6(s/3)² = (2/3)s². The 27 small cubes total 27 · (2/3)s² = 18s², and 18s²/(6s²) = 3.",
+      "distractor_explanations": {
+        "A": "1 assumes surface area, like volume, is unchanged by cutting.",
+        "C": "9 is the ratio of the face areas of the large and small cubes.",
+        "D": "27 is the number of small cubes."
+      },
+      "hints": [
+        "What is the edge length of each small cube?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the original edge be 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000749",
+      "correct_answer": "A",
+      "explanation": "The exterior angles, one at each vertex, sum to 360°, so they are 90°, 120°, and 150°. The interior angles are their supplements: 90°, 60°, and 30°. The smallest is 30°.",
+      "distractor_explanations": {
+        "B": "45° applies the ratio to the interior angles, 3/12 of 180°.",
+        "C": "90° is the smallest exterior angle, not the smallest interior angle.",
+        "D": "105° uses 180° as the sum of the exterior angles and then takes a supplement."
+      },
+      "hints": [
+        "What do the exterior angles of a triangle add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Split 360° in the ratio 3 : 4 : 5, then take supplements."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000750",
+      "correct_answer": "D",
+      "explanation": "Let the hypotenuse be 1. Then BC, opposite angle A, is k, and AC = √(1 − k²). For angle B, the opposite side is AC and the adjacent side is BC, so tan B = √(1 − k²)/k.",
+      "distractor_explanations": {
+        "A": "This is tan A, not tan B.",
+        "B": "This divides the hypotenuse by the side opposite A.",
+        "C": "This takes the remaining leg as 1 − k instead of using the Pythagorean theorem."
+      },
+      "hints": [
+        "Which side is opposite angle B?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try k = 3/5 with a 3-4-5 triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000751",
+      "correct_answer": "120",
+      "accepted_answers": [
+        "120"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 uses the center's coordinates as the legs, (1/2)(5)(12).",
+          "trap": null
+        },
+        {
+          "value": "60",
+          "rationale": "60 multiplies the center's coordinates, 5 · 12.",
+          "trap": null
+        },
+        {
+          "value": "240",
+          "rationale": "240 forgets the factor 1/2.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Setting y = 0 gives (x − 5)² = 25, so x = 0 or x = 10, and P = (10, 0). Setting x = 0 gives (y − 12)² = 144, so y = 0 or y = 24, and Q = (0, 24). The area is (1/2)(10)(24) = 120.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where does the circle cross each axis?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = 0 and x = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000752",
+      "correct_answer": "72",
+      "accepted_answers": [
+        "72"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 counts only the two similar triangles.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "56",
+          "rationale": "56 gives each side triangle an area of 8.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 scales the area of triangle APB by 2 instead of 4.",
+          "trap": null
+        }
+      ],
+      "explanation": "Triangles CPD and APB are similar with ratio 6 : 12 = 1 : 2, so triangle APB has area 4 · 8 = 32. Since AP : PC = 2 : 1, triangles APD and BPC each have twice the area of CPD, or 16. The total is 8 + 32 + 16 + 16 = 72.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which two triangles are similar, and in what ratio?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label all four triangles formed by the diagonals."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000753",
+      "correct_answer": "A",
+      "explanation": "Rotating about the leg of length 3 gives a cone with height 3 and radius 4: (1/3)π(4²)(3) = 16π. Rotating about the leg of length 4 gives height 4 and radius 3: (1/3)π(3²)(4) = 12π. The difference is 4π.",
+      "distractor_explanations": {
+        "B": "7π subtracts only the base areas, π(4² − 3²).",
+        "C": "12π uses the cylinder formula, 48π − 36π.",
+        "D": "16π is the volume of the first cone, not the difference."
+      },
+      "hints": [
+        "Which leg becomes the radius when you rotate about the other?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch each rotation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000754",
+      "correct_answer": "B",
+      "explanation": "Each side of the new quadrilateral joins the midpoints of two sides of a triangle cut off by a diagonal, so it is parallel to that diagonal and half as long. Two sides are parallel to AC with length 5 and two are parallel to BD with length 7. Since the diagonals are perpendicular, the new figure is a rectangle with area 5 · 7 = 35.",
+      "distractor_explanations": {
+        "A": "17.5 takes one-fourth of the area of ABCD.",
+        "C": "70 is the area of ABCD, (1/2)(10)(14).",
+        "D": "140 is the product of the diagonals."
+      },
+      "hints": [
+        "How is each new side related to a diagonal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the diagonals and the midpoint quadrilateral."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000755",
+      "correct_answer": "B",
+      "explanation": "The segment's projection onto the base is the base diagonal, √(3² + 4²) = 5. The segment itself has length √(5² + 12²) = 13. In the right triangle formed by the base diagonal, the height, and the segment, cos θ = 5/13.",
+      "distractor_explanations": {
+        "A": "4/13 uses a base edge instead of the base diagonal as the adjacent side.",
+        "C": "5/12 divides the base diagonal by the height.",
+        "D": "12/13 is sin θ, not cos θ."
+      },
+      "hints": [
+        "What right triangle contains the angle θ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the base diagonal and the vertical edge."
       }
     }
   ]

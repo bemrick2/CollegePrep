@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T17:35:09+00:00",
+  "updated_at": "2026-10-27T17:37:01+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 423,
     "act_reading": 424,
     "sat_reading_writing": 437,
-    "sat_math": 714
+    "sat_math": 725
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 42
     },
     "sat_math": {
-      "PASS": 744,
+      "PASS": 755,
       "REVISE": 23,
       "REJECT": 4,
-      "candidates": 771,
+      "candidates": 782,
       "passed_after_revision": 29
     }
   },
@@ -1685,12 +1685,12 @@
       "passages": 464
     },
     "sat_math": {
-      "accepted": 714,
+      "accepted": 725,
       "retired_after_audit": 30,
       "by_skill": {
         "Advanced Math": 246,
         "Algebra": 216,
-        "Geometry and Trigonometry": 128,
+        "Geometry and Trigonometry": 139,
         "Problem-Solving and Data Analysis": 124
       },
       "by_subskill": {
@@ -1698,6 +1698,8 @@
         "Additional time at a constant drain rate from fractions of an unknown amount": 1,
         "Allocating a total by two different rules": 1,
         "Altitude to the hypotenuse from a sine value": 1,
+        "Angle between a space diagonal and the base": 1,
+        "Angle between clock hands in radians": 1,
         "Angle between radii to the points of tangency": 1,
         "Angle formed by two angle bisectors in a triangle": 1,
         "Angle in a convex kite from congruent triangles": 1,
@@ -1731,6 +1733,7 @@
         "Area of an isosceles triangle with 30° base angles": 1,
         "Area of the square formed by changing a rectangle’s sides": 1,
         "Area ratio of circles from equal arcs at different central angles": 1,
+        "Areas of the four triangles in a trapezoid": 1,
         "Areas of triangles on opposite sides of a square": 1,
         "Areas of two rectangles with equal diagonals and different ratios": 1,
         "Average cost under a two-tier price": 1,
@@ -1758,6 +1761,7 @@
         "Change in height from a radical model solved twice": 1,
         "Choosing a line of best fit for data": 1,
         "Choosing the half-plane that contains the origin": 1,
+        "Circle inscribed in a sector": 1,
         "Circle tangent to two parallel lines": 1,
         "Clock time when a constant rate reaches a target level": 1,
         "Coefficient matching in a product of quadratics": 1,
@@ -1802,6 +1806,7 @@
         "Conditions for a linear equation to have no solution": 1,
         "Cone and sphere with equal volumes": 1,
         "Cone volume from a height and the slope angle": 1,
+        "Cones formed by rotating a right triangle": 1,
         "Constant for which a point lies inside a circle": 1,
         "Constant from a condition relating two solutions": 1,
         "Constant from an identity between a rational expression and a linear expression": 1,
@@ -1967,6 +1972,7 @@
         "Inscribed angle that intercepts the major arc": 1,
         "Inscribed angles from equal chords": 1,
         "Intercepts of a line in standard form": 1,
+        "Interior angles from a ratio of exterior angles": 1,
         "Interpreting a change in a linear conversion formula": 1,
         "Interpreting a coefficient in an average-cost model": 1,
         "Interpreting a coefficient nested in a product of two inputs": 1,
@@ -2061,6 +2067,7 @@
         "Median after finding a missing value from the mean": 1,
         "Median from a frequency table with an unknown frequency": 1,
         "Meeting time of a growing and a decaying population": 1,
+        "Midpoint quadrilateral from perpendicular diagonals": 1,
         "Minimum after a horizontal stretch": 1,
         "Minimum count to meet a score under a count limit": 1,
         "Minimum of a horizontally shifted quadratic": 1,
@@ -2210,6 +2217,7 @@
         "Second isosceles triangle with equal legs and equal area": 1,
         "Second time two walkers are a given distance apart": 1,
         "Sector area from a radian angle and the sector perimeter": 1,
+        "Sector whose area equals its arc length": 1,
         "Segment length from similar triangles with a non-obvious correspondence": 1,
         "Segment of the hypotenuse cut by the altitude": 1,
         "Self-selected large sample versus small random sample": 1,
@@ -2302,6 +2310,7 @@
         "Sum of the solutions of an absolute value equation": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
         "Sum-and-difference system with three exclusive groups": 1,
+        "Surface area after cutting a cube": 1,
         "Surface area of a composite solid needing a slant height": 1,
         "Surface area of a cube with a cylindrical hole": 1,
         "Surface area of a fixed-volume cylinder as a function of radius": 1,
@@ -2315,6 +2324,7 @@
         "Tangent of a ramp angle from rise and run": 1,
         "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Tangent of an angle from a point on a circle": 1,
+        "Tangent of the other acute angle from a sine": 1,
         "Third angle of a triangle": 1,
         "Third zero of a cubic from its constant and leading coefficients": 1,
         "Ticket counts when revenues, not counts, are in a given ratio": 1,
@@ -2337,6 +2347,7 @@
         "Translating a verbal statement into a linear equation": 1,
         "Trapezoid height from similar triangles formed by extended legs": 1,
         "Triangle area from an arc length": 1,
+        "Triangle from a circle through the origin": 1,
         "Trigonometric ratios with an extraneous root": 1,
         "Two chained round-ups from a ratio and a capacity": 1,
         "Two constants of a rational function from two values": 1,
@@ -2411,18 +2422,18 @@
       },
       "by_difficulty_author": {
         "easy": 97,
-        "hard": 96,
-        "medium": 521
+        "hard": 99,
+        "medium": 529
       },
       "by_difficulty_calibrated": {
         "easy": 148,
-        "hard": 90,
-        "medium": 476
+        "hard": 93,
+        "medium": 484
       },
       "calibrated_share": {
-        "easy": 0.207,
-        "hard": 0.126,
-        "medium": 0.667
+        "easy": 0.204,
+        "hard": 0.128,
+        "medium": 0.668
       },
       "answer_key_balance": {
         "-1": 4,
@@ -2450,6 +2461,7 @@
         "12": 9,
         "12.5": 1,
         "12/25": 1,
+        "120": 1,
         "1260": 1,
         "13": 1,
         "13.5": 1,
@@ -2472,7 +2484,7 @@
         "18/13": 1,
         "180": 1,
         "193.5": 1,
-        "2": 10,
+        "2": 11,
         "2.5": 1,
         "20": 6,
         "20/3": 2,
@@ -2502,7 +2514,7 @@
         "3600": 1,
         "37.5": 2,
         "39": 1,
-        "4": 16,
+        "4": 17,
         "4.05": 1,
         "4.2": 1,
         "40": 6,
@@ -2531,6 +2543,7 @@
         "67": 1,
         "7": 11,
         "7.2": 2,
+        "72": 1,
         "748": 1,
         "8": 8,
         "8.5": 1,
@@ -2548,13 +2561,13 @@
         "94": 1,
         "95": 1,
         "96": 1,
-        "A": 97,
-        "B": 145,
-        "C": 132,
-        "D": 74
+        "A": 99,
+        "B": 148,
+        "C": 133,
+        "D": 75
       },
       "modeling_items": 251,
-      "spr_items": 266,
+      "spr_items": 270,
       "passages": 0
     }
   },
@@ -2563,7 +2576,7 @@
     "act_english": 48,
     "act_reading": 54,
     "sat_reading_writing": 52,
-    "sat_math": 68
+    "sat_math": 69
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2595,30 +2608,38 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 69,
+    "next_batch": 70,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 37.4,
-      "Advanced Math": 7.4,
-      "Problem-Solving and Data Analysis": -15.4,
-      "Geometry and Trigonometry": -19.4
+      "Algebra": 41.2,
+      "Advanced Math": 11.2,
+      "Problem-Solving and Data Analysis": -13.8,
+      "Geometry and Trigonometry": -28.8
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 33.0,
-      "medium": -114.0,
-      "hard": 91.0
+      "easy": 35.8,
+      "medium": -116.5,
+      "hard": 90.8
     },
     "answer_key_gap_for_next_10": {
       "A": 38.8,
-      "B": -9.2,
-      "C": 3.8,
-      "D": 61.8
+      "B": -10.2,
+      "C": 4.8,
+      "D": 62.8
     },
-    "spr_items": 266,
+    "spr_items": 270,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_reading": {
+      "next_batch": 55,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 59.3,
+        "Craft and Structure": -18.0,
+        "Integration of Knowledge and Ideas": -31.3
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 53,
       "skill_gap_for_next_10": {
@@ -2634,14 +2655,6 @@
         "Production of Writing": 49.4,
         "Knowledge of Language": 15.8,
         "Conventions of Standard English": -48.6
-      }
-    },
-    "act_reading": {
-      "next_batch": 55,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 59.3,
-        "Craft and Structure": -18.0,
-        "Integration of Knowledge and Ideas": -31.3
       }
     }
   },
@@ -2668,12 +2681,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 714,
-      "share_of_target": 0.714
+      "accepted": 725,
+      "share_of_target": 0.725
     }
   },
   "total_target": 3841,
-  "total_accepted": 2772,
+  "total_accepted": 2783,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -306752,7 +306765,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 68,
+      "bank_version": 69,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -306878,7 +306891,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T17:35:08+00:00",
+    "heartbeat_at": "2026-10-27T17:37:00+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

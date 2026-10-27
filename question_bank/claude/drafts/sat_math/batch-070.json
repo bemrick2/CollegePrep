@@ -1,0 +1,739 @@
+{
+ "bank": "sat_math",
+ "batch": 70,
+ "plan": "SAT Math batch 70: 16 Algebra items from idea set 18 (MA01-MA07, MA09-MA16, MA18; pre-checked in ideas-067.repeats.json). Dropped from set 18: MA17 (template of idea J03), MA08 (re-skin of CLD-ACT-M-000259), MC04 (template of idea R02). Fixes: MA09 distractors 5.00n and 4.60n + 0.40 also give $5.00 at n = 1, so one test value no longer eliminates them; MA11 distractor C replaced by a mixed-bound error (20 to 27.5). MA06 kept apart from Q060-02 (already banked; different batch). PSDA items follow in batch 71.",
+ "candidates": [
+  {
+   "cand": "Q070-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Intersection of lines with swapped coefficients",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, the graphs of y = ax + b and y = bx + a, where a and b are constants with a ≠ b and a + b = 9, intersect at the point (r, s). What is the value of r + s ?",
+   "explanation": "Setting ax + b = bx + a gives (a − b)x = a − b, and since a ≠ b, x = 1. Then s = a(1) + b = a + b = 9. So r + s = 1 + 9 = 10.",
+   "hints": [
+    "Set the two expressions equal and collect terms."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor out a − b."
+   },
+   "remember": "Look for structure that makes individual unknowns unnecessary.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The intersection is the same for every a ≠ b, and only a + b is given."
+   },
+   "format": "spr",
+   "answer": "10",
+   "accepted_answers": [
+    "10"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 is s alone.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "1",
+     "rationale": "1 is r alone.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "4.5",
+     "rationale": "4.5 assumes a = b = 4.5, which the stem rules out.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Counting whole-number solutions of a two-variable equation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A florist uses exactly 60 roses to make small bouquets of 4 roses each and large bouquets of 6 roses each. Every rose is used, and there is at least one bouquet of each size. How many different numbers of large bouquets are possible?",
+   "explanation": "With a small and b large bouquets, 4a + 6b = 60, so 2a + 3b = 30 and a = (30 − 3b)/2. For a to be a whole number, b must be even; with a ≥ 1 and b ≥ 1, b = 2, 4, 6, or 8. That is 4 possibilities.",
+   "hints": [
+    "What must be true of b for a to be a whole number?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve for a and test which b give whole numbers."
+   },
+   "remember": "Whole-number solutions of ax + by = c often come in regular steps.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "An exact equation has gaps, and parity determines which values work."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 also counts the all-small and all-large cases.",
+     "trap": null
+    },
+    {
+     "value": "9",
+     "rationale": "9 allows every number from 1 to 9 without requiring a whole number of small bouquets.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting an inconsistent system in context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a bakery, every bagel has the same price and every muffin has the same price, and the prices did not change between two visits. Receipt 1 shows 3 bagels and 2 muffins for a total of $11.40. Receipt 2 shows 6 bagels and 4 muffins for a total of $21.60. Which statement is true?",
+   "explanation": "The left side of receipt 2's equation, 6b + 4m, is twice that of receipt 1, so receipt 2's total should be 2($11.40) = $22.80. It is $21.60, so the system 3b + 2m = 11.40 and 6b + 4m = 21.60 has no solution.",
+   "hints": [
+    "What would receipt 2 total if it matched receipt 1?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compare the equations after multiplying the first by 2."
+   },
+   "remember": "Proportional left sides with non-proportional constants mean no solution.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "There are infinitely many pairs of prices consistent with both receipts.",
+    "B": "One of the two items costs $1.20.",
+    "C": "A bagel costs $2.00 and a muffin costs $2.70.",
+    "D": "No pair of prices is consistent with both receipts, so at least one receipt is incorrect."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This notices the doubled left side but ignores that the totals do not double.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "$1.20 is the leftover difference from elimination, not a price.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "These prices satisfy receipt 1 only; receipt 2 would total $22.80.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q070-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Inequality holding on a whole ray",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "The functions f and g are defined by f(x) = 3x − 5 and g(x) = mx + 3, where m is a constant. If f(x) > g(x) for every value of x greater than 4, what is the greatest possible value of m ?",
+   "explanation": "f(x) − g(x) = (3 − m)x − 8 must be positive for every x > 4. This needs 3 − m ≥ 0 and the value at x = 4 to be at least 0: 4(3 − m) − 8 ≥ 0, so m ≤ 1. With m = 1, f(x) − g(x) = 2x − 8, which is positive for every x > 4.",
+   "hints": [
+    "What is f(x) − g(x)?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the difference as a line and require it to be positive to the right of 4."
+   },
+   "remember": "For an open ray, the endpoint value may be zero.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Both the slope and the boundary value matter, and the endpoint itself is allowed."
+   },
+   "format": "spr",
+   "answer": "1",
+   "accepted_answers": [
+    "1"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 requires only that f have the greater slope.",
+     "trap": null
+    },
+    {
+     "value": "0",
+     "rationale": "0 demands f(4) > g(4) strictly and then takes the greatest integer.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Drain-and-replace mixture",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A car's radiator holds 12 liters of coolant that is 25% antifreeze by volume. A mechanic will drain some of the coolant and replace it with the same volume of pure antifreeze so that the radiator holds 12 liters that is 45% antifreeze. To the nearest tenth of a liter, how much coolant must be drained?",
+   "explanation": "If x liters are drained, the antifreeze left is 0.25(12 − x), and x liters of pure antifreeze are added. The result must be 0.45(12) = 5.4 liters: 0.25(12 − x) + x = 5.4, so 3 + 0.75x = 5.4 and x = 3.2.",
+   "hints": [
+    "How much antifreeze is removed when x liters are drained?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Track the antifreeze before and after."
+   },
+   "remember": "In a drain-and-replace problem, subtract what leaves before adding what enters.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The drained coolant takes antifreeze with it, which the tempting shortcut ignores."
+   },
+   "choices": {
+    "A": "2.4",
+    "B": "3.2",
+    "C": "4.4",
+    "D": "5.4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2.4 adds 20% of 12 liters, forgetting that the drained coolant contained antifreeze.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "4.4 adds pure antifreeze without draining any coolant.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "5.4 is the amount of antifreeze in the final mixture.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q070-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Ratio of coefficients as an exchange rate",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A mobile mechanic charges C dollars for a repair visit, where C = 30 + 48h + 0.75m, h is the number of hours of work, and m is the number of miles driven for the visit. The value of 48/0.75 is 64. What is the best interpretation of 64 in this context?",
+   "explanation": "48 dollars per hour divided by 0.75 dollar per mile is 64 miles per hour of work: 64 miles of driving adds 64(0.75) = 48 dollars, the same as 1 hour of work.",
+   "hints": [
+    "What are the units of 48 and of 0.75?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the units as well as the numbers."
+   },
+   "remember": "A ratio of two rates tells how much of one input trades for another.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The quotient of two coefficients must be read as an exchange rate, not a speed."
+   },
+   "choices": {
+    "A": "The number of miles of driving that adds the same amount to the charge as 1 hour of work",
+    "B": "The mechanic's average driving speed, in miles per hour",
+    "C": "The number of hours of work that adds the same amount to the charge as 1 mile of driving",
+    "D": "The amount, in dollars, by which the hourly charge exceeds the charge per mile"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The units \"miles per hour\" here compare charges, not a speed.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "That would be 0.75/48, the inverse ratio.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A difference would be 48 − 0.75 = 47.25, not a ratio.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q070-07",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Deductible and coinsurance from a model",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "For a covered repair costing x dollars, where x > 500, an insurance policy pays y dollars, where y = 0.8(x − 500). The policyholder pays the rest of the repair cost. For a covered repair that costs $2,300, how many dollars does the policyholder pay?",
+   "explanation": "The policy pays 0.8(2,300 − 500) = 0.8(1,800) = 1,440 dollars, so the policyholder pays 2,300 − 1,440 = 860 dollars: the $500 deductible plus 20% of the remaining $1,800.",
+   "hints": [
+    "How much does the policy pay?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the policy's share, then subtract it from the total."
+   },
+   "remember": "Check whether the question asks for the model's output or what remains.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "860",
+   "accepted_answers": [
+    "860"
+   ],
+   "common_errors": [
+    {
+     "value": "1440",
+     "rationale": "1440 is the policy's payment.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "460",
+     "rationale": "460 is 20% of the whole $2,300.",
+     "trap": null
+    },
+    {
+     "value": "360",
+     "rationale": "360 is 20% of $1,800 without the deductible.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q070-08",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Building a linear cost with a different first unit",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A print shop charges $5.00 for the first copy of a poster and $0.40 for each additional copy. Which expression gives the total cost, in dollars, of n copies of the poster, where n ≥ 1 ?",
+   "explanation": "The first copy costs $5.00 and the other n − 1 copies cost $0.40 each, so the total is 5.00 + 0.40(n − 1) = 0.40n + 4.60.",
+   "hints": [
+    "What do 2 copies cost?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check n = 1 and n = 2."
+   },
+   "remember": "Check a formula at more than one input.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.40n + 5.00",
+    "B": "5.00n",
+    "C": "4.60n + 0.40",
+    "D": "0.40n + 4.60"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This charges $0.40 for the first copy as well.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This charges $5.00 for every copy.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This swaps the roles of the two prices; it is right for n = 1 but wrong for n = 2.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q070-09",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Integer intersection fixing a slope",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graphs of 2x + 3y = 12 and y = kx, where k is a constant, intersect at a point whose x-coordinate and y-coordinate are both positive integers. What is the value of k ?",
+   "explanation": "On 2x + 3y = 12, y = (12 − 2x)/3. For x and y to be positive integers, x must be 3 (x = 0 or 6 makes a coordinate zero), giving the point (3, 2). Then k = 2/3.",
+   "hints": [
+    "Which points on 2x + 3y = 12 have positive integer coordinates?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "List the integer points, then find k."
+   },
+   "remember": "A line through the origin has slope y/x for any of its points.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "2/3",
+   "accepted_answers": [
+    "2/3",
+    ".6666",
+    ".6667"
+   ],
+   "common_errors": [
+    {
+     "value": "1.5",
+     "rationale": "1.5 inverts the ratio, x/y.",
+     "trap": null
+    },
+    {
+     "value": "0",
+     "rationale": "0 uses (6, 0), where y is not positive.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-10",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Compound inequality with a negative slope",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A weather balloon's height h, in meters, t minutes after it begins its descent is h = 1,500 − 40t. For which values of t is the balloon's height from 400 meters to 800 meters, inclusive?",
+   "explanation": "400 ≤ 1,500 − 40t ≤ 800 gives −1,100 ≤ −40t ≤ −700. Dividing by −40 reverses both inequalities: 17.5 ≤ t ≤ 27.5.",
+   "hints": [
+    "What happens to an inequality when you divide by a negative number?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the compound inequality."
+   },
+   "remember": "Dividing by a negative number reverses the inequality.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "10 ≤ t ≤ 20",
+    "B": "t ≤ 17.5 or t ≥ 27.5",
+    "C": "20 ≤ t ≤ 27.5",
+    "D": "17.5 ≤ t ≤ 27.5"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This divides 400 and 800 by 40, ignoring the starting height.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This describes heights outside the range.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This uses 800/40 for one bound instead of (1,500 − 800)/40.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q070-11",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Effect of a coefficient change on a graph",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A teacher plans to spend exactly $300 on x art kits at $6 each and y science kits at $15 each, so 6x + 15y = 300, and the graph of this equation is drawn in the xy-plane. If the price of a science kit drops to $12 and the teacher still spends exactly $300, how does the graph change?",
+   "explanation": "The new equation is 6x + 12y = 300. Its x-intercept is still 300/6 = 50, and its y-intercept is 300/12 = 25 instead of 300/15 = 20. The line pivots about (50, 0).",
+   "hints": [
+    "Which intercept depends on the science kit price?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute both intercepts before and after."
+   },
+   "remember": "Changing one coefficient moves only that variable's intercept.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The line shifts up without changing its slope, so both intercepts increase.",
+    "B": "The x-intercept increases from 50 to 62.5, and the y-intercept stays 20.",
+    "C": "The y-intercept increases from 20 to 25, and the x-intercept stays 50.",
+    "D": "The slope changes from −0.4 to −0.5, and the y-intercept stays 20."
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "A price change alters the slope, unlike a budget change.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This applies the price change to the wrong axis.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The slope does become −0.5, but the y-intercept changes to 25.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q070-12",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Average-cost cap as an inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A climbing gym charges a member $45 per month plus $5.50 for each visit. For one month, a member wants the average cost per visit, including the $45 charge, to be at most $9.00. What is the least number of visits the member must make that month?",
+   "explanation": "The average cost is (45 + 5.50n)/n ≤ 9, so 45 + 5.50n ≤ 9n, 45 ≤ 3.5n, and n ≥ 12.86. The least whole number of visits is 13. Check: 13 visits average about $8.96.",
+   "hints": [
+    "Write the average cost per visit."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up the inequality and round up."
+   },
+   "remember": "When a quantity must meet a minimum, round up.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "13",
+   "accepted_answers": [
+    "13"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 rounds 12.86 down; 12 visits average $9.25.",
+     "trap": null
+    },
+    {
+     "value": "5",
+     "rationale": "5 divides 45 by 9, ignoring the per-visit charge.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-13",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Tax rate from changes in price and total",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A caterer raised the menu price of a party tray by $1.75. Sales tax at the same rate is added to the menu price both before and after the increase. The total cost of the tray, including tax, rose from $54.27 to $56.16. What is the sales tax rate, as a percent? (Disregard the % sign when entering your answer. For example, if your answer is 15.5%, enter 15.5)",
+   "explanation": "The total is (1 + r) times the menu price, so the increase in the total is (1 + r)(1.75). The total rose by 56.16 − 54.27 = 1.89, so 1 + r = 1.89/1.75 = 1.08 and the rate is 8%.",
+   "hints": [
+    "How is the change in the total related to the change in the menu price?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the change in the total by the change in the price."
+   },
+   "remember": "For a proportional rule, the change in output equals the multiplier times the input change.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The rate comes from the differences, without finding either menu price."
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "0.14",
+     "rationale": "0.14 is 1.89 − 1.75, read as the rate.",
+     "trap": null
+    },
+    {
+     "value": "108",
+     "rationale": "108 reports the multiplier as a percent.",
+     "trap": null
+    },
+    {
+     "value": "3.5",
+     "rationale": "3.5 divides 1.89 by 54.27.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q070-14",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Percent change in an intercept versus a slope",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "While a video plays, the battery charge of phone A, as a percent of full charge, is modeled by B = 100 − 0.8t, where t is the number of minutes since the video started on a full charge. Phone B's charge is modeled by B = 100 − kt, where k is a constant, and phone B's battery lasts 25% longer than phone A's before reaching 0%. What is the value of k ?",
+   "explanation": "Phone A lasts 100/0.8 = 125 minutes, so phone B lasts 1.25(125) = 156.25 minutes. Then k = 100/156.25 = 0.64. Lasting 25% longer means draining at 1/1.25 = 80% of A's rate, and 0.8(0.8) = 0.64.",
+   "hints": [
+    "How long does phone A's battery last?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find each battery's lifetime, then the rate."
+   },
+   "remember": "A percent change in time is not the same percent change in rate.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The 25% applies to the intercept, and the slope changes by the reciprocal factor."
+   },
+   "choices": {
+    "A": "0.55",
+    "B": "0.60",
+    "C": "0.64",
+    "D": "1.00"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "0.55 subtracts 0.25 from the rate.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "0.60 lowers the rate by 25%, but a 25% longer time means dividing the rate by 1.25.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1.00 raises the rate by 25%, which would shorten the battery life.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q070-15",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Building a linear demand model",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a price of $3.00 per cup, a lemonade stand sells 400 cups per day. For every $0.50 increase in the price, it sells 20 fewer cups per day. Assuming this relationship is linear, which equation gives the number of cups n sold per day at a price of p dollars per cup?",
+   "explanation": "The rate is −20 cups per $0.50, or −40 cups per dollar. Through (3, 400): n = 400 − 40(p − 3) = 520 − 40p.",
+   "hints": [
+    "How many fewer cups are sold per $1 increase?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rescale the rate to per dollar, then use the point."
+   },
+   "remember": "Convert a rate to per one unit before writing the slope.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "n = 520 − 40p",
+    "B": "n = 460 − 20p",
+    "C": "n = 400 − 20p",
+    "D": "n = 280 + 40p"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "This uses −20 per dollar instead of per $0.50, though it passes through (3, 400).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This uses the given numbers directly as the intercept and slope.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This gets the sign of the slope wrong.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q070-16",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Comparing two linear formulas",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "One formula estimates a person's maximum heart rate, in beats per minute, as 220 − a, where a is the person's age in years. Another formula estimates it as 208 − 0.7a. For which ages does the second formula give a greater estimate than the first?",
+   "explanation": "208 − 0.7a > 220 − a gives 0.3a > 12, so a > 40. The formulas agree at age 40, and the second is greater for older ages.",
+   "hints": [
+    "Where do the two formulas agree?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up the inequality and solve."
+   },
+   "remember": "Collect the variable terms on one side before dividing.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "a < 40",
+    "B": "a > 40",
+    "C": "a > 17.1",
+    "D": "a > 12"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "a < 40 solves the equation correctly but takes the wrong side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "17.1 divides 12 by 0.7 instead of by 1 − 0.7.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "12 compares only the constants 220 and 208.",
+     "trap": null
+    }
+   }
+  }
+ ]
+}

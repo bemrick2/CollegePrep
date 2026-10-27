@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 68,
-  "updated_at": "2026-10-27T17:34:44+00:00",
+  "version": 69,
+  "updated_at": "2026-10-27T17:36:46+00:00",
   "passages": [],
   "questions": [
     {
@@ -53837,6 +53837,815 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-068.review.json",
         "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000745",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle between clock hands in radians",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "On a standard analog clock, what is the measure, in radians, of the smaller angle between the hour hand and the minute hand at 2:30 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "5π/12",
+        "B": "π/2",
+        "C": "7π/12",
+        "D": "2π/3"
+      },
+      "correct_answer": "C",
+      "explanation": "At 2:30 the minute hand points at 6, which is 180° from 12. The hour hand moves 30° per hour, so it is halfway from 2 to 3: 60° + 15° = 75°. The angle between the hands is 180° − 75° = 105°, which is 105 · π/180 = 7π/12 radians.",
+      "distractor_explanations": {
+        "A": "5π/12 is 75°, the hour hand's angle from 12, not the angle between the hands.",
+        "B": "π/2 moves the hour hand all the way to the 3.",
+        "D": "2π/3 is 120°; it leaves the hour hand on the 2."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Where is the hour hand at 2:30?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the clock and mark both hands."
+      },
+      "remember": "The hour hand moves 0.5 degree per minute.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-01",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000746",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Circle inscribed in a sector",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sector of a circle has radius 12 and a central angle of π/3 radians. A circle inside the sector is tangent to both radii of the sector and to its arc. What is the radius of this circle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is 12 · sin(π/6), treating the inscribed circle's center as if it were on the arc.",
+          "trap": null
+        },
+        {
+          "value": "3.46",
+          "rationale": "3.46 is the inradius of the equilateral triangle formed by the radii and the chord, not of the sector.",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 assumes the center is 3r from the vertex.",
+          "trap": null
+        }
+      ],
+      "explanation": "The inscribed circle's center lies on the bisector of the π/3 angle at distance d from the sector's vertex. Its distance to each radius is d · sin(π/6) = d/2, so r = d/2. Tangency to the arc means d + r = 12. Then 2r + r = 12, so r = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where does the inscribed circle's center lie?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the bisector and a radius to a point of tangency."
+      },
+      "remember": "Tangency to two lines puts the center on their angle bisector.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-02",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 25,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000747",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Sector whose area equals its arc length",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A sector of a circle has a central angle of 2π/3 radians. The number of square units in the area of the sector is equal to the number of units in the length of the sector's arc. What is the radius of the circle?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 uses r²θ for the area, forgetting the 1/2.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 compares one-third of the circle's area with the whole circumference.",
+          "trap": null
+        },
+        {
+          "value": "4.19",
+          "rationale": "4.19 (4π/3) is the arc length for r = 2, not the radius.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sector's area is (1/2)r²θ and its arc length is rθ. Setting them equal gives (1/2)r²θ = rθ, so r = 2 (the angle cancels).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the area and arc length in terms of r and θ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the two formulas equal and solve for r."
+      },
+      "remember": "Sector area is (1/2)r²θ and arc length is rθ, with θ in radians.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-03",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000748",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Surface area after cutting a cube",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A solid cube is cut into 27 congruent smaller cubes. The total surface area of the 27 small cubes is how many times the surface area of the original cube?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "9",
+        "D": "27"
+      },
+      "correct_answer": "B",
+      "explanation": "If the original edge is s, each small cube has edge s/3 and surface area 6(s/3)² = (2/3)s². The 27 small cubes total 27 · (2/3)s² = 18s², and 18s²/(6s²) = 3.",
+      "distractor_explanations": {
+        "A": "1 assumes surface area, like volume, is unchanged by cutting.",
+        "C": "9 is the ratio of the face areas of the large and small cubes.",
+        "D": "27 is the number of small cubes."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the edge length of each small cube?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the original edge be 3."
+      },
+      "remember": "Cutting a solid creates new surface area.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-04",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000749",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Interior angles from a ratio of exterior angles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The measures of the three exterior angles of a triangle, one at each vertex, are in the ratio 3 : 4 : 5. What is the measure of the smallest interior angle of the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "30°",
+        "B": "45°",
+        "C": "90°",
+        "D": "105°"
+      },
+      "correct_answer": "A",
+      "explanation": "The exterior angles, one at each vertex, sum to 360°, so they are 90°, 120°, and 150°. The interior angles are their supplements: 90°, 60°, and 30°. The smallest is 30°.",
+      "distractor_explanations": {
+        "B": "45° applies the ratio to the interior angles, 3/12 of 180°.",
+        "C": "90° is the smallest exterior angle, not the smallest interior angle.",
+        "D": "105° uses 180° as the sum of the exterior angles and then takes a supplement."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What do the exterior angles of a triangle add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Split 360° in the ratio 3 : 4 : 5, then take supplements."
+      },
+      "remember": "Exterior angles of a polygon, one at each vertex, sum to 360°.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-05",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000750",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Tangent of the other acute angle from a sine",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, angle C is the right angle, and sin A = k, where 0 < k < 1. Which of the following is equal to tan B ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "k/√(1 − k²)",
+        "B": "1/k",
+        "C": "(1 − k)/k",
+        "D": "√(1 − k²)/k"
+      },
+      "correct_answer": "D",
+      "explanation": "Let the hypotenuse be 1. Then BC, opposite angle A, is k, and AC = √(1 − k²). For angle B, the opposite side is AC and the adjacent side is BC, so tan B = √(1 − k²)/k.",
+      "distractor_explanations": {
+        "A": "This is tan A, not tan B.",
+        "B": "This divides the hypotenuse by the side opposite A.",
+        "C": "This takes the remaining leg as 1 − k instead of using the Pythagorean theorem."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Which side is opposite angle B?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try k = 3/5 with a 3-4-5 triangle."
+      },
+      "remember": "The side opposite one acute angle is adjacent to the other.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-06",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000751",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Triangle from a circle through the origin",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the circle (x − 5)² + (y − 12)² = 169 passes through the origin. It also intersects the positive x-axis at point P and the positive y-axis at point Q. What is the area of triangle OPQ, where O is the origin?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "120",
+      "accepted_answers": [
+        "120"
+      ],
+      "common_errors": [
+        {
+          "value": "30",
+          "rationale": "30 uses the center's coordinates as the legs, (1/2)(5)(12).",
+          "trap": null
+        },
+        {
+          "value": "60",
+          "rationale": "60 multiplies the center's coordinates, 5 · 12.",
+          "trap": null
+        },
+        {
+          "value": "240",
+          "rationale": "240 forgets the factor 1/2.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "Setting y = 0 gives (x − 5)² = 25, so x = 0 or x = 10, and P = (10, 0). Setting x = 0 gives (y − 12)² = 144, so y = 0 or y = 24, and Q = (0, 24). The area is (1/2)(10)(24) = 120.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where does the circle cross each axis?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = 0 and x = 0."
+      },
+      "remember": "Find axis intersections by setting the other coordinate to zero.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-07",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "120",
+        "blind_answer": "120",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000752",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Areas of the four triangles in a trapezoid",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In trapezoid ABCD, side AB is parallel to side CD, AB = 12, and CD = 6. The diagonals AC and BD intersect at point P. If the area of triangle CPD is 8, what is the area of trapezoid ABCD ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "72",
+      "accepted_answers": [
+        "72"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 counts only the two similar triangles.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "56",
+          "rationale": "56 gives each side triangle an area of 8.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 scales the area of triangle APB by 2 instead of 4.",
+          "trap": null
+        }
+      ],
+      "explanation": "Triangles CPD and APB are similar with ratio 6 : 12 = 1 : 2, so triangle APB has area 4 · 8 = 32. Since AP : PC = 2 : 1, triangles APD and BPC each have twice the area of CPD, or 16. The total is 8 + 32 + 16 + 16 = 72.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which two triangles are similar, and in what ratio?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label all four triangles formed by the diagonals."
+      },
+      "remember": "Areas of similar figures scale by the square of the length ratio.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-08",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "72",
+        "blind_answer": "72",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000753",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Cones formed by rotating a right triangle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A right triangle has legs of lengths 3 and 4. Rotating the triangle completely about the leg of length 3 forms a cone, and rotating it about the leg of length 4 forms a different cone. How much greater is the volume of the first cone than the volume of the second cone?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4π",
+        "B": "7π",
+        "C": "12π",
+        "D": "16π"
+      },
+      "correct_answer": "A",
+      "explanation": "Rotating about the leg of length 3 gives a cone with height 3 and radius 4: (1/3)π(4²)(3) = 16π. Rotating about the leg of length 4 gives height 4 and radius 3: (1/3)π(3²)(4) = 12π. The difference is 4π.",
+      "distractor_explanations": {
+        "B": "7π subtracts only the base areas, π(4² − 3²).",
+        "C": "12π uses the cylinder formula, 48π − 36π.",
+        "D": "16π is the volume of the first cone, not the difference."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Which leg becomes the radius when you rotate about the other?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch each rotation."
+      },
+      "remember": "The leg you rotate about is the height; the other leg is the radius.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-09",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000754",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Midpoint quadrilateral from perpendicular diagonals",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Convex quadrilateral ABCD has diagonals AC and BD that are perpendicular, with AC = 10 and BD = 14. The midpoints of the four sides of ABCD are joined, in order, to form a new quadrilateral. What is the area of the new quadrilateral?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "17.5",
+        "B": "35",
+        "C": "70",
+        "D": "140"
+      },
+      "correct_answer": "B",
+      "explanation": "Each side of the new quadrilateral joins the midpoints of two sides of a triangle cut off by a diagonal, so it is parallel to that diagonal and half as long. Two sides are parallel to AC with length 5 and two are parallel to BD with length 7. Since the diagonals are perpendicular, the new figure is a rectangle with area 5 · 7 = 35.",
+      "distractor_explanations": {
+        "A": "17.5 takes one-fourth of the area of ABCD.",
+        "C": "70 is the area of ABCD, (1/2)(10)(14).",
+        "D": "140 is the product of the diagonals."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "How is each new side related to a diagonal?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the diagonals and the midpoint quadrilateral."
+      },
+      "remember": "A midsegment of a triangle is parallel to the third side and half as long.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-10",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000755",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angle between a space diagonal and the base",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular box has a base that is 3 inches by 4 inches and a height of 12 inches. A segment joins a bottom corner of the box to the top corner farthest from it. If θ is the angle between this segment and the base of the box, what is the value of cos θ ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4/13",
+        "B": "5/13",
+        "C": "5/12",
+        "D": "12/13"
+      },
+      "correct_answer": "B",
+      "explanation": "The segment's projection onto the base is the base diagonal, √(3² + 4²) = 5. The segment itself has length √(5² + 12²) = 13. In the right triangle formed by the base diagonal, the height, and the segment, cos θ = 5/13.",
+      "distractor_explanations": {
+        "A": "4/13 uses a base edge instead of the base diagonal as the adjacent side.",
+        "C": "5/12 divides the base diagonal by the height.",
+        "D": "12/13 is sin θ, not cos θ."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What right triangle contains the angle θ?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the base diagonal and the vertical edge."
+      },
+      "remember": "For a 3-D angle, find the right triangle that contains it.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "Q069-11",
+      "created_at": "2026-10-27T17:36:46+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-069.review.json",
+        "computation": "checks/sat_math/batch_069.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
