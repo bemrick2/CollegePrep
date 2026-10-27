@@ -1,0 +1,24 @@
+{
+  "ideas": "batch 32",
+  "results": {
+    "II01": [
+      {"other_id": "Q031-01", "severity": "template", "why": "Pending draft batch 31 already has a calculator-aware item approximating, to the nearest tenth, where 2^x meets another graph (2^x = x + 3, greater solution). II01 only swaps the line for the parabola x^2 - 4: same setup (graph 2^x against a polynomial), same asked quantity (an intersection x-coordinate to the nearest tenth), same graph-and-read reasoning."}
+    ],
+    "II02": [
+      {"other_id": "CLD-SAT-M-000146", "severity": "close", "why": "Both ask when a quadratic height model reaches the ground. SAT 146 is a drop (80 - 5t^2) solved by square roots. II02 has a linear term and needs the quadratic formula or a graph, so the reasoning differs. Also very close to the stock projectile item (h = -4.9t^2 + vt + h0, 'when does it hit the ground') used across official SAT practice material, though it is not a copy of one specific released item."},
+      {"other_id": "CLD-ACT-M-000053", "severity": "close", "why": "Same thrown-ball model with a linear term and an initial height, but ACT 053 asks how long the height stays above a level (an inequality), not the time it lands."}
+    ],
+    "II04": [
+      {"other_id": "CLD-SAT-M-000011", "severity": "template", "why": "Same template: two lines in slope-intercept form intersect, find a coordinate of the intersection point. Only the numbers (decimal slopes), the coordinate asked (x instead of y) and the rounding to a tenth change. Setting the two expressions equal works the same way."}
+    ],
+    "II13": [
+      {"other_id": "CLD-ACT-M-000304", "severity": "template", "why": "ACT 304 asks for the radius of the circle through the vertices of a right triangle with legs 10 and 24. II13's points (0,0), (8,0), (0,6) form a right triangle with legs 8 and 6. The key step is the same (the hypotenuse is a diameter, so r = hyp/2), and only the coordinate wrapper and numbers change."}
+    ],
+    "II16": [
+      {"other_id": "CLD-ACT-M-000636", "severity": "copy", "why": "ACT 636: 'The graph of f(x) = ax^2 passes through the point (2, 12). What is the value of f(-3)?' This has the same function, point, asked value and answer (27)."}
+    ],
+    "II20": [
+      {"other_id": "CLD-ACT-M-000382", "severity": "close", "why": "Both use the angles of an isosceles triangle, but ACT 382 gives the vertex angle and asks for a base angle by direct subtraction. II20 gives a ratio, so you have to solve 3B + 2B = 180. The setup and reasoning differ."}
+    ]
+  }
+}
