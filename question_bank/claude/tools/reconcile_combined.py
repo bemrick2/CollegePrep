@@ -138,8 +138,11 @@ def main():
         if rv:
             rec['fresh_reviews'] = rv
             verdicts = {r['verdict'] for r in rv}
+            sticky = {'BLUEPRINT_SUITABILITY_HOLD', 'HISTORICAL_KEY_DISPUTE', 'APPOSITIVE_EDITORIAL_DISPUTE'} & set(rec.get('baseline_findings', []))
+            if sticky and verdicts == {'PASS'}:
+                rec['fresh_review_passed_but_hold_kept'] = sorted(sticky)
             if rec['status'] in ('pending_review', 'hold') and verdicts == {'PASS'} and len(rv) >= rec_required(rec) \
-                    and not (ov and ov.get('keep_hold')):
+                    and not (ov and ov.get('keep_hold')) and not sticky:
                 rec['status'] = 'reviewed_draft'
                 rec['status_reason'] = 'fresh blind review(s) after baseline: ' + '; '.join(r['file'] for r in rv)
                 notes['resolved_by_fresh_review'] += 1
@@ -224,8 +227,8 @@ def status_for_retired(r):
 
 
 def rec_required(rec):
-    # verbal records need two independent solves; math needs one solve plus a computation check
-    return 1 if rec['section'] == 'Math' else 2
+    # two independent solves (for math the second solve is the computation check)
+    return 2
 
 
 if __name__ == '__main__':

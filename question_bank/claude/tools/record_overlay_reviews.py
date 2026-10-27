@@ -13,18 +13,32 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 packet = sys.argv[1]
+import zipfile
 over = json.loads((ROOT / 'combined' / 'overlays.json').read_text(encoding='utf-8'))['items']
+sys.path.insert(0, str(ROOT / 'tools'))
+from reconcile_combined import chash  # noqa: E402
+_zf = zipfile.ZipFile(ROOT / 'combined' / 'baseline' / 'prep-and-price-combined-bank-screening.zip')
+_pre = 'combined-quality-screen/'
+BASE = {x['id']: x for x in json.loads(_zf.read(_pre + 'retained-draft-bank.json')) + json.loads(_zf.read(_pre + 'held-and-reserved.json'))}
+
+
+def target(rid):
+    """Key and content hash of the version under review: the overlay's proposed version if any, else the baseline record."""
+    if rid in over:
+        return over[rid]['proposed']['key'], over[rid]['content_hash']
+    x = BASE[rid]
+    return x['key'], chash(x['stem'], x['choices'], x['key'], x.get('passage', ''))
 for f in sorted((ROOT / 'combined' / 'reviews').glob(f'{packet}.solver*.json')):
     tag = f.stem.split('.solver')[-1]
     doc = json.loads(f.read_text(encoding='utf-8'))
     res = {}
     for rid, a in doc['answers'].items():
-        ov = over[rid]
+        key, h = target(rid)
         blocking = [x for x in a.get('flags', []) if not str(x).lower().startswith('minor')]
-        ok = a.get('answer') == ov['proposed']['key'] and not blocking and a.get('content_hash') == ov['content_hash']
-        res[rid] = {'content_hash': ov['content_hash'], 'verdict': 'PASS' if ok else 'HOLD', 'solver': doc.get('solver'),
-                    'answer': a.get('answer'), 'key': ov['proposed']['key'], 'confidence': a.get('confidence'),
-                    'flags': a.get('flags', []), 'summary': '; '.join(blocking)[:300] or ('answer differs from key' if a.get('answer') != ov['proposed']['key'] else '')}
+        ok = a.get('answer') == key and not blocking and a.get('content_hash') == h
+        res[rid] = {'content_hash': h, 'verdict': 'PASS' if ok else 'HOLD', 'solver': doc.get('solver'),
+                    'answer': a.get('answer'), 'key': key, 'confidence': a.get('confidence'), 'notes': a.get('notes'),
+                    'flags': a.get('flags', []), 'summary': '; '.join(blocking)[:300] or ('answer differs from key' if a.get('answer') != key else '')}
     out = ROOT / 'combined' / 'reviews' / f'{packet}.{tag}.results.json'
     out.write_text(json.dumps({'packet': packet, 'source_file': str(f.relative_to(ROOT)), 'results': res}, ensure_ascii=False, indent=1), encoding='utf-8')
     print(out.name, sum(r['verdict'] == 'PASS' for r in res.values()), 'PASS /', len(res))

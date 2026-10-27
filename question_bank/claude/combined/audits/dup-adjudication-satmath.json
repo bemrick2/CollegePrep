@@ -1,0 +1,1365 @@
+{
+ "adjudicator": "independent AI agent (separate context)",
+ "pairs": [
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "A solves a rational function equation for input; B evaluates an absolute-value function. Inverse vs. forward evaluation."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "PP-MATH-000031",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate 32^(-2/5) (negative rational exponent)",
+   "reason": "A must first solve x^(5/2)=32 for x before evaluating a negative exponent; B directly evaluates 32^(-2/5). A has an extra solving step."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "evaluate a compound fraction arithmetic expression",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to evaluate a compound fraction arithmetic expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000788",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve rational equation 1/x+1/(2x)=3/4 by combining fractions",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to solve rational equation 1/x+1/(2x)=3/4 by combining fractions. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000267",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "evaluate (a+b)/(a-b) given ratio a/b",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to evaluate (a+b)/(a-b) given ratio a/b. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "A isolates a single power (divide by 3) and matches 2^5; B rewrites two different bases to base 2 and equates linear exponents. Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "PP-MATH-000208",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "iterated function composition f(f(f(2)))",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to iterated function composition f(f(f(2))). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000015",
+   "b": "CLD-ACT-M-000051",
+   "verdict": "distinct",
+   "task_a": "rewrite 9^(x/2) as 3^x (power-of-power base change)",
+   "task_b": "simplify a rational expression by factoring numerator and denominator",
+   "reason": "Different tasks: A is to rewrite 9^(x/2) as 3^x (power-of-power base change); B is to simplify a rational expression by factoring numerator and denominator. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000183",
+   "b": "CLD-ACT-M-000081",
+   "verdict": "distinct",
+   "task_a": "rational equation 3/x+4/x^2=1 -> quadratic, sum of roots",
+   "task_b": "solve quadratic-in-2^x exponential equation via substitution, reject negative root",
+   "reason": "Different tasks: A is to rational equation 3/x+4/x^2=1 -> quadratic, sum of roots; B is to solve quadratic-in-2^x exponential equation via substitution, reject negative root. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "A is a two-variable exponential system with an extra linear equation; B is a single-variable exponential equation. Different structure."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000533",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "scientific-notation multiplication/division",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to scientific-notation multiplication/division. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve linear equation with distribution, x on one side. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000533",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "scientific-notation multiplication/division",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to scientific-notation multiplication/division. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000064",
+   "b": "PP-MATH-000015",
+   "verdict": "distinct",
+   "task_a": "find unknown count of green marbles given its probability",
+   "task_b": "complement probability 'not blue' from counts",
+   "reason": "A works backward from probability to unknown count (solve equation); B computes a complement probability. Different direction."
+  },
+  {
+   "a": "CLD-SAT-M-000237",
+   "b": "PP-MATH-000468",
+   "verdict": "distinct",
+   "task_a": "solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4)",
+   "task_b": "maximum of x/(x^2+1) (AM-GM / calculus-free)",
+   "reason": "Different tasks: A is to solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4); B is to maximum of x/(x^2+1) (AM-GM / calculus-free). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000330",
+   "b": "CLD-SAT-M-000225",
+   "verdict": "distinct",
+   "task_a": "polynomial identity: factor/divide numerator to find c",
+   "task_b": "expand linear expression and match coefficients in identity",
+   "reason": "A requires factoring/polynomial division of a quadratic over (x-2); B expands linear expressions and matches coefficients. Different operation."
+  },
+  {
+   "a": "CLD-SAT-M-000027",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying; B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000137",
+   "b": "CLD-ACT-M-000655",
+   "verdict": "distinct",
+   "task_a": "solve one-step-distributed linear equation 2(a-3)=10",
+   "task_b": "evaluate 3^(2a-b) from 3^a and 3^b via exponent rules",
+   "reason": "Different tasks: A is to solve one-step-distributed linear equation 2(a-3)=10; B is to evaluate 3^(2a-b) from 3^a and 3^b via exponent rules. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000137",
+   "b": "CLD-ACT-M-000533",
+   "verdict": "distinct",
+   "task_a": "solve one-step-distributed linear equation 2(a-3)=10",
+   "task_b": "scientific-notation multiplication/division",
+   "reason": "Different tasks: A is to solve one-step-distributed linear equation 2(a-3)=10; B is to scientific-notation multiplication/division. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "A is not a proportion (fractional coefficients, collect like terms); B is solved by cross-multiplication. Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000291",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "exponential f(t+2)-f(t)=360, factor common term, solve t",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to exponential f(t+2)-f(t)=360, factor common term, solve t; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "PP-MATH-000031",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "evaluate 32^(-2/5) (negative rational exponent)",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to evaluate 32^(-2/5) (negative rational exponent). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "PP-MATH-000208",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "iterated function composition f(f(f(2)))",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to iterated function composition f(f(f(2))). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "PP-MATH-000668",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "symmetric sum using f(x)+f(-x)=1",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to symmetric sum using f(x)+f(-x)=1. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000766",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "maximum of difference of two absolute values (piecewise analysis)",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to maximum of difference of two absolute values (piecewise analysis). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "PP-MATH-000574",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "logistic-type exponential with two conditions, find f(2)",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to logistic-type exponential with two conditions, find f(2). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000783",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "difference of odd and even arithmetic series via pairing",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to difference of odd and even arithmetic series via pairing. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000184",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "evaluate quadratic at two inputs and subtract",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to evaluate quadratic at two inputs and subtract; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000310",
+   "b": "PP-MATH-000187",
+   "verdict": "distinct",
+   "task_a": "sum of solutions of quadratic in (2x-1) via substitution",
+   "task_b": "sum of solutions of (x-3)^2=(2x+1)^2 via difference of squares",
+   "reason": "A uses substitution u=2x-1 in a quadratic; B uses difference of squares on equal squares. Different technique."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve |x-3|=|x-7| (equidistant midpoint)",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve |x-3|=|x-7| (equidistant midpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000048",
+   "b": "CLD-ACT-M-000471",
+   "verdict": "distinct",
+   "task_a": "build linear function from table and extrapolate f(-4)",
+   "task_b": "read inverse function value from a table",
+   "reason": "Different tasks: A is to build linear function from table and extrapolate f(-4); B is to read inverse function value from a table. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000155",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "minimum and location of horizontally shifted quadratic",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to minimum and location of horizontally shifted quadratic; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000480",
+   "b": "CLD-ACT-M-000698",
+   "verdict": "distinct",
+   "task_a": "from tan A=2 compute sin^2A-cos^2A via right triangle",
+   "task_b": "find cos θ from tan θ=2 via right triangle, rationalize",
+   "reason": "Same right-triangle construction from tan=2, but A asks for sin^2A-cos^2A (needs both ratios, squared, combined) while B asks for cos only with rationalization. Different target quantity."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000196",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "from 2^(3x)=64 find 2^x",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to from 2^(3x)=64 find 2^x; B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000226",
+   "b": "CLD-ACT-M-000305",
+   "verdict": "distinct",
+   "task_a": "find slope k from point, then missing coordinate n",
+   "task_b": "find unknown coordinate from slope formula with given slope",
+   "reason": "A uses slope-intercept form with known intercept to find k then a second coordinate; B plugs into slope formula with given slope. Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000237",
+   "b": "CLD-ACT-M-000766",
+   "verdict": "distinct",
+   "task_a": "solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4)",
+   "task_b": "maximum of difference of two absolute values (piecewise analysis)",
+   "reason": "Different tasks: A is to solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4); B is to maximum of difference of two absolute values (piecewise analysis). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Both linear, but A clears fractional coefficients with x on both sides; B distributes a negative with x on one side. Different manipulation."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000259",
+   "b": "CLD-ACT-M-000112",
+   "verdict": "distinct",
+   "task_a": "count x with f(x)=f(1) for a quadratic",
+   "task_b": "count solutions of piecewise function equation f(x)=4 respecting domain pieces",
+   "reason": "A uses quadratic symmetry/factoring; B splits a piecewise function across domains. Different function type."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000027",
+   "b": "CLD-ACT-M-000030",
+   "verdict": "duplicate",
+   "task_a": "solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying",
+   "task_b": "solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying",
+   "reason": "Both are linear proportions solved identically: cross-multiply (4(x-5)=2(x-2) vs 5(x-4)=3(x+2)), distribute, solve linear equation. Only numbers differ; the variable-in-denominator in A adds only a trivial domain check (x≠2,5) that never comes into play."
+  },
+  {
+   "a": "CLD-SAT-M-000027",
+   "b": "CLD-SAT-M-000097",
+   "verdict": "distinct",
+   "task_a": "solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying",
+   "task_b": "solve linear equation 5(x-2)=3x+4 with distribution, x on both sides",
+   "reason": "A is a rational proportion requiring cross-multiplication first; B is already a linear equation needing only distribution. A contains B as a sub-step but adds the rational setup."
+  },
+  {
+   "a": "CLD-SAT-M-000028",
+   "b": "CLD-ACT-M-000182",
+   "verdict": "distinct",
+   "task_a": "y-intercept of line given slope and a point",
+   "task_b": "find x-intercept of line through a point parallel to a standard-form line",
+   "reason": "A finds y-intercept from slope and point; B finds parallel slope from standard form and then x-intercept. Different steps and target."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000533",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "scientific-notation multiplication/division",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to scientific-notation multiplication/division. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000121",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "find minimum of a cosine function from amplitude and vertical shift",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to find minimum of a cosine function from amplitude and vertical shift. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000183",
+   "b": "PP-MATH-000162",
+   "verdict": "distinct",
+   "task_a": "rational equation 3/x+4/x^2=1 -> quadratic, sum of roots",
+   "task_b": "sum of roots of quadratic-in-2^x equation (log/product of exponentials)",
+   "reason": "A is a rational equation; B is an exponential quadratic in 2^x requiring exponent sum. Different function type."
+  },
+  {
+   "a": "CLD-SAT-M-000210",
+   "b": "CLD-ACT-M-000330",
+   "verdict": "distinct",
+   "task_a": "solve x^2=9 with sign condition then substitute",
+   "task_b": "minimum of factored quadratic via vertex at midpoint of roots",
+   "reason": "A solves x^2=9 with sign condition and substitutes; B finds vertex minimum of factored quadratic. Different task."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000030",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying",
+   "reason": "A clears fractional coefficients and collects x terms; B is a proportion solved by cross-multiplication. Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-SAT-M-000097",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve linear equation 5(x-2)=3x+4 with distribution, x on both sides",
+   "reason": "Both are one-variable linear equations with x on both sides, but A requires clearing fractional coefficients (multiply by 4) while B requires distribution; different manipulation step."
+  },
+  {
+   "a": "CLD-SAT-M-000255",
+   "b": "CLD-ACT-M-000031",
+   "verdict": "distinct",
+   "task_a": "sum of solutions of absolute-value equation |2x-3|=7",
+   "task_b": "solve radical equation sqrt(2x+7)=x+2 by squaring and rejecting extraneous root",
+   "reason": "Different tasks: A is to sum of solutions of absolute-value equation |2x-3|=7; B is to solve radical equation sqrt(2x+7)=x+2 by squaring and rejecting extraneous root. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000434",
+   "b": "CLD-ACT-M-000771",
+   "verdict": "distinct",
+   "task_a": "linear function: solve f(x)=average of f(2),f(10)",
+   "task_b": "multiply radical conjugates (difference of squares)",
+   "reason": "Different tasks: A is to linear function: solve f(x)=average of f(2),f(10); B is to multiply radical conjugates (difference of squares). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000766",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "maximum of difference of two absolute values (piecewise analysis)",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to maximum of difference of two absolute values (piecewise analysis). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000470",
+   "b": "CLD-ACT-M-000600",
+   "verdict": "distinct",
+   "task_a": "equation of line from point and direction vector (slope from shift)",
+   "task_b": "equation of line from two intercept points in standard form",
+   "reason": "A derives slope from a translation (direction vector) through a point; B uses two intercept points. Different representation."
+  },
+  {
+   "a": "CLD-SAT-M-000034",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "find leading coefficient a of factored quadratic given its maximum value (vertex at midpoint of roots)",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "A finds leading coefficient from max value; B evaluates absolute value. Different task."
+  },
+  {
+   "a": "CLD-SAT-M-000058",
+   "b": "CLD-ACT-M-000034",
+   "verdict": "distinct",
+   "task_a": "find x where line (slope, point) meets horizontal line y=12",
+   "task_b": "find y-intercept of line perpendicular to a standard-form line through a point",
+   "reason": "A intersects with horizontal line; B needs perpendicular slope from standard form and y-intercept. Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000252",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "evaluate periodic function at large input via modular reduction",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to evaluate periodic function at large input via modular reduction. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000001",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "simplify (x^(3/2))^4·x^(-1) using power-of-power and product exponent rules",
+   "reason": "A applies only the product rule to add fractional exponents; B combines power-of-power and product rules with a negative exponent. Different rule set."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "PP-MATH-000095",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "range of quadratic on a closed interval",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to range of quadratic on a closed interval. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "PP-MATH-000527",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "maximum of sqrt(x-1)+sqrt(5-x) (Cauchy/symmetry)",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to maximum of sqrt(x-1)+sqrt(5-x) (Cauchy/symmetry). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000190",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "find intercept b from f(9)=1 then evaluate f(-3)",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to find intercept b from f(9)=1 then evaluate f(-3); B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000290",
+   "b": "CLD-ACT-M-000161",
+   "verdict": "distinct",
+   "task_a": "find parameter making rational equation have no solution (extraneous root)",
+   "task_b": "find k making a linear equation have no solution (equal slopes, different constants)",
+   "reason": "A is a rational equation where no-solution arises from an extraneous root x=1; B is linear with equal slopes. Different reasoning."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000080",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve a linear equation with distribution, x on both sides (integer coefficients)",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve a linear equation with distribution, x on both sides (integer coefficients). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000375",
+   "b": "CLD-ACT-M-000684",
+   "verdict": "distinct",
+   "task_a": "count integers in intersection of two absolute-value inequalities",
+   "task_b": "count lattice points satisfying linear inequalities",
+   "reason": "Different tasks: A is to count integers in intersection of two absolute-value inequalities; B is to count lattice points satisfying linear inequalities. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000783",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "difference of odd and even arithmetic series via pairing",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to difference of odd and even arithmetic series via pairing. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000446",
+   "b": "PP-MATH-000357",
+   "verdict": "distinct",
+   "task_a": "maximize x-y given two squared equations (choose extreme roots)",
+   "task_b": "maximize quotient a/b over interval bounds",
+   "reason": "Different tasks: A is to maximize x-y given two squared equations (choose extreme roots); B is to maximize quotient a/b over interval bounds. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000116",
+   "b": "CLD-SAT-M-000159",
+   "verdict": "distinct",
+   "task_a": "triangle angle sum to find third angle",
+   "task_b": "exterior angle theorem to find remote interior angle",
+   "reason": "A uses triangle angle sum; B uses exterior angle theorem (sum of remote interiors). Different theorem."
+  },
+  {
+   "a": "CLD-SAT-M-000127",
+   "b": "CLD-ACT-M-000544",
+   "verdict": "distinct",
+   "task_a": "find coefficient a in system given x=1 (back-substitute y)",
+   "task_b": "find k making a 2x2 linear system have no solution (proportional coefficients)",
+   "reason": "A substitutes known x to solve for coefficient; B uses proportional coefficients for no-solution. Different reasoning."
+  },
+  {
+   "a": "CLD-SAT-M-000127",
+   "b": "CLD-SAT-M-000002",
+   "verdict": "distinct",
+   "task_a": "find coefficient a in system given x=1 (back-substitute y)",
+   "task_b": "solve 2x2 linear system and report x+y",
+   "reason": "A finds unknown coefficient given x=1; B solves a fully specified system and adds. Different unknown."
+  },
+  {
+   "a": "CLD-SAT-M-000138",
+   "b": "CLD-ACT-M-000693",
+   "verdict": "distinct",
+   "task_a": "product of x-coordinates of line-circle intersection via Vieta",
+   "task_b": "distance between line-circle intersection points",
+   "reason": "Same line-circle substitution, but A uses Vieta's product of roots; B solves for both points and computes distance. Different target and finishing step."
+  },
+  {
+   "a": "CLD-SAT-M-000200",
+   "b": "CLD-ACT-M-000182",
+   "verdict": "duplicate",
+   "task_a": "find x-intercept of line through (0,-4) parallel to a standard-form line",
+   "task_b": "find x-intercept of line through a point parallel to a standard-form line",
+   "reason": "Same task and path: convert a standard-form line to slope form to get parallel slope, write line through given point, set y=0 for x-intercept. A's point happens to be the y-intercept, but the steps are the same; only numbers differ."
+  },
+  {
+   "a": "CLD-SAT-M-000326",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "table-defined function with shift g(x)=f(x+1)-2, solve g(x)=6",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to table-defined function with shift g(x)=f(x+1)-2, solve g(x)=6; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000381",
+   "b": "CLD-SAT-M-000392",
+   "verdict": "distinct",
+   "task_a": "quadratic symmetry f(x)=f(6-x) and min value, evaluate f(-1)",
+   "task_b": "exponential with f(x+2)=9f(x) and f(1)=6, find f(-1)",
+   "reason": "Different tasks: A is to quadratic symmetry f(x)=f(6-x) and min value, evaluate f(-1); B is to exponential with f(x+2)=9f(x) and f(1)=6, find f(-1). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000129",
+   "b": "CLD-SAT-M-000392",
+   "verdict": "distinct",
+   "task_a": "exponential f=a·b^x through two points, find f(0)",
+   "task_b": "exponential with f(x+2)=9f(x) and f(1)=6, find f(-1)",
+   "reason": "Both exponential a·b^x, but A gives two points (divide f(3)/f(1)) while B gives a functional relation f(x+2)=9f(x) that must be interpreted as b^2=9 and stepped backward. Different representation."
+  },
+  {
+   "a": "CLD-SAT-M-000321",
+   "b": "CLD-ACT-M-000479",
+   "verdict": "distinct",
+   "task_a": "number of zeros from sign of a and c (discriminant reasoning)",
+   "task_b": "count real zeros of vertically shifted quadratic (discriminant)",
+   "reason": "A reasons abstractly from signs of a and c (ac<0 => discriminant>0); B shifts a specific quadratic and checks discriminant. Different reasoning."
+  },
+  {
+   "a": "CLD-SAT-M-000005",
+   "b": "CLD-ACT-M-000660",
+   "verdict": "duplicate",
+   "task_a": "arc length s=rθ with angle in terms of π, report coefficient k",
+   "task_b": "arc length s=rθ with a radian angle (decimal)",
+   "reason": "Both apply s=rθ with radius and radian angle given (15·4π/5 vs 4·1.5). Single-formula substitution; difference in π-coefficient reporting is only answer format."
+  },
+  {
+   "a": "CLD-SAT-M-000012",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with distribution, x on both sides",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to solve linear equation with distribution, x on both sides; B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000015",
+   "b": "CLD-ACT-M-000745",
+   "verdict": "distinct",
+   "task_a": "rewrite 9^(x/2) as 3^x (power-of-power base change)",
+   "task_b": "rewrite 2^(x+3) as 8·2^x (product rule)",
+   "reason": "A uses power-of-a-power base change (9=3^2); B uses product rule to split 2^(x+3). Different exponent rule."
+  },
+  {
+   "a": "CLD-SAT-M-000027",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying",
+   "task_b": "solve |x-3|=|x-7| (equidistant midpoint)",
+   "reason": "Different tasks: A is to solve rational proportion 4/(x-2)=2/(x-5) by cross-multiplying; B is to solve |x-3|=|x-7| (equidistant midpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000052",
+   "b": "CLD-ACT-M-000303",
+   "verdict": "distinct",
+   "task_a": "find unknown coefficient k from g(3)=4, then evaluate g(-1)",
+   "task_b": "horizontal-compression composition: find x with g(x)=f(2x)=10",
+   "reason": "Different tasks: A is to find unknown coefficient k from g(3)=4, then evaluate g(-1); B is to horizontal-compression composition: find x with g(x)=f(2x)=10. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "PP-MATH-000208",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "iterated function composition f(f(f(2)))",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to iterated function composition f(f(f(2))). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to solve linear equation with distribution, x on one side. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000573",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "complex conjugate product plus i^2",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to complex conjugate product plus i^2. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000063",
+   "b": "CLD-ACT-M-000683",
+   "verdict": "distinct",
+   "task_a": "product rule for rational exponents x^(1/2)·x^(1/3)=x^k",
+   "task_b": "exact sine value of 5π/3 via reference angle",
+   "reason": "Different tasks: A is to product rule for rational exponents x^(1/2)·x^(1/3)=x^k; B is to exact sine value of 5π/3 via reference angle. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-ACT-M-000030",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to solve linear equation with distribution, x on one side. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-ACT-M-000788",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve rational equation 1/x+1/(2x)=3/4 by combining fractions",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to solve rational equation 1/x+1/(2x)=3/4 by combining fractions. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000072",
+   "b": "CLD-SAT-M-000097",
+   "verdict": "distinct",
+   "task_a": "solve 3·2^(x+1)=96 by isolating the power and matching exponents",
+   "task_b": "solve linear equation 5(x-2)=3x+4 with distribution, x on both sides",
+   "reason": "Different tasks: A is to solve 3·2^(x+1)=96 by isolating the power and matching exponents; B is to solve linear equation 5(x-2)=3x+4 with distribution, x on both sides. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "PP-MATH-000051",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "minimum of absolute-value function on restricted interval (endpoint)",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to minimum of absolute-value function on restricted interval (endpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "PP-MATH-000598",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "inverse values of a piecewise one-to-one function",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to inverse values of a piecewise one-to-one function. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000041",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "solve exponential equation by rewriting both sides to base 2 and equating exponents",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to solve exponential equation by rewriting both sides to base 2 and equating exponents. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000079",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "evaluate a numeric absolute-value expression",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to evaluate a numeric absolute-value expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "evaluate a compound fraction arithmetic expression",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to evaluate a compound fraction arithmetic expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000252",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "evaluate periodic function at large input via modular reduction",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to evaluate periodic function at large input via modular reduction. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000471",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "read inverse function value from a table",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to read inverse function value from a table. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000081",
+   "b": "CLD-ACT-M-000533",
+   "verdict": "distinct",
+   "task_a": "solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying",
+   "task_b": "scientific-notation multiplication/division",
+   "reason": "Different tasks: A is to solve g(a)=2 for rational function (x-1)/(x+4) by cross-multiplying; B is to scientific-notation multiplication/division. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000082",
+   "b": "CLD-ACT-M-000745",
+   "verdict": "distinct",
+   "task_a": "combine 4^(x/2)·8^(x/3) into 2^(kx) by base conversion",
+   "task_b": "rewrite 2^(x+3) as 8·2^x (product rule)",
+   "reason": "A converts two bases to 2 and adds exponents to find k; B splits a sum exponent. Different rule."
+  },
+  {
+   "a": "CLD-SAT-M-000110",
+   "b": "CLD-ACT-M-000437",
+   "verdict": "distinct",
+   "task_a": "build factored equation from given roots (one fractional)",
+   "task_b": "solve biquadratic x^4-5x^2+4=0 via substitution and sum positive roots",
+   "reason": "Different tasks: A is to build factored equation from given roots (one fractional); B is to solve biquadratic x^4-5x^2+4=0 via substitution and sum positive roots. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000136",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "find m+b of linear function from two values",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to find m+b of linear function from two values; B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000136",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "find m+b of linear function from two values",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to find m+b of linear function from two values; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000136",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "find m+b of linear function from two values",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to find m+b of linear function from two values; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000137",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "solve one-step-distributed linear equation 2(a-3)=10",
+   "task_b": "solve |x-3|=|x-7| (equidistant midpoint)",
+   "reason": "Different tasks: A is to solve one-step-distributed linear equation 2(a-3)=10; B is to solve |x-3|=|x-7| (equidistant midpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000183",
+   "b": "PP-MATH-000187",
+   "verdict": "distinct",
+   "task_a": "rational equation 3/x+4/x^2=1 -> quadratic, sum of roots",
+   "task_b": "sum of solutions of (x-3)^2=(2x+1)^2 via difference of squares",
+   "reason": "A clears denominators to get a quadratic and uses Vieta; B uses difference of squares. Different technique."
+  },
+  {
+   "a": "CLD-SAT-M-000190",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "find intercept b from f(9)=1 then evaluate f(-3)",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Different tasks: A is to find intercept b from f(9)=1 then evaluate f(-3); B is to solve linear equation with distribution, x on one side. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000201",
+   "b": "CLD-ACT-M-000033",
+   "verdict": "distinct",
+   "task_a": "zeros of vertically shifted quadratic by expanding and refactoring",
+   "task_b": "find period of a sine function (2π/b)",
+   "reason": "Different tasks: A is to zeros of vertically shifted quadratic by expanding and refactoring; B is to find period of a sine function (2π/b). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000201",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "zeros of vertically shifted quadratic by expanding and refactoring",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to zeros of vertically shifted quadratic by expanding and refactoring; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000203",
+   "b": "PP-MATH-000070",
+   "verdict": "distinct",
+   "task_a": "square a monomial with rational exponent",
+   "task_b": "simplify rational expression by factoring",
+   "reason": "Different tasks: A is to square a monomial with rational exponent; B is to simplify rational expression by factoring. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000203",
+   "b": "CLD-ACT-M-000170",
+   "verdict": "distinct",
+   "task_a": "square a monomial with rational exponent",
+   "task_b": "multiply and simplify rational expressions by factoring",
+   "reason": "Different tasks: A is to square a monomial with rational exponent; B is to multiply and simplify rational expressions by factoring. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000210",
+   "b": "CLD-ACT-M-000566",
+   "verdict": "distinct",
+   "task_a": "solve x^2=9 with sign condition then substitute",
+   "task_b": "given 2^a=3, compute 8^a=(2^a)^3",
+   "reason": "Different tasks: A is to solve x^2=9 with sign condition then substitute; B is to given 2^a=3, compute 8^a=(2^a)^3. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000211",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "evaluate 4^1.5 (rational exponent)",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to evaluate 4^1.5 (rational exponent); B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000211",
+   "b": "CLD-ACT-M-000551",
+   "verdict": "distinct",
+   "task_a": "evaluate 4^1.5 (rational exponent)",
+   "task_b": "minimum of absolute-value function |x-h|+k",
+   "reason": "Different tasks: A is to evaluate 4^1.5 (rational exponent); B is to minimum of absolute-value function |x-h|+k. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000226",
+   "b": "CLD-ACT-M-000420",
+   "verdict": "distinct",
+   "task_a": "find slope k from point, then missing coordinate n",
+   "task_b": "read point and slope from point-slope form",
+   "reason": "Different tasks: A is to find slope k from point, then missing coordinate n; B is to read point and slope from point-slope form. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000237",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4)",
+   "task_b": "telescoping sum of 1/(n(n+1))",
+   "reason": "Different tasks: A is to solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4); B is to telescoping sum of 1/(n(n+1)). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000237",
+   "b": "CLD-ACT-M-000267",
+   "verdict": "distinct",
+   "task_a": "solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4)",
+   "task_b": "evaluate (a+b)/(a-b) given ratio a/b",
+   "reason": "Different tasks: A is to solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4); B is to evaluate (a+b)/(a-b) given ratio a/b. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000237",
+   "b": "CLD-ACT-M-000682",
+   "verdict": "distinct",
+   "task_a": "solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4)",
+   "task_b": "square a complex binomial (1+i)^2",
+   "reason": "Different tasks: A is to solve a^(1/2)=2a^(1/4) via substitution u=a^(1/4); B is to square a complex binomial (1+i)^2. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000241",
+   "b": "CLD-ACT-M-000194",
+   "verdict": "distinct",
+   "task_a": "cone volume from height and radius = h/2",
+   "task_b": "cone volume after finding height from slant height via Pythagorean theorem",
+   "reason": "Both cone volume, but B requires Pythagorean step to get height from slant height; A gets radius as h/2. Different setup step."
+  },
+  {
+   "a": "CLD-SAT-M-000246",
+   "b": "CLD-ACT-M-000361",
+   "verdict": "distinct",
+   "task_a": "vertex of transformed parabola f(x-2)+3",
+   "task_b": "vertex of absolute-value graph from |x-h|+k form",
+   "reason": "Both read a vertex, but A is a quadratic built by transformation composition f(x-2)+3; B is an absolute-value graph in vertex form. Different function type."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve |x-3|=|x-7| (equidistant midpoint)",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to solve |x-3|=|x-7| (equidistant midpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000754",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "solve cube-root equation by cubing",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to solve cube-root equation by cubing. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000249",
+   "b": "CLD-ACT-M-000766",
+   "verdict": "distinct",
+   "task_a": "solve linear equation with fractional coefficients, x on both sides (clear denominators)",
+   "task_b": "maximum of difference of two absolute values (piecewise analysis)",
+   "reason": "Different tasks: A is to solve linear equation with fractional coefficients, x on both sides (clear denominators); B is to maximum of difference of two absolute values (piecewise analysis). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000253",
+   "b": "CLD-ACT-M-000420",
+   "verdict": "distinct",
+   "task_a": "equation of line through origin with given slope",
+   "task_b": "read point and slope from point-slope form",
+   "reason": "Different tasks: A is to equation of line through origin with given slope; B is to read point and slope from point-slope form. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000280",
+   "b": "CLD-ACT-M-000553",
+   "verdict": "distinct",
+   "task_a": "line through point with constraint m+b=8, find x-intercept",
+   "task_b": "y-intercept of line perpendicular to y=2x+1 through a point",
+   "reason": "Different tasks: A is to line through point with constraint m+b=8, find x-intercept; B is to y-intercept of line perpendicular to y=2x+1 through a point. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000291",
+   "b": "CLD-ACT-M-000627",
+   "verdict": "distinct",
+   "task_a": "exponential f(t+2)-f(t)=360, factor common term, solve t",
+   "task_b": "maximum of a sine function from amplitude and shift",
+   "reason": "Different tasks: A is to exponential f(t+2)-f(t)=360, factor common term, solve t; B is to maximum of a sine function from amplitude and shift. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "PP-MATH-000051",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "minimum of absolute-value function on restricted interval (endpoint)",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to minimum of absolute-value function on restricted interval (endpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000039",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "identify a fraction lying between two given fractions",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to identify a fraction lying between two given fractions. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000079",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "evaluate a numeric absolute-value expression",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to evaluate a numeric absolute-value expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "evaluate a compound fraction arithmetic expression",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to evaluate a compound fraction arithmetic expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000332",
+   "b": "PP-C-MATH-000006",
+   "verdict": "distinct",
+   "task_a": "exponential system: convert 4^a·8^b to base 2, solve with a-b=1",
+   "task_b": "find t equidistant from two points (distance formula / perpendicular bisector)",
+   "reason": "Different tasks: A is to exponential system: convert 4^a·8^b to base 2, solve with a-b=1; B is to find t equidistant from two points (distance formula / perpendicular bisector). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "PP-MATH-000208",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "iterated function composition f(f(f(2)))",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to iterated function composition f(f(f(2))). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000030",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve a linear proportion (x-4)/3=(x+2)/5 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "evaluate a composition f(g(-1)) of exponential and linear",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to evaluate a composition f(g(-1)) of exponential and linear. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-ACT-M-000788",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve rational equation 1/x+1/(2x)=3/4 by combining fractions",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve rational equation 1/x+1/(2x)=3/4 by combining fractions. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000363",
+   "b": "CLD-SAT-M-000097",
+   "verdict": "distinct",
+   "task_a": "find linear function from two points, then solve f(x)=x",
+   "task_b": "solve linear equation 5(x-2)=3x+4 with distribution, x on both sides",
+   "reason": "Different tasks: A is to find linear function from two points, then solve f(x)=x; B is to solve linear equation 5(x-2)=3x+4 with distribution, x on both sides. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000375",
+   "b": "PP-MATH-000441",
+   "verdict": "distinct",
+   "task_a": "count integers in intersection of two absolute-value inequalities",
+   "task_b": "count integers between two square roots",
+   "reason": "A intersects two absolute-value inequalities; B bounds integers by square roots. Different constraint type."
+  },
+  {
+   "a": "CLD-SAT-M-000408",
+   "b": "PP-MATH-000035",
+   "verdict": "distinct",
+   "task_a": "positive root of quadratic with radical coefficient",
+   "task_b": "solve radical equation sqrt(x+6)=x, reject extraneous root",
+   "reason": "Different tasks: A is to positive root of quadratic with radical coefficient; B is to solve radical equation sqrt(x+6)=x, reject extraneous root. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000434",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "linear function: solve f(x)=average of f(2),f(10)",
+   "task_b": "solve |x-3|=|x-7| (equidistant midpoint)",
+   "reason": "Different tasks: A is to linear function: solve f(x)=average of f(2),f(10); B is to solve |x-3|=|x-7| (equidistant midpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "PP-MATH-000051",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "minimum of absolute-value function on restricted interval (endpoint)",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to minimum of absolute-value function on restricted interval (endpoint). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000079",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate a numeric absolute-value expression",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate a numeric absolute-value expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate a compound fraction arithmetic expression",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate a compound fraction arithmetic expression. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000252",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate periodic function at large input via modular reduction",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate periodic function at large input via modular reduction. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000267",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate (a+b)/(a-b) given ratio a/b",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate (a+b)/(a-b) given ratio a/b. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to solve linear proportion (x+2)/5=(x-1)/2 by cross-multiplying. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "evaluate an absolute-value function at two inputs and add",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to evaluate an absolute-value function at two inputs and add. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "CLD-ACT-M-000649",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "solve quadratic by completing square/quadratic formula (irrational roots)",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to solve quadratic by completing square/quadratic formula (irrational roots). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000445",
+   "b": "PP-C-MATH-000006",
+   "verdict": "distinct",
+   "task_a": "solve x^(5/2)=32 then evaluate x^(-3/2)",
+   "task_b": "find t equidistant from two points (distance formula / perpendicular bisector)",
+   "reason": "Different tasks: A is to solve x^(5/2)=32 then evaluate x^(-3/2); B is to find t equidistant from two points (distance formula / perpendicular bisector). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "PP-MATH-000468",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "maximum of x/(x^2+1) (AM-GM / calculus-free)",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to maximum of x/(x^2+1) (AM-GM / calculus-free). They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "solve linear equation with distribution, x on one side",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to solve linear equation with distribution, x on one side. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000462",
+   "b": "CLD-ACT-M-000788",
+   "verdict": "distinct",
+   "task_a": "find ratio a/b from linear equation in a and b",
+   "task_b": "solve rational equation 1/x+1/(2x)=3/4 by combining fractions",
+   "reason": "Different tasks: A is to find ratio a/b from linear equation in a and b; B is to solve rational equation 1/x+1/(2x)=3/4 by combining fractions. They share at most surface wording or a broad topic, not the setup or solution steps."
+  },
+  {
+   "a": "CLD-SAT-M-000465",
+   "b": "CLD-SAT-M-000392",
+   "verdict": "distinct",
+   "task_a": "exponential from successive differences, find ratio b and a, evaluate f(3)",
+   "task_b": "exponential with f(x+2)=9f(x) and f(1)=6, find f(-1)",
+   "reason": "A derives ratio from successive differences (a(1-b), ab(1-b)) and forward-evaluates f(3); B interprets functional equation f(x+2)=9f(x). Different setup."
+  },
+  {
+   "a": "CLD-SAT-M-000477",
+   "b": "CLD-ACT-M-000489",
+   "verdict": "distinct",
+   "task_a": "conditional probability from frequency table restricted to above-mean group",
+   "task_b": "simple probability 'at least 2' from a frequency table",
+   "reason": "A requires computing the mean then a conditional probability on a restricted subgroup; B is a direct 'at least 2' probability. Extra reasoning steps."
+  }
+ ]
+}
