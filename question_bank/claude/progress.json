@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T08:07:11+00:00",
+  "updated_at": "2026-10-27T08:07:25+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 281,
-    "act_reading": 264,
+    "act_reading": 273,
     "sat_reading_writing": 278,
     "sat_math": 518
   },
@@ -39,10 +39,10 @@
       "passed_after_revision": 7
     },
     "act_reading": {
-      "PASS": 285,
+      "PASS": 294,
       "REVISE": 28,
       "REJECT": 0,
-      "candidates": 313,
+      "candidates": 322,
       "passed_after_revision": 20
     },
     "sat_reading_writing": {
@@ -1093,12 +1093,12 @@
       "passages": 28
     },
     "act_reading": {
-      "accepted": 264,
+      "accepted": 273,
       "retired_after_audit": 21,
       "by_skill": {
-        "Craft and Structure": 95,
-        "Integration of Knowledge and Ideas": 78,
-        "Key Ideas and Details": 91
+        "Craft and Structure": 98,
+        "Integration of Knowledge and Ideas": 81,
+        "Key Ideas and Details": 94
       },
       "by_subskill": {
         "Applying a character's standard": 1,
@@ -1127,7 +1127,7 @@
         "Author's view of an interpretation": 1,
         "Central claim of a passage": 3,
         "Central claim of a research narrative": 1,
-        "Central idea of a narrative": 2,
+        "Central idea of a narrative": 3,
         "Central idea of an informational passage": 2,
         "Characterization": 3,
         "Comparing perspectives (younger and older narrator)": 1,
@@ -1143,6 +1143,7 @@
         "Detail (cross-passage trap)": 1,
         "Detail (paraphrased)": 7,
         "Effect of a narrative detail": 1,
+        "Effect of a short sentence": 1,
         "Effect of figurative language": 2,
         "Evaluating evidence for a claim": 2,
         "Evaluating evidence for a hypothesis": 1,
@@ -1170,10 +1171,15 @@
         "Function of evidence": 2,
         "Function of examples": 3,
         "Function of examples within an argument": 1,
+        "How an outcome bears on an expectation": 1,
         "How one author would respond to the other": 2,
         "How one passage complicates another": 1,
+        "Inference about a character": 1,
         "Inference about a character's action": 2,
         "Inference about a character's meaning": 1,
+        "Inference about a character’s observation": 1,
+        "Inference about a character’s realization": 1,
+        "Inference about a character’s self-recognition": 1,
         "Inference about a mechanism": 1,
         "Inference about a narrator's view": 1,
         "Inference about a phrase": 1,
@@ -1222,8 +1228,9 @@
         "Main purpose of a passage": 8,
         "Main purpose of one passage": 1,
         "Meaning of a claim in context": 1,
+        "Meaning of a figurative phrase": 1,
         "Meaning of a phrase in context": 5,
-        "Meaning of a word in context": 25,
+        "Meaning of a word in context": 26,
         "Overall structure of a narrative": 1,
         "Overall structure of a passage": 1,
         "Overall structure of an argument": 1,
@@ -1251,27 +1258,27 @@
         "What an experiment adds to a correlation": 1
       },
       "by_difficulty_author": {
-        "easy": 78,
+        "easy": 83,
         "hard": 32,
-        "medium": 154
+        "medium": 158
       },
       "by_difficulty_calibrated": {
-        "easy": 153,
-        "medium": 111
+        "easy": 158,
+        "medium": 115
       },
       "calibrated_share": {
-        "easy": 0.58,
-        "medium": 0.42
+        "easy": 0.579,
+        "medium": 0.421
       },
       "answer_key_balance": {
-        "A": 77,
-        "B": 62,
-        "C": 63,
-        "D": 62
+        "A": 80,
+        "B": 64,
+        "C": 65,
+        "D": 64
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 35
+      "passages": 36
     },
     "sat_reading_writing": {
       "accepted": 278,
@@ -2094,7 +2101,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 28,
-    "act_reading": 35,
+    "act_reading": 36,
     "sat_reading_writing": 31,
     "sat_math": 57
   },
@@ -2170,11 +2177,11 @@
       }
     },
     "act_reading": {
-      "next_batch": 36,
+      "next_batch": 37,
       "skill_gap_for_next_10": {
-        "Key Ideas and Details": 40.5,
-        "Craft and Structure": -14.2,
-        "Integration of Knowledge and Ideas": -16.4
+        "Key Ideas and Details": 41.8,
+        "Craft and Structure": -14.5,
+        "Integration of Knowledge and Ideas": -17.3
       }
     }
   },
@@ -2191,8 +2198,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 264,
-      "share_of_target": 0.386
+      "accepted": 273,
+      "share_of_target": 0.399
     },
     "sat_reading_writing": {
       "target": 694,
@@ -2206,7 +2213,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2115,
+  "total_accepted": 2124,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -50448,7 +50455,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 35,
+      "bank_version": 36,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -50588,7 +50595,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T08:07:10+00:00",
+    "heartbeat_at": "2026-10-27T08:07:25+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
