@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T07:44:30+00:00",
+  "updated_at": "2026-10-27T07:44:42+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 271,
+    "act_english": 281,
     "act_reading": 264,
     "sat_reading_writing": 278,
     "sat_math": 518
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 272,
+      "PASS": 282,
       "REVISE": 10,
       "REJECT": 0,
-      "candidates": 282,
+      "candidates": 292,
       "passed_after_revision": 7
     },
     "act_reading": {
@@ -873,12 +873,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 271,
+      "accepted": 281,
       "retired_after_audit": 1,
       "by_skill": {
-        "Conventions of Standard English": 150,
-        "Knowledge of Language": 38,
-        "Production of Writing": 83
+        "Conventions of Standard English": 156,
+        "Knowledge of Language": 39,
+        "Production of Writing": 86
       },
       "by_subskill": {
         "Adding a sentence (relevance)": 2,
@@ -893,12 +893,15 @@
         "Ambiguous pronoun reference": 1,
         "Amount versus number": 1,
         "Between versus among": 1,
+        "Choosing a detail to fulfill a goal": 1,
         "Choosing a phrase that fits the essay's point": 1,
         "Choosing a sentence that supports what follows": 1,
         "Choosing content that states a purpose": 1,
         "Colon after a complete clause with a possessive": 1,
         "Colon before a list": 1,
         "Colon introducing an explanation": 3,
+        "Colon misuse after a verb": 1,
+        "Comma after an introductory dependent clause": 1,
         "Comma before a coordinating conjunction": 2,
         "Comma before a nonessential \"which\" clause": 1,
         "Comma splice": 6,
@@ -934,6 +937,7 @@
         "Dangling modifier": 3,
         "Dangling modifiers": 1,
         "Deciding whether to keep a sentence": 9,
+        "Deleting a phrase (relevance)": 1,
         "Double negatives": 1,
         "Effective conclusions": 1,
         "Evaluating whether an essay meets a goal": 11,
@@ -946,7 +950,7 @@
         "Idiom (\"by design\")": 1,
         "Idiom (phrasal verb)": 1,
         "Idiom (preposition after a verb)": 1,
-        "Idiom (preposition)": 2,
+        "Idiom (preposition)": 3,
         "Introducing a paragraph (topic sentence)": 1,
         "Irregular past tense": 2,
         "It's / its": 1,
@@ -968,14 +972,14 @@
         "Paired dashes": 1,
         "Paired dashes around an interrupting list": 1,
         "Parallel infinitives": 1,
-        "Parallel structure": 3,
+        "Parallel structure": 4,
         "Parallel structure in a series": 1,
         "Parallel structure with either ... or": 1,
         "Parallel verbs in a series": 1,
         "Participial phrases and sentence boundaries": 1,
         "Past participle (had + verb)": 1,
-        "Past perfect tense": 1,
-        "Placing an added sentence": 2,
+        "Past perfect tense": 2,
+        "Placing an added sentence": 3,
         "Plural possessive": 3,
         "Precise word choice": 2,
         "Precise, idiomatic wording": 1,
@@ -986,6 +990,7 @@
         "Pronoun case (who/whom)": 1,
         "Pronoun case after a verb": 1,
         "Pronoun case in a compound object": 1,
+        "Pronoun with an unclear antecedent": 1,
         "Pronoun-antecedent agreement with \"each\"": 1,
         "Punctuating conjunctive adverbs": 1,
         "Punctuation before an appositive phrase": 1,
@@ -1007,6 +1012,7 @@
         "Sentence fragment (appositive)": 1,
         "Sentence fragment (finite verb)": 1,
         "Sentence fragment (introductory phrase)": 1,
+        "Sentence fragment (relative clause)": 1,
         "Sentence fragment (subordinate clause)": 1,
         "Sentence placement": 1,
         "Sentence placement (adding a sentence)": 1,
@@ -1062,29 +1068,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 87,
+        "easy": 95,
         "hard": 27,
-        "medium": 157
+        "medium": 159
       },
       "by_difficulty_calibrated": {
-        "easy": 146,
+        "easy": 151,
         "hard": 4,
-        "medium": 121
+        "medium": 126
       },
       "calibrated_share": {
-        "easy": 0.539,
-        "hard": 0.015,
-        "medium": 0.446
+        "easy": 0.537,
+        "hard": 0.014,
+        "medium": 0.448
       },
       "answer_key_balance": {
-        "A": 67,
-        "B": 70,
-        "C": 68,
-        "D": 66
+        "A": 69,
+        "B": 73,
+        "C": 71,
+        "D": 68
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 27
+      "passages": 28
     },
     "act_reading": {
       "accepted": 264,
@@ -2086,7 +2092,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 27,
+    "act_english": 28,
     "act_reading": 33,
     "sat_reading_writing": 31,
     "sat_math": 57
@@ -2146,11 +2152,11 @@
   },
   "verbal_guidance": {
     "act_english": {
-      "next_batch": 28,
+      "next_batch": 29,
       "skill_gap_for_next_10": {
-        "Production of Writing": 30.8,
-        "Knowledge of Language": 19.6,
-        "Conventions of Standard English": -36.2
+        "Production of Writing": 31.9,
+        "Knowledge of Language": 20.7,
+        "Conventions of Standard English": -38.1
       }
     },
     "act_reading": {
@@ -2179,8 +2185,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 271,
-      "share_of_target": 0.393
+      "accepted": 281,
+      "share_of_target": 0.408
     },
     "act_reading": {
       "target": 684,
@@ -2199,7 +2205,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 2105,
+  "total_accepted": 2115,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_reading",
   "audits": [
@@ -50434,7 +50440,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 27,
+      "bank_version": 28,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -50581,7 +50587,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T07:44:30+00:00",
+    "heartbeat_at": "2026-10-27T07:44:42+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
