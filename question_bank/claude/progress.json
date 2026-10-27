@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T22:48:14+00:00",
+  "updated_at": "2026-10-27T22:50:32+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 518,
     "act_reading": 532,
     "sat_reading_writing": 534,
-    "sat_math": 969
+    "sat_math": 980
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 48
     },
     "sat_math": {
-      "PASS": 999,
-      "REVISE": 31,
+      "PASS": 1010,
+      "REVISE": 32,
       "REJECT": 18,
-      "candidates": 1048,
+      "candidates": 1060,
       "passed_after_revision": 35
     }
   },
@@ -1784,13 +1784,13 @@
       "passages": 561
     },
     "sat_math": {
-      "accepted": 969,
+      "accepted": 980,
       "retired_after_audit": 30,
       "by_skill": {
         "Advanced Math": 308,
-        "Algebra": 278,
+        "Algebra": 284,
         "Geometry and Trigonometry": 195,
-        "Problem-Solving and Data Analysis": 188
+        "Problem-Solving and Data Analysis": 193
       },
       "by_subskill": {
         "A line and its reflection across y = x": 1,
@@ -1904,6 +1904,7 @@
         "Combining fractions with conjugate denominators": 1,
         "Combining fractions with opposite denominators": 1,
         "Combining two exponential decay terms": 1,
+        "Combining two groups with different ratios": 1,
         "Combining two studies with different kinds of randomness": 1,
         "Common chord of two circles: considering both positions": 1,
         "Common value consistent with two margins of error": 1,
@@ -1972,6 +1973,7 @@
         "Constants from a quadratic factor of a quartic": 1,
         "Constants in a linear inequality from its solution set": 1,
         "Converting a compound inequality between temperature scales": 1,
+        "Converting a mixed-unit notation": 1,
         "Converting a per-area rate between metric units": 1,
         "Converting a rate between units": 1,
         "Converting a rate to a different time unit": 1,
@@ -2172,6 +2174,7 @@
         "Integer intersection fixing a slope": 1,
         "Intercept count after a translation": 1,
         "Intercept interval for an intersection in a given quadrant": 1,
+        "Intercept of a line translated in two directions": 1,
         "Intercept of a linear model fit to later data": 1,
         "Intercepts of a line in standard form": 1,
         "Interior angles from a ratio of exterior angles": 1,
@@ -2203,6 +2206,7 @@
         "Intersection of a square-root graph and a line": 1,
         "Intersection of a vertical and a horizontal shift": 1,
         "Intersection of lines with swapped coefficients": 1,
+        "Intersection of two linear functions from a table": 1,
         "Intersection of two lines": 1,
         "Intersection of two unknown linear functions from their difference": 1,
         "Intersections of a line and an absolute value graph": 1,
@@ -2374,7 +2378,9 @@
         "Photo side from a border-to-photo area ratio": 1,
         "Point inside a triangle bounded by lines": 1,
         "Point on a proportional line with a coordinate condition": 1,
+        "Point on a transformed graph to a point on f": 1,
         "Point with related coordinates on a line": 1,
+        "Points equidistant from both axes on a line": 1,
         "Points on a proportional line": 1,
         "Polynomial value from intersections with a horizontal line": 1,
         "Population count range from a sample proportion and margin of error": 1,
@@ -2449,6 +2455,7 @@
         "Recovering a constant from a miscopied equation": 1,
         "Recovering a half-life from a fraction remaining": 1,
         "Recovering a sample count from an interval": 1,
+        "Recovering a whole from a percent and comparing": 1,
         "Recovering an exponential function from successive differences": 1,
         "Recovering an input from a linear model through a distance and time": 1,
         "Recovering concentrations from two trial mixtures": 1,
@@ -2634,6 +2641,7 @@
         "System of equations for time at two speeds": 1,
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
+        "System with a parameter and an extra condition": 1,
         "System with infinitely many solutions and two unknown constants": 1,
         "System with no solution when the parameter appears twice": 1,
         "Tag-and-recapture with lost tags": 1,
@@ -2727,11 +2735,14 @@
         "Weight of snow from depth ratio and density": 1,
         "Weighted average by days": 1,
         "What a margin of error does and does not guarantee": 1,
+        "When two conditional probabilities are equal": 1,
         "When two linear quantities are equal": 1,
         "Where a circle tangent to the x-axis crosses the y-axis": 1,
         "Where a parabola is negative and falling": 1,
         "Where two linear functions given by tables are equal": 1,
         "Which added fact determines a system": 1,
+        "Which of two constraints binds": 1,
+        "Which statistics an open top category leaves undetermined": 1,
         "Whole from a chain of percents of remainders": 1,
         "Whole-triangle area from a sub-triangle area and the altitude relation": 1,
         "Width of a rectangle from a quadratic area": 1,
@@ -2764,19 +2775,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 143,
-        "hard": 140,
-        "medium": 686
+        "easy": 146,
+        "hard": 141,
+        "medium": 693
       },
       "by_difficulty_calibrated": {
-        "easy": 181,
-        "hard": 139,
-        "medium": 649
+        "easy": 182,
+        "hard": 140,
+        "medium": 658
       },
       "calibrated_share": {
-        "easy": 0.187,
+        "easy": 0.186,
         "hard": 0.143,
-        "medium": 0.67
+        "medium": 0.671
       },
       "answer_key_balance": {
         "-1": 6,
@@ -2819,18 +2830,18 @@
         "13.5": 1,
         "13/2": 1,
         "132": 1,
-        "14": 3,
+        "14": 4,
         "14000": 1,
         "14040": 1,
         "1480": 1,
         "15": 7,
         "150": 1,
         "158": 1,
-        "16": 7,
+        "16": 8,
         "160": 1,
         "168": 1,
         "169": 1,
-        "17": 2,
+        "17": 3,
         "17.5": 1,
         "1728": 1,
         "18": 3,
@@ -2840,7 +2851,7 @@
         "1800": 2,
         "19": 1,
         "193.5": 1,
-        "2": 15,
+        "2": 17,
         "2.40": 1,
         "2.5": 1,
         "2.7": 1,
@@ -2902,7 +2913,7 @@
         "5.4": 1,
         "5/13": 1,
         "5/2": 2,
-        "50": 4,
+        "50": 5,
         "52": 1,
         "53": 1,
         "54": 2,
@@ -2925,7 +2936,7 @@
         "7/4": 1,
         "72": 1,
         "748": 1,
-        "8": 13,
+        "8": 14,
         "8.5": 1,
         "8/15": 1,
         "8/9": 1,
@@ -2941,13 +2952,13 @@
         "94": 1,
         "95": 2,
         "96": 1,
-        "A": 127,
+        "A": 128,
         "B": 186,
-        "C": 175,
-        "D": 101
+        "C": 176,
+        "D": 103
       },
       "modeling_items": 252,
-      "spr_items": 380,
+      "spr_items": 387,
       "passages": 0
     }
   },
@@ -2956,7 +2967,7 @@
     "act_english": 59,
     "act_reading": 65,
     "sat_reading_writing": 64,
-    "sat_math": 89
+    "sat_math": 90
   },
   "next_batch_guidance": {
     "act_math": {
@@ -2988,27 +2999,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 90,
+    "next_batch": 91,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 64.6,
-      "Advanced Math": 34.6,
-      "Problem-Solving and Data Analysis": -41.2,
-      "Geometry and Trigonometry": -48.2
+      "Algebra": 62.5,
+      "Advanced Math": 38.5,
+      "Problem-Solving and Data Analysis": -44.5,
+      "Geometry and Trigonometry": -46.5
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": 63.8,
-      "medium": -159.5,
-      "hard": 105.8
+      "easy": 65.5,
+      "medium": -163.0,
+      "hard": 107.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 56.6,
-      "B": -2.4,
-      "C": 8.6,
+      "A": 57.6,
+      "B": -0.4,
+      "C": 9.6,
       "D": 82.6
     },
-    "spr_items": 380,
+    "spr_items": 387,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -3021,20 +3032,20 @@
         "Expression of Ideas": -3.2
       }
     },
-    "act_english": {
-      "next_batch": 60,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 61.8,
-        "Knowledge of Language": 20.2,
-        "Conventions of Standard English": -64.2
-      }
-    },
     "act_reading": {
       "next_batch": 66,
       "skill_gap_for_next_10": {
         "Key Ideas and Details": 80.2,
         "Craft and Structure": -28.1,
         "Integration of Knowledge and Ideas": -42.0
+      }
+    },
+    "act_english": {
+      "next_batch": 60,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 61.8,
+        "Knowledge of Language": 20.2,
+        "Conventions of Standard English": -64.2
       }
     }
   },
@@ -3061,12 +3072,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 969,
-      "share_of_target": 0.969
+      "accepted": 980,
+      "share_of_target": 0.98
     }
   },
   "total_target": 3841,
-  "total_accepted": 3327,
+  "total_accepted": 3338,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -540857,6 +540868,787 @@
       ],
       "subskills_used_more_than_twice": {},
       "scope": "automatic audit at 909 accepted"
+    },
+    {
+      "bank": "sat_math",
+      "audited_at": "2026-10-27T22:50:02+00:00",
+      "accepted": 1010,
+      "similar_pairs_ge_0_45": [
+        {
+          "a": "CLD-SAT-M-000002",
+          "b": "CLD-SAT-M-000031",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000002",
+          "b": "CLD-SAT-M-000127",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-M-000002",
+          "b": "CLD-SAT-M-001002",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000005",
+          "b": "CLD-SAT-M-000150",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000011",
+          "b": "CLD-SAT-M-000368",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000022",
+          "b": "CLD-SAT-M-000115",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000030",
+          "b": "CLD-SAT-M-000118",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000034",
+          "b": "CLD-SAT-M-000081",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000038",
+          "b": "CLD-SAT-M-000190",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000038",
+          "b": "CLD-SAT-M-000329",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000038",
+          "b": "CLD-SAT-M-000993",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-M-000042",
+          "b": "CLD-SAT-M-000625",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000048",
+          "b": "CLD-SAT-M-000171",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000048",
+          "b": "CLD-SAT-M-000365",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000058",
+          "b": "CLD-SAT-M-000169",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000062",
+          "b": "CLD-SAT-M-000788",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000062",
+          "b": "CLD-SAT-M-000794",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000064",
+          "b": "CLD-SAT-M-000407",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000071",
+          "b": "CLD-SAT-M-000155",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000071",
+          "b": "CLD-SAT-M-000201",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000071",
+          "b": "CLD-SAT-M-000579",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000081",
+          "b": "CLD-SAT-M-000155",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000081",
+          "b": "CLD-SAT-M-000201",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000092",
+          "b": "CLD-SAT-M-000276",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000097",
+          "b": "CLD-SAT-M-000235",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000101",
+          "b": "CLD-SAT-M-000742",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000108",
+          "b": "CLD-SAT-M-000127",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000117",
+          "b": "CLD-SAT-M-000169",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000124",
+          "b": "CLD-SAT-M-000245",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000124",
+          "b": "CLD-SAT-M-000246",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000129",
+          "b": "CLD-SAT-M-000392",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000129",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000129",
+          "b": "CLD-SAT-M-000474",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000129",
+          "b": "CLD-SAT-M-000559",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000136",
+          "b": "CLD-SAT-M-000190",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000136",
+          "b": "CLD-SAT-M-000692",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000145",
+          "b": "CLD-SAT-M-000282",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000153",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000162",
+          "b": "CLD-SAT-M-000246",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000162",
+          "b": "CLD-SAT-M-000559",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000164",
+          "b": "CLD-SAT-M-000172",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000164",
+          "b": "CLD-SAT-M-000189",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000174",
+          "b": "CLD-SAT-M-000211",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000179",
+          "b": "CLD-SAT-M-000585",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000183",
+          "b": "CLD-SAT-M-000310",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000184",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000190",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000190",
+          "b": "CLD-SAT-M-000903",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000201",
+          "b": "CLD-SAT-M-000326",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-SAT-M-000201",
+          "b": "CLD-SAT-M-000742",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000201",
+          "b": "CLD-SAT-M-000981",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000209",
+          "b": "CLD-SAT-M-000474",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000255",
+          "b": "CLD-SAT-M-000310",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-SAT-M-000290",
+          "b": "CLD-SAT-M-000792",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000310",
+          "b": "CLD-SAT-M-000680",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000329",
+          "b": "CLD-SAT-M-000369",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-M-000349",
+          "b": "CLD-SAT-M-000844",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000355",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-SAT-M-000355",
+          "b": "CLD-SAT-M-000591",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000369",
+          "b": "CLD-SAT-M-000624",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000381",
+          "b": "CLD-SAT-M-000392",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000381",
+          "b": "CLD-SAT-M-000978",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-SAT-M-000385",
+          "b": "CLD-SAT-M-000985",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000392",
+          "b": "CLD-SAT-M-000465",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000392",
+          "b": "CLD-SAT-M-000591",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000399",
+          "b": "CLD-SAT-M-001002",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000410",
+          "b": "CLD-SAT-M-000453",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000416",
+          "b": "CLD-SAT-M-000901",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000420",
+          "b": "CLD-SAT-M-000895",
+          "similarity": 0.57
+        },
+        {
+          "a": "CLD-SAT-M-000426",
+          "b": "CLD-SAT-M-000678",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000458",
+          "b": "CLD-SAT-M-000953",
+          "similarity": 0.53
+        },
+        {
+          "a": "CLD-SAT-M-000459",
+          "b": "CLD-SAT-M-000982",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000465",
+          "b": "CLD-SAT-M-000591",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000465",
+          "b": "CLD-SAT-M-000905",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000474",
+          "b": "CLD-SAT-M-000559",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000474",
+          "b": "CLD-SAT-M-000595",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000474",
+          "b": "CLD-SAT-M-000603",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000485",
+          "b": "CLD-SAT-M-001004",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000559",
+          "b": "CLD-SAT-M-001004",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000577",
+          "b": "CLD-SAT-M-000793",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000577",
+          "b": "CLD-SAT-M-000979",
+          "similarity": 0.56
+        },
+        {
+          "a": "CLD-SAT-M-000616",
+          "b": "CLD-SAT-M-000783",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000616",
+          "b": "CLD-SAT-M-000834",
+          "similarity": 0.45
+        },
+        {
+          "a": "CLD-SAT-M-000619",
+          "b": "CLD-SAT-M-000789",
+          "similarity": 0.54
+        },
+        {
+          "a": "CLD-SAT-M-000660",
+          "b": "CLD-SAT-M-000764",
+          "similarity": 0.46
+        },
+        {
+          "a": "CLD-SAT-M-000680",
+          "b": "CLD-SAT-M-000784",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000692",
+          "b": "CLD-SAT-M-000905",
+          "similarity": 0.52
+        },
+        {
+          "a": "CLD-SAT-M-000695",
+          "b": "CLD-SAT-M-000794",
+          "similarity": 0.58
+        },
+        {
+          "a": "CLD-SAT-M-000783",
+          "b": "CLD-SAT-M-000834",
+          "similarity": 0.55
+        },
+        {
+          "a": "CLD-SAT-M-000789",
+          "b": "CLD-SAT-M-000934",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000793",
+          "b": "CLD-SAT-M-000979",
+          "similarity": 0.6
+        },
+        {
+          "a": "CLD-SAT-M-000835",
+          "b": "CLD-SAT-M-000979",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000838",
+          "b": "CLD-SAT-M-000993",
+          "similarity": 0.47
+        },
+        {
+          "a": "CLD-SAT-M-000840",
+          "b": "CLD-SAT-M-000853",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000844",
+          "b": "CLD-SAT-M-000986",
+          "similarity": 0.5
+        },
+        {
+          "a": "CLD-SAT-M-000863",
+          "b": "CLD-SAT-M-001004",
+          "similarity": 0.48
+        },
+        {
+          "a": "CLD-SAT-M-000877",
+          "b": "CLD-SAT-M-000905",
+          "similarity": 0.53
+        }
+      ],
+      "answer_key_balance": {
+        "-1": 6,
+        "-12": 1,
+        "-2": 3,
+        "-2.5": 1,
+        "-21/5": 1,
+        "-4": 2,
+        "-6": 2,
+        "-7": 1,
+        "-8/3": 1,
+        "-9": 2,
+        "-9/2": 1,
+        "0.58": 1,
+        "0.6": 1,
+        "1": 3,
+        "1.2": 1,
+        "1.24": 1,
+        "1.5": 2,
+        "1.66": 1,
+        "1/2": 1,
+        "1/4": 1,
+        "10": 13,
+        "10.5": 1,
+        "100": 2,
+        "1000": 2,
+        "102": 1,
+        "108": 1,
+        "11": 3,
+        "11/3": 1,
+        "110": 1,
+        "114": 1,
+        "115": 1,
+        "12": 11,
+        "12.2": 1,
+        "12.5": 1,
+        "12/25": 1,
+        "120": 1,
+        "1260": 1,
+        "13": 3,
+        "13.5": 1,
+        "13/2": 1,
+        "132": 1,
+        "14": 4,
+        "14000": 1,
+        "14040": 1,
+        "1480": 1,
+        "15": 8,
+        "150": 1,
+        "158": 1,
+        "16": 8,
+        "160": 1,
+        "168": 1,
+        "169": 1,
+        "17": 3,
+        "17.5": 1,
+        "1728": 1,
+        "18": 3,
+        "18.75": 1,
+        "18/13": 1,
+        "180": 1,
+        "1800": 2,
+        "19": 1,
+        "193.5": 1,
+        "2": 17,
+        "2.40": 1,
+        "2.5": 1,
+        "2.7": 1,
+        "2/3": 1,
+        "20": 8,
+        "20/3": 2,
+        "200": 2,
+        "2000": 1,
+        "209": 1,
+        "21": 1,
+        "22": 1,
+        "22/17": 1,
+        "220": 1,
+        "23": 1,
+        "24": 3,
+        "24/7": 1,
+        "240": 2,
+        "25": 6,
+        "25/3": 1,
+        "26": 2,
+        "26/3": 1,
+        "27500": 1,
+        "28": 1,
+        "28.8": 1,
+        "29": 1,
+        "3": 17,
+        "3.54": 1,
+        "3.6": 1,
+        "3/2": 1,
+        "30": 4,
+        "30.24": 1,
+        "300": 1,
+        "313": 1,
+        "314": 1,
+        "330": 1,
+        "34": 1,
+        "340": 1,
+        "36": 7,
+        "360": 1,
+        "3600": 1,
+        "37.5": 2,
+        "39": 2,
+        "4": 25,
+        "4.05": 1,
+        "4.2": 1,
+        "4/3": 1,
+        "40": 8,
+        "400": 1,
+        "41.4": 1,
+        "436": 1,
+        "44": 2,
+        "447": 1,
+        "45": 2,
+        "47": 1,
+        "48": 2,
+        "49": 1,
+        "492": 1,
+        "5": 8,
+        "5.4": 1,
+        "5/13": 1,
+        "5/2": 2,
+        "50": 5,
+        "52": 1,
+        "53": 1,
+        "54": 2,
+        "5760": 1,
+        "59": 1,
+        "6": 15,
+        "6.5": 1,
+        "60": 3,
+        "600": 3,
+        "62.25": 1,
+        "62.5": 1,
+        "625": 1,
+        "63": 1,
+        "64": 2,
+        "640": 1,
+        "67": 2,
+        "67.5": 1,
+        "7": 15,
+        "7.2": 2,
+        "7/4": 1,
+        "72": 1,
+        "748": 1,
+        "8": 15,
+        "8.5": 1,
+        "8/15": 1,
+        "8/9": 1,
+        "80": 2,
+        "81": 1,
+        "81/4": 1,
+        "84": 1,
+        "860": 2,
+        "9": 6,
+        "9/17": 1,
+        "9/2": 2,
+        "90": 3,
+        "94": 1,
+        "95": 2,
+        "96": 2,
+        "A": 136,
+        "B": 191,
+        "C": 182,
+        "D": 106
+      },
+      "by_skill": {
+        "Advanced Math": 318,
+        "Algebra": 294,
+        "Geometry and Trigonometry": 202,
+        "Problem-Solving and Data Analysis": 196
+      },
+      "by_difficulty_author": {
+        "easy": 152,
+        "hard": 143,
+        "medium": 715
+      },
+      "by_difficulty_calibrated": {
+        "easy": 194,
+        "hard": 141,
+        "medium": 675
+      },
+      "thin_explanations": [
+        "CLD-SAT-M-000001",
+        "CLD-SAT-M-000005",
+        "CLD-SAT-M-000008",
+        "CLD-SAT-M-000011",
+        "CLD-SAT-M-000012",
+        "CLD-SAT-M-000013",
+        "CLD-SAT-M-000015",
+        "CLD-SAT-M-000020",
+        "CLD-SAT-M-000024",
+        "CLD-SAT-M-000028",
+        "CLD-SAT-M-000035",
+        "CLD-SAT-M-000039",
+        "CLD-SAT-M-000040",
+        "CLD-SAT-M-000046",
+        "CLD-SAT-M-000047",
+        "CLD-SAT-M-000052",
+        "CLD-SAT-M-000053",
+        "CLD-SAT-M-000056",
+        "CLD-SAT-M-000058",
+        "CLD-SAT-M-000059",
+        "CLD-SAT-M-000060",
+        "CLD-SAT-M-000062",
+        "CLD-SAT-M-000066",
+        "CLD-SAT-M-000068",
+        "CLD-SAT-M-000072",
+        "CLD-SAT-M-000075",
+        "CLD-SAT-M-000078",
+        "CLD-SAT-M-000081",
+        "CLD-SAT-M-000083",
+        "CLD-SAT-M-000085",
+        "CLD-SAT-M-000086",
+        "CLD-SAT-M-000088",
+        "CLD-SAT-M-000089",
+        "CLD-SAT-M-000091",
+        "CLD-SAT-M-000094",
+        "CLD-SAT-M-000096",
+        "CLD-SAT-M-000097",
+        "CLD-SAT-M-000100",
+        "CLD-SAT-M-000103",
+        "CLD-SAT-M-000105",
+        "CLD-SAT-M-000115",
+        "CLD-SAT-M-000122",
+        "CLD-SAT-M-000127",
+        "CLD-SAT-M-000129",
+        "CLD-SAT-M-000134",
+        "CLD-SAT-M-000136",
+        "CLD-SAT-M-000137",
+        "CLD-SAT-M-000144",
+        "CLD-SAT-M-000149",
+        "CLD-SAT-M-000163",
+        "CLD-SAT-M-000166",
+        "CLD-SAT-M-000167",
+        "CLD-SAT-M-000169",
+        "CLD-SAT-M-000174",
+        "CLD-SAT-M-000179",
+        "CLD-SAT-M-000184",
+        "CLD-SAT-M-000187",
+        "CLD-SAT-M-000194",
+        "CLD-SAT-M-000210",
+        "CLD-SAT-M-000211",
+        "CLD-SAT-M-000214",
+        "CLD-SAT-M-000215",
+        "CLD-SAT-M-000220",
+        "CLD-SAT-M-000229",
+        "CLD-SAT-M-000231",
+        "CLD-SAT-M-000238",
+        "CLD-SAT-M-000241",
+        "CLD-SAT-M-000248",
+        "CLD-SAT-M-000254",
+        "CLD-SAT-M-000257",
+        "CLD-SAT-M-000282",
+        "CLD-SAT-M-000286",
+        "CLD-SAT-M-000287",
+        "CLD-SAT-M-000289",
+        "CLD-SAT-M-000332",
+        "CLD-SAT-M-000340",
+        "CLD-SAT-M-000352",
+        "CLD-SAT-M-000359",
+        "CLD-SAT-M-000365",
+        "CLD-SAT-M-000380",
+        "CLD-SAT-M-000387",
+        "CLD-SAT-M-000436",
+        "CLD-SAT-M-000445",
+        "CLD-SAT-M-000478",
+        "CLD-SAT-M-000518",
+        "CLD-SAT-M-000522",
+        "CLD-SAT-M-000525",
+        "CLD-SAT-M-000585",
+        "CLD-SAT-M-000597",
+        "CLD-SAT-M-000600",
+        "CLD-SAT-M-000667",
+        "CLD-SAT-M-000727",
+        "CLD-SAT-M-000732",
+        "CLD-SAT-M-000801",
+        "CLD-SAT-M-000859",
+        "CLD-SAT-M-000870",
+        "CLD-SAT-M-000909",
+        "CLD-SAT-M-000942",
+        "CLD-SAT-M-000973",
+        "CLD-SAT-M-000980"
+      ],
+      "subskills_used_more_than_twice": {},
+      "scope": "automatic audit at 1010 accepted"
     }
   ],
   "files": {
@@ -540890,7 +541682,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 89,
+      "bank_version": 90,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -541016,7 +541808,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T22:48:13+00:00",
+    "heartbeat_at": "2026-10-27T22:50:31+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

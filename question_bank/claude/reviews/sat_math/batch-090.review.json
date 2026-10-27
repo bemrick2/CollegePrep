@@ -1,0 +1,307 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 90,
+  "reviewed_at": "2026-10-27T22:49:31+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 90
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-001000",
+    "CLD-SAT-M-001001",
+    "CLD-SAT-M-001002",
+    "CLD-SAT-M-001003",
+    "CLD-SAT-M-001004",
+    "CLD-SAT-M-001005",
+    "CLD-SAT-M-001006",
+    "CLD-SAT-M-001007",
+    "CLD-SAT-M-001008",
+    "CLD-SAT-M-001009",
+    "CLD-SAT-M-001010"
+  ],
+  "results": [
+    {
+      "cand": "Q090-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "4(x-2)-3(y-3)=24 -> 4x-3y=23; x=0 gives y=-23/3. Distractors: C=-8+3 (ignores horizontal shift), D=-8+8/3+3 (wrong direction of horizontal shift), B=-8+3-2. Choices plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The horizontal shift's effect on the intercept depends on the slope."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001000"
+    },
+    {
+      "cand": "Q090-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "|y|=|x|. y=x: x=2x-6 -> x=6 (6,6). y=-x: -x=2x-6 -> x=2 (2,-2). Sum 8. Trap: students using only y=x answer 6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Two cases from absolute values; both are valid."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001001"
+    },
+    {
+      "cand": "Q090-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "14",
+      "computed_answer": "14",
+      "blind_answer": "14",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Solve in terms of k: x=4k/7, y=5k/14; x+y=13k/14=13 -> k=14. Check x=8,y=5: 24-10=14, 8+20=28.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001002"
+    },
+    {
+      "cand": "Q090-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "17",
+      "computed_answer": "17",
+      "blind_answer": "17",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: inequalities are supplied in the stem, so the modeling step is removed; item reduces to substituting y=12 and taking the binding constraint (x<=20 vs x<=17). Fine but on the easy side of medium."
+      ],
+      "blind_notes": "2x+60<=100 -> x<=20; 3x+24<=75 -> x<=17. Greatest is 17.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001003"
+    },
+    {
+      "cand": "Q090-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "f(2*3)=f(6)=11, f(2)=5; slope 6/4=3/2; f(0)=5-3=2. Trap: treating (3,11) as on f.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "A transformed point must be converted before using two points."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001004"
+    },
+    {
+      "cand": "Q090-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: stem says 'The table gives' but values are given inline; ensure an actual table is rendered."
+      ],
+      "blind_notes": "f=2x+6, g=4x-4; equal at x=5, q=16.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires the y-coordinate after finding where the difference is zero."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001005"
+    },
+    {
+      "cand": "Q090-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "Equal conditional probabilities iff grade total = ensemble total (joint count same). Grade totals 48, 60, 92 (sum 200); ensemble totals band 60, choir 70, orchestra 70. Grade 11 = band = 60. Others: A 42/92 vs 42/70; B 22/48 vs 22/70; C 18/60 vs 18/70.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Nine comparisons reduce to matching totals."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001006"
+    },
+    {
+      "cand": "Q090-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [
+        "Easy elimination: A (geometry), C (prior-year grades), D (perceived helpfulness) are all obviously irrelevant to comparing A-rates of attenders vs non-attenders; only B mentions the comparison group. Consider a stronger distractor, e.g. 'the total number of students who attended the tutoring program' or 'the number of students who took algebra last year' (each insufficient alone)."
+      ],
+      "blind_notes": "Need tutoring-attendance rate among non-A students (or equivalently A-rates by attendance group); B supplies the comparison baseline. Strictly B alone still needs group sizes to compute A-rates by attendance, but comparing 80% vs B's percent answers the 'more likely' question via Bayes direction, so B is defensible as most needed.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The data were selected on the outcome."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "blind solver flagged: Easy elimination: A (geometry), C (prior-year grades), D (perceived helpfulness) are all obviously irrelevant to comparing A-rates of attenders vs non-attenders; only B mentions the comparison group. Consider a stronger distractor, e.g. 'the total number of students who attended the tutoring program' or 'the number of students who took algebra last year' (each insufficient alone)."
+    },
+    {
+      "cand": "Q090-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Median: 25th/26th values both 1 (0 covers 1-12, 1 covers 13-27). Mode 1 (15 households). Mean undeterminable due to open-ended '4 or more'. I and III.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires checking which statistics depend on the unknown values."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001007"
+    },
+    {
+      "cand": "Q090-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "A: 18 girls,12 boys; B: 8 girls,16 boys; 26:28 = 13:14. Distractor C 7:8 could come from averaging fractions; fine.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001008"
+    },
+    {
+      "cand": "Q090-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "50",
+      "computed_answer": "50",
+      "blind_answer": "50",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "DV = 12/0.15 = 80 g; bag = 30 g; need 50 more. Realistic magnitudes (80 g fat DV is close to actual 78 g).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001009"
+    },
+    {
+      "cand": "Q090-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "16.1 hands = 65 in; 15.3 hands = 63 in; difference 2. Trap: subtracting decimals (0.8). Realistic horse heights and notation is accurate.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001010"
+    }
+  ]
+}

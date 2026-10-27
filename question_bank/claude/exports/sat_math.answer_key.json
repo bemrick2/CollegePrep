@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 89,
+  "bank_version": 90,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -21225,6 +21225,270 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Identify the removed pyramid's base and height."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001000",
+      "correct_answer": "A",
+      "explanation": "The line is y = (4/3)x − 8. Its image is y − 3 = (4/3)(x − 2) − 8, so y = (4/3)x − 23/3. Moving right 2 lowers the intercept by (4/3)(2) = 8/3, and moving up raises it by 3: −8 − 8/3 + 3 = −23/3. Check: (2, −5), the image of (0, −8), satisfies the new equation.",
+      "distractor_explanations": {
+        "B": "Subtracts the horizontal shift directly from the intercept, ignoring the slope.",
+        "C": "Applies only the vertical shift, as if a horizontal shift left the y-intercept unchanged.",
+        "D": "Shifts the line left instead of right."
+      },
+      "hints": [
+        "Write the line in slope-intercept form first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Replace x with x − 2 and y with y − 3."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001001",
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 solves only y = x, assuming P lies on the line y = x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 keeps only the point with y = −x.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The distances are |y| and |x|, so |2x − 6| = |x|. Either 2x − 6 = x, giving x = 6 and P = (6, 6), or 2x − 6 = −x, giving x = 2 and P = (2, −2). Both points work, and 6 + 2 = 8.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is a point's distance from the x-axis?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the condition with absolute values and split into cases."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001002",
+      "correct_answer": "14",
+      "accepted_answers": [
+        "14"
+      ],
+      "common_errors": [
+        {
+          "value": "13",
+          "rationale": "13 assumes k equals x + y.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "28",
+          "rationale": "28 is 2k.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Doubling the first equation and adding the second gives 7x = 4k, so x = 4k/7. Then 4y = 2k − 4k/7 = 10k/7, so y = 5k/14. So x + y = 13k/14 = 13 and k = 14. Check: x = 8 and y = 5 give 24 − 10 = 14 and 8 + 20 = 28.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve the system in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Express x and y in terms of k, then use x + y = 13."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001003",
+      "correct_answer": "17",
+      "accepted_answers": [
+        "17"
+      ],
+      "common_errors": [
+        {
+          "value": "20",
+          "rationale": "20 uses only the oven constraint.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "25",
+          "rationale": "25 uses the flour constraint without the cakes, 75/3.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "With y = 12, the oven constraint gives 2x ≤ 40, so x ≤ 20, and the flour constraint gives 3x ≤ 51, so x ≤ 17. Both must hold, so the greatest number of loaves is 17.",
+      "distractor_explanations": {},
+      "hints": [
+        "Substitute y = 12 into each inequality."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the cap from each constraint and take the smaller."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001004",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "-7",
+          "rationale": "−7 reads (3, 11) as a point on f itself, giving slope 6.",
+          "trap": null
+        },
+        {
+          "value": "3/2",
+          "rationale": "3/2 is the slope of f.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "(3, 11) on y = f(2x) means f(6) = 11. The slope of f is (11 − 5)/(6 − 2) = 3/2, so f(0) = 5 − 2(3/2) = 2. Check: f(x) = 1.5x + 2 gives f(2) = 5 and f(6) = 11.",
+      "distractor_explanations": {},
+      "hints": [
+        "What does (3, 11) on y = f(2x) say about f?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert the transformed point to a point on f."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001005",
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is p, the x-coordinate.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "13",
+          "rationale": "13 averages f and g at the midpoint x = 4.",
+          "trap": null
+        }
+      ],
+      "explanation": "The difference f(x) − g(x) is linear: it is 6 at x = 2 and −2 at x = 6, so it falls 2 per unit and is 0 at x = 5. Then q = f(5) = 10 + 2(3) = 16, which also equals g(5) = 4 + 4(3).",
+      "distractor_explanations": {},
+      "hints": [
+        "Find each function's slope."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the difference of the two functions."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001006",
+      "correct_answer": "D",
+      "explanation": "Both probabilities have the same numerator (the cell), with denominators equal to the grade total and the ensemble total, so they are equal exactly when those totals are equal. The grade totals are 48, 60, and 92; the ensemble totals are 60 (band), 70, and 70. Only grade 11 (60) and band (60) match: 26/60 both ways.",
+      "distractor_explanations": {
+        "A": "Picks the largest cell, which seems likely either way.",
+        "B": "Picks the largest probability within grade 10, confusing a high value with equality.",
+        "C": "P(choir | grade 11) = 0.3 equals P(grade 11) = 0.3, not P(grade 11 | choir)."
+      },
+      "hints": [
+        "What are the denominators of the two probabilities?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Compare row totals with column totals."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001007",
+      "correct_answer": "C",
+      "explanation": "The 25th and 26th values are both 1 (the first 27 values are 0 or 1), so the median is 1 whatever the top households have. The mode is 1, since 15 households have exactly 1 child and the top group has only 5. The mean needs the exact numbers in the top group, which are unknown.",
+      "distractor_explanations": {
+        "A": "Thinks the open top category also hides the mode.",
+        "B": "Treats \"4 or more\" as exactly 4 to compute a mean of 1.56, and drops the mode.",
+        "D": "Treats \"4 or more\" as exactly 4 so the mean seems known."
+      },
+      "hints": [
+        "Where are the 25th and 26th values?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check each statistic against the unknown top values."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001008",
+      "correct_answer": "D",
+      "explanation": "Class A has 18 girls and 12 boys, and class B has 8 girls and 16 boys. The combined group has 26 girls and 28 boys, a ratio of 26 : 28 = 13 : 14.",
+      "distractor_explanations": {
+        "A": "Adds the ratio terms, (3 + 1) : (2 + 2).",
+        "B": "Multiplies the ratios, 3 × 1 : 2 × 2.",
+        "C": "Averages the fractions of girls without weighting by class size."
+      },
+      "hints": [
+        "How many girls are in each class?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert each ratio to counts before combining."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001009",
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "80",
+          "rationale": "80 is the daily value itself.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "62.5",
+          "rationale": "62.5 is the remaining percent, 100% − 37.5%, reported as grams.",
+          "trap": null
+        }
+      ],
+      "explanation": "The daily value is 12/0.15 = 80 grams. The bag contains 2.5 × 12 = 30 grams. The person needs 80 − 30 = 50 more grams.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the full daily value?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the whole from the part and percent."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001010",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "3.2",
+          "rationale": "3.2 subtracts the written numbers as decimals (0.8) and multiplies by 4.",
+          "trap": null
+        },
+        {
+          "value": "0.8",
+          "rationale": "0.8 subtracts the written numbers as decimals.",
+          "trap": null
+        }
+      ],
+      "explanation": "16.1 hands is 16 × 4 + 1 = 65 inches, and 15.3 hands is 15 × 4 + 3 = 63 inches. The difference is 65 − 63 = 2 inches.",
+      "distractor_explanations": {},
+      "hints": [
+        "What does 16.1 hands mean in inches?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Convert both heights to inches before subtracting."
       }
     }
   ]
