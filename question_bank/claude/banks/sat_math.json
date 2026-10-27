@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 31,
-  "updated_at": "2026-10-27T03:24:26+00:00",
+  "version": 32,
+  "updated_at": "2026-10-27T03:37:42+00:00",
   "passages": [],
   "questions": [
     {
@@ -19290,6 +19290,732 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-031.review.json",
         "computation": "checks/sat_math/batch_031.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000269",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Time for a projectile to reach the ground",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ball is thrown upward from a height of 1.5 meters. Its height above the ground, in meters, t seconds after it is thrown is given by h(t) = −4.9t² + 20t + 1.5. To the nearest tenth of a second, how many seconds after it is thrown does the ball hit the ground?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4.2",
+      "accepted_answers": [
+        "4.2"
+      ],
+      "common_errors": [
+        {
+          "value": "2",
+          "rationale": "2 (about 2.04 seconds) is the time of the maximum height, not the time it lands.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "4.1",
+          "rationale": "4.1 truncates 4.155 instead of rounding.",
+          "trap": null
+        }
+      ],
+      "explanation": "The ball hits the ground when h(t) = 0: −4.9t² + 20t + 1.5 = 0. By the quadratic formula, t = (20 + √(400 + 29.4))/9.8 ≈ (20 + 20.72)/9.8 ≈ 4.155 (the other root is negative). To the nearest tenth, t ≈ 4.2 seconds.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Set h(t) = 0."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph h and find the positive x-intercept."
+      },
+      "remember": "\"Hits the ground\" means height 0; reject negative times.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-01",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4.2",
+        "blind_answer": "4.2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [
+          "minor: very standard projectile template; graphing calculator makes it a one-step zero lookup"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000270",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Angles of an isosceles triangle from a ratio",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In triangle ABC, AB = AC, and the measure of angle A is 3 times the measure of angle B. What is the measure of angle A ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "36°",
+        "B": "72°",
+        "C": "108°",
+        "D": "135°"
+      },
+      "correct_answer": "C",
+      "explanation": "Because AB = AC, the base angles B and C are equal. If angle B is x°, then angle A is 3x° and 3x + x + x = 180, so x = 36. Angle A = 3 × 36° = 108°.",
+      "distractor_explanations": {
+        "A": "36° is the measure of angle B.",
+        "B": "72° uses 2x + x + x = 180 or doubles angle B.",
+        "D": "135° assumes the base angles are 45° each."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which angles are equal when AB = AC?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3x + x + x = 180."
+      },
+      "remember": "Equal sides are opposite equal angles.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-02",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [
+          "minor: 36 deg (angle B) is the obvious partial-work distractor; 135 deg is weakly motivated"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000271",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Extreme x-value in a system of two linear inequalities",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A point (x, y) satisfies both y ≥ 2x − 3 and y ≤ −x + 9. What is the greatest possible value of x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "9"
+      },
+      "correct_answer": "B",
+      "explanation": "Both inequalities can hold only if 2x − 3 ≤ y ≤ −x + 9, which requires 2x − 3 ≤ −x + 9, or 3x ≤ 12, so x ≤ 4. At x = 4, y = 5 satisfies both, so the greatest x is 4.",
+      "distractor_explanations": {
+        "A": "3 is the y-intercept magnitude from 2x − 3, not a bound on x.",
+        "C": "5 is the y-coordinate of the corner point (4, 5).",
+        "D": "9 is the y-intercept of the line y = −x + 9."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "When can y be both at least 2x − 3 and at most −x + 9?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Shade both regions and find the corner."
+      },
+      "remember": "A lower bound must not exceed an upper bound.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-03",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [
+          "minor: choice D (9, the y-intercept) is an implausible distractor"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000272",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Change in a linear function over different intervals",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For the linear function f, f(3) − f(1) = 10. What is the value of f(8) − f(5) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "15",
+        "B": "20",
+        "C": "25",
+        "D": "30"
+      },
+      "correct_answer": "A",
+      "explanation": "A linear function changes by the same amount for each unit change in x. Over 2 units f increases by 10, so the slope is 5. Over 3 units (from 5 to 8), f increases by 3 × 5 = 15.",
+      "distractor_explanations": {
+        "B": "20 doubles 10 as if the interval were 4 units.",
+        "C": "25 adds 15 to the given 10.",
+        "D": "30 multiplies 10 by 3 instead of the slope 5 by 3."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the change in f for each 1-unit change in x?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try f(x) = 5x."
+      },
+      "remember": "For a linear function, change in f = slope × change in x.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-04",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000273",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Parameter that makes a linear equation an identity",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation (c − 4)x = c² − 16, c is a constant. For what value of c does the equation have infinitely many solutions?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−16",
+        "B": "−4",
+        "C": "0",
+        "D": "4"
+      },
+      "correct_answer": "D",
+      "explanation": "Factor the right side: (c − 4)x = (c − 4)(c + 4). If c = 4, both sides are 0 for every x, so there are infinitely many solutions. For any other c, dividing by c − 4 gives exactly one solution, x = c + 4. (With c = −4 the equation is −8x = 0, which has only x = 0.)",
+      "distractor_explanations": {
+        "A": "−16 confuses the constant term with c.",
+        "B": "With c = −4 the equation is −8x = 0, which has exactly one solution.",
+        "C": "With c = 0 the equation is −4x = −16, which has exactly one solution."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Factor c² − 16."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute each choice for c and simplify."
+      },
+      "remember": "Infinitely many solutions: both sides identical (often 0 = 0).",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-05",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000274",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Converting a rate to a different time unit",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The cost C, in dollars, of a streaming service is modeled by C = 0.8m + 25, where m is the number of minutes of streaming. By how many dollars does the cost increase for each additional hour of streaming?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.8",
+        "B": "25",
+        "C": "48",
+        "D": "73"
+      },
+      "correct_answer": "C",
+      "explanation": "The coefficient 0.8 is the cost per minute. An hour is 60 minutes, so each additional hour adds 0.8 × 60 = $48.",
+      "distractor_explanations": {
+        "A": "0.8 is the increase per minute, not per hour.",
+        "B": "25 is the fixed charge, not a rate.",
+        "D": "73 adds the fixed charge to the hourly increase."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "What does 0.8 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply the per-minute rate by 60."
+      },
+      "remember": "Convert a rate's units by multiplying by the conversion factor.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-06",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: $0.80 per minute ($48/hour) is an unrealistic price for streaming; consider a per-hour or per-GB context"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000275",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Minimum count to meet a score under a count limit",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A quiz has questions worth 3 points and questions worth 5 points. A student will answer at most 20 questions, and every answered question will be correct. What is the least number of 5-point questions the student must answer to earn at least 80 points?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 uses only 5-point questions: 80 ÷ 5.",
+          "trap": null
+        },
+        {
+          "value": "20",
+          "rationale": "20 is the maximum number of questions, not the least number of 5-point questions.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "With y five-point questions, the student can answer at most 20 − y three-point questions, for at most 3(20 − y) + 5y = 60 + 2y points. To reach 80 points, 60 + 2y ≥ 80, so y ≥ 10. With 10 of each, the score is exactly 80.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the greatest possible score in terms of the number of 5-point questions."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try 9 and 10 five-point questions with the rest 3-point."
+      },
+      "remember": "To minimise one count, use the other resource as fully as possible.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-07",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000276",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope of a line through two points with a parameter",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line passes through the points (a, 2a) and (3a, 0), where a is a nonzero constant. What is the slope of the line?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−2",
+        "B": "−1",
+        "C": "−1/2",
+        "D": "2"
+      },
+      "correct_answer": "B",
+      "explanation": "The slope is (0 − 2a)/(3a − a) = −2a/(2a) = −1. Because a ≠ 0, it cancels, so the slope is −1 for every nonzero a.",
+      "distractor_explanations": {
+        "A": "−2 uses only the change in y, −2a, divided by a.",
+        "C": "−1/2 inverts the slope: run over rise.",
+        "D": "2 has the wrong sign and divides by a only."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Use the slope formula with the expressions in a."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1: the points are (1, 2) and (3, 0)."
+      },
+      "remember": "A parameter that appears in every term often cancels.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-08",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000277",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "System with no solution when the parameter appears twice",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the system ax + 4y = 9 and 3x + ay = 6, a is a positive constant. For what value of a does the system have no solution?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "√3",
+        "B": "2",
+        "C": "2√3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "No solution means the lines are parallel and distinct. Parallel requires a/3 = 4/a, so a² = 12 and a = 2√3 (a > 0). They are distinct because 4/a = 2/√3 ≈ 1.15, which is not 9/6 = 1.5. So a = 2√3.",
+      "distractor_explanations": {
+        "A": "√3 solves a² = 3, dropping the factor 4.",
+        "B": "With a = 2 the slopes are −2/4 and −3/2, which differ, so there is one solution.",
+        "D": "With a = 4 the slopes are −1 and −3/4, which differ, so there is one solution."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write the condition for the lines to be parallel."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the coefficient ratios equal: a/3 = 4/a."
+      },
+      "remember": "No solution: same slope, different intercept.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-09",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000278",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear equation with a difference of fractions",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "One-third of the quantity x + 4, minus one-half of the quantity x − 2, equals 1. That is, (x + 4)/3 − (x − 2)/2 = 1. What is the value of x ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "8",
+      "accepted_answers": [
+        "8"
+      ],
+      "common_errors": [
+        {
+          "value": "-4",
+          "rationale": "−4 does not distribute the subtraction to the −2 in the second numerator.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "13",
+          "rationale": "13 does not multiply the right side by 6: −x + 14 = 1.",
+          "trap": null
+        }
+      ],
+      "explanation": "Multiply every term by 6: 2(x + 4) − 3(x − 2) = 6, so 2x + 8 − 3x + 6 = 6. Then −x + 14 = 6 and x = 8. Check: 12/3 − 6/2 = 4 − 3 = 1.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Clear the denominators by multiplying by 6."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 8."
+      },
+      "remember": "Subtracting a fraction subtracts every term of its numerator.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 32,
+      "draft_candidate": "Q032-10",
+      "created_at": "2026-10-27T03:37:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "8",
+        "blind_answer": "8",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [
+          "minor: stem states the equation twice (words then 'That is, ...'); the verbal restatement is redundant"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-032.review.json",
+        "computation": "checks/sat_math/batch_032.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

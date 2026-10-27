@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 32,
- "plan": "SAT Math batch 32: Algebra 7, Advanced Math 1, Geometry and Trigonometry 1, plus 1 calculator-aware projectile item; 3 student-produced responses; 3 items labelled hard. Two ideas survive from ideas-032 (II02, II20); the rest come from a generator agent's list (ideas-gen-01, G01–G08) that is under independent repeat pre-check (reviews/sat_math/ideas-033.repeats.json). Algebra-heavy to restore the domain mix.",
+ "plan": "SAT Math batch 32: Algebra 7, Advanced Math 1, Geometry and Trigonometry 1, plus 1 calculator-aware projectile item; 3 student-produced responses; 3 items labelled hard. Two ideas survive from ideas-032 (II02, II20); the rest come from a generator agent's list (ideas-gen-01, G01–G08) that is under independent repeat pre-check (reviews/sat_math/ideas-033.repeats.json). Algebra-heavy to restore the domain mix. Relabelled to the blind solver's rating where it was lower: Q032-05 hard→medium, Q032-06 medium→easy, Q032-07 hard→medium, Q032-08 medium→easy, Q032-09 hard→medium.",
  "candidates": [
   {
    "cand": "Q032-01",
@@ -189,7 +189,7 @@
    "skill": "Algebra",
    "subskill": "Parameter that makes a linear equation an identity",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the equation (c − 4)x = c² − 16, c is a constant. For what value of c does the equation have infinitely many solutions?",
    "explanation": "Factor the right side: (c − 4)x = (c − 4)(c + 4). If c = 4, both sides are 0 for every x, so there are infinitely many solutions. For any other c, dividing by c − 4 gives exactly one solution, x = c + 4. (With c = −4 the equation is −8x = 0, which has only x = 0.)",
    "hints": [
@@ -205,8 +205,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must avoid dividing by c − 4 and test the case where it is zero; the factored form suggests −4 as a tempting trap."
+    "single_correct": true
    },
    "choices": {
     "A": "−16",
@@ -236,7 +235,7 @@
    "skill": "Algebra",
    "subskill": "Converting a rate to a different time unit",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The cost C, in dollars, of a streaming service is modeled by C = 0.8m + 25, where m is the number of minutes of streaming. By how many dollars does the cost increase for each additional hour of streaming?",
    "explanation": "The coefficient 0.8 is the cost per minute. An hour is 60 minutes, so each additional hour adds 0.8 × 60 = $48.",
    "hints": [
@@ -282,7 +281,7 @@
    "skill": "Algebra",
    "subskill": "Minimum count to meet a score under a count limit",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A quiz has questions worth 3 points and questions worth 5 points. A student will answer at most 20 questions, and every answered question will be correct. What is the least number of 5-point questions the student must answer to earn at least 80 points?",
    "explanation": "With y five-point questions, the student can answer at most 20 − y three-point questions, for at most 3(20 − y) + 5y = 60 + 2y points. To reach 80 points, 60 + 2y ≥ 80, so y ≥ 10. With 10 of each, the score is exactly 80.",
    "hints": [
@@ -298,8 +297,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must combine a count limit with a score requirement and realise the remaining questions should all be 3-point ones; 16 (all 5-point) is a common trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "10",
@@ -325,7 +323,7 @@
    "skill": "Algebra",
    "subskill": "Slope of a line through two points with a parameter",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "In the xy-plane, a line passes through the points (a, 2a) and (3a, 0), where a is a nonzero constant. What is the slope of the line?",
    "explanation": "The slope is (0 − 2a)/(3a − a) = −2a/(2a) = −1. Because a ≠ 0, it cancels, so the slope is −1 for every nonzero a.",
    "hints": [
@@ -371,7 +369,7 @@
    "skill": "Algebra",
    "subskill": "System with no solution when the parameter appears twice",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the system ax + 4y = 9 and 3x + ay = 6, a is a positive constant. For what value of a does the system have no solution?",
    "explanation": "No solution means the lines are parallel and distinct. Parallel requires a/3 = 4/a, so a² = 12 and a = 2√3 (a > 0). They are distinct because 4/a = 2/√3 ≈ 1.15, which is not 9/6 = 1.5. So a = 2√3.",
    "hints": [
@@ -387,8 +385,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The parameter appears in two coefficients, so the parallel condition is quadratic and must be followed by a check that the lines are not identical."
+    "single_correct": true
    },
    "choices": {
     "A": "√3",

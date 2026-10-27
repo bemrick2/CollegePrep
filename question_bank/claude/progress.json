@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:35:17+00:00",
+  "updated_at": "2026-10-27T03:37:45+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 258
+    "sat_math": 268
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 268,
+      "PASS": 278,
       "REVISE": 2,
       "REJECT": 0,
-      "candidates": 270,
+      "candidates": 280,
       "passed_after_revision": 2
     }
   },
@@ -1397,17 +1397,18 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 258,
+      "accepted": 268,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 91,
-        "Algebra": 77,
-        "Geometry and Trigonometry": 49,
+        "Advanced Math": 92,
+        "Algebra": 85,
+        "Geometry and Trigonometry": 50,
         "Problem-Solving and Data Analysis": 41
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
         "Angle sum of a quadrilateral": 1,
+        "Angles of an isosceles triangle from a ratio": 1,
         "Annual percent growth from two values two years apart": 1,
         "Applying a part-to-whole rate": 1,
         "Applying a percent increase": 1,
@@ -1421,6 +1422,7 @@
         "Area of an isosceles triangle with 30° base angles": 1,
         "Center of a circle from a point and its radius": 1,
         "Chained percent relationships": 1,
+        "Change in a linear function over different intervals": 1,
         "Choosing a line of best fit for data": 1,
         "Coefficient that makes two lines parallel": 1,
         "Coefficients from the vertex of a parabola": 1,
@@ -1447,6 +1449,7 @@
         "Constant-rate projection to a limit": 1,
         "Converting a monthly growth rate to an annual rate": 1,
         "Converting a rate between units": 1,
+        "Converting a rate to a different time unit": 1,
         "Coordinate of a vertex from a triangle's area": 1,
         "Cosine from two sides of a right triangle": 1,
         "Cosine of an angle in the coordinate plane": 1,
@@ -1476,6 +1479,7 @@
         "Exponential equation with a squared exponent": 1,
         "Exponential function through two points": 1,
         "Exterior angle of a triangle": 1,
+        "Extreme x-value in a system of two linear inequalities": 1,
         "Factored form of a quadratic given in vertex form": 1,
         "Finding a coefficient from part of a system's solution": 1,
         "Finding a constant from a given solution": 1,
@@ -1516,6 +1520,7 @@
         "Length of the interval where a quadratic is positive": 1,
         "Line with equal intercepts through a given point": 1,
         "Linear equation from a ratio of quantities sold": 1,
+        "Linear equation with a difference of fractions": 1,
         "Linear equation with fractional coefficients": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
@@ -1526,12 +1531,14 @@
         "Maximum value from the range and the minimum": 1,
         "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
+        "Minimum count to meet a score under a count limit": 1,
         "Minimum of a horizontally shifted quadratic": 1,
         "Minimum of a sum of absolute values": 1,
         "Multiplying powers with fractional exponents": 1,
         "Number of inputs with a given output": 1,
         "Number of real solutions of a quadratic equation": 1,
         "Overlapping groups from two conditional percents": 1,
+        "Parameter that makes a linear equation an identity": 1,
         "Part from a part-to-part ratio and a difference": 1,
         "Percent change in area from changes in two dimensions": 1,
         "Percent growth over a multi-year period": 1,
@@ -1582,6 +1589,7 @@
         "Slope from a point and an x-intercept": 1,
         "Slope of a line through a given intersection point": 1,
         "Slope of a line through the origin meeting a line where x = y": 1,
+        "Slope of a line through two points with a parameter": 1,
         "Slope of a linear function from a relationship between outputs": 1,
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
@@ -1618,11 +1626,13 @@
         "System of linear equations in context": 1,
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
+        "System with no solution when the parameter appears twice": 1,
         "Tangent of a ramp angle from rise and run": 1,
         "Tangent of an angle formed by a rectangle's diagonal": 1,
         "Tangent of an angle from a point on a circle": 1,
         "Third angle of a triangle": 1,
         "Time for a falling object to reach a height": 1,
+        "Time for a projectile to reach the ground": 1,
         "Time for a whole job from a partial job": 1,
         "Time to empty a tank with inflow and outflow": 1,
         "Trade-off between two variables in a linear equation": 1,
@@ -1666,19 +1676,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 69,
+        "easy": 71,
         "hard": 11,
-        "medium": 178
+        "medium": 186
       },
       "by_difficulty_calibrated": {
-        "easy": 113,
+        "easy": 115,
         "hard": 6,
-        "medium": 139
+        "medium": 147
       },
       "calibrated_share": {
-        "easy": 0.438,
-        "hard": 0.023,
-        "medium": 0.539
+        "easy": 0.429,
+        "hard": 0.022,
+        "medium": 0.549
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1687,7 +1697,7 @@
         "-9": 2,
         "1": 2,
         "1.5": 2,
-        "10": 4,
+        "10": 5,
         "11": 2,
         "114": 1,
         "115": 1,
@@ -1707,6 +1717,7 @@
         "30": 2,
         "36": 2,
         "4": 3,
+        "4.2": 1,
         "44": 2,
         "5": 2,
         "5.4": 1,
@@ -1715,17 +1726,17 @@
         "60": 1,
         "63": 1,
         "7": 3,
-        "8": 3,
+        "8": 4,
         "80": 1,
         "9": 2,
         "90": 1,
-        "A": 39,
-        "B": 57,
-        "C": 55,
-        "D": 31
+        "A": 40,
+        "B": 59,
+        "C": 58,
+        "D": 32
       },
-      "modeling_items": 69,
-      "spr_items": 76,
+      "modeling_items": 71,
+      "spr_items": 79,
       "passages": 0
     }
   },
@@ -1734,7 +1745,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 31
+    "sat_math": 32
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1766,27 +1777,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 32,
+    "next_batch": 33,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 16.8,
-      "Advanced Math": 2.8,
-      "Problem-Solving and Data Analysis": -0.8,
-      "Geometry and Trigonometry": -8.8
+      "Algebra": 12.3,
+      "Advanced Math": 5.3,
+      "Problem-Solving and Data Analysis": 0.7,
+      "Geometry and Trigonometry": -8.3
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -46.0,
-      "medium": -5.0,
-      "hard": 61.0
+      "easy": -45.5,
+      "medium": -8.0,
+      "hard": 63.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 11.2,
-      "B": -6.8,
-      "C": -4.8,
-      "D": 19.2
+      "A": 12.1,
+      "B": -6.9,
+      "C": -5.9,
+      "D": 20.1
     },
-    "spr_items": 76,
+    "spr_items": 79,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1839,12 +1850,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 258,
-      "share_of_target": 0.258
+      "accepted": 268,
+      "share_of_target": 0.268
     }
   },
   "total_target": 3841,
-  "total_accepted": 1769,
+  "total_accepted": 1779,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -49016,7 +49027,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 31,
+      "bank_version": 32,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49142,7 +49153,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:35:17+00:00",
+    "heartbeat_at": "2026-10-27T03:37:45+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

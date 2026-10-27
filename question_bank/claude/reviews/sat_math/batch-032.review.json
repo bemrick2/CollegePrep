@@ -1,0 +1,260 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 32,
+  "reviewed_at": "2026-10-27T03:37:42+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 32
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000269",
+    "CLD-SAT-M-000270",
+    "CLD-SAT-M-000271",
+    "CLD-SAT-M-000272",
+    "CLD-SAT-M-000273",
+    "CLD-SAT-M-000274",
+    "CLD-SAT-M-000275",
+    "CLD-SAT-M-000276",
+    "CLD-SAT-M-000277",
+    "CLD-SAT-M-000278"
+  ],
+  "results": [
+    {
+      "cand": "Q032-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4.2",
+      "computed_answer": "4.2",
+      "blind_answer": "4.2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [
+        "minor: very standard projectile template; graphing calculator makes it a one-step zero lookup"
+      ],
+      "blind_notes": "t = (20 + sqrt(400 + 29.4))/9.8 = 40.722/9.8 = 4.155 -> 4.2 (negative root rejected).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000269"
+    },
+    {
+      "cand": "Q032-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 66,
+      "blind_flags": [
+        "minor: 36 deg (angle B) is the obvious partial-work distractor; 135 deg is weakly motivated"
+      ],
+      "blind_notes": "AB=AC so B=C; 3B+B+B=180, B=36, A=108.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000270"
+    },
+    {
+      "cand": "Q032-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: choice D (9, the y-intercept) is an implausible distractor"
+      ],
+      "blind_notes": "Need 2x-3 <= y <= -x+9, so 2x-3 <= -x+9, x <= 4; at x=4, y=5 works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000271"
+    },
+    {
+      "cand": "Q032-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 68,
+      "blind_flags": [],
+      "blind_notes": "Slope = 10/2 = 5; f(8)-f(5) = 3*5 = 15. Distractors 20/25/30 correspond to wrong interval counts.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000272"
+    },
+    {
+      "cand": "Q032-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "c=4: 0x=0, infinitely many. c=-4: -8x=0, one solution x=0. Other c: x=c+4, one solution.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000273"
+    },
+    {
+      "cand": "Q032-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: $0.80 per minute ($48/hour) is an unrealistic price for streaming; consider a per-hour or per-GB context"
+      ],
+      "blind_notes": "0.8*60 = 48. Distractors: per-minute rate, fixed fee, 48+25.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000274"
+    },
+    {
+      "cand": "Q032-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "10",
+      "computed_answer": "10",
+      "blind_answer": "10",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "x+y<=20, 3x+5y>=80. Maximize 3-pt: x=20-y gives 60+2y>=80, y>=10. Check y=10,x=10 -> 80. y=9: max 3*11+45=78 <80.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000275"
+    },
+    {
+      "cand": "Q032-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "(0-2a)/(3a-a) = -2a/2a = -1. Distractors from inverted ratio or using 2a as slope.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000276"
+    },
+    {
+      "cand": "Q032-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "No solution: a/3 = 4/a, a^2 = 12, a = 2sqrt3 (positive). Check 4/a = 2/sqrt3 ~1.155 != 9/6 = 1.5, so parallel not coincident. Other choices give intersecting lines.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000277"
+    },
+    {
+      "cand": "Q032-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "8",
+      "computed_answer": "8",
+      "blind_answer": "8",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 66,
+      "blind_flags": [
+        "minor: stem states the equation twice (words then 'That is, ...'); the verbal restatement is redundant"
+      ],
+      "blind_notes": "Multiply by 6: 2(x+4) - 3(x-2) = 6 -> -x + 14 = 6 -> x = 8. Check: 12/3 - 6/2 = 1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000278"
+    }
+  ]
+}

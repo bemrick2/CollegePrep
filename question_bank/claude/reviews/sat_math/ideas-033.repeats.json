@@ -1,0 +1,219 @@
+{
+  "ideas": "generated set 1 (G01–G30)",
+  "results": {
+    "G01": [],
+    "G02": [],
+    "G03": [
+      {
+        "other_id": "CLD-SAT-M-000013",
+        "severity": "close",
+        "why": "Same asked quantity (constant giving infinitely many solutions of a one-variable linear equation); G03's constant sits in both coefficient and right side with a c = -4 trap, so the reasoning extends beyond matching coefficients."
+      },
+      {
+        "other_id": "CLD-ACT-M-000161",
+        "severity": "close",
+        "why": "Parameter-in-coefficient linear equation solution count (no-solution version); same 'coefficient vanishes' idea, different case."
+      }
+    ],
+    "G04": [
+      {
+        "other_id": "CLD-SAT-M-000049",
+        "severity": "close",
+        "why": "Change in output of a linear model for a given change in input (slope x change); G04 adds a minutes-to-hours conversion."
+      }
+    ],
+    "G05": [],
+    "G06": [
+      {
+        "other_id": "CLD-SAT-M-000092",
+        "severity": "close",
+        "why": "Line through parametric points (k, 3k); reversed direction (find k from slope vs. find slope with constant canceling)."
+      }
+    ],
+    "G07": [
+      {
+        "other_id": "CLD-ACT-M-000544",
+        "severity": "close",
+        "why": "System with no solution for a parameter; G07 puts the parameter in two coefficients (a^2 = 12) and needs a distinct-lines check."
+      },
+      {
+        "other_id": "CLD-SAT-M-000080",
+        "severity": "close",
+        "why": "Parameter conditions on a 2x2 linear system (infinitely-many version)."
+      }
+    ],
+    "G08": [
+      {
+        "other_id": "CLD-ACT-M-000030",
+        "severity": "close",
+        "why": "Linear equation with fractional binomial terms ((x-4)/3 = (x+2)/5); G08 uses subtraction with a distribution-of-minus trap."
+      }
+    ],
+    "G09": [],
+    "G10": [
+      {
+        "other_id": "CLD-SAT-M-000117",
+        "severity": "close",
+        "why": "Line through the same point (2, 5) plus one extra condition; asks x-intercept from m + b = 8 rather than slope from equal intercepts. Consider changing the point."
+      }
+    ],
+    "G12": [
+      {
+        "other_id": "CLD-ACT-M-000793",
+        "severity": "close",
+        "why": "Same 'solutions lost by dividing by a variable factor' trap (x^3 = x); different equation form and asked quantity (sum)."
+      }
+    ],
+    "G13": [
+      {
+        "other_id": "CLD-ACT-M-000031",
+        "severity": "close",
+        "why": "Radical equation with an extraneous root; G13 uses u = sqrt(x) substitution rather than squaring a linear right side."
+      },
+      {
+        "other_id": "CLD-SAT-M-000145",
+        "severity": "close",
+        "why": "Radical equation solved for x (two square roots); same skill, different structure."
+      }
+    ],
+    "G14": [],
+    "G15": [],
+    "G16": [
+      {
+        "other_id": "CLD-ACT-M-000430",
+        "severity": "close",
+        "why": "Factoring a trinomial with leading coefficient > 1; G16 asks a + b + c + d of the factored form instead of picking a factor."
+      }
+    ],
+    "G17": [
+      {
+        "other_id": "CLD-SAT-M-000196",
+        "severity": "close",
+        "why": "Evaluate a related exponential from a given one (2^(3x) = 64 -> 2^x); G17 rewrites 27^x * 3^-x as 9^x."
+      }
+    ],
+    "G18": [
+      {
+        "other_id": "CLD-ACT-M-000049",
+        "severity": "close",
+        "why": "Reverse of the same identity family: ACT gives x + 1/x = 5 and asks x^2 + 1/x^2; G18's answer is exactly 5 = x + 1/x, so the two would cue each other in one set."
+      },
+      {
+        "other_id": "CLD-SAT-M-000194",
+        "severity": "close",
+        "why": "Sum of a number and its reciprocal (solve for x); reversed direction."
+      }
+    ],
+    "G19": [],
+    "G20": [
+      {
+        "other_id": "CLD-SAT-M-000101",
+        "severity": "close",
+        "why": "Equal outputs at two inputs imply symmetry about the axis (f(1) = f(9)); G20 asks the unknown input a instead of a value."
+      }
+    ],
+    "G21": [
+      {
+        "other_id": "CLD-ACT-M-000011",
+        "severity": "close",
+        "why": "Rational equation with denominator x - 1 / x - 2 and an extraneous solution; G21 asks which constant makes the only candidate extraneous."
+      }
+    ],
+    "G22": [
+      {
+        "other_id": "CLD-ACT-M-000211",
+        "severity": "close",
+        "why": "Sign of a polynomial with a squared factor (x + 2)^2(x - 3); G22 counts integers with p > 0 and has a negative leading factor (3 - x)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000691",
+        "severity": "close",
+        "why": "Double root touches without changing sign; same key fact, different ask."
+      }
+    ],
+    "G23": [],
+    "G24": [
+      {
+        "other_id": "CLD-ACT-M-000017",
+        "severity": "close",
+        "why": "Median from a frequency table over values 0-4; G24 inverts it (least unknown frequency making median 3)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000565",
+        "severity": "close",
+        "why": "Values of an unknown that keep a median fixed; list not frequency table."
+      }
+    ],
+    "G25": [
+      {
+        "other_id": "CLD-ACT-M-000234",
+        "severity": "close",
+        "why": "Interpreting a margin of error for a 52% poll ('which conclusion is best supported'); G25 compares two polls' intervals (overlap). Same opening number 52%; consider changing it."
+      }
+    ],
+    "G26": [
+      {
+        "other_id": "CLD-SAT-M-000131",
+        "severity": "close",
+        "why": "Combining two percent changes multiplicatively on a subgroup share; SAT asks the new share, G26 asks percent change in the subgroup count."
+      }
+    ],
+    "G27": [],
+    "G28": [
+      {
+        "other_id": "CLD-ACT-M-000698",
+        "severity": "close",
+        "why": "Right-triangle trig from a given tangent (tan = 2 -> cos); G28 derives tan = 3 from sin = 3 cos and asks the hypotenuse from a leg."
+      }
+    ],
+    "G29": [
+      {
+        "other_id": "CLD-SAT-M-000089",
+        "severity": "close",
+        "why": "Same algebra core: x^2 + y^2 = 29, xy = 10 -> (x + y)^2. G29 is a^2 + b^2 = 100, ab = 40 -> (a + b)^2 in a right-triangle context; strongest match in the set."
+      },
+      {
+        "other_id": "CLD-SAT-M-000123",
+        "severity": "close",
+        "why": "Right triangle linking legs, hypotenuse and area (legs x, x + 7, hyp 13 -> area); reversed direction."
+      },
+      {
+        "other_id": "CLD-SAT-M-000230",
+        "severity": "close",
+        "why": "Perimeter of a right triangle from the hypotenuse plus one more fact."
+      }
+    ],
+    "G30": []
+  },
+  "within_list_cues": [
+    {
+      "pair": [
+        "G04",
+        "G09"
+      ],
+      "why": "Both hinge on converting a per-minute rate in a linear model to per-hour (x60); used together the first teaches the trap of the second."
+    },
+    {
+      "pair": [
+        "G03",
+        "G21"
+      ],
+      "why": "Both ask 'for what constant does the equation degenerate', solved by finding the value that zeroes a factor (c - 4 / x - 1); one cues the method for the other. G07 belongs to the same parameter-condition cluster."
+    },
+    {
+      "pair": [
+        "G03",
+        "G12"
+      ],
+      "why": "Same 'do not divide by an expression that may be zero' lesson (c - 4 vs x - 3); G03's explanation gives away G12's trap."
+    },
+    {
+      "pair": [
+        "G27",
+        "G29"
+      ],
+      "why": "G27's 6-8 legs imply hypotenuse 10; next to G29 (hypotenuse 10) it primes the false 6-8-10 assumption (area 24, not 20). Mis-cue rather than answer leak."
+    }
+  ],
+  "official_sat_notes": "No idea is a near-copy of a released official SAT item that I can identify with confidence. G07 (parameter in two coefficients, no-solution system), G25 (two-poll margin-of-error overlap) and G04 (interpreting a per-minute coefficient per hour) follow common released Bluebook item styles but with their own numbers; G18, G27 and G30 are classic contest exercises rather than SAT items."
+}
