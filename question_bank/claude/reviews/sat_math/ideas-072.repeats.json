@@ -1,0 +1,379 @@
+{
+ "ideas": "generated set 25 (TB/TD)",
+ "results": {
+  "TB01": [
+   {
+    "other_id": "CLD-SAT-M-000579 (= ideas-gen-11 FB10)",
+    "severity": "close",
+    "why": "f is known (x² + 3x) and the student solves f(2x) = 4f(x) − 18. TB01 recovers f from f(2x). Different ask. Cited by the generator."
+   },
+   {
+    "other_id": "CLD-SAT-M-000329 / CLD-ACT-M-000749",
+    "severity": "close",
+    "why": "Linear f with f(2x) = 2f(x) + 7 / f(x + 1) = 2x + 5, evaluate f(3). ACT-749 is the nearest in spirit (a rule given for f of an inner expression), but it asks for one value, not the rule for f. Allowed."
+   }
+  ],
+  "TB02": [
+   {
+    "other_id": "CLD-ACT-M-000042",
+    "severity": "close",
+    "why": "Average rate of change of a quadratic computed forward between two known endpoints. TB02 has an unknown endpoint and needs the factor k − 1. Different ask."
+   }
+  ],
+  "TB03": [
+   {
+    "other_id": "CLD-SAT-M-000497 (= ideas-gen-08 CB03)",
+    "severity": "template",
+    "why": "Not cited by the generator. 000497: weekly profit x(80 − 2x) − (10x + 300); for how many integer values of x is the profit positive? (24). TB03: weekly profit −2x² + 120x − 1,000; for how many whole-dollar prices is the profit at least $600? (21). Same mechanism (context quadratic profit inequality, factor, count integers in the interval) and same asked quantity (a count of integer inputs). The only changes are the numbers, the strict vs inclusive boundary, and price instead of units. Drop."
+   },
+   {
+    "other_id": "ideas-gen-01 G22 / ideas-gen-23 RB03",
+    "severity": "close",
+    "why": "Generator-flagged. Adjudicated: close only. Those count integer x with a factored polynomial (including a squared factor) positive, with no context and no inequality to set up. Different key step. (The real conflict is 000497 above.)"
+   },
+   {
+    "other_id": "ideas-gen-10 EB02",
+    "severity": "close",
+    "why": "Profit quadratic, asks for the maximum. Different ask."
+   }
+  ],
+  "TB04": [
+   {
+    "other_id": "CLD-SAT-M-000120",
+    "severity": "template",
+    "why": "Not cited by the generator. 000120: f(x) = 3 · 2ˣ, g(x) = 12 · 2ˣ, g(x) = f(x + k); find k (2). TB04: 24 · 2^(x − 3) = c · 2ˣ; find c (3). Same mechanism (a horizontal shift of an exponential equals a constant multiple, via 2^k) and the same one-line identity, run in the other direction; the distractors are the same kinds (the raw factor 2³ = 8; the product 24 · 8; an additive treatment). A student who has done 000120 gets TB04 immediately. Drop (if it is kept, it must at least sit in a different batch and cite 000120)."
+   },
+   {
+    "other_id": "ideas-gen-02 H21",
+    "severity": "close",
+    "why": "g(x) = 500(1.08)^(x − 2) as a percent of f(x) = 500(1.08)ˣ: shift = multiplier, asked as a percent. Not banked."
+   },
+   {
+    "other_id": "ideas-gen-19 NB08 / ideas-gen-21 PB07",
+    "severity": "close",
+    "why": "Reflection of 2ˣ; translation of a parabola. Cited by the generator."
+   }
+  ],
+  "TB05": [
+   {
+    "other_id": "CLD-SAT-M-000840 (= ideas-gen-23 RB17, batch-076 Q076-09)",
+    "severity": "close",
+    "why": "Also an MC 'which describes all values of x' inequality item (f(g(x)) < 0, answer an interval). Different function type and key step (sign of the denominator). Keep apart."
+   },
+   {
+    "other_id": "ideas-gen-19 NB10 / CLD-SAT-M-000666 / CLD-SAT-M-000290",
+    "severity": "close",
+    "why": "Rational equations (excluded output, extraneous root). Different ask."
+   }
+  ],
+  "TB06": [
+   {
+    "other_id": "CLD-SAT-M-000341 (= ideas-gen-03 J08)",
+    "severity": "close",
+    "why": "Same round-trip context (go and return on the same route, total time). 000341 knows both speeds and asks for the distance (linear); TB06 knows the distance and asks for the unknown speed (quadratic with a root to reject). Different ask. Keep apart."
+   },
+   {
+    "other_id": "CLD-ACT-M-000546",
+    "severity": "close",
+    "why": "Round-trip average speed. Different ask; note that TB06's trap 48 is the average-speed idea."
+   }
+  ],
+  "TB07": [
+   {
+    "other_id": "CLD-SAT-M-000863 (= ideas-gen-22 QA02, batch-078 Q078-02)",
+    "severity": "close",
+    "why": "Same pair of graphs y = f(x) + 3 and y = f(x + k). 000863 is linear and asks for the slope that makes them the same line; TB07 is quadratic and asks for the intersection point. Different ask. Do not batch with 000863 / Q078-02."
+   }
+  ],
+  "TB08": [
+   {
+    "other_id": "CLD-SAT-M-000380",
+    "severity": "close",
+    "why": "Not cited by the generator, and the strongest match. 000380: (ax + 5)² − (ax − 5)² = 60x for all x; find a. TB08: (x + k)(x − 3) − (x − k)(x + 3) = 10x for all x; find k. Same idea (difference of two expansions in which the x² and constant terms cancel; match the x-coefficient to solve for a parameter). The algebra differs (products with the parameter in both the linear and constant terms, not squares; the −6 piece), so close rather than template. Cite 000380 and keep apart."
+   },
+   {
+    "other_id": "CLD-SAT-M-000225 / ideas-gen-07 BB10 / CLD-SAT-M-000728",
+    "severity": "close",
+    "why": "Identity matching to ax + b / to x⁴ + 2x² + 81. Different structure."
+   }
+  ],
+  "TB09": [
+   {
+    "other_id": "CLD-SAT-M-000051 / CLD-ACT-M-000341",
+    "severity": "close",
+    "why": "Polynomial expansions. No banked binomial cube. Allowed."
+   }
+  ],
+  "TB10": [
+   {
+    "other_id": "CLD-SAT-M-000128 / ideas-gen-02 H12",
+    "severity": "close",
+    "why": "Vertex location conditions. Cited by the generator. Different condition and ask."
+   }
+  ],
+  "TB11": [
+   {
+    "other_id": "CLD-ACT-M-000368",
+    "severity": "close",
+    "why": "Not cited by the generator, and stronger than the cited pair. ACT-368: x² − 5x + k = 0 has roots r and s with r² + s² = 13; find k (6). TB11: x² − 5x + 3 = 0; find a² + b² (19). Same polynomial x² − 5x, same Vieta + (sum)² − 2·product step, asked in the opposite direction. Not the same ask, so close (strong) rather than template, but change the coefficients and cite ACT-368."
+   },
+   {
+    "other_id": "CLD-SAT-M-000731 (= ideas-gen-19 NB05) / CLD-SAT-M-000089",
+    "severity": "close",
+    "why": "Generator-flagged (000731). Adjudicated: close. Both use x² + y² = (x + y)² − 2xy; in 000731 the product comes from a reciprocal sum, in 000089 the pieces are given. TB11's new step is reading the sum and product from the quadratic. Keep TB11 out of batches containing 000731 or 000089."
+   }
+  ],
+  "TB12": [
+   {
+    "other_id": "CLD-ACT-M-000415 / ideas-gen-13 HB09 / ideas-gen-21 PB10",
+    "severity": "close",
+    "why": "Combining 1/x-type fractions, simplify only. TB12 solves an equation. Allowed."
+   }
+  ],
+  "TB13": [
+   {
+    "other_id": "CLD-SAT-M-000332",
+    "severity": "template",
+    "why": "Not cited by the generator. 000332: 4^a · 8^b = 2¹² and a − b = 1; what is b? TB13: 2ᵃ · 4ᵇ = 128 and 3ᵃ/9ᵇ = 1/3; what is b? Same mechanism (rewrite with a common base, equate exponents, solve the linear system in the exponents) and the same asked quantity (b). TB13's only addition is a second routine base conversion. Drop."
+   },
+   {
+    "other_id": "CLD-SAT-M-000247",
+    "severity": "close",
+    "why": "x^a · x³ = x¹² and (x^a)^b = x¹⁸; find b. Another exponent system asking for b. Reinforces the drop."
+   },
+   {
+    "other_id": "CLD-ACT-M-000655 / ideas-gen-23 RB10",
+    "severity": "close",
+    "why": "Combine given powers. Cited by the generator."
+   }
+  ],
+  "TB14": [
+   {
+    "other_id": "CLD-SAT-M-000272 (= ideas-gen-01 G02)",
+    "severity": "close",
+    "why": "f(3) − f(1) given for a linear f. TB14 is quadratic and asks for f(5). Cited. Allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000465",
+    "severity": "close",
+    "why": "Differences of outputs of an exponential a · bˣ. Different function family."
+   }
+  ],
+  "TB15": [
+   {
+    "other_id": "CLD-ACT-M-000488",
+    "severity": "close",
+    "why": "2^(x + 1) + 2ˣ = 48. Not cited. Factoring a sum of powers of 2 vs recognizing 2ˣ + 2ˣ = 2^(x + 1). Different key step, close setup. Keep apart."
+   },
+   {
+    "other_id": "ideas-gen-21 PB11",
+    "severity": "close",
+    "why": "4^(x + 1) − 4ˣ = 96. Cited."
+   }
+  ],
+  "TB16": [
+   {
+    "other_id": "CLD-SAT-M-000342 (= ideas-gen-03 K07)",
+    "severity": "close",
+    "why": "Not cited by the generator, and closer than 000787. 000342: g(x) = f(x) + 8 has exactly one x-intercept, so the vertex is moved onto the x-axis; find k. TB16: the translation puts the vertex on the x-axis; count x-intercepts. Same key insight (vertex on the x-axis <=> exactly one x-intercept), opposite direction. Close. Cite 000342 and keep apart."
+   },
+   {
+    "other_id": "CLD-SAT-M-000787 (= ideas-gen-21 PB06)",
+    "severity": "close",
+    "why": "Generator-flagged. Adjudicated: close. 000787 tracks a maximum through a reflection, a stretch and shifts and asks which statement about g is true; TB16 uses only translations and asks for an intercept count. Different ask."
+   }
+  ],
+  "TB17": [
+   {
+    "other_id": "ideas-gen-17 LB10",
+    "severity": "close",
+    "why": "Signs of a and b in a · bˣ. Cited. Not banked under that stem (no banked b^(−x) item found)."
+   },
+   {
+    "other_id": "CLD-SAT-M-000129 / 000392 / 000465 / 000591 / 000622",
+    "severity": "close",
+    "why": "a · bˣ items, all with a, b positive given; none reasons back to the signs. Allowed."
+   }
+  ],
+  "TD01": [
+   {
+    "other_id": "CLD-SAT-M-000359 (= ideas-gen-03 M05)",
+    "severity": "close",
+    "why": "Not cited by the generator, and the strongest match. 000359: right triangle ABC, right angle C, sin A = 3/5, AB = 25, CD is the altitude to AB; find CD (12). TD01: right angle C, cos A = 0.6, CD = 12; find AB (25). Same 15-20-25 triangle, the same altitude, the same two numbers, asked in reverse; traps 15/20/16 vs 000359's 15/16/20 choices. The route differs (ratio in the small triangle, then in the big one), so close rather than template, but the numbers must change. Revise."
+   },
+   {
+    "other_id": "CLD-SAT-M-000586 (= ideas-gen-11 FD03) / CLD-SAT-M-000170 / CLD-SAT-M-000490 / ideas-gen-11 FD05",
+    "severity": "close",
+    "why": "cos A = 0.6 right triangle; altitude-to-hypotenuse segments. Different asks."
+   }
+  ],
+  "TD02": [
+   {
+    "other_id": "CLD-SAT-M-000420 (= ideas-gen-05 Y03)",
+    "severity": "close",
+    "why": "Isosceles angle chase with AD = BD. Cited. Different ask."
+   },
+   {
+    "other_id": "CLD-SAT-M-000270",
+    "severity": "close",
+    "why": "AB = AC with angle A = 3 · angle B (key 108°, choices include 36° and 72°). Same family (one equation in the apex angle of an isosceles triangle). Different construction. Keep apart."
+   }
+  ],
+  "TD03": [
+   {
+    "other_id": "CLD-SAT-M-000468 (= ideas-gen-07 BD01) / CLD-SAT-M-000632 (= ideas-gen-13 HD11)",
+    "severity": "close",
+    "why": "New water depth. 000632 is the closer: fixed volume moved to a new base (cone into cylinder). TD03 reorients one box. Same principle (volume conserved, divide by the new base area), easier. Allowed; keep apart from 000632."
+   },
+   {
+    "other_id": "CLD-ACT-M-000008",
+    "severity": "close",
+    "why": "Rectangular tank depth/volume. Different ask."
+   }
+  ],
+  "TD04": [
+   {
+    "other_id": "CLD-SAT-M-000800 (= ideas-gen-21 PD06, batch-073 Q073-08)",
+    "severity": "close",
+    "why": "Unit-circle coordinates. Cited. Different ask (radius 4, given angle)."
+   },
+   {
+    "other_id": "CLD-ACT-M-000659",
+    "severity": "close",
+    "why": "Terminal side through (−5, 12), find cos θ. Reverse direction. Allowed."
+   }
+  ],
+  "TD05": [
+   {
+    "other_id": "CLD-SAT-M-000799 (= ideas-gen-21 PD05, batch-073 Q073-07) / CLD-ACT-M-000288",
+    "severity": "close",
+    "why": "Finding angles in [0, 2π) from a trig condition. Different equation and ask (sum of all solutions). Keep apart from 000799 / Q073-07."
+   }
+  ],
+  "TD06": [
+   {
+    "other_id": "CLD-ACT-M-000045",
+    "severity": "close",
+    "why": "Not cited. DE ∥ BC, area of ADE given, area of trapezoid DBCE asked from the similarity ratio. TD06 uses two similar corner triangles and asks for the parallelogram. Different key step. Allowed."
+   },
+   {
+    "other_id": "ideas-gen-05 Y04 / CLD-SAT-M-000430",
+    "severity": "close",
+    "why": "Area ratios in a triangle. Different."
+   }
+  ],
+  "TD07": [
+   {
+    "other_id": "CLD-SAT-M-000122",
+    "severity": "close",
+    "why": "Not cited by the generator, and the strongest match. 000122: triangle with AB = AC = 10 and BC = 12; find sin B (4/5). TD07: the same 10-10-12 triangle; find the sine of the apex angle (0.96), and TD07's trap 0.8 is 000122's key. Different ask and an extra step (second altitude), so close, but a student who saw 000122 has the triangle already solved. Revise the side lengths."
+   },
+   {
+    "other_id": "ideas-gen-11 FD02",
+    "severity": "close",
+    "why": "Area from two sides and an included angle. Cited."
+   }
+  ],
+  "TD08": [
+   {
+    "other_id": "CLD-ACT-M-000166",
+    "severity": "template",
+    "why": "Not cited. ACT-166: two circles with radii 5 and 3, centers 10 apart, a line tangent to both with both circles on the same side; distance between the points of tangency (√96 = 4√6). TD08: radii 4 and 9, externally tangent (so centers 13 apart), same line, same ask (PQ = 12). Same mechanism and same ask; 'tangent externally' only supplies the center distance as r₁ + r₂. Cross-exam re-skin. Drop."
+   },
+   {
+    "other_id": "ideas-gen-02 H29 / CLD-SAT-M-000854",
+    "severity": "close",
+    "why": "Tangent circles / tangent segments. Cited."
+   }
+  ],
+  "TD09": [
+   {
+    "other_id": "CLD-ACT-M-000741",
+    "severity": "template",
+    "why": "Not cited. ACT-741: 'Two angles are complementary. Their measures are (2x + 10)° and (3x − 5)°. What is the measure of the larger angle?' (46°, choices 44°, 17°, 85°, 46°). TD09: the same expressions, the same sum of 90°, the same ask, the same key 46 and the same traps (17, 44). Only the context (acute angles of a right triangle) differs. Drop."
+   },
+   {
+    "other_id": "CLD-ACT-M-000345",
+    "severity": "close",
+    "why": "Supplementary consecutive angles of a parallelogram. Cited."
+   }
+  ],
+  "TD10": [
+   {
+    "other_id": "CLD-ACT-M-000352",
+    "severity": "close",
+    "why": "Equilateral triangle inscribed in a circle. Cited."
+   },
+   {
+    "other_id": "ideas-gen-23 RD03",
+    "severity": "close",
+    "why": "Key 9.6 for a chord from a 6-8-10 configuration (tangent lengths). Different figure, same key value; keep apart from RD03's batch and from TD07 (0.96)."
+   }
+  ],
+  "TD11": [
+   {
+    "other_id": "CLD-SAT-M-000133 / CLD-ACT-M-000257",
+    "severity": "close",
+    "why": "Similar triangles for heights (shadows). Cited. Mirror context is new."
+   }
+  ],
+  "TD12": [
+   {
+    "other_id": "CLD-ACT-M-000358",
+    "severity": "close",
+    "why": "Not cited. Prism with right-triangle bases, volume. TD12 must find the triangle's height from the slanted sides first. Allowed."
+   },
+   {
+    "other_id": "CLD-SAT-M-000526 / CLD-SAT-M-000699",
+    "severity": "close",
+    "why": "Trough prisms. Cited (526). Different cross section/ask."
+   }
+  ],
+  "TD13": [
+   {
+    "other_id": "CLD-ACT-M-000572",
+    "severity": "close",
+    "why": "Midpoint and distance with known endpoints. TD13 reconstructs the endpoints from the midpoint and axis conditions. Allowed."
+   },
+   {
+    "other_id": "CLD-ACT-M-000283",
+    "severity": "close",
+    "why": "Midpoint applied forward. Cited."
+   }
+  ]
+ },
+ "within_list_cues": {
+  "TB01": "Rationale error plus a consensus cue. Choice A (2x² − 3x + 1) does not follow from its stated error: treating f(2x) as 2f(x) gives 2f(x) = 4x² − 6x + 1, so f(x) = 2x² − 3x + 1/2. With A as written, every choice ends in + 1, C shares x² with D and −3x with A, so C is the consensus pick. Use A = 2x² − 3x + 1/2. One test value (the given rule at x = 1 gives f(2) = −1; A 3, B 41, C −1, D −7) removes every distractor, which is normal for a determine-the-function item.",
+  "TB05": "Test values remove every distractor (f(3) = 15 > 5 removes C; f(7) = 5.4 > 5 removes B; f(10) = 4.5 < 5 removes D). Inherent to an MC solution-interval item (as with CLD-SAT-M-000840). Acceptable.",
+  "TB09": "Identity item: x = 1 gives 26 and only D gives 26 (A 8, B 14, C 20). All choices agree at x = 0. Acceptable for an equivalent-expression item.",
+  "TB16": "Mild irrelevant givens: the vertex x-coordinate 2 and the horizontal shift 3 do not affect the count. This is part of the point (C's error is about translations), so it is acceptable.",
+  "TB17": "Consensus cue. 'a > 0' appears in C and D, and '0 < b < 1' appears in B and C, so C is the one choice that shares a part with two others. Replace with a 2 × 2 grid: A a < 0 and 0 < b < 1; B a < 0 and b > 1; C a > 0 and 0 < b < 1 (key); D a > 0 and b > 1. Each distractor then is one specific wrong inference (A and B ignore f(1) > 0; D ignores f(2) < f(1)).",
+  "TD10": "Choice A 4.8 is exactly half the key 9.6 (a real 'forgot to double' error, but a 'double the odd one' pattern). Mild. Acceptable.",
+  "TD13": "Choice A 5 is exactly half the key 10 (distance from the origin to the midpoint). Real error; mild halving cue. Acceptable.",
+  "TB07": "SPR trap list includes 'no solution', which cannot be entered; it is a rationale, not an entry. Fine.",
+  "TD07 / TD10 / TD01 / TD13": "Several geometry ideas run on 3-4-5 / 6-8-10 triangles (TD01 15-20-25 with 12, TD07 6-8-10 with 0.96, TD10 4.8-6.4-8 with 9.6, TD13 6-8-10, TD12 1.5-2-2.5). Keys 0.96 (TD07) and 9.6 (TD10) are the same digits. Do not put TD07 and TD10 in the same batch, and spread the others.",
+  "batching": "Keep apart within this set: TB04 / TB07 / TB16 (graph translations); TB08 / TB09 (expand and compare); TB02 / TB14 (f(k) − f(1) differences); TB05 / TB12 (rational equations/inequalities); TD04 / TD05 (unit circle); TD07 / TD10 (isosceles triangle, second altitude, 0.96 / 9.6); TD01 / TD07 (trig ratio with an altitude). Keep apart from banked items: TB03 from 000497; TB05 from 000840 / Q076-09; TB06 from 000341; TB07 from 000863 / Q078-02; TB08 from 000380; TB11 from 000731, 000089 and ACT-368; TB13 from 000332, 000247; TB15 from ACT-488; TB16 from 000342 and 000787; TD01 from 000359; TD02 from 000420, 000270; TD03 from 000632, 000468; TD04 from 000800 / Q073-08; TD05 from 000799 / Q073-07; TD07 from 000122; TD10 from ideas-gen-23 RD03 (key 9.6)."
+ },
+ "math_errors": {
+  "none (keys)": "All 30 keys and every listed distractor or trap were recomputed with sympy: TB01 f(x) = x² − 3x + 1 (f(2x) − rule = 0; B 16x² − 12x + 1, D x² − 6x + 1 check); TB02 k = 8 (9; 2 + √6 ≈ 4.449; (9 + √61)/2 ≈ 8.405 check); TB03 20 ≤ x ≤ 40, 21 integers (max at 30); TB04 c = 3 (8, 21, 192); TB05 solution set (2, 8); TB06 r = 40 (root −12 rejected; 48, 24, 60); TB07 x = −1 (1 for the wrong shift); TB08 (2k − 6)x, k = 8 (13, 5, −2); TB09 6x² + 12x + 8 (B, C wrong expansions check); TB10 c = 20 (12); TB11 19; TB12 x = ±5, positive 5 (√13 trap); TB13 a = 3, b = 2 (b = 4, b = 3/2 traps); TB14 f(5) = 100 (200, 20, 800/9); TB15 x = 4 (5/2, 6, 16); TB16 vertex (5, 0), one intercept; TB17 brute force: only a > 0, 0 < b < 1 satisfy both conditions; TD01 AC = 15, AB = 25, BC = 20, AD = 9, BD = 16; TD02 36; TD03 2 (4, 9); TD04 (−2√3, 2) (A is (−2, 2√3)); TD05 {3π/4, 7π/4}, sum 5π/2; TD06 12/25 (6/25 = half the parallelogram); TD07 cos = 7/25 = 0.28, sin = 24/25 = 0.96; TD08 √(13² − 5²) = 12 (√194 ≈ 13.93); TD09 x = 17, angles 44 and 46; TD10 BC = 48/5 = 9.6, AD = 32/5 = 6.4 (coordinates check); TD11 24 (25.6, 37.5, 15); TD12 height 1.5, volume 9 (15, 18, 30); TD13 10 (2√13, 5, 14).",
+  "TB01 (rationale)": "Choice A's rationale is wrong as written. 'Treating f(2x) as 2f(x)' gives f(x) = 2x² − 3x + 1/2, not 2x² − 3x + 1. Change A to 2x² − 3x + 1/2, or rewrite the rationale (2x² − 3x + 1 halves only the non-constant coefficients, a weaker error)."
+ },
+ "recommend_drop": [
+  "TB03",
+  "TB04",
+  "TB13",
+  "TD08",
+  "TD09"
+ ],
+ "recommend_revise": {
+  "TB01": "Change A to 2x² − 3x + 1/2 to match its rationale (f(2x) treated as 2f(x)); this also breaks the '+ 1 in every choice' consensus. Optionally cite CLD-ACT-M-000749.",
+  "TB11": "Cite CLD-ACT-M-000368 (x² − 5x + k, r² + s² = 13, find k) and move off x² − 5x, e.g. x² − 7x + 5 = 0 → a² + b² = 49 − 10 = 39 (traps 49, 44, 59). Keep out of batches with 000731, 000089.",
+  "TB08": "Cite CLD-SAT-M-000380 ((ax + 5)² − (ax − 5)² = 60x) in the Nearest note and keep it out of that item's batch.",
+  "TB16": "Cite CLD-SAT-M-000342 (vertical shift puts the vertex on the x-axis, exactly one x-intercept) as the nearest item, not only 000787, and keep apart from both.",
+  "TB17": "Replace the choices with the 2 × 2 grid (a < 0 / a > 0 × 0 < b < 1 / b > 1) to remove the consensus cue on C.",
+  "TD01": "Same 15-20-25 triangle and the same numbers (12 and 25) as CLD-SAT-M-000359, run in reverse. Change the numbers, e.g. cos A = 5/13 and CD = 60: sin A = 12/13, AC = 65, AB = 169, BC = 156, AD = 25, BD = 144 (traps 65, 156, 144). Cite 000359.",
+  "TD07": "Same 10-10-12 triangle as CLD-SAT-M-000122, whose key 0.8 is TD07's trap. Use sides 5, 5 and 8: altitude 3, area 12, second altitude 24/5, sine of the apex angle 24/25 = 0.96 (the apex angle is now obtuse, cos = −0.28, a good trap); traps 0.6 (sine of a base angle), 0.8 (cosine of a base angle), −0.28 or 0.28 (cosine of the apex angle). Or 13, 13, 10 (key 120/169, entered .7100 or .7101). Cite 000122.",
+  "TB04 (if kept despite drop)": "Only with a different batch from 000120 and a citation; better to drop.",
+  "Nearest notes to add (no change to the item)": "TB05 cite 000840; TB06 cite ACT-546; TB07 cite 000863; TB15 cite ACT-488; TD02 cite 000270; TD03 cite 000632; TD05 cite 000799; TD06 cite ACT-045; TD12 cite ACT-358; TD13 cite ACT-572."
+ }
+}
