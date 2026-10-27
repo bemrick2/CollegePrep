@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 17,
+  "bank_version": 18,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -3072,6 +3072,210 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Find both volumes, then divide."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000161",
+      "correct_answer": "50",
+      "accepted_answers": [
+        "50"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is the percent of customers who are members, not their share of revenue.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "60",
+          "rationale": "60 is a member's average spending, not a percent of revenue.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Imagine 100 customers: 40 members spend 40 × $60 = $2,400 and 60 nonmembers spend 60 × $40 = $2,400. Total revenue is $4,800, and members provide $2,400 of it, which is 50%.",
+      "distractor_explanations": {},
+      "hints": [
+        "Imagine 100 customers."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute each group's total spending."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000162",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 is the value of c alone.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "2",
+          "rationale": "2 is the value of a alone.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The x-coordinate of the vertex is −b/(2a) = −4/(2a) = −1, so a = 2. Then f(−1) = 2(1) + 4(−1) + c = c − 2 = 3, so c = 5 and a + c = 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use x = −b/(2a) for the vertex."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find a from the vertex's x-coordinate, then c from its y-coordinate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000163",
+      "correct_answer": "C",
+      "explanation": "(x + 3)² = x² + 6x + 9. Since x² + 6x = 7, (x + 3)² = 7 + 9 = 16. (Solving gives x = 1 or x = −7, and both give (x + 3)² = 16.)",
+      "distractor_explanations": {
+        "A": "7 is the value of x² + 6x, not (x + 3)².",
+        "B": "13 adds 6 instead of 9.",
+        "D": "49 squares 7."
+      },
+      "hints": [
+        "Expand (x + 3)²."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Solve for x (x = 1 or −7) and compute (x + 3)²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000164",
+      "correct_answer": "C",
+      "explanation": "At x = 2, the line y = 3x − 4 has y = 2, so the intersection point is (2, 2). Substituting into y = mx + 2 gives 2 = 2m + 2, so m = 0. The first line is horizontal.",
+      "distractor_explanations": {
+        "A": "−2 sets 2m + 2 equal to −2.",
+        "B": "−1 uses y = 0 at the intersection point.",
+        "D": "3 is the slope of the other line; equal slopes would mean no intersection."
+      },
+      "hints": [
+        "Find the y-coordinate of the intersection point."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute (2, 2) into y = mx + 2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000165",
+      "correct_answer": "A",
+      "explanation": "πr² = 49π gives r = 7, so the circumference is 2π(7) = 14π. A square with perimeter 14π has sides of length 14π ÷ 4 = 3.5π centimeters.",
+      "distractor_explanations": {
+        "B": "7π divides the circumference by 2 instead of 4.",
+        "C": "12.25π divides the area, 49π, by 4.",
+        "D": "14π is the full perimeter, not one side."
+      },
+      "hints": [
+        "Find the radius from the area."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "r = 7, circumference = 14π, side = 14π/4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000166",
+      "correct_answer": "A",
+      "explanation": "f(k) = −3k + 12 = 0 gives k = 4. Then 2k = 8, and f(8) = −3(8) + 12 = −24 + 12 = −12. Doubling the input does not double the output.",
+      "distractor_explanations": {
+        "B": "0 is f(k), not f(2k).",
+        "C": "4 is the value of k.",
+        "D": "8 is the value of 2k, not f(2k)."
+      },
+      "hints": [
+        "Find k first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve −3k + 12 = 0, then evaluate f(2k)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000167",
+      "correct_answer": "D",
+      "explanation": "Substituting x = 7 gives y = 3(7) = 21, so 2y = 2(21) = 42. The question asks for 2y, not y, so one more step is needed after finding y.",
+      "distractor_explanations": {
+        "A": "14 is 2x, not 2y.",
+        "B": "21 is y, not 2y.",
+        "C": "28 adds x and y."
+      },
+      "hints": [
+        "Find y first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "y = 21, so 2y = 42."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000168",
+      "correct_answer": "B",
+      "explanation": "Multiply 2x by each term: 2x · 3x = 6x² and 2x · (−4) = −8x, so 2x(3x − 4) = 6x² − 8x.",
+      "distractor_explanations": {
+        "A": "This multiplies only the first term by 2x.",
+        "C": "This adds the coefficients 2 and 3 instead of multiplying them.",
+        "D": "This drops the power of x in the first product."
+      },
+      "hints": [
+        "Multiply 2x by each term in the parentheses."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: 2(−1) = −2, and 6 − 8 = −2."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000169",
+      "correct_answer": "B",
+      "explanation": "The line passes through (4, 0) and (6, 5), so its slope is 5/2. Then y = (5/2)(x − 4), and at x = 0, y = (5/2)(−4) = −10.",
+      "distractor_explanations": {
+        "A": "−15 uses the point (6, 5) but forgets to add 5: (5/2)(0 − 6).",
+        "C": "2.5 is the slope, not the y-intercept.",
+        "D": "10 has the wrong sign."
+      },
+      "hints": [
+        "Write the x-intercept as a point."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the slope, then use point-slope form at x = 0."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000170",
+      "correct_answer": "5.4",
+      "accepted_answers": [
+        "5.4",
+        "27/5"
+      ],
+      "common_errors": [
+        {
+          "value": "7.2",
+          "rationale": "7.2 is the length of the altitude, not a segment of the hypotenuse.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "9.6",
+          "rationale": "9.6 is the longer segment.",
+          "trap": null
+        }
+      ],
+      "explanation": "The hypotenuse is √(9² + 12²) = 15. The altitude creates a smaller right triangle similar to the original, in which the shorter leg 9 is the hypotenuse and the shorter segment s is adjacent to the same acute angle: s/9 = 9/15, so s = 81/15 = 5.4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which smaller triangle contains the leg of length 9?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the altitude and match the similar triangles."
       }
     }
   ]

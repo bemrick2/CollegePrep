@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:37:07+00:00",
+  "updated_at": "2026-10-27T02:37:36+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 150
+    "sat_math": 160
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 160,
+      "PASS": 170,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 161,
+      "candidates": 171,
       "passed_after_revision": 1
     }
   },
@@ -1401,13 +1401,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 150,
+      "accepted": 160,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 46,
-        "Algebra": 44,
-        "Geometry and Trigonometry": 31,
-        "Problem-Solving and Data Analysis": 29
+        "Advanced Math": 49,
+        "Algebra": 48,
+        "Geometry and Trigonometry": 33,
+        "Problem-Solving and Data Analysis": 30
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
@@ -1419,6 +1419,7 @@
         "Area of a triangle that is a right triangle": 1,
         "Chained percent relationships": 1,
         "Coefficient that makes two lines parallel": 1,
+        "Coefficients from the vertex of a parabola": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
@@ -1439,10 +1440,12 @@
         "Cosine of an angle in the coordinate plane": 1,
         "Counting from a conditional percent": 1,
         "Distance from a pace and a time": 1,
+        "Distributing a monomial over a binomial": 1,
         "Dividing a polynomial by a monomial": 1,
         "Effect of replacing a value on the mean": 1,
         "Effect of sample size on the margin of error": 1,
         "Equation of a circle with an unknown constant": 1,
+        "Evaluating a linear function at a related input": 1,
         "Evaluating a linear function given by a table": 1,
         "Evaluating a quadratic after finding a coefficient": 1,
         "Evaluating an expression using a squared-sum identity": 1,
@@ -1509,9 +1512,11 @@
         "Right-triangle trigonometry with a given ratio": 1,
         "Same-side interior angles with algebra": 1,
         "Scale model with a unit conversion": 1,
+        "Segment of the hypotenuse cut by the altitude": 1,
         "Setting up an equation from a scoring rule": 1,
         "Shadow length from similar triangles": 1,
         "Share of a total after two different percent changes": 1,
+        "Share of revenue from a subgroup": 1,
         "Similar triangles with an algebraic side length": 1,
         "Simplifying a difference of rational expressions": 1,
         "Simplifying a product of conjugates plus a constant": 1,
@@ -1519,6 +1524,7 @@
         "Simplifying an expression with negative exponents": 1,
         "Sine of a base angle in an isosceles triangle": 1,
         "Slope from a point and an x-intercept": 1,
+        "Slope of a line through a given intersection point": 1,
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
         "Solving a formula for one of its variables": 1,
@@ -1534,6 +1540,8 @@
         "Solving an equation with two square roots": 1,
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
+        "Square with a perimeter equal to a circle's circumference": 1,
+        "Substituting into a linear relationship": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
         "Sum of zeros from two values of a factored quadratic": 1,
         "System of linear equations in context": 1,
@@ -1548,6 +1556,7 @@
         "Unknown count from a probability": 1,
         "Using symmetry of a parabola": 1,
         "Using two values of a linear function": 1,
+        "Value of a completed square from an equation": 1,
         "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
         "Working backward through a markup and a discount": 1,
@@ -1559,22 +1568,23 @@
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
         "y-intercept from a slope and a point": 1,
+        "y-intercept from an x-intercept and another point": 1,
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 26,
-        "hard": 9,
-        "medium": 115
+        "easy": 28,
+        "hard": 10,
+        "medium": 122
       },
       "by_difficulty_calibrated": {
-        "easy": 64,
-        "hard": 4,
-        "medium": 82
+        "easy": 66,
+        "hard": 5,
+        "medium": 89
       },
       "calibrated_share": {
-        "easy": 0.427,
-        "hard": 0.027,
-        "medium": 0.547
+        "easy": 0.412,
+        "hard": 0.031,
+        "medium": 0.556
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1601,21 +1611,22 @@
         "4": 1,
         "44": 2,
         "5": 2,
-        "50": 1,
+        "5.4": 1,
+        "50": 2,
         "6": 2,
         "60": 1,
-        "7": 2,
+        "7": 3,
         "8": 2,
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 26,
-        "B": 28,
-        "C": 29,
-        "D": 20
+        "A": 28,
+        "B": 30,
+        "C": 31,
+        "D": 21
       },
-      "modeling_items": 41,
-      "spr_items": 47,
+      "modeling_items": 42,
+      "spr_items": 50,
       "passages": 0
     }
   },
@@ -1624,7 +1635,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 17
+    "sat_math": 18
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1656,37 +1667,29 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 18,
+    "next_batch": 19,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 12.0,
-      "Advanced Math": 10.0,
-      "Problem-Solving and Data Analysis": -5.0,
-      "Geometry and Trigonometry": -7.0
+      "Algebra": 11.5,
+      "Advanced Math": 10.5,
+      "Problem-Solving and Data Analysis": -4.5,
+      "Geometry and Trigonometry": -7.5
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -24.0,
-      "medium": -2.0,
-      "hard": 36.0
+      "easy": -23.5,
+      "medium": -4.0,
+      "hard": 37.5
     },
     "answer_key_gap_for_next_10": {
-      "A": 4.0,
-      "B": 2.0,
-      "C": 1.0,
-      "D": 10.0
+      "A": 3.9,
+      "B": 1.9,
+      "C": 0.9,
+      "D": 10.9
     },
-    "spr_items": 47,
+    "spr_items": 50,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 27,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 29.2,
-        "Knowledge of Language": 18.8,
-        "Conventions of Standard English": -33.8
-      }
-    },
     "act_reading": {
       "next_batch": 29,
       "skill_gap_for_next_10": {
@@ -1702,6 +1705,14 @@
         "Information and Ideas": -0.0,
         "Standard English Conventions": 8.0,
         "Expression of Ideas": -1.4
+      }
+    },
+    "act_english": {
+      "next_batch": 27,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 29.2,
+        "Knowledge of Language": 18.8,
+        "Conventions of Standard English": -33.8
       }
     }
   },
@@ -1728,12 +1739,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 150,
-      "share_of_target": 0.214
+      "accepted": 160,
+      "share_of_target": 0.229
     }
   },
   "total_target": 4700,
-  "total_accepted": 1668,
+  "total_accepted": 1678,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48688,7 +48699,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 17,
+      "bank_version": 18,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48814,7 +48825,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:37:07+00:00",
+    "heartbeat_at": "2026-10-27T02:37:36+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
