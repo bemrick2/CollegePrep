@@ -321,9 +321,9 @@
    "difficulty": "hard",
    "stem": "Which finding, if true, would most directly support the archaeologists' argument?",
    "choices": {
-    "A": "Pliny the Younger described a tall, dark cloud rising from the mountain on the day that the eruption began.",
-    "B": "Pompeii's streets were paved with large stones that showed deep ruts worn by generations of cart wheels.",
-    "C": "Many of Pompeii's buildings had been damaged by a strong earthquake about seventeen years before the eruption.",
+    "A": "Pliny the Younger wrote that the eruption cloud first appeared in the early afternoon, around one o'clock.",
+    "B": "A painted notice on a Pompeii wall, dated to the spring of 78 CE, announces a local election.",
+    "C": "Most surviving medieval copies of Pliny's letter give the date of the eruption as August 24.",
     "D": "A Pompeii wall bears a mid-October date written in charcoal, which fades within months, apparently from 79 CE."
    },
    "answer": "D",
@@ -331,16 +331,16 @@
    "explanation": "A date written in quickly fading charcoal must have been recent when the city was buried, so an October date points to an autumn eruption.",
    "distractors": {
     "A": {
-     "rationale": "This describes the eruption but says nothing about its date.",
+     "rationale": "This gives the time of day, not the season or month of the eruption.",
      "trap": "true_but_irrelevant"
     },
     "B": {
-     "rationale": "This concerns the city's streets, not when the eruption occurred.",
+     "rationale": "A date from the previous year says nothing about the month of the eruption.",
      "trap": "true_but_irrelevant"
     },
     "C": {
-     "rationale": "An earlier earthquake does not indicate the eruption's month.",
-     "trap": "true_but_irrelevant"
+     "rationale": "This supports the traditional August date, not the autumn date the archaeologists propose.",
+     "trap": null
     }
    },
    "hints": [
@@ -547,6 +547,12 @@
     "solved_independently": true,
     "single_correct": true
    }
+  }
+ ],
+ "revision_log": [
+  {
+   "round": 2,
+   "reason": "Round-1 blind solves matched all keys with no blocking flags; both noted that S040-06's key was the only choice mentioning a date. Rewrote the three distractors so each also involves a time or date (time of day, a 78 CE notice, the August 24 manuscript date) without supporting an autumn eruption. Whole batch re-solved blind."
   }
  ]
 }
