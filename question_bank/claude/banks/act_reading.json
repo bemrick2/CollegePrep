@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 49,
-  "updated_at": "2026-10-27T16:27:22+00:00",
+  "version": 50,
+  "updated_at": "2026-10-27T17:05:36+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -542,6 +542,17 @@
       "word_count": 351,
       "text": "In a study published in 2000, psychologists Sheena Iyengar and Mark Lepper set up a tasting booth for jams in an upscale grocery store. On some days the booth offered 24 flavors; on others, it offered 6. The larger display attracted more shoppers to stop, but the smaller one produced far more sales: roughly 30 percent of the shoppers who stopped at the 6-flavor booth bought a jar, compared with about 3 percent at the 24-flavor booth.\n\nThe finding seemed to overturn a common assumption. Economists had long reasoned that more options can only help a shopper, who is free to ignore the ones she does not want. The jam study suggested instead that a large assortment could discourage people from choosing at all, an effect that came to be called \"choice overload.\" The idea spread quickly into business books and advice columns, and some companies reduced the number of products they offered.\n\nLater researchers were less certain. When a team of psychologists gathered the results of fifty experiments that had tested the effect, they found that the average effect across all of them was close to zero. Some studies found that larger assortments reduced choosing; others found that they increased it; many found no difference at all.\n\nThis did not mean that the original study was wrong. Rather, it suggested that choice overload depends on circumstances. Researchers have since proposed several conditions under which large assortments are most likely to discourage choosing: when shoppers have no clear preference before they start, when the options are hard to compare, and when shoppers must decide quickly. A person who already knows she wants strawberry jam, for example, is unlikely to be troubled by a shelf of thirty flavors.\n\nThe history of choice overload illustrates a pattern that is common in the study of human behavior. A striking result is reported, widely repeated, and then tested again under many conditions. What emerges is usually less dramatic than the original claim and more useful: not a simple rule that fewer options are better, but a description of when, and for whom, they might be.",
       "batch": 49,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000050",
+      "title": "What the Viewer Keeps",
+      "genre": "humanities",
+      "word_count": 511,
+      "text": "People who learn that I write subtitles for a living usually ask me the same question: isn't it frustrating to throw so much away? They imagine that a good translation keeps every word, and that a subtitle, which must fit in two short lines and vanish after a few seconds, is simply a translation with pieces missing. During my first year in the job, I imagined the same thing.\n\nThe first film I worked on was a comedy about a family running a failing restaurant. In one scene the grandmother delivers a long, furious speech to a supplier, piling insult upon insult in a regional dialect that even many native speakers would struggle to follow. I translated every insult. The result filled four lines, stayed on screen for less than five seconds, and was, as my supervisor pointed out, unreadable. \"The audience doesn't need to know what she said,\" she told me. \"They need to know that she won.\"\n\nThat remark changed how I thought about the work. A viewer watching a film with subtitles is doing two things at once: reading and watching. Every word I add pulls the viewer's eyes away from the actors' faces, where much of the meaning lives. A shrug, a pause, a glance at another character—these say things that no subtitle could, and a viewer who is busy reading misses them. The question I learned to ask was not \"What did the character say?\" but \"What does the viewer need in order to follow what is happening on screen?\"\n\nSometimes the answer is surprisingly little. When a character greets a neighbor with a long, formal blessing, a subtitle reading \"Good morning\" may be enough, because the warmth is in the actor's voice. At other times the answer is more than the dialogue contains. A joke that depends on a pun in the original language must often be replaced with a different joke altogether, one that does the same work in the scene even though it says something else. I once spent most of an afternoon on a single line—a play on the similar sounds of the words for \"wedding\" and \"tax\"—before settling on a joke about in-laws that made the test audience laugh at the same moment the original audience had.\n\nNone of this means that subtitles are a lesser kind of translation. I have come to think that they are a more honest one. A printed translation of a novel can create the illusion that nothing has been lost, because its reader never sees the original. A film's audience, however, hears the actors' real voices beneath every line I write. If the grandmother shouts for ten seconds and my subtitle says only \"You thief!\", anyone watching knows that I have made a choice. The subtitle does not pretend to be the original; it stands beside it, and the viewer can feel the difference.\n\nI still lose things, of course. But I no longer think of my job as deciding what to throw away. I think of it as deciding what the viewer should keep.",
+      "batch": 51,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -30632,6 +30643,716 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_reading/batch-049.review.json",
         "computation": "checks/act_reading/batch_049.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000421",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "deciding what the viewer should keep",
+      "figure": null,
+      "stem": "Which of the following statements best expresses the main idea of the passage?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The narrator argues that subtitles, although they lose much of the original, are the most faithful kind of translation.",
+        "B": "The narrator explains how a supervisor's criticism taught the narrator to translate jokes rather than insults.",
+        "C": "The narrator came to see subtitling as choosing what serves viewers, not as a translation with parts left out.",
+        "D": "The narrator contends that viewers understand foreign films better from actors' faces than from any subtitle."
+      },
+      "correct_answer": "C",
+      "explanation": "The passage moves from the narrator's early belief that subtitles lose too much to a new view: the job is to choose what the viewer needs.",
+      "distractor_explanations": {
+        "A": "The narrator calls subtitles \"more honest\" than printed translations, not the most faithful; honesty here means the losses are visible.",
+        "B": "The supervisor's remark concerned what viewers need, not a choice between jokes and insults.",
+        "D": "The narrator says faces carry much of the meaning, not that they matter more than any subtitle."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "B": "partial_answer",
+        "D": "extreme_language"
+      },
+      "hints": [
+        "How does the narrator's view of the job change from the first paragraph to the last?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the opening question with the closing sentences."
+      },
+      "remember": "A main idea should cover the whole passage, including how a view changes.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-01",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000422",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (comparing views)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "During my first year in the job, I imagined the same thing.",
+      "figure": null,
+      "stem": "The narrator's view of subtitling during the first year on the job was most similar to the view held by:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "the people who ask whether it is frustrating to throw so much away.",
+        "B": "the supervisor who reviewed the subtitle for the grandmother's speech.",
+        "C": "the test audience that laughed at the joke about in-laws.",
+        "D": "the readers who believe that nothing has been lost in a translated novel."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 says people imagine a subtitle is a translation with pieces missing, and the narrator adds, \"During my first year in the job, I imagined the same thing.\"",
+      "distractor_explanations": {
+        "B": "The supervisor's remark is what changed the narrator's early view.",
+        "C": "The test audience's view of subtitling is never described.",
+        "D": "These readers are not described as thinking about subtitles at all."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "out_of_scope",
+        "D": null
+      },
+      "hints": [
+        "Whose belief does the narrator say \"I imagined the same thing\" about?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find what \"the same thing\" refers to."
+      },
+      "remember": "Track what a pronoun or phrase like \"the same thing\" points back to.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-02",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000423",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference (meaning of a remark)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "They need to know that she won.",
+      "figure": null,
+      "stem": "The supervisor's remark \"They need to know that she won\" most strongly suggests that a subtitle for the speech should:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "summarize each of the insults briefly so that viewers can still follow all of them.",
+        "B": "be left out entirely, since viewers can follow the scene from the actors alone.",
+        "C": "make the grandmother's victory more obvious than it was in the original dialogue.",
+        "D": "convey the outcome and force of the speech rather than its full content."
+      },
+      "correct_answer": "D",
+      "explanation": "The supervisor contrasts \"what she said\" with \"that she won\": the subtitle should convey the result of the speech, not every word.",
+      "distractor_explanations": {
+        "A": "Keeping every insult, even briefly, still tells viewers \"what she said,\" which the supervisor says they do not need.",
+        "B": "The supervisor says viewers need to know that she won, so some subtitle is still needed.",
+        "C": "The remark asks the subtitle to convey the victory, not exaggerate it."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "extreme_language",
+        "C": null
+      },
+      "hints": [
+        "What does the supervisor contrast with \"what she said\"?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Paraphrase the remark before reading the choices."
+      },
+      "remember": "When a speaker contrasts two things, the second is usually the point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-03",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000424",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "Every word I add pulls the viewer's eyes away from the actors' faces",
+      "figure": null,
+      "stem": "The main function of the third paragraph is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "describe the training that the narrator received from the supervisor.",
+        "B": "explain why adding words to a subtitle can reduce what viewers understand.",
+        "C": "argue that actors' gestures matter more than any film's spoken dialogue does.",
+        "D": "introduce the comedy about the family running a failing restaurant."
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 3 explains the reasoning behind the supervisor's remark: reading competes with watching, so extra words cost the viewer meaning carried by faces and gestures.",
+      "distractor_explanations": {
+        "A": "The paragraph explains a principle, not training.",
+        "C": "The paragraph says gestures carry meaning, not that they always outweigh dialogue.",
+        "D": "The comedy is introduced in paragraph 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What problem with extra words does paragraph 3 describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "State what the paragraph does in a few words."
+      },
+      "remember": "Function questions ask what a paragraph does, not just what it says.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-04",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000425",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "where much of the meaning lives",
+      "figure": null,
+      "stem": "As it is used in the third paragraph, the word lives most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "is found.",
+        "B": "survives.",
+        "C": "grows.",
+        "D": "is recorded."
+      },
+      "correct_answer": "A",
+      "explanation": "The actors' faces are where much of the meaning is located, so \"lives\" means \"is found.\"",
+      "distractor_explanations": {
+        "B": "Nothing suggests the meaning is in danger of dying.",
+        "C": "The sentence is about where meaning is located, not about change.",
+        "D": "The meaning is shown by the actors, not written down."
+      },
+      "distractor_traps": {
+        "B": "familiar_meaning",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Replace \"lives\" with each choice."
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Predict a simple word for \"lives\" in this sentence."
+      },
+      "remember": "Read the whole sentence; common words often have less common meanings.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-05",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000426",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference (applying a standard)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "made the test audience laugh at the same moment the original audience had",
+      "figure": null,
+      "stem": "Based on the fourth paragraph, the narrator would most likely consider a subtitle for a joke successful if it:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "kept the literal meaning of every word in the original line of dialogue.",
+        "B": "was shorter than the line of dialogue spoken by the original character.",
+        "C": "had the same effect on its audience that the original line had on the original audience.",
+        "D": "replaced the original pun with a joke about in-laws or about some other family topic."
+      },
+      "correct_answer": "C",
+      "explanation": "The narrator judged the in-laws joke by whether the test audience laughed at the same moment as the original audience: the same effect in the scene.",
+      "distractor_explanations": {
+        "A": "The narrator replaced the pun with a different joke, so literal meaning was not the standard.",
+        "B": "Length is not the standard here; the narrator notes that sometimes more is needed than the dialogue contains.",
+        "D": "The in-laws joke worked for one line; the passage does not make it a general rule."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": "extreme_language"
+      },
+      "hints": [
+        "How did the narrator know the in-laws joke worked?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the evidence the narrator used to judge the joke."
+      },
+      "remember": "To infer a standard, look at how the author judged a specific example.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-06",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000427",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Purpose of an example",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "because the warmth is in the actor's voice",
+      "figure": null,
+      "stem": "The narrator mentions the long, formal blessing mainly to illustrate that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a brief subtitle can be enough when the actor's delivery conveys the rest.",
+        "B": "formal greetings are especially difficult to translate into any other language.",
+        "C": "subtitles often need to contain more information than the original dialogue.",
+        "D": "neighbors in films usually greet one another more warmly than they do in life."
+      },
+      "correct_answer": "A",
+      "explanation": "The blessing example shows that \"Good morning\" may suffice because the actor's voice carries the warmth.",
+      "distractor_explanations": {
+        "B": "The point is that the greeting is easy to shorten, not hard to translate.",
+        "C": "This is the contrasting case described next, not the point of the blessing.",
+        "D": "The passage makes no comparison with real life."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "Is the blessing an example of needing little or needing more?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the claim the example follows."
+      },
+      "remember": "An example supports the sentence just before it.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-07",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000428",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail (the author's reasoning)",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "hears the actors' real voices beneath every line I write",
+      "figure": null,
+      "stem": "According to the narrator, subtitles are a \"more honest\" kind of translation than printed translations of novels because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "subtitles usually keep more of the original words than printed translations do.",
+        "B": "subtitle writers must show each of their choices to a test audience before release.",
+        "C": "translators of novels are usually less careful than the people who write subtitles.",
+        "D": "the original remains audible, so viewers can sense where the subtitle departs from it."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 5 says a printed translation hides the original, while a film audience hears the real voices, so viewers know the subtitle is a choice.",
+      "distractor_explanations": {
+        "A": "The passage says subtitles keep fewer words; honesty comes from visibility, not completeness.",
+        "B": "A test audience is mentioned once, for one joke, and is not the reason given.",
+        "C": "The narrator never judges novel translators' care."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "true_but_irrelevant",
+        "C": "out_of_scope"
+      },
+      "hints": [
+        "What can a film audience do that a novel's reader cannot?"
+      ],
+      "strategy": {
+        "key": "locate_evidence",
+        "explanation": "Find the contrast between the two kinds of translation."
+      },
+      "remember": "When a passage gives a reason, look for \"because\" or a direct contrast.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-08",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000429",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Author's attitude",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "I still lose things, of course.",
+      "figure": null,
+      "stem": "The narrator's attitude toward what is lost in subtitling is best described as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "resigned, because the narrator believes nothing can be done to save what is lost.",
+        "B": "accepting of such losses while redefining the job as choosing what matters.",
+        "C": "dismissive, because the narrator denies that subtitling loses anything at all.",
+        "D": "anxious, because viewers can easily notice what the subtitles have left out."
+      },
+      "correct_answer": "B",
+      "explanation": "The narrator admits losses (\"I still lose things\") but reframes the job as deciding what the viewer should keep, which is acceptance, not regret or denial.",
+      "distractor_explanations": {
+        "A": "The narrator has a positive way of handling losses, deciding what the viewer should keep, so the attitude is not mere resignation.",
+        "C": "The narrator says, \"I still lose things, of course.\"",
+        "D": "Viewers noticing is presented as honesty, not as a worry."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "extreme_language",
+        "D": null
+      },
+      "hints": [
+        "What does the narrator admit in the last paragraph, and how is it framed?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each attitude word against the final paragraph."
+      },
+      "remember": "Attitude answers must fit both what the author admits and what the author argues.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-09",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000430",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Organization of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000050",
+      "underline": null,
+      "evidence": "During my first year in the job, I imagined the same thing.",
+      "figure": null,
+      "stem": "Which of the following best describes the way the passage is organized?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A problem in film translation is described, several solutions are compared, and the best one is recommended.",
+        "B": "A common belief is stated, an experience that challenged it is recounted, and a revised view is explained.",
+        "C": "Several films are described in the order the narrator translated them, followed by a general conclusion.",
+        "D": "Two kinds of translation are defined at the start and then compared point by point throughout the passage."
+      },
+      "correct_answer": "B",
+      "explanation": "The passage opens with a common belief the narrator once shared, recounts the grandmother scene and the supervisor's remark, and then explains the narrator's new view of the job.",
+      "distractor_explanations": {
+        "A": "The narrator does not compare competing solutions or recommend one.",
+        "C": "Only one film is described in detail; the other examples are not in order of translation.",
+        "D": "The comparison with printed translation appears only in paragraph 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What happens in paragraph 1, paragraph 2, and the rest of the passage?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Label each paragraph's job, then match the sequence."
+      },
+      "remember": "Describe organization by the job each part does, in order.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 51,
+      "draft_candidate": "R051-10",
+      "created_at": "2026-10-27T17:05:36+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-051.review.json",
+        "computation": "checks/act_reading/batch_051.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

@@ -1,0 +1,935 @@
+{
+ "bank": "sat_math",
+ "batch": 66,
+ "plan": "SAT Math batch 66: 20 items from idea sets 17 (LD08-LD12; ideas-064.repeats.json) and 16 (KA01-KA15; ideas-065.repeats.json). Choice orders changed for KA01, KA13, KA14 to spread keys. KA03 labeled medium (plug in 100 is a standard SAT strategy). Set-16 KC items follow in batch 67; dropped from set 16: KC10 (template of ideas-gen-07 BC04), KC14 (template of ideas-gen-12 GC08), KC05 (within-list template of KC13).",
+ "candidates": [
+  {
+   "cand": "Q066-01",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Shadow partly on a wall",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A vertical flagpole stands on level ground 10 meters from a vertical wall. At a certain time, the flagpole's shadow reaches the wall and continues 2 meters up the wall. At the same time, a vertical post 1.5 meters tall standing on the level ground casts a shadow 1 meter long. What is the height of the flagpole, in meters?",
+   "explanation": "The sun's rays drop 1.5 meters for every 1 meter of horizontal distance. Over the 10 meters from the pole to the wall, the ray from the top of the pole drops 15 meters and hits the wall 2 meters above the ground, so the pole is 15 + 2 = 17 meters tall.",
+   "hints": [
+    "How far does a ray drop per meter of horizontal distance?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the pole, the wall, and the ray from the top of the pole."
+   },
+   "remember": "Only the horizontal part of a shadow scales; vertical parts on a wall add directly.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The shadow's vertical piece must be added, not scaled with the ground shadow."
+   },
+   "format": "spr",
+   "answer": "17",
+   "accepted_answers": [
+    "17"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 ignores the part of the shadow on the wall.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "18",
+     "rationale": "18 adds the 2 meters to the ground shadow before scaling, (10 + 2)(1.5).",
+     "trap": null
+    },
+    {
+     "value": "13",
+     "rationale": "13 subtracts the 2 meters instead of adding them.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q066-02",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Linear speed from angular speed",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A car's tire has a radius of 0.3 meter and turns without slipping at a constant rate of 50 radians per second. What is the car's speed, to the nearest kilometer per hour?",
+   "explanation": "In one second the tire rolls an arc length of rθ = 0.3(50) = 15 meters, so the car moves 15 meters per second. Converting, 15 m/s × 3,600 s/h ÷ 1,000 m/km = 54 km/h.",
+   "hints": [
+    "How far does the tire roll in one second?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use arc length s = rθ, then convert units."
+   },
+   "remember": "Arc length equals radius times angle in radians.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "54",
+    "B": "94",
+    "C": "180",
+    "D": "339"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "94 treats 50 as revolutions per second, 50 · 2π · 0.3 ≈ 94.2, and does not convert units.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "180 forgets the radius: 50 m/s × 3.6.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "339 treats 50 as revolutions per second and then converts to km/h.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-03",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right triangle from a relation between tangents",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle ABC, angle C is the right angle, tan A = 4 · tan B, and AB = √85. What is the area of triangle ABC ?",
+   "explanation": "Because A and B are complementary, tan B = 1/tan A, so tan A = 4/tan A and tan² A = 4, giving tan A = 2. The legs are k and 2k, so k² + 4k² = 85 and k² = 17. The area is (1/2)(k)(2k) = k² = 17.",
+   "hints": [
+    "How are tan A and tan B related in a right triangle?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write tan B in terms of tan A."
+   },
+   "remember": "For complementary angles, tan B = 1/tan A.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use the reciprocal relationship to find tan A before using the hypotenuse."
+   },
+   "choices": {
+    "A": "10",
+    "B": "17",
+    "C": "20",
+    "D": "21.25"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "10 uses tan A = 4: legs k and 4k with 17k² = 85, area 2k².",
+     "trap": null
+    },
+    "C": {
+     "rationale": "20 uses tan A = 4 and forgets the factor 1/2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "21.25 assumes A = B = 45°, giving area 85/4.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-04",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Volume of a partly filled triangular prism",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A water trough is a prism whose cross section is an isosceles triangle with its vertex at the bottom and its open top horizontal. When full, the trough holds 1.2 cubic meters of water. If the trough is filled to 2/3 of its full depth, how many cubic meters of water does it hold, to the nearest hundredth?",
+   "explanation": "The water's cross section is a triangle similar to the full cross section with scale factor 2/3, so its area is (2/3)² = 4/9 of the full area. The trough's length is unchanged, so the volume is (4/9)(1.2) ≈ 0.53 cubic meter.",
+   "hints": [
+    "How does the area of a similar triangle scale?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the cross section and the smaller water triangle."
+   },
+   "remember": "Areas of similar figures scale by the square of the length ratio.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.53",
+    "B": "0.67",
+    "C": "0.80",
+    "D": "1.07"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "0.67 is the empty part, 1.2 − 0.53.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "0.80 scales the volume linearly, (2/3)(1.2).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1.07 treats the empty top as the similar triangle, (1 − (1/3)²)(1.2).",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-05",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Rhombus inscribed in a rectangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Rectangle ABCD has AB = 12 and BC = 8. Point E lies on side AB and point F lies on side CD so that AECF is a rhombus. What is the length of AE ?",
+   "explanation": "Let AE = x. In a rhombus all sides are equal, so EC = x. Triangle EBC is a right triangle with EB = 12 − x and BC = 8, so (12 − x)² + 8² = x². Expanding gives 208 − 24x = 0, so x = 26/3.",
+   "hints": [
+    "Which segment equals AE because AECF is a rhombus?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label AE = EC = x and use right triangle EBC."
+   },
+   "remember": "All four sides of a rhombus are equal.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must translate the rhombus condition into a right-triangle equation."
+   },
+   "format": "spr",
+   "answer": "26/3",
+   "accepted_answers": [
+    "26/3",
+    "8.666",
+    "8.667"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 assumes E is the midpoint of AB.",
+     "trap": null
+    },
+    {
+     "value": "7.21",
+     "rationale": "7.21 is half of diagonal AC, √208/2.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "52/3",
+     "rationale": "52/3 drops the factor 2 in 24x.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q066-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting a term created by substitution",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Tasha put a total of $15,000 into two accounts: x dollars in one that pays 6% simple annual interest and y dollars in one that pays 4%. She earned $820 in interest in one year, so x + y = 15,000 and 0.06x + 0.04y = 820. Substituting y = 15,000 − x into the second equation gives 0.02x + 600 = 820. What does 0.02x represent in this context?",
+   "explanation": "The 600 is 0.04(15,000), the interest all $15,000 would earn at 4%. So 0.02x = 820 − 600 is how much more she earned than that baseline. Equivalently, 0.06x + 0.04y − 0.04(x + y) = 0.02x.",
+   "hints": [
+    "What does the 600 represent?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Interpret 600 first, then 820 − 600."
+   },
+   "remember": "Interpret each term after substitution by asking what it is measured against.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The term appears only after substitution and is measured against a hypothetical baseline."
+   },
+   "choices": {
+    "A": "The amount by which her total interest exceeded the interest earned by the 4% account",
+    "B": "The amount by which the 6% account's interest exceeded the 4% account's interest",
+    "C": "The amount by which the interest on $15,000 at 6% would exceed the interest on $15,000 at 4%",
+    "D": "The amount by which her total interest exceeded the interest that all $15,000 would have earned at 4%"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "The total minus the 4% account's interest is 0.06x = 660, not 0.02x = 220.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "The difference between the accounts' interest is 0.06x − 0.04y = 500.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "That difference is 0.02(15,000) = 300; it treats x as the whole $15,000.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-07",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear cost from two average costs",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A candle maker's total daily cost to make n candles is a linear function of n. On a day it made 100 candles, the average cost per candle was $3.00; on a day it made 300 candles, the average cost per candle was $2.00. According to the model, what is the cost of making each additional candle?",
+   "explanation": "Convert averages to totals: 100($3.00) = $300 and 300($2.00) = $600. The slope of the total cost is (600 − 300)/(300 − 100) = $1.50 per candle (with a fixed cost of $150).",
+   "hints": [
+    "What were the total costs on the two days?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Turn averages into totals, then find the slope."
+   },
+   "remember": "Average cost is total over count; the slope comes from totals.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must convert averages to totals before finding the rate."
+   },
+   "choices": {
+    "A": "$1.00",
+    "B": "$1.50",
+    "C": "$2.00",
+    "D": "$2.50"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "$1.00 is the difference of the two average costs.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$2.00 assumes each extra candle costs the lower average.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "$2.50 is the mean of the two average costs.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-08",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Percent growth under linear change",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A town's population grew by the same number of people each year from 2010 to 2025. From 2010 to 2015, the population increased by 25%. By what percent did the population increase from 2015 to 2025? (Disregard the % sign when entering your answer. For example, if your answer is 15.5%, enter 15.5)",
+   "explanation": "Let P be the 2010 population. The town gains 0.25P every 5 years, so it is 1.25P in 2015 and 1.75P in 2025. The increase from 2015 to 2025 is 0.5P/1.25P = 0.4, or 40%.",
+   "hints": [
+    "Pick a starting population."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Let the 2010 population be 100."
+   },
+   "remember": "Equal gains give smaller percents as the base grows.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "40",
+   "accepted_answers": [
+    "40"
+   ],
+   "common_errors": [
+    {
+     "value": "50",
+     "rationale": "50 doubles 25% for twice the time, measuring against the 2010 population.",
+     "trap": null
+    },
+    {
+     "value": "56.25",
+     "rationale": "56.25 compounds the growth, 1.25² − 1.",
+     "trap": null
+    },
+    {
+     "value": "75",
+     "rationale": "75 is the growth from 2010 to 2025.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q066-09",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Sum of coefficients from a symmetric system",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the system ax + by = 7 and bx + ay = 5, a and b are constants, and the system has exactly one solution (x, y). If x + y = 2, what is the value of a + b ?",
+   "explanation": "Adding the equations gives (a + b)x + (a + b)y = 12, so (a + b)(x + y) = 12. With x + y = 2, a + b = 6. (For example, a = 3.5 and b = 2.5 give the solution (2, 0).)",
+   "hints": [
+    "What happens when you add the two equations?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the equations and factor."
+   },
+   "remember": "Adding equations with swapped coefficients produces a common factor.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "12",
+     "rationale": "12 adds the equations and stops.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "1",
+     "rationale": "1 computes (7 − 5)/2.",
+     "trap": null
+    },
+    {
+     "value": "2",
+     "rationale": "2 is x + y.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q066-10",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Revenue unchanged after price changes",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A museum sold a total of 400 adult and child tickets to a special exhibit. If the price of each adult ticket had been $3 more and the price of each child ticket had been $2 less, the museum's total revenue from these tickets would have been the same. How many adult tickets did the museum sell?",
+   "explanation": "Let a and c be the numbers of adult and child tickets. The change in revenue is 3a − 2c, which must be 0, and a + c = 400. Substituting c = 400 − a gives 3a − 800 + 2a = 0, so a = 160. The ticket prices are never needed.",
+   "hints": [
+    "What must the change in revenue equal?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the revenue change, not the revenue."
+   },
+   "remember": "If a total is unchanged, the changes must add to zero.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "No prices are given; students must model only the change."
+   },
+   "format": "spr",
+   "answer": "160",
+   "accepted_answers": [
+    "160"
+   ],
+   "common_errors": [
+    {
+     "value": "240",
+     "rationale": "240 is the number of child tickets.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "200",
+     "rationale": "200 assumes equal numbers of each ticket.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q066-11",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Work rates from a combined and a sequential job",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Working together, two pumps can empty a flooded basement in 6 hours. On another occasion, pump A ran alone for 2 hours and then pump B ran alone for 9 hours, and together these runs removed the same amount of water as emptying the basement once. Working alone, how many hours would pump A take to empty the basement?",
+   "explanation": "Let a and b be the rates in basements per hour. Then a + b = 1/6 and 2a + 9b = 1. Doubling the first gives 2a + 2b = 1/3, so 7b = 2/3, b = 2/21, and a = 1/6 − 2/21 = 1/14. Pump A alone takes 14 hours.",
+   "hints": [
+    "Write each pump's rate in basements per hour."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up a system in the two rates."
+   },
+   "remember": "Work rates add; time is the reciprocal of rate.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build a linear system from a combined time and a sequential run."
+   },
+   "format": "spr",
+   "answer": "14",
+   "accepted_answers": [
+    "14"
+   ],
+   "common_errors": [
+    {
+     "value": "10.5",
+     "rationale": "10.5 is pump B's time alone.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "12",
+     "rationale": "12 assumes the pumps work at equal rates.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q066-12",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Two inputs changing in a linear formula",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The Mifflin-St Jeor equation estimates a man's resting energy use R, in calories per day, as R = 10m + 6.25h − 5a + 5, where m is mass in kilograms, h is height in centimeters, and a is age in years. Over a 6-year period, a man's mass increased by 5 kilograms and his height did not change. By how much did his estimated R change?",
+   "explanation": "The mass term changes by 10(5) = 50, the age term by −5(6) = −30, and the height term by 0. The total change is 50 − 30 = 20 calories per day.",
+   "hints": [
+    "Which terms change?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the change in each term."
+   },
+   "remember": "A linear formula's change is the sum of each term's change.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−30",
+    "B": "−20",
+    "C": "20",
+    "D": "50"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−30 counts only the age term.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "−20 reverses the signs of the two effects.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "50 counts only the mass term.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q066-13",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Slope of a half-plane from points in and out",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of y ≤ ax + 3, where a is a constant, contains the point (2, 8) but does not contain the point (6, 21). Which of the following could be the value of a ?",
+   "explanation": "The point (2, 8) must satisfy 8 ≤ 2a + 3, so a ≥ 2.5. The point (6, 21) must fail, so 21 > 6a + 3, and a < 3. Only 2.8 lies in 2.5 ≤ a < 3.",
+   "hints": [
+    "What does each point tell you about a?"
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test each value with both points."
+   },
+   "remember": "A point is in a graph only if its coordinates satisfy the inequality.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2.2",
+    "B": "2.8",
+    "C": "3.0",
+    "D": "3.4"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2.2 is less than 2.5, so (2, 8) would not be in the graph.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "At a = 3, (6, 21) lies on the boundary line and so is contained.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "3.4 comes from dropping the 3: 21 > 6a gives a < 3.5.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-14",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Building an inequality from a girth rule",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A parcel service accepts a box only if its length plus its girth is at most 108 inches, where the girth is 2(width + height). A company ships boxes whose width and height are equal and whose length is 2.5 times the width. What is the greatest whole-number width, in inches, that such a box can have?",
+   "explanation": "With width w, the height is w and the length is 2.5w, so the girth is 2(w + w) = 4w. The rule is 2.5w + 4w ≤ 108, so 6.5w ≤ 108 and w ≤ 16.6…, so the greatest whole-number width is 16.",
+   "hints": [
+    "Write the length and girth in terms of the width."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Build the inequality, then round down."
+   },
+   "remember": "With an upper limit, round down to the greatest whole number allowed.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "11",
+    "B": "16",
+    "C": "17",
+    "D": "24"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "11 measures the girth around the length, 2(2.5w + w), giving 9.5w ≤ 108.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "17 rounds 16.6… up, which breaks the limit.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "24 takes the girth as width + height only, 4.5w ≤ 108.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-15",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear model with a nonzero starting value",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The pressure on a diver is 1 atmosphere at the surface of the sea and increases by 1 atmosphere for every 10 meters of depth. At what depth, in meters, is the pressure on the diver 3.5 times the pressure at the surface?",
+   "explanation": "The pressure at depth d meters is 1 + d/10 atmospheres. Setting 1 + d/10 = 3.5 gives d/10 = 2.5, so d = 25 meters.",
+   "hints": [
+    "What is the pressure at depth d?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the model with its starting value."
+   },
+   "remember": "\"Times as much\" is not proportional when the model starts above zero.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2.5",
+    "B": "25",
+    "C": "35",
+    "D": "45"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "2.5 is the increase in pressure; it forgets the 10 meters per atmosphere.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "35 treats pressure as proportional to depth, 3.5 × 10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "45 adds the surface atmosphere instead of subtracting it, (3.5 + 1) × 10.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q066-16",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Linear growth from a percent of a fixed value",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "A seedling is 8 centimeters tall when it is planted. Each week after planting, its height increases by an amount equal to 15% of its height at planting. Which equation gives the seedling's height h, in centimeters, w weeks after planting?",
+   "explanation": "The weekly increase is always 15% of 8 centimeters, which is 1.2 centimeters, so the height grows linearly: h = 8 + 1.2w.",
+   "hints": [
+    "Does the weekly increase change?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the constant weekly increase."
+   },
+   "remember": "A percent of a fixed amount gives linear growth.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "h = 8(1.15)^w",
+    "B": "h = 8 + 0.15w",
+    "C": "h = 1.2 + 8w",
+    "D": "h = 8 + 1.2w"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This applies 15% to the current height each week, an exponential model.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This uses 15% as 0.15 centimeter instead of 15% of 8.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This swaps the starting height and the weekly increase.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-17",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Counting solutions of a compound inequality",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "On Saturday a nursery sold exactly 50 potted plants, some small at $4 each and the rest large at $9 each. Its revenue from these plants was at least $300 and at most $360. How many different numbers of large plants are possible?",
+   "explanation": "With L large plants, revenue is 4(50 − L) + 9L = 200 + 5L. Then 300 ≤ 200 + 5L ≤ 360 gives 20 ≤ L ≤ 32, which includes 32 − 20 + 1 = 13 whole numbers.",
+   "hints": [
+    "Write the revenue in terms of the number of large plants."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the compound inequality, then count inclusively."
+   },
+   "remember": "Counting from a to b inclusive gives b − a + 1 values.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "A fixed total count reduces two variables to one, and the count must include both ends."
+   },
+   "choices": {
+    "A": "11",
+    "B": "12",
+    "C": "13",
+    "D": "32"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "11 uses strict inequalities, counting 21 through 31.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "12 subtracts 32 − 20 and forgets to count both endpoints.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "32 is the greatest possible number of large plants, not the count.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q066-18",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Regrouping a variable into units",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "A school spends exactly $480 on c calculators at $12 each and p pencils at $0.25 each, so 12c + 0.25p = 480. The pencils come in boxes of 24, and the school buys b boxes. Which equation relates c and b ?",
+   "explanation": "Each box holds 24 pencils, so p = 24b and 0.25p = 0.25(24b) = 6b. Substituting gives 12c + 6b = 480.",
+   "hints": [
+    "How many pencils are in b boxes?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write p in terms of b and substitute."
+   },
+   "remember": "Convert units before substituting into an equation.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12c + 0.25b = 480",
+    "B": "288c + 0.25b = 480",
+    "C": "12c + 6b = 480",
+    "D": "12c + b/96 = 480"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "This renames p as b without converting boxes to pencils.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "This applies the factor 24 to the calculators instead of the pencils.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This substitutes p = b/24 instead of p = 24b.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-19",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Comparing two linear cost plans",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "At a gym, plan A costs $20 per month plus $4 per class. Plan B charges a fixed monthly fee plus a fixed amount per class: a plan B member who took 6 classes in a month paid $50, and one who took 10 classes paid $66. Which statement correctly compares the monthly costs of the two plans?",
+   "explanation": "Plan B's rate is (66 − 50)/(10 − 6) = $4 per class, and its fee is 50 − 6(4) = $26. Plan A is 20 + 4c and plan B is 26 + 4c, so plan A always costs $6 less.",
+   "hints": [
+    "Find plan B's rate and fee."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Build plan B's equation from the two data points."
+   },
+   "remember": "Lines with equal slopes and different intercepts never meet.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "Plan B costs $6 less than plan A for any number of classes.",
+    "B": "The two plans cost the same for exactly 6 classes.",
+    "C": "The two plans cost the same for any number of classes.",
+    "D": "Plan A costs $6 less than plan B for any number of classes."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This subtracts in the wrong order.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "This treats a given data point as the point where the plans are equal.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Equal per-class rates do not mean equal plans; the fees differ.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q066-20",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Two unknowns from a percent speed change",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A school bus spends 1.5 minutes at each of its stops, and its whole route takes 45 minutes. If the bus's average speed between stops were 20% greater, with the same stops, the route would take 41 minutes. How many stops are on the route?",
+   "explanation": "Let T be the driving time. A 20% greater speed makes the driving time T/1.2, so T − T/1.2 = T/6 = 4 minutes and T = 24 minutes. The stops take 45 − 24 = 21 minutes, and 21/1.5 = 14 stops.",
+   "hints": [
+    "Which part of the route changes when the speed changes?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the time saved in terms of the driving time."
+   },
+   "remember": "A 20% faster speed divides time by 1.2; it does not cut it by 20%.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Neither distance nor speed is given, and the speed change affects only the driving time."
+   },
+   "format": "spr",
+   "answer": "14",
+   "accepted_answers": [
+    "14"
+   ],
+   "common_errors": [
+    {
+     "value": "16.67",
+     "rationale": "16.67 assumes a 20% greater speed cuts the driving time by 20%.",
+     "trap": null
+    },
+    {
+     "value": "30",
+     "rationale": "30 divides the whole 45 minutes by 1.5.",
+     "trap": null
+    },
+    {
+     "value": "27.33",
+     "rationale": "27.33 divides 41 minutes by 1.5.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 65,
+  "bank_version": 66,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -14141,6 +14141,450 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Clear the fraction, then check both ways to get one solution."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000696",
+      "correct_answer": "17",
+      "accepted_answers": [
+        "17"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 ignores the part of the shadow on the wall.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "18",
+          "rationale": "18 adds the 2 meters to the ground shadow before scaling, (10 + 2)(1.5).",
+          "trap": null
+        },
+        {
+          "value": "13",
+          "rationale": "13 subtracts the 2 meters instead of adding them.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The sun's rays drop 1.5 meters for every 1 meter of horizontal distance. Over the 10 meters from the pole to the wall, the ray from the top of the pole drops 15 meters and hits the wall 2 meters above the ground, so the pole is 15 + 2 = 17 meters tall.",
+      "distractor_explanations": {},
+      "hints": [
+        "How far does a ray drop per meter of horizontal distance?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the pole, the wall, and the ray from the top of the pole."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000697",
+      "correct_answer": "A",
+      "explanation": "In one second the tire rolls an arc length of rθ = 0.3(50) = 15 meters, so the car moves 15 meters per second. Converting, 15 m/s × 3,600 s/h ÷ 1,000 m/km = 54 km/h.",
+      "distractor_explanations": {
+        "B": "94 treats 50 as revolutions per second, 50 · 2π · 0.3 ≈ 94.2, and does not convert units.",
+        "C": "180 forgets the radius: 50 m/s × 3.6.",
+        "D": "339 treats 50 as revolutions per second and then converts to km/h."
+      },
+      "hints": [
+        "How far does the tire roll in one second?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use arc length s = rθ, then convert units."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000698",
+      "correct_answer": "B",
+      "explanation": "Because A and B are complementary, tan B = 1/tan A, so tan A = 4/tan A and tan² A = 4, giving tan A = 2. The legs are k and 2k, so k² + 4k² = 85 and k² = 17. The area is (1/2)(k)(2k) = k² = 17.",
+      "distractor_explanations": {
+        "A": "10 uses tan A = 4: legs k and 4k with 17k² = 85, area 2k².",
+        "C": "20 uses tan A = 4 and forgets the factor 1/2.",
+        "D": "21.25 assumes A = B = 45°, giving area 85/4."
+      },
+      "hints": [
+        "How are tan A and tan B related in a right triangle?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write tan B in terms of tan A."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000699",
+      "correct_answer": "A",
+      "explanation": "The water's cross section is a triangle similar to the full cross section with scale factor 2/3, so its area is (2/3)² = 4/9 of the full area. The trough's length is unchanged, so the volume is (4/9)(1.2) ≈ 0.53 cubic meter.",
+      "distractor_explanations": {
+        "B": "0.67 is the empty part, 1.2 − 0.53.",
+        "C": "0.80 scales the volume linearly, (2/3)(1.2).",
+        "D": "1.07 treats the empty top as the similar triangle, (1 − (1/3)²)(1.2)."
+      },
+      "hints": [
+        "How does the area of a similar triangle scale?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the cross section and the smaller water triangle."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000700",
+      "correct_answer": "26/3",
+      "accepted_answers": [
+        "26/3",
+        "8.666",
+        "8.667"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 assumes E is the midpoint of AB.",
+          "trap": null
+        },
+        {
+          "value": "7.21",
+          "rationale": "7.21 is half of diagonal AC, √208/2.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "52/3",
+          "rationale": "52/3 drops the factor 2 in 24x.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let AE = x. In a rhombus all sides are equal, so EC = x. Triangle EBC is a right triangle with EB = 12 − x and BC = 8, so (12 − x)² + 8² = x². Expanding gives 208 − 24x = 0, so x = 26/3.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which segment equals AE because AECF is a rhombus?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label AE = EC = x and use right triangle EBC."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000701",
+      "correct_answer": "D",
+      "explanation": "The 600 is 0.04(15,000), the interest all $15,000 would earn at 4%. So 0.02x = 820 − 600 is how much more she earned than that baseline. Equivalently, 0.06x + 0.04y − 0.04(x + y) = 0.02x.",
+      "distractor_explanations": {
+        "A": "The total minus the 4% account's interest is 0.06x = 660, not 0.02x = 220.",
+        "B": "The difference between the accounts' interest is 0.06x − 0.04y = 500.",
+        "C": "That difference is 0.02(15,000) = 300; it treats x as the whole $15,000."
+      },
+      "hints": [
+        "What does the 600 represent?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Interpret 600 first, then 820 − 600."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000702",
+      "correct_answer": "B",
+      "explanation": "Convert averages to totals: 100($3.00) = $300 and 300($2.00) = $600. The slope of the total cost is (600 − 300)/(300 − 100) = $1.50 per candle (with a fixed cost of $150).",
+      "distractor_explanations": {
+        "A": "$1.00 is the difference of the two average costs.",
+        "C": "$2.00 assumes each extra candle costs the lower average.",
+        "D": "$2.50 is the mean of the two average costs."
+      },
+      "hints": [
+        "What were the total costs on the two days?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn averages into totals, then find the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000703",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 doubles 25% for twice the time, measuring against the 2010 population.",
+          "trap": null
+        },
+        {
+          "value": "56.25",
+          "rationale": "56.25 compounds the growth, 1.25² − 1.",
+          "trap": null
+        },
+        {
+          "value": "75",
+          "rationale": "75 is the growth from 2010 to 2025.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Let P be the 2010 population. The town gains 0.25P every 5 years, so it is 1.25P in 2015 and 1.75P in 2025. The increase from 2015 to 2025 is 0.5P/1.25P = 0.4, or 40%.",
+      "distractor_explanations": {},
+      "hints": [
+        "Pick a starting population."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the 2010 population be 100."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000704",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "12",
+          "rationale": "12 adds the equations and stops.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1",
+          "rationale": "1 computes (7 − 5)/2.",
+          "trap": null
+        },
+        {
+          "value": "2",
+          "rationale": "2 is x + y.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Adding the equations gives (a + b)x + (a + b)y = 12, so (a + b)(x + y) = 12. With x + y = 2, a + b = 6. (For example, a = 3.5 and b = 2.5 give the solution (2, 0).)",
+      "distractor_explanations": {},
+      "hints": [
+        "What happens when you add the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the equations and factor."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000705",
+      "correct_answer": "160",
+      "accepted_answers": [
+        "160"
+      ],
+      "common_errors": [
+        {
+          "value": "240",
+          "rationale": "240 is the number of child tickets.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "200",
+          "rationale": "200 assumes equal numbers of each ticket.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let a and c be the numbers of adult and child tickets. The change in revenue is 3a − 2c, which must be 0, and a + c = 400. Substituting c = 400 − a gives 3a − 800 + 2a = 0, so a = 160. The ticket prices are never needed.",
+      "distractor_explanations": {},
+      "hints": [
+        "What must the change in revenue equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the revenue change, not the revenue."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000706",
+      "correct_answer": "14",
+      "accepted_answers": [
+        "14"
+      ],
+      "common_errors": [
+        {
+          "value": "10.5",
+          "rationale": "10.5 is pump B's time alone.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "12",
+          "rationale": "12 assumes the pumps work at equal rates.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let a and b be the rates in basements per hour. Then a + b = 1/6 and 2a + 9b = 1. Doubling the first gives 2a + 2b = 1/3, so 7b = 2/3, b = 2/21, and a = 1/6 − 2/21 = 1/14. Pump A alone takes 14 hours.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each pump's rate in basements per hour."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up a system in the two rates."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000707",
+      "correct_answer": "C",
+      "explanation": "The mass term changes by 10(5) = 50, the age term by −5(6) = −30, and the height term by 0. The total change is 50 − 30 = 20 calories per day.",
+      "distractor_explanations": {
+        "A": "−30 counts only the age term.",
+        "B": "−20 reverses the signs of the two effects.",
+        "D": "50 counts only the mass term."
+      },
+      "hints": [
+        "Which terms change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the change in each term."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000708",
+      "correct_answer": "B",
+      "explanation": "The point (2, 8) must satisfy 8 ≤ 2a + 3, so a ≥ 2.5. The point (6, 21) must fail, so 21 > 6a + 3, and a < 3. Only 2.8 lies in 2.5 ≤ a < 3.",
+      "distractor_explanations": {
+        "A": "2.2 is less than 2.5, so (2, 8) would not be in the graph.",
+        "C": "At a = 3, (6, 21) lies on the boundary line and so is contained.",
+        "D": "3.4 comes from dropping the 3: 21 > 6a gives a < 3.5."
+      },
+      "hints": [
+        "What does each point tell you about a?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each value with both points."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000709",
+      "correct_answer": "B",
+      "explanation": "With width w, the height is w and the length is 2.5w, so the girth is 2(w + w) = 4w. The rule is 2.5w + 4w ≤ 108, so 6.5w ≤ 108 and w ≤ 16.6…, so the greatest whole-number width is 16.",
+      "distractor_explanations": {
+        "A": "11 measures the girth around the length, 2(2.5w + w), giving 9.5w ≤ 108.",
+        "C": "17 rounds 16.6… up, which breaks the limit.",
+        "D": "24 takes the girth as width + height only, 4.5w ≤ 108."
+      },
+      "hints": [
+        "Write the length and girth in terms of the width."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build the inequality, then round down."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000710",
+      "correct_answer": "B",
+      "explanation": "The pressure at depth d meters is 1 + d/10 atmospheres. Setting 1 + d/10 = 3.5 gives d/10 = 2.5, so d = 25 meters.",
+      "distractor_explanations": {
+        "A": "2.5 is the increase in pressure; it forgets the 10 meters per atmosphere.",
+        "C": "35 treats pressure as proportional to depth, 3.5 × 10.",
+        "D": "45 adds the surface atmosphere instead of subtracting it, (3.5 + 1) × 10."
+      },
+      "hints": [
+        "What is the pressure at depth d?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the model with its starting value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000711",
+      "correct_answer": "D",
+      "explanation": "The weekly increase is always 15% of 8 centimeters, which is 1.2 centimeters, so the height grows linearly: h = 8 + 1.2w.",
+      "distractor_explanations": {
+        "A": "This applies 15% to the current height each week, an exponential model.",
+        "B": "This uses 15% as 0.15 centimeter instead of 15% of 8.",
+        "C": "This swaps the starting height and the weekly increase."
+      },
+      "hints": [
+        "Does the weekly increase change?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the constant weekly increase."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000712",
+      "correct_answer": "C",
+      "explanation": "With L large plants, revenue is 4(50 − L) + 9L = 200 + 5L. Then 300 ≤ 200 + 5L ≤ 360 gives 20 ≤ L ≤ 32, which includes 32 − 20 + 1 = 13 whole numbers.",
+      "distractor_explanations": {
+        "A": "11 uses strict inequalities, counting 21 through 31.",
+        "B": "12 subtracts 32 − 20 and forgets to count both endpoints.",
+        "D": "32 is the greatest possible number of large plants, not the count."
+      },
+      "hints": [
+        "Write the revenue in terms of the number of large plants."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the compound inequality, then count inclusively."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000713",
+      "correct_answer": "C",
+      "explanation": "Each box holds 24 pencils, so p = 24b and 0.25p = 0.25(24b) = 6b. Substituting gives 12c + 6b = 480.",
+      "distractor_explanations": {
+        "A": "This renames p as b without converting boxes to pencils.",
+        "B": "This applies the factor 24 to the calculators instead of the pencils.",
+        "D": "This substitutes p = b/24 instead of p = 24b."
+      },
+      "hints": [
+        "How many pencils are in b boxes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write p in terms of b and substitute."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000714",
+      "correct_answer": "D",
+      "explanation": "Plan B's rate is (66 − 50)/(10 − 6) = $4 per class, and its fee is 50 − 6(4) = $26. Plan A is 20 + 4c and plan B is 26 + 4c, so plan A always costs $6 less.",
+      "distractor_explanations": {
+        "A": "This subtracts in the wrong order.",
+        "B": "This treats a given data point as the point where the plans are equal.",
+        "C": "Equal per-class rates do not mean equal plans; the fees differ."
+      },
+      "hints": [
+        "Find plan B's rate and fee."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Build plan B's equation from the two data points."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000715",
+      "correct_answer": "14",
+      "accepted_answers": [
+        "14"
+      ],
+      "common_errors": [
+        {
+          "value": "16.67",
+          "rationale": "16.67 assumes a 20% greater speed cuts the driving time by 20%.",
+          "trap": null
+        },
+        {
+          "value": "30",
+          "rationale": "30 divides the whole 45 minutes by 1.5.",
+          "trap": null
+        },
+        {
+          "value": "27.33",
+          "rationale": "27.33 divides 41 minutes by 1.5.",
+          "trap": null
+        }
+      ],
+      "explanation": "Let T be the driving time. A 20% greater speed makes the driving time T/1.2, so T − T/1.2 = T/6 = 4 minutes and T = 24 minutes. The stops take 45 − 24 = 21 minutes, and 21/1.5 = 14 stops.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which part of the route changes when the speed changes?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the time saved in terms of the driving time."
       }
     }
   ]

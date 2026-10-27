@@ -1,0 +1,168 @@
+{
+ "solver": {
+  "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+  "batch": 66
+ },
+ "answers": {
+  "Q066-01": {
+   "answer": "17",
+   "confidence": "high",
+   "est_pct_correct": 45,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Sun slope 1.5 m rise per 1 m run; over 10 m horizontal the ray drops 15 m, plus 2 m on wall: h=15+2=17."
+  },
+  "Q066-02": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "v=r*omega=0.3*50=15 m/s =15*3.6=54 km/h. B 94 = 15*2pi (spurious 2pi, m/s); C 180 = 50*3.6; D 339 = 94.2*3.6 (extra 2pi factor)."
+  },
+  "Q066-03": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "tanA=a/b, tanB=b/a, so a^2=4b^2, a=2b; 5b^2=85, b^2=17; area=ab/2=b^2=17. A 10, C 20 do not follow; D 21.25=85/4 (hypotenuse^2/4) wrong."
+  },
+  "Q066-04": {
+   "answer": "A",
+   "confidence": "high",
+   "est_pct_correct": 45,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Cross section similar triangle scales by 2/3 in both dimensions, area by 4/9: 1.2*4/9=0.533 -> 0.53. B 0.67 unrelated (2/3); C 0.80 linear scaling; D 1.07 = 1.2*8/9."
+  },
+  "Q066-05": {
+   "answer": "26/3",
+   "confidence": "high",
+   "est_pct_correct": 35,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "AE=EC=x, EB=12-x: (12-x)^2+64=x^2 -> 208=24x -> x=26/3 (8.666/8.667). AF=FC check symmetric."
+  },
+  "Q066-06": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "0.06x+0.04(15000-x)=0.02x+600; 600 is interest if all $15,000 at 4%, so 0.02x=820-600. A is 0.06x; B is 0.06x-0.04y; C is 0.02*15000=300 constant, not 0.02x."
+  },
+  "Q066-07": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Totals: 100 -> $300, 300 -> $600; marginal cost=300/200=$1.50. A=difference of averages; C/D averages-related traps."
+  },
+  "Q066-08": {
+   "answer": "40",
+   "confidence": "high",
+   "est_pct_correct": 45,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Annual increase d=0.05P (5d=0.25P). 2015 pop 1.25P; next 10 years add 0.5P; 0.5/1.25=40%."
+  },
+  "Q066-09": {
+   "answer": "6",
+   "confidence": "high",
+   "est_pct_correct": 60,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Add equations: (a+b)(x+y)=12, x+y=2 so a+b=6. Consistent example a=4,b=2 gives x=1.5,y=0.5, unique solution."
+  },
+  "Q066-10": {
+   "answer": "160",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Revenue change 3A-2C=0 with A+C=400 -> 5A=800 -> A=160."
+  },
+  "Q066-11": {
+   "answer": "14",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "a+b=1/6, 2a+9b=1 -> 7a=1/2, a=1/14 -> 14 hours (B alone 10.5 h, consistent)."
+  },
+  "Q066-12": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 70,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "Delta R = 10*5 - 5*6 = 50-30 = 20. A -30 ignores mass/sign; B -20 sign error; D 50 ignores age."
+  },
+  "Q066-13": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 55,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "(2,8): 8<=2a+3 -> a>=2.5; not (6,21): 21>6a+3 -> a<3. Only 2.8 works. A 2.2 fails first; C 3.0 gives 21<=21 so point is included (boundary trap); D 3.4 includes point."
+  },
+  "Q066-14": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 65,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "2.5w+2(2w)=6.5w<=108 -> w<=16.6 -> 16. C 17 rounds up (6.5*17=110.5>108); A 11 and D 24 from mis-set inequalities."
+  },
+  "Q066-15": {
+   "answer": "B",
+   "confidence": "high",
+   "est_pct_correct": 75,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "1+d/10=3.5 -> d=25. A 2.5 forgets units; C 35 = 3.5*10 ignores surface atm; D 45 other error."
+  },
+  "Q066-16": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 75,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "Constant weekly increase 0.15*8=1.2: h=8+1.2w. A is exponential (15% of current height); B uses 0.15 not 1.2; C swaps roles."
+  },
+  "Q066-17": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 50,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Revenue=4(50-L)+9L=200+5L; 300<=200+5L<=360 -> 20<=L<=32 -> 13 values. B 12 off-by-one; A 11; D 32 upper bound."
+  },
+  "Q066-18": {
+   "answer": "C",
+   "confidence": "high",
+   "est_pct_correct": 70,
+   "difficulty_opinion": "easy",
+   "flags": [],
+   "notes": "p=24b so 0.25p=6b: 12c+6b=480. A uses b as p; B misplaces 24; D divides instead of multiplies."
+  },
+  "Q066-19": {
+   "answer": "D",
+   "confidence": "high",
+   "est_pct_correct": 65,
+   "difficulty_opinion": "medium",
+   "flags": [],
+   "notes": "Plan B: rate (66-50)/4=4, fee 50-24=26 -> 26+4n vs A 20+4n; A always $6 cheaper. A reverses; B/C wrong since slopes equal and intercepts differ."
+  },
+  "Q066-20": {
+   "answer": "14",
+   "confidence": "high",
+   "est_pct_correct": 35,
+   "difficulty_opinion": "hard",
+   "flags": [],
+   "notes": "Driving time T: T - T/1.2 = 45-41 = 4 -> T=24; stop time 21 = 1.5s -> s=14."
+  }
+ }
+}
