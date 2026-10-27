@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 21,
-  "updated_at": "2026-10-26T23:46:10+00:00",
+  "version": 22,
+  "updated_at": "2026-10-27T00:01:15+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -234,6 +234,17 @@
       "word_count": 259,
       "text": "In 2014, a high school junior named {{1|Dana Ruiz, helped}} a local nonprofit obtain a license for a low-power FM radio station, which she then ran from her family's garage. The station's signal reached only about three miles, {{2|but}} within that circle lived nearly ten thousand people.\n\nAt first, the station played mostly music, much of it from Ruiz's own record collection, along with a weekly show of songs requested by classmates. Then listeners began calling in with requests that had nothing to do with songs: a lost dog, a church bake sale, a road closed by flooding. Ruiz, {{3|whom}} had planned to run a music station, found herself running a town bulletin board instead. {{4|For instance,}} within a year the station's schedule included a morning hour of local announcements, and that hour soon drew more listeners than {{5|any program}} on the station.\n\nWhen a storm knocked out power across the county in 2016, the station, running on a {{6|generator, became}} the only source of news for many residents. For three {{7|consecutive days in a row}}, volunteers took turns at the microphone, reading updates on shelters, closed roads and places to find drinking water. After the storm, the county commissioners thanked the volunteers, and {{8|they}} voted to fund a permanent backup generator for the station.{{9|}}\n\nToday the station is run by a board of volunteers, and Ruiz, now an engineer, still reads the announcements whenever she is home. The signal still reaches only about three miles, and the phone still rings with news of lost dogs and bake sales.{{10|}}",
       "batch": 21,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000022",
+      "title": "Recipes Worth Keeping",
+      "genre": "personal essay",
+      "word_count": 260,
+      "text": "Last fall, our history teacher, Ms. Ito, asked each pair of students in our class to interview a resident of the senior center across the street and write down one family recipe for a class cookbook. She assigned my partner and {{1|I}} to Mr. Okoye, a retired engineer who had moved to the city from Nigeria fifty years earlier.\n\nEach week we {{2|visit}} the center after school. Mr. Okoye was more willing to talk about his childhood {{3|then}} about cooking, and for the first two visits we wrote down only stories. We listened {{4|careful}}, though, and the stories turned out to matter. His recipe for pepper soup{{5|—which}} he had never written down, was one his mother had taught him in a kitchen with no measuring cups, and he described every ingredient by the size of a hand or the color of a broth.\n\n[1] The hardest part of the project was turning those descriptions into measurements. [2] Then we checked each batch with him. [3] We cooked the soup three times in the school's kitchen, adjusting the pepper each time. [4] On the third try, he tasted it, closed his eyes, and said only, \"Yes.\" {{6|}}\n\nOf the two Nigerian recipes in the cookbook, his turned out to be {{7|the most}} popular with the other residents. The finished book contained recipes from four {{8|countries: Mexico,}} Nigeria, Japan, and Poland. The {{9|affect}} of the project surprised all of us. Several residents asked for extra copies to send to their grandchildren, and Mr. Okoye now cooks pepper soup for the center's monthly dinner.",
+      "batch": 22,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -15303,6 +15314,640 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-021.review.json",
         "computation": "checks/act_english/batch_021.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000214",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case after a verb",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 1,
+      "evidence": "She assigned my partner and",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "myself",
+        "C": "me",
+        "D": "mine"
+      },
+      "correct_answer": "C",
+      "explanation": "The pronoun is an object of the verb \"assigned,\" so the object form \"me\" is correct. (Test: \"She assigned me.\")",
+      "distractor_explanations": {
+        "A": "\"I\" is a subject pronoun, but here the pronoun is an object of \"assigned.\"",
+        "B": "\"Myself\" is reflexive and needs an antecedent \"I\" in the same clause.",
+        "D": "\"Mine\" is possessive and does not fit."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Remove \"my partner and.\" What sounds right?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Test each pronoun alone after \"assigned.\""
+      },
+      "remember": "Drop the other person to test a compound object.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-01",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000215",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency in a narrative",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 2,
+      "evidence": "Mr. Okoye was more willing",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "will visit",
+        "C": "are visiting",
+        "D": "visited"
+      },
+      "correct_answer": "D",
+      "explanation": "The essay narrates past events, so the verb should be past tense: \"visited.\"",
+      "distractor_explanations": {
+        "A": "The present tense \"visit\" clashes with the past-tense narrative (\"asked,\" \"was,\" \"wrote\").",
+        "B": "The future tense does not fit events that already happened.",
+        "C": "The present progressive does not match the past-tense narrative."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What tense are the surrounding verbs?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match nearby verbs."
+      },
+      "remember": "Keep a narrative's tense consistent.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-02",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000216",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Than versus then",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 3,
+      "evidence": "more willing to talk about his childhood",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "when",
+        "C": "as",
+        "D": "than"
+      },
+      "correct_answer": "D",
+      "explanation": "\"More willing ... than\" completes a comparison.",
+      "distractor_explanations": {
+        "A": "\"Then\" refers to time; a comparison needs \"than.\"",
+        "B": "\"When\" does not complete the comparison \"more willing ...\".",
+        "C": "\"More ... as\" is not a standard comparison."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is this a comparison or a sequence in time?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use \"than\" after \"more.\""
+      },
+      "remember": "Than compares; then tells when.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-03",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000217",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Adjective versus adverb",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 4,
+      "evidence": "We listened",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "carefully",
+        "C": "more careful",
+        "D": "with care and carefully"
+      },
+      "correct_answer": "B",
+      "explanation": "A word that describes how they listened modifies a verb, so the adverb \"carefully\" is needed.",
+      "distractor_explanations": {
+        "A": "\"Careful\" is an adjective, but it modifies the verb \"listened.\"",
+        "C": "\"More careful\" is still an adjective.",
+        "D": "This is redundant and awkward."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Does the word describe a noun or the action \"listened\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Verbs take adverbs."
+      },
+      "remember": "Adverbs (often -ly) modify verbs.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-04",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: D ('with care and carefully') is an obviously redundant throwaway distractor"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000218",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Matching punctuation around a nonessential clause",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 5,
+      "evidence": "he had never written down, was one his mother had taught him",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": ", which",
+        "C": "; which",
+        "D": " which"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Which he had never written down\" interrupts the sentence and ends with a comma, so it must also begin with a comma.",
+      "distractor_explanations": {
+        "A": "The clause opens with a dash but closes with a comma; the marks around it must match.",
+        "C": "A semicolon cannot introduce a dependent clause.",
+        "D": "The clause needs an opening comma to match the comma after \"down.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What punctuation ends the interrupting clause?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Match the opening mark to the closing comma."
+      },
+      "remember": "Use a matched pair: two commas or two dashes, not one of each.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-05",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000219",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical order of sentences",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 6,
+      "evidence": "We cooked the soup three times in the school's kitchen",
+      "figure": null,
+      "stem": "For the sake of logic and coherence, Sentence 2 should be placed:",
+      "choices": {
+        "A": "where it is now.",
+        "B": "before Sentence 1.",
+        "C": "after Sentence 3.",
+        "D": "after Sentence 4."
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 2 (\"Then we checked each batch with him\") must follow the sentence that introduces the batches (Sentence 3) and come before the final tasting (Sentence 4).",
+      "distractor_explanations": {
+        "A": "\"Then we checked each batch\" refers to batches that have not yet been mentioned.",
+        "B": "The paragraph's topic sentence must come first.",
+        "D": "Sentence 4 describes the final tasting, which should end the sequence."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"each batch\" refer to?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the sentence that introduces the batches."
+      },
+      "remember": "\"Then\" and \"each\" point back to something already mentioned.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-06",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [
+          "minor: the passage for this item shows an empty position marker '[]' after Sentence 4 that no choice references; it is harmless but stray (possibly meant to mark the paragraph end)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000220",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comparative with two items",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 7,
+      "evidence": "Of the two Nigerian recipes in the cookbook",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "the more of the",
+        "C": "most",
+        "D": "the more"
+      },
+      "correct_answer": "D",
+      "explanation": "When two things (the two Nigerian recipes) are compared, the comparative \"the more\" is used, not the superlative.",
+      "distractor_explanations": {
+        "A": "\"The most\" is superlative, but only two recipes are compared.",
+        "B": "This adds words that make the sentence ungrammatical.",
+        "C": "\"Most\" is still superlative and drops the needed \"the.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "How many versions are being compared?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Two items: comparative; three or more: superlative."
+      },
+      "remember": "Use -er/more for two, -est/most for three or more.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-07",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000221",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Colon before a list",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 8,
+      "evidence": "The finished book contained recipes from four",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "countries, Mexico,",
+        "C": "countries; Mexico,",
+        "D": "countries Mexico,"
+      },
+      "correct_answer": "A",
+      "explanation": "A complete clause (\"The finished book contained recipes from four countries\") introduces the list, so a colon is correct.",
+      "distractor_explanations": {
+        "B": "A comma makes \"Mexico\" look like the first of four parallel items instead of the start of the list.",
+        "C": "A semicolon must join two independent clauses; the list is not a clause.",
+        "D": "With no punctuation, the list runs into the clause that introduces it."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Is the part before the list a complete sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Use a colon after a complete clause to introduce a list."
+      },
+      "remember": "A colon introduces a list after a complete clause.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-08",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000222",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Affect versus effect",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000022",
+      "underline": 9,
+      "evidence": "The",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "affects",
+        "C": "effect",
+        "D": "affected"
+      },
+      "correct_answer": "C",
+      "explanation": "After \"The,\" the sentence needs a noun meaning \"result\": \"effect.\"",
+      "distractor_explanations": {
+        "A": "\"Affect\" is usually a verb; the sentence needs a noun.",
+        "B": "\"Affects\" is a verb or a plural noun with a different meaning.",
+        "D": "\"Affected\" is a verb; the sentence needs a noun after \"The.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the blank need a noun or a verb?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "\"The effect of\" = the result of."
+      },
+      "remember": "Affect is usually a verb; effect is usually a noun.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 22,
+      "draft_candidate": "E022-09",
+      "created_at": "2026-10-27T00:01:15+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-022.review.json",
+        "computation": "checks/act_english/batch_022.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

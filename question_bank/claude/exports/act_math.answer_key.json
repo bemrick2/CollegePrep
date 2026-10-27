@@ -1,6 +1,6 @@
 {
   "bank": "act_math",
-  "bank_version": 66,
+  "bank_version": 67,
   "answers": [
     {
       "id": "CLD-ACT-M-000002",
@@ -11161,6 +11161,176 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "Shade the 4 × 4 corner of the 6 × 6 grid, then remove the 3 × 3 corner."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000657",
+      "correct_answer": "C",
+      "explanation": "The angle sum is (n − 2) × 180°. Setting (n − 2) × 180 = 1,440 gives n − 2 = 8, so n = 10.",
+      "distractor_explanations": {
+        "A": "8 is n − 2, forgetting to add 2.",
+        "B": "9 adds only 1 to 1,440 ÷ 180.",
+        "D": "12 divides 1,440 by 120, as if each angle were 120°."
+      },
+      "hints": [
+        "What formula gives the sum of the interior angles?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "(n − 2)180 = 1,440."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000658",
+      "correct_answer": "B",
+      "explanation": "15 years is 3 half-lives, so the amount is halved 3 times: 80 → 40 → 20 → 10 grams.",
+      "distractor_explanations": {
+        "A": "5 halves the amount 4 times.",
+        "C": "20 halves the amount only twice.",
+        "D": "40 halves the amount only once."
+      },
+      "hints": [
+        "How many half-lives are in 15 years?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "80 × (1/2)³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000659",
+      "correct_answer": "D",
+      "explanation": "The distance from the origin to (−5, 12) is √(25 + 144) = 13, so cos θ = x/r = −5/13.",
+      "distractor_explanations": {
+        "A": "5/13 drops the negative sign of x.",
+        "B": "−12/13 uses y with the sign of x.",
+        "C": "12/13 is sin θ."
+      },
+      "hints": [
+        "What is the distance from the origin to the point?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the point and a right triangle to the x-axis."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000660",
+      "correct_answer": "A",
+      "explanation": "In radians, arc length = radius × angle = 4 × 1.5 = 6 centimeters.",
+      "distractor_explanations": {
+        "B": "12 uses the diameter instead of the radius.",
+        "C": "6π treats 1.5 as a multiple of π radians.",
+        "D": "24 uses r² instead of r."
+      },
+      "hints": [
+        "What is the arc-length formula when the angle is in radians?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "s = rθ."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000661",
+      "correct_answer": "C",
+      "explanation": "|x − 3| = |x − 7| means x is equally distant from 3 and 7, so x is their midpoint, 5. (Algebraically, x − 3 = −(x − 7) gives x = 5; x − 3 = x − 7 has no solution.)",
+      "distractor_explanations": {
+        "A": "2 is half the distance between 3 and 7.",
+        "B": "4 is the distance between 3 and 7.",
+        "D": "10 is the sum of 3 and 7."
+      },
+      "hints": [
+        "What does |x − a| mean on a number line?"
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000662",
+      "correct_answer": "B",
+      "explanation": "The region's corners are (0, 0), (6, 0), (4, 2) and (0, 4). There 2x + 3y equals 0, 12, 14 and 12. The greatest value, 14, occurs at (4, 2).",
+      "distractor_explanations": {
+        "A": "12 is the value at (6, 0) or (0, 4), not the greatest.",
+        "C": "18 = 2(6) + 3(2) uses the point (6, 2), which violates x + y ≤ 6.",
+        "D": "24 = 2(6) + 3(4) combines the largest x and the largest y, which cannot happen together."
+      },
+      "hints": [
+        "Where are the corners of the region?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Graph the constraints and test each corner."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000663",
+      "correct_answer": "B",
+      "explanation": "1,023 = 2¹⁰ − 1 = (2⁵ − 1)(2⁵ + 1) = 31 × 33 = 3 × 11 × 31. The largest prime factor is 31.",
+      "distractor_explanations": {
+        "A": "11 is a prime factor but not the largest.",
+        "C": "33 = 3 × 11 is not prime.",
+        "D": "341 = 11 × 31 is not prime."
+      },
+      "hints": [
+        "Try dividing by small primes first."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "1,023 ÷ 3 = 341; then factor 341."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000664",
+      "correct_answer": "A",
+      "explanation": "The water forms a smaller cone similar to the cup, with all dimensions half as large. Volume scales by (1/2)³ = 1/8.",
+      "distractor_explanations": {
+        "B": "1/4 scales by (1/2)², the area factor.",
+        "C": "1/2 assumes volume is proportional to height.",
+        "D": "3/4 may come from subtracting 1/4 from 1, confusing the empty part with the full part."
+      },
+      "hints": [
+        "What shape does the water form?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Similar cones: volume ratio = (height ratio)³."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000665",
+      "correct_answer": "A",
+      "explanation": "Setting x² + 3 = 2x + c gives x² − 2x + (3 − c) = 0. Exactly one solution requires a zero discriminant: 4 − 4(3 − c) = 0, so c = 2.",
+      "distractor_explanations": {
+        "B": "3 is the parabola's y-intercept, where the line would cross the parabola twice.",
+        "C": "4 makes the discriminant positive, so the line crosses the parabola twice.",
+        "D": "5 makes the discriminant positive, giving two intersection points."
+      },
+      "hints": [
+        "What condition on the equation gives exactly one intersection?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the expressions equal and require b² − 4ac = 0."
+      }
+    },
+    {
+      "id": "CLD-ACT-M-000666",
+      "correct_answer": "B",
+      "explanation": "Parentheses: 6. Exponent: 36. Multiply and divide left to right: 3 × 36 = 108, 108 ÷ 6 = 18. Then 18 − 18 = 0.",
+      "distractor_explanations": {
+        "A": "−36 multiplies 3 × 6 before squaring: 18 − 18² ÷ 6.",
+        "C": "8 squares 2 and 4 separately: 2² + 4² = 20.",
+        "D": "90 subtracts 18 − 3 first."
+      },
+      "hints": [
+        "What comes first: the parentheses, the exponent or the subtraction?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Follow PEMDAS step by step."
       }
     }
   ]
