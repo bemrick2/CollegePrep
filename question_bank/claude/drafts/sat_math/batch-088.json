@@ -1,0 +1,595 @@
+{
+ "bank": "sat_math",
+ "batch": 88,
+ "plan": "SAT Math batch 88: 12 items from idea set 28 (WB01, WB03, WB04, WB05, WB07, WB09, WB12, WD01, WD02, WD04, WD05, WD10; pre-checked in ideas-076.repeats.json, which dropped WB06, WB14, WB16, WD03 and WD06 as templates; WB11 also dropped for its first-guess cue). Fixes: WB01 underivable trap removed; WB04 renumbered (f = x² − 6x + 11, reflection across y = 4) away from CLD-SAT-M-000155; WD01 impossible distractor 5π/2 replaced with 5π/8; WD05 renumbered (AB = 12, product 0.4) away from 000801; WD10 underivable trap removed; WB07 and WB09 relabeled medium. Keep-apart pairs split across batches 88 and 89. Plus Q087-09 resubmitted as revision 2 (exact answer 67.5). Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q088-01",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Reducing a cubic with a quadratic relation",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "If x² = 2x + 1, what is the value of x³ − 5x?",
+   "explanation": "Multiply the given equation by x: x³ = 2x² + x. Replace x² again: x³ = 2(2x + 1) + x = 5x + 2. So x³ − 5x = 2 for both solutions, x = 1 ± √2. Check: (1 + √2)³ = 7 + 5√2, and 7 + 5√2 − 5(1 + √2) = 2.",
+   "hints": [
+    "Multiply both sides of the given equation by x."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use the relation twice to lower the degree."
+   },
+   "remember": "Use a given equation repeatedly to reduce higher powers.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Requires using the relation twice so the x-terms cancel."
+   },
+   "format": "spr",
+   "answer": "2",
+   "accepted_answers": [
+    "2"
+   ],
+   "common_errors": [
+    {
+     "value": "1",
+     "rationale": "1 rewrites 2x² as 4x + 1, doubling only the x-term of 2x + 1.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q088-02",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Quadratic from coefficient sums",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = ax² + bx + c, where a, b, and c are constants. If a + b + c = 0, 9a + 3b + c = 0, and c = 6, what is the minimum value of f(x)?",
+   "explanation": "a + b + c = f(1) and 9a + 3b + c = f(3), so 1 and 3 are zeros and f(x) = a(x − 1)(x − 3). Then f(0) = 3a = 6 gives a = 2. The minimum is at x = 2: f(2) = 2(1)(−1) = −2. Solving the system directly also gives a = 2, b = −8, c = 6.",
+   "hints": [
+    "What is f(1) in terms of a, b, and c?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Recognize each sum as a value of f."
+   },
+   "remember": "a + b + c is f(1) for any quadratic ax² + bx + c.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The sums must be recognized as function values."
+   },
+   "format": "spr",
+   "answer": "-2",
+   "accepted_answers": [
+    "-2"
+   ],
+   "common_errors": [
+    {
+     "value": "-1",
+     "rationale": "−1 uses (x − 1)(x − 3) without the factor a.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2",
+     "rationale": "2 is the x-coordinate of the vertex.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q088-03",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Reflection of a parabola across a horizontal line",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = x² − 6x + 11. In the xy-plane, the graph of y = g(x) is the reflection of the graph of y = f(x) across the line y = 4. Which of the following defines g?",
+   "explanation": "Reflecting across y = 4 sends each point (x, y) to (x, 8 − y), so g(x) = 8 − f(x) = −x² + 6x − 3. Check: the vertex (3, 2) of f maps to (3, 6), and −(x − 3)² + 6 = −x² + 6x − 3.",
+   "hints": [
+    "Where does a point (x, y) go when reflected across y = 4?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check where the vertex goes, not just the y-intercept."
+   },
+   "remember": "Reflecting across y = k sends y to 2k − y.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Three choices share the y-intercept, so the vertex or opening must be checked."
+   },
+   "choices": {
+    "A": "g(x) = −x² + 6x − 7",
+    "B": "g(x) = −x² − 6x − 3",
+    "C": "g(x) = x² − 6x − 3",
+    "D": "g(x) = −x² + 6x − 3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "Computes 4 − f(x), reflecting across the x-axis and then shifting up 4.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "Computes 8 − f(−x), negating x as well.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "Translates the graph down so the y-intercept lands on its mirror image, keeping the parabola opening upward.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q088-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Sum of two rational expressions that cancel",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "For x ≠ −2 and x ≠ 3, which of the following is equivalent to (x² + 5x + 6)/(x + 2) + (x² − 9)/(3 − x)?",
+   "explanation": "The first fraction is (x + 2)(x + 3)/(x + 2) = x + 3. The second is (x − 3)(x + 3)/(−(x − 3)) = −(x + 3). Their sum is 0. Check x = 0: 6/2 + (−9)/3 = 3 − 3 = 0.",
+   "hints": [
+    "Factor each numerator."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Check with x = 0."
+   },
+   "remember": "3 − x equals −(x − 3).",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0",
+    "B": "6",
+    "C": "2x + 6",
+    "D": "−2x − 6"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Factors x² − 9 as (x − 3)², so the second fraction becomes 3 − x.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Cancels x − 3 against 3 − x as if they were equal.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "Applies the negative from 3 − x to both fractions.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q088-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Odd part plus a constant",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function p is defined by p(x) = x³ − 4x + 2. If p(a) = 9, what is the value of p(−a)?",
+   "explanation": "p(a) = 9 means a³ − 4a = 7. Then p(−a) = −a³ + 4a + 2 = −(a³ − 4a) + 2 = −7 + 2 = −5.",
+   "hints": [
+    "What is a³ − 4a?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Separate the odd part from the constant."
+   },
+   "remember": "Only the odd part changes sign when x becomes −x.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−9",
+    "B": "−7",
+    "C": "−5",
+    "D": "9"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Treats p as odd, so p(−a) = −p(a), ignoring the constant 2.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "Negates the odd part but forgets to add the 2 back.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Treats p as even.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q088-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing average rates of change of an exponential",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = 3 · 2ˣ. The average rate of change of f from x = 1 to x = 3 is how many times the average rate of change of f from x = 0 to x = 2?",
+   "explanation": "From x = 1 to x = 3 the rate is (24 − 6)/2 = 9. From x = 0 to x = 2 it is (12 − 3)/2 = 4.5. The ratio is 9/4.5 = 2: shifting the interval 1 unit to the right multiplies every value of f, and every difference, by the base 2.",
+   "hints": [
+    "Compute each average rate of change."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Evaluate f at the four inputs."
+   },
+   "remember": "Shifting an exponential's input by 1 multiplies outputs by the base.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Treats intervals of equal width as having equal rates, as for a linear function.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Gives f(3)/f(1), the growth across one interval.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Gives f(3)/f(0), comparing the outer endpoints.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q088-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Symmetry of a downward parabola",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The function f is defined by f(x) = a(x − 2)² + k, where a and k are constants and a < 0. If f(0) = 1, which of the following must be true?",
+   "explanation": "The graph opens downward with axis x = 2. x = 5 is 3 units from the axis and x = 0 is 2 units, so f(5) < f(0) = 1. Algebraically, 4a + k = 1 and f(5) = 9a + k = 1 + 5a < 1. By symmetry f(4) = f(0) and f(5) = f(−1).",
+   "hints": [
+    "How far is each input from the axis x = 2?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch a downward parabola with axis x = 2."
+   },
+   "remember": "On a downward parabola, points farther from the axis are lower.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(5) < 1",
+    "B": "f(5) = 1",
+    "C": "f(4) < 1",
+    "D": "f(5) > f(−1)"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "Pairs 5 with 0 as mirror images about x = 2; the mirror of 0 is 4.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Misses that f(4) = f(0) by symmetry.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Misses that −1 and 5 are both 3 units from the axis.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q088-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Area between two sectors with a shared angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Two circles have the same center O, with radii 4 and 6. Two radii of the larger circle form a central angle of θ radians, and the part of the region between the two circles that lies inside this angle has an area of 5π. What is the value of θ?",
+   "explanation": "The region is the large sector minus the small sector: (θ/2)(6²) − (θ/2)(4²) = 18θ − 8θ = 10θ. Setting 10θ = 5π gives θ = π/2.",
+   "hints": [
+    "What is the area of a sector with angle θ radians?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Shade the region between the two arcs."
+   },
+   "remember": "A sector's area is (θ/2)r² when θ is in radians.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "π/4",
+    "B": "5π/18",
+    "C": "π/2",
+    "D": "5π/8"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "Uses θ(6² − 4²) without the factor 1/2.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "Uses only the larger sector, (θ/2)(36) = 5π.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "Uses only the smaller sector, (θ/2)(16) = 5π.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q088-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Inscribed triangle from an arc ratio",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "Triangle ABC is inscribed in a circle with radius 5. Its vertices divide the circle into three arcs whose lengths are in the ratio 1 : 2 : 3. What is the area of triangle ABC?",
+   "explanation": "The arcs measure 60°, 120°, and 180°, so the inscribed angles are 30°, 60°, and 90°. The 90° angle intercepts a semicircle, so the hypotenuse is a diameter of length 10, and the legs are 5 and 5√3. The area is (1/2)(5)(5√3) = 25√3/2.",
+   "hints": [
+    "What fraction of 360° is each arc?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Convert arcs to inscribed angles."
+   },
+   "remember": "An inscribed angle is half its intercepted arc.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Arc ratio to angles, then diameter and special triangle."
+   },
+   "choices": {
+    "A": "25√3/8",
+    "B": "25√3/2",
+    "C": "25",
+    "D": "50√3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "Uses the radius 5 as the hypotenuse.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "Treats the diameter as a leg with the other leg 5.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "Uses 10 as the shorter leg of the 30°-60°-90° triangle.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q088-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Distance condition with the unknown in both points",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the distance between the points (k, 3) and (2, k) is 5. What is the greatest possible value of k?",
+   "explanation": "(k − 2)² + (3 − k)² = 25 gives 2k² − 10k + 13 = 25, so k² − 5k − 6 = 0 and k = 6 or k = −1. The greatest value is 6. Check: (6, 3) to (2, 6) is √(16 + 9) = 5.",
+   "hints": [
+    "Write the distance formula with both points."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Square the distance and solve the quadratic."
+   },
+   "remember": "Square the distance to avoid the square root.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 sets the sum of squares equal to 5 instead of 25.",
+     "trap": null
+    },
+    {
+     "value": "-1",
+     "rationale": "−1 is the other solution, not the greatest.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q088-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right-triangle area from a product of trigonometric ratios",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In right triangle ABC, angle C is the right angle and AB = 12. If sin A · cos A = 0.4, what is the area of triangle ABC?",
+   "explanation": "BC = 12 sin A and AC = 12 cos A, so the area is (1/2)(12 sin A)(12 cos A) = 72(0.4) = 28.8. No single side needs to be found.",
+   "hints": [
+    "Write each leg in terms of the hypotenuse and angle A."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Express the area using sin A and cos A."
+   },
+   "remember": "In a right triangle, each leg is the hypotenuse times sin or cos.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The given product appears directly in the area formula."
+   },
+   "format": "spr",
+   "answer": "28.8",
+   "accepted_answers": [
+    "28.8",
+    "144/5"
+   ],
+   "common_errors": [
+    {
+     "value": "57.6",
+     "rationale": "57.6 forgets the 1/2 in the area formula.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2.4",
+     "rationale": "2.4 scales by the hypotenuse only once, (1/2)(0.4)(12).",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q088-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Equal segments inside a right triangle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In right triangle ABC, angle C is the right angle, AC = 8, and tan A = 3/4. Point D lies on side AC so that BD = AD. What is the length of CD?",
+   "explanation": "BC = AC · tan A = 6. Let CD = d, so AD = 8 − d = BD. In right triangle BCD, (8 − d)² = d² + 36, so 64 − 16d = 36 and d = 7/4. Check: BD = 25/4, and (7/4)² + 6² = 625/16.",
+   "hints": [
+    "Find BC first."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label CD as d and write BD in terms of d."
+   },
+   "remember": "Turn equal lengths into an equation with the Pythagorean theorem.",
+   "expected_time_seconds": 120,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Combines a trig ratio with a Pythagorean equation in the unknown piece."
+   },
+   "format": "spr",
+   "answer": "7/4",
+   "accepted_answers": [
+    "7/4",
+    "1.75"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 assumes D is the midpoint of AC.",
+     "trap": null
+    },
+    {
+     "value": "25/4",
+     "rationale": "25/4 is BD (and AD), not CD.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q088-13",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Required speed for a target average",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "Kim is driving 120 miles. She drove the first 30 miles at an average speed of 45 miles per hour. What is the least average speed, in miles per hour, at which she can drive the remaining 90 miles so that her average speed for the whole trip is at least 60 miles per hour?",
+   "explanation": "An average of at least 60 mph over 120 miles means the trip takes at most 2 hours. The first 30 miles took 30/45 = 2/3 hour, leaving 4/3 hours for 90 miles, so 90/v ≤ 4/3 and v ≥ 67.5 mph.",
+   "hints": [
+    "How long may the whole trip take?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Work with total time, not with averaged speeds."
+   },
+   "remember": "Average speed is total distance divided by total time.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Both averaging shortcuts give wrong answers."
+   },
+   "format": "spr",
+   "answer": "67.5",
+   "accepted_answers": [
+    "67.5",
+    "135/2"
+   ],
+   "common_errors": [
+    {
+     "value": "65",
+     "rationale": "65 weights the speeds by distance, (30 × 45 + 90v)/120 = 60.",
+     "trap": null
+    },
+    {
+     "value": "75",
+     "rationale": "75 averages the two speeds, (45 + v)/2 = 60.",
+     "trap": null
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "accepted answers 66.66 and 66.67 are rounded, not equivalent to 200/3",
+     "change": "renumbered (first 30 miles at 45 mph) so the exact answer is 67.5; traps recomputed (65 distance-weighted, 75 plain average)"
+    }
+   ]
+  }
+ ]
+}
