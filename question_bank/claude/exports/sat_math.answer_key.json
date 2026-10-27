@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 53,
+  "bank_version": 54,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -10020,6 +10020,278 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Pace = time ÷ distance."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000503",
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "55",
+          "rationale": "55 pairs the two highest prices: 3.60 − 2.50.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the greatest possible profit: 3.60 − 1.80.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The profit per kilogram is least when the selling price is lowest and the cost is highest: 3.00 − 2.50 = 0.50 dollar. On 50 kilograms the least possible profit is 50 × 0.50 = 25 dollars.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which price and cost make the profit smallest?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Pair the lowest selling price with the highest cost."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000504",
+      "correct_answer": "B",
+      "explanation": "The images and margins use 6 × 180 + 2 × 40 = 1,160 pixels, leaving 120 pixels. Six images in a row have 5 gaps between them, so each gap is 120 ÷ 5 = 24 pixels.",
+      "distractor_explanations": {
+        "A": "20 divides by 6 gaps instead of 5.",
+        "C": "32 subtracts only one margin: 160 ÷ 5.",
+        "D": "40 ignores the margins: 200 ÷ 5."
+      },
+      "hints": [
+        "How many gaps are between 6 images in a row?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the row with margins and gaps."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000505",
+      "correct_answer": "0.58",
+      "accepted_answers": [
+        "0.58",
+        ".58",
+        "29/50"
+      ],
+      "common_errors": [
+        {
+          "value": "2.68",
+          "rationale": "2.68 inverts the wage conversion: 0.18 + 50/20.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "29",
+          "rationale": "29 is the cost per hour: 0.18 × 50 + 20.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "At 50 miles per hour, the wage of $20 per hour is 20 ÷ 50 = $0.40 per mile. Adding the van's $0.18 per mile gives $0.58 per mile.",
+      "distractor_explanations": {},
+      "hints": [
+        "Convert the wage to dollars per mile."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the hourly wage by the miles driven per hour."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000506",
+      "correct_answer": "A",
+      "explanation": "The total length is (12 + 0.5F) + (15 + 0.3F) = 27 + 0.8F. Setting 27 + 0.8F = 47 gives 0.8F = 20 and F = 25.",
+      "distractor_explanations": {
+        "B": "40 uses only spring A's rate: 20 ÷ 0.5.",
+        "C": "50 averages the two rates: 20 ÷ 0.4.",
+        "D": "58.75 ignores the unstretched lengths: 47 ÷ 0.8."
+      },
+      "hints": [
+        "Write each spring's length in terms of F."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the two lengths and set the sum to 47."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000507",
+      "correct_answer": "640",
+      "accepted_answers": [
+        "640"
+      ],
+      "common_errors": [
+        {
+          "value": "480",
+          "rationale": "480 uses inverse proportion without squaring: 360 × 4/3.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "270",
+          "rationale": "270 uses direct proportion: 360 × 3/4.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Illuminance I satisfies I = k/d², so I × d² is constant: 360 × 16 = 5,760. At 3 meters, I = 5,760 ÷ 9 = 640 lux.",
+      "distractor_explanations": {},
+      "hints": [
+        "What stays constant in an inverse-square relationship?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by (4/3)²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000508",
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 takes the top at t = 1, halfway to t = 2; that value is also the platform height k.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "4",
+          "rationale": "4 ignores k: −16(1/4) + 16(1/2).",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "h(2) = −64 + 32 + k = 0 gives k = 32. The vertex is at t = −16/(2 × −16) = 1/2, so the greatest height is h(1/2) = −4 + 8 + 32 = 36 feet.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use h(2) = 0 to find k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k, then evaluate at the vertex."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000509",
+      "correct_answer": "A",
+      "explanation": "From πr²h = 500π, h = 500/r². The surface area is 2πr² + 2πrh = 2πr² + 2πr(500/r²) = 2πr² + 1000π/r.",
+      "distractor_explanations": {
+        "B": "πr² + 1000π/r counts only one circular end.",
+        "C": "2πr² + 1000π uses h = 500/r, forgetting to square r.",
+        "D": "2πr² + 1000π²r substitutes the volume 500π for the height."
+      },
+      "hints": [
+        "Solve the volume formula for h."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate h using the volume."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000510",
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 is the size of the negative solution, which is not a speed.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "120",
+          "rationale": "120 is the stopping distance, not the speed.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set v + v²/20 = 120. Multiplying by 20 gives v² + 20v − 2,400 = 0, which factors as (v + 60)(v − 40) = 0. A speed must be positive, so v = 40 miles per hour.",
+      "distractor_explanations": {},
+      "hints": [
+        "Multiply both sides by 20."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the quadratic and reject the negative root."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000511",
+      "correct_answer": "D",
+      "explanation": "Mild: A 95/100 = 95%, B 270/300 = 90%. Severe: A 120/300 = 40%, B 35/100 = 35%. Combined: A 215/400 = 53.75%, B 305/400 = 76.25%. Clinic A is higher in each group but lower overall, because most of B's patients have mild illness.",
+      "distractor_explanations": {
+        "A": "This assumes winning both groups means winning overall.",
+        "B": "This compares the 'did not recover' columns, which flips every comparison.",
+        "C": "This compares numbers recovered instead of rates."
+      },
+      "hints": [
+        "Compute each recovery rate as a percent."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each rate, then the combined rate."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000512",
+      "correct_answer": "B",
+      "explanation": "The sample has 38/50 = 0.76 orchid per square meter. The meadow is 1.2 × 10,000 = 12,000 square meters, so the estimate is 0.76 × 12,000 = 9,120 orchids.",
+      "distractor_explanations": {
+        "A": "912 uses 1 hectare = 1,000 square meters.",
+        "C": "91,200 uses 1 hectare = 100,000 square meters.",
+        "D": "456,000 multiplies 38 by 12,000 without dividing by the sample area."
+      },
+      "hints": [
+        "What is the density in the sample?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the sample density to the whole area."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000513",
+      "correct_answer": "1.66",
+      "accepted_answers": [
+        "1.66"
+      ],
+      "common_errors": [
+        {
+          "value": "5.66",
+          "rationale": "5.66 is the distance to the center; it forgets to subtract the radius.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.31",
+          "rationale": "3.31 uses 8 feet as the radius.",
+          "trap": null
+        }
+      ],
+      "explanation": "The rug's center is 4 feet from each wall, so it is √(4² + 4²) = 4√2 ≈ 5.657 feet from the corner. The nearest point of the rug lies on that line, one radius closer: 5.657 − 4 ≈ 1.66 feet.",
+      "distractor_explanations": {},
+      "hints": [
+        "Where is the center of the rug?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the corner, the rug and the diagonal to its center."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000514",
+      "correct_answer": "C",
+      "explanation": "By similar triangles, image height ÷ 8 cm = 600 cm ÷ 1,500 cm, so the image height is 8 × 600/1,500 = 3.2 centimeters.",
+      "distractor_explanations": {
+        "A": "0.032 computes 6 × 8/1,500 = 0.032, mixing meters and centimeters.",
+        "B": "0.32 converts 15 meters to 150 centimeters and leaves the tree height in meters.",
+        "D": "11.25 inverts the ratio: 15 × 6/8."
+      },
+      "hints": [
+        "Put every length in centimeters."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the similar-triangle ratio in one unit."
       }
     }
   ]

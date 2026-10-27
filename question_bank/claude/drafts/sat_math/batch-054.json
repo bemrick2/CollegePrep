@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 54,
- "plan": "SAT Math batch 54: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 6 student-produced responses. Ideas CA07-CA10, CB02, CB06-CB08, CC03, CC05, CD03, CD05 from generated set 8 (independently pre-checked; CA07, CA09 and CB02 converted to student-produced responses because the key stood out as an extreme or the only realistic value; CD05's choice B rationale corrected).",
+ "plan": "SAT Math batch 54: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 6 student-produced responses. Ideas CA07-CA10, CB02, CB06-CB08, CC03, CC05, CD03, CD05 from generated set 8 (independently pre-checked; CA07, CA09 and CB02 converted to student-produced responses because the key stood out as an extreme or the only realistic value; CD05's choice B rationale corrected). Relabelled to the blind solver's rating where it was lower: Q054-04 medium→easy, Q054-06 hard→medium, Q054-09 hard→medium, Q054-10 medium→easy.",
  "candidates": [
   {
    "cand": "Q054-01",
@@ -141,7 +141,7 @@
    "skill": "Algebra",
    "subskill": "Shared force in two springs joined end to end",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Spring A is 12 centimeters long with no load and stretches 0.5 centimeter for each newton of force. Spring B is 15 centimeters long with no load and stretches 0.3 centimeter for each newton of force. The springs are hooked end to end, and a weight pulls on both with the same force F newtons, making the total length 47 centimeters. What is the value of F ?",
    "explanation": "The total length is (12 + 0.5F) + (15 + 0.3F) = 27 + 0.8F. Setting 27 + 0.8F = 47 gives 0.8F = 20 and F = 25.",
    "hints": [
@@ -229,7 +229,7 @@
    "skill": "Advanced Math",
    "subskill": "Maximum height after finding a constant from the landing time",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A diver's height above the water, in feet, t seconds after leaving a platform is given by h(t) = −16t² + 16t + k, where k is a constant. The diver enters the water at t = 2. What is the diver's greatest height above the water, in feet?",
    "explanation": "h(2) = −64 + 32 + k = 0 gives k = 32. The vertex is at t = −16/(2 × −16) = 1/2, so the greatest height is h(1/2) = −4 + 8 + 32 = 36 feet.",
    "hints": [
@@ -245,8 +245,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must find k from the landing time and then locate the vertex; assuming the top is halfway to landing is a strong trap."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "36",
@@ -360,7 +359,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Subgroup and overall rates pointing in opposite directions",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The table gives all the patients at two clinics, by the severity of their illness and whether they recovered.\nClinic | Mild, recovered | Mild, did not | Severe, recovered | Severe, did not\nA | 95 | 5 | 120 | 180\nB | 270 | 30 | 35 | 65\nWhich statement about the recovery rates is true?",
    "explanation": "Mild: A 95/100 = 95%, B 270/300 = 90%. Severe: A 120/300 = 40%, B 35/100 = 35%. Combined: A 215/400 = 53.75%, B 305/400 = 76.25%. Clinic A is higher in each group but lower overall, because most of B's patients have mild illness.",
    "hints": [
@@ -376,8 +375,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The subgroup and combined comparisons point in opposite directions; most students expect them to agree."
+    "single_correct": true
    },
    "choices": {
     "A": "Clinic A's rate is higher for mild cases, higher for severe cases, and higher for all patients combined.",
@@ -407,7 +405,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Population estimate from sample plots with an area conversion",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Ecologists counted 38 orchids in randomly placed sample plots with a total area of 50 square meters in a meadow with an area of 1.2 hectares (1 hectare = 10,000 square meters). Based on the sample, which is the best estimate of the number of orchids in the meadow?",
    "explanation": "The sample has 38/50 = 0.76 orchid per square meter. The meadow is 1.2 × 10,000 = 12,000 square meters, so the estimate is 0.76 × 12,000 = 9,120 orchids.",
    "hints": [

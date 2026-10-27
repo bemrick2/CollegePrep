@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 53,
-  "updated_at": "2026-10-27T06:51:21+00:00",
+  "version": 54,
+  "updated_at": "2026-10-27T06:53:18+00:00",
   "passages": [],
   "questions": [
     {
@@ -36223,6 +36223,882 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_math/batch-053.review.json",
         "computation": "checks/sat_math/batch_053.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000503",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Least possible profit from prices that each lie in an interval",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A grocer pays between $1.80 and $2.50 per kilogram for apples, inclusive, and sells them for between $3.00 and $3.60 per kilogram, inclusive. What is the least possible profit, in dollars, on 50 kilograms of apples?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "25",
+      "accepted_answers": [
+        "25"
+      ],
+      "common_errors": [
+        {
+          "value": "55",
+          "rationale": "55 pairs the two highest prices: 3.60 − 2.50.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "90",
+          "rationale": "90 is the greatest possible profit: 3.60 − 1.80.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "The profit per kilogram is least when the selling price is lowest and the cost is highest: 3.00 − 2.50 = 0.50 dollar. On 50 kilograms the least possible profit is 50 × 0.50 = 25 dollars.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which price and cost make the profit smallest?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Pair the lowest selling price with the highest cost."
+      },
+      "remember": "To minimize a difference, make the first term small and the second large.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-01",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "25",
+        "blind_answer": "25",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000504",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equal gaps in a row with end margins",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A web page is 1,280 pixels wide. A single row of 6 images, each 180 pixels wide, spans the page with a 40-pixel margin at the left and right edges of the page, and the gaps between neighboring images are all equal. How many pixels wide is each gap?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "20",
+        "B": "24",
+        "C": "32",
+        "D": "40"
+      },
+      "correct_answer": "B",
+      "explanation": "The images and margins use 6 × 180 + 2 × 40 = 1,160 pixels, leaving 120 pixels. Six images in a row have 5 gaps between them, so each gap is 120 ÷ 5 = 24 pixels.",
+      "distractor_explanations": {
+        "A": "20 divides by 6 gaps instead of 5.",
+        "C": "32 subtracts only one margin: 160 ÷ 5.",
+        "D": "40 ignores the margins: 200 ÷ 5."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many gaps are between 6 images in a row?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the row with margins and gaps."
+      },
+      "remember": "n objects in a row have n − 1 gaps between them.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-02",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 66,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000505",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Combining a per-mile cost with a per-hour wage through speed",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A courier's van costs $0.18 per mile for fuel and maintenance, and the courier is paid $20 per hour of driving. If the van averages 50 miles per hour, what is the total of these costs, in dollars per mile driven?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "0.58",
+      "accepted_answers": [
+        "0.58",
+        ".58",
+        "29/50"
+      ],
+      "common_errors": [
+        {
+          "value": "2.68",
+          "rationale": "2.68 inverts the wage conversion: 0.18 + 50/20.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "29",
+          "rationale": "29 is the cost per hour: 0.18 × 50 + 20.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "At 50 miles per hour, the wage of $20 per hour is 20 ÷ 50 = $0.40 per mile. Adding the van's $0.18 per mile gives $0.58 per mile.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Convert the wage to dollars per mile."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Divide the hourly wage by the miles driven per hour."
+      },
+      "remember": "Convert rates to the same unit before adding.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-03",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "0.58",
+        "blind_answer": "0.58",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000506",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Shared force in two springs joined end to end",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Spring A is 12 centimeters long with no load and stretches 0.5 centimeter for each newton of force. Spring B is 15 centimeters long with no load and stretches 0.3 centimeter for each newton of force. The springs are hooked end to end, and a weight pulls on both with the same force F newtons, making the total length 47 centimeters. What is the value of F ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25",
+        "B": "40",
+        "C": "50",
+        "D": "58.75"
+      },
+      "correct_answer": "A",
+      "explanation": "The total length is (12 + 0.5F) + (15 + 0.3F) = 27 + 0.8F. Setting 27 + 0.8F = 47 gives 0.8F = 20 and F = 25.",
+      "distractor_explanations": {
+        "B": "40 uses only spring A's rate: 20 ÷ 0.5.",
+        "C": "50 averages the two rates: 20 ÷ 0.4.",
+        "D": "58.75 ignores the unstretched lengths: 47 ÷ 0.8."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write each spring's length in terms of F."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Add the two lengths and set the sum to 47."
+      },
+      "remember": "Each spring's length = natural length + stretch.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-04",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: 0.8F = 20 is a single linear equation; borderline easy/medium"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000507",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Inverse-square law with a change of distance",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The illuminance from a small lamp is inversely proportional to the square of the distance from the lamp. A light sensor 4 meters from the lamp reads 360 lux. If the sensor is moved to 3 meters from the lamp, what will it read, in lux?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "640",
+      "accepted_answers": [
+        "640"
+      ],
+      "common_errors": [
+        {
+          "value": "480",
+          "rationale": "480 uses inverse proportion without squaring: 360 × 4/3.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "270",
+          "rationale": "270 uses direct proportion: 360 × 3/4.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Illuminance I satisfies I = k/d², so I × d² is constant: 360 × 16 = 5,760. At 3 meters, I = 5,760 ÷ 9 = 640 lux.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What stays constant in an inverse-square relationship?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply by (4/3)²."
+      },
+      "remember": "Inverse square: halve the distance, quadruple the effect.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-05",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "640",
+        "blind_answer": "640",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 58,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000508",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Maximum height after finding a constant from the landing time",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A diver's height above the water, in feet, t seconds after leaving a platform is given by h(t) = −16t² + 16t + k, where k is a constant. The diver enters the water at t = 2. What is the diver's greatest height above the water, in feet?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "36",
+      "accepted_answers": [
+        "36"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 takes the top at t = 1, halfway to t = 2; that value is also the platform height k.",
+          "trap": "overextend_trend"
+        },
+        {
+          "value": "4",
+          "rationale": "4 ignores k: −16(1/4) + 16(1/2).",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "h(2) = −64 + 32 + k = 0 gives k = 32. The vertex is at t = −16/(2 × −16) = 1/2, so the greatest height is h(1/2) = −4 + 8 + 32 = 36 feet.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use h(2) = 0 to find k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find k, then evaluate at the vertex."
+      },
+      "remember": "The vertex is at t = −b/(2a), not halfway to the landing time.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-06",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "36",
+        "blind_answer": "36",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000509",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Surface area of a fixed-volume cylinder as a function of radius",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A closed cylindrical can has a volume of 500π cubic centimeters. Which function gives the can's total surface area S, in square centimeters, in terms of its radius r ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "S = 2πr² + 1000π/r",
+        "B": "S = πr² + 1000π/r",
+        "C": "S = 2πr² + 1000π",
+        "D": "S = 2πr² + 1000π²r"
+      },
+      "correct_answer": "A",
+      "explanation": "From πr²h = 500π, h = 500/r². The surface area is 2πr² + 2πrh = 2πr² + 2πr(500/r²) = 2πr² + 1000π/r.",
+      "distractor_explanations": {
+        "B": "πr² + 1000π/r counts only one circular end.",
+        "C": "2πr² + 1000π uses h = 500/r, forgetting to square r.",
+        "D": "2πr² + 1000π²r substitutes the volume 500π for the height."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Solve the volume formula for h."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate h using the volume."
+      },
+      "remember": "Use the fixed quantity to eliminate a variable.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-07",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [
+          "minor: standard textbook optimization-setup item (can surface area in terms of r); not an official SAT mirror as far as known"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000510",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Speed from a quadratic stopping-distance model",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A driving guide estimates the stopping distance d, in feet, of a car traveling v miles per hour as d = v + v²/20. According to the guide, at what speed, in miles per hour, is the stopping distance 120 feet?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "40",
+      "accepted_answers": [
+        "40"
+      ],
+      "common_errors": [
+        {
+          "value": "60",
+          "rationale": "60 is the size of the negative solution, which is not a speed.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "120",
+          "rationale": "120 is the stopping distance, not the speed.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Set v + v²/20 = 120. Multiplying by 20 gives v² + 20v − 2,400 = 0, which factors as (v + 60)(v − 40) = 0. A speed must be positive, so v = 40 miles per hour.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Multiply both sides by 20."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve the quadratic and reject the negative root."
+      },
+      "remember": "Reject solutions that make no sense in context.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-08",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "40",
+        "blind_answer": "40",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000511",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Subgroup and overall rates pointing in opposite directions",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table gives all the patients at two clinics, by the severity of their illness and whether they recovered.\nClinic | Mild, recovered | Mild, did not | Severe, recovered | Severe, did not\nA | 95 | 5 | 120 | 180\nB | 270 | 30 | 35 | 65\nWhich statement about the recovery rates is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Clinic A's rate is higher for mild cases, higher for severe cases, and higher for all patients combined.",
+        "B": "Clinic B's rate is higher for mild cases, higher for severe cases, and lower for all patients combined.",
+        "C": "Clinic B's rate is higher for mild cases, lower for severe cases, and higher for all patients combined.",
+        "D": "Clinic A's rate is higher for mild cases, higher for severe cases, and lower for all patients combined."
+      },
+      "correct_answer": "D",
+      "explanation": "Mild: A 95/100 = 95%, B 270/300 = 90%. Severe: A 120/300 = 40%, B 35/100 = 35%. Combined: A 215/400 = 53.75%, B 305/400 = 76.25%. Clinic A is higher in each group but lower overall, because most of B's patients have mild illness.",
+      "distractor_explanations": {
+        "A": "This assumes winning both groups means winning overall.",
+        "B": "This compares the 'did not recover' columns, which flips every comparison.",
+        "C": "This compares numbers recovered instead of rates."
+      },
+      "distractor_traps": {
+        "A": "overextend_trend",
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Compute each recovery rate as a percent."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find each rate, then the combined rate."
+      },
+      "remember": "Combined rates depend on how patients are split among groups.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-09",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: Simpson's paradox; the 'surprising' combined reversal may cue D/B for savvy students, but all three rates must still be computed"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000512",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Population estimate from sample plots with an area conversion",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Ecologists counted 38 orchids in randomly placed sample plots with a total area of 50 square meters in a meadow with an area of 1.2 hectares (1 hectare = 10,000 square meters). Based on the sample, which is the best estimate of the number of orchids in the meadow?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "912",
+        "B": "9,120",
+        "C": "91,200",
+        "D": "456,000"
+      },
+      "correct_answer": "B",
+      "explanation": "The sample has 38/50 = 0.76 orchid per square meter. The meadow is 1.2 × 10,000 = 12,000 square meters, so the estimate is 0.76 × 12,000 = 9,120 orchids.",
+      "distractor_explanations": {
+        "A": "912 uses 1 hectare = 1,000 square meters.",
+        "C": "91,200 uses 1 hectare = 100,000 square meters.",
+        "D": "456,000 multiplies 38 by 12,000 without dividing by the sample area."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is the density in the sample?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Scale the sample density to the whole area."
+      },
+      "remember": "Scale by area, not by count.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-10",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [
+          "minor: choices are powers-of-10 variants of 912 plus 38*12000, so a quick magnitude check (~0.76/m^2 x 12,000 m^2) eliminates the rest"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000513",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Gap from a corner to a circle tangent to both walls",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A circular rug with a diameter of 8 feet lies flat in a corner of a rectangular room and touches both walls that meet at the corner. To the nearest hundredth of a foot, what is the distance from the corner to the nearest point on the edge of the rug?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1.66",
+      "accepted_answers": [
+        "1.66"
+      ],
+      "common_errors": [
+        {
+          "value": "5.66",
+          "rationale": "5.66 is the distance to the center; it forgets to subtract the radius.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "3.31",
+          "rationale": "3.31 uses 8 feet as the radius.",
+          "trap": null
+        }
+      ],
+      "explanation": "The rug's center is 4 feet from each wall, so it is √(4² + 4²) = 4√2 ≈ 5.657 feet from the corner. The nearest point of the rug lies on that line, one radius closer: 5.657 − 4 ≈ 1.66 feet.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the center of the rug?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Draw the corner, the rug and the diagonal to its center."
+      },
+      "remember": "A circle tangent to two perpendicular walls has its center on the corner's diagonal.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-11",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1.66",
+        "blind_answer": "1.66",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000514",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Image height in a pinhole camera with mixed units",
+      "modeling": true,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a pinhole camera, light from the top and bottom of an object passes through a tiny hole and forms an inverted image on a screen, so the object and the image form similar triangles. A tree 6 meters tall is 15 meters from the pinhole, and the screen is 8 centimeters behind the pinhole. How tall, in centimeters, is the image of the tree?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0.032",
+        "B": "0.32",
+        "C": "3.2",
+        "D": "11.25"
+      },
+      "correct_answer": "C",
+      "explanation": "By similar triangles, image height ÷ 8 cm = 600 cm ÷ 1,500 cm, so the image height is 8 × 600/1,500 = 3.2 centimeters.",
+      "distractor_explanations": {
+        "A": "0.032 computes 6 × 8/1,500 = 0.032, mixing meters and centimeters.",
+        "B": "0.32 converts 15 meters to 150 centimeters and leaves the tree height in meters.",
+        "D": "11.25 inverts the ratio: 15 × 6/8."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "Put every length in centimeters."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set up the similar-triangle ratio in one unit."
+      },
+      "remember": "Use the same unit in every part of a proportion.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 54,
+      "draft_candidate": "Q054-12",
+      "created_at": "2026-10-27T06:53:18+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [
+          "minor: the mixed units cancel (6 m x 8 cm / 15 m = 3.2 cm), so no conversion is actually needed; the unit-conversion distractors 0.32 and 0.032 only catch students who convert incorrectly"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-054.review.json",
+        "computation": "checks/sat_math/batch_054.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
