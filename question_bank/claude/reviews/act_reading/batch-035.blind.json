@@ -1,0 +1,33 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 35},
+  "passage_notes": "Science claims check out against the literature as best I recall: Melin et al. 2016 (lion resolves stripes only within ~50 m in daylight, less at twilight; 'would already have heard or smelled'), Caro et al. 2014 Nature Communications (equid striping best predicted by biting-fly activity), Caro et al. 2019 PLoS ONE (UK farm; approach rates similar, fewer landings and bump-offs on zebras; coated horses had fewer landings on striped coats, heads unaffected). No factual errors found.",
+  "answers": {
+    "R035-01": {"answer": "D", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy",
+      "flags": ["minor: A and B are wrong choices few would pick (A is contradicted by P2, B reverses P5's emphasis); only C is a real trap"],
+      "notes": "P5: the fly hypothesis has experimental support its rivals lack. C misstates equal support; A and B contradict the passage."},
+    "R035-02": {"answer": "A", "confidence": "high", "est_pct_correct": 70, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "The sentence sets up the rest: studies that can tell the explanations apart. B overstates ('disproved'); C and D are not supported (the fly idea is not new)."},
+    "R035-03": {"answer": "B", "confidence": "high", "est_pct_correct": 75, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "The study evaluated the defenders' vision argument rather than dismissing it. A is the opposite of its conclusion; D twists the hearing/smell detail."},
+    "R035-04": {"answer": "C", "confidence": "high", "est_pct_correct": 58, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "Even within the range where the stripes are visible, the lion has already detected the prey by other senses, so the stripes add no concealment. D (zebras detect lions first) is a plausible trap; A overgeneralizes ('every')."},
+    "R035-05": {"answer": "A", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy",
+      "flags": ["minor: key closely paraphrases P5 ('experiments in which the pattern was the only thing that changed') and P4's opening ('Correlation ... could not show that the stripes did anything'), so it is close to a lookup", "minor: C refers to the 2016 study, so it is an easy elimination"],
+      "notes": "The 2014 analysis was correlational; the 2019 study manipulated the pattern (coats) and measured fly behavior."},
+    "R035-06": {"answer": "D", "confidence": "high", "est_pct_correct": 72, "difficulty_opinion": "easy",
+      "flags": ["minor: overlaps somewhat with R035-07 and R035-09C (both turn on the circling vs. landing distinction)"],
+      "notes": "Equal circling means flies still find zebras, and the next sentence says landings drop. A is the trap; C ignores the landing result."},
+    "R035-07": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "The uncovered heads act as a within-animal control: flies were equally drawn to the horse itself, so the coat pattern explains the drop in landings. C contradicts the passage; B and D are unsupported."},
+    "R035-08": {"answer": "C", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy",
+      "flags": [],
+      "notes": "'Each idea has had its champions' means its supporters. A (winners) is the familiar-meaning trap."},
+    "R035-09": {"answer": "D", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium",
+      "flags": [],
+      "notes": "D reverses the 2014 correlation that supports the fly hypothesis. A bears on camouflage; B is compatible with the fly idea (P5: a trait can serve more than one purpose); C does not matter because the effect is on landings, not circling."}
+  }
+}
