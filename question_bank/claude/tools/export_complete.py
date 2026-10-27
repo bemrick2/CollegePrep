@@ -23,8 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[1]
 OUT = ROOT / 'exports' / 'complete'
 ZIP = ROOT / 'exports' / 'prep-and-price-claude-complete-export.zip'
-BANKS = ['act_math', 'act_english', 'act_reading', 'sat_reading_writing']
-PREFIX = {'act_math': 'B', 'act_english': 'E', 'act_reading': 'R', 'sat_reading_writing': 'S'}
+BANKS = ['act_math', 'act_english', 'act_reading', 'sat_reading_writing', 'sat_math']
+PREFIX = {'act_math': 'B', 'act_english': 'E', 'act_reading': 'R', 'sat_reading_writing': 'S', 'sat_math': 'Q'}
 NOW = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
 
 
@@ -80,7 +80,7 @@ for (bank, n), r in reviews.items():
 resubmitted_as = {}
 for (bank, cand), (n, f, c, kind) in cand_index.items():
     note = c.get('revision_note') or ''
-    m = re.match(r'([BERS]\d{3}-\d{2})', note)
+    m = re.match(r'([BERSQ]\d{3}-\d{2})', note)
     if m and c.get('revision', 1) > 1:
         resubmitted_as.setdefault((bank, m.group(1)), []).append(cand)
 
@@ -125,7 +125,7 @@ for bank in BANKS:
         if q.get('passage_id') and p is None:
             print('BROKEN PASSAGE REF', q['id'])
         cal = calib[bank]['items'].get(q['id'], {})
-        is_math = bank == 'act_math'
+        is_math = bank in ('act_math', 'sat_math')
         source = {'bank_file': f'banks/{bank}.json', 'batch': n, 'draft_candidate': cand,
                   'draft_file': os.path.relpath(draft_file, ROOT) if draft_file else None,
                   'review_file': f'reviews/{bank}/batch-{n:03d}.review.json',
@@ -141,7 +141,7 @@ for bank in BANKS:
                    'passage_id': q.get('passage_id'),
                    'passage': ({'title': p['title'], 'genre': p.get('genre'), 'text': p['text']} if p else None),
                    'underlined_span_number': q.get('underline'), 'figure': q.get('figure'),
-                   'stem': q['stem'], 'choices': q['choices'], 'calculator': q['calculator'],
+                   'stem': q['stem'], 'answer_format': q.get('answer_format', 'choice'), 'choices': q['choices'], 'calculator': q['calculator'],
                    'expected_time_seconds': q['expected_time_seconds']}
         rec = dict(student)
         rec.update({'source': source, 'subskill': q['subskill'], 'repo_skill_key': q['repo_skill_key'],
@@ -177,7 +177,7 @@ for bank in BANKS:
                                          'author_checklist': c.get('author_checklist')},
                   'programmatic_verification': (
                       {'kind': 'PROGRAMMATIC: scripted recomputation of the answer from the stem\'s numbers, written by the author',
-                       'script': f'checks/act_math/batch_{n:03d}.py', 'computed_answer': q['validation'].get('computed_answer'),
+                       'script': f'checks/{bank}/batch_{n:03d}.py', 'computed_answer': q['validation'].get('computed_answer'),
                        'matches_key': q['validation'].get('computed_answer') == q['correct_answer']} if is_math else
                       {'kind': 'PROGRAMMATIC STRUCTURE CHECKS ONLY: the cited evidence quote is verbatim in the passage, choices are well formed, '
                                'and a near-duplicate screen passed. This is NOT an independent solve; the "computed_answer" field in the '
@@ -245,7 +245,9 @@ for bank in BANKS:
         im = imp.get(q['id'].lower())
         if im is None:
             conflicts.append({'id': q['id'], 'issue': 'missing from import jsonl'})
-        elif im['accepted_answers'] != [q['correct_answer']] or im['stem'] != q['stem']:
+        elif im['stem'] != q['stem'] or (im['accepted_answers'][:1] != [q['correct_answer']] if q.get('answer_format') == 'numeric'
+                                           else im['accepted_answers'] != [q['correct_answer']]):
+            # numeric (grid-in) items list equivalent forms after the key, e.g. ['1.5', '3/2']
             conflicts.append({'id': q['id'], 'issue': 'import jsonl differs from bank record'})
 
 # ---------- checks ----------
@@ -256,14 +258,19 @@ if len(ids) != len(set(ids)):
 if [x['id'] for x in blind] != ids or [x['id'] for x in keyrev if x['live']] != ids:
     problems.append('full / blind / answer-key ID lists do not match')
 for x in full:
+    if x['passage_id'] and not x['passage']:
+        problems.append(f"{x['id']}: broken passage reference")
+    if x.get('answer_format') == 'numeric':
+        # student-produced response (SAT Math grid-in): no choices, a non-empty key, no distractor records
+        if x['choices'] or not str(x['correct_answer']).strip():
+            problems.append(f"{x['id']}: numeric item has choices or an empty key")
+        continue
     if sorted(x['choices']) != ['A', 'B', 'C', 'D'] or any(not v for v in x['choices'].values()):
         problems.append(f"{x['id']}: choices incomplete")
     if x['correct_answer'] not in x['choices']:
         problems.append(f"{x['id']}: key not among choices")
     if len(set(x['choices'].values())) != 4:
         problems.append(f"{x['id']}: duplicate choice text")
-    if x['passage_id'] and not x['passage']:
-        problems.append(f"{x['id']}: broken passage reference")
     if set(x['distractor_explanations']) != set('ABCD') - {x['correct_answer']}:
         problems.append(f"{x['id']}: distractor explanations do not cover exactly the wrong choices")
 LEAK = {'correct_answer', 'explanation', 'distractor_explanations', 'distractor_traps', 'hints', 'strategy', 'remember',
@@ -283,11 +290,11 @@ for x in full:
 for k, xs in by_bank.items():
     seen = {}
     for x in xs:
-        sig = (x['stem'], tuple(sorted(x['choices'].values())), x['passage_id'])
+        sig = (x['stem'], tuple(sorted((x['choices'] or {}).values())), x['passage_id'])
         if sig in seen:
             dup_report.append({'type': 'exact', 'ids': [seen[sig], x['id']]})
         seen[sig] = x['id']
-    T = [(x['id'], toks(x['stem'] + ' ' + ' '.join(x['choices'].values())), x['passage_id']) for x in xs]
+    T = [(x['id'], toks(x['stem'] + ' ' + ' '.join((x['choices'] or {}).values())), x['passage_id']) for x in xs]
     for i in range(len(T)):
         for j in range(i + 1, len(T)):
             if T[i][2] and T[i][2] != T[j][2]:
@@ -339,7 +346,7 @@ for x in full:
 for x in quarantine:
     b = x['bank']
     lab = {'act_math': 'ACT Math', 'act_english': 'ACT English', 'act_reading': 'ACT Reading',
-           'sat_reading_writing': 'SAT Reading and Writing'}[b]
+           'sat_reading_writing': 'SAT Reading and Writing', 'sat_math': 'SAT Math'}[b]
     counts[lab][x['category']] += 1
 manifest = {'meta': meta,
             'counts_by_exam_section_and_status': {k: dict(v) for k, v in counts.items()},
@@ -405,7 +412,7 @@ Accepted and live: **{len(full)}** items.
 |---|---|---|---|---|---|---|
 {rows}
 
-- Unique passages used by accepted items: ACT English {manifest['unique_passages_used_by_accepted_items']['act_english']}, ACT Reading {manifest['unique_passages_used_by_accepted_items']['act_reading']}, SAT Reading and Writing {manifest['unique_passages_used_by_accepted_items']['sat_reading_writing']} (each SAT item has its own short passage). ACT Math has none.
+- Unique passages used by accepted items: ACT English {manifest['unique_passages_used_by_accepted_items']['act_english']}, ACT Reading {manifest['unique_passages_used_by_accepted_items']['act_reading']}, SAT Reading and Writing {manifest['unique_passages_used_by_accepted_items']['sat_reading_writing']} (each SAT Reading and Writing item has its own short passage). ACT Math and SAT Math have none.
 - Quarantined or incomplete records in total: {len(quarantine)}. Of these, {resolved} were later fixed, resubmitted under a new candidate number and accepted. The accepted version is in `questions-full.json`, and the earlier version stays in `quarantined-and-incomplete.json` with a `later_resolution` link. They are not counted twice.
 - Incomplete drafts (drafted but never reviewed): {qc.get('incomplete_draft', 0)}.
 
@@ -423,14 +430,14 @@ Accepted and live: **{len(full)}** items.
 | `contract/` | `QUESTION_IMPORT_CONTRACT.md` (the `question_import/v1` contract) and `QUESTION_REVIEW_WORKFLOW.md`. |
 | `source/` | Unmodified copies of the workstream's source files. `banks/` holds the append-only accepted banks, including retired records. `drafts/` holds every candidate as written. `reviews/` holds the per-batch reconciliation and every blind-solver file, including earlier rounds. `checks/` holds the math recomputation scripts. `calibration/` holds the whole-bank AI ratings. `audits/` holds the retirement, overlap and pending-revision logs. `exports/import/*.jsonl` holds the contract-format files. Also included: `progress.json`, `WORKER.md`, `README.md` and the tools. |
 
-There are no binary assets. Five ACT Math items carry a text `figure` description marked optional ("not needed to solve" or "optional for production"); every item is solvable from its text. Tables are written inline in the stem or passage, with `|` separators.
+There are no binary assets. {sum(1 for x in full if x.get("figure"))} math items carry a text `figure` description; every item is meant to be solvable from its text, and figures need human checking before production. Tables are written inline in the stem or passage, with `|` separators.
 
 ## What the validation evidence does and does not mean
 
 - **Author self-review.** The checklist was written by the same model that wrote the item. It is not independent.
 - **Programmatic verification.** For **Math**, a script in `checks/` recomputes the answer from the stem's numbers. The author wrote these scripts, but they never read the key, and the computed answer matches the key for every accepted item. For **verbal** items there is **no** programmatic solve. The checks confirm only the structure, that the cited evidence quote appears word for word in the passage, and a near-duplicate screen. In the source records, the verbal `computed_answer` field only records that those checks passed.
 - **Separate blind solvers.** These are separate AI agents of the same model family, each working in its own context from an answer-free packet: one per Math batch and two per verbal batch. An item was accepted only when every solver matched the key and no solver raised a non-minor flag. These solvers are not human and not truly independent of the author model.
-- **Whole-bank AI raters.** These are separate AI agents that re-solved and re-rated whole banks at the 100-item audits. Their answers disagree with the key on three items: ACT Math 000130 and 000136, and SAT 000100. Each was adjudicated at an audit and the key kept, with notes in `source/progress.json` under `calibration_notes`. **The author adjudicated these, so they still need human review.**
+- **Whole-bank AI raters.** These are separate AI agents that re-solved and re-rated whole banks at the 100-item audits. Items where a rater disagreed with the key were adjudicated at audits, with notes in `source/progress.json` (`calibration_notes` and `audits`). **The author adjudicated these, so they still need human review.**
 - **Human review.** There has been none. `review_status` is `ai_reviewed_pending_human` and `human_review` is null on every record.
 
 ## Difficulty is provisional
@@ -445,7 +452,7 @@ The independent raters consistently judge verbal items, and many items labelled 
 
 ## Known issues and flags
 
-1. **Near-duplicates.** The manifest's `duplicate_report_within_this_bank` lists {len(dup_report)} pairs within this bank that share at least 70% of the words in stem and choices. These are lexical candidates for a human to compare, not confirmed duplicates. Concept repeats found at audits were already retired: 29 items, listed in `source/audits/`. Template-level repeats with changed numbers may remain, because the bank grew from one model's habits. The duplicate screen against ChatGPT's banks has not been done.
+1. **Near-duplicates.** The manifest's `duplicate_report_within_this_bank` lists {len(dup_report)} pairs within this bank that share at least 70% of the words in stem and choices. These are lexical candidates for a human to compare, not confirmed duplicates. Concept repeats found at audits were already retired: {len(retired)} items, listed in `source/audits/`. Template-level repeats with changed numbers may remain, because the bank grew from one model's habits. The duplicate screen against ChatGPT's banks has not been done.
 2. **Rights.** `license_recorded` is `original-owned` on every item. The pipeline set that value; no legal review backs it. Some verbal passages state real-world facts or name real people and studies, which the blind solvers checked only from memory. SAT passage `CLD-P-SAT-RW-000259` (item `CLD-SAT-RW-000250`) quotes two lines of Christina Rossetti's 1872 poem "Who Has Seen the Wind?". The poem is in the public domain, but the recorded license does not say so.
 3. **Earlier passage text.** Some passages were corrected after a blind solve; each such draft's `revision_log` records it. In those cases the draft file was overwritten, so the earlier passage text is not preserved. The round-N solver reviews that prompted each correction are in `source/reviews/` as `*.round*.blind*.json`.
 4. **Answer-key letter balance.** Keys are spread across A–D, but at times the spread was uneven. The 600-item audit, for example, found Math keys leaning toward B and C. Later batches weighted keys toward A and D to compensate.
@@ -453,7 +460,7 @@ The independent raters consistently judge verbal items, and many items labelled 
 
 ## Relation to the repository's import contract
 
-`source/exports/import/*.jsonl` holds the same live items in the repository's `question_import/v1` format (`contract/QUESTION_IMPORT_CONTRACT.md`). Each line has `status: draft`, `origin: ai_drafted`, `author: ai:claude` and `import_id` = lowercased ID. The repository's validator (`web/scripts/validateQuestionImport.ts`) reports **0 problems** for all four files (`import-validation-report.txt`). As the contract states, passing the validator only makes an item eligible to **start** human editorial stage 3; it is not approval. `questions-full.json` and the other package files are **not** in contract format and have not been validated against it.
+`source/exports/import/*.jsonl` holds the same live items in the repository's `question_import/v1` format (`contract/QUESTION_IMPORT_CONTRACT.md`). Each line has `status: draft`, `origin: ai_drafted`, `author: ai:claude` and `import_id` = lowercased ID. The repository's validator (`web/scripts/validateQuestionImport.ts`) reports **0 problems** for all five files (`import-validation-report.txt`). As the contract states, passing the validator only makes an item eligible to **start** human editorial stage 3; it is not approval. `questions-full.json` and the other package files are **not** in contract format and have not been validated against it.
 
 ## Sources and coverage
 
@@ -498,7 +505,7 @@ Record one outcome per question: **PASS**, **REVISE** (fixable, with the specifi
 - [ ] No answer cue: key not systematically longest, not the only choice in a different style, not echoed by the stem.
 
 ## 5. Alignment, clarity and difficulty
-- [ ] Exam/section alignment (ACT Math, English, Reading; SAT Reading and Writing) and correct category/skill tags.
+- [ ] Exam/section alignment (ACT Math, English, Reading; SAT Reading and Writing; SAT Math) and correct category/skill tags.
 - [ ] Item format matches the exam (4 choices for ACT enhanced and SAT; SAT one-passage-one-question).
 - [ ] Clear, grade-appropriate wording; calculator policy stated where relevant.
 - [ ] Difficulty labels marked **provisional**; replace with student-response calibration when available. Note where AI raters and author labels disagree.
