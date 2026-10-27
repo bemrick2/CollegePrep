@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 15,
-  "updated_at": "2026-10-27T02:25:35+00:00",
+  "version": 16,
+  "updated_at": "2026-10-27T02:30:05+00:00",
   "passages": [],
   "questions": [
     {
@@ -10131,6 +10131,726 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-015.review.json",
         "computation": "checks/sat_math/batch_015.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000142",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Finding a constant from the sum of a line's intercepts",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the graph of 3x − 5y = k, where k is a positive constant, has an x-intercept and a y-intercept whose sum is 8. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "60",
+      "accepted_answers": [
+        "60"
+      ],
+      "common_errors": [
+        {
+          "value": "15",
+          "rationale": "15 uses k/5 instead of −k/5 for the y-intercept.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "8",
+          "rationale": "8 treats the sum of the intercepts as k.",
+          "trap": null
+        }
+      ],
+      "explanation": "Setting y = 0 gives the x-intercept k/3; setting x = 0 gives −5y = k, so the y-intercept is −k/5. Their sum is k/3 − k/5 = 2k/15 = 8, so k = 60. Check: the intercepts are 20 and −12, which sum to 8.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Find each intercept in terms of k."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write k/3 + (−k/5) = 8."
+      },
+      "remember": "Watch the sign of the y-intercept when the y-coefficient is negative.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-01",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "60",
+        "blind_answer": "60",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000143",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Greatest whole number under a budget with a minimum purchase",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Kim has $20 to spend on pens, which cost $1.25 each, and notebooks, which cost $3.50 each. She must buy at least 4 notebooks. What is the greatest number of pens she can buy?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "13",
+        "D": "16"
+      },
+      "correct_answer": "A",
+      "explanation": "To leave the most money for pens, she buys exactly 4 notebooks for 4 × $3.50 = $14.00, leaving $6.00. Then 1.25p ≤ 6 gives p ≤ 4.8, so she can buy at most 4 pens.",
+      "distractor_explanations": {
+        "B": "5 rounds 4.8 up; 5 pens would cost $6.25, more than the $6.00 left.",
+        "C": "13 assumes she buys only 1 notebook.",
+        "D": "16 ignores the notebooks: 20 ÷ 1.25."
+      },
+      "distractor_traps": {
+        "B": "partial_answer",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How much money is left after the required notebooks?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 3.50(4) + 1.25p ≤ 20 for the greatest whole p."
+      },
+      "remember": "Spend the minimum on the required item; round down for whole items.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-02",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000144",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Point with related coordinates on a line",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the point (a, a + 3) lies on the line 2x + 5y = 29. What is the value of a ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "29/7",
+        "C": "5",
+        "D": "14"
+      },
+      "correct_answer": "A",
+      "explanation": "Substituting x = a and y = a + 3 gives 2a + 5(a + 3) = 29, so 7a + 15 = 29, 7a = 14 and a = 2. Check: the point (2, 5) gives 4 + 25 = 29.",
+      "distractor_explanations": {
+        "B": "29/7 forgets to multiply 3 by 5: 7a = 29.",
+        "C": "5 is the y-coordinate, a + 3.",
+        "D": "14 is the value of 7a."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "wrong_quantity",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Substitute both coordinates into the equation."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test a = 2: (2, 5) gives 4 + 25 = 29."
+      },
+      "remember": "Distribute the coefficient to every term.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-03",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000145",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving an equation with two square roots",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What value of x satisfies the equation √(x + 9) − √x = 1 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the value of √x, not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "25",
+          "rationale": "25 is the value of x + 9.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Write √(x + 9) = 1 + √x and square both sides: x + 9 = 1 + 2√x + x. Then 8 = 2√x, so √x = 4 and x = 16. Check: √25 − √16 = 5 − 4 = 1.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Isolate one square root before squaring."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Look for perfect squares that differ by 9 and whose roots differ by 1."
+      },
+      "remember": "Isolate a radical before squaring, and check the result.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-04",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "16",
+        "blind_answer": "16",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000146",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Time for a falling object to reach a height",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An object is dropped from a height of 80 meters. Its height above the ground t seconds after it is dropped is h(t) = 80 − 5t² meters. How many seconds after it is dropped does the object reach the ground?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "4",
+        "B": "8",
+        "C": "16",
+        "D": "75"
+      },
+      "correct_answer": "A",
+      "explanation": "The object reaches the ground when h(t) = 0: 80 − 5t² = 0, so t² = 16 and t = 4 (time is positive). Check: h(4) = 80 − 5(16) = 0.",
+      "distractor_explanations": {
+        "B": "8 divides 80 by 10 instead of solving for t².",
+        "C": "16 is the value of t², not t.",
+        "D": "75 is h(1), the height after 1 second."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What is the height when the object reaches the ground?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 80 − 5t² = 0."
+      },
+      "remember": "\"Reaches the ground\" means height 0.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-05",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000147",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Comparing exponential, polynomial and linear values",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following functions has the greatest value at x = 10 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(x) = 100x",
+        "B": "g(x) = x³",
+        "C": "h(x) = 50x + 500",
+        "D": "k(x) = 2ˣ"
+      },
+      "correct_answer": "D",
+      "explanation": "At x = 10: f(10) = 1,000, g(10) = 1,000, h(10) = 1,000 and k(10) = 2¹⁰ = 1,024. So k has the greatest value. The exponential function catches up to and passes the others by x = 10.",
+      "distractor_explanations": {
+        "A": "100x equals 1,000 at x = 10, less than 1,024.",
+        "B": "x³ equals 1,000 at x = 10, less than 1,024.",
+        "C": "50x + 500 equals 1,000 at x = 10, less than 1,024."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Evaluate each function at x = 10."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute each value directly."
+      },
+      "remember": "Exponential growth eventually exceeds polynomial and linear growth.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-06",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: A, B and C all equal 1000 at x = 10, so the item is pure arithmetic evaluation; fine but the three-way tie is a little contrived."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000148",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change in area from changes in two dimensions",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The length of a rectangle is increased by 20%, and its width is decreased by 10%. Which of the following describes the change in the area of the rectangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A decrease of 2%",
+        "B": "An increase of 8%",
+        "C": "An increase of 10%",
+        "D": "An increase of 30%"
+      },
+      "correct_answer": "B",
+      "explanation": "The new area is (1.2L)(0.9W) = 1.08LW, which is 108% of the original area, an increase of 8%. Percent changes in two dimensions multiply as factors; they do not add.",
+      "distractor_explanations": {
+        "A": "This multiplies the percents themselves: 0.20 × (−0.10) = −0.02.",
+        "C": "This adds the percent changes: 20% − 10%.",
+        "D": "This adds the sizes of the two changes: 20% + 10%."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Multiply the two scale factors."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use a 10-by-10 square: it becomes 12 by 9, with area 108."
+      },
+      "remember": "Scale factors multiply.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-07",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000149",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Cosine of an angle in the coordinate plane",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, triangle OPQ has vertices O(0, 0), P(8, 0) and Q(8, 6). What is the value of cos(∠POQ) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3/5",
+        "B": "3/4",
+        "C": "4/5",
+        "D": "4/3"
+      },
+      "correct_answer": "C",
+      "explanation": "Angle P is a right angle because OP lies along the x-axis and PQ is vertical. OP = 8 and PQ = 6, so OQ = √(8² + 6²) = 10. For angle O, the adjacent side is OP, so cos(∠POQ) = 8/10 = 4/5.",
+      "distractor_explanations": {
+        "A": "3/5 is sin(∠POQ).",
+        "B": "3/4 is tan(∠POQ).",
+        "D": "4/3 is adjacent/opposite, the reciprocal of tan(∠POQ)."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Which angle of the triangle is the right angle?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the three points."
+      },
+      "remember": "cos = adjacent / hypotenuse.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-08",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000150",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Radius from an arc length and a radian angle",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In a circle, a central angle of 2.5 radians intercepts an arc of length 15 centimeters. What is the radius of the circle, in centimeters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "37.5",
+          "rationale": "37.5 multiplies the arc length by the angle instead of dividing.",
+          "trap": null
+        },
+        {
+          "value": "1/6",
+          "rationale": "1/6 divides the angle by the arc length.",
+          "trap": null
+        }
+      ],
+      "explanation": "For an angle θ in radians, the arc length is s = rθ. So 15 = r(2.5) and r = 15 ÷ 2.5 = 6 centimeters.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How are arc length, radius and a radian angle related?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 15 = 2.5r."
+      },
+      "remember": "Arc length = radius × angle (in radians).",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-09",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000151",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Volume of a rectangular box",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A rectangular box measures 3 inches by 5 inches by 8 inches. What is the volume of the box, in cubic inches?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "16",
+        "B": "79",
+        "C": "120",
+        "D": "158"
+      },
+      "correct_answer": "C",
+      "explanation": "The volume of a rectangular box is length × width × height: 3 × 5 × 8 = 120 cubic inches. The surface area, 158 square inches, measures something different.",
+      "distractor_explanations": {
+        "A": "16 adds the three dimensions.",
+        "B": "79 is half of the surface area.",
+        "D": "158 is the surface area: 2(15 + 24 + 40)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Multiply the three dimensions."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "V = lwh."
+      },
+      "remember": "Volume multiplies all three dimensions.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 16,
+      "draft_candidate": "Q016-10",
+      "created_at": "2026-10-27T02:30:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 95,
+        "blind_flags": [
+          "minor: very trivial for SAT (single multiplication)."
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-016.review.json",
+        "computation": "checks/sat_math/batch_016.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

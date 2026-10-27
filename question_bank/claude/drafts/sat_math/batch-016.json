@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 16,
+ "plan": "SAT Math batch 16: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 3; 3 student-produced responses; 4 items labelled hard. Ideas were pre-checked for repeats before drafting (reviews/sat_math/ideas-016.repeats.json); four template ideas (ACT 504, 028, 425, 734) were dropped. Q016-01, Q016-02, Q016-04, Q016-07 relabelled medium after the blind solver rated them medium or easy.",
+ "candidates": [
+  {
+   "cand": "Q016-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Finding a constant from the sum of a line's intercepts",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the graph of 3x − 5y = k, where k is a positive constant, has an x-intercept and a y-intercept whose sum is 8. What is the value of k ?",
+   "explanation": "Setting y = 0 gives the x-intercept k/3; setting x = 0 gives −5y = k, so the y-intercept is −k/5. Their sum is k/3 − k/5 = 2k/15 = 8, so k = 60. Check: the intercepts are 20 and −12, which sum to 8.",
+   "hints": [
+    "Find each intercept in terms of k."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write k/3 + (−k/5) = 8."
+   },
+   "remember": "Watch the sign of the y-intercept when the y-coefficient is negative.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "60",
+   "accepted_answers": [
+    "60"
+   ],
+   "common_errors": [
+    {
+     "value": "15",
+     "rationale": "15 uses k/5 instead of −k/5 for the y-intercept.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "8",
+     "rationale": "8 treats the sum of the intercepts as k.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q016-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Greatest whole number under a budget with a minimum purchase",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Kim has $20 to spend on pens, which cost $1.25 each, and notebooks, which cost $3.50 each. She must buy at least 4 notebooks. What is the greatest number of pens she can buy?",
+   "explanation": "To leave the most money for pens, she buys exactly 4 notebooks for 4 × $3.50 = $14.00, leaving $6.00. Then 1.25p ≤ 6 gives p ≤ 4.8, so she can buy at most 4 pens.",
+   "hints": [
+    "How much money is left after the required notebooks?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 3.50(4) + 1.25p ≤ 20 for the greatest whole p."
+   },
+   "remember": "Spend the minimum on the required item; round down for whole items.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "13",
+    "D": "16"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "5 rounds 4.8 up; 5 pens would cost $6.25, more than the $6.00 left.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "13 assumes she buys only 1 notebook.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "16 ignores the notebooks: 20 ÷ 1.25.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q016-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Point with related coordinates on a line",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, the point (a, a + 3) lies on the line 2x + 5y = 29. What is the value of a ?",
+   "explanation": "Substituting x = a and y = a + 3 gives 2a + 5(a + 3) = 29, so 7a + 15 = 29, 7a = 14 and a = 2. Check: the point (2, 5) gives 4 + 25 = 29.",
+   "hints": [
+    "Substitute both coordinates into the equation."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test a = 2: (2, 5) gives 4 + 25 = 29."
+   },
+   "remember": "Distribute the coefficient to every term.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "29/7",
+    "C": "5",
+    "D": "14"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "29/7 forgets to multiply 3 by 5: 7a = 29.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5 is the y-coordinate, a + 3.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "14 is the value of 7a.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q016-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving an equation with two square roots",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "What value of x satisfies the equation √(x + 9) − √x = 1 ?",
+   "explanation": "Write √(x + 9) = 1 + √x and square both sides: x + 9 = 1 + 2√x + x. Then 8 = 2√x, so √x = 4 and x = 16. Check: √25 − √16 = 5 − 4 = 1.",
+   "hints": [
+    "Isolate one square root before squaring."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Look for perfect squares that differ by 9 and whose roots differ by 1."
+   },
+   "remember": "Isolate a radical before squaring, and check the result.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "16",
+   "accepted_answers": [
+    "16"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 is the value of √x, not x.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "25",
+     "rationale": "25 is the value of x + 9.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q016-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Time for a falling object to reach a height",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "An object is dropped from a height of 80 meters. Its height above the ground t seconds after it is dropped is h(t) = 80 − 5t² meters. How many seconds after it is dropped does the object reach the ground?",
+   "explanation": "The object reaches the ground when h(t) = 0: 80 − 5t² = 0, so t² = 16 and t = 4 (time is positive). Check: h(4) = 80 − 5(16) = 0.",
+   "hints": [
+    "What is the height when the object reaches the ground?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 80 − 5t² = 0."
+   },
+   "remember": "\"Reaches the ground\" means height 0.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "16",
+    "D": "75"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "8 divides 80 by 10 instead of solving for t².",
+     "trap": null
+    },
+    "C": {
+     "rationale": "16 is the value of t², not t.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "75 is h(1), the height after 1 second.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q016-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing exponential, polynomial and linear values",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Which of the following functions has the greatest value at x = 10 ?",
+   "explanation": "At x = 10: f(10) = 1,000, g(10) = 1,000, h(10) = 1,000 and k(10) = 2¹⁰ = 1,024. So k has the greatest value. The exponential function catches up to and passes the others by x = 10.",
+   "hints": [
+    "Evaluate each function at x = 10."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compute each value directly."
+   },
+   "remember": "Exponential growth eventually exceeds polynomial and linear growth.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "f(x) = 100x",
+    "B": "g(x) = x³",
+    "C": "h(x) = 50x + 500",
+    "D": "k(x) = 2ˣ"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "100x equals 1,000 at x = 10, less than 1,024.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "x³ equals 1,000 at x = 10, less than 1,024.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "50x + 500 equals 1,000 at x = 10, less than 1,024.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q016-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Percent change in area from changes in two dimensions",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "The length of a rectangle is increased by 20%, and its width is decreased by 10%. Which of the following describes the change in the area of the rectangle?",
+   "explanation": "The new area is (1.2L)(0.9W) = 1.08LW, which is 108% of the original area, an increase of 8%. Percent changes in two dimensions multiply as factors; they do not add.",
+   "hints": [
+    "Multiply the two scale factors."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Use a 10-by-10 square: it becomes 12 by 9, with area 108."
+   },
+   "remember": "Scale factors multiply.",
+   "expected_time_seconds": 45,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "A decrease of 2%",
+    "B": "An increase of 8%",
+    "C": "An increase of 10%",
+    "D": "An increase of 30%"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "This multiplies the percents themselves: 0.20 × (−0.10) = −0.02.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This adds the percent changes: 20% − 10%.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This adds the sizes of the two changes: 20% + 10%.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q016-08",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Cosine of an angle in the coordinate plane",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, triangle OPQ has vertices O(0, 0), P(8, 0) and Q(8, 6). What is the value of cos(∠POQ) ?",
+   "explanation": "Angle P is a right angle because OP lies along the x-axis and PQ is vertical. OP = 8 and PQ = 6, so OQ = √(8² + 6²) = 10. For angle O, the adjacent side is OP, so cos(∠POQ) = 8/10 = 4/5.",
+   "hints": [
+    "Which angle of the triangle is the right angle?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the three points."
+   },
+   "remember": "cos = adjacent / hypotenuse.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3/5",
+    "B": "3/4",
+    "C": "4/5",
+    "D": "4/3"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "3/5 is sin(∠POQ).",
+     "trap": "wrong_quantity"
+    },
+    "B": {
+     "rationale": "3/4 is tan(∠POQ).",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "4/3 is adjacent/opposite, the reciprocal of tan(∠POQ).",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q016-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Radius from an arc length and a radian angle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In a circle, a central angle of 2.5 radians intercepts an arc of length 15 centimeters. What is the radius of the circle, in centimeters?",
+   "explanation": "For an angle θ in radians, the arc length is s = rθ. So 15 = r(2.5) and r = 15 ÷ 2.5 = 6 centimeters.",
+   "hints": [
+    "How are arc length, radius and a radian angle related?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 15 = 2.5r."
+   },
+   "remember": "Arc length = radius × angle (in radians).",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "37.5",
+     "rationale": "37.5 multiplies the arc length by the angle instead of dividing.",
+     "trap": null
+    },
+    {
+     "value": "1/6",
+     "rationale": "1/6 divides the angle by the arc length.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q016-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Volume of a rectangular box",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "easy",
+   "stem": "A rectangular box measures 3 inches by 5 inches by 8 inches. What is the volume of the box, in cubic inches?",
+   "explanation": "The volume of a rectangular box is length × width × height: 3 × 5 × 8 = 120 cubic inches. The surface area, 158 square inches, measures something different.",
+   "hints": [
+    "Multiply the three dimensions."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "V = lwh."
+   },
+   "remember": "Volume multiplies all three dimensions.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "16",
+    "B": "79",
+    "C": "120",
+    "D": "158"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "16 adds the three dimensions.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "79 is half of the surface area.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "158 is the surface area: 2(15 + 24 + 40).",
+     "trap": "wrong_quantity"
+    }
+   }
+  }
+ ]
+}

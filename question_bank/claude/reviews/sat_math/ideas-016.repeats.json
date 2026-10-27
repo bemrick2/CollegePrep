@@ -1,0 +1,125 @@
+{
+  "ideas": "batch 16",
+  "results": {
+    "I01": [
+      {
+        "other_id": "CLD-SAT-M-000040",
+        "severity": "close",
+        "why": "Both find intercepts of a standard-form line (2x+5y=20, asks a-b); I01 reverses it: given the intercept sum, solve for k."
+      }
+    ],
+    "I02": [
+      {
+        "other_id": "CLD-ACT-M-000002",
+        "severity": "close",
+        "why": "Both ask for the greatest whole number under an 'at most $' budget inequality; I02 adds a second item with a minimum-quantity constraint (two variables), which changes the setup."
+      }
+    ],
+    "I03": [],
+    "I04": [],
+    "I05": [
+      {
+        "other_id": "CLD-ACT-M-000007",
+        "severity": "close",
+        "why": "Same multiplier arithmetic (x1.20 then a decrease, net percent change), but ACT-007 is a price changed twice in a row and I05 is area from two dimensions."
+      },
+      {
+        "other_id": "CLD-ACT-M-000175",
+        "severity": "close",
+        "why": "Percent change in area from changes in length; ACT-175 scales one circle radius, I05 changes two rectangle dimensions in opposite directions."
+      }
+    ],
+    "I06": [
+      {
+        "other_id": "CLD-ACT-M-000504",
+        "severity": "template",
+        "why": "Area of a 30-60-90 triangle from one given side; ACT-504 gives the hypotenuse 12, I06 gives the longer leg 9. Same ratio-then-area reasoning."
+      }
+    ],
+    "I07": [
+      {
+        "other_id": "CLD-ACT-M-000145",
+        "severity": "close",
+        "why": "Both compare exponential 2^x with linear functions; ACT-145 counts integers where 2^x >= 4x, I07 evaluates several functions at x=10."
+      }
+    ],
+    "I08": [
+      {
+        "other_id": "CLD-SAT-M-000118",
+        "severity": "close",
+        "why": "Both find an unknown coordinate of a point lying on a line; SAT-118 builds the line from two points with a fixed y, I08 substitutes (a, a+3) into a given equation."
+      }
+    ],
+    "I09": [
+      {
+        "other_id": "CLD-ACT-M-000764",
+        "severity": "close",
+        "why": "Sine of an acute angle in a right triangle from its two legs (8 and 15); I09 puts it on coordinates with legs 8 and 6 and needs the hypotenuse 10."
+      }
+    ],
+    "I10": [
+      {
+        "other_id": "CLD-ACT-M-000505",
+        "severity": "close",
+        "why": "Two consecutive positive even integers with a quadratic condition (sum of squares 340), asks for the larger; I10 uses odd integers and a product of 195, with the same n(n+2) quadratic."
+      }
+    ],
+    "I11": [
+      {
+        "other_id": "CLD-ACT-M-000028",
+        "severity": "template",
+        "why": "Same mixture template: a starting amount at one concentration, add x to reach a target percent, solve for x. I11 is the pure-addition (100%) case with shirts in place of acid."
+      }
+    ],
+    "I12": [
+      {
+        "other_id": "CLD-SAT-M-000085",
+        "severity": "close",
+        "why": "Rectangular prism volume = l*w*h; SAT-085 runs it backward (height from volume)."
+      }
+    ],
+    "I13": [
+      {
+        "other_id": "CLD-ACT-M-000161",
+        "severity": "close",
+        "why": "Value of k that makes a linear equation have no solution; ACT-161 has k on the x-coefficient, I13 has k in the constant (the coefficients already match)."
+      },
+      {
+        "other_id": "CLD-SAT-M-000029",
+        "severity": "close",
+        "why": "Same no-solution condition (equal slopes, different constants); SAT-029 asks which condition must hold."
+      }
+    ],
+    "I14": [
+      {
+        "other_id": "CLD-ACT-M-000425",
+        "severity": "template",
+        "why": "Distance = constant speed x a time given in mixed units (72 km/h for 25 min, versus 45 mph for 2 h 20 min). Same convert-then-multiply step."
+      },
+      {
+        "other_id": "CLD-SAT-M-000094",
+        "severity": "close",
+        "why": "Distance over a time in hours and minutes (1 h 12 min), but the rate is a pace in minutes per mile."
+      }
+    ],
+    "I15": [
+      {
+        "other_id": "CLD-ACT-M-000660",
+        "severity": "close",
+        "why": "Arc length s = r*theta with a radian angle; ACT-660 finds s from r, I15 runs it backward to find r."
+      }
+    ],
+    "I16": [
+      {
+        "other_id": "CLD-ACT-M-000734",
+        "severity": "template",
+        "why": "The x-coordinate of the vertex is the midpoint of the zeros; ACT-734 gives zeros -1 and 7, I16 gives them in factored form (x-2)(x+6)."
+      },
+      {
+        "other_id": "CLD-ACT-M-000330",
+        "severity": "close",
+        "why": "Minimum of a factored-form quadratic (x-2)(x-8); ACT-330 asks for the minimum value, I16 asks for the x where it occurs."
+      }
+    ]
+  }
+}

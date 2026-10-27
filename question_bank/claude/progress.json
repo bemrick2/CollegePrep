@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:25:38+00:00",
+  "updated_at": "2026-10-27T02:30:08+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 131
+    "sat_math": 141
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 141,
+      "PASS": 151,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 142,
+      "candidates": 152,
       "passed_after_revision": 1
     }
   },
@@ -1401,13 +1401,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 131,
+      "accepted": 141,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 40,
-        "Algebra": 40,
-        "Geometry and Trigonometry": 26,
-        "Problem-Solving and Data Analysis": 25
+        "Advanced Math": 43,
+        "Algebra": 43,
+        "Geometry and Trigonometry": 29,
+        "Problem-Solving and Data Analysis": 26
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
@@ -1421,6 +1421,7 @@
         "Coefficient that makes two lines parallel": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
+        "Comparing exponential, polynomial and linear values": 1,
         "Complementary angles and the sine-cosine relationship": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for two real solutions": 1,
@@ -1434,6 +1435,7 @@
         "Converting a rate between units": 1,
         "Coordinate of a vertex from a triangle's area": 1,
         "Cosine from two sides of a right triangle": 1,
+        "Cosine of an angle in the coordinate plane": 1,
         "Counting from a conditional percent": 1,
         "Distance from a pace and a time": 1,
         "Dividing a polynomial by a monomial": 1,
@@ -1446,9 +1448,11 @@
         "Exponential function through two points": 1,
         "Finding a coefficient from part of a system's solution": 1,
         "Finding a constant from a given solution": 1,
+        "Finding a constant from the sum of a line's intercepts": 1,
         "Finding a coordinate on a line through two points": 1,
         "Finding a percent of a group": 1,
         "Finding a whole from a percent": 1,
+        "Greatest whole number under a budget with a minimum purchase": 1,
         "Height of a rectangular prism from its volume": 1,
         "Horizontal shift that matches an exponential function": 1,
         "Hypotenuse from area and a leg ratio": 1,
@@ -1474,18 +1478,21 @@
         "Multiplying powers with fractional exponents": 1,
         "Number of real solutions of a quadratic equation": 1,
         "Overlapping groups from two conditional percents": 1,
+        "Percent change in area from changes in two dimensions": 1,
         "Percent growth over a multi-year period": 1,
         "Percent of a group after new members join": 1,
         "Percent of a percent": 1,
         "Perfect-square trinomial": 1,
         "Perimeter of a rectangle from its area and length": 1,
         "Perimeter of an equilateral triangle from its height": 1,
+        "Point with related coordinates on a line": 1,
         "Points on a proportional line": 1,
         "Population density after a change": 1,
         "Population to which a sample result generalizes": 1,
         "Positive solution of a factorable quadratic": 1,
         "Product of the solutions of a quadratic equation": 1,
         "Product of x-coordinates where a line meets a circle": 1,
+        "Radius from an arc length and a radian angle": 1,
         "Radius of a cylinder from its volume and a height relationship": 1,
         "Rate problem with a unit conversion": 1,
         "Rectangle from its diagonal and one side": 1,
@@ -1516,6 +1523,7 @@
         "Solving a rational equation": 1,
         "Solving a system with a given relationship": 1,
         "Solving an equation involving a rational function": 1,
+        "Solving an equation with two square roots": 1,
         "Solving an exponential equation": 1,
         "Solving for a coordinate from a given slope": 1,
         "Sum of coefficients from intercepts of a parabola": 1,
@@ -1523,6 +1531,7 @@
         "System of linear inequalities in context": 1,
         "System with infinitely many solutions and two unknown constants": 1,
         "Third angle of a triangle": 1,
+        "Time for a falling object to reach a height": 1,
         "Time for a whole job from a partial job": 1,
         "Trade-off between two variables in a linear equation": 1,
         "Translating a verbal statement into a linear equation": 1,
@@ -1530,6 +1539,7 @@
         "Unknown count from a probability": 1,
         "Using symmetry of a parabola": 1,
         "Using two values of a linear function": 1,
+        "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
         "Working backward through a markup and a discount": 1,
         "Writing a linear inequality from a context": 1,
@@ -1543,19 +1553,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 23,
+        "easy": 24,
         "hard": 9,
-        "medium": 99
+        "medium": 108
       },
       "by_difficulty_calibrated": {
-        "easy": 54,
+        "easy": 60,
         "hard": 4,
-        "medium": 73
+        "medium": 77
       },
       "calibrated_share": {
-        "easy": 0.412,
-        "hard": 0.031,
-        "medium": 0.557
+        "easy": 0.426,
+        "hard": 0.028,
+        "medium": 0.546
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1568,6 +1578,7 @@
         "115": 1,
         "12": 3,
         "15": 2,
+        "16": 1,
         "18": 1,
         "18/13": 1,
         "2": 3,
@@ -1580,19 +1591,20 @@
         "44": 2,
         "5": 2,
         "50": 1,
-        "6": 1,
+        "6": 2,
+        "60": 1,
         "7": 1,
         "8": 2,
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 21,
-        "B": 26,
-        "C": 25,
-        "D": 18
+        "A": 24,
+        "B": 27,
+        "C": 27,
+        "D": 19
       },
-      "modeling_items": 35,
-      "spr_items": 41,
+      "modeling_items": 38,
+      "spr_items": 44,
       "passages": 0
     }
   },
@@ -1601,7 +1613,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 15
+    "sat_math": 16
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1633,26 +1645,26 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 16,
+    "next_batch": 17,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 9.3,
-      "Advanced Math": 9.3,
-      "Problem-Solving and Data Analysis": -3.9,
-      "Geometry and Trigonometry": -4.9
+      "Algebra": 9.8,
+      "Advanced Math": 9.8,
+      "Problem-Solving and Data Analysis": -3.4,
+      "Geometry and Trigonometry": -6.4
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -18.8,
-      "medium": -2.5,
-      "hard": 31.2
+      "easy": -22.2,
+      "medium": -1.5,
+      "hard": 33.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 5.4,
-      "B": 0.4,
-      "C": 1.4,
-      "D": 8.4
+      "A": 4.3,
+      "B": 1.3,
+      "C": 1.3,
+      "D": 9.3
     },
-    "spr_items": 41,
+    "spr_items": 44,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1665,20 +1677,20 @@
         "Expression of Ideas": -1.4
       }
     },
-    "act_reading": {
-      "next_batch": 29,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 31.9,
-        "Craft and Structure": -11.4,
-        "Integration of Knowledge and Ideas": -10.5
-      }
-    },
     "act_english": {
       "next_batch": 27,
       "skill_gap_for_next_10": {
         "Production of Writing": 29.2,
         "Knowledge of Language": 18.8,
         "Conventions of Standard English": -33.8
+      }
+    },
+    "act_reading": {
+      "next_batch": 29,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 31.9,
+        "Craft and Structure": -11.4,
+        "Integration of Knowledge and Ideas": -10.5
       }
     }
   },
@@ -1705,12 +1717,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 131,
-      "share_of_target": 0.187
+      "accepted": 141,
+      "share_of_target": 0.201
     }
   },
   "total_target": 4700,
-  "total_accepted": 1649,
+  "total_accepted": 1659,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48665,7 +48677,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 15,
+      "bank_version": 16,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48791,7 +48803,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:25:37+00:00",
+    "heartbeat_at": "2026-10-27T02:30:07+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
