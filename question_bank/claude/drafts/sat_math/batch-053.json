@@ -1,0 +1,550 @@
+{
+ "bank": "sat_math",
+ "batch": 53,
+ "plan": "SAT Math batch 53: Algebra 5, Advanced Math 3, Problem-Solving and Data Analysis 1, Geometry and Trigonometry 2; 5 student-produced responses. Ideas CA01-CA04, CA06, CB01, CB03, CB04, CC01, CD01, CD02 from generated set 8 (independently pre-checked; templates CA05, CB05, CC02, CC04, CD04 dropped; CC01's trap corrected). Plus Q053-12, the revised resubmission of Q052-08 as a student-produced response. Relabelled to the blind solver's rating where it was lower: Q053-02 hard→medium, Q053-03 medium→easy.",
+ "candidates": [
+  {
+   "cand": "Q053-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Flight duration and time-zone offset from two trips",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A flight leaves City A at 8:00 a.m. City A time and lands in City B at 11:00 a.m. City B time. The return flight leaves City B at 1:00 p.m. City B time and lands in City A at 9:00 p.m. City A time. Because of winds, the return flight takes 1 hour longer than the outgoing flight. How many hours does the return flight take?",
+   "explanation": "Let d be the outgoing flight's length in hours and let City B's clock be z hours ahead of City A's. Outgoing: d + z = 11 − 8 = 3. Return: (d + 1) − z = 21 − 13 = 8. Adding gives 2d + 1 = 11, so d = 5 and z = −2. The return flight takes d + 1 = 6 hours.",
+   "hints": [
+    "Let z be how far City B's clock is ahead of City A's."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write one equation for each trip."
+   },
+   "remember": "Clock-time differences include the time-zone offset.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Both the duration and the time-zone offset are unknown; students must build a system from two trips."
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "5",
+     "rationale": "5 is the length of the outgoing flight.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "8",
+     "rationale": "8 is the difference between the two clock readings on the return trip.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q053-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Carrying a tolerance through a trim-and-divide transformation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A machine cuts metal rods whose lengths L, in centimeters, satisfy |L − 80| ≤ 0.6. From each rod, 2 centimeters are trimmed off one end, and the rest is cut into 4 pieces of equal length p centimeters. Which inequality gives all possible values of p ?",
+   "explanation": "Each rod satisfies L = 4p + 2, so |4p + 2 − 80| ≤ 0.6, or |4p − 78| ≤ 0.6. Dividing by 4 gives |p − 19.5| ≤ 0.15.",
+   "hints": [
+    "Write L in terms of p."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute L = 4p + 2 and simplify."
+   },
+   "remember": "Dividing an absolute value inequality divides the tolerance too.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "|p − 19.5| ≤ 0.15",
+    "B": "|p − 19.5| ≤ 0.6",
+    "C": "|p − 20| ≤ 0.15",
+    "D": "|p − 20| ≤ 0.6"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "|p − 19.5| ≤ 0.6 shifts the center correctly but does not divide the tolerance by 4.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "|p − 20| ≤ 0.15 divides 80 by 4 but ignores the 2-centimeter trim.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "|p − 20| ≤ 0.6 makes both errors.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q053-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Interpreting a product of constants in a taxed linear model",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "The total cost C, in dollars, of a banquet for n guests, including sales tax, is given by C = 1.08(250 + 18n). What is the best interpretation of 1.08(18) in this context?",
+   "explanation": "Expanding gives C = 1.08(250) + 1.08(18)n. The coefficient of n, 1.08(18), is the increase in the total cost, including tax, for each additional guest.",
+   "hints": [
+    "Distribute 1.08 and find the coefficient of n."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Rewrite the model in slope-intercept form."
+   },
+   "remember": "The coefficient of the variable is the rate of change.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The amount, in dollars, by which the total cost increases for each additional guest, including tax",
+    "B": "The amount, in dollars, of sales tax charged for each additional guest",
+    "C": "The total cost, in dollars, of a banquet for one guest, including tax",
+    "D": "The amount, in dollars, by which the total cost increases for each additional guest, before tax"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "The tax for each additional guest is 0.08(18), not 1.08(18).",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "The cost for one guest is 1.08(250 + 18), which includes the fixed charge.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The increase before tax is 18.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q053-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Clock time when a constant rate reaches a target level",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A phone's battery charge drops at a constant rate while a video plays. At 9:40 a.m. the charge is 76%, and at 11:10 a.m. it is 58%. At this rate, at what time will the charge be 20% ?",
+   "explanation": "The charge drops 18 percentage points in 90 minutes, or 0.2 point per minute. From 58% to 20% is 38 points, which takes 38 ÷ 0.2 = 190 minutes. 190 minutes after 11:10 a.m. is 2:20 p.m.",
+   "hints": [
+    "What is the rate of drop per minute?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find the rate, then the time from the later reading."
+   },
+   "remember": "Measure from the most recent reading.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12:50 p.m.",
+    "B": "2:20 p.m.",
+    "C": "3:50 p.m.",
+    "D": "4:00 p.m."
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "12:50 p.m. adds the 190 minutes to 9:40 a.m.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "3:50 p.m. uses the 56-point drop from 76% but starts the clock at 11:10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4:00 p.m. is when the charge would reach 0%.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q053-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Recovering an input from a linear model through a distance and time",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "The speed of sound in air, v meters per second, is modeled by v = 331 + 0.6T, where T is the air temperature in degrees Celsius. An observer hears thunder 5 seconds after seeing a lightning flash 1,745 meters away. Assuming the light arrives instantly, what is the air temperature, in degrees Celsius, according to the model?",
+   "explanation": "The sound traveled 1,745 meters in 5 seconds, so v = 349 meters per second. Then 331 + 0.6T = 349 gives 0.6T = 18 and T = 30.",
+   "hints": [
+    "Find the speed of the sound first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Speed = distance ÷ time, then solve the model."
+   },
+   "remember": "Find the model's output from the data, then solve for the input.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "10.8",
+    "C": "18",
+    "D": "30"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "3 divides 18 by 6 instead of 0.6.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "10.8 multiplies 18 by 0.6 instead of dividing.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "18 forgets to divide by 0.6.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q053-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Photo side from a border-to-photo area ratio",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A square photograph is mounted on a square mat so that a border 2 inches wide surrounds the photograph on all sides. The area of the border is 1.25 times the area of the photograph. What is the side length, in inches, of the photograph?",
+   "explanation": "With photo side s, the mat has side s + 4 and the border area is (s + 4)² − s² = 1.25s², so (s + 4)² = 2.25s². Taking square roots (all lengths positive), s + 4 = 1.5s, so s = 8. Check: 144 − 64 = 80 = 1.25 × 64.",
+   "hints": [
+    "What is the side length of the mat?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the mat's area as photo area plus border area."
+   },
+   "remember": "A border of width w adds 2w to each side length.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "4",
+     "rationale": "4 adds the border width only once: (s + 2)² = 2.25s².",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "12",
+     "rationale": "12 is the side length of the mat.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q053-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Counting integer production levels with positive quadratic profit",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A company sells x units of a product each week at a price of (80 − 2x) dollars per unit, so its weekly revenue is x(80 − 2x) dollars. Its weekly cost is 10x + 300 dollars. For how many integer values of x is the weekly profit positive?",
+   "explanation": "Profit is 80x − 2x² − 10x − 300 = −2x² + 70x − 300 = −2(x − 5)(x − 30). It is positive when 5 < x < 30, so x = 6, 7, …, 29: that is 24 integers.",
+   "hints": [
+    "Write profit as revenue minus cost."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Factor the profit and find where it is positive."
+   },
+   "remember": "Strict inequalities exclude the zeros.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build the quadratic, find where it is positive and count integers with strict endpoints."
+   },
+   "format": "spr",
+   "answer": "24",
+   "accepted_answers": [
+    "24"
+   ],
+   "common_errors": [
+    {
+     "value": "26",
+     "rationale": "26 includes x = 5 and x = 30, where the profit is 0.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "25",
+     "rationale": "25 subtracts the endpoints, 30 − 5.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q053-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Domain of a volume model implied by its context",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "An open box is made from a 30-inch-by-30-inch sheet of cardboard by cutting a square with side x inches from each corner and folding up the sides. The volume of the box is V(x) = x(30 − 2x)² cubic inches. Which describes all values of x for which this model makes sense?",
+   "explanation": "The cut x must be positive, and the base side 30 − 2x must also be positive, so x < 15. The model makes sense for 0 < x < 15.",
+   "hints": [
+    "Which lengths in the model must be positive?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the sheet with the corner cuts."
+   },
+   "remember": "A model's domain comes from its context.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0 < x < 7.5",
+    "B": "0 < x < 15",
+    "C": "0 < x < 30",
+    "D": "x > 0 and x ≠ 15"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "0 < x < 7.5 assumes four cuts of length x must fit along one side.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "0 < x < 30 requires only that x be less than the sheet's side.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "x > 0 and x ≠ 15 accepts any x that makes V positive, but 30 − 2x is a length and must be positive.",
+     "trap": "overextend_trend"
+    }
+   }
+  },
+  {
+   "cand": "Q053-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Printing time from a volume rate through cubed unit conversions",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A 3-D printer deposits plastic at a constant rate of 12 cubic millimeters per second. At this rate, how many hours will it take to print an object that uses 0.54 liter of plastic? (1 liter = 1,000 cubic centimeters, and 1 centimeter = 10 millimeters)",
+   "explanation": "0.54 liter is 540 cubic centimeters. Each cubic centimeter is 10³ = 1,000 cubic millimeters, so the object uses 540,000 cubic millimeters. At 12 per second that takes 45,000 seconds, which is 45,000 ÷ 3,600 = 12.5 hours.",
+   "hints": [
+    "How many cubic millimeters are in a cubic centimeter?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert volume, divide by the rate, then convert seconds to hours."
+   },
+   "remember": "Cube the length factor when converting volume.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "12.5",
+   "accepted_answers": [
+    "12.5",
+    "25/2"
+   ],
+   "common_errors": [
+    {
+     "value": "0.125",
+     "rationale": "0.125 uses 1 cubic centimeter = 10 cubic millimeters.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "750",
+     "rationale": "750 is the time in minutes.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q053-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Comparing a sum of two circle areas with one larger circle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A pizzeria sells round pizzas with diameters of 14 inches and 10 inches, all of the same thickness. How many more square inches of pizza are in two 10-inch pizzas than in one 14-inch pizza?",
+   "explanation": "A 10-inch pizza has radius 5 and area 25π, so two have 50π. A 14-inch pizza has radius 7 and area 49π. The difference is 50π − 49π = π square inches.",
+   "hints": [
+    "What is the radius of each pizza?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute each area with r = d/2."
+   },
+   "remember": "Area depends on the square of the radius.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "π",
+    "B": "3π",
+    "C": "4π",
+    "D": "6π"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "3π treats area as proportional to the radius: π(2 × 5 − 7).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4π uses the diameters as radii: 200π − 196π.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "6π compares circumferences: 20π − 14π.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q053-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Ratio of volumes of the two cylinders rolled from one sheet",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A rectangular sheet of paper 8.5 inches by 11 inches can be rolled into an open cylinder (no top or bottom) in two ways: by joining its 8.5-inch edges, which makes a cylinder 8.5 inches tall, or by joining its 11-inch edges, which makes a cylinder 11 inches tall. The volume of the 8.5-inch-tall cylinder is how many times the volume of the 11-inch-tall cylinder?",
+   "explanation": "A cylinder with circumference C and height h has radius C/(2π) and volume π(C/(2π))²h = C²h/(4π). The 8.5-inch-tall cylinder has C = 11, and the 11-inch-tall one has C = 8.5. The ratio is (11² × 8.5)/(8.5² × 11) = 11/8.5 = 22/17.",
+   "hints": [
+    "Which edge becomes the circumference in each case?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the volume in terms of the circumference and height."
+   },
+   "remember": "The radius comes from the circumference: r = C/(2π).",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find each radius from a circumference and see that the same sheet gives different volumes."
+   },
+   "format": "spr",
+   "answer": "22/17",
+   "accepted_answers": [
+    "22/17",
+    "1.294",
+    "1.295"
+   ],
+   "common_errors": [
+    {
+     "value": "1",
+     "rationale": "1 assumes equal paper area gives equal volume.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "17/22",
+     "rationale": "17/22 inverts the ratio.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q053-12",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Pace per mile from a metric race time",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A runner finished a 5-kilometer race in 22 minutes 30 seconds. Using 1 mile = 1.6 kilometers, what was her average pace, in minutes per mile?",
+   "explanation": "5 kilometers is 5 ÷ 1.6 = 3.125 miles. Her pace is 22.5 minutes ÷ 3.125 miles = 7.2 minutes per mile.",
+   "hints": [
+    "How many miles is 5 kilometers?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Pace = time ÷ distance."
+   },
+   "remember": "Pace is time per distance; speed is distance per time.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "answer": "7.2",
+   "format": "spr",
+   "accepted_answers": [
+    "7.2",
+    "36/5"
+   ],
+   "common_errors": [
+    {
+     "value": "4.5",
+     "rationale": "4.5 is the pace in minutes per kilometer.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "2.8",
+     "rationale": "2.8 multiplies 5 by 1.6 to convert to miles.",
+     "trap": "sign_error"
+    }
+   ],
+   "revision": 2,
+   "revision_history": [
+    {
+     "from": "Q052-08",
+     "status": "withdrawn after blind solve",
+     "reason": "blind solve: answer cue - three choices are physically impossible or elite-only paces, so 7.2 can be picked by real-world sense; resubmitted as a student-produced response."
+    }
+   ]
+  }
+ ]
+}

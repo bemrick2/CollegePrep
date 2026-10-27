@@ -1,0 +1,540 @@
+{
+ "bank": "sat_math",
+ "batch": 54,
+ "plan": "SAT Math batch 54: Algebra 4, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 6 student-produced responses. Ideas CA07-CA10, CB02, CB06-CB08, CC03, CC05, CD03, CD05 from generated set 8 (independently pre-checked; CA07, CA09 and CB02 converted to student-produced responses because the key stood out as an extreme or the only realistic value; CD05's choice B rationale corrected).",
+ "candidates": [
+  {
+   "cand": "Q054-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Least possible profit from prices that each lie in an interval",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A grocer pays between $1.80 and $2.50 per kilogram for apples, inclusive, and sells them for between $3.00 and $3.60 per kilogram, inclusive. What is the least possible profit, in dollars, on 50 kilograms of apples?",
+   "explanation": "The profit per kilogram is least when the selling price is lowest and the cost is highest: 3.00 − 2.50 = 0.50 dollar. On 50 kilograms the least possible profit is 50 × 0.50 = 25 dollars.",
+   "hints": [
+    "Which price and cost make the profit smallest?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Pair the lowest selling price with the highest cost."
+   },
+   "remember": "To minimize a difference, make the first term small and the second large.",
+   "expected_time_seconds": 55,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "25",
+   "accepted_answers": [
+    "25"
+   ],
+   "common_errors": [
+    {
+     "value": "55",
+     "rationale": "55 pairs the two highest prices: 3.60 − 2.50.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "90",
+     "rationale": "90 is the greatest possible profit: 3.60 − 1.80.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q054-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Equal gaps in a row with end margins",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A web page is 1,280 pixels wide. A single row of 6 images, each 180 pixels wide, spans the page with a 40-pixel margin at the left and right edges of the page, and the gaps between neighboring images are all equal. How many pixels wide is each gap?",
+   "explanation": "The images and margins use 6 × 180 + 2 × 40 = 1,160 pixels, leaving 120 pixels. Six images in a row have 5 gaps between them, so each gap is 120 ÷ 5 = 24 pixels.",
+   "hints": [
+    "How many gaps are between 6 images in a row?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the row with margins and gaps."
+   },
+   "remember": "n objects in a row have n − 1 gaps between them.",
+   "expected_time_seconds": 65,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "20",
+    "B": "24",
+    "C": "32",
+    "D": "40"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "20 divides by 6 gaps instead of 5.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "32 subtracts only one margin: 160 ÷ 5.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "40 ignores the margins: 200 ÷ 5.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q054-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Combining a per-mile cost with a per-hour wage through speed",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A courier's van costs $0.18 per mile for fuel and maintenance, and the courier is paid $20 per hour of driving. If the van averages 50 miles per hour, what is the total of these costs, in dollars per mile driven?",
+   "explanation": "At 50 miles per hour, the wage of $20 per hour is 20 ÷ 50 = $0.40 per mile. Adding the van's $0.18 per mile gives $0.58 per mile.",
+   "hints": [
+    "Convert the wage to dollars per mile."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Divide the hourly wage by the miles driven per hour."
+   },
+   "remember": "Convert rates to the same unit before adding.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "0.58",
+   "accepted_answers": [
+    "0.58",
+    ".58",
+    "29/50"
+   ],
+   "common_errors": [
+    {
+     "value": "2.68",
+     "rationale": "2.68 inverts the wage conversion: 0.18 + 50/20.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "29",
+     "rationale": "29 is the cost per hour: 0.18 × 50 + 20.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q054-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Shared force in two springs joined end to end",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "Spring A is 12 centimeters long with no load and stretches 0.5 centimeter for each newton of force. Spring B is 15 centimeters long with no load and stretches 0.3 centimeter for each newton of force. The springs are hooked end to end, and a weight pulls on both with the same force F newtons, making the total length 47 centimeters. What is the value of F ?",
+   "explanation": "The total length is (12 + 0.5F) + (15 + 0.3F) = 27 + 0.8F. Setting 27 + 0.8F = 47 gives 0.8F = 20 and F = 25.",
+   "hints": [
+    "Write each spring's length in terms of F."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Add the two lengths and set the sum to 47."
+   },
+   "remember": "Each spring's length = natural length + stretch.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "25",
+    "B": "40",
+    "C": "50",
+    "D": "58.75"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "40 uses only spring A's rate: 20 ÷ 0.5.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "50 averages the two rates: 20 ÷ 0.4.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "58.75 ignores the unstretched lengths: 47 ÷ 0.8.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q054-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Inverse-square law with a change of distance",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The illuminance from a small lamp is inversely proportional to the square of the distance from the lamp. A light sensor 4 meters from the lamp reads 360 lux. If the sensor is moved to 3 meters from the lamp, what will it read, in lux?",
+   "explanation": "Illuminance I satisfies I = k/d², so I × d² is constant: 360 × 16 = 5,760. At 3 meters, I = 5,760 ÷ 9 = 640 lux.",
+   "hints": [
+    "What stays constant in an inverse-square relationship?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply by (4/3)²."
+   },
+   "remember": "Inverse square: halve the distance, quadruple the effect.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "640",
+   "accepted_answers": [
+    "640"
+   ],
+   "common_errors": [
+    {
+     "value": "480",
+     "rationale": "480 uses inverse proportion without squaring: 360 × 4/3.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "270",
+     "rationale": "270 uses direct proportion: 360 × 3/4.",
+     "trap": "sign_error"
+    }
+   ]
+  },
+  {
+   "cand": "Q054-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum height after finding a constant from the landing time",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A diver's height above the water, in feet, t seconds after leaving a platform is given by h(t) = −16t² + 16t + k, where k is a constant. The diver enters the water at t = 2. What is the diver's greatest height above the water, in feet?",
+   "explanation": "h(2) = −64 + 32 + k = 0 gives k = 32. The vertex is at t = −16/(2 × −16) = 1/2, so the greatest height is h(1/2) = −4 + 8 + 32 = 36 feet.",
+   "hints": [
+    "Use h(2) = 0 to find k."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find k, then evaluate at the vertex."
+   },
+   "remember": "The vertex is at t = −b/(2a), not halfway to the landing time.",
+   "expected_time_seconds": 85,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must find k from the landing time and then locate the vertex; assuming the top is halfway to landing is a strong trap."
+   },
+   "format": "spr",
+   "answer": "36",
+   "accepted_answers": [
+    "36"
+   ],
+   "common_errors": [
+    {
+     "value": "32",
+     "rationale": "32 takes the top at t = 1, halfway to t = 2; that value is also the platform height k.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "4",
+     "rationale": "4 ignores k: −16(1/4) + 16(1/2).",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q054-07",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Surface area of a fixed-volume cylinder as a function of radius",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A closed cylindrical can has a volume of 500π cubic centimeters. Which function gives the can's total surface area S, in square centimeters, in terms of its radius r ?",
+   "explanation": "From πr²h = 500π, h = 500/r². The surface area is 2πr² + 2πrh = 2πr² + 2πr(500/r²) = 2πr² + 1000π/r.",
+   "hints": [
+    "Solve the volume formula for h."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Eliminate h using the volume."
+   },
+   "remember": "Use the fixed quantity to eliminate a variable.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "S = 2πr² + 1000π/r",
+    "B": "S = πr² + 1000π/r",
+    "C": "S = 2πr² + 1000π",
+    "D": "S = 2πr² + 1000π²r"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "πr² + 1000π/r counts only one circular end.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2πr² + 1000π uses h = 500/r, forgetting to square r.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2πr² + 1000π²r substitutes the volume 500π for the height.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q054-08",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Speed from a quadratic stopping-distance model",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A driving guide estimates the stopping distance d, in feet, of a car traveling v miles per hour as d = v + v²/20. According to the guide, at what speed, in miles per hour, is the stopping distance 120 feet?",
+   "explanation": "Set v + v²/20 = 120. Multiplying by 20 gives v² + 20v − 2,400 = 0, which factors as (v + 60)(v − 40) = 0. A speed must be positive, so v = 40 miles per hour.",
+   "hints": [
+    "Multiply both sides by 20."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the quadratic and reject the negative root."
+   },
+   "remember": "Reject solutions that make no sense in context.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "40",
+   "accepted_answers": [
+    "40"
+   ],
+   "common_errors": [
+    {
+     "value": "60",
+     "rationale": "60 is the size of the negative solution, which is not a speed.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "120",
+     "rationale": "120 is the stopping distance, not the speed.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q054-09",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Subgroup and overall rates pointing in opposite directions",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "The table gives all the patients at two clinics, by the severity of their illness and whether they recovered.\nClinic | Mild, recovered | Mild, did not | Severe, recovered | Severe, did not\nA | 95 | 5 | 120 | 180\nB | 270 | 30 | 35 | 65\nWhich statement about the recovery rates is true?",
+   "explanation": "Mild: A 95/100 = 95%, B 270/300 = 90%. Severe: A 120/300 = 40%, B 35/100 = 35%. Combined: A 215/400 = 53.75%, B 305/400 = 76.25%. Clinic A is higher in each group but lower overall, because most of B's patients have mild illness.",
+   "hints": [
+    "Compute each recovery rate as a percent."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find each rate, then the combined rate."
+   },
+   "remember": "Combined rates depend on how patients are split among groups.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The subgroup and combined comparisons point in opposite directions; most students expect them to agree."
+   },
+   "choices": {
+    "A": "Clinic A's rate is higher for mild cases, higher for severe cases, and higher for all patients combined.",
+    "B": "Clinic B's rate is higher for mild cases, higher for severe cases, and lower for all patients combined.",
+    "C": "Clinic B's rate is higher for mild cases, lower for severe cases, and higher for all patients combined.",
+    "D": "Clinic A's rate is higher for mild cases, higher for severe cases, and lower for all patients combined."
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This assumes winning both groups means winning overall.",
+     "trap": "overextend_trend"
+    },
+    "B": {
+     "rationale": "This compares the 'did not recover' columns, which flips every comparison.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "This compares numbers recovered instead of rates.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q054-10",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Population estimate from sample plots with an area conversion",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "Ecologists counted 38 orchids in randomly placed sample plots with a total area of 50 square meters in a meadow with an area of 1.2 hectares (1 hectare = 10,000 square meters). Based on the sample, which is the best estimate of the number of orchids in the meadow?",
+   "explanation": "The sample has 38/50 = 0.76 orchid per square meter. The meadow is 1.2 × 10,000 = 12,000 square meters, so the estimate is 0.76 × 12,000 = 9,120 orchids.",
+   "hints": [
+    "What is the density in the sample?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale the sample density to the whole area."
+   },
+   "remember": "Scale by area, not by count.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "912",
+    "B": "9,120",
+    "C": "91,200",
+    "D": "456,000"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "912 uses 1 hectare = 1,000 square meters.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "91,200 uses 1 hectare = 100,000 square meters.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "456,000 multiplies 38 by 12,000 without dividing by the sample area.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q054-11",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Gap from a corner to a circle tangent to both walls",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "A circular rug with a diameter of 8 feet lies flat in a corner of a rectangular room and touches both walls that meet at the corner. To the nearest hundredth of a foot, what is the distance from the corner to the nearest point on the edge of the rug?",
+   "explanation": "The rug's center is 4 feet from each wall, so it is √(4² + 4²) = 4√2 ≈ 5.657 feet from the corner. The nearest point of the rug lies on that line, one radius closer: 5.657 − 4 ≈ 1.66 feet.",
+   "hints": [
+    "Where is the center of the rug?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw the corner, the rug and the diagonal to its center."
+   },
+   "remember": "A circle tangent to two perpendicular walls has its center on the corner's diagonal.",
+   "expected_time_seconds": 85,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must place the center using tangency and then subtract the radius along the diagonal."
+   },
+   "format": "spr",
+   "answer": "1.66",
+   "accepted_answers": [
+    "1.66"
+   ],
+   "common_errors": [
+    {
+     "value": "5.66",
+     "rationale": "5.66 is the distance to the center; it forgets to subtract the radius.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "3.31",
+     "rationale": "3.31 uses 8 feet as the radius.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q054-12",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Image height in a pinhole camera with mixed units",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In a pinhole camera, light from the top and bottom of an object passes through a tiny hole and forms an inverted image on a screen, so the object and the image form similar triangles. A tree 6 meters tall is 15 meters from the pinhole, and the screen is 8 centimeters behind the pinhole. How tall, in centimeters, is the image of the tree?",
+   "explanation": "By similar triangles, image height ÷ 8 cm = 600 cm ÷ 1,500 cm, so the image height is 8 × 600/1,500 = 3.2 centimeters.",
+   "hints": [
+    "Put every length in centimeters."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set up the similar-triangle ratio in one unit."
+   },
+   "remember": "Use the same unit in every part of a proportion.",
+   "expected_time_seconds": 65,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.032",
+    "B": "0.32",
+    "C": "3.2",
+    "D": "11.25"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "0.032 computes 6 × 8/1,500 = 0.032, mixing meters and centimeters.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "0.32 converts 15 meters to 150 centimeters and leaves the tree height in meters.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "11.25 inverts the ratio: 15 × 6/8.",
+     "trap": "sign_error"
+    }
+   }
+  }
+ ]
+}

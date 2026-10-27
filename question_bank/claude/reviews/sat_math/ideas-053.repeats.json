@@ -1,0 +1,302 @@
+{
+ "ideas": "generated set 8 (CA/CB/CC/CD)",
+ "results": {
+  "CA01": [],
+  "CA02": [
+   {
+    "other_id": "CLD-ACT-M-000652",
+    "severity": "close",
+    "why": "Same tolerance-to-absolute-value-inequality setup (machine-cut part, |L − c| ≤ tol). Here it adds a trim-and-divide step; the core is unchanged. CLD-ACT-M-000220 is the same."
+   }
+  ],
+  "CA03": [],
+  "CA04": [
+   {
+    "other_id": "CLD-SAT-M-000215",
+    "severity": "close",
+    "why": "Constant-rate projection to a target level (phone usage). Here the rate comes from two readings and the answer is a clock time."
+   },
+   {
+    "other_id": "gen05 U05",
+    "severity": "close",
+    "why": "Constant drain rate found from a reading, then the time to reach a lower level is asked."
+   }
+  ],
+  "CA05": [
+   {
+    "other_id": "CLD-SAT-M-000271",
+    "severity": "template",
+    "why": "Greatest value of one variable allowed by two linear inequalities, found by substituting the boundary of one into the other. This is the same as SAT-271/batch-032 Q032-03/gen01 G01 (greatest x with y ≥ 2x − 3 and y ≤ −x + 9), put in a farm context."
+   },
+   {
+    "other_id": "CLD-SAT-M-000069",
+    "severity": "close",
+    "why": "Same context wording ('at most N hours combined', 'at least twice as many'). SAT-069 only writes the system. CLD-SAT-M-000275 (extreme count under two constraints) is also close."
+   }
+  ],
+  "CA06": [],
+  "CA07": [],
+  "CA08": [],
+  "CA09": [],
+  "CA10": [],
+  "CA11": [],
+  "CA12": [
+   {
+    "other_id": "CLD-SAT-M-000318",
+    "severity": "close",
+    "why": "Two travelers on a line; asks when their separation equals a given distance. Here they approach and pass each other, and the second time is asked (gen02 H08/batch-037 Q037-02 are the same live item)."
+   }
+  ],
+  "CA13": [
+   {
+    "other_id": "CLD-SAT-M-000484",
+    "severity": "close",
+    "why": "Fixed cost plus per-unit cost, revenue from price × units, solve for a threshold number of units (gen07 BA12 is the same). Here two break-even points are differenced."
+   }
+  ],
+  "CB01": [],
+  "CB02": [
+   {
+    "other_id": "CLD-ACT-M-000762",
+    "severity": "close",
+    "why": "Inverse variation applied to a new input (acknowledged). The inverse-square law changes the factor but the template is the same. The format also mirrors common official SAT inverse-square items."
+   }
+  ],
+  "CB03": [
+   {
+    "other_id": "CLD-ACT-M-000280",
+    "severity": "close",
+    "why": "Counting integers that satisfy a factorable quadratic inequality with strict endpoints. The context build (revenue − cost) is the only addition. CLD-SAT-M-000205 (interval where a quadratic is positive) is also close."
+   }
+  ],
+  "CB04": [
+   {
+    "other_id": "CLD-ACT-M-000630",
+    "severity": "close",
+    "why": "Same open box made by cutting corners from cardboard. Here the domain is asked, not the volume."
+   }
+  ],
+  "CB05": [
+   {
+    "other_id": "CLD-ACT-M-000113",
+    "severity": "template",
+    "why": "Same specific function reused: $24,000 car losing 15% per year (V = 24,000(0.85)^t). ACT-113 asks the value after 3 years (14,739); CB05's distractor D, 9,261, is 24,000 − 14,739."
+   },
+   {
+    "other_id": "CLD-ACT-M-000601",
+    "severity": "template",
+    "why": "RETIRED as a duplicate of ACT-113: 'A car worth $24,000 loses 15% each year; value after 2 years?' (17,340). That answer is exactly CB05's intermediate step. Change the numbers at minimum."
+   }
+  ],
+  "CB06": [
+   {
+    "other_id": "CLD-SAT-M-000401",
+    "severity": "close",
+    "why": "Find an unknown constant in a quadratic height model from one condition, then report the maximum height (fountain: vertex location gives b). Here the landing time gives k."
+   }
+  ],
+  "CB07": [],
+  "CB08": [],
+  "CB09": [],
+  "CB10": [
+   {
+    "other_id": "CLD-ACT-M-000259",
+    "severity": "close",
+    "why": "Upstream/downstream with d/(s − c) and d/(s + c) (acknowledged). Here it is symbolic and the round-trip time is asked."
+   }
+  ],
+  "CB11": [
+   {
+    "other_id": "CLD-SAT-M-000381",
+    "severity": "close",
+    "why": "Quadratic whose vertex is hidden in a condition, plus a second condition, then evaluate f at another point. SAT-381 hides the axis in f(x) = f(6 − x) with min −4 and also answers 12. CLD-SAT-M-000101 and CLD-ACT-M-000700 (vertex + one point → a) are also close."
+   }
+  ],
+  "CB12": [],
+  "CB13": [],
+  "CC01": [],
+  "CC02": [
+   {
+    "other_id": "CLD-ACT-M-000615",
+    "severity": "template",
+    "why": "Weighted-mean balance with two group values and a combined mean, solving for group size (ACT-615: juniors 72, seniors 81, overall 78). CC02 asks the same thing as a fraction (percent) instead of a count. CLD-ACT-M-000275 is the same."
+   }
+  ],
+  "CC03": [],
+  "CC04": [
+   {
+    "other_id": "CLD-ACT-M-000058",
+    "severity": "template",
+    "why": "Ratio before and after adding to the quantities, solved for a count. ACT-513 was RETIRED as a template of ACT-058: 3:5, add 6 red, becomes 3:4. Here both parts change."
+   }
+  ],
+  "CC05": [
+   {
+    "other_id": "CLD-ACT-M-000454",
+    "severity": "close",
+    "why": "Scale a sample proportion up to a population estimate. Here the base is area and needs a hectare conversion."
+   }
+  ],
+  "CC06": [],
+  "CC07": [
+   {
+    "other_id": "CLD-SAT-M-000294",
+    "severity": "close",
+    "why": "Percent change of a combined quantity when two factors change by percents (multiply the multipliers). SAT-294 multiplies; CC07 divides. CLD-ACT-M-000266 (unit-price percent change when the denominator changes) is also close."
+   }
+  ],
+  "CD01": [],
+  "CD02": [
+   {
+    "other_id": "gen05 V09",
+    "severity": "close",
+    "why": "V09 asks for A = C²/(4π) (area from circumference). CD02 hinges on V = C²h/(4π), the same substitution. Used together, one cues the other. CLD-SAT-M-000395 (cylinder from its lateral rectangle) is also close."
+   }
+  ],
+  "CD03": [
+   {
+    "other_id": "CLD-ACT-M-000134",
+    "severity": "close",
+    "why": "Circle tangent to two perpendicular lines puts the center at (r, r) (ACT-591 retired as its duplicate). Here the corner-to-circle gap is asked."
+   }
+  ],
+  "CD04": [
+   {
+    "other_id": "CLD-ACT-M-000634",
+    "severity": "template",
+    "why": "Reverse of ACT-634. ACT-634 gives two angles of elevation (30°, 60°) and the horizontal distance between them, and asks the height. CD04 gives the height and two angles (45°, 30°), and asks the difference of the horizontal distances."
+   }
+  ],
+  "CD05": [],
+  "CD06": [
+   {
+    "other_id": "CLD-ACT-M-000173",
+    "severity": "close",
+    "why": "Rise in level in a cylinder = added volume / πr². Here it is a rate with an m→cm conversion."
+   }
+  ],
+  "CD07": [
+   {
+    "other_id": "CLD-ACT-M-000104",
+    "severity": "close",
+    "why": "Core step is the isosceles-trapezoid area from bases and legs (height from √(leg² − half-difference²)). ACT-584 was RETIRED as a duplicate of ACT-104. Here a prism volume and a conversion to liters are added."
+   }
+  ]
+ },
+ "within_list_cues": [],
+ "answer_errors": [
+  {
+   "id": "CC01",
+   "issue": "The stated trap error is wrong. '1 cm³ = 10 mm³' gives 5,400 mm³ → 450 s = 0.125 h, not 1.25. The value 1.25 comes from 1 cm³ = 100 mm³ (squaring instead of cubing). The key 12.5 is correct."
+  },
+  {
+   "id": "CD05",
+   "issue": "Distractor B (0.32) does not follow from its stated error. Converting 15 m to 150 cm with the tree in cm gives 600 × 8/150 = 32. Getting 0.32 needs the tree left as 6 (m) with distance 150, i.e., 6 × 8/150. Fix the rationale or the value (32 would also be a mixed-unit trap). The key 3.2 is correct."
+  },
+  {
+   "id": "CD04",
+   "issue": "Minor: distractor A's rule (shadow = 6 tan θ) gives a shadow that gets SHORTER (6 → 3.46), so 2.5 answers 'how much shorter', not 'longer'. The value checks out but the rationale should say so. The key 4.39 → 4.4 is correct."
+  }
+ ],
+ "cues_or_overdetermined": [
+  {
+   "id": "CB12",
+   "issue": "Key 64 is the largest choice, and every distractor (36, 48, 60) is an attainable value of xy + 4x. For a 'greatest possible value' item, picking the largest choice is always right. Replace a distractor with an unattainable larger value (e.g., 72 = 6·12, from a different misstep)."
+  },
+  {
+   "id": "CA07",
+   "issue": "Same flaw: 'least possible profit' key 25 is the smallest choice, and 55, 60, 90 are all attainable profits. Choosing the minimum wins. Add a too-small distractor (e.g., 10 from 3.00 − 2.80, or 0)."
+  },
+  {
+   "id": "CA09",
+   "issue": "Real-world plausibility cue. The key $0.58 per mile is the only realistic per-mile cost and the only choice under $1. $2.68, $20.18 and $29.00 per mile are implausible, and 29.00 is really a per-hour figure."
+  },
+  {
+   "id": "CB02",
+   "issue": "A quick direction check removes two choices. Moving closer must raise the reading, so 202.5 and 270 (both < 360) are out, leaving 480 vs 640."
+  },
+  {
+   "id": "CB10",
+   "issue": "Distractor D, 2d/(s² − c²), fails a units check (hours²/mile). Setting c = 0 leaves A, B, C all equal to 2d/s, so the remaining discrimination rests on the C sign trap only. Mild."
+  },
+  {
+   "id": "CC02",
+   "issue": "Mild: the mean $32 is closer to $20, so fewer than half gave $50. That eliminates 60% and 64% at once, leaving 24% vs 40%."
+  },
+  {
+   "id": "CC07",
+   "issue": "Mild: area grew more than birds, so density fell. That eliminates D (the increase) instantly."
+  }
+ ],
+ "grid_problems": [],
+ "unrealistic": [],
+ "likely_easier_than_labeled": [
+  {
+   "id": "CA08",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "One subtraction and division by 5. The fencepost step is a single, familiar idea."
+  },
+  {
+   "id": "CA07",
+   "labeled": "medium",
+   "likely": "easy",
+   "why": "Pair low sell with high cost. The key is also the smallest choice."
+  },
+  {
+   "id": "CA10",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Direct linear sum 27 + 0.8F = 47."
+  },
+  {
+   "id": "CB02",
+   "labeled": "medium",
+   "likely": "easy-medium",
+   "why": "The direction check leaves two choices."
+  },
+  {
+   "id": "CB05",
+   "labeled": "hard",
+   "likely": "medium-hard",
+   "why": "Two multiplications by 0.85 then 15%. The model is familiar."
+  },
+  {
+   "id": "CB09",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "Backsolving the choices (4.9(16 − 9) = 34.3) is quick."
+  },
+  {
+   "id": "CB12",
+   "labeled": "hard",
+   "likely": "medium",
+   "why": "Substitute and find the vertex. The key is also the largest choice."
+  },
+  {
+   "id": "CB13",
+   "labeled": "medium",
+   "likely": "easy",
+   "why": "Subtract, divide, square, or plug in t = 16."
+  },
+  {
+   "id": "CC04",
+   "labeled": "medium-hard",
+   "likely": "medium",
+   "why": "One linear equation."
+  },
+  {
+   "id": "CC05",
+   "labeled": "medium",
+   "likely": "easy",
+   "why": "One proportion with a stated conversion."
+  },
+  {
+   "id": "CD01",
+   "labeled": "medium",
+   "likely": "easy",
+   "why": "2(25π) − 49π."
+  }
+ ],
+ "notes": "All 40 keys recompute correctly (CA01 6, CA02 |p − 19.5| ≤ 0.15, CA04 2:20 p.m., CA05 40, CA06 30, CA07 25, CA08 24, CA09 0.58, CA10 25, CA11 7c/30 + 40, CA12 110, CA13 36, CB01 8, CB02 640, CB03 24, CB05 2,601, CB06 36, CB08 40, CB09 3, CB11 12, CB12 64, CB13 16, CC01 12.5, CC02 40%, CC03 D, CC04 480, CC05 9,120, CC06 37.5, CC07 −20%, CD01 π, CD02 22/17, CD03 1.66, CD04 4.4, CD05 3.2, CD06 3.6, CD07 330). All SPR answers fit the grid. Official-format notes: CB02 (inverse-square light intensity) and CC05 (estimate a count from sample plots) follow common official SAT formats. CC03 is the textbook Simpson's-paradox (kidney-stone style) structure. CB04 is the standard textbook open-box domain. None copies a specific released item."
+}
