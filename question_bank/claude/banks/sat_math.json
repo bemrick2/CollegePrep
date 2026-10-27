@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 67,
-  "updated_at": "2026-10-27T17:10:36+00:00",
+  "version": 68,
+  "updated_at": "2026-10-27T17:34:44+00:00",
   "passages": [],
   "questions": [
     {
@@ -52582,6 +52582,1261 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-067.review.json",
         "computation": "checks/sat_math/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000728",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Coefficient matching in a product of quadratics",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For all values of x, (x² − kx + 9)(x² + kx + 9) = x⁴ + 2x² + 81, where k is a positive constant. What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 is k², not k.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1.414",
+          "rationale": "√2 sets k² = 2, forgetting the 18x² from the constant terms.",
+          "trap": null
+        }
+      ],
+      "explanation": "The product is a difference of squares: (x² + 9)² − (kx)² = x⁴ + 18x² + 81 − k²x² = x⁴ + (18 − k²)x² + 81. Matching the x² coefficients, 18 − k² = 2, so k² = 16 and k = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Group the factors as (x² + 9) − kx and (x² + 9) + kx."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (a − b)(a + b) = a² − b², then match coefficients."
+      },
+      "remember": "Spot a difference of squares before multiplying out.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-01",
+      "created_at": "2026-10-27T17:34:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000729",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining fractions with conjugate denominators",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x > 1, which of the following is equivalent to 1/(√x − 1) − 1/(√x + 1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2/(x − 1)",
+        "B": "2/(x + 1)",
+        "C": "−2/(x − 1)",
+        "D": "2√x/(x − 1)"
+      },
+      "correct_answer": "A",
+      "explanation": "The common denominator is (√x − 1)(√x + 1) = x − 1. The numerator is (√x + 1) − (√x − 1) = 2, so the expression equals 2/(x − 1).",
+      "distractor_explanations": {
+        "B": "2/(x + 1) multiplies the conjugates as x + 1 instead of x − 1.",
+        "C": "−2/(x − 1) subtracts the numerators in the wrong order.",
+        "D": "2√x/(x − 1) adds the numerators instead of subtracting them."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "What is (√x − 1)(√x + 1)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the product of conjugates as the common denominator."
+      },
+      "remember": "The product of conjugates √x − 1 and √x + 1 is x − 1.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-02",
+      "created_at": "2026-10-27T17:34:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000730",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Hidden negative solution of a radical equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the least solution to the equation (∛(x − 1))² = 4 ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-7",
+      "accepted_answers": [
+        "-7"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 takes only the positive square root of 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 solves ∛(x − 1) = −2 but forgets to cube: x − 1 = −2.",
+          "trap": null
+        },
+        {
+          "value": "3.52",
+          "rationale": "3.52 raises 4 to the 2/3 power instead of the 3/2 power: 1 + 4^(2/3).",
+          "trap": null
+        }
+      ],
+      "explanation": "Taking square roots, ∛(x − 1) = 2 or ∛(x − 1) = −2. Cubing gives x − 1 = 8 or x − 1 = −8, so x = 9 or x = −7. The least solution is −7. Check: ∛(−8) = −2, and (−2)² = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What two values can ∛(x − 1) have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take both square roots, then cube."
+      },
+      "remember": "Taking a square root gives two cases: positive and negative.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-03",
+      "created_at": "2026-10-27T17:34:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-7",
+        "blind_answer": "-7",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000731",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sum of squares from a sum of reciprocals",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The real numbers x and y satisfy 1/x + 1/y = 4/3 and x + y = 8. What is the value of x² + y² ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "52",
+      "accepted_answers": [
+        "52"
+      ],
+      "common_errors": [
+        {
+          "value": "64",
+          "rationale": "64 squares the sum without subtracting 2xy.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "76",
+          "rationale": "76 adds 2xy instead of subtracting it.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is the value of xy.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Since 1/x + 1/y = (x + y)/(xy), 8/(xy) = 4/3, so xy = 6. Then x² + y² = (x + y)² − 2xy = 64 − 12 = 52.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write 1/x + 1/y as a single fraction."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find xy, then use (x + y)² − 2xy."
+      },
+      "remember": "x² + y² equals (x + y)² minus 2xy.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-04",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "52",
+        "blind_answer": "52",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000732",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Counting solutions of a composed quadratic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x² + 4x. How many distinct real solutions does the equation f(f(x)) = 0 have?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "f(u) = 0 when u = 0 or u = −4. So f(f(x)) = 0 when f(x) = 0 (x = 0 or x = −4) or f(x) = −4 (x² + 4x + 4 = 0, so only x = −2, since −4 is the minimum value of f). That gives 3 distinct solutions.",
+      "distractor_explanations": {
+        "A": "1 solves only f(x) = −4.",
+        "B": "2 assumes f(f(x)) = 0 requires f(x) = 0.",
+        "D": "4 assumes both inner equations have two solutions, but f(x) = −4 has only one."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "For which inputs u is f(u) = 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(x) equal to each zero of f."
+      },
+      "remember": "To solve f(f(x)) = 0, set f(x) equal to each zero of f.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-06",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000733",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Reflecting an exponential across a vertical line",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = 2^x. In the xy-plane, the graph of y = g(x) is the reflection of the graph of y = f(x) across the line x = 1. Which of the following defines g ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "g(x) = 2(0.5)^x",
+        "B": "g(x) = 0.25(0.5)^x",
+        "C": "g(x) = 2 − 2^x",
+        "D": "g(x) = 4(0.5)^x"
+      },
+      "correct_answer": "D",
+      "explanation": "Reflecting across x = 1 sends the point (a, 2^a) to (2 − a, 2^a), so g(x) = f(2 − x) = 2^(2 − x) = 4 · 2^(−x) = 4(0.5)^x. Check: points on the line x = 1 stay fixed, and g(1) = 2 = f(1).",
+      "distractor_explanations": {
+        "A": "This is f(1 − x), which reflects a distance of 1 instead of 2.",
+        "B": "This reflects across the y-axis and then shifts left 2, giving f(−x − 2).",
+        "C": "This reflects across the horizontal line y = 1, not the vertical line x = 1."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where does the point (a, 2^a) go after the reflection?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the curve and the mirror line x = 1."
+      },
+      "remember": "Reflecting across x = c replaces x with 2c − x.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-07",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000734",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equal compositions with a double root",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f and g are defined by f(x) = x² − 2 and g(x) = 2x + 1. For what value of x is f(g(x)) = g(f(x)) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 distributes the 2 to only x² in g(f(x)), giving 2x² + 4x = 0.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 makes a sign error when factoring.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "f(g(x)) = (2x + 1)² − 2 = 4x² + 4x − 1 and g(f(x)) = 2(x² − 2) + 1 = 2x² − 3. Setting them equal gives 2x² + 4x + 2 = 0, or 2(x + 1)² = 0, so x = −1.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Compute each composition separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand both compositions, then set them equal."
+      },
+      "remember": "f(g(x)) and g(f(x)) are usually different functions.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-08",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "-1",
+        "blind_answer": "-1",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000735",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Horizontal scaling inside a square root",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following describes how the graph of y = √(9x) can be obtained from the graph of y = √x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "A vertical stretch by a factor of 3",
+        "B": "A vertical stretch by a factor of 9",
+        "C": "A horizontal stretch by a factor of 9",
+        "D": "A vertical translation up 3 units"
+      },
+      "correct_answer": "A",
+      "explanation": "For x ≥ 0, √(9x) = √9 · √x = 3√x, so every y-value of y = √x is multiplied by 3: a vertical stretch by a factor of 3.",
+      "distractor_explanations": {
+        "B": "The 9 is inside the root, so the outputs are multiplied by √9 = 3, not 9.",
+        "C": "Multiplying the input by 9 would compress, not stretch, horizontally.",
+        "D": "This splits √(9x) into √9 + √x, which is not valid."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can you take the 9 out of the square root?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify √(9x) first."
+      },
+      "remember": "√(ab) = √a · √b when a and b are nonnegative.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-09",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000736",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Output a rational function never takes",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = (3x + 2)/(x − 4). For what value of k does the equation f(x) = k have no solution?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the excluded x-value, an input rather than an output.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-0.5",
+          "rationale": "−0.5 is f(0).",
+          "trap": null
+        },
+        {
+          "value": "-0.667",
+          "rationale": "−2/3 is the zero of the numerator.",
+          "trap": null
+        }
+      ],
+      "explanation": "Multiplying by x − 4 gives 3x + 2 = kx − 4k, so (3 − k)x = −4k − 2. When k = 3, this reads 0 = −14, which has no solution. For any other k, x = (4k + 2)/(k − 3), which is never 4, so it is a solution.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Solve f(x) = k for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Look for a value of k that makes the x-coefficient zero."
+      },
+      "remember": "If the x-terms cancel and the constants do not, there is no solution.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-10",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3",
+        "blind_answer": "3",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000737",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Maximum of a quadratic on a restricted interval",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A model for a company's weekly profit, in thousands of dollars, is P(x) = −x² + 6x − 5, where x is the number of machines operating. The model is valid only for 4 ≤ x ≤ 7. According to the model, what is the greatest weekly profit, in thousands of dollars, for values of x in this interval?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−12",
+        "B": "−2.25",
+        "C": "3",
+        "D": "4"
+      },
+      "correct_answer": "C",
+      "explanation": "The vertex is at x = 3, which is outside the interval. The parabola opens downward, so P decreases for x > 3, and the greatest value on 4 ≤ x ≤ 7 is P(4) = −16 + 24 − 5 = 3.",
+      "distractor_explanations": {
+        "A": "−12 is P(7); it assumes more machines means more profit.",
+        "B": "−2.25 is P(5.5), the value at the interval's midpoint.",
+        "D": "4 is the vertex value, but the vertex is outside the allowed inputs."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the vertex inside the interval?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and shade the allowed inputs."
+      },
+      "remember": "If the vertex is outside the allowed inputs, check the endpoints.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-11",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000738",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Line through only the hole of a rational graph",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, k is a constant greater than 1, and the line y = kx does not intersect the graph of y = (x² − 9)/(x − 3). What is the value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the y-coordinate of the hole.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the x-coordinate of the hole.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1",
+          "rationale": "1 gives a parallel line, but k must be greater than 1.",
+          "trap": null
+        }
+      ],
+      "explanation": "For x ≠ 3, the graph is the line y = x + 3 with the point (3, 6) removed. The line y = kx meets y = x + 3 where kx = x + 3, so x = 3/(k − 1). There is no intersection only if this point is the removed one, x = 3, which gives k = 2. Check: y = 2x passes through (3, 6).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Simplify the rational expression and note any excluded point."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the line with a hole at (3, 6)."
+      },
+      "remember": "A removable factor leaves a hole that other graphs can pass through.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-12",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000739",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Counting factorizations of a trinomial",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The expression x² + bx + 12, where b is a constant, can be written as (x + p)(x + q), where p and q are integers. How many different values of b are possible?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 counts only the positive factor pairs of 12.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 counts ordered pairs (p, q).",
+          "trap": null
+        }
+      ],
+      "explanation": "Since pq = 12 and b = p + q, the factor pairs {1, 12}, {2, 6}, {3, 4} and their negatives give b = 13, 8, 7, −13, −8, −7, which is 6 values.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What must pq and p + q equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List all integer factor pairs of 12, including negatives."
+      },
+      "remember": "Include negative factor pairs when listing integer factorizations.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-13",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000740",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equal percent changes recovered from an area change",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The length of a rectangle is increased by p% and its width is decreased by p%. The area of the new rectangle is 9% less than the area of the original rectangle. What is the value of p ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 assumes the area changes by p%.",
+          "trap": null
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 splits the 9% evenly between the two dimensions.",
+          "trap": null
+        },
+        {
+          "value": "0.3",
+          "rationale": "0.3 is the decimal rate, not the percent.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The area is multiplied by (1 + p/100)(1 − p/100) = 1 − (p/100)². Setting this equal to 0.91 gives (p/100)² = 0.09, so p/100 = 0.3 and p = 30.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What single factor multiplies the area?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the original length and width be 10."
+      },
+      "remember": "An increase and a decrease of the same percent do not cancel.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-14",
+      "created_at": "2026-10-27T17:34:43+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "30",
+        "blind_answer": "30",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000741",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Least vertical gap between two graphs",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The functions f and g are defined by f(x) = x² and g(x) = 6x − 13. In the xy-plane, the graphs of f and g do not intersect. What is the least possible value of f(x) − g(x) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the x-value where the least gap occurs.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "13",
+          "rationale": "13 is the constant term of x² − 6x + 13.",
+          "trap": null
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes a sign error when completing the square.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "f(x) − g(x) = x² − 6x + 13 = (x − 3)² + 4, which is least when x = 3. The least value is 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write f(x) − g(x) as one quadratic."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square."
+      },
+      "remember": "The minimum of (x − h)² + k is k.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-15",
+      "created_at": "2026-10-27T17:34:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000742",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Minimum after a horizontal stretch",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The quadratic function f has zeros at x = 1 and x = 5, and f(0) = 5. The function g is defined by g(x) = f(x/2). What is the minimum value of g ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−16",
+        "B": "−4",
+        "C": "−2",
+        "D": "−1"
+      },
+      "correct_answer": "B",
+      "explanation": "f(x) = (x − 1)(x − 5), since f(0) = 5. Its minimum is f(3) = −4. g(x) = f(x/2) stretches the graph horizontally, moving the vertex to x = 6 but leaving every output value unchanged, so the minimum of g is also −4. (g(x) = (1/4)(x − 2)(x − 10).)",
+      "distractor_explanations": {
+        "A": "−16 rebuilds g from its zeros 2 and 10 with leading coefficient 1, giving (6 − 2)(6 − 10).",
+        "C": "−2 assumes a horizontal stretch halves the outputs.",
+        "D": "−1 applies the 1/4 coefficient to the old minimum."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does a horizontal stretch change the y-values?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch f and stretch it sideways."
+      },
+      "remember": "Horizontal stretches move points sideways; they do not change output values.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-16",
+      "created_at": "2026-10-27T17:34:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000743",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Zeros of a product of shifted polynomials",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The polynomial p is defined by p(x) = (x + 1)(x − 2)(x − 3). The polynomial q is defined by q(x) = p(x) · p(x − 1). How many distinct real zeros does q have?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "5",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "explanation": "p(x) = 0 at x = −1, 2, and 3. p(x − 1) = 0 when x − 1 = −1, 2, or 3, so at x = 0, 3, and 4. Together the distinct zeros are −1, 0, 2, 3, and 4, which is 5 zeros (3 is shared).",
+      "distractor_explanations": {
+        "A": "1 counts only the shared zero, as if both factors had to be 0.",
+        "B": "3 assumes p(x − 1) has the same zeros as p(x).",
+        "D": "6 adds 3 + 3 without noticing that 3 is a zero of both."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Where is p(x − 1) equal to 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List the zeros of each factor, then remove repeats."
+      },
+      "remember": "A product is zero when any factor is zero.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-17",
+      "created_at": "2026-10-27T17:34:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000744",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Growth followed by decay",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A town's population was 2,000 at t = 0. It increased by 10% each year for 5 years, and from then on it decreased by 10% each year. Which of the following gives the population t years after t = 0, for t ≥ 5 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2,000(1.1)^5(0.9)^t",
+        "B": "2,000(1.1)^5(0.9)^(t − 5)",
+        "C": "2,000(0.99)^t",
+        "D": "2,000(1.1)^t(0.9)^(t − 5)"
+      },
+      "correct_answer": "B",
+      "explanation": "After 5 years the population is 2,000(1.1)^5. From then on, it decreases by 10% for each of the t − 5 years after year 5, so the population is 2,000(1.1)^5(0.9)^(t − 5).",
+      "distractor_explanations": {
+        "A": "This applies the decrease for all t years instead of t − 5 years.",
+        "C": "This combines +10% and −10% into a single yearly factor.",
+        "D": "This lets the growth continue past year 5."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many years of decrease have there been at time t?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check t = 5 and t = 6."
+      },
+      "remember": "Count how many periods each factor actually applies to.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "Q068-18",
+      "created_at": "2026-10-27T17:34:44+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-068.review.json",
+        "computation": "checks/sat_math/batch_068.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

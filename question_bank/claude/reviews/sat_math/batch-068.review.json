@@ -1,0 +1,451 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 68,
+  "reviewed_at": "2026-10-27T17:34:44+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 68
+  },
+  "counts": {
+    "PASS": 17,
+    "REVISE": 0,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000728",
+    "CLD-SAT-M-000729",
+    "CLD-SAT-M-000730",
+    "CLD-SAT-M-000731",
+    "CLD-SAT-M-000732",
+    "CLD-SAT-M-000733",
+    "CLD-SAT-M-000734",
+    "CLD-SAT-M-000735",
+    "CLD-SAT-M-000736",
+    "CLD-SAT-M-000737",
+    "CLD-SAT-M-000738",
+    "CLD-SAT-M-000739",
+    "CLD-SAT-M-000740",
+    "CLD-SAT-M-000741",
+    "CLD-SAT-M-000742",
+    "CLD-SAT-M-000743",
+    "CLD-SAT-M-000744"
+  ],
+  "results": [
+    {
+      "cand": "Q068-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Product = (x^2+9)^2 - k^2x^2 = x^4 + (18-k^2)x^2 + 81. 18-k^2=2 so k^2=16, k=4 (positive). Verified with sympy.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The unknown appears only in the x² coefficient, where it combines with 18 from the constant terms."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000728"
+    },
+    {
+      "cand": "Q068-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Common denominator x-1: [(sqrt x+1)-(sqrt x-1)]/(x-1) = 2/(x-1). B uses x+1 as the denominator. C has the sign wrong (the subtraction order is reversed). D keeps a stray sqrt x from adding instead of subtracting.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000729"
+    },
+    {
+      "cand": "Q068-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-7",
+      "computed_answer": "-7",
+      "blind_answer": "-7",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "cbrt(x-1) = +/-2, so x-1 = +/-8 and x = 9 or -7. The cube root of a negative number is real, so -7 is valid and is the least solution. The trap is answering 9 by taking only the positive root.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The squared cube root hides a negative branch, and the question asks for that branch."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000730"
+    },
+    {
+      "cand": "Q068-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "52",
+      "computed_answer": "52",
+      "blind_answer": "52",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "(x+y)/(xy) = 4/3 with x+y = 8, so xy = 6. x^2+y^2 = 64-12 = 52. Real x and y exist because the discriminant 64-24 > 0.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "xy must first be extracted from a sum of reciprocals, and x and y themselves are not integers."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000731"
+    },
+    {
+      "cand": "Q068-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-10/3",
+      "computed_answer": "-10/3",
+      "blind_answer": "-10/3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "x-3 = +/-(2x+1), so x = -4 or x = 2/3, and the sum is -10/3 (-3.333). This matches -3x^2-10x+8 = 0, whose roots sum to -b/a = -10/3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-SAT-M-000255",
+          "similarity": 0.6
+        },
+        {
+          "with": "CLD-SAT-M-000310",
+          "similarity": 0.73
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q068-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "f(f(x)) = 0 means f(x) = 0 or f(x) = -4. f(x) = 0 gives x = 0 or -4. f(x) = -4 gives (x+2)^2 = 0, so x = -2. That is 3 distinct solutions. A, B: undercount. D: 4 is the trap of counting the double root -2 twice (degree 4).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "One inner equation lands exactly on the minimum of f, so it has only one solution."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000732"
+    },
+    {
+      "cand": "Q068-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "Reflecting across x = 1 gives g(x) = f(2-x) = 2^(2-x) = 4(0.5)^x. A: 2^(1-x) is the reflection across x = 1/2. B: 2^(-x-2) is the reflection across x = -1. C: a vertical reflection/shift, not a reflection across x = 1.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The mirror is a vertical line other than the y-axis, and the result must be rewritten as a decreasing exponential."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000733"
+    },
+    {
+      "cand": "Q068-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "-1",
+      "computed_answer": "-1",
+      "blind_answer": "-1",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "f(g(x)) = 4x^2+4x-1 and g(f(x)) = 2x^2-3. Setting them equal gives 2x^2+4x+2 = 0, so (x+1)^2 = 0 and x = -1, a unique solution.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must expand both compositions correctly; the resulting quadratic has a double root."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000734"
+    },
+    {
+      "cand": "Q068-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "sqrt(9x) = 3 sqrt(x), which is a vertical stretch by 3. It is equally a horizontal compression by 1/9, which is not offered, so there is no conflict. B: wrong factor. C: the horizontal change is a compression, not a stretch. D: not a translation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000735"
+    },
+    {
+      "cand": "Q068-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "3x+2 = k(x-4) gives (3-k)x = -4k-2. When k = 3 this reads 0 = -14, so there is no solution. For any other k, x = (4k+2)/(k-3), which is never 4. So k = 3 is the unique answer (the horizontal asymptote).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The missing output comes from a vanishing coefficient, not from the excluded input."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000736"
+    },
+    {
+      "cand": "Q068-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "The vertex x = 3 lies outside [4,7], and P decreases on the interval, so the maximum is P(4) = 3. A: P(7) = -12, the minimum. B: P(5.5), the value at the interval midpoint. D: 4 is the vertex value, which falls outside the domain (an intended trap).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The vertex lies outside the domain, so the maximum is at an endpoint."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000737"
+    },
+    {
+      "cand": "Q068-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "The graph is y = x+3 with a hole at (3,6). y = kx meets y = x+3 at x = 3/(k-1). For no intersection, either k = 1 (excluded by k > 1) or the intersection falls at the hole, which gives k = 2. Unique answer.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The only way to avoid intersecting is to pass exactly through the hole."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000738"
+    },
+    {
+      "cand": "Q068-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "pq = 12 over integers, so b = p+q takes the values +/-13, +/-8, +/-7: 6 values. The trap is 3 (positive factors only).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000739"
+    },
+    {
+      "cand": "Q068-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "30",
+      "computed_answer": "30",
+      "blind_answer": "30",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "(1+p/100)(1-p/100) = 0.91, so (p/100)^2 = 0.09 and p = 30.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000740"
+    },
+    {
+      "cand": "Q068-15",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "f(x)-g(x) = x^2-6x+13 = (x-3)^2+4, so the minimum is 4. The 'do not intersect' sentence is consistent but redundant.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000741"
+    },
+    {
+      "cand": "Q068-16",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "f(x) = a(x-1)(x-5) and f(0) = 5a = 5, so a = 1 and the minimum of f is f(3) = -4. A horizontal stretch does not change the range, so the minimum of g is -4 (at x = 6). A: wrongly scales the output. C, D: wrongly halve the minimum or use an x-value.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The tempting route rebuilds g from its zeros and drops the leading coefficient."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000742"
+    },
+    {
+      "cand": "Q068-17",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "The zeros of p are -1, 2, 3, and the zeros of p(x-1) are 0, 3, 4. The union is {-1, 0, 2, 3, 4}, so 5 distinct zeros. D: 6 ignores the shared zero 3. B: 3 counts only p. A: no basis.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000743"
+    },
+    {
+      "cand": "Q068-18",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "At t = 5 the population is 2000(1.1)^5, then it decays by (0.9)^(t-5), which gives B. A: the exponent t overcounts the decay years. C: wrongly combines the rates. D: the growth exponent should be fixed at 5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000744"
+    }
+  ]
+}

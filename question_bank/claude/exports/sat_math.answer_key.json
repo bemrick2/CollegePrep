@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 67,
+  "bank_version": 68,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -14864,6 +14864,424 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Compute both rates, then subtract."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000728",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "16",
+          "rationale": "16 is k², not k.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "1.414",
+          "rationale": "√2 sets k² = 2, forgetting the 18x² from the constant terms.",
+          "trap": null
+        }
+      ],
+      "explanation": "The product is a difference of squares: (x² + 9)² − (kx)² = x⁴ + 18x² + 81 − k²x² = x⁴ + (18 − k²)x² + 81. Matching the x² coefficients, 18 − k² = 2, so k² = 16 and k = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Group the factors as (x² + 9) − kx and (x² + 9) + kx."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use (a − b)(a + b) = a² − b², then match coefficients."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000729",
+      "correct_answer": "A",
+      "explanation": "The common denominator is (√x − 1)(√x + 1) = x − 1. The numerator is (√x + 1) − (√x − 1) = 2, so the expression equals 2/(x − 1).",
+      "distractor_explanations": {
+        "B": "2/(x + 1) multiplies the conjugates as x + 1 instead of x − 1.",
+        "C": "−2/(x − 1) subtracts the numerators in the wrong order.",
+        "D": "2√x/(x − 1) adds the numerators instead of subtracting them."
+      },
+      "hints": [
+        "What is (√x − 1)(√x + 1)?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the product of conjugates as the common denominator."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000730",
+      "correct_answer": "-7",
+      "accepted_answers": [
+        "-7"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 takes only the positive square root of 4.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "-1",
+          "rationale": "−1 solves ∛(x − 1) = −2 but forgets to cube: x − 1 = −2.",
+          "trap": null
+        },
+        {
+          "value": "3.52",
+          "rationale": "3.52 raises 4 to the 2/3 power instead of the 3/2 power: 1 + 4^(2/3).",
+          "trap": null
+        }
+      ],
+      "explanation": "Taking square roots, ∛(x − 1) = 2 or ∛(x − 1) = −2. Cubing gives x − 1 = 8 or x − 1 = −8, so x = 9 or x = −7. The least solution is −7. Check: ∛(−8) = −2, and (−2)² = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "What two values can ∛(x − 1) have?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Take both square roots, then cube."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000731",
+      "correct_answer": "52",
+      "accepted_answers": [
+        "52"
+      ],
+      "common_errors": [
+        {
+          "value": "64",
+          "rationale": "64 squares the sum without subtracting 2xy.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "76",
+          "rationale": "76 adds 2xy instead of subtracting it.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 is the value of xy.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Since 1/x + 1/y = (x + y)/(xy), 8/(xy) = 4/3, so xy = 6. Then x² + y² = (x + y)² − 2xy = 64 − 12 = 52.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write 1/x + 1/y as a single fraction."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find xy, then use (x + y)² − 2xy."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000732",
+      "correct_answer": "C",
+      "explanation": "f(u) = 0 when u = 0 or u = −4. So f(f(x)) = 0 when f(x) = 0 (x = 0 or x = −4) or f(x) = −4 (x² + 4x + 4 = 0, so only x = −2, since −4 is the minimum value of f). That gives 3 distinct solutions.",
+      "distractor_explanations": {
+        "A": "1 solves only f(x) = −4.",
+        "B": "2 assumes f(f(x)) = 0 requires f(x) = 0.",
+        "D": "4 assumes both inner equations have two solutions, but f(x) = −4 has only one."
+      },
+      "hints": [
+        "For which inputs u is f(u) = 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set f(x) equal to each zero of f."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000733",
+      "correct_answer": "D",
+      "explanation": "Reflecting across x = 1 sends the point (a, 2^a) to (2 − a, 2^a), so g(x) = f(2 − x) = 2^(2 − x) = 4 · 2^(−x) = 4(0.5)^x. Check: points on the line x = 1 stay fixed, and g(1) = 2 = f(1).",
+      "distractor_explanations": {
+        "A": "This is f(1 − x), which reflects a distance of 1 instead of 2.",
+        "B": "This reflects across the y-axis and then shifts left 2, giving f(−x − 2).",
+        "C": "This reflects across the horizontal line y = 1, not the vertical line x = 1."
+      },
+      "hints": [
+        "Where does the point (a, 2^a) go after the reflection?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the curve and the mirror line x = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000734",
+      "correct_answer": "-1",
+      "accepted_answers": [
+        "-1"
+      ],
+      "common_errors": [
+        {
+          "value": "0",
+          "rationale": "0 distributes the 2 to only x² in g(f(x)), giving 2x² + 4x = 0.",
+          "trap": null
+        },
+        {
+          "value": "1",
+          "rationale": "1 makes a sign error when factoring.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "f(g(x)) = (2x + 1)² − 2 = 4x² + 4x − 1 and g(f(x)) = 2(x² − 2) + 1 = 2x² − 3. Setting them equal gives 2x² + 4x + 2 = 0, or 2(x + 1)² = 0, so x = −1.",
+      "distractor_explanations": {},
+      "hints": [
+        "Compute each composition separately."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Expand both compositions, then set them equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000735",
+      "correct_answer": "A",
+      "explanation": "For x ≥ 0, √(9x) = √9 · √x = 3√x, so every y-value of y = √x is multiplied by 3: a vertical stretch by a factor of 3.",
+      "distractor_explanations": {
+        "B": "The 9 is inside the root, so the outputs are multiplied by √9 = 3, not 9.",
+        "C": "Multiplying the input by 9 would compress, not stretch, horizontally.",
+        "D": "This splits √(9x) into √9 + √x, which is not valid."
+      },
+      "hints": [
+        "Can you take the 9 out of the square root?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Simplify √(9x) first."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000736",
+      "correct_answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "4",
+          "rationale": "4 is the excluded x-value, an input rather than an output.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-0.5",
+          "rationale": "−0.5 is f(0).",
+          "trap": null
+        },
+        {
+          "value": "-0.667",
+          "rationale": "−2/3 is the zero of the numerator.",
+          "trap": null
+        }
+      ],
+      "explanation": "Multiplying by x − 4 gives 3x + 2 = kx − 4k, so (3 − k)x = −4k − 2. When k = 3, this reads 0 = −14, which has no solution. For any other k, x = (4k + 2)/(k − 3), which is never 4, so it is a solution.",
+      "distractor_explanations": {},
+      "hints": [
+        "Solve f(x) = k for x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Look for a value of k that makes the x-coefficient zero."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000737",
+      "correct_answer": "C",
+      "explanation": "The vertex is at x = 3, which is outside the interval. The parabola opens downward, so P decreases for x > 3, and the greatest value on 4 ≤ x ≤ 7 is P(4) = −16 + 24 − 5 = 3.",
+      "distractor_explanations": {
+        "A": "−12 is P(7); it assumes more machines means more profit.",
+        "B": "−2.25 is P(5.5), the value at the interval's midpoint.",
+        "D": "4 is the vertex value, but the vertex is outside the allowed inputs."
+      },
+      "hints": [
+        "Is the vertex inside the interval?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the parabola and shade the allowed inputs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000738",
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the y-coordinate of the hole.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "3",
+          "rationale": "3 is the x-coordinate of the hole.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "1",
+          "rationale": "1 gives a parallel line, but k must be greater than 1.",
+          "trap": null
+        }
+      ],
+      "explanation": "For x ≠ 3, the graph is the line y = x + 3 with the point (3, 6) removed. The line y = kx meets y = x + 3 where kx = x + 3, so x = 3/(k − 1). There is no intersection only if this point is the removed one, x = 3, which gives k = 2. Check: y = 2x passes through (3, 6).",
+      "distractor_explanations": {},
+      "hints": [
+        "Simplify the rational expression and note any excluded point."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the line with a hole at (3, 6)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000739",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 counts only the positive factor pairs of 12.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 counts ordered pairs (p, q).",
+          "trap": null
+        }
+      ],
+      "explanation": "Since pq = 12 and b = p + q, the factor pairs {1, 12}, {2, 6}, {3, 4} and their negatives give b = 13, 8, 7, −13, −8, −7, which is 6 values.",
+      "distractor_explanations": {},
+      "hints": [
+        "What must pq and p + q equal?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List all integer factor pairs of 12, including negatives."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000740",
+      "correct_answer": "30",
+      "accepted_answers": [
+        "30"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 assumes the area changes by p%.",
+          "trap": null
+        },
+        {
+          "value": "4.5",
+          "rationale": "4.5 splits the 9% evenly between the two dimensions.",
+          "trap": null
+        },
+        {
+          "value": "0.3",
+          "rationale": "0.3 is the decimal rate, not the percent.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The area is multiplied by (1 + p/100)(1 − p/100) = 1 − (p/100)². Setting this equal to 0.91 gives (p/100)² = 0.09, so p/100 = 0.3 and p = 30.",
+      "distractor_explanations": {},
+      "hints": [
+        "What single factor multiplies the area?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let the original length and width be 10."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000741",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the x-value where the least gap occurs.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "13",
+          "rationale": "13 is the constant term of x² − 6x + 13.",
+          "trap": null
+        },
+        {
+          "value": "-4",
+          "rationale": "−4 makes a sign error when completing the square.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "f(x) − g(x) = x² − 6x + 13 = (x − 3)² + 4, which is least when x = 3. The least value is 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write f(x) − g(x) as one quadratic."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Complete the square."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000742",
+      "correct_answer": "B",
+      "explanation": "f(x) = (x − 1)(x − 5), since f(0) = 5. Its minimum is f(3) = −4. g(x) = f(x/2) stretches the graph horizontally, moving the vertex to x = 6 but leaving every output value unchanged, so the minimum of g is also −4. (g(x) = (1/4)(x − 2)(x − 10).)",
+      "distractor_explanations": {
+        "A": "−16 rebuilds g from its zeros 2 and 10 with leading coefficient 1, giving (6 − 2)(6 − 10).",
+        "C": "−2 assumes a horizontal stretch halves the outputs.",
+        "D": "−1 applies the 1/4 coefficient to the old minimum."
+      },
+      "hints": [
+        "Does a horizontal stretch change the y-values?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch f and stretch it sideways."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000743",
+      "correct_answer": "C",
+      "explanation": "p(x) = 0 at x = −1, 2, and 3. p(x − 1) = 0 when x − 1 = −1, 2, or 3, so at x = 0, 3, and 4. Together the distinct zeros are −1, 0, 2, 3, and 4, which is 5 zeros (3 is shared).",
+      "distractor_explanations": {
+        "A": "1 counts only the shared zero, as if both factors had to be 0.",
+        "B": "3 assumes p(x − 1) has the same zeros as p(x).",
+        "D": "6 adds 3 + 3 without noticing that 3 is a zero of both."
+      },
+      "hints": [
+        "Where is p(x − 1) equal to 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "List the zeros of each factor, then remove repeats."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000744",
+      "correct_answer": "B",
+      "explanation": "After 5 years the population is 2,000(1.1)^5. From then on, it decreases by 10% for each of the t − 5 years after year 5, so the population is 2,000(1.1)^5(0.9)^(t − 5).",
+      "distractor_explanations": {
+        "A": "This applies the decrease for all t years instead of t − 5 years.",
+        "C": "This combines +10% and −10% into a single yearly factor.",
+        "D": "This lets the growth continue past year 5."
+      },
+      "hints": [
+        "How many years of decrease have there been at time t?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check t = 5 and t = 6."
       }
     }
   ]
