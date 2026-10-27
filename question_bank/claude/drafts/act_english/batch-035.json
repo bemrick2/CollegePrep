@@ -1,14 +1,14 @@
 {
  "bank": "act_english",
  "batch": 35,
- "plan": "Informative essay (CLD-P-ACT-E-000035) on the Pony Express (1860-61). Topic checked against 34 ACT English passages; every grammar choice set checked against the live bank with chsearch.py (no matches). Skills new or rare in the bank: time-expression possessive, 'along with' agreement, no comma in a compound predicate, both...and parallelism, 'capable of' idiom, paragraph division; plus emphasizing detail, detail function, tense, significance conclusion. A farther/further item was dropped because modern usage accepts both for physical distance. No transition item.",
+ "plan": "Informative essay (CLD-P-ACT-E-000035) on the Pony Express (1860-61). Topic checked against 34 ACT English passages; every grammar choice set checked against the live bank with chsearch.py (no matches). Skills new or rare in the bank: time-expression possessive, 'along with' agreement, no comma in a compound predicate, both...and parallelism, 'capable of' idiom, paragraph division; plus emphasizing detail, detail function, tense, significance conclusion. A farther/further item was dropped because modern usage accepts both for physical distance. No transition item. Relabelled to the blind solvers' rating where it was lower: E035-04 medium→easy, E035-07 medium→easy, E035-08 hard→medium, E035-10 hard→easy.",
  "passages": [
   {
    "passage_id": "CLD-P-ACT-E-000035",
    "title": "Ten Days to Sacramento",
    "genre": "informative essay",
-   "word_count": 285,
-   "text": "In the spring of 1860, a letter sent from Missouri to California by stagecoach usually took three weeks or more to arrive. A new company promised to deliver mail in about ten days, saving customers more than a {{1|weeks}} wait. Its service soon became known by a simpler name: the Pony Express.\n\nThe plan depended on speed at every step. The company set up a chain of relay stations across roughly 1,900 miles of prairie, mountains, and desert. Each rider, along with the mail he carried, {{2|were}} expected to cover about seventy-five to one hundred miles before handing off to a fresh rider. At each station along the way, he swapped his tired horse for a fresh {{3|one, and}} rode on. Station keepers had the next horse saddled and waiting, so each change took {{4|some time}}. Riders needed to be both brave and {{5|have a light weight}}, since every extra pound slowed the horses.\n\nThe mail itself traveled in a leather cover called a mochila, which fit over the saddle and could be moved from one horse to the next in seconds. Because of this system, the service was {{6|capable to}} remarkable feats. In March 1861, riders carried the text of Abraham Lincoln's first inaugural address between the ends of the telegraph lines in Nebraska and Nevada in under eight days. {{7|}} Despite such feats, the company was losing money. Postage was expensive, at first five dollars for every half ounce of mail, but the cost of the stations, horses, and riders was far greater. {{8|}}\n\nIn October 1861, workers completed the first transcontinental telegraph line, which could carry a message across the country almost instantly. Two days later, the Pony Express {{9|announces}} that it would close. {{10|}}"
+   "word_count": 282,
+   "text": "In the spring of 1860, a letter sent from Missouri to California by stagecoach usually took three weeks or more to arrive. A new company promised to deliver mail in about ten days, saving customers more than a {{1|weeks}} wait. Its service soon became known as the Pony Express.\n\nThe plan depended on speed at every step. The company set up a chain of relay stations across roughly 1,900 miles of prairie, mountains, and desert. Each rider, along with the mail he carried, {{2|were}} expected to cover about seventy-five to one hundred miles before handing off to a fresh rider. At each station along the way, he swapped his tired horse for a fresh {{3|one, and}} rode on. Station keepers had the next horse saddled and waiting, so each change took {{4|some time}}. Riders needed to be both brave and {{5|have a light weight}}, since every extra pound slowed the horses.\n\nThe mail itself traveled in a leather cover called a mochila, which fit over the saddle and could be moved from one horse to the next in seconds. Because of this system, the service was {{6|capable to}} remarkable feats. In March 1861, riders carried the text of Abraham Lincoln's first inaugural address between the ends of the telegraph lines in Nebraska and Nevada in under eight days. {{7|}} Despite such feats, the company was losing money. Postage was expensive, at first five dollars for every half ounce of mail, but the cost of the stations, horses, and riders was far greater. {{8|}}\n\nIn October 1861, workers completed the first transcontinental telegraph line, which could carry a message across the country almost instantly. Two days later, the Pony Express {{9|announces}} that it would close. {{10|}}"
   }
  ],
  "candidates": [
@@ -167,7 +167,7 @@
    "skill": "Knowledge of Language",
    "subskill": "Precise detail (emphasizing speed)",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Which choice most effectively emphasizes how quickly riders changed horses at each station?",
    "choices": {
     "A": "NO CHANGE",
@@ -314,7 +314,7 @@
    "skill": "Production of Writing",
    "subskill": "Function of a detail",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "The writer includes the detail about Abraham Lincoln's first inaugural address mainly to:",
    "choices": {
     "A": "give a specific example of the service's speed.",
@@ -363,7 +363,7 @@
    "skill": "Production of Writing",
    "subskill": "Dividing a paragraph",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The writer wants to divide the preceding paragraph into two. The new paragraph should begin with the sentence that starts:",
    "choices": {
     "A": "\"The mail itself\"",
@@ -461,7 +461,7 @@
    "skill": "Production of Writing",
    "subskill": "Conclusion that explains significance",
    "repo_skill_key": "act_rhetorical_skills",
-   "difficulty": "hard",
+   "difficulty": "easy",
    "stem": "The writer wants to conclude the essay by explaining why the Pony Express is still remembered despite its short life. Which choice best accomplishes this goal?",
    "choices": {
     "A": "Though it ran for only about eighteen months, it showed how far people would go to connect a divided continent.",
@@ -507,6 +507,10 @@
   {
    "round": 2,
    "reason": "Round-1 blind solves matched every key; both flagged a factual error: in March 1861 the telegraph's western end was Fort Churchill, Nevada Territory, not California (changed to 'Nebraska and Nevada'). Both also noted that E035-04's key read awkwardly after 'continued'; moved the timing into its own sentence ('each change took ...') and rewrote the distractors to fit. Whole batch re-solved blind."
+  },
+  {
+   "round": "2a",
+   "reason": "Round-2 solves matched all keys with no blocking flags. One noted that 'became known by a simpler name' had no formal name to compare against; changed to 'became known as the Pony Express.' Untested sentence, no item text or answers affected; not re-solved."
   }
  ]
 }
