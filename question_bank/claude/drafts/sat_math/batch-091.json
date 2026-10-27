@@ -1,455 +1,455 @@
 {
- "bank": "sat_math",
- "batch": 91,
- "plan": "SAT Math batch 91: 10 items from idea set 29 (XA08, XA09, XA11, XA15, XC04, XC05, XC10, XC11, XC13, XC15; pre-checked in ideas-077.repeats.json). Fixes: XA11 renumbered (slope −2/5, run 10) away from CLD-SAT-M-000028; XA15 choice set changed so the key is not the intersection of the other bounds; XC04 hedging and lengths balanced; XC05 choices rebuilt as a 2x2 (prediction/observation by inside/outside the data); XC10 chess changed to 30 to 39 so two clubs share the smallest increase and the trick guess fails; XC11 stem reworded; XC13 renumbered to a terminating key (64). Difficulty provisional.",
- "candidates": [
-  {
-   "cand": "Q091-01",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Recovering rates from a piecewise tank process",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "A tank initially holds 50 liters of water. Valve A, which adds water at a constant rate, is opened at time t = 0. At t = 4 minutes the tank holds 110 liters, and at that moment drain B, which removes water at a constant rate, is also opened, with valve A still open. At t = 10 minutes the tank holds 140 liters, and valve A is closed while drain B stays open. At what time t, in minutes, will the tank be empty?",
-   "explanation": "Valve A adds (110 − 50)/4 = 15 liters per minute. From t = 4 to t = 10, the net rate is (140 − 110)/6 = 5, so drain B removes 15 − 5 = 10 liters per minute. After A closes, 140 liters drain at 10 liters per minute in 14 minutes, so the tank is empty at t = 10 + 14 = 24.",
-   "hints": [
-    "Find valve A's rate from the first phase."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Recover each rate from the phase where it can be isolated."
-   },
-   "remember": "Use the rate that applies in each phase.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Rates must be recovered from a multi-phase process."
-   },
-   "format": "spr",
-   "answer": "24",
-   "accepted_answers": [
-    "24"
-   ],
-   "common_errors": [
+  "bank": "sat_math",
+  "batch": 91,
+  "plan": "SAT Math batch 91: 10 items from idea set 29 (XA08, XA09, XA11, XA15, XC04, XC05, XC10, XC11, XC13, XC15; pre-checked in ideas-077.repeats.json). Fixes: XA11 renumbered (slope −2/5, run 10) away from CLD-SAT-M-000028; XA15 choice set changed so the key is not the intersection of the other bounds; XC04 hedging and lengths balanced; XC05 choices rebuilt as a 2x2 (prediction/observation by inside/outside the data); XC10 chess changed to 30 to 39 so two clubs share the smallest increase and the trick guess fails; XC11 stem reworded; XC13 renumbered to a terminating key (64). Difficulty provisional.",
+  "candidates": [
     {
-     "value": "14",
-     "rationale": "14 is the number of minutes after valve A closes, not the time t.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "38",
-     "rationale": "38 drains the 140 liters at the net rate of 5 liters per minute.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q091-02",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Translating a verbal relation between two outputs",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
-   "stem": "A kayak rental shop charges a flat fee plus the same amount for each hour of rental. Renting a kayak for 3 hours costs $5 more than twice the cost of renting a kayak for 1 hour, and renting a kayak for 4 hours costs $70. What is the charge, in dollars, for each hour of rental?",
-   "explanation": "With flat fee F and hourly rate r, F + 3r = 2(F + r) + 5 gives r = F + 5, and F + 4r = 70 gives F + 4(F + 5) = 70, so F = 10 and r = 15. Check: 3 hours costs $55, which is $5 more than twice $25.",
-   "hints": [
-    "Write the cost of h hours as F + rh."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Turn the sentence into an equation in F and r."
-   },
-   "remember": "Translate comparisons like \"5 more than twice\" carefully.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "15",
-   "accepted_answers": [
-    "15"
-   ],
-   "common_errors": [
-    {
-     "value": "10",
-     "rationale": "10 is the flat fee.",
-     "trap": "wrong_quantity"
+      "cand": "Q091-01",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Recovering rates from a piecewise tank process",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "A tank initially holds 50 liters of water. Valve A, which adds water at a constant rate, is opened at time t = 0. At t = 4 minutes the tank holds 110 liters, and at that moment drain B, which removes water at a constant rate, is also opened, with valve A still open. At t = 10 minutes the tank holds 140 liters, and valve A is closed while drain B stays open. At what time t, in minutes, will the tank be empty?",
+      "explanation": "Valve A adds (110 − 50)/4 = 15 liters per minute. From t = 4 to t = 10, the net rate is (140 − 110)/6 = 5, so drain B removes 15 − 5 = 10 liters per minute. After A closes, 140 liters drain at 10 liters per minute in 14 minutes, so the tank is empty at t = 10 + 14 = 24.",
+      "hints": [
+        "Find valve A's rate from the first phase."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Recover each rate from the phase where it can be isolated."
+      },
+      "remember": "Use the rate that applies in each phase.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Rates must be recovered from a multi-phase process."
+      },
+      "format": "spr",
+      "answer": "24",
+      "accepted_answers": [
+        "24"
+      ],
+      "common_errors": [
+        {
+          "value": "14",
+          "rationale": "14 is the number of minutes after valve A closes, not the time t.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "38",
+          "rationale": "38 drains the 140 liters at the net rate of 5 liters per minute.",
+          "trap": "wrong_quantity"
+        }
+      ]
     },
     {
-     "value": "17.5",
-     "rationale": "17.5 divides $70 by 4 hours, ignoring the fee.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q091-03",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Vertical change from a slope and a run",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "easy",
-   "stem": "In the xy-plane, a line with slope −2/5 passes through the points (a, b) and (a + 10, b + k), where a, b, and k are constants. What is the value of k?",
-   "explanation": "The slope is the change in y divided by the change in x. Here the run is 10 and the rise is k, so k/10 = −2/5 and k = −4.",
-   "hints": [
-    "What is the run between the two points?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Set rise over run equal to the slope."
-   },
-   "remember": "Slope is the change in y divided by the change in x.",
-   "expected_time_seconds": 40,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "−25",
-    "B": "−4",
-    "C": "−1/25",
-    "D": "4"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "Divides the run by the slope, 10 ÷ (−2/5).",
-     "trap": "wrong_quantity"
-    },
-    "C": {
-     "rationale": "Divides the slope by the run.",
-     "trap": "wrong_quantity"
-    },
-    "D": {
-     "rationale": "Drops the negative sign of the slope.",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
-   "cand": "Q091-04",
-   "reporting_category": "Algebra",
-   "skill": "Algebra",
-   "subskill": "Range of slopes for lines meeting a segment",
-   "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
-   "stem": "In the xy-plane, segment AB has endpoints A(2, 8) and B(10, 2). For which values of the constant m does the line y = mx intersect segment AB?",
-   "explanation": "A line through the origin meets the segment exactly when it lies between the lines through the origin and each endpoint. Line OA has slope 8/2 = 4, and line OB has slope 2/10 = 1/5. As the line turns from OB to OA, it sweeps every point of AB, so 1/5 ≤ m ≤ 4.",
-   "hints": [
-    "Which lines through the origin pass through A and B?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the segment and the lines through the origin."
-   },
-   "remember": "Extreme cases of a rotating line pass through the endpoints.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Requires reasoning about a rotating family of lines."
-   },
-   "choices": {
-    "A": "−3/4 ≤ m ≤ 4",
-    "B": "m ≥ 1/4",
-    "C": "1/5 ≤ m ≤ 4",
-    "D": "1/4 ≤ m ≤ 5"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "Uses the slope of the segment itself, −3/4, as the lower bound.",
-     "trap": "wrong_quantity"
-    },
-    "B": {
-     "rationale": "Uses run over rise for B and forgets the upper limit at A.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "Uses run over rise for each endpoint, 2/8 and 10/2.",
-     "trap": "wrong_quantity"
-    }
-   }
-  },
-  {
-   "cand": "Q091-05",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Systematic sampling aligned with a production cycle",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A factory has four machines, A, B, C, and D, that place finished items on a single conveyor belt in the repeating order A, B, C, D, A, B, C, D, and so on, starting with machine A. To estimate the percent of the factory's items that are defective, an inspector checks every 8th item on the belt (the 8th item, the 16th item, the 24th item, and so on) during one day. Which statement about this method is true?",
-   "explanation": "Every multiple of 8 is a multiple of 4, and positions 4, 8, 12, and so on are all made by machine D. So the sample contains only machine D's items and cannot reflect the defect rates of machines A, B, and C.",
-   "hints": [
-    "Which machine makes the 8th item? The 16th?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "List the first few inspected positions and their machines."
-   },
-   "remember": "A systematic sample can line up with a hidden cycle.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The sampling rule aligns with the production cycle."
-   },
-   "choices": {
-    "A": "Every inspected item comes from machine D, so the estimate may not reflect all four machines.",
-    "B": "It would likely give an unbiased estimate if the inspector checked every 4th item instead.",
-    "C": "It likely gives an unbiased estimate, since every item has the same 1-in-8 chance of inspection.",
-    "D": "It may be biased, but only because fewer than half of that day's items are inspected."
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "Every 4th item is also from machine D, so inspecting more often does not fix the problem.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "Confuses a fixed rule with random selection; items from A, B, and C have no chance at all.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "Treats the sampling fraction as the source of bias.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q091-06",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Interpreting an x-intercept outside the data range",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A scatterplot shows the high temperature x, in degrees Fahrenheit, and the number of iced drinks y sold at a café on each of 30 summer days. The high temperatures in the data range from 58°F to 96°F. The line of best fit is y = 4.2x − 96, and its x-intercept is at x ≈ 22.9. Which is the best interpretation of the x-intercept?",
-   "explanation": "Setting y = 0 gives x = 96/4.2 ≈ 22.9, so the line of best fit predicts 0 iced drinks at about 22.9°F. That temperature is far below every temperature in the data (58°F to 96°F), so the prediction is an extrapolation.",
-   "hints": [
-    "Is the x-intercept a data point or a model value?"
-   ],
-   "strategy": {
-    "key": "process_of_elimination",
-    "explanation": "Decide prediction versus observation, then inside versus outside the data."
-   },
-   "remember": "Predictions outside the data's range are extrapolations.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "The café sold no iced drinks on a day with a high of about 22.9°F, a temperature within the data's range.",
-    "B": "The café sold no iced drinks on a day with a high of about 22.9°F, a temperature far below the data.",
-    "C": "The model predicts 0 iced drinks at about 22.9°F, a temperature within the data's range.",
-    "D": "The model predicts 0 iced drinks at about 22.9°F, a temperature far below the data."
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "Treats a prediction as an observation and misplaces 22.9°F inside the data's range.",
-     "trap": "wrong_quantity"
-    },
-    "B": {
-     "rationale": "Treats a model prediction as an observed sale.",
-     "trap": "wrong_quantity"
-    },
-    "C": {
-     "rationale": "Correctly calls it a prediction but misplaces 22.9°F inside the data's range.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q091-07",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Comparing percent increases across groups",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "The table shows the number of members in four school clubs in 2022 and in 2024. Chess: 30 in 2022, 39 in 2024. Drama: 75 in 2022, 93 in 2024. Robotics: 24 in 2022, 33 in 2024. Debate: 120 in 2022, 141 in 2024. Which club had the greatest percent increase in membership from 2022 to 2024?",
-   "explanation": "The percent increases are 9/30 = 30% for chess, 18/75 = 24% for drama, 9/24 = 37.5% for robotics, and 21/120 = 17.5% for debate. Robotics had the greatest percent increase.",
-   "hints": [
-    "What is each club's increase divided by its 2022 membership?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Compute each percent change from the starting value."
-   },
-   "remember": "Percent change divides the change by the original value.",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "Chess",
-    "B": "Drama",
-    "C": "Robotics",
-    "D": "Debate"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "Chess gained the same 9 members as robotics, but from a larger starting membership.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "Has the second-largest increase in members, choosing by count rather than percent.",
-     "trap": "wrong_quantity"
-    },
-    "D": {
-     "rationale": "Has the greatest increase in the number of members, 21.",
-     "trap": "wrong_quantity"
-    }
-   }
-  },
-  {
-   "cand": "Q091-08",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Effect on mean and median of removing the median",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
-   "stem": "A data set consists of 9 numbers. The mean of the data set is 50, and the median is 48. The number 48 is removed from the data set. Which of the following correctly describes the 8 remaining numbers?",
-   "explanation": "The 9 numbers sum to 450, so the remaining 8 sum to 402 and their mean is 402/8 = 50.25. The new median is the mean of the original 4th and 6th numbers, which are at most 48 and at least 48, so it could be less than, equal to, or greater than 48.",
-   "hints": [
-    "What is the sum of the 9 numbers?"
-   ],
-   "strategy": {
-    "key": "plug_in_numbers",
-    "explanation": "Try two data sets with different 4th and 6th values."
-   },
-   "remember": "Removing the middle value makes the median depend on its neighbors.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The mean is exact while the median depends on unknown neighbors."
-   },
-   "choices": {
-    "A": "The mean is 50, and the median is 48.",
-    "B": "The mean is 50.25, and the median cannot be determined from the given information.",
-    "C": "The mean is 50.25, and the median is 48.",
-    "D": "The mean is 50, and the median cannot be determined from the given information."
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "Assumes removing a value near the center leaves both measures unchanged.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "Computes the mean correctly but assumes the median stays 48.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "Keeps the mean at 50 because 48 is close to 50.",
-     "trap": "partial_answer"
-    }
-   }
-  },
-  {
-   "cand": "Q091-09",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Share of a combined total from per-person rates",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "City A has a population of 100,000 and recycles an average of 0.8 kilogram of material per person per day. City B has a population of 150,000 and recycles an average of 0.3 kilogram per person per day. Of the total amount of material the two cities recycle per day, what percent is recycled by City A? (Disregard the % sign when entering your answer.)",
-   "explanation": "City A recycles 100,000 × 0.8 = 80,000 kilograms per day, and City B recycles 150,000 × 0.3 = 45,000 kilograms. City A's share is 80,000/125,000 = 64%.",
-   "hints": [
-    "How much does each city recycle per day?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Compute each total before finding a share."
-   },
-   "remember": "Weight per-person rates by population before combining.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "64",
-   "accepted_answers": [
-    "64"
-   ],
-   "common_errors": [
-    {
-     "value": "40",
-     "rationale": "40 is City A's share of the population.",
-     "trap": "wrong_quantity"
+      "cand": "Q091-02",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Translating a verbal relation between two outputs",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "A kayak rental shop charges a flat fee plus the same amount for each hour of rental. Renting a kayak for 3 hours costs $5 more than twice the cost of renting a kayak for 1 hour, and renting a kayak for 4 hours costs $70. What is the charge, in dollars, for each hour of rental?",
+      "explanation": "With flat fee F and hourly rate r, F + 3r = 2(F + r) + 5 gives r = F + 5, and F + 4r = 70 gives F + 4(F + 5) = 70, so F = 10 and r = 15. Check: 3 hours costs $55, which is $5 more than twice $25.",
+      "hints": [
+        "Write the cost of h hours as F + rh."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the sentence into an equation in F and r."
+      },
+      "remember": "Translate comparisons like \"5 more than twice\" carefully.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the flat fee.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "17.5",
+          "rationale": "17.5 divides $70 by 4 hours, ignoring the fee.",
+          "trap": null
+        }
+      ]
     },
     {
-     "value": "36",
-     "rationale": "36 is City B's share of the material.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q091-10",
-   "reporting_category": "Problem-Solving and Data Analysis",
-   "skill": "Problem-Solving and Data Analysis",
-   "subskill": "Applying a common sampling fraction",
-   "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "medium",
-   "stem": "A researcher selected a sample of students from three grades so that the same fraction of each grade's students was selected. Grade 9 has 340 students, and 18 grade 9 students were selected. 27 grade 10 students were selected. Grade 11 has 850 students. How many students in all were selected from the three grades?",
-   "explanation": "The sampling fraction is 18/340 = 9/170. Grade 11 contributes 850 × 9/170 = 45 students. The total is 18 + 27 + 45 = 90. Grade 10's enrollment is not needed, since its sample count is given.",
-   "hints": [
-    "What fraction of grade 9 was selected?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Apply the same fraction to grade 11."
-   },
-   "remember": "In proportional sampling, every group uses the same fraction.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "90",
-   "accepted_answers": [
-    "90"
-   ],
-   "common_errors": [
-    {
-     "value": "45",
-     "rationale": "45 is only the grade 11 count.",
-     "trap": "partial_answer"
+      "cand": "Q091-03",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Vertical change from a slope and a run",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "easy",
+      "stem": "In the xy-plane, a line with slope −2/5 passes through the points (a, b) and (a + 10, b + k), where a, b, and k are constants. What is the value of k?",
+      "explanation": "The slope is the change in y divided by the change in x. Here the run is 10 and the rise is k, so k/10 = −2/5 and k = −4.",
+      "hints": [
+        "What is the run between the two points?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set rise over run equal to the slope."
+      },
+      "remember": "Slope is the change in y divided by the change in x.",
+      "expected_time_seconds": 40,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "−25",
+        "B": "−4",
+        "C": "−1/25",
+        "D": "4"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "Divides the run by the slope, 10 ÷ (−2/5).",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "Divides the slope by the run.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "Drops the negative sign of the slope.",
+          "trap": "sign_error"
+        }
+      }
     },
     {
-     "value": "510",
-     "rationale": "510 is the number of grade 10 students, not the number selected.",
-     "trap": "wrong_quantity"
+      "cand": "Q091-04",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Range of slopes for lines meeting a segment",
+      "repo_skill_key": "sat_algebra",
+      "difficulty": "medium",
+      "stem": "In the xy-plane, segment AB has endpoints A(2, 8) and B(10, 2). For which values of the constant m does the line y = mx intersect segment AB?",
+      "explanation": "A line through the origin meets the segment exactly when it lies between the lines through the origin and each endpoint. Line OA has slope 8/2 = 4, and line OB has slope 2/10 = 1/5. As the line turns from OB to OA, it sweeps every point of AB, so 1/5 ≤ m ≤ 4.",
+      "hints": [
+        "Which lines through the origin pass through A and B?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the segment and the lines through the origin."
+      },
+      "remember": "Extreme cases of a rotating line pass through the endpoints.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires reasoning about a rotating family of lines."
+      },
+      "choices": {
+        "A": "−3/4 ≤ m ≤ 4",
+        "B": "m ≥ 1/4",
+        "C": "1/5 ≤ m ≤ 4",
+        "D": "1/4 ≤ m ≤ 5"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "Uses the slope of the segment itself, −3/4, as the lower bound.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "Uses run over rise for B and forgets the upper limit at A.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "Uses run over rise for each endpoint, 2/8 and 10/2.",
+          "trap": "wrong_quantity"
+        }
+      }
+    },
+    {
+      "cand": "Q091-05",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Systematic sampling aligned with a production cycle",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A factory has four machines, A, B, C, and D, that place finished items on a single conveyor belt in the repeating order A, B, C, D, A, B, C, D, and so on, starting with machine A. To estimate the percent of the factory's items that are defective, an inspector checks every 8th item on the belt (the 8th item, the 16th item, the 24th item, and so on) during one day. Which statement about this method is true?",
+      "explanation": "Every multiple of 8 is a multiple of 4, and positions 4, 8, 12, and so on are all made by machine D. So the sample contains only machine D's items and cannot reflect the defect rates of machines A, B, and C.",
+      "hints": [
+        "Which machine makes the 8th item? The 16th?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "List the first few inspected positions and their machines."
+      },
+      "remember": "A systematic sample can line up with a hidden cycle.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The sampling rule aligns with the production cycle."
+      },
+      "choices": {
+        "A": "Every inspected item comes from machine D, so the estimate may not reflect all four machines.",
+        "B": "It would likely give an unbiased estimate if the inspector checked every 4th item instead.",
+        "C": "It likely gives an unbiased estimate, since every item has the same 1-in-8 chance of inspection.",
+        "D": "It may be biased, but only because fewer than half of that day's items are inspected."
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "Every 4th item is also from machine D, so inspecting more often does not fix the problem.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "Confuses a fixed rule with random selection; items from A, B, and C have no chance at all.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "Treats the sampling fraction as the source of bias.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q091-06",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Interpreting an x-intercept outside the data range",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "A scatterplot shows the high temperature x, in degrees Fahrenheit, and the number of iced drinks y sold at a café on each of 30 summer days. The high temperatures in the data range from 58°F to 96°F. The line of best fit is y = 4.2x − 96, and its x-intercept is at x ≈ 22.9. Which is the best interpretation of the x-intercept?",
+      "explanation": "Setting y = 0 gives x = 96/4.2 ≈ 22.9, so the line of best fit predicts 0 iced drinks at about 22.9°F. That temperature is far below every temperature in the data (58°F to 96°F), so the prediction is an extrapolation.",
+      "hints": [
+        "Is the x-intercept a data point or a model value?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide prediction versus observation, then inside versus outside the data."
+      },
+      "remember": "Predictions outside the data's range are extrapolations.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "The café sold no iced drinks on a day with a high of about 22.9°F, a temperature within the data's range.",
+        "B": "The café sold no iced drinks on a day with a high of about 22.9°F, a temperature far below the data.",
+        "C": "The model predicts 0 iced drinks at about 22.9°F, a temperature within the data's range.",
+        "D": "The model predicts 0 iced drinks at about 22.9°F, a temperature far below the data."
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "Treats a prediction as an observation and misplaces 22.9°F inside the data's range.",
+          "trap": "wrong_quantity"
+        },
+        "B": {
+          "rationale": "Treats a model prediction as an observed sale.",
+          "trap": "wrong_quantity"
+        },
+        "C": {
+          "rationale": "Correctly calls it a prediction but misplaces 22.9°F inside the data's range.",
+          "trap": "partial_answer"
+        }
+      }
+    },
+    {
+      "cand": "Q091-07",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing percent increases across groups",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "easy",
+      "stem": "The table shows the number of members in four school clubs in 2022 and in 2024. Chess: 30 in 2022, 39 in 2024. Drama: 75 in 2022, 93 in 2024. Robotics: 24 in 2022, 33 in 2024. Debate: 120 in 2022, 141 in 2024. Which club had the greatest percent increase in membership from 2022 to 2024?",
+      "explanation": "The percent increases are 9/30 = 30% for chess, 18/75 = 24% for drama, 9/24 = 37.5% for robotics, and 21/120 = 17.5% for debate. Robotics had the greatest percent increase.",
+      "hints": [
+        "What is each club's increase divided by its 2022 membership?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each percent change from the starting value."
+      },
+      "remember": "Percent change divides the change by the original value.",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "Chess",
+        "B": "Drama",
+        "C": "Robotics",
+        "D": "Debate"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "Chess gained the same 9 members as robotics, but from a larger starting membership.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "Has the second-largest increase in members, choosing by count rather than percent.",
+          "trap": "wrong_quantity"
+        },
+        "D": {
+          "rationale": "Has the greatest increase in the number of members, 21.",
+          "trap": "wrong_quantity"
+        }
+      }
+    },
+    {
+      "cand": "Q091-08",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Effect on mean and median of removing the median",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A data set consists of 9 numbers. The mean of the data set is 50, and the median is 48. The number 48 is removed from the data set. Which of the following correctly describes the 8 remaining numbers?",
+      "explanation": "The 9 numbers sum to 450, so the remaining 8 sum to 402 and their mean is 402/8 = 50.25. The new median is the mean of the original 4th and 6th numbers, which are at most 48 and at least 48, so it could be less than, equal to, or greater than 48.",
+      "hints": [
+        "What is the sum of the 9 numbers?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try two data sets with different 4th and 6th values."
+      },
+      "remember": "Removing the middle value makes the median depend on its neighbors.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The mean is exact while the median depends on unknown neighbors."
+      },
+      "choices": {
+        "A": "The mean is 50, and the median is 48.",
+        "B": "The mean is 50.25, and the median cannot be determined from the given information.",
+        "C": "The mean is 50.25, and the median is 48.",
+        "D": "The mean is 50, and the median cannot be determined from the given information."
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "Assumes removing a value near the center leaves both measures unchanged.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "Computes the mean correctly but assumes the median stays 48.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "Keeps the mean at 50 because 48 is close to 50.",
+          "trap": "partial_answer"
+        }
+      }
+    },
+    {
+      "cand": "Q091-09",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Share of a combined total from per-person rates",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "City A has a population of 100,000 and recycles an average of 0.8 kilogram of material per person per day. City B has a population of 150,000 and recycles an average of 0.3 kilogram per person per day. Of the total amount of material the two cities recycle per day, what percent is recycled by City A? (Disregard the % sign when entering your answer.)",
+      "explanation": "City A recycles 100,000 × 0.8 = 80,000 kilograms per day, and City B recycles 150,000 × 0.3 = 45,000 kilograms. City A's share is 80,000/125,000 = 64%.",
+      "hints": [
+        "How much does each city recycle per day?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each total before finding a share."
+      },
+      "remember": "Weight per-person rates by population before combining.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is City A's share of the population.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "36",
+          "rationale": "36 is City B's share of the material.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q091-10",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Applying a common sampling fraction",
+      "repo_skill_key": "sat_problem_solving_data",
+      "difficulty": "medium",
+      "stem": "A researcher selected a sample of students from three grades so that the same fraction of each grade's students was selected. Grade 9 has 340 students, and 18 grade 9 students were selected. 27 grade 10 students were selected. Grade 11 has 850 students. How many students in all were selected from the three grades?",
+      "explanation": "The sampling fraction is 18/340 = 9/170. Grade 11 contributes 850 × 9/170 = 45 students. The total is 18 + 27 + 45 = 90. Grade 10's enrollment is not needed, since its sample count is given.",
+      "hints": [
+        "What fraction of grade 9 was selected?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the same fraction to grade 11."
+      },
+      "remember": "In proportional sampling, every group uses the same fraction.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is only the grade 11 count.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "510",
+          "rationale": "510 is the number of grade 10 students, not the number selected.",
+          "trap": "wrong_quantity"
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

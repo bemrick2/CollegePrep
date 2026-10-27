@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 90,
+  "bank_version": 91,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -21489,6 +21489,220 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Convert both heights to inches before subtracting."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001011",
+      "correct_answer": "24",
+      "accepted_answers": [
+        "24"
+      ],
+      "common_errors": [
+        {
+          "value": "14",
+          "rationale": "14 is the number of minutes after valve A closes, not the time t.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "38",
+          "rationale": "38 drains the 140 liters at the net rate of 5 liters per minute.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Valve A adds (110 − 50)/4 = 15 liters per minute. From t = 4 to t = 10, the net rate is (140 − 110)/6 = 5, so drain B removes 15 − 5 = 10 liters per minute. After A closes, 140 liters drain at 10 liters per minute in 14 minutes, so the tank is empty at t = 10 + 14 = 24.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find valve A's rate from the first phase."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Recover each rate from the phase where it can be isolated."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001012",
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "10",
+          "rationale": "10 is the flat fee.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "17.5",
+          "rationale": "17.5 divides $70 by 4 hours, ignoring the fee.",
+          "trap": null
+        }
+      ],
+      "explanation": "With flat fee F and hourly rate r, F + 3r = 2(F + r) + 5 gives r = F + 5, and F + 4r = 70 gives F + 4(F + 5) = 70, so F = 10 and r = 15. Check: 3 hours costs $55, which is $5 more than twice $25.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the cost of h hours as F + rh."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Turn the sentence into an equation in F and r."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001013",
+      "correct_answer": "B",
+      "explanation": "The slope is the change in y divided by the change in x. Here the run is 10 and the rise is k, so k/10 = −2/5 and k = −4.",
+      "distractor_explanations": {
+        "A": "Divides the run by the slope, 10 ÷ (−2/5).",
+        "C": "Divides the slope by the run.",
+        "D": "Drops the negative sign of the slope."
+      },
+      "hints": [
+        "What is the run between the two points?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set rise over run equal to the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001014",
+      "correct_answer": "C",
+      "explanation": "A line through the origin meets the segment exactly when it lies between the lines through the origin and each endpoint. Line OA has slope 8/2 = 4, and line OB has slope 2/10 = 1/5. As the line turns from OB to OA, it sweeps every point of AB, so 1/5 ≤ m ≤ 4.",
+      "distractor_explanations": {
+        "A": "Uses the slope of the segment itself, −3/4, as the lower bound.",
+        "B": "Uses run over rise for B and forgets the upper limit at A.",
+        "D": "Uses run over rise for each endpoint, 2/8 and 10/2."
+      },
+      "hints": [
+        "Which lines through the origin pass through A and B?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the segment and the lines through the origin."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001015",
+      "correct_answer": "A",
+      "explanation": "Every multiple of 8 is a multiple of 4, and positions 4, 8, 12, and so on are all made by machine D. So the sample contains only machine D's items and cannot reflect the defect rates of machines A, B, and C.",
+      "distractor_explanations": {
+        "B": "Every 4th item is also from machine D, so inspecting more often does not fix the problem.",
+        "C": "Confuses a fixed rule with random selection; items from A, B, and C have no chance at all.",
+        "D": "Treats the sampling fraction as the source of bias."
+      },
+      "hints": [
+        "Which machine makes the 8th item? The 16th?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "List the first few inspected positions and their machines."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001016",
+      "correct_answer": "D",
+      "explanation": "Setting y = 0 gives x = 96/4.2 ≈ 22.9, so the line of best fit predicts 0 iced drinks at about 22.9°F. That temperature is far below every temperature in the data (58°F to 96°F), so the prediction is an extrapolation.",
+      "distractor_explanations": {
+        "A": "Treats a prediction as an observation and misplaces 22.9°F inside the data's range.",
+        "B": "Treats a model prediction as an observed sale.",
+        "C": "Correctly calls it a prediction but misplaces 22.9°F inside the data's range."
+      },
+      "hints": [
+        "Is the x-intercept a data point or a model value?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Decide prediction versus observation, then inside versus outside the data."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001017",
+      "correct_answer": "C",
+      "explanation": "The percent increases are 9/30 = 30% for chess, 18/75 = 24% for drama, 9/24 = 37.5% for robotics, and 21/120 = 17.5% for debate. Robotics had the greatest percent increase.",
+      "distractor_explanations": {
+        "A": "Chess gained the same 9 members as robotics, but from a larger starting membership.",
+        "B": "Has the second-largest increase in members, choosing by count rather than percent.",
+        "D": "Has the greatest increase in the number of members, 21."
+      },
+      "hints": [
+        "What is each club's increase divided by its 2022 membership?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each percent change from the starting value."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001018",
+      "correct_answer": "B",
+      "explanation": "The 9 numbers sum to 450, so the remaining 8 sum to 402 and their mean is 402/8 = 50.25. The new median is the mean of the original 4th and 6th numbers, which are at most 48 and at least 48, so it could be less than, equal to, or greater than 48.",
+      "distractor_explanations": {
+        "A": "Assumes removing a value near the center leaves both measures unchanged.",
+        "C": "Computes the mean correctly but assumes the median stays 48.",
+        "D": "Keeps the mean at 50 because 48 is close to 50."
+      },
+      "hints": [
+        "What is the sum of the 9 numbers?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try two data sets with different 4th and 6th values."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001019",
+      "correct_answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is City A's share of the population.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "36",
+          "rationale": "36 is City B's share of the material.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "City A recycles 100,000 × 0.8 = 80,000 kilograms per day, and City B recycles 150,000 × 0.3 = 45,000 kilograms. City A's share is 80,000/125,000 = 64%.",
+      "distractor_explanations": {},
+      "hints": [
+        "How much does each city recycle per day?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute each total before finding a share."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001020",
+      "correct_answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "45",
+          "rationale": "45 is only the grade 11 count.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "510",
+          "rationale": "510 is the number of grade 10 students, not the number selected.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The sampling fraction is 18/340 = 9/170. Grade 11 contributes 850 × 9/170 = 45 students. The total is 18 + 27 + 45 = 90. Grade 10's enrollment is not needed, since its sample count is given.",
+      "distractor_explanations": {},
+      "hints": [
+        "What fraction of grade 9 was selected?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the same fraction to grade 11."
       }
     }
   ]

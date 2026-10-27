@@ -1,0 +1,261 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 91,
+  "reviewed_at": "2026-10-27T22:52:36+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 91
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-001011",
+    "CLD-SAT-M-001012",
+    "CLD-SAT-M-001013",
+    "CLD-SAT-M-001014",
+    "CLD-SAT-M-001015",
+    "CLD-SAT-M-001016",
+    "CLD-SAT-M-001017",
+    "CLD-SAT-M-001018",
+    "CLD-SAT-M-001019",
+    "CLD-SAT-M-001020"
+  ],
+  "results": [
+    {
+      "cand": "Q091-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "24",
+      "computed_answer": "24",
+      "blind_answer": "24",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 42,
+      "blind_flags": [],
+      "blind_notes": "A = (110-50)/4 = 15 L/min. From t=4 to 10 net +30 in 6 min = +5/min, so B drains 10 L/min. After t=10 only B: 140/10 = 14 min, empty at t = 24. Traps: answering 14 (time after closing) or using net rate 5. Multi-stage setup but each step routine.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Rates must be recovered from a multi-phase process."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001011"
+    },
+    {
+      "cand": "Q091-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 52,
+      "blind_flags": [],
+      "blind_notes": "f+3h = 2(f+h)+5 -> h = f+5; f+4h = 70 -> 5f+20 = 70, f = 10, h = 15. Check: 1 h = 25, 3 h = 55 = 2(25)+5; 4 h = 70. Realistic prices.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001012"
+    },
+    {
+      "cand": "Q091-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: choice C (-1/25) does not correspond to an obvious error path (-2/5 divided by 10 gives -1/25, so it may be intentional), but it is weak",
+        "minor: only D shares the key's magnitude, so a quick sign check leaves B; this is standard for SAT"
+      ],
+      "blind_notes": "k/10 = -2/5, so k = -4. A = 10*(-5/2) (reciprocal slope), D = sign error.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001013"
+    },
+    {
+      "cand": "Q091-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "A and B are both in quadrant I, so the lines through the origin that meet AB have slopes between the slopes of OB (2/10 = 1/5) and OA (8/2 = 4), since the slope changes continuously along the segment. 1/5 <= m <= 4. Distractors: D uses the reciprocal x/y for B (and 1/4 for A?); A uses the slope of AB (-3/4); B is one-sided. Graphing makes it quicker. Needs the insight that the slope through the origin is extremal at the endpoints.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Requires reasoning about a rotating family of lines."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001014"
+    },
+    {
+      "cand": "Q091-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [
+        "minor: a student can pick A by checking positions 8, 16, 24 mod 4 -> all D without thinking about sampling; B fails for the same reason (every 4th item is also all D), so B and A reinforce each other"
+      ],
+      "blind_notes": "Item n comes from machine ((n-1) mod 4); multiples of 8 are multiples of 4 -> machine D. A is true. B is false (every 4th is still all D). C is false (machines A-C have zero chance). D is false (the sample fraction is not the issue). Only A is defensible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The sampling rule aligns with the production cycle."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001015"
+    },
+    {
+      "cand": "Q091-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [
+        "minor: the 2x2 choice structure (sold vs predicts, within vs far below) plus the stated range 58-96 makes the 'within the range' choices trivially eliminable; the item reduces to 'model predicts' vs 'café sold', which is a familiar SAT cue"
+      ],
+      "blind_notes": "The x-intercept is where the model predicts y = 0: about 22.9 F, well below the observed 58-96 F (extrapolation). A and B describe actual sales, which is wrong; C misstates the range. Context is realistic (about 148-307 drinks across the range).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001016"
+    },
+    {
+      "cand": "Q091-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "Chess 9/30 = 30%; Drama 18/75 = 24%; Robotics 9/24 = 37.5%; Debate 21/120 = 17.5%. Robotics is the highest. Trap: Debate has the largest absolute increase; Chess ties Robotics on raw increase (+9). Compute four ratios with a calculator.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001017"
+    },
+    {
+      "cand": "Q091-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Sum = 450; 450-48 = 402; 402/8 = 50.25. The original median 48 is the 5th value; after removing it, the median = (original 4th + original 6th)/2, which is unknown (e.g., 40,56 -> 48 but 47,48 -> 47.5). B. C traps students who assume the median is unchanged. Only one choice is correct. Near the medium/hard boundary.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The mean is exact while the median depends on unknown neighbors."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001018"
+    },
+    {
+      "cand": "Q091-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "64",
+      "computed_answer": "64",
+      "blind_answer": "64",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "A: 100,000*0.8 = 80,000 kg; B: 150,000*0.3 = 45,000 kg; 80,000/125,000 = 64%. Trap: 0.8/(0.8+0.3) = 72.7 or a population share of 40. Magnitudes are plausible.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001019"
+    },
+    {
+      "cand": "Q091-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "90",
+      "computed_answer": "90",
+      "blind_answer": "90",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Fraction = 18/340 = 9/170. Grade 11: 850*9/170 = 45. Total = 18+27+45 = 90. The grade 10 enrollment is not needed (and it is not given; it would be 510). Trap: answering 45 (grade 11 only).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001020"
+    }
+  ]
+}
