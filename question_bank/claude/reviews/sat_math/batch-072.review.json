@@ -1,0 +1,328 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 72,
+  "reviewed_at": "2026-10-27T18:06:52+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 72
+  },
+  "counts": {
+    "PASS": 11,
+    "REVISE": 1,
+    "REJECT": 1
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000783",
+    "CLD-SAT-M-000784",
+    "CLD-SAT-M-000785",
+    "CLD-SAT-M-000786",
+    "CLD-SAT-M-000787",
+    "CLD-SAT-M-000788",
+    "CLD-SAT-M-000789",
+    "CLD-SAT-M-000790",
+    "CLD-SAT-M-000791",
+    "CLD-SAT-M-000792",
+    "CLD-SAT-M-000793"
+  ],
+  "results": [
+    {
+      "cand": "Q072-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2",
+      "computed_answer": "2",
+      "blind_answer": "2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "2^(x^2)=2^(3+2x) -> x^2-2x-3=0 -> x=3, -1; sum 2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The tempting merge 8 · 4^x = 32^x gives a wrong quadratic."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000783"
+    },
+    {
+      "cand": "Q072-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Squaring twice gives x-1=2sqrt(x-1) -> x=1 or 5; both check (sqrt4-0=2, sqrt16-sqrt4=2). A omits x=1 (students dividing by sqrt(x-1) or assuming extraneous); B omits 5; D: x=2 gives sqrt7-1 != 2.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both roots are valid, and dividing by a radical that can be zero loses one."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000784"
+    },
+    {
+      "cand": "Q072-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "64",
+      "computed_answer": "64",
+      "blind_answer": "64",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "Symmetry: vertex at t=1.5 -> b=32*1.5=48. h(4)=0: -256+192+c=0 -> c=64 = h(0).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The second zero lies at a negative time, outside the context, and must be found by symmetry."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000785"
+    },
+    {
+      "cand": "Q072-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "r(x)<0 for all x; (x-a)(x-b)<0 on (a,b) so p>0 there. B sign reversed; C: for x>b product (+)(-)<0; D: r has no real zeros, so only 2 x-intercepts.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must account for a factor with no zeros that flips the sign pattern."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000786"
+    },
+    {
+      "cand": "Q072-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Max of f at x=2 -> f(x-3) max at x=5; -2*5+1=-9, reflection makes it a minimum. A calls it a max; B wrong shift direction (x=-1); C wrong value (-12).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000787"
+    },
+    {
+      "cand": "Q072-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "15",
+      "computed_answer": "15",
+      "blind_answer": "15",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Roots r,4r: 4r^2=36 -> r=+/-3; k=-(5r)=-/+15; positive value 15 (roots -3,-12).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The positive k comes from the negative pair of solutions."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000788"
+    },
+    {
+      "cand": "Q072-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "((x+1)^2-x^2)/(x(x+1))=(2x+1)/(x^2+x). A: invalid cancellation; B: forgot 2x term; D: sign reversed (subtraction order).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000789"
+    },
+    {
+      "cand": "Q072-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5/2",
+      "computed_answer": "5/2",
+      "blind_answer": "5/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "4^x(4-1)=96 -> 4^x=32 -> 2^(2x)=2^5 -> x=5/2 (2.5 or 5/2 accepted).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-M-000041",
+          "similarity": 0.62
+        }
+      ],
+      "status": "REJECT",
+      "reason": "near-duplicate"
+    },
+    {
+      "cand": "Q072-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "16",
+      "computed_answer": "16",
+      "blind_answer": "16",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 35,
+      "blind_flags": [],
+      "blind_notes": "y=H-ax^2 with y(20)=0, y(15)=7: 400a-225a=7 -> a=0.04, H=16. Assumes symmetric parabola with vertex at top, standard for an arch.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000790"
+    },
+    {
+      "cand": "Q072-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Cross-multiply: (x-1)^2=(x+1)^2 -> x=0; check -1/1=1/(-1). A wrong (0 works); C: those are excluded values; D: equation is not an identity (e.g., x=2 gives 1/3 vs 3).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000791"
+    },
+    {
+      "cand": "Q072-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "(3-k)x=-(k+6). k=3: 0=-9, no solution. k=0: LHS never 0 (algebraic x=-2 is extraneous). k=-6: x=0 works (-3=-3), so D wrong; A and C each miss one case.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "No solution arises in two different ways, and both must be found."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000792"
+    },
+    {
+      "cand": "Q072-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "6/(3-x)=-6/(x-3); (2x-6)/(x-3)=2. A ignores sign flip; B sign error; C multiplies by (x+3) incorrectly treating 3-x as x+3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000793"
+    },
+    {
+      "cand": "Q072-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "(x+2)(2x+3)=2x^2+7x+6; remainder 9-6=3.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "hint may give the answer away: 'Multiply (2x + 3)(x + 2).'"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "hint may give the answer away: 'Multiply (2x + 3)(x + 2).'"
+    }
+  ]
+}

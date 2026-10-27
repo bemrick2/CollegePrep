@@ -1,608 +1,608 @@
 {
- "bank": "sat_math",
- "batch": 72,
- "plan": "SAT Math batch 72: 13 Advanced Math items from idea set 21 (pre-checked in ideas-068.repeats.json). Dropped from set 21: PB03 (template of CLD-SAT-M-000322), PB07 (template of CLD-SAT-M-000444), PB16 (copy of CLD-ACT-M-000122), PD09 (third copy of CLD-SAT-M-000115/000022). Fixes: PB04 now asks the launch height (64), not the maximum, away from CLD-SAT-M-000508; PB14 adds a '0 only' distractor so a k = 0 check does not single out the key; PB05's claim that numbers cannot check it removed. PB09 and PB15 deferred to batch 73 to spread the parameter-quadratic family. Choice orders changed for PB10 and PB14.",
- "candidates": [
-  {
-   "cand": "Q072-01",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Exponential equation leading to a quadratic",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "What is the sum of all solutions to the equation 2^(x²) = 8 · 4^x ?",
-   "explanation": "8 · 4^x = 2³ · 2^(2x) = 2^(2x + 3), so x² = 2x + 3, or x² − 2x − 3 = 0. Then (x − 3)(x + 1) = 0, so x = 3 or x = −1, and the sum is 2.",
-   "hints": [
-    "Write both sides as powers of 2."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use a^m · a^n = a^(m + n), then set exponents equal."
-   },
-   "remember": "Multiplying powers with the same base adds the exponents.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The tempting merge 8 · 4^x = 32^x gives a wrong quadratic."
-   },
-   "format": "spr",
-   "answer": "2",
-   "accepted_answers": [
-    "2"
-   ],
-   "common_errors": [
+  "bank": "sat_math",
+  "batch": 72,
+  "plan": "SAT Math batch 72: 13 Advanced Math items from idea set 21 (pre-checked in ideas-068.repeats.json). Dropped from set 21: PB03 (template of CLD-SAT-M-000322), PB07 (template of CLD-SAT-M-000444), PB16 (copy of CLD-ACT-M-000122), PD09 (third copy of CLD-SAT-M-000115/000022). Fixes: PB04 now asks the launch height (64), not the maximum, away from CLD-SAT-M-000508; PB14 adds a '0 only' distractor so a k = 0 check does not single out the key; PB05's claim that numbers cannot check it removed. PB09 and PB15 deferred to batch 73 to spread the parameter-quadratic family. Choice orders changed for PB10 and PB14.",
+  "candidates": [
     {
-     "value": "5",
-     "rationale": "5 merges 8 · 4^x into 32^x = 2^(5x), so x² = 5x.",
-     "trap": null
+      "cand": "Q072-01",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential equation leading to a quadratic",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "What is the sum of all solutions to the equation 2^(x²) = 8 · 4^x ?",
+      "explanation": "8 · 4^x = 2³ · 2^(2x) = 2^(2x + 3), so x² = 2x + 3, or x² − 2x − 3 = 0. Then (x − 3)(x + 1) = 0, so x = 3 or x = −1, and the sum is 2.",
+      "hints": [
+        "Write both sides as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use a^m · a^n = a^(m + n), then set exponents equal."
+      },
+      "remember": "Multiplying powers with the same base adds the exponents.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The tempting merge 8 · 4^x = 32^x gives a wrong quadratic."
+      },
+      "format": "spr",
+      "answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 merges 8 · 4^x into 32^x = 2^(5x), so x² = 5x.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 multiplies the exponents, writing 8 · 4^x as 2^(3 · 2x).",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 keeps only the positive solution.",
+          "trap": "partial_answer"
+        }
+      ]
     },
     {
-     "value": "6",
-     "rationale": "6 multiplies the exponents, writing 8 · 4^x as 2^(3 · 2x).",
-     "trap": null
+      "cand": "Q072-02",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equation with two radicals",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "hard",
+      "stem": "Which of the following lists all solutions to the equation √(3x + 1) − √(x − 1) = 2 ?",
+      "explanation": "Write √(3x + 1) = 2 + √(x − 1) and square: 3x + 1 = x + 3 + 4√(x − 1), so x − 1 = 2√(x − 1). With u = √(x − 1), u² = 2u gives u = 0 or u = 2, so x = 1 or x = 5. Both check: √4 − √0 = 2 and √16 − √4 = 2.",
+      "hints": [
+        "Isolate one radical before squaring."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check each listed value in the original equation."
+      },
+      "remember": "Never divide by an expression that could be zero; factor instead.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Both roots are valid, and dividing by a radical that can be zero loses one."
+      },
+      "choices": {
+        "A": "{5}",
+        "B": "{1}",
+        "C": "{1, 5}",
+        "D": "{1, 2}"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "{5} divides both sides of u² = 2u by u and loses u = 0.",
+          "trap": "partial_answer"
+        },
+        "B": {
+          "rationale": "{1} squares term by term, (3x + 1) − (x − 1) = 4.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "{1, 2} writes the cross term as 2√(x − 1) instead of 4√(x − 1).",
+          "trap": null
+        }
+      }
     },
     {
-     "value": "3",
-     "rationale": "3 keeps only the positive solution.",
-     "trap": "partial_answer"
+      "cand": "Q072-03",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Launch height from symmetry and a zero",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "hard",
+      "stem": "A ball's height, in feet, t seconds after it is thrown is h(t) = −16t² + bt + c, where b and c are constants. The ball is at the same height at t = 0.5 and t = 2.5, and it hits the ground at t = 4. From what height, in feet, was the ball thrown?",
+      "explanation": "Equal heights at t = 0.5 and t = 2.5 put the vertex at t = 1.5. The zero at t = 4 is 2.5 seconds after the vertex, so the other zero is at t = 1.5 − 2.5 = −1. Then h(t) = −16(t − 4)(t + 1) = −16t² + 48t + 64, and h(0) = 64.",
+      "hints": [
+        "Where is the vertex?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use symmetry to find the second zero, then write h in factored form."
+      },
+      "remember": "Zeros of a quadratic are symmetric about the vertex.",
+      "expected_time_seconds": 120,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The second zero lies at a negative time, outside the context, and must be found by symmetry."
+      },
+      "format": "spr",
+      "answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the maximum height, not the height at t = 0.",
+          "trap": null
+        },
+        {
+          "value": "84",
+          "rationale": "84 is the height at t = 0.5 and t = 2.5.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 assumes the ball was thrown from the ground.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q072-04",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sign of a product with a negative quadratic factor",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "hard",
+      "stem": "The function p is defined by p(x) = (x − a)(x − b) · r(x), where a and b are constants with a < b, and r is a quadratic function whose graph in the xy-plane lies entirely below the x-axis. Which of the following must be true?",
+      "explanation": "Since r(x) < 0 for every x, p(x) always has the opposite sign of (x − a)(x − b). For a < x < b, (x − a)(x − b) < 0, so p(x) > 0.",
+      "hints": [
+        "What is the sign of r(x)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a sign chart for each factor."
+      },
+      "remember": "A factor that is always negative flips every sign in a sign chart.",
+      "expected_time_seconds": 90,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must account for a factor with no zeros that flips the sign pattern."
+      },
+      "choices": {
+        "A": "p(x) > 0 for all x such that a < x < b",
+        "B": "p(x) < 0 for all x such that a < x < b",
+        "C": "p(x) > 0 for all x > b",
+        "D": "The graph of y = p(x) crosses the x-axis at exactly four points."
+      },
+      "answer": "A",
+      "distractors": {
+        "B": {
+          "rationale": "This uses the sign of (x − a)(x − b) and ignores the negative factor r.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "For x > b, (x − a)(x − b) > 0, so p(x) < 0.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "r has no real zeros, so p crosses the x-axis only at a and b.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q072-05",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Transformations of a maximum",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "The function f has a maximum value of 5, which occurs at x = 2. The function g is defined by g(x) = −2f(x − 3) + 1. Which of the following statements about g is true?",
+      "explanation": "f(x − 3) reaches its maximum of 5 at x = 5. Multiplying by −2 turns that maximum into a minimum of −10, and adding 1 gives −9. So g has a minimum value of −9 at x = 5.",
+      "hints": [
+        "Where does f(x − 3) reach its maximum?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the shift, then the stretch and reflection, then the vertical shift."
+      },
+      "remember": "Multiplying by a negative number turns a maximum into a minimum.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "g has a maximum value of −9 at x = 5.",
+        "B": "g has a minimum value of −9 at x = −1.",
+        "C": "g has a minimum value of −12 at x = 5.",
+        "D": "g has a minimum value of −9 at x = 5."
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "This misses that multiplying by −2 turns the maximum into a minimum.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This shifts the input in the wrong direction, 2 − 3.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This adds 1 before multiplying: −2(5 + 1).",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q072-06",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Roots in a given ratio",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "In the equation x² + kx + 36 = 0, k is a constant. The equation has two real solutions, and one solution is 4 times the other. What is the positive value of k ?",
+      "explanation": "If the solutions are r and 4r, their product is 4r² = 36, so r = 3 or r = −3. Their sum is 5r = −k. For r = −3, k = 15 (solutions −3 and −12); for r = 3, k = −15. The positive value is 15.",
+      "hints": [
+        "What are the product and sum of the solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use product = 36 and sum = −k."
+      },
+      "remember": "For x² + kx + c, the solutions multiply to c and add to −k.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The positive k comes from the negative pair of solutions."
+      },
+      "format": "spr",
+      "answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "-15",
+          "rationale": "−15 comes from the solutions 3 and 12; the positive k comes from −3 and −12.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "9",
+          "rationale": "9 stops at r² = 9.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the larger solution, not k.",
+          "trap": "wrong_quantity"
+        }
+      ]
+    },
+    {
+      "cand": "Q072-07",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Subtracting reciprocal-shaped fractions",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "For x > 0, which of the following is equivalent to (x + 1)/x − x/(x + 1) ?",
+      "explanation": "Over the common denominator x(x + 1) = x² + x, the numerator is (x + 1)² − x² = 2x + 1. So the expression equals (2x + 1)/(x² + x).",
+      "hints": [
+        "What is the common denominator?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine over x(x + 1)."
+      },
+      "remember": "(x + 1)² = x² + 2x + 1, not x² + 1.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "−1",
+        "B": "1/(x² + x)",
+        "C": "(2x + 1)/(x² + x)",
+        "D": "(−2x − 1)/(x² + x)"
+      },
+      "answer": "C",
+      "distractors": {
+        "A": {
+          "rationale": "−1 subtracts the numerators and the denominators separately.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This expands (x + 1)² as x² + 1.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "This subtracts in the wrong order, x² − (x + 1)².",
+          "trap": "sign_error"
+        }
+      }
+    },
+    {
+      "cand": "Q072-08",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Factoring a difference of powers",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "What value of x satisfies the equation 4^(x + 1) − 4^x = 96 ?",
+      "explanation": "4^(x + 1) − 4^x = 4 · 4^x − 4^x = 3 · 4^x, so 3 · 4^x = 96 and 4^x = 32. Writing both sides as powers of 2, 2^(2x) = 2^5, so x = 5/2.",
+      "hints": [
+        "Factor out 4^x."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write 4^(x + 1) as 4 · 4^x."
+      },
+      "remember": "a^(x + 1) = a · a^x.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "5/2",
+      "accepted_answers": [
+        "5/2",
+        "2.5"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 is the value of 4^x, not x.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "8",
+          "rationale": "8 solves 4x = 32.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q072-09",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Parabolic arch from two widths",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "The opening of an arch has the shape of a parabola. The opening is 40 meters wide at ground level and 30 meters wide at a height of 7 meters. What is the height of the arch at its highest point, in meters?",
+      "explanation": "Put the vertex on the y-axis: y = H(1 − x²/400), since the arch meets the ground at x = ±20. At a height of 7 the half-width is 15, so H(1 − 225/400) = 7, giving (7/16)H = 7 and H = 16.",
+      "hints": [
+        "Write the parabola with zeros at x = −20 and x = 20."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the arch with its vertex on the y-axis."
+      },
+      "remember": "Use symmetry to place a parabola's vertex on an axis.",
+      "expected_time_seconds": 100,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "28",
+          "rationale": "28 assumes the width shrinks linearly with height.",
+          "trap": null
+        },
+        {
+          "value": "9.33",
+          "rationale": "9.33 assumes height is proportional to width, 7 · 40/30.",
+          "trap": null
+        }
+      ]
+    },
+    {
+      "cand": "Q072-10",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation with a single valid solution",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "Which of the following describes all solutions to the equation (x − 1)/(x + 1) = (x + 1)/(x − 1) ?",
+      "explanation": "Cross-multiplying gives (x − 1)² = (x + 1)², so x² − 2x + 1 = x² + 2x + 1 and x = 0. Check: (0 − 1)/(0 + 1) = −1 and (0 + 1)/(0 − 1) = −1.",
+      "hints": [
+        "Cross-multiply and simplify."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve, then check against the excluded values."
+      },
+      "remember": "Always check solutions against values that make a denominator zero.",
+      "expected_time_seconds": 80,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "The equation has no solution.",
+        "B": "x = 0 only",
+        "C": "x = 1 and x = −1",
+        "D": "Every real number except 1 and −1"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This expects the x² terms to cancel into a contradiction, but a solution remains.",
+          "trap": null
+        },
+        "C": {
+          "rationale": "1 and −1 make a denominator zero, so they cannot be solutions.",
+          "trap": null
+        },
+        "D": {
+          "rationale": "Equal squares do not make the equation true for every x.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q072-11",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Two ways a rational equation has no solution",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "hard",
+      "stem": "In the equation 3/(x − 1) = k/(x + 2), k is a constant. For which of the following values of k does the equation have no solution?",
+      "explanation": "Cross-multiplying gives 3x + 6 = kx − k, so (3 − k)x = −k − 6. If k = 3, this reads 0 = −9: no solution. Otherwise x = (k + 6)/(k − 3), which equals −2, an excluded value, only when k = 0. (Directly: 3/(x − 1) can never equal 0.) So k = 0 and k = 3.",
+      "hints": [
+        "Can 3/(x − 1) ever equal 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for x, then check for cancellation and excluded values."
+      },
+      "remember": "No solution can come from a contradiction or from an excluded value.",
+      "expected_time_seconds": 110,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "No solution arises in two different ways, and both must be found."
+      },
+      "choices": {
+        "A": "0 only",
+        "B": "0 and 3",
+        "C": "3 only",
+        "D": "−6 and 3"
+      },
+      "answer": "B",
+      "distractors": {
+        "A": {
+          "rationale": "This finds the excluded-value case but misses k = 3, where the x-terms cancel.",
+          "trap": "partial_answer"
+        },
+        "C": {
+          "rationale": "This finds only the case with equal x-coefficients.",
+          "trap": "partial_answer"
+        },
+        "D": {
+          "rationale": "k = −6 gives the valid solution x = 0.",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q072-12",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining fractions with opposite denominators",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "For x ≠ 3, which of the following is equivalent to 2x/(x − 3) + 6/(3 − x) ?",
+      "explanation": "Since 3 − x = −(x − 3), 6/(3 − x) = −6/(x − 3). The sum is (2x − 6)/(x − 3) = 2(x − 3)/(x − 3) = 2.",
+      "hints": [
+        "How is 3 − x related to x − 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite 3 − x as −(x − 3)."
+      },
+      "remember": "3 − x equals −(x − 3).",
+      "expected_time_seconds": 60,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "choices": {
+        "A": "(2x + 6)/(x − 3)",
+        "B": "−2",
+        "C": "(2x² + 18)/(x² − 9)",
+        "D": "2"
+      },
+      "answer": "D",
+      "distractors": {
+        "A": {
+          "rationale": "This treats 3 − x as x − 3 and adds the numerators.",
+          "trap": null
+        },
+        "B": {
+          "rationale": "This rewrites the sum correctly but then treats (x − 3)/(3 − x) as 1.",
+          "trap": "sign_error"
+        },
+        "C": {
+          "rationale": "This rewrites 3 − x as −(x + 3).",
+          "trap": null
+        }
+      }
+    },
+    {
+      "cand": "Q072-13",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Remainder from polynomial division",
+      "repo_skill_key": "sat_advanced_math",
+      "difficulty": "medium",
+      "stem": "For x ≠ −2, the expression (2x² + 7x + 9)/(x + 2) is equivalent to 2x + 3 + k/(x + 2), where k is a constant. What is the value of k ?",
+      "explanation": "(2x + 3)(x + 2) = 2x² + 7x + 6, so 2x² + 7x + 9 = (2x + 3)(x + 2) + 3. Dividing by x + 2 gives 2x + 3 + 3/(x + 2), so k = 3.",
+      "hints": [
+        "Multiply (2x + 3)(x + 2)."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compare the product with the numerator."
+      },
+      "remember": "Dividend = quotient × divisor + remainder.",
+      "expected_time_seconds": 70,
+      "modeling": false,
+      "calculator": "allowed",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "format": "spr",
+      "answer": "3",
+      "accepted_answers": [
+        "3"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the constant term of the numerator.",
+          "trap": null
+        },
+        {
+          "value": "15",
+          "rationale": "15 adds 6 instead of subtracting it.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-3",
+          "rationale": "−3 subtracts in the wrong order, 6 − 9.",
+          "trap": "sign_error"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "cand": "Q072-02",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Equation with two radicals",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "Which of the following lists all solutions to the equation √(3x + 1) − √(x − 1) = 2 ?",
-   "explanation": "Write √(3x + 1) = 2 + √(x − 1) and square: 3x + 1 = x + 3 + 4√(x − 1), so x − 1 = 2√(x − 1). With u = √(x − 1), u² = 2u gives u = 0 or u = 2, so x = 1 or x = 5. Both check: √4 − √0 = 2 and √16 − √4 = 2.",
-   "hints": [
-    "Isolate one radical before squaring."
-   ],
-   "strategy": {
-    "key": "backsolve",
-    "explanation": "Check each listed value in the original equation."
-   },
-   "remember": "Never divide by an expression that could be zero; factor instead.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Both roots are valid, and dividing by a radical that can be zero loses one."
-   },
-   "choices": {
-    "A": "{5}",
-    "B": "{1}",
-    "C": "{1, 5}",
-    "D": "{1, 2}"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "{5} divides both sides of u² = 2u by u and loses u = 0.",
-     "trap": "partial_answer"
-    },
-    "B": {
-     "rationale": "{1} squares term by term, (3x + 1) − (x − 1) = 4.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "{1, 2} writes the cross term as 2√(x − 1) instead of 4√(x − 1).",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-03",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Launch height from symmetry and a zero",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "A ball's height, in feet, t seconds after it is thrown is h(t) = −16t² + bt + c, where b and c are constants. The ball is at the same height at t = 0.5 and t = 2.5, and it hits the ground at t = 4. From what height, in feet, was the ball thrown?",
-   "explanation": "Equal heights at t = 0.5 and t = 2.5 put the vertex at t = 1.5. The zero at t = 4 is 2.5 seconds after the vertex, so the other zero is at t = 1.5 − 2.5 = −1. Then h(t) = −16(t − 4)(t + 1) = −16t² + 48t + 64, and h(0) = 64.",
-   "hints": [
-    "Where is the vertex?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use symmetry to find the second zero, then write h in factored form."
-   },
-   "remember": "Zeros of a quadratic are symmetric about the vertex.",
-   "expected_time_seconds": 120,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The second zero lies at a negative time, outside the context, and must be found by symmetry."
-   },
-   "format": "spr",
-   "answer": "64",
-   "accepted_answers": [
-    "64"
-   ],
-   "common_errors": [
-    {
-     "value": "100",
-     "rationale": "100 is the maximum height, not the height at t = 0.",
-     "trap": null
-    },
-    {
-     "value": "84",
-     "rationale": "84 is the height at t = 0.5 and t = 2.5.",
-     "trap": null
-    },
-    {
-     "value": "0",
-     "rationale": "0 assumes the ball was thrown from the ground.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q072-04",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Sign of a product with a negative quadratic factor",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "The function p is defined by p(x) = (x − a)(x − b) · r(x), where a and b are constants with a < b, and r is a quadratic function whose graph in the xy-plane lies entirely below the x-axis. Which of the following must be true?",
-   "explanation": "Since r(x) < 0 for every x, p(x) always has the opposite sign of (x − a)(x − b). For a < x < b, (x − a)(x − b) < 0, so p(x) > 0.",
-   "hints": [
-    "What is the sign of r(x)?"
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Make a sign chart for each factor."
-   },
-   "remember": "A factor that is always negative flips every sign in a sign chart.",
-   "expected_time_seconds": 90,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must account for a factor with no zeros that flips the sign pattern."
-   },
-   "choices": {
-    "A": "p(x) > 0 for all x such that a < x < b",
-    "B": "p(x) < 0 for all x such that a < x < b",
-    "C": "p(x) > 0 for all x > b",
-    "D": "The graph of y = p(x) crosses the x-axis at exactly four points."
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "This uses the sign of (x − a)(x − b) and ignores the negative factor r.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "For x > b, (x − a)(x − b) > 0, so p(x) < 0.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "r has no real zeros, so p crosses the x-axis only at a and b.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-05",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Transformations of a maximum",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "The function f has a maximum value of 5, which occurs at x = 2. The function g is defined by g(x) = −2f(x − 3) + 1. Which of the following statements about g is true?",
-   "explanation": "f(x − 3) reaches its maximum of 5 at x = 5. Multiplying by −2 turns that maximum into a minimum of −10, and adding 1 gives −9. So g has a minimum value of −9 at x = 5.",
-   "hints": [
-    "Where does f(x − 3) reach its maximum?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Apply the shift, then the stretch and reflection, then the vertical shift."
-   },
-   "remember": "Multiplying by a negative number turns a maximum into a minimum.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "g has a maximum value of −9 at x = 5.",
-    "B": "g has a minimum value of −9 at x = −1.",
-    "C": "g has a minimum value of −12 at x = 5.",
-    "D": "g has a minimum value of −9 at x = 5."
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "This misses that multiplying by −2 turns the maximum into a minimum.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This shifts the input in the wrong direction, 2 − 3.",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "This adds 1 before multiplying: −2(5 + 1).",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-06",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Roots in a given ratio",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "In the equation x² + kx + 36 = 0, k is a constant. The equation has two real solutions, and one solution is 4 times the other. What is the positive value of k ?",
-   "explanation": "If the solutions are r and 4r, their product is 4r² = 36, so r = 3 or r = −3. Their sum is 5r = −k. For r = −3, k = 15 (solutions −3 and −12); for r = 3, k = −15. The positive value is 15.",
-   "hints": [
-    "What are the product and sum of the solutions?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Use product = 36 and sum = −k."
-   },
-   "remember": "For x² + kx + c, the solutions multiply to c and add to −k.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "The positive k comes from the negative pair of solutions."
-   },
-   "format": "spr",
-   "answer": "15",
-   "accepted_answers": [
-    "15"
-   ],
-   "common_errors": [
-    {
-     "value": "-15",
-     "rationale": "−15 comes from the solutions 3 and 12; the positive k comes from −3 and −12.",
-     "trap": "sign_error"
-    },
-    {
-     "value": "9",
-     "rationale": "9 stops at r² = 9.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "12",
-     "rationale": "12 is the larger solution, not k.",
-     "trap": "wrong_quantity"
-    }
-   ]
-  },
-  {
-   "cand": "Q072-07",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Subtracting reciprocal-shaped fractions",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "For x > 0, which of the following is equivalent to (x + 1)/x − x/(x + 1) ?",
-   "explanation": "Over the common denominator x(x + 1) = x² + x, the numerator is (x + 1)² − x² = 2x + 1. So the expression equals (2x + 1)/(x² + x).",
-   "hints": [
-    "What is the common denominator?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Combine over x(x + 1)."
-   },
-   "remember": "(x + 1)² = x² + 2x + 1, not x² + 1.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "−1",
-    "B": "1/(x² + x)",
-    "C": "(2x + 1)/(x² + x)",
-    "D": "(−2x − 1)/(x² + x)"
-   },
-   "answer": "C",
-   "distractors": {
-    "A": {
-     "rationale": "−1 subtracts the numerators and the denominators separately.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This expands (x + 1)² as x² + 1.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "This subtracts in the wrong order, x² − (x + 1)².",
-     "trap": "sign_error"
-    }
-   }
-  },
-  {
-   "cand": "Q072-08",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Factoring a difference of powers",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "What value of x satisfies the equation 4^(x + 1) − 4^x = 96 ?",
-   "explanation": "4^(x + 1) − 4^x = 4 · 4^x − 4^x = 3 · 4^x, so 3 · 4^x = 96 and 4^x = 32. Writing both sides as powers of 2, 2^(2x) = 2^5, so x = 5/2.",
-   "hints": [
-    "Factor out 4^x."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Write 4^(x + 1) as 4 · 4^x."
-   },
-   "remember": "a^(x + 1) = a · a^x.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "5/2",
-   "accepted_answers": [
-    "5/2",
-    "2.5"
-   ],
-   "common_errors": [
-    {
-     "value": "32",
-     "rationale": "32 is the value of 4^x, not x.",
-     "trap": "partial_answer"
-    },
-    {
-     "value": "8",
-     "rationale": "8 solves 4x = 32.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q072-09",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Parabolic arch from two widths",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "The opening of an arch has the shape of a parabola. The opening is 40 meters wide at ground level and 30 meters wide at a height of 7 meters. What is the height of the arch at its highest point, in meters?",
-   "explanation": "Put the vertex on the y-axis: y = H(1 − x²/400), since the arch meets the ground at x = ±20. At a height of 7 the half-width is 15, so H(1 − 225/400) = 7, giving (7/16)H = 7 and H = 16.",
-   "hints": [
-    "Write the parabola with zeros at x = −20 and x = 20."
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Sketch the arch with its vertex on the y-axis."
-   },
-   "remember": "Use symmetry to place a parabola's vertex on an axis.",
-   "expected_time_seconds": 100,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "16",
-   "accepted_answers": [
-    "16"
-   ],
-   "common_errors": [
-    {
-     "value": "28",
-     "rationale": "28 assumes the width shrinks linearly with height.",
-     "trap": null
-    },
-    {
-     "value": "9.33",
-     "rationale": "9.33 assumes height is proportional to width, 7 · 40/30.",
-     "trap": null
-    }
-   ]
-  },
-  {
-   "cand": "Q072-10",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Rational equation with a single valid solution",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "Which of the following describes all solutions to the equation (x − 1)/(x + 1) = (x + 1)/(x − 1) ?",
-   "explanation": "Cross-multiplying gives (x − 1)² = (x + 1)², so x² − 2x + 1 = x² + 2x + 1 and x = 0. Check: (0 − 1)/(0 + 1) = −1 and (0 + 1)/(0 − 1) = −1.",
-   "hints": [
-    "Cross-multiply and simplify."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Solve, then check against the excluded values."
-   },
-   "remember": "Always check solutions against values that make a denominator zero.",
-   "expected_time_seconds": 80,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "The equation has no solution.",
-    "B": "x = 0 only",
-    "C": "x = 1 and x = −1",
-    "D": "Every real number except 1 and −1"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This expects the x² terms to cancel into a contradiction, but a solution remains.",
-     "trap": null
-    },
-    "C": {
-     "rationale": "1 and −1 make a denominator zero, so they cannot be solutions.",
-     "trap": null
-    },
-    "D": {
-     "rationale": "Equal squares do not make the equation true for every x.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-11",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Two ways a rational equation has no solution",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
-   "stem": "In the equation 3/(x − 1) = k/(x + 2), k is a constant. For which of the following values of k does the equation have no solution?",
-   "explanation": "Cross-multiplying gives 3x + 6 = kx − k, so (3 − k)x = −k − 6. If k = 3, this reads 0 = −9: no solution. Otherwise x = (k + 6)/(k − 3), which equals −2, an excluded value, only when k = 0. (Directly: 3/(x − 1) can never equal 0.) So k = 0 and k = 3.",
-   "hints": [
-    "Can 3/(x − 1) ever equal 0?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Solve for x, then check for cancellation and excluded values."
-   },
-   "remember": "No solution can come from a contradiction or from an excluded value.",
-   "expected_time_seconds": 110,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true,
-    "hardness": "No solution arises in two different ways, and both must be found."
-   },
-   "choices": {
-    "A": "0 only",
-    "B": "0 and 3",
-    "C": "3 only",
-    "D": "−6 and 3"
-   },
-   "answer": "B",
-   "distractors": {
-    "A": {
-     "rationale": "This finds the excluded-value case but misses k = 3, where the x-terms cancel.",
-     "trap": "partial_answer"
-    },
-    "C": {
-     "rationale": "This finds only the case with equal x-coefficients.",
-     "trap": "partial_answer"
-    },
-    "D": {
-     "rationale": "k = −6 gives the valid solution x = 0.",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-12",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Combining fractions with opposite denominators",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "For x ≠ 3, which of the following is equivalent to 2x/(x − 3) + 6/(3 − x) ?",
-   "explanation": "Since 3 − x = −(x − 3), 6/(3 − x) = −6/(x − 3). The sum is (2x − 6)/(x − 3) = 2(x − 3)/(x − 3) = 2.",
-   "hints": [
-    "How is 3 − x related to x − 3?"
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Rewrite 3 − x as −(x − 3)."
-   },
-   "remember": "3 − x equals −(x − 3).",
-   "expected_time_seconds": 60,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "(2x + 6)/(x − 3)",
-    "B": "−2",
-    "C": "(2x² + 18)/(x² − 9)",
-    "D": "2"
-   },
-   "answer": "D",
-   "distractors": {
-    "A": {
-     "rationale": "This treats 3 − x as x − 3 and adds the numerators.",
-     "trap": null
-    },
-    "B": {
-     "rationale": "This rewrites the sum correctly but then treats (x − 3)/(3 − x) as 1.",
-     "trap": "sign_error"
-    },
-    "C": {
-     "rationale": "This rewrites 3 − x as −(x + 3).",
-     "trap": null
-    }
-   }
-  },
-  {
-   "cand": "Q072-13",
-   "reporting_category": "Advanced Math",
-   "skill": "Advanced Math",
-   "subskill": "Remainder from polynomial division",
-   "repo_skill_key": "sat_advanced_math",
-   "difficulty": "medium",
-   "stem": "For x ≠ −2, the expression (2x² + 7x + 9)/(x + 2) is equivalent to 2x + 3 + k/(x + 2), where k is a constant. What is the value of k ?",
-   "explanation": "(2x + 3)(x + 2) = 2x² + 7x + 6, so 2x² + 7x + 9 = (2x + 3)(x + 2) + 3. Dividing by x + 2 gives 2x + 3 + 3/(x + 2), so k = 3.",
-   "hints": [
-    "Multiply (2x + 3)(x + 2)."
-   ],
-   "strategy": {
-    "key": "translate_to_algebra",
-    "explanation": "Compare the product with the numerator."
-   },
-   "remember": "Dividend = quotient × divisor + remainder.",
-   "expected_time_seconds": 70,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "format": "spr",
-   "answer": "3",
-   "accepted_answers": [
-    "3"
-   ],
-   "common_errors": [
-    {
-     "value": "9",
-     "rationale": "9 is the constant term of the numerator.",
-     "trap": null
-    },
-    {
-     "value": "15",
-     "rationale": "15 adds 6 instead of subtracting it.",
-     "trap": "sign_error"
-    },
-    {
-     "value": "-3",
-     "rationale": "−3 subtracts in the wrong order, 6 − 9.",
-     "trap": "sign_error"
-    }
-   ]
-  }
- ]
+  ]
 }

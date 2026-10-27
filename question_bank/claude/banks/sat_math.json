@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 71,
-  "updated_at": "2026-10-27T17:39:07+00:00",
+  "version": 72,
+  "updated_at": "2026-10-27T18:06:52+00:00",
   "passages": [],
   "questions": [
     {
@@ -56617,6 +56617,810 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-071.review.json",
         "computation": "checks/sat_math/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000783",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Exponential equation leading to a quadratic",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "What is the sum of all solutions to the equation 2^(x²) = 8 · 4^x ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2",
+      "accepted_answers": [
+        "2"
+      ],
+      "common_errors": [
+        {
+          "value": "5",
+          "rationale": "5 merges 8 · 4^x into 32^x = 2^(5x), so x² = 5x.",
+          "trap": null
+        },
+        {
+          "value": "6",
+          "rationale": "6 multiplies the exponents, writing 8 · 4^x as 2^(3 · 2x).",
+          "trap": null
+        },
+        {
+          "value": "3",
+          "rationale": "3 keeps only the positive solution.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "8 · 4^x = 2³ · 2^(2x) = 2^(2x + 3), so x² = 2x + 3, or x² − 2x − 3 = 0. Then (x − 3)(x + 1) = 0, so x = 3 or x = −1, and the sum is 2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write both sides as powers of 2."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use a^m · a^n = a^(m + n), then set exponents equal."
+      },
+      "remember": "Multiplying powers with the same base adds the exponents.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-01",
+      "created_at": "2026-10-27T18:06:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2",
+        "blind_answer": "2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000784",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Equation with two radicals",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following lists all solutions to the equation √(3x + 1) − √(x − 1) = 2 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "{5}",
+        "B": "{1}",
+        "C": "{1, 5}",
+        "D": "{1, 2}"
+      },
+      "correct_answer": "C",
+      "explanation": "Write √(3x + 1) = 2 + √(x − 1) and square: 3x + 1 = x + 3 + 4√(x − 1), so x − 1 = 2√(x − 1). With u = √(x − 1), u² = 2u gives u = 0 or u = 2, so x = 1 or x = 5. Both check: √4 − √0 = 2 and √16 − √4 = 2.",
+      "distractor_explanations": {
+        "A": "{5} divides both sides of u² = 2u by u and loses u = 0.",
+        "B": "{1} squares term by term, (3x + 1) − (x − 1) = 4.",
+        "D": "{1, 2} writes the cross term as 2√(x − 1) instead of 4√(x − 1)."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Isolate one radical before squaring."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Check each listed value in the original equation."
+      },
+      "remember": "Never divide by an expression that could be zero; factor instead.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-02",
+      "created_at": "2026-10-27T18:06:51+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000785",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Launch height from symmetry and a zero",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A ball's height, in feet, t seconds after it is thrown is h(t) = −16t² + bt + c, where b and c are constants. The ball is at the same height at t = 0.5 and t = 2.5, and it hits the ground at t = 4. From what height, in feet, was the ball thrown?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "64",
+      "accepted_answers": [
+        "64"
+      ],
+      "common_errors": [
+        {
+          "value": "100",
+          "rationale": "100 is the maximum height, not the height at t = 0.",
+          "trap": null
+        },
+        {
+          "value": "84",
+          "rationale": "84 is the height at t = 0.5 and t = 2.5.",
+          "trap": null
+        },
+        {
+          "value": "0",
+          "rationale": "0 assumes the ball was thrown from the ground.",
+          "trap": null
+        }
+      ],
+      "explanation": "Equal heights at t = 0.5 and t = 2.5 put the vertex at t = 1.5. The zero at t = 4 is 2.5 seconds after the vertex, so the other zero is at t = 1.5 − 2.5 = −1. Then h(t) = −16(t − 4)(t + 1) = −16t² + 48t + 64, and h(0) = 64.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Where is the vertex?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use symmetry to find the second zero, then write h in factored form."
+      },
+      "remember": "Zeros of a quadratic are symmetric about the vertex.",
+      "expected_time_seconds": 120,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-03",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "64",
+        "blind_answer": "64",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000786",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Sign of a product with a negative quadratic factor",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function p is defined by p(x) = (x − a)(x − b) · r(x), where a and b are constants with a < b, and r is a quadratic function whose graph in the xy-plane lies entirely below the x-axis. Which of the following must be true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "p(x) > 0 for all x such that a < x < b",
+        "B": "p(x) < 0 for all x such that a < x < b",
+        "C": "p(x) > 0 for all x > b",
+        "D": "The graph of y = p(x) crosses the x-axis at exactly four points."
+      },
+      "correct_answer": "A",
+      "explanation": "Since r(x) < 0 for every x, p(x) always has the opposite sign of (x − a)(x − b). For a < x < b, (x − a)(x − b) < 0, so p(x) > 0.",
+      "distractor_explanations": {
+        "B": "This uses the sign of (x − a)(x − b) and ignores the negative factor r.",
+        "C": "For x > b, (x − a)(x − b) > 0, so p(x) < 0.",
+        "D": "r has no real zeros, so p crosses the x-axis only at a and b."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What is the sign of r(x)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Make a sign chart for each factor."
+      },
+      "remember": "A factor that is always negative flips every sign in a sign chart.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-04",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000787",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Transformations of a maximum",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f has a maximum value of 5, which occurs at x = 2. The function g is defined by g(x) = −2f(x − 3) + 1. Which of the following statements about g is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "g has a maximum value of −9 at x = 5.",
+        "B": "g has a minimum value of −9 at x = −1.",
+        "C": "g has a minimum value of −12 at x = 5.",
+        "D": "g has a minimum value of −9 at x = 5."
+      },
+      "correct_answer": "D",
+      "explanation": "f(x − 3) reaches its maximum of 5 at x = 5. Multiplying by −2 turns that maximum into a minimum of −10, and adding 1 gives −9. So g has a minimum value of −9 at x = 5.",
+      "distractor_explanations": {
+        "A": "This misses that multiplying by −2 turns the maximum into a minimum.",
+        "B": "This shifts the input in the wrong direction, 2 − 3.",
+        "C": "This adds 1 before multiplying: −2(5 + 1)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "Where does f(x − 3) reach its maximum?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Apply the shift, then the stretch and reflection, then the vertical shift."
+      },
+      "remember": "Multiplying by a negative number turns a maximum into a minimum.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-05",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000788",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Roots in a given ratio",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation x² + kx + 36 = 0, k is a constant. The equation has two real solutions, and one solution is 4 times the other. What is the positive value of k ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "15",
+      "accepted_answers": [
+        "15"
+      ],
+      "common_errors": [
+        {
+          "value": "-15",
+          "rationale": "−15 comes from the solutions 3 and 12; the positive k comes from −3 and −12.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "9",
+          "rationale": "9 stops at r² = 9.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the larger solution, not k.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the solutions are r and 4r, their product is 4r² = 36, so r = 3 or r = −3. Their sum is 5r = −k. For r = −3, k = 15 (solutions −3 and −12); for r = 3, k = −15. The positive value is 15.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What are the product and sum of the solutions?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use product = 36 and sum = −k."
+      },
+      "remember": "For x² + kx + c, the solutions multiply to c and add to −k.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-06",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "15",
+        "blind_answer": "15",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000789",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Subtracting reciprocal-shaped fractions",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x > 0, which of the following is equivalent to (x + 1)/x − x/(x + 1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−1",
+        "B": "1/(x² + x)",
+        "C": "(2x + 1)/(x² + x)",
+        "D": "(−2x − 1)/(x² + x)"
+      },
+      "correct_answer": "C",
+      "explanation": "Over the common denominator x(x + 1) = x² + x, the numerator is (x + 1)² − x² = 2x + 1. So the expression equals (2x + 1)/(x² + x).",
+      "distractor_explanations": {
+        "A": "−1 subtracts the numerators and the denominators separately.",
+        "B": "This expands (x + 1)² as x² + 1.",
+        "D": "This subtracts in the wrong order, x² − (x + 1)²."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "What is the common denominator?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Combine over x(x + 1)."
+      },
+      "remember": "(x + 1)² = x² + 2x + 1, not x² + 1.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-07",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000790",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Parabolic arch from two widths",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The opening of an arch has the shape of a parabola. The opening is 40 meters wide at ground level and 30 meters wide at a height of 7 meters. What is the height of the arch at its highest point, in meters?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "16",
+      "accepted_answers": [
+        "16"
+      ],
+      "common_errors": [
+        {
+          "value": "28",
+          "rationale": "28 assumes the width shrinks linearly with height.",
+          "trap": null
+        },
+        {
+          "value": "9.33",
+          "rationale": "9.33 assumes height is proportional to width, 7 · 40/30.",
+          "trap": null
+        }
+      ],
+      "explanation": "Put the vertex on the y-axis: y = H(1 − x²/400), since the arch meets the ground at x = ±20. At a height of 7 the half-width is 15, so H(1 − 225/400) = 7, giving (7/16)H = 7 and H = 16.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the parabola with zeros at x = −20 and x = 20."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch the arch with its vertex on the y-axis."
+      },
+      "remember": "Use symmetry to place a parabola's vertex on an axis.",
+      "expected_time_seconds": 100,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-09",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "16",
+        "blind_answer": "16",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 35,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000791",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Rational equation with a single valid solution",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following describes all solutions to the equation (x − 1)/(x + 1) = (x + 1)/(x − 1) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The equation has no solution.",
+        "B": "x = 0 only",
+        "C": "x = 1 and x = −1",
+        "D": "Every real number except 1 and −1"
+      },
+      "correct_answer": "B",
+      "explanation": "Cross-multiplying gives (x − 1)² = (x + 1)², so x² − 2x + 1 = x² + 2x + 1 and x = 0. Check: (0 − 1)/(0 + 1) = −1 and (0 + 1)/(0 − 1) = −1.",
+      "distractor_explanations": {
+        "A": "This expects the x² terms to cancel into a contradiction, but a solution remains.",
+        "C": "1 and −1 make a denominator zero, so they cannot be solutions.",
+        "D": "Equal squares do not make the equation true for every x."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Cross-multiply and simplify."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve, then check against the excluded values."
+      },
+      "remember": "Always check solutions against values that make a denominator zero.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-10",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000792",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Two ways a rational equation has no solution",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the equation 3/(x − 1) = k/(x + 2), k is a constant. For which of the following values of k does the equation have no solution?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "0 only",
+        "B": "0 and 3",
+        "C": "3 only",
+        "D": "−6 and 3"
+      },
+      "correct_answer": "B",
+      "explanation": "Cross-multiplying gives 3x + 6 = kx − k, so (3 − k)x = −k − 6. If k = 3, this reads 0 = −9: no solution. Otherwise x = (k + 6)/(k − 3), which equals −2, an excluded value, only when k = 0. (Directly: 3/(x − 1) can never equal 0.) So k = 0 and k = 3.",
+      "distractor_explanations": {
+        "A": "This finds the excluded-value case but misses k = 3, where the x-terms cancel.",
+        "C": "This finds only the case with equal x-coefficients.",
+        "D": "k = −6 gives the valid solution x = 0."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Can 3/(x − 1) ever equal 0?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve for x, then check for cancellation and excluded values."
+      },
+      "remember": "No solution can come from a contradiction or from an excluded value.",
+      "expected_time_seconds": 110,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-11",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000793",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Combining fractions with opposite denominators",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "For x ≠ 3, which of the following is equivalent to 2x/(x − 3) + 6/(3 − x) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(2x + 6)/(x − 3)",
+        "B": "−2",
+        "C": "(2x² + 18)/(x² − 9)",
+        "D": "2"
+      },
+      "correct_answer": "D",
+      "explanation": "Since 3 − x = −(x − 3), 6/(3 − x) = −6/(x − 3). The sum is (2x − 6)/(x − 3) = 2(x − 3)/(x − 3) = 2.",
+      "distractor_explanations": {
+        "A": "This treats 3 − x as x − 3 and adds the numerators.",
+        "B": "This rewrites the sum correctly but then treats (x − 3)/(3 − x) as 1.",
+        "C": "This rewrites 3 − x as −(x + 3)."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "sign_error",
+        "C": null
+      },
+      "hints": [
+        "How is 3 − x related to x − 3?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rewrite 3 − x as −(x − 3)."
+      },
+      "remember": "3 − x equals −(x − 3).",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 72,
+      "draft_candidate": "Q072-12",
+      "created_at": "2026-10-27T18:06:52+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-072.review.json",
+        "computation": "checks/sat_math/batch_072.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
