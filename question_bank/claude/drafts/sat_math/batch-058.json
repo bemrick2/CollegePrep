@@ -1,0 +1,1326 @@
+{
+ "bank": "sat_math",
+ "batch": 58,
+ "plan": "SAT Math batch 58: Algebra 10, Advanced Math 9, Problem-Solving and Data Analysis 5, Geometry and Trigonometry 5; 12 student-produced responses. Ideas EA01-EA10, EB02-EB10, EC01-EC05, ED01-ED05 from generated set 10 (pre-checked in ideas-058.repeats.json); EB01 dropped as a template of ideas-gen-03 K02. Pre-check fixes: EA06 choices recast in minutes (uniform format); EA07 context changed from phone to car battery; EA10 numbers changed so every distractor is a round amount; EB05 weak 'denominators' distractor replaced by 12 (divides by p); EB08 now needs a second step (f(5) given, f(1) asked) so the answer is not just the square root of the product; EB10 choice C rationale corrected; EC01 rated medium (the case analysis cannot change the result); ED02 asks the greatest r (the less obvious chord position).",
+ "candidates": [
+  {
+   "cand": "Q058-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Counting equal step heights between two inclusive bounds",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A staircase must rise a total of 108 inches, and every step (riser) must be the same height. The building code requires each riser to be at least 6 inches and at most 7.5 inches high. How many different numbers of steps are possible?",
+   "explanation": "With n steps, each riser is 108/n inches, so 6 ≤ 108/n ≤ 7.5. This gives 14.4 ≤ n ≤ 18. The whole numbers in that range are 15, 16, 17 and 18, so 4 numbers of steps are possible (18 steps give risers of exactly 6 inches, which the code allows).",
+   "hints": [
+    "Write the riser height in terms of the number of steps n."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve 6 ≤ 108/n ≤ 7.5 for n; dividing flips which bound is which."
+   },
+   "remember": "A larger height per step means fewer steps, so the bounds on n come out in reverse order.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The bounds flip when solving for n, and one endpoint is exactly an integer while the other must be rounded up."
+   },
+   "format": "spr",
+   "answer": "4",
+   "accepted_answers": [
+    "4"
+   ],
+   "common_errors": [
+    {
+     "value": "3",
+     "rationale": "3 subtracts the endpoints, 18 − 15, instead of counting 15, 16, 17 and 18.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "5",
+     "rationale": "5 rounds 108/7.5 = 14.4 down and counts 14 through 18, but 14 steps would make each riser 7.71 inches.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q058-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Finding and correcting the one entry that breaks linearity",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A quantity y is known to be a linear function of x. A student recorded the values below, and exactly one of the y-values was recorded incorrectly.\nx: 1, 4, 6, 9, 13\ny: 5, 14, 21, 29, 41\nWhat is the correct value of the incorrect entry?",
+   "explanation": "The points (1, 5), (4, 14), (9, 29) and (13, 41) all lie on y = 3x + 2: for example, (14 − 5)/(4 − 1) = 3 and (41 − 29)/(13 − 9) = 3. The point (6, 21) does not, since 3(6) + 2 = 20. So the incorrect entry is 21, and its correct value is 20.",
+   "hints": [
+    "Find the slope between pairs of points; which point disagrees with the others?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Compute slopes between consecutive points and look for the one pair that breaks the pattern."
+   },
+   "remember": "When x-steps are unequal, compare slopes, not differences in y.",
+   "expected_time_seconds": 90,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must test which point breaks linearity; trusting the wrong pair of points gives a consistent-looking but wrong correction."
+   },
+   "choices": {
+    "A": "18",
+    "B": "20",
+    "C": "21.5",
+    "D": "31.5"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "18 uses y = 3x and drops the intercept 2.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "21.5 averages the neighboring y-values 14 and 29, although the x-steps on either side (2 and 3) are unequal.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "31.5 trusts (4, 14) and (6, 21), uses their slope 3.5, and wrongly changes the x = 9 entry to 21 + 3.5(3).",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q058-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Same-slope linear formulas: what equal outputs imply about inputs",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A shoe-size chart uses S = 3L − 22 for men's sizes and S = 3L − 20.5 for women's sizes, where L is the length of the foot in inches. If a man and a woman wear the same numerical shoe size, which statement is true?",
+   "explanation": "If the sizes are equal, 3Lₘ − 22 = 3L_w − 20.5, so 3(Lₘ − L_w) = 1.5 and Lₘ − L_w = 0.5. The man's foot is 0.5 inch longer, whatever the size.",
+   "hints": [
+    "Set the two sizes equal."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try size S = 8: the man's foot is 10 inches and the woman's is 9.5 inches."
+   },
+   "remember": "Two linear rules with the same slope give equal outputs when their inputs differ by a fixed amount.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "The man's foot is 0.5 inch longer.",
+    "B": "The man's foot is 1.5 inches longer.",
+    "C": "The woman's foot is 0.5 inch longer.",
+    "D": "The woman's foot is 1.5 inches longer."
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "1.5 inches is the difference of the constants; it must still be divided by 3.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "This reverses the direction: subtracting more (22) means the man needs a longer foot for the same size.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "This both reverses the direction and forgets to divide by 3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-04",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Distance from the gap between two arrival times",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "After an earthquake, P waves travel through the ground at about 6 kilometers per second and S waves at about 3.5 kilometers per second. A seismograph station records the first P wave 20 seconds before the first S wave. How far, in kilometers, is the station from the earthquake?",
+   "explanation": "If the distance is d kilometers, the S wave takes d/3.5 seconds and the P wave takes d/6 seconds. Then d/3.5 − d/6 = 20, so d(12 − 7)/42 = 20 and d = 168. Check: 168/3.5 = 48 seconds and 168/6 = 28 seconds, a gap of 20 seconds.",
+   "hints": [
+    "Write each wave's travel time in terms of the distance."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Set the difference of the two travel times equal to 20."
+   },
+   "remember": "When two things start together, the gap between arrivals is the difference of their travel times.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must model two travel times over one unknown distance; multiplying the gap by the speed difference is a strong trap."
+   },
+   "format": "spr",
+   "answer": "168",
+   "accepted_answers": [
+    "168"
+   ],
+   "common_errors": [
+    {
+     "value": "50",
+     "rationale": "50 multiplies the 20-second gap by the difference in speeds, 6 − 3.5.",
+     "trap": null
+    },
+    {
+     "value": "70",
+     "rationale": "70 is the distance an S wave travels in 20 seconds.",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "120",
+     "rationale": "120 is the distance a P wave travels in 20 seconds.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-05",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Total mileage from a bill with a per-day allowance",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A rental company charges $35 per day for a car, and each day of the rental includes 100 miles of driving. Every mile beyond the total included mileage costs $0.25. The total charge for a 4-day rental was $210. How many miles was the car driven?",
+   "explanation": "The daily fees are 4($35) = $140, and the included mileage is 4(100) = 400 miles. The extra miles cost $210 − $140 = $70, which is 70/0.25 = 280 extra miles. The car was driven 400 + 280 = 680 miles.",
+   "hints": [
+    "How many miles are included in a 4-day rental?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write 140 + 0.25(m − 400) = 210."
+   },
+   "remember": "Subtract the fixed charges first; the remainder pays only for the extra units.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "280",
+    "B": "380",
+    "C": "680",
+    "D": "1,100"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "280 is only the number of miles beyond the included mileage.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "380 treats 100 miles as the allowance for the whole rental instead of for each day.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "1,100 charges the $35 daily fee only once.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-06",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Fuel inequality with a reserve given as time",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "A small airplane burns 8 gallons of fuel per hour in flight. Before one flight it holds 42 gallons. It uses 2 gallons while taxiing before takeoff, and it must land with enough fuel for at least 45 more minutes of flight. What is the greatest possible flight time, in minutes?",
+   "explanation": "The 45-minute reserve is 0.75(8) = 6 gallons. With flight time t hours, 42 − 2 − 8t ≥ 6, so 8t ≤ 34 and t ≤ 4.25 hours. That is 4.25(60) = 255 minutes.",
+   "hints": [
+    "How many gallons does 45 minutes of flight use?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write fuel at landing ≥ reserve fuel and solve for t."
+   },
+   "remember": "Convert every quantity to the same unit before writing the inequality, then convert the answer to the unit asked.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The reserve is given in time and must be converted to fuel, the taxi fuel comes off first, and decimal hours must be converted to minutes."
+   },
+   "choices": {
+    "A": "255",
+    "B": "265",
+    "C": "270",
+    "D": "300"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "265 reads 4.25 hours as 4 hours 25 minutes.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "270 forgets the 2 gallons used while taxiing: 8t ≤ 36 gives 4.5 hours.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "300 forgets the reserve: 8t ≤ 40 gives 5 hours.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q058-07",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Total time for a rate that changes at a threshold",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "An electric car charges at 2 percentage points per minute until its battery reaches 80%, and then at 0.5 percentage point per minute. How many minutes does it take to charge the battery from 20% to 100%?",
+   "explanation": "From 20% to 80% is 60 percentage points at 2 points per minute, which takes 30 minutes. From 80% to 100% is 20 points at 0.5 point per minute, which takes 40 minutes. The total is 70 minutes.",
+   "hints": [
+    "Split the charge at 80%."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Draw a timeline from 20% to 80% to 100%."
+   },
+   "remember": "When a rate changes at a threshold, compute each piece separately and add the times.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "40",
+    "B": "64",
+    "C": "70",
+    "D": "160"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "40 uses 2 points per minute for the whole charge.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "64 averages the two rates to 1.25 points per minute.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "160 uses 0.5 point per minute for the whole charge.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-08",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Substituting one linear rule into another in context",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A shipping service charges C = 4.50 + 0.80w dollars to ship a package that weighs w pounds. A box packed with b books weighs w = 1.5 + 0.6b pounds. Which expression gives the shipping cost, in dollars, of a box packed with b books?",
+   "explanation": "Substitute w = 1.5 + 0.6b into the cost rule: C = 4.50 + 0.80(1.5 + 0.6b) = 4.50 + 1.20 + 0.48b = 5.70 + 0.48b.",
+   "hints": [
+    "Which quantity is the input to the cost rule?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try b = 10: the box weighs 7.5 pounds and costs 4.50 + 6.00 = $10.50."
+   },
+   "remember": "To combine rules, substitute the inner rule's output into the outer rule's input and distribute.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6.00 + 0.48b",
+    "B": "5.70 + 0.48b",
+    "C": "4.50 + 0.48b",
+    "D": "4.20 + 0.48b"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "6.00 + 0.48b adds 1.5 to 4.50 without multiplying it by 0.80.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "4.50 + 0.48b drops the 1.5-pound weight of the empty box.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4.20 + 0.48b substitutes the cost rule into the weight rule: 1.5 + 0.6(4.50 + 0.80b).",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-09",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Proportion that holds only on a shifted temperature scale",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "hard",
+   "stem": "At constant pressure, the volume of a gas is proportional to its temperature measured in kelvins, where K = C + 273 and C is the temperature in degrees Celsius. A balloon has a volume of 2.0 liters at 27°C. At what temperature, in degrees Celsius, will its volume be 2.2 liters?",
+   "explanation": "27°C is 300 K. The volume grows by a factor of 2.2/2.0 = 1.1, so the kelvin temperature must too: 1.1(300) = 330 K, which is 330 − 273 = 57°C.",
+   "hints": [
+    "Convert 27°C to kelvins first."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Scale the kelvin temperature, then convert back."
+   },
+   "remember": "A proportion applies only on the scale where zero means zero; shift, scale, then shift back.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must recognize that proportional reasoning applies only after converting to kelvins; scaling Celsius directly is a strong trap."
+   },
+   "choices": {
+    "A": "−0.3",
+    "B": "29.7",
+    "C": "57",
+    "D": "330"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−0.3 treats volume as inversely proportional to temperature: 300/1.1 ≈ 272.7 K.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "29.7 applies the proportion to the Celsius temperature: 1.1(27).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "330 is the temperature in kelvins, not degrees Celsius.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q058-10",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Percent cap on total payments after a unit conversion",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "A lender requires that a borrower's total monthly debt payments, including a new mortgage payment, be at most 36% of the borrower's gross monthly income. Kim's gross annual income is $78,000, and her other monthly debt payments total $500. What is the greatest monthly mortgage payment for which Kim can qualify?",
+   "explanation": "Kim's gross monthly income is $78,000/12 = $6,500, so her total monthly payments can be at most 0.36($6,500) = $2,340. Her other debts use $500 of that, leaving $2,340 − $500 = $1,840 for the mortgage.",
+   "hints": [
+    "What is Kim's monthly income?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write m + 500 ≤ 0.36(6,500)."
+   },
+   "remember": "A cap on a total limits the sum; existing amounts come out of the cap.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "$1,840",
+    "B": "$2,160",
+    "C": "$2,340",
+    "D": "$2,840"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "$2,160 applies 36% to income after subtracting the other debts: 0.36($6,500 − $500).",
+     "trap": null
+    },
+    "C": {
+     "rationale": "$2,340 is the cap on all payments; it forgets the other debts.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "$2,840 adds the other debts instead of subtracting them.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q058-11",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Maximum of a quadratic built from two equal values",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A company's weekly profit, in dollars, when it sells a product at a price of p dollars is P(p) = −40p² + bp + c, where b and c are constants. The weekly profit is $2,250 when p = 6 and also when p = 14. What is the maximum possible weekly profit?",
+   "explanation": "Because P(6) = P(14) = 2,250, P(p) − 2,250 has zeros 6 and 14, so P(p) = −40(p − 6)(p − 14) + 2,250. The maximum is midway, at p = 10: −40(4)(−4) + 2,250 = 640 + 2,250 = 2,890.",
+   "hints": [
+    "Equal outputs at p = 6 and p = 14 tell you where the vertex is."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write P(p) − 2,250 in factored form."
+   },
+   "remember": "If f(r) = f(s) for a quadratic, the vertex is at (r + s)/2.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The extreme value is not given; students must rebuild the quadratic from two equal values and the leading coefficient."
+   },
+   "choices": {
+    "A": "1,610",
+    "B": "2,266",
+    "C": "2,890",
+    "D": "4,000"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "1,610 subtracts the vertex term, 2,250 − 640, instead of adding it.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2,266 forgets the leading coefficient 40: 2,250 + (4)(4).",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "4,000 finds b = 800 but evaluates −40(10)² + 800(10) without the constant c = −1,110.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q058-12",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Building a perimeter quadratic from a parabola",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A rectangle has two vertices on the x-axis and the other two vertices on the parabola y = 16 − x², above the x-axis. What is the greatest possible perimeter of the rectangle?",
+   "explanation": "Put the upper vertices at (±t, 16 − t²) with 0 < t < 4. The width is 2t and the height is 16 − t², so the perimeter is P = 2(2t) + 2(16 − t²) = −2t² + 4t + 32. This is greatest at t = −4/(2(−2)) = 1, where P = −2 + 4 + 32 = 34.",
+   "hints": [
+    "Use symmetry: put the upper vertices at x = t and x = −t."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the parabola and the rectangle, and label the width and the height in terms of t."
+   },
+   "remember": "Write the quantity to maximize as a function of one variable, then find its vertex.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must build the perimeter function from the graph before optimizing; the greatest-area rectangle is a different rectangle."
+   },
+   "format": "spr",
+   "answer": "34",
+   "accepted_answers": [
+    "34"
+   ],
+   "common_errors": [
+    {
+     "value": "32",
+     "rationale": "32 places the upper vertices at x = ±2, the vertex of a different quadratic, instead of maximizing the perimeter.",
+     "trap": null
+    },
+    {
+     "value": "30.6",
+     "rationale": "About 30.6 is the perimeter of the rectangle with the greatest area, not the greatest perimeter.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-13",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Solving a rational dose rule at two values",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "Young's rule estimates a child's dose of a medicine as (adult dose) × a/(a + 12), where a is the child's age in years. By this rule, a child's dose is 1/4 of the adult dose at one age and 3/7 of the adult dose at an older age. How many years older is the second age?",
+   "explanation": "a/(a + 12) = 1/4 gives 4a = a + 12, so a = 4. a/(a + 12) = 3/7 gives 7a = 3a + 36, so a = 9. The second age is 9 − 4 = 5 years older.",
+   "hints": [
+    "Solve a/(a + 12) = 1/4 by cross-multiplying."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the rule for a at each fraction."
+   },
+   "remember": "Clear the denominator by cross-multiplying, then collect the variable on one side.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4",
+    "B": "5",
+    "C": "9",
+    "D": "13"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "4 is the younger age, not the difference.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "9 is the older age, not the difference.",
+     "trap": "partial_answer"
+    },
+    "D": {
+     "rationale": "13 adds the two ages instead of subtracting them.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-14",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Comparing two outputs of a rational cost model",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "A city estimates that the cost, in thousands of dollars, of removing p percent of the litter along a river is C(p) = 120p/(100 − p), for 0 ≤ p < 100. The cost of removing 80% of the litter is how many times the cost of removing 40%?",
+   "explanation": "C(80) = 120(80)/20 = 480 and C(40) = 120(40)/60 = 80. So the cost of removing 80% is 480/80 = 6 times the cost of removing 40%.",
+   "hints": [
+    "Evaluate C(80) and C(40)."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Substitute each percent into the formula."
+   },
+   "remember": "\"How many times\" means divide the two values; \"how much more\" means subtract first.",
+   "expected_time_seconds": 60,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2",
+    "B": "5",
+    "C": "6",
+    "D": "12"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "2 assumes the cost is proportional to p: 80/40.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "5 computes how much more, (480 − 80)/80, instead of how many times.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "12 divides C(80) = 480 by the percent 40 instead of by C(40).",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q058-15",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Fixed-area pen against a wall: choosing between two roots",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "A farmer uses 60 meters of fencing for three sides of a rectangular pen; the fourth side is a long barn wall. If the pen's area is 400 square meters, what is the greatest possible length, in meters, of the side parallel to the barn?",
+   "explanation": "Let each side perpendicular to the barn be x meters, so the parallel side is 60 − 2x. Then x(60 − 2x) = 400, so x² − 30x + 200 = 0 and x = 10 or x = 20. These give parallel sides of 40 and 20 meters, so the greatest possible length is 40.",
+   "hints": [
+    "Let x be each side perpendicular to the barn."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write the area in terms of x, solve the quadratic, and check both solutions."
+   },
+   "remember": "A fixed area can give two valid rectangles; use the question to choose between them.",
+   "expected_time_seconds": 90,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Both roots are valid, and students must translate each root back to the asked side before choosing."
+   },
+   "format": "spr",
+   "answer": "40",
+   "accepted_answers": [
+    "40"
+   ],
+   "common_errors": [
+    {
+     "value": "20",
+     "rationale": "20 is the parallel side for the other solution, x = 20, not the greatest possible length.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "10",
+     "rationale": "10 is the length of each side perpendicular to the barn.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-16",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Axis of symmetry from a shift that reflects the zeros",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The quadratic function f has two distinct real zeros. The zeros of the function g, defined by g(x) = f(x + 5), are the opposites of the zeros of f. What is the x-coordinate of the vertex of the graph of f?",
+   "explanation": "If f has zeros r and s, then g(x) = f(x + 5) has zeros r − 5 and s − 5. These must be −r and −s in some order. Matching r − 5 = −r would force s − 5 = −s, so r = s, which is not allowed; so r − 5 = −s, which gives r + s = 5. The vertex is midway between the zeros, at x = 5/2.",
+   "hints": [
+    "How does replacing x with x + 5 move the zeros?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test f(x) = (x − 1)(x − 4): g has zeros −4 and −1."
+   },
+   "remember": "Replacing x with x + h moves every zero h units to the left.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must combine a horizontal shift with a reflection of the zeros; only the axis of symmetry is determined, not the zeros themselves."
+   },
+   "choices": {
+    "A": "−5",
+    "B": "−5/2",
+    "C": "5/2",
+    "D": "5"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−5 shifts the zeros the wrong way and also gives their sum instead of their average.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "−5/2 shifts the zeros the wrong way, to r + 5 and s + 5.",
+     "trap": "sign_error"
+    },
+    "D": {
+     "rationale": "5 is the sum of the zeros, not the x-coordinate of the vertex.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q058-17",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Exponential outputs from a product of two outputs",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = a · bˣ, where a and b are positive constants. If f(2) · f(4) = 144 and f(5) = 48, what is the value of f(1)?",
+   "explanation": "f(2) · f(4) = ab² · ab⁴ = (ab³)² = f(3)², and f(3) > 0, so f(3) = 12. Then f(5)/f(3) = b² = 48/12 = 4, so b = 2. Finally f(1) = f(3)/b² = 12/4 = 3.",
+   "hints": [
+    "Write f(2) · f(4) in terms of a and b and compare it with f(3)."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply the two expressions and look for a perfect square."
+   },
+   "remember": "For an exponential function, the output halfway between two inputs is the geometric mean of their outputs.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students cannot find a and b from the product alone; they must see that the product is f(3)² and then use the ratio of outputs."
+   },
+   "format": "spr",
+   "answer": "3",
+   "accepted_answers": [
+    "3"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is f(2), not f(1).",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "1.5",
+     "rationale": "1.5 is a, which is f(0).",
+     "trap": "wrong_quantity"
+    },
+    {
+     "value": "12",
+     "rationale": "12 is f(3).",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-18",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Recovering the constants of a shifted square root",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "The function f is defined by f(x) = √(x − a) + b, where a and b are constants. The graph of y = f(x) in the xy-plane passes through the points (5, 3) and (13, 5). What is the value of f(29)?",
+   "explanation": "Subtracting the two equations gives √(13 − a) − √(5 − a) = 2. Let u = √(5 − a); then √(u² + 8) = u + 2, so u² + 8 = u² + 4u + 4 and u = 1. So a = 4, and b = 3 − 1 = 2. Then f(29) = √25 + 2 = 7.",
+   "hints": [
+    "Subtract the two equations to eliminate b."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Substitute u = √(5 − a) to turn the radical equation into a linear one."
+   },
+   "remember": "Eliminate one constant first, then solve the resulting radical equation and check the solution.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must eliminate b and then solve a radical equation for a; extending the two points linearly is a trap."
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 assumes f grows at a constant rate of 1/4 per unit of x, a linear pattern.",
+     "trap": "overextend_trend"
+    },
+    {
+     "value": "5",
+     "rationale": "5 is √(29 − 4), forgetting to add b.",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-19",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Reciprocal solutions of a quadratic with equal outer coefficients",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "hard",
+   "stem": "In the equation ax² + bx + a = 0, a and b are nonzero constants. If r is a real solution of the equation, which of the following must also be a solution?",
+   "explanation": "Since a ≠ 0, r ≠ 0 (x = 0 gives a = 0). Dividing ar² + br + a = 0 by r² gives a + b(1/r) + a(1/r)² = 0, so 1/r is also a solution. Equivalently, the product of the solutions is a/a = 1.",
+   "hints": [
+    "What is the product of the solutions?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Try 2x² − 5x + 2 = 0: its solutions are 2 and 1/2."
+   },
+   "remember": "For ax² + bx + c = 0, the product of the solutions is c/a.",
+   "expected_time_seconds": 80,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "The coefficients are letters; students must see that equal first and last coefficients make the solutions reciprocals."
+   },
+   "choices": {
+    "A": "−r",
+    "B": "−1/r",
+    "C": "r − b/a",
+    "D": "1/r"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "−r assumes the solutions are symmetric about 0, which needs b = 0.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "−1/r takes the product of the solutions as −a/a = −1, a sign error.",
+     "trap": "sign_error"
+    },
+    "C": {
+     "rationale": "r − b/a misuses the sum of the solutions: the sum is −b/a, so the other solution is −b/a − r, not r − b/a.",
+     "trap": "sign_error"
+    }
+   }
+  },
+  {
+   "cand": "Q058-20",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Mean after dropping the high and low scores",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In a competition, each performance is scored by five judges. The highest and the lowest of the five scores are dropped, and the final score is the mean of the remaining three. Four of the judges gave a performance scores of 6.0, 7.5, 8.0 and 9.5, and its final score was 8.0. What score did the fifth judge give?",
+   "explanation": "If the fifth score were 6.0 or lower, the kept scores would be 6.0, 7.5 and 8.0, with mean about 7.17; if it were 9.5 or higher, they would be 7.5, 8.0 and 9.5, with mean about 8.33. Neither is 8.0, so 6.0 and 9.5 are dropped and (7.5 + 8.0 + x)/3 = 8.0, giving x = 8.5.",
+   "hints": [
+    "Which scores are dropped?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Decide which scores are kept, then write the mean equation."
+   },
+   "remember": "Before averaging, check which values the rule actually keeps.",
+   "expected_time_seconds": 75,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "8.5",
+   "accepted_answers": [
+    "8.5",
+    "17/2"
+   ],
+   "common_errors": [
+    {
+     "value": "9",
+     "rationale": "9 averages all five scores: (6.0 + 7.5 + 8.0 + 9.5 + x)/5 = 8.0.",
+     "trap": null
+    },
+    {
+     "value": "8",
+     "rationale": "8 assumes the fifth score equals the final score.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q058-21",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Remaining distance when one runner finishes",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "In a 10-mile race, Ana runs at a constant pace of 6 minutes per mile and Bea runs at a constant pace of 6 minutes 30 seconds per mile. To the nearest hundredth of a mile, how far from the finish line is Bea when Ana finishes?",
+   "explanation": "Ana finishes after 10 × 6 = 60 minutes. Bea's pace is 6.5 minutes per mile, so in 60 minutes she runs 60/6.5 ≈ 9.231 miles. She is 10 − 9.231 ≈ 0.77 mile from the finish.",
+   "hints": [
+    "When does Ana finish?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Find Ana's finishing time, then Bea's distance at that time."
+   },
+   "remember": "A pace in minutes per mile converts to distance by dividing time by pace.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "0.48",
+    "B": "0.77",
+    "C": "0.83",
+    "D": "9.23"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "0.48 reads 6 minutes 30 seconds as 6.3 minutes.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "0.83 converts Bea's 5-minute deficit to miles at Ana's pace: 5/6.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "9.23 is the distance Bea has run, not her distance from the finish.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q058-22",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Estimating a count from two densities over shares of an area",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A rally fills a rectangular plaza 120 meters by 80 meters. Organizers estimate a density of 2.5 people per square meter in the 40% of the plaza nearest the stage and 1 person per square meter in the rest of the plaza. Based on these estimates, how many people are in the plaza?",
+   "explanation": "The plaza's area is 120 × 80 = 9,600 square meters. Near the stage: 0.4 × 9,600 × 2.5 = 9,600 people. Elsewhere: 0.6 × 9,600 × 1 = 5,760 people. The total is 15,360.",
+   "hints": [
+    "Find the area of each region."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Split the plaza into the two regions and find each count."
+   },
+   "remember": "Average densities by weighting each one by its share of the area.",
+   "expected_time_seconds": 70,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "9,600",
+    "B": "15,360",
+    "C": "16,800",
+    "D": "18,240"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "9,600 counts only the people near the stage.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "16,800 averages the two densities to 1.75 without weighting by area.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "18,240 swaps the shares: 60% of the area at 2.5 and 40% at 1.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-23",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Sharing a fixed resource between two usage rates",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A printer's toner cartridge can print 3,000 pages at 5% page coverage, and the amount of toner used for a page is proportional to its coverage. After printing 600 pages at 12% coverage, how many more pages at 5% coverage can the cartridge print?",
+   "explanation": "A page at 12% coverage uses 12/5 = 2.4 times the toner of a 5% page. So the 600 pages used as much toner as 600 × 2.4 = 1,440 pages at 5%, leaving enough for 3,000 − 1,440 = 1,560 pages at 5%.",
+   "hints": [
+    "How many 5% pages' worth of toner do the 600 pages use?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Convert everything to 5%-page equivalents."
+   },
+   "remember": "Convert different usage rates to one common unit before subtracting from a fixed supply.",
+   "expected_time_seconds": 75,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "650",
+    "B": "1,560",
+    "C": "2,400",
+    "D": "2,750"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "650 converts the capacity to 12% pages (1,250), subtracts 600, and does not convert back to 5% pages.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "2,400 ignores coverage and subtracts 600 from 3,000.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "2,750 scales the 600 pages by 5/12 instead of 12/5.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-24",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Billing threshold from a cube-root inequality",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "hard",
+   "stem": "A courier bills each package by the greater of its actual weight and its dimensional weight, where dimensional weight, in kilograms, is the package's volume in cubic centimeters divided by 5,000. A package is a cube and has an actual weight of 9 kilograms. What is the least whole-number edge length, in centimeters, for which the package is billed by its dimensional weight?",
+   "explanation": "The package is billed by dimensional weight when s³/5,000 > 9, that is, when s³ > 45,000. The cube root of 45,000 is about 35.57, so the least whole-number edge length is 36 centimeters (36³/5,000 ≈ 9.33 kg, while 35³/5,000 = 8.575 kg).",
+   "hints": [
+    "When is the dimensional weight greater than 9 kilograms?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write s³/5,000 > 9 and solve for s."
+   },
+   "remember": "When a whole number must exceed a bound, round up.",
+   "expected_time_seconds": 80,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must turn a billing rule into an inequality on volume, take a cube root and round up rather than to the nearest whole number."
+   },
+   "format": "spr",
+   "answer": "36",
+   "accepted_answers": [
+    "36"
+   ],
+   "common_errors": [
+    {
+     "value": "35",
+     "rationale": "35 rounds the cube root of 45,000 (about 35.57) down; at 35 cm the dimensional weight is only 8.575 kg.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "213",
+     "rationale": "213 takes the square root of 45,000 instead of the cube root.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q058-25",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Angles of two pulleys linked by a belt",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "A belt connects a pulley with a radius of 30 centimeters to a pulley with a radius of 12 centimeters, and the belt does not slip. When the larger pulley turns through an angle of 2π/3 radians, through what angle, in radians, does the smaller pulley turn?",
+   "explanation": "The belt moves the same arc length on both pulleys: 30(2π/3) = 20π centimeters. On the smaller pulley this arc corresponds to 20π/12 = 5π/3 radians.",
+   "hints": [
+    "What distance does the belt move?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Use arc length = radius × angle on each pulley."
+   },
+   "remember": "Linked by a belt, two pulleys share an arc length, so their angles are in the inverse ratio of their radii.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "4π/15",
+    "B": "2π/3",
+    "C": "5π/6",
+    "D": "5π/3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "4π/15 multiplies by 12/30 instead of 30/12.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "2π/3 assumes both pulleys turn through the same angle.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5π/6 divides the arc length by the diameter, 24, instead of the radius.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-26",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Common chord of two circles: considering both positions",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, circle A has center (0, 0) and radius 17, and circle B has center (28, 0) and radius r. The circles intersect at exactly two points, and the distance between those points is 30. What is the greatest possible value of r?",
+   "explanation": "The intersection points are symmetric about the x-axis, so they are (x, 15) and (x, −15) on circle A: x² + 225 = 289, so x = 8 or x = −8. Their distance from (28, 0) is √(20² + 15²) = 25 or √(36² + 15²) = 39. Both radii give two intersection points, so the greatest possible value of r is 39.",
+   "hints": [
+    "Where are the two intersection points on circle A?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch both circles and the common chord."
+   },
+   "remember": "The common chord of two circles is perpendicular to the line through their centers.",
+   "expected_time_seconds": 110,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must use the chord to find the intersection points and consider both positions; the position beyond the far side of circle A is easy to miss."
+   },
+   "format": "spr",
+   "answer": "39",
+   "accepted_answers": [
+    "39"
+   ],
+   "common_errors": [
+    {
+     "value": "25",
+     "rationale": "25 is the least possible value of r, from intersection points with x-coordinate 8.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "13",
+     "rationale": "13 uses 28 − 15 as the horizontal distance.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q058-27",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Range of areas from a length tolerance",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "The side of a square tile is measured as 10 centimeters, and the true side length is within 0.2 centimeter of the measured length. What is the difference, in square centimeters, between the greatest and least possible true areas of the tile?",
+   "explanation": "The side is between 9.8 and 10.2 centimeters, so the area is between 9.8² = 96.04 and 10.2² = 104.04 square centimeters. The difference is 104.04 − 96.04 = 8 (equivalently, (10.2 − 9.8)(10.2 + 9.8) = 0.4 × 20).",
+   "hints": [
+    "What are the least and greatest possible side lengths?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Square each bound and subtract."
+   },
+   "remember": "A tolerance on a length becomes a range on the area found by squaring each bound.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "8",
+   "accepted_answers": [
+    "8"
+   ],
+   "common_errors": [
+    {
+     "value": "0.16",
+     "rationale": "0.16 squares the 0.4-centimeter range of lengths.",
+     "trap": null
+    },
+    {
+     "value": "4.04",
+     "rationale": "4.04 uses only the upper bound: 10.2² − 10².",
+     "trap": "partial_answer"
+    }
+   ]
+  },
+  {
+   "cand": "Q058-28",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Slope of a tangent from the origin to an off-center circle",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In the xy-plane, a line through the origin with a positive slope is tangent to the circle (x − 5)² + y² = 9. What is the slope of the line?",
+   "explanation": "The radius to the point of tangency is perpendicular to the line, so the origin, the center (5, 0) and the point of tangency form a right triangle with hypotenuse 5 and a leg of 3 (the radius). The other leg, along the line, is 4. The angle at the origin has tangent 3/4, so the slope is 3/4.",
+   "hints": [
+    "Draw the radius to the point of tangency."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch the circle, the tangent line and the radius, and find the right triangle."
+   },
+   "remember": "A tangent line is perpendicular to the radius at the point of tangency.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Students must see the tangent-radius right triangle or set up a discriminant condition; using the sine as the slope is a strong trap."
+   },
+   "choices": {
+    "A": "3/5",
+    "B": "3/4",
+    "C": "5/4",
+    "D": "4/3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "3/5 uses radius/distance, the sine of the angle, as the slope.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5/4 comes from substituting y = mx and setting the discriminant of m²x² + (x − 5)² = 9 to zero, but dropping the x² from (x − 5)².",
+     "trap": null
+    },
+    "D": {
+     "rationale": "4/3 comes from the same substitution but using 9 instead of 25 − 9 = 16 as the constant term.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q058-29",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Trigonometric ratios with an extraneous root",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "hard",
+   "stem": "In a right triangle, angle A is one of the acute angles, sin A = (x − 3)/17, and cos A = (x + 4)/17, where x is a constant. What is the value of tan A?",
+   "explanation": "Since sin²A + cos²A = 1, (x − 3)² + (x + 4)² = 289, so 2x² + 2x + 25 = 289, x² + x − 132 = 0, and x = 11 or x = −12. If x = −12, sin A and cos A are both negative, which is impossible for an acute angle, so x = 11. Then sin A = 8/17, cos A = 15/17, and tan A = 8/15.",
+   "hints": [
+    "Use sin²A + cos²A = 1."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve the resulting quadratic and keep the root that makes both ratios positive."
+   },
+   "remember": "For an acute angle, sine, cosine and tangent are all positive.",
+   "expected_time_seconds": 100,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "hardness": "Neither ratio is given numerically; students must solve a quadratic from the Pythagorean identity and reject the extraneous root."
+   },
+   "format": "spr",
+   "answer": "8/15",
+   "accepted_answers": [
+    "8/15",
+    ".5333",
+    "0.5333"
+   ],
+   "common_errors": [
+    {
+     "value": "15/8",
+     "rationale": "15/8 inverts the ratio: cos A/sin A.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "11",
+     "rationale": "11 is the value of x, not tan A.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  }
+ ]
+}
