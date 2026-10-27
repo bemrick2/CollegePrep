@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 60,
- "plan": "SAT Math batch 60: 23 items from generated idea set 12 (Algebra and PSDA; pre-checked in ideas-060.repeats.json) plus Q059-12 resubmitted as revision 2 (wording only). Dropped from set 12: GC02 (mirrors CLD-ACT-M-000234's margin-of-error trap), GC08 (key cue and implausible slope), GC10 (reused numbers), GC11 (close to CLD-ACT-M-000025 and pairs with GC07), GC13 (contradicts growth charts), GA06 and GA14 (textbook classics; GA14 also cued). Fixes: GC05 gained an 18% distractor so the key is not the only value above both percents; GA03, GA04 and GC03 labeled medium because a convenient value or the naive guess works; GA09 accepts only 447 and lists 446 as a rounding trap.",
+ "plan": "SAT Math batch 60: 23 items from generated idea set 12 (Algebra and PSDA; pre-checked in ideas-060.repeats.json) plus Q059-12 resubmitted as revision 2 (wording only). Dropped from set 12: GC02 (mirrors CLD-ACT-M-000234's margin-of-error trap), GC08 (key cue and implausible slope), GC10 (reused numbers), GC11 (close to CLD-ACT-M-000025 and pairs with GC07), GC13 (contradicts growth charts), GA06 and GA14 (textbook classics; GA14 also cued). Fixes: GC05 gained an 18% distractor so the key is not the only value above both percents; GA03, GA04 and GC03 labeled medium because a convenient value or the naive guess works; GA09 accepts only 447 and lists 446 as a rounding trap. Relabelled to the lower of authored and blind difficulty: Q060-01 hard→medium, Q060-02 hard→medium, Q060-05 hard→medium, Q060-08 hard→medium, Q060-12 medium→easy, Q060-13 hard→medium, Q060-16 hard→medium, Q060-17 hard→medium, Q060-19 hard→medium, Q060-23 hard→medium.",
  "candidates": [
   {
    "cand": "Q060-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Solution of a system after a substitution maps it onto a known system",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The system ax + by = c and dx + ey = f, where a, b, c, d, e and f are constants, has exactly one solution, (2, 5). What is the solution (x, y) of the system a(x − 3) + 2by = c and d(x − 3) + 2ey = f ?",
    "explanation": "Let u = x − 3 and v = 2y. Then the new system is au + bv = c and du + ev = f, which is the original system, so u = 2 and v = 5. Therefore x = 5 and y = 5/2.",
    "hints": [
@@ -56,7 +56,7 @@
    "skill": "Algebra",
    "subskill": "Interpreting the slope of a rearranged budget equation",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A café spends exactly $600 on x pounds of Colombian coffee beans at $12 per pound and y pounds of Ethiopian coffee beans at $15 per pound, so 12x + 15y = 600. This equation is equivalent to y = 40 − 0.8x. What is the best interpretation of 0.8 in this context?",
    "explanation": "In y = 40 − 0.8x, each 1-pound increase in x (Colombian) decreases y (Ethiopian) by 0.8 pound, since 12 dollars spent on Colombian beans is 0.8 of 15 dollars.",
    "hints": [
@@ -191,7 +191,7 @@
    "skill": "Algebra",
    "subskill": "Average cost under a two-tier price",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A print shop charges $0.12 per page for each of the first 500 pages of an order and $0.08 per page for each page after the first 500. For one order, the average cost per page was $0.09. How many pages were in the order?",
    "explanation": "For n pages (n > 500), the cost is 0.12(500) + 0.08(n − 500) = 60 + 0.08n − 40 = 0.08n + 20. Setting the average equal to 0.09 gives (0.08n + 20)/n = 0.09, so 20 = 0.01n and n = 2,000. Check: the cost is $180 for 2,000 pages.",
    "hints": [
@@ -321,7 +321,7 @@
    "skill": "Algebra",
    "subskill": "Least price meeting a profit target after a commission",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A gallery keeps 35% of the sale price of each painting it sells, and the artist receives the rest. An artist's materials cost $40 per painting. What is the least whole-dollar sale price for which the artist's profit on a painting (the amount the artist receives minus the cost of materials) is at least $250 ?",
    "explanation": "The artist receives 0.65p, so the profit is 0.65p − 40. Then 0.65p − 40 ≥ 250 gives p ≥ 290/0.65 ≈ 446.15, so the least whole-dollar price is $447.",
    "hints": [
@@ -507,7 +507,7 @@
    "skill": "Algebra",
    "subskill": "Converting a compound inequality between temperature scales",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A vaccine must be stored at temperatures from 36°F to 46°F, inclusive. Temperatures are related by F = 1.8C + 32, where F is in degrees Fahrenheit and C is in degrees Celsius. Which inequality gives, to the nearest tenth of a degree, the storage temperatures in degrees Celsius?",
    "explanation": "C = (F − 32)/1.8. For F = 36, C = 4/1.8 ≈ 2.2; for F = 46, C = 14/1.8 ≈ 7.8. So 2.2 ≤ C ≤ 7.8.",
    "hints": [
@@ -553,7 +553,7 @@
    "skill": "Algebra",
    "subskill": "Difference of two unknowns from a slope condition",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, a line with slope 3 passes through the points (a, b) and (b, a + 6), where a and b are constants and a ≠ b. What is the value of b − a ?",
    "explanation": "The slope is ((a + 6) − b)/(b − a) = 3. Let d = b − a; then (6 − d)/d = 3, so 6 − d = 3d and d = 3/2.",
    "hints": [
@@ -681,7 +681,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Number of zeros from two means",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Each of 50 students reported the number of books they read over the summer, and the mean of the 50 reports was 2.4 books. Among the students who read at least one book, the mean was 3.0 books. How many of the students read no books?",
    "explanation": "The 50 students read 50 × 2.4 = 120 books. Removing students who read 0 books does not change the total, so 120/(50 − z) = 3.0, which gives 50 − z = 40 and z = 10.",
    "hints": [
@@ -724,7 +724,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Percent change of a difference",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In 2023, a company's costs were 75% of its revenue. From 2023 to 2024, the company's revenue increased by 10% and its costs increased by 8%. By what percent did the company's profit (revenue minus costs) increase?",
    "explanation": "Let revenue be 100 in 2023, so costs are 75 and profit is 25. In 2024 revenue is 110 and costs are 81, so profit is 29. The profit increased by 4/25 = 16%.",
    "hints": [
@@ -817,7 +817,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Missing table cell from equal conditional and overall probabilities",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "The table gives all the shoppers in a survey, classified by age and by where they usually shop.\nUnder 40: online 72, in store 48\n40 or older: online x, in store 120\nIf a shopper under 40 is selected at random, the probability that the shopper shops online is equal to the probability that a shopper selected at random from all the shoppers in the table shops online. What is the value of x ?",
    "explanation": "For shoppers under 40, the probability is 72/120 = 0.6. For all shoppers, it is (72 + x)/(240 + x). Setting (72 + x)/(240 + x) = 0.6 gives 72 + x = 144 + 0.6x, so 0.4x = 72 and x = 180.",
    "hints": [
@@ -994,7 +994,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Successive percent increases with a known difference in amounts",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "A club's membership increased by 20% during its first year and by 25% during its second year. The number of members added during the second year was 300 more than the number added during the first year. How many members did the club have at the start of the first year?",
    "explanation": "With M members at the start, the first year adds 0.2M, and the second year adds 0.25(1.2M) = 0.3M. Then 0.3M − 0.2M = 0.1M = 300, so M = 3,000.",
    "hints": [

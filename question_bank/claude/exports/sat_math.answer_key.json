@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 59,
+  "bank_version": 60,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -11845,6 +11845,390 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Solve the resulting quadratic and keep the root that makes both ratios positive."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000594",
+      "correct_answer": "C",
+      "explanation": "Let u = x − 3 and v = 2y. Then the new system is au + bv = c and du + ev = f, which is the original system, so u = 2 and v = 5. Therefore x = 5 and y = 5/2.",
+      "distractor_explanations": {
+        "A": "(−1, 5/2) solves x − 3 = 2 as x = 2 − 3.",
+        "B": "(−1, 10) makes both errors: subtracts 3 and doubles 5.",
+        "D": "(5, 10) reads 2y = 5 as y = 2 · 5."
+      },
+      "hints": [
+        "What expressions play the roles of x and y in the new system?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rename x − 3 and 2y, then compare with the original system."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000595",
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 scales the intercept by 3/2 instead of 2/3.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes scaling the coefficients does not move the intercept.",
+          "trap": null
+        },
+        {
+          "value": "18",
+          "rationale": "18 scales the intercept by 3 only.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The x-intercept of y = ax + b is −b/a = 6. The x-intercept of y = 3ax + 2b is −2b/(3a) = (2/3)(−b/a) = (2/3)(6) = 4.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the x-intercept in terms of a and b."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1 and b = −6, then find the new intercept."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000596",
+      "correct_answer": "2000",
+      "accepted_answers": [
+        "2000"
+      ],
+      "common_errors": [
+        {
+          "value": "1500",
+          "rationale": "1,500 is the number of pages after the first 500, not the total.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "For n pages (n > 500), the cost is 0.12(500) + 0.08(n − 500) = 60 + 0.08n − 40 = 0.08n + 20. Setting the average equal to 0.09 gives (0.08n + 20)/n = 0.09, so 20 = 0.01n and n = 2,000. Check: the cost is $180 for 2,000 pages.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the total cost of an order of n pages."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set total cost divided by n equal to 0.09."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000597",
+      "correct_answer": "B",
+      "explanation": "Subtracting the second equation from the first gives 3g(x) = 6x − 12, so g(x) = 2x − 4. Then f(x) = 7x + 1 − (2x − 4) = 5x + 5.",
+      "distractor_explanations": {
+        "A": "2x − 4 is g, not f.",
+        "C": "5x − 3 does not distribute the minus sign: 7x + 1 − 2x − 4.",
+        "D": "9x − 3 adds g instead of subtracting it."
+      },
+      "hints": [
+        "Eliminate f or g as in a system of equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Treat f(x) and g(x) as two unknowns."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000598",
+      "correct_answer": "C",
+      "explanation": "Subtracting the second equation from the first: (4p + 3q) − (2p + 5q) = 1.15 − 0.95, so 2p − 2q = 0.2 and p − q = 0.1 kilogram, or 100 grams.",
+      "distractor_explanations": {
+        "A": "10 converts 0.1 kilogram using 100 grams per kilogram instead of 1,000.",
+        "B": "50 divides 0.2 by 4, the number of peaches.",
+        "D": "200 stops at 2p − 2q = 0.2 kilogram without dividing by 2."
+      },
+      "hints": [
+        "What happens if you subtract the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract to get a multiple of p − q directly."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000599",
+      "correct_answer": "A",
+      "explanation": "A 20% increase from $40 is $8, so the price becomes $48. The number sold decreases by 15 × 8 = 120.",
+      "distractor_explanations": {
+        "B": "180 takes 20% of the 900 tickets sold at $40, applying the percent to the output.",
+        "C": "300 treats the 20% increase as a $20 increase.",
+        "D": "600 multiplies 15 by the original price, $40."
+      },
+      "hints": [
+        "How many dollars is a 20% increase from $40?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the change in p, then multiply by the slope."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000600",
+      "correct_answer": "C",
+      "explanation": "Let u = 4x + 7, so the equation becomes (3/5)u + 2 = (1/5)u + 10. Subtracting (1/5)u and 2 from both sides gives (2/5)u = 8, so u = 20.",
+      "distractor_explanations": {
+        "A": "13/4 is the value of x, not of 4x + 7.",
+        "B": "8 stops at (2/5)u = 8.",
+        "D": "40 multiplies 8 by 5 but forgets to divide by 2."
+      },
+      "hints": [
+        "Treat 4x + 7 as one quantity."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute u for 4x + 7 and solve for u."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000601",
+      "correct_answer": "D",
+      "explanation": "From the elevation model, t = (2,400 − E)/300. Substituting, T = 8 + 1.8(2,400 − E)/300 = 8 + 0.006(2,400 − E) = 8 + 14.4 − 0.006E = 22.4 − 0.006E.",
+      "distractor_explanations": {
+        "A": "8 − 0.006E drops the 0.006 × 2,400 term.",
+        "B": "8 + 0.006E uses t = E/300, ignoring the starting elevation.",
+        "C": "0.006E − 6.4 uses t = (E − 2,400)/300, a sign error."
+      },
+      "hints": [
+        "Solve the elevation model for t."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate t by substitution."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000602",
+      "correct_answer": "B",
+      "explanation": "C = (F − 32)/1.8. For F = 36, C = 4/1.8 ≈ 2.2; for F = 46, C = 14/1.8 ≈ 7.8. So 2.2 ≤ C ≤ 7.8.",
+      "distractor_explanations": {
+        "A": "−12.0 ≤ C ≤ −6.4 divides by 1.8 before subtracting 32.",
+        "C": "4.0 ≤ C ≤ 14.0 subtracts 32 but does not divide by 1.8.",
+        "D": "7.2 ≤ C ≤ 25.2 multiplies by 1.8 instead of dividing."
+      },
+      "hints": [
+        "Solve F = 1.8C + 32 for C."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Undo the operations in reverse order."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000603",
+      "correct_answer": "3/2",
+      "accepted_answers": [
+        "3/2",
+        "1.5"
+      ],
+      "common_errors": [
+        {
+          "value": "-3/2",
+          "rationale": "-3/2 makes a sign slip in the slope formula.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "2",
+          "rationale": "2 divides 6 by 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope is ((a + 6) − b)/(b − a) = 3. Let d = b − a; then (6 − d)/d = 3, so 6 − d = 3d and d = 3/2.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the slope formula with these two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Replace b − a with a single variable."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000604",
+      "correct_answer": "49",
+      "accepted_answers": [
+        "49"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 assumes the added value becomes the median.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 assumes the median cannot change.",
+          "trap": null
+        }
+      ],
+      "explanation": "With 10 numbers, the median is the mean of the 5th and 6th values. The old 5th value, 48, stays 5th (50 is larger). The new 6th value is the smaller of 50 and the old 6th value, so it is at most 50. The greatest median is (48 + 50)/2 = 49, reached when the old 6th value is at least 50.",
+      "distractor_explanations": {},
+      "hints": [
+        "Which positions determine the median of 10 numbers?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Track where 50 lands in the ordered list."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000605",
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is the number of students who read at least one book.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 divides 2.4 × 50 by 4, a misapplied average.",
+          "trap": null
+        }
+      ],
+      "explanation": "The 50 students read 50 × 2.4 = 120 books. Removing students who read 0 books does not change the total, so 120/(50 − z) = 3.0, which gives 50 − z = 40 and z = 10.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the total number of books read?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use total = mean × count for both groups."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000606",
+      "correct_answer": "C",
+      "explanation": "Let revenue be 100 in 2023, so costs are 75 and profit is 25. In 2024 revenue is 110 and costs are 81, so profit is 29. The profit increased by 4/25 = 16%.",
+      "distractor_explanations": {
+        "A": "2% subtracts the percent increases: 10% − 8%.",
+        "B": "4% finds the 4-unit rise in profit but divides by the revenue, 100.",
+        "D": "18% adds the percent increases: 10% + 8%."
+      },
+      "hints": [
+        "Pick a convenient revenue for 2023."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use revenue 100 and compute profit both years."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000607",
+      "correct_answer": "180",
+      "accepted_answers": [
+        "180"
+      ],
+      "common_errors": [
+        {
+          "value": "72",
+          "rationale": "72 sets x/120 equal to 72/120, using the wrong denominator.",
+          "trap": null
+        },
+        {
+          "value": "80",
+          "rationale": "80 solves x/(x + 120) = 0.4.",
+          "trap": null
+        }
+      ],
+      "explanation": "For shoppers under 40, the probability is 72/120 = 0.6. For all shoppers, it is (72 + x)/(240 + x). Setting (72 + x)/(240 + x) = 0.6 gives 72 + x = 144 + 0.6x, so 0.4x = 72 and x = 180.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is the probability for shoppers under 40?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the overall probability in terms of x and set it equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000608",
+      "correct_answer": "14040",
+      "accepted_answers": [
+        "14040"
+      ],
+      "common_errors": [
+        {
+          "value": "140400",
+          "rationale": "140,400 skips the 1/10 ratio and weighs the full snow volume as water.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "168480",
+          "rationale": "168,480 does not convert the depth from inches to feet.",
+          "trap": null
+        }
+      ],
+      "explanation": "The meltwater is 1.8 inches, or 0.15 foot, deep. Its volume is 1,500 × 0.15 = 225 cubic feet, and its weight is 225 × 62.4 = 14,040 pounds, which equals the weight of the snow.",
+      "distractor_explanations": {},
+      "hints": [
+        "How deep is the meltwater, in feet?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the water's volume, then multiply by its density."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000609",
+      "correct_answer": "C",
+      "explanation": "Six hours is 21,600 seconds, so each second of video shows 21,600/45 = 480 seconds, or 8 minutes, of real time. The flower took 18 × 8 = 144 minutes.",
+      "distractor_explanations": {
+        "A": "2.25 inverts the scale: 18 × 45/360.",
+        "B": "2.4 is the real time in hours, reported as minutes.",
+        "D": "8,640 is the real time in seconds."
+      },
+      "hints": [
+        "How much real time does one second of video show?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the scale per video second, then multiply."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000610",
+      "correct_answer": "C",
+      "explanation": "With M members at the start, the first year adds 0.2M, and the second year adds 0.25(1.2M) = 0.3M. Then 0.3M − 0.2M = 0.1M = 300, so M = 3,000.",
+      "distractor_explanations": {
+        "A": "1,200 treats 300 as 25% of the starting membership.",
+        "B": "1,500 treats 300 as 20% of the starting membership.",
+        "D": "6,000 applies both percents to the starting number: 0.25M − 0.2M = 0.05M = 300."
+      },
+      "hints": [
+        "What is the base for the second year's 25%?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each year's added members in terms of M."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000611",
+      "correct_answer": "B",
+      "explanation": "At launch, t = 0, so S(0) = 1,200(1.15)⁻⁴ = 1,200/1.15⁴ ≈ 686.1, or 686. The 1,200 is the number of subscribers 4 months after launch.",
+      "distractor_explanations": {
+        "A": "480 removes 15% of 1,200 four times without compounding: 1,200 − 4(180).",
+        "C": "750 divides by 1 + 4(0.15) instead of by 1.15⁴.",
+        "D": "1,043 divides by 1.15 only once."
+      },
+      "hints": [
+        "What is t at launch?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Evaluate S(0)."
       }
     }
   ]

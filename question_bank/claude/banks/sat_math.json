@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 59,
-  "updated_at": "2026-10-27T14:05:57+00:00",
+  "version": 60,
+  "updated_at": "2026-10-27T15:33:28+00:00",
   "passages": [],
   "questions": [
     {
@@ -42797,6 +42797,1301 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/sat_math/batch-059.review.json",
         "computation": "checks/sat_math/batch_059.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000594",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solution of a system after a substitution maps it onto a known system",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The system ax + by = c and dx + ey = f, where a, b, c, d, e and f are constants, has exactly one solution, (2, 5). What is the solution (x, y) of the system a(x − 3) + 2by = c and d(x − 3) + 2ey = f ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "(−1, 5/2)",
+        "B": "(−1, 10)",
+        "C": "(5, 5/2)",
+        "D": "(5, 10)"
+      },
+      "correct_answer": "C",
+      "explanation": "Let u = x − 3 and v = 2y. Then the new system is au + bv = c and du + ev = f, which is the original system, so u = 2 and v = 5. Therefore x = 5 and y = 5/2.",
+      "distractor_explanations": {
+        "A": "(−1, 5/2) solves x − 3 = 2 as x = 2 − 3.",
+        "B": "(−1, 10) makes both errors: subtracts 3 and doubles 5.",
+        "D": "(5, 10) reads 2y = 5 as y = 2 · 5."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": null,
+        "D": "sign_error"
+      },
+      "hints": [
+        "What expressions play the roles of x and y in the new system?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Rename x − 3 and 2y, then compare with the original system."
+      },
+      "remember": "A substitution can turn a new system into one whose solution you already know.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-01",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000595",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "New x-intercept after scaling a line's coefficients",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The graph of y = ax + b in the xy-plane, where a and b are nonzero constants, has an x-intercept at (6, 0). What is the x-coordinate of the x-intercept of the graph of y = 3ax + 2b ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 scales the intercept by 3/2 instead of 2/3.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "6",
+          "rationale": "6 assumes scaling the coefficients does not move the intercept.",
+          "trap": null
+        },
+        {
+          "value": "18",
+          "rationale": "18 scales the intercept by 3 only.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The x-intercept of y = ax + b is −b/a = 6. The x-intercept of y = 3ax + 2b is −2b/(3a) = (2/3)(−b/a) = (2/3)(6) = 4.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the x-intercept in terms of a and b."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Try a = 1 and b = −6, then find the new intercept."
+      },
+      "remember": "The x-intercept of y = ax + b is −b/a; scale the numerator and denominator separately.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-04",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000596",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Average cost under a two-tier price",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A print shop charges $0.12 per page for each of the first 500 pages of an order and $0.08 per page for each page after the first 500. For one order, the average cost per page was $0.09. How many pages were in the order?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "2000",
+      "accepted_answers": [
+        "2000"
+      ],
+      "common_errors": [
+        {
+          "value": "1500",
+          "rationale": "1,500 is the number of pages after the first 500, not the total.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "For n pages (n > 500), the cost is 0.12(500) + 0.08(n − 500) = 60 + 0.08n − 40 = 0.08n + 20. Setting the average equal to 0.09 gives (0.08n + 20)/n = 0.09, so 20 = 0.01n and n = 2,000. Check: the cost is $180 for 2,000 pages.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the total cost of an order of n pages."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set total cost divided by n equal to 0.09."
+      },
+      "remember": "Average cost = total cost ÷ number of units.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-05",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "2000",
+        "blind_answer": "2000",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000597",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Recovering two linear functions from combinations",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The linear functions f and g satisfy f(x) + g(x) = 7x + 1 and f(x) − 2g(x) = x + 13 for all values of x. Which of the following defines f ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(x) = 2x − 4",
+        "B": "f(x) = 5x + 5",
+        "C": "f(x) = 5x − 3",
+        "D": "f(x) = 9x − 3"
+      },
+      "correct_answer": "B",
+      "explanation": "Subtracting the second equation from the first gives 3g(x) = 6x − 12, so g(x) = 2x − 4. Then f(x) = 7x + 1 − (2x − 4) = 5x + 5.",
+      "distractor_explanations": {
+        "A": "2x − 4 is g, not f.",
+        "C": "5x − 3 does not distribute the minus sign: 7x + 1 − 2x − 4.",
+        "D": "9x − 3 adds g instead of subtracting it."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": "sign_error",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Eliminate f or g as in a system of equations."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Treat f(x) and g(x) as two unknowns."
+      },
+      "remember": "Equations in two unknown functions can be solved like a system in two variables.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-06",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000598",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Difference of two unknowns from subtracted equations, with unit conversion",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "At a market, a bag of 4 peaches and 3 plums weighs 1.15 kilograms, and a bag of 2 peaches and 5 plums weighs 0.95 kilogram. Every peach has the same weight, and every plum has the same weight. How many grams more does a peach weigh than a plum?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10",
+        "B": "50",
+        "C": "100",
+        "D": "200"
+      },
+      "correct_answer": "C",
+      "explanation": "Subtracting the second equation from the first: (4p + 3q) − (2p + 5q) = 1.15 − 0.95, so 2p − 2q = 0.2 and p − q = 0.1 kilogram, or 100 grams.",
+      "distractor_explanations": {
+        "A": "10 converts 0.1 kilogram using 100 grams per kilogram instead of 1,000.",
+        "B": "50 divides 0.2 by 4, the number of peaches.",
+        "D": "200 stops at 2p − 2q = 0.2 kilogram without dividing by 2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What happens if you subtract the two equations?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract to get a multiple of p − q directly."
+      },
+      "remember": "Look for a combination of equations that gives the asked quantity directly.",
+      "expected_time_seconds": 70,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-07",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000599",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Output change from a percent change in the input",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A theater estimates that the number of tickets it sells for a show is n = 1,500 − 15p, where p is the ticket price in dollars. According to the estimate, if the price is raised 20% from $40, by how many tickets does the number sold decrease?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "120",
+        "B": "180",
+        "C": "300",
+        "D": "600"
+      },
+      "correct_answer": "A",
+      "explanation": "A 20% increase from $40 is $8, so the price becomes $48. The number sold decreases by 15 × 8 = 120.",
+      "distractor_explanations": {
+        "B": "180 takes 20% of the 900 tickets sold at $40, applying the percent to the output.",
+        "C": "300 treats the 20% increase as a $20 increase.",
+        "D": "600 multiplies 15 by the original price, $40."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How many dollars is a 20% increase from $40?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the change in p, then multiply by the slope."
+      },
+      "remember": "The change in a linear output is the slope times the change in the input.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-09",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000600",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Solving for an expression as a single unknown",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If (3/5)(4x + 7) + 2 = (1/5)(4x + 7) + 10, what is the value of 4x + 7 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "13/4",
+        "B": "8",
+        "C": "20",
+        "D": "40"
+      },
+      "correct_answer": "C",
+      "explanation": "Let u = 4x + 7, so the equation becomes (3/5)u + 2 = (1/5)u + 10. Subtracting (1/5)u and 2 from both sides gives (2/5)u = 8, so u = 20.",
+      "distractor_explanations": {
+        "A": "13/4 is the value of x, not of 4x + 7.",
+        "B": "8 stops at (2/5)u = 8.",
+        "D": "40 multiplies 8 by 5 but forgets to divide by 2."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Treat 4x + 7 as one quantity."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute u for 4x + 7 and solve for u."
+      },
+      "remember": "If the question asks for an expression, solve for the expression directly.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-10",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000601",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Eliminating a shared variable between two models",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "During a descent, a hiker's elevation E, in meters, t hours after leaving a summit is E = 2,400 − 300t, and the air temperature T, in degrees Celsius, at the hiker's location is T = 8 + 1.8t. Which equation gives T in terms of E ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "T = 8 − 0.006E",
+        "B": "T = 8 + 0.006E",
+        "C": "T = 0.006E − 6.4",
+        "D": "T = 22.4 − 0.006E"
+      },
+      "correct_answer": "D",
+      "explanation": "From the elevation model, t = (2,400 − E)/300. Substituting, T = 8 + 1.8(2,400 − E)/300 = 8 + 0.006(2,400 − E) = 8 + 14.4 − 0.006E = 22.4 − 0.006E.",
+      "distractor_explanations": {
+        "A": "8 − 0.006E drops the 0.006 × 2,400 term.",
+        "B": "8 + 0.006E uses t = E/300, ignoring the starting elevation.",
+        "C": "0.006E − 6.4 uses t = (E − 2,400)/300, a sign error."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": "sign_error"
+      },
+      "hints": [
+        "Solve the elevation model for t."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Eliminate t by substitution."
+      },
+      "remember": "To relate two models that share a variable, solve one for it and substitute.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-11",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [
+          "minor: closely follows a well-known official SAT item type (temperature/elevation composed via time, express T in terms of h)"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000602",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Converting a compound inequality between temperature scales",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A vaccine must be stored at temperatures from 36°F to 46°F, inclusive. Temperatures are related by F = 1.8C + 32, where F is in degrees Fahrenheit and C is in degrees Celsius. Which inequality gives, to the nearest tenth of a degree, the storage temperatures in degrees Celsius?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−12.0 ≤ C ≤ −6.4",
+        "B": "2.2 ≤ C ≤ 7.8",
+        "C": "4.0 ≤ C ≤ 14.0",
+        "D": "7.2 ≤ C ≤ 25.2"
+      },
+      "correct_answer": "B",
+      "explanation": "C = (F − 32)/1.8. For F = 36, C = 4/1.8 ≈ 2.2; for F = 46, C = 14/1.8 ≈ 7.8. So 2.2 ≤ C ≤ 7.8.",
+      "distractor_explanations": {
+        "A": "−12.0 ≤ C ≤ −6.4 divides by 1.8 before subtracting 32.",
+        "C": "4.0 ≤ C ≤ 14.0 subtracts 32 but does not divide by 1.8.",
+        "D": "7.2 ≤ C ≤ 25.2 multiplies by 1.8 instead of dividing."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Solve F = 1.8C + 32 for C."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Undo the operations in reverse order."
+      },
+      "remember": "To invert a formula, undo the last operation first.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-12",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000603",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Difference of two unknowns from a slope condition",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a line with slope 3 passes through the points (a, b) and (b, a + 6), where a and b are constants and a ≠ b. What is the value of b − a ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "3/2",
+      "accepted_answers": [
+        "3/2",
+        "1.5"
+      ],
+      "common_errors": [
+        {
+          "value": "-3/2",
+          "rationale": "-3/2 makes a sign slip in the slope formula.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "2",
+          "rationale": "2 divides 6 by 3.",
+          "trap": null
+        }
+      ],
+      "explanation": "The slope is ((a + 6) − b)/(b − a) = 3. Let d = b − a; then (6 − d)/d = 3, so 6 − d = 3d and d = 3/2.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the slope formula with these two points."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Replace b − a with a single variable."
+      },
+      "remember": "When only a difference is determined, solve for the difference itself.",
+      "expected_time_seconds": 85,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-13",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "3/2",
+        "blind_answer": "3/2",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000604",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Greatest possible median after adding a value",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A data set consists of 9 numbers and has a median of 48. The number 50 is added to the data set. What is the greatest possible median of the 10 numbers?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "49",
+      "accepted_answers": [
+        "49"
+      ],
+      "common_errors": [
+        {
+          "value": "50",
+          "rationale": "50 assumes the added value becomes the median.",
+          "trap": null
+        },
+        {
+          "value": "48",
+          "rationale": "48 assumes the median cannot change.",
+          "trap": null
+        }
+      ],
+      "explanation": "With 10 numbers, the median is the mean of the 5th and 6th values. The old 5th value, 48, stays 5th (50 is larger). The new 6th value is the smaller of 50 and the old 6th value, so it is at most 50. The greatest median is (48 + 50)/2 = 49, reached when the old 6th value is at least 50.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Which positions determine the median of 10 numbers?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Track where 50 lands in the ordered list."
+      },
+      "remember": "For an even count, the median is the mean of the two middle values.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-15",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "49",
+        "blind_answer": "49",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000605",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Number of zeros from two means",
+      "modeling": false,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Each of 50 students reported the number of books they read over the summer, and the mean of the 50 reports was 2.4 books. Among the students who read at least one book, the mean was 3.0 books. How many of the students read no books?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "10",
+      "accepted_answers": [
+        "10"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 is the number of students who read at least one book.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "30",
+          "rationale": "30 divides 2.4 × 50 by 4, a misapplied average.",
+          "trap": null
+        }
+      ],
+      "explanation": "The 50 students read 50 × 2.4 = 120 books. Removing students who read 0 books does not change the total, so 120/(50 − z) = 3.0, which gives 50 − z = 40 and z = 10.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the total number of books read?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use total = mean × count for both groups."
+      },
+      "remember": "Removing zeros changes the count but not the sum.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-16",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "10",
+        "blind_answer": "10",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000606",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Percent change of a difference",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In 2023, a company's costs were 75% of its revenue. From 2023 to 2024, the company's revenue increased by 10% and its costs increased by 8%. By what percent did the company's profit (revenue minus costs) increase?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2%",
+        "B": "4%",
+        "C": "16%",
+        "D": "18%"
+      },
+      "correct_answer": "C",
+      "explanation": "Let revenue be 100 in 2023, so costs are 75 and profit is 25. In 2024 revenue is 110 and costs are 81, so profit is 29. The profit increased by 4/25 = 16%.",
+      "distractor_explanations": {
+        "A": "2% subtracts the percent increases: 10% − 8%.",
+        "B": "4% finds the 4-unit rise in profit but divides by the revenue, 100.",
+        "D": "18% adds the percent increases: 10% + 8%."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "wrong_quantity",
+        "D": null
+      },
+      "hints": [
+        "Pick a convenient revenue for 2023."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use revenue 100 and compute profit both years."
+      },
+      "remember": "Percent change of a difference must be computed from the actual amounts.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-17",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 40,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000607",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Missing table cell from equal conditional and overall probabilities",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table gives all the shoppers in a survey, classified by age and by where they usually shop.\nUnder 40: online 72, in store 48\n40 or older: online x, in store 120\nIf a shopper under 40 is selected at random, the probability that the shopper shops online is equal to the probability that a shopper selected at random from all the shoppers in the table shops online. What is the value of x ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "180",
+      "accepted_answers": [
+        "180"
+      ],
+      "common_errors": [
+        {
+          "value": "72",
+          "rationale": "72 sets x/120 equal to 72/120, using the wrong denominator.",
+          "trap": null
+        },
+        {
+          "value": "80",
+          "rationale": "80 solves x/(x + 120) = 0.4.",
+          "trap": null
+        }
+      ],
+      "explanation": "For shoppers under 40, the probability is 72/120 = 0.6. For all shoppers, it is (72 + x)/(240 + x). Setting (72 + x)/(240 + x) = 0.6 gives 72 + x = 144 + 0.6x, so 0.4x = 72 and x = 180.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "What is the probability for shoppers under 40?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write the overall probability in terms of x and set it equal."
+      },
+      "remember": "Both the numerator and the denominator of an overall probability can contain the unknown.",
+      "expected_time_seconds": 90,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-19",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "180",
+        "blind_answer": "180",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000608",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Weight of snow from depth ratio and density",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Fresh snow covers a 1,500-square-foot flat roof to a depth of 18 inches. When this snow melts, the water is 1/10 as deep as the snow was. Water weighs 62.4 pounds per cubic foot. What is the weight, in pounds, of the snow on the roof?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "14040",
+      "accepted_answers": [
+        "14040"
+      ],
+      "common_errors": [
+        {
+          "value": "140400",
+          "rationale": "140,400 skips the 1/10 ratio and weighs the full snow volume as water.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "168480",
+          "rationale": "168,480 does not convert the depth from inches to feet.",
+          "trap": null
+        }
+      ],
+      "explanation": "The meltwater is 1.8 inches, or 0.15 foot, deep. Its volume is 1,500 × 0.15 = 225 cubic feet, and its weight is 225 × 62.4 = 14,040 pounds, which equals the weight of the snow.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "How deep is the meltwater, in feet?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the water's volume, then multiply by its density."
+      },
+      "remember": "Convert all lengths to the same unit before computing a volume.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-21",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "14040",
+        "blind_answer": "14040",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000609",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Time-lapse scale between two time units",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A time-lapse camera records a flower garden so that 6 hours of real time play as 45 seconds of video. In the video, a flower takes 18 seconds to open. How many minutes did the flower take to open in real time?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2.25",
+        "B": "2.4",
+        "C": "144",
+        "D": "8,640"
+      },
+      "correct_answer": "C",
+      "explanation": "Six hours is 21,600 seconds, so each second of video shows 21,600/45 = 480 seconds, or 8 minutes, of real time. The flower took 18 × 8 = 144 minutes.",
+      "distractor_explanations": {
+        "A": "2.25 inverts the scale: 18 × 45/360.",
+        "B": "2.4 is the real time in hours, reported as minutes.",
+        "D": "8,640 is the real time in seconds."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "wrong_quantity",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "How much real time does one second of video show?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find the scale per video second, then multiply."
+      },
+      "remember": "Convert to one unit before setting up a scale, and check the unit asked for.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-22",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000610",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Successive percent increases with a known difference in amounts",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A club's membership increased by 20% during its first year and by 25% during its second year. The number of members added during the second year was 300 more than the number added during the first year. How many members did the club have at the start of the first year?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "1,200",
+        "B": "1,500",
+        "C": "3,000",
+        "D": "6,000"
+      },
+      "correct_answer": "C",
+      "explanation": "With M members at the start, the first year adds 0.2M, and the second year adds 0.25(1.2M) = 0.3M. Then 0.3M − 0.2M = 0.1M = 300, so M = 3,000.",
+      "distractor_explanations": {
+        "A": "1,200 treats 300 as 25% of the starting membership.",
+        "B": "1,500 treats 300 as 20% of the starting membership.",
+        "D": "6,000 applies both percents to the starting number: 0.25M − 0.2M = 0.05M = 300."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What is the base for the second year's 25%?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each year's added members in terms of M."
+      },
+      "remember": "A second percent increase applies to the already-increased amount.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-23",
+      "created_at": "2026-10-27T15:33:27+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000611",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Initial value of an exponential model with a shifted input",
+      "modeling": true,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The number of subscribers to an app t months after its launch is modeled by S(t) = 1,200(1.15)^(t − 4), for 0 ≤ t ≤ 24. According to the model, to the nearest whole number, how many subscribers did the app have at launch?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "480",
+        "B": "686",
+        "C": "750",
+        "D": "1,043"
+      },
+      "correct_answer": "B",
+      "explanation": "At launch, t = 0, so S(0) = 1,200(1.15)⁻⁴ = 1,200/1.15⁴ ≈ 686.1, or 686. The 1,200 is the number of subscribers 4 months after launch.",
+      "distractor_explanations": {
+        "A": "480 removes 15% of 1,200 four times without compounding: 1,200 − 4(180).",
+        "C": "750 divides by 1 + 4(0.15) instead of by 1.15⁴.",
+        "D": "1,043 divides by 1.15 only once."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What is t at launch?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Evaluate S(0)."
+      },
+      "remember": "With a shifted exponent, the coefficient is the value at the shift.",
+      "expected_time_seconds": 75,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 60,
+      "draft_candidate": "Q060-24",
+      "created_at": "2026-10-27T15:33:28+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/sat_math/batch-060.review.json",
+        "computation": "checks/sat_math/batch_060.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

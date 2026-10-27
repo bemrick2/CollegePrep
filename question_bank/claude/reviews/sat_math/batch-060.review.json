@@ -1,0 +1,593 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 60,
+  "reviewed_at": "2026-10-27T15:33:28+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 60
+  },
+  "counts": {
+    "PASS": 18,
+    "REVISE": 6,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000594",
+    "CLD-SAT-M-000595",
+    "CLD-SAT-M-000596",
+    "CLD-SAT-M-000597",
+    "CLD-SAT-M-000598",
+    "CLD-SAT-M-000599",
+    "CLD-SAT-M-000600",
+    "CLD-SAT-M-000601",
+    "CLD-SAT-M-000602",
+    "CLD-SAT-M-000603",
+    "CLD-SAT-M-000604",
+    "CLD-SAT-M-000605",
+    "CLD-SAT-M-000606",
+    "CLD-SAT-M-000607",
+    "CLD-SAT-M-000608",
+    "CLD-SAT-M-000609",
+    "CLD-SAT-M-000610",
+    "CLD-SAT-M-000611"
+  ],
+  "results": [
+    {
+      "cand": "Q060-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Substitution u=x-3, v=2y gives u=2, v=5 -> x=5, y=5/2. Distractors cover sign/scale errors.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The constants cannot be found, so students must see the substitution rather than solve directly."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000594"
+    },
+    {
+      "cand": "Q060-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [
+        "minor: 12x+15y=600 coffee-blend interpretation is a very common official-style template"
+      ],
+      "blind_notes": "Slope -0.8: Ethiopian lbs decrease 0.8 per extra lb Colombian (=12/15). C reverses the roles, D is the intercept 40.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q060-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3",
+      "computed_answer": "3",
+      "blind_answer": "3",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "x/a+y/6=1 and x/(2a)+y/4=1; doubling second gives x/a+y/2=2; subtract: y/3=1 -> y=3 (x=a/2). Independent of a.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q060-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "4",
+      "computed_answer": "4",
+      "blind_answer": "4",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "6a+b=0 -> b=-6a; 3ax+2b=0 -> x=-2b/(3a)=12a/(3a)=4.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000595"
+    },
+    {
+      "cand": "Q060-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "2000",
+      "computed_answer": "2000",
+      "blind_answer": "2000",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "n>500 since avg <0.12: 60+0.08(n-500)=0.09n -> 20=0.01n -> n=2000. Check: 60+120=180=0.09*2000.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must build a piecewise cost and set the average equal to a value between the two rates."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000596"
+    },
+    {
+      "cand": "Q060-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "Subtract: 3g=6x-12 -> g=2x-4 (choice A is g, good trap); f=7x+1-g=5x+5. Check f-2g=x+13.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000597"
+    },
+    {
+      "cand": "Q060-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Subtract equations: 2p-2q=200 g -> p-q=100 g. p~207 g, q~107 g realistic. B (50) is the 2p-2q/4 slip, D is 2(p-q).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000598"
+    },
+    {
+      "cand": "Q060-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "447",
+      "computed_answer": "447",
+      "blind_answer": "447",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "0.65P-40>=250 -> P>=446.15 -> 447 (rounding-down trap 446).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The markup-versus-commission confusion (392) is a strong trap, and the answer must be rounded up."
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q060-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Price rises 8 dollars; 15*8=120. D=15*40, C=20% of 1500, B=? (15*12).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000599"
+    },
+    {
+      "cand": "Q060-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Let u=4x+7: (2/5)u=8 -> u=20. B is the intermediate 8, A is x=13/4 - good traps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000600"
+    },
+    {
+      "cand": "Q060-11",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [
+        "minor: closely follows a well-known official SAT item type (temperature/elevation composed via time, express T in terms of h)"
+      ],
+      "blind_notes": "t=(2400-E)/300=8-E/300; T=8+1.8(8-E/300)=22.4-0.006E. ~6 C/km lapse rate realistic.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000601"
+    },
+    {
+      "cand": "Q060-12",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 70,
+      "blind_flags": [],
+      "blind_notes": "C=(F-32)/1.8: 4/1.8=2.2, 14/1.8=7.8. Matches real 2-8 C vaccine storage. C is F-32 without dividing, A uses F/1.8-32-ish errors, D multiplies.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000602"
+    },
+    {
+      "cand": "Q060-13",
+      "revision": 1,
+      "revision_history": [],
+      "key": "3/2",
+      "computed_answer": "3/2",
+      "blind_answer": "3/2",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(a+6-b)/(b-a)=3 -> a+6-b=3b-3a -> 4(b-a)=6 -> b-a=1.5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Neither a nor b can be found; students must rewrite the slope equation in terms of b − a."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000603"
+    },
+    {
+      "cand": "Q060-14",
+      "revision": 1,
+      "revision_history": [],
+      "key": "30.24",
+      "computed_answer": "30.24",
+      "blind_answer": "30.24",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [
+        "minor: 'chain moves the same number of teeth past each gear' heavily scaffolds the gear-ratio insight; gear/bicycle context resembles released gear-ratio items"
+      ],
+      "blind_notes": "Rear gear rpm=80*48/16=240; distance 240*2.1=504 m/min=30.24 km/h. Realistic cadence/speed. Fits SPR entry (5 chars).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q060-15",
+      "revision": 1,
+      "revision_history": [],
+      "key": "49",
+      "computed_answer": "49",
+      "blind_answer": "49",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [],
+      "blind_notes": "Original 5th value 48, 6th>=48. New 10-number median = (48+min(a6,50))/2, max 49 when a6>=50.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000604"
+    },
+    {
+      "cand": "Q060-16",
+      "revision": 1,
+      "revision_history": [],
+      "key": "10",
+      "computed_answer": "10",
+      "blind_answer": "10",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Total 50*2.4=120 books; readers k: 3k=120 -> k=40; 10 read none.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must see that the sum is unchanged when zeros are removed."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000605"
+    },
+    {
+      "cand": "Q060-17",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 40,
+      "blind_flags": [],
+      "blind_notes": "R=100, C=75, P=25 -> R=110, C=81, P=29; increase 4/25=16%. A=10-8, B=dollar change, D=10+8: good traps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The profit's percent change is much larger than either input percent; subtracting the percents is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000606"
+    },
+    {
+      "cand": "Q060-18",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Cement=4.5/6=0.75 m^3; 0.75/0.035=21.4 -> 22 bags. A rounding trap, C uses sand fraction (1/3), D uses whole mix. 0.035 m^3 ~ 50 kg bag, realistic.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "remember is over 16 words"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "remember is over 16 words"
+    },
+    {
+      "cand": "Q060-19",
+      "revision": 1,
+      "revision_history": [],
+      "key": "180",
+      "computed_answer": "180",
+      "blind_answer": "180",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "72/120=0.6; (72+x)/(240+x)=0.6 -> 0.4x=72 -> x=180. Check 252/420=0.6.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The overall probability's denominator also contains x, so students must set up and solve a rational equation."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000607"
+    },
+    {
+      "cand": "Q060-20",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 65,
+      "blind_flags": [],
+      "blind_notes": "Nonresponse bias (17% response). A is the attractive trap; B and C wrong reasoning. Inference wording correct.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [
+        "strategy needs a known key and an explanation"
+      ],
+      "near_duplicates": [],
+      "status": "REVISE",
+      "reason": "strategy needs a known key and an explanation"
+    },
+    {
+      "cand": "Q060-21",
+      "revision": 1,
+      "revision_history": [],
+      "key": "14040",
+      "computed_answer": "14040",
+      "blind_answer": "14040",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Water depth 1.8 in=0.15 ft; 1500*0.15=225 ft^3; 225*62.4=14,040 lb (~9.4 lb/ft^2, realistic 10:1 snow ratio).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000608"
+    },
+    {
+      "cand": "Q060-22",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "360 min per 45 s video = 8 min per video-second; 18*8=144 min. B is hours, D is seconds, A inverted ratio-ish. Realistic.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000609"
+    },
+    {
+      "cand": "Q060-23",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Added year1 0.2N, year2 0.25*1.2N=0.3N; 0.1N=300 -> N=3000. D uses 5% (25-20), B=300/0.2, A=300/0.25: compounding trap.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "The second percent applies to a grown base; applying both to the start (6,000) is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000610"
+    },
+    {
+      "cand": "Q060-24",
+      "revision": 2,
+      "revision_history": [
+        {
+          "from": "Q059-12",
+          "status": "REVISE",
+          "reason": "remember is over 16 words"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "S(0)=1200/1.15^4=1200/1.749=686.1. D=1200/1.15, A=1200(1-0.6) linear slip.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must recognize that the coefficient is not the initial value and evaluate a negative exponent."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000611"
+    }
+  ]
+}
