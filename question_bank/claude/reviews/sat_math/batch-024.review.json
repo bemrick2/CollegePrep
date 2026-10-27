@@ -1,0 +1,256 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 24,
+  "reviewed_at": "2026-10-27T03:03:39+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 24
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000215",
+    "CLD-SAT-M-000216",
+    "CLD-SAT-M-000217",
+    "CLD-SAT-M-000218",
+    "CLD-SAT-M-000219",
+    "CLD-SAT-M-000220",
+    "CLD-SAT-M-000221",
+    "CLD-SAT-M-000222",
+    "CLD-SAT-M-000223",
+    "CLD-SAT-M-000224"
+  ],
+  "results": [
+    {
+      "cand": "Q024-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: 'on what day' relies on usage reaching exactly 6 GB at the end of day 24; acceptable since 6/0.25 is an integer, but 'after how many days' would be cleaner"
+      ],
+      "blind_notes": "Rate 2.5/10 = 0.25 GB/day; 6/0.25 = 24. A = 6/2.5, D = 6*10, B is arbitrary.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000215"
+    },
+    {
+      "cand": "Q024-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [
+        "minor: D (90) is the distance, not the time; an easy elimination"
+      ],
+      "blind_notes": "Descends 110-20 = 90 ft; 90/15 = 6. B = 110/15, C = 130/15 (traps).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000216"
+    },
+    {
+      "cand": "Q024-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "6",
+      "computed_answer": "6",
+      "blind_answer": "6",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "45(e+2) = 60e -> 90 = 15e -> e = 6 (plumber 8 h, both earn $360).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000217"
+    },
+    {
+      "cand": "Q024-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 82,
+      "blind_flags": [],
+      "blind_notes": "f(0)=4, ratio 3 -> 4*3^x. A matches only x=0,1 (good trap); B gives 3 at x=0; C gives 0.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000218"
+    },
+    {
+      "cand": "Q024-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "63",
+      "computed_answer": "63",
+      "blind_answer": "63",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 60,
+      "blind_flags": [],
+      "blind_notes": "3^(a+2) = 9*3^a = 63. Common error: 7+2 or 7^2. Calculator route via logs also works.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000219"
+    },
+    {
+      "cand": "Q024-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [
+        "minor: f(-2) = 0, so the sum reduces to f(3); the 'sum' adds little"
+      ],
+      "blind_notes": "f(-2) = -8+8 = 0; f(3) = 27-12 = 15; total 15. A is sign error.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000220"
+    },
+    {
+      "cand": "Q024-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "x+7 = 16 -> x = 9; check sqrt(16) = 4. A = 4-7, C = 16, D = 16+7.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000221"
+    },
+    {
+      "cand": "Q024-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "Random assignment supports causation; volunteers not randomly sampled, so generalize only to similar people. C is the trap (confuses selection with assignment); B overgeneralizes; D reverses causation.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000222"
+    },
+    {
+      "cand": "Q024-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "a+b+c = 36; total = 75; d+e = 39; mean 19.5. D (sum) and A (15-12) are traps.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000223"
+    },
+    {
+      "cand": "Q024-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "Base angles 30, apex 120. Altitude = 10 sin30 = 5, half-base = 5√3, area = 5*5√3 = 25√3 (= 1/2*10*10*sin120). D omits 1/2; A uses 1/2*10*5 without the √3; C = 1/2*10*10.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000224"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 23,
+  "bank_version": 24,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -4168,6 +4168,198 @@
       "strategy": {
         "key": "draw_it_out",
         "explanation": "The perpendicular splits AB into two segments of 4."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000215",
+      "correct_answer": "C",
+      "explanation": "The rate is 2.5 ÷ 10 = 0.25 GB per day. Reaching 6 GB takes 6 ÷ 0.25 = 24 days, so the phone reaches the limit on day 24.",
+      "distractor_explanations": {
+        "A": "2.4 divides 6 by 2.5 and ignores the 10 days.",
+        "B": "14 is the number of additional days after day 10, not the day of the month.",
+        "D": "60 multiplies 6 by 10."
+      },
+      "hints": [
+        "Find the daily rate first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 0.25d = 6."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000216",
+      "correct_answer": "A",
+      "explanation": "The depth after t minutes is −20 − 15t. Setting −20 − 15t = −110 gives −15t = −90, so t = 6 minutes.",
+      "distractor_explanations": {
+        "B": "22/3 divides 110 by 15, ignoring the starting depth.",
+        "C": "26/3 adds the starting depth: 130 ÷ 15.",
+        "D": "90 is the distance descended, not the time."
+      },
+      "hints": [
+        "Write the depth as a function of time."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve −20 − 15t = −110."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000217",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 is the number of hours the plumber worked.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "360",
+          "rationale": "360 is the amount each earned, in dollars.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the electrician worked e hours, the plumber worked e + 2 hours. Equal earnings give 45(e + 2) = 60e, so 45e + 90 = 60e, 90 = 15e and e = 6. Each earned $360.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write the plumber's hours in terms of the electrician's."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 45(e + 2) = 60e."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000218",
+      "correct_answer": "D",
+      "explanation": "f(0) = 4 gives the starting value, and each output is 3 times the previous one, so f(x) = 4 · 3ˣ. Check: 4 · 3³ = 108.",
+      "distractor_explanations": {
+        "A": "This fits (0, 4) and (1, 12) but gives 20 at x = 2, not 36.",
+        "B": "This swaps the starting value and the growth factor: f(0) would be 3.",
+        "C": "This fits (1, 12) only; f(0) would be 0."
+      },
+      "hints": [
+        "What happens to f(x) each time x increases by 1?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check every row of the table."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000219",
+      "correct_answer": "63",
+      "accepted_answers": [
+        "63"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is 3², the factor the shift contributes, not the whole value.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "49",
+          "rationale": "49 squares 7 instead of multiplying it by 3².",
+          "trap": null
+        }
+      ],
+      "explanation": "3^(a + 2) = 3ᵃ · 3² = 7 · 9 = 63. Adding 2 to the exponent multiplies the value by 3² = 9.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the rule b^(m + n) = bᵐ · bⁿ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Split 3^(a + 2) into 3ᵃ · 3²."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000220",
+      "correct_answer": "C",
+      "explanation": "f(−2) = (−2)³ − 4(−2) = −8 + 8 = 0, and f(3) = 3³ − 4(3) = 27 − 12 = 15. So f(−2) + f(3) = 0 + 15 = 15.",
+      "distractor_explanations": {
+        "A": "−15 makes a sign error in f(3).",
+        "B": "0 is f(−2) alone.",
+        "D": "27 is 3³, ignoring the −4x term."
+      },
+      "hints": [
+        "Evaluate f at each input separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute each value carefully with signs."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000221",
+      "correct_answer": "B",
+      "explanation": "Squaring both sides gives x + 7 = 16, so x = 9. Check in the original equation: √(9 + 7) = √16 = 4, which matches.",
+      "distractor_explanations": {
+        "A": "−3 subtracts 7 from 4 without squaring.",
+        "C": "16 is the value of x + 7.",
+        "D": "23 adds 7 to 16 instead of subtracting."
+      },
+      "hints": [
+        "Square both sides first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000222",
+      "correct_answer": "A",
+      "explanation": "Random assignment to the two routines supports a cause-and-effect conclusion. Because the volunteers were not a random sample of a larger population, the conclusion applies only to people similar to these volunteers.",
+      "distractor_explanations": {
+        "B": "The volunteers were not randomly sampled from all students, so the result cannot be generalised to everyone.",
+        "C": "Random assignment, not random selection, is what supports a causal conclusion.",
+        "D": "The volunteers did not choose their routine; it was randomly assigned."
+      },
+      "hints": [
+        "What does random assignment allow? What does random sampling allow?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Separate 'cause' from 'who it applies to'."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000223",
+      "correct_answer": "C",
+      "explanation": "The sum a + b + c is 3 × 12 = 36, and the sum of all five numbers is 5 × 15 = 75. So d + e = 75 − 36 = 39, and their mean is 39 ÷ 2 = 19.5.",
+      "distractor_explanations": {
+        "A": "3 is the difference between the two means.",
+        "B": "15 assumes d and e have the same mean as all five numbers.",
+        "D": "39 is the sum d + e, not their mean."
+      },
+      "hints": [
+        "Convert each mean into a sum."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = mean × count."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000224",
+      "correct_answer": "B",
+      "explanation": "The altitude to the base bisects it and forms two 30°-60°-90° triangles with hypotenuse 10. The altitude (opposite 30°) is 5, and each half of the base is 5√3, so the base is 10√3. The area is (1/2)(10√3)(5) = 25√3.",
+      "distractor_explanations": {
+        "A": "25 uses half the altitude-base product without the √3.",
+        "C": "50 treats the triangle as if the equal sides were perpendicular: (1/2)(10)(10).",
+        "D": "50√3 omits the factor 1/2."
+      },
+      "hints": [
+        "Draw the altitude to the base."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Each half is a 30°-60°-90° triangle with hypotenuse 10."
       }
     }
   ]

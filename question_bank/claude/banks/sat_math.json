@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 23,
-  "updated_at": "2026-10-27T03:00:19+00:00",
+  "version": 24,
+  "updated_at": "2026-10-27T03:03:39+00:00",
   "passages": [],
   "questions": [
     {
@@ -15392,6 +15392,726 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-023.review.json",
         "computation": "checks/sat_math/batch_023.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000215",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Constant-rate projection to a limit",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Jo's phone uses data at a constant rate. In the first 10 days of a month it used 2.5 gigabytes (GB). At this rate, on what day of the month will the phone reach its 6 GB limit?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2.4",
+        "B": "14",
+        "C": "24",
+        "D": "60"
+      },
+      "correct_answer": "C",
+      "explanation": "The rate is 2.5 ÷ 10 = 0.25 GB per day. Reaching 6 GB takes 6 ÷ 0.25 = 24 days, so the phone reaches the limit on day 24.",
+      "distractor_explanations": {
+        "A": "2.4 divides 6 by 2.5 and ignores the 10 days.",
+        "B": "14 is the number of additional days after day 10, not the day of the month.",
+        "D": "60 multiplies 6 by 10."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Find the daily rate first."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 0.25d = 6."
+      },
+      "remember": "Rate × time = amount; answer the question asked.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-01",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: 'on what day' relies on usage reaching exactly 6 GB at the end of day 24; acceptable since 6/0.25 is an integer, but 'after how many days' would be cleaner"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000216",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Linear model for depth below the surface",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A diver starts at a depth of −20 feet (20 feet below the surface) and descends at a constant rate of 15 feet per minute. After how many minutes will the diver be at −110 feet?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "6",
+        "B": "22/3",
+        "C": "26/3",
+        "D": "90"
+      },
+      "correct_answer": "A",
+      "explanation": "The depth after t minutes is −20 − 15t. Setting −20 − 15t = −110 gives −15t = −90, so t = 6 minutes.",
+      "distractor_explanations": {
+        "B": "22/3 divides 110 by 15, ignoring the starting depth.",
+        "C": "26/3 adds the starting depth: 130 ÷ 15.",
+        "D": "90 is the distance descended, not the time."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write the depth as a function of time."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve −20 − 15t = −110."
+      },
+      "remember": "Start value plus rate × time; mind the signs.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-02",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [
+          "minor: D (90) is the distance, not the time; an easy elimination"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000217",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Equal earnings at two hourly rates",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A plumber charges $45 per hour and an electrician charges $60 per hour. On one job, the plumber worked 2 hours longer than the electrician, and both earned the same amount. How many hours did the electrician work?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 is the number of hours the plumber worked.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "360",
+          "rationale": "360 is the amount each earned, in dollars.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "If the electrician worked e hours, the plumber worked e + 2 hours. Equal earnings give 45(e + 2) = 60e, so 45e + 90 = 60e, 90 = 15e and e = 6. Each earned $360.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the plumber's hours in terms of the electrician's."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 45(e + 2) = 60e."
+      },
+      "remember": "Define one variable; express the other quantity with it.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-03",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 62,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000218",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Identifying an exponential function from a table",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table shows four values of a function f.\nx | 0 | 1 | 2 | 3\nf(x) | 4 | 12 | 36 | 108\nWhich of the following could define f ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "f(x) = 8x + 4",
+        "B": "f(x) = 3 · 4ˣ",
+        "C": "f(x) = 12x",
+        "D": "f(x) = 4 · 3ˣ"
+      },
+      "correct_answer": "D",
+      "explanation": "f(0) = 4 gives the starting value, and each output is 3 times the previous one, so f(x) = 4 · 3ˣ. Check: 4 · 3³ = 108.",
+      "distractor_explanations": {
+        "A": "This fits (0, 4) and (1, 12) but gives 20 at x = 2, not 36.",
+        "B": "This swaps the starting value and the growth factor: f(0) would be 3.",
+        "C": "This fits (1, 12) only; f(0) would be 0."
+      },
+      "distractor_traps": {
+        "A": "partial_answer",
+        "B": null,
+        "C": "partial_answer"
+      },
+      "hints": [
+        "What happens to f(x) each time x increases by 1?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check every row of the table."
+      },
+      "remember": "Constant ratio between outputs → exponential function.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-04",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000219",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Value of a shifted exponential from a known power",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If 3ᵃ = 7, what is the value of 3^(a + 2) ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "63",
+      "accepted_answers": [
+        "63"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is 3², the factor the shift contributes, not the whole value.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "49",
+          "rationale": "49 squares 7 instead of multiplying it by 3².",
+          "trap": null
+        }
+      ],
+      "explanation": "3^(a + 2) = 3ᵃ · 3² = 7 · 9 = 63. Adding 2 to the exponent multiplies the value by 3² = 9.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Use the rule b^(m + n) = bᵐ · bⁿ."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Split 3^(a + 2) into 3ᵃ · 3²."
+      },
+      "remember": "Adding to an exponent multiplies the power.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-05",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "63",
+        "blind_answer": "63",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000220",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Evaluating a cubic function at two inputs",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function f is defined by f(x) = x³ − 4x. What is the value of f(−2) + f(3) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−15",
+        "B": "0",
+        "C": "15",
+        "D": "27"
+      },
+      "correct_answer": "C",
+      "explanation": "f(−2) = (−2)³ − 4(−2) = −8 + 8 = 0, and f(3) = 3³ − 4(3) = 27 − 12 = 15. So f(−2) + f(3) = 0 + 15 = 15.",
+      "distractor_explanations": {
+        "A": "−15 makes a sign error in f(3).",
+        "B": "0 is f(−2) alone.",
+        "D": "27 is 3³, ignoring the −4x term."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "B": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Evaluate f at each input separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compute each value carefully with signs."
+      },
+      "remember": "Substitute negative inputs in parentheses.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-06",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [
+          "minor: f(-2) = 0, so the sum reduces to f(3); the 'sum' adds little"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000221",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a simple radical equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "If √(x + 7) = 4, what is the value of x ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−3",
+        "B": "9",
+        "C": "16",
+        "D": "23"
+      },
+      "correct_answer": "B",
+      "explanation": "Squaring both sides gives x + 7 = 16, so x = 9. Check in the original equation: √(9 + 7) = √16 = 4, which matches.",
+      "distractor_explanations": {
+        "A": "−3 subtracts 7 from 4 without squaring.",
+        "C": "16 is the value of x + 7.",
+        "D": "23 adds 7 to 16 instead of subtracting."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "partial_answer",
+        "D": "sign_error"
+      },
+      "hints": [
+        "Square both sides first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 9."
+      },
+      "remember": "Undo a square root by squaring both sides, then check.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-07",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000222",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Conclusion from a randomized experiment with volunteers",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Researchers recruited 200 volunteers and randomly assigned each to follow either a new sleep routine or their usual routine for a month. Volunteers who followed the new routine had higher average test scores. Which conclusion is best supported?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "The new routine likely caused higher test scores for people similar to these volunteers.",
+        "B": "The new routine causes higher test scores for all students in the country.",
+        "C": "No conclusion about cause can be drawn because the volunteers were not randomly selected.",
+        "D": "Higher test scores caused volunteers to choose the new routine."
+      },
+      "correct_answer": "A",
+      "explanation": "Random assignment to the two routines supports a cause-and-effect conclusion. Because the volunteers were not a random sample of a larger population, the conclusion applies only to people similar to these volunteers.",
+      "distractor_explanations": {
+        "B": "The volunteers were not randomly sampled from all students, so the result cannot be generalised to everyone.",
+        "C": "Random assignment, not random selection, is what supports a causal conclusion.",
+        "D": "The volunteers did not choose their routine; it was randomly assigned."
+      },
+      "distractor_traps": {
+        "B": "overextend_trend",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does random assignment allow? What does random sampling allow?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Separate 'cause' from 'who it applies to'."
+      },
+      "remember": "Random assignment → cause; random sampling → generalise.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-08",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000223",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Mean of two values from two overall means",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The mean of the numbers a, b and c is 12. The mean of the numbers a, b, c, d and e is 15. What is the mean of d and e ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "15",
+        "C": "19.5",
+        "D": "39"
+      },
+      "correct_answer": "C",
+      "explanation": "The sum a + b + c is 3 × 12 = 36, and the sum of all five numbers is 5 × 15 = 75. So d + e = 75 − 36 = 39, and their mean is 39 ÷ 2 = 19.5.",
+      "distractor_explanations": {
+        "A": "3 is the difference between the two means.",
+        "B": "15 assumes d and e have the same mean as all five numbers.",
+        "D": "39 is the sum d + e, not their mean."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "partial_answer"
+      },
+      "hints": [
+        "Convert each mean into a sum."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Sum = mean × count."
+      },
+      "remember": "Work with sums, then divide.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-09",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000224",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of an isosceles triangle with 30° base angles",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "An isosceles triangle has two sides of length 10, and the two angles opposite those sides each measure 30°. What is the area of the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "25",
+        "B": "25√3",
+        "C": "50",
+        "D": "50√3"
+      },
+      "correct_answer": "B",
+      "explanation": "The altitude to the base bisects it and forms two 30°-60°-90° triangles with hypotenuse 10. The altitude (opposite 30°) is 5, and each half of the base is 5√3, so the base is 10√3. The area is (1/2)(10√3)(5) = 25√3.",
+      "distractor_explanations": {
+        "A": "25 uses half the altitude-base product without the √3.",
+        "C": "50 treats the triangle as if the equal sides were perpendicular: (1/2)(10)(10).",
+        "D": "50√3 omits the factor 1/2."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Draw the altitude to the base."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Each half is a 30°-60°-90° triangle with hypotenuse 10."
+      },
+      "remember": "In a 30°-60°-90° triangle, the sides are x, x√3 and 2x.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 24,
+      "draft_candidate": "Q024-10",
+      "created_at": "2026-10-27T03:03:39+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 45,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-024.review.json",
+        "computation": "checks/sat_math/batch_024.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

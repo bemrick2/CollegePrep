@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 24,
- "plan": "SAT Math batch 24: Algebra 3, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 2 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-024.repeats.json): two templates (ACT 732, 778) dropped.",
+ "plan": "SAT Math batch 24: Algebra 3, Advanced Math 4, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 1; 2 student-produced responses; 2 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-024.repeats.json): two templates (ACT 732, 778) dropped. Relabelled to the blind solver's rating where it was lower: Q024-01 medium→easy, Q024-02 medium→easy, Q024-05 hard→medium, Q024-10 hard→medium.",
  "candidates": [
   {
    "cand": "Q024-01",
@@ -9,7 +9,7 @@
    "skill": "Algebra",
    "subskill": "Constant-rate projection to a limit",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "Jo's phone uses data at a constant rate. In the first 10 days of a month it used 2.5 gigabytes (GB). At this rate, on what day of the month will the phone reach its 6 GB limit?",
    "explanation": "The rate is 2.5 ÷ 10 = 0.25 GB per day. Reaching 6 GB takes 6 ÷ 0.25 = 24 days, so the phone reaches the limit on day 24.",
    "hints": [
@@ -55,7 +55,7 @@
    "skill": "Algebra",
    "subskill": "Linear model for depth below the surface",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "medium",
+   "difficulty": "easy",
    "stem": "A diver starts at a depth of −20 feet (20 feet below the surface) and descends at a constant rate of 15 feet per minute. After how many minutes will the diver be at −110 feet?",
    "explanation": "The depth after t minutes is −20 − 15t. Setting −20 − 15t = −110 gives −15t = −90, so t = 6 minutes.",
    "hints": [
@@ -189,7 +189,7 @@
    "skill": "Advanced Math",
    "subskill": "Value of a shifted exponential from a known power",
    "repo_skill_key": "sat_advanced_math",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "If 3ᵃ = 7, what is the value of 3^(a + 2) ?",
    "explanation": "3^(a + 2) = 3ᵃ · 3² = 7 · 9 = 63. Adding 2 to the exponent multiplies the value by 3² = 9.",
    "hints": [
@@ -205,8 +205,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must split the exponent instead of solving for a; squaring 7 (49) is a common error."
+    "single_correct": true
    },
    "format": "spr",
    "answer": "63",
@@ -416,7 +415,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Area of an isosceles triangle with 30° base angles",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "An isosceles triangle has two sides of length 10, and the two angles opposite those sides each measure 30°. What is the area of the triangle?",
    "explanation": "The altitude to the base bisects it and forms two 30°-60°-90° triangles with hypotenuse 10. The altitude (opposite 30°) is 5, and each half of the base is 5√3, so the base is 10√3. The area is (1/2)(10√3)(5) = 25√3.",
    "hints": [
@@ -432,8 +431,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must construct an altitude, use special-right-triangle ratios and avoid treating the equal sides as legs (50)."
+    "single_correct": true
    },
    "choices": {
     "A": "25",

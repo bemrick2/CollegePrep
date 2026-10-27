@@ -1,0 +1,15 @@
+{
+  "solver": {"kind": "blind AI solver (separate agent, answer-free packet, rubric v2)", "batch": 24},
+  "answers": {
+    "Q024-01": {"answer": "C", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": ["minor: 'on what day' relies on usage reaching exactly 6 GB at the end of day 24; acceptable since 6/0.25 is an integer, but 'after how many days' would be cleaner"], "notes": "Rate 2.5/10 = 0.25 GB/day; 6/0.25 = 24. A = 6/2.5, D = 6*10, B is arbitrary."},
+    "Q024-02": {"answer": "A", "confidence": "high", "est_pct_correct": 78, "difficulty_opinion": "easy", "flags": ["minor: D (90) is the distance, not the time; an easy elimination"], "notes": "Descends 110-20 = 90 ft; 90/15 = 6. B = 110/15, C = 130/15 (traps)."},
+    "Q024-03": {"answer": "6", "confidence": "high", "est_pct_correct": 62, "difficulty_opinion": "medium", "flags": [], "notes": "45(e+2) = 60e -> 90 = 15e -> e = 6 (plumber 8 h, both earn $360)."},
+    "Q024-04": {"answer": "D", "confidence": "high", "est_pct_correct": 82, "difficulty_opinion": "easy", "flags": [], "notes": "f(0)=4, ratio 3 -> 4*3^x. A matches only x=0,1 (good trap); B gives 3 at x=0; C gives 0."},
+    "Q024-05": {"answer": "63", "confidence": "high", "est_pct_correct": 60, "difficulty_opinion": "medium", "flags": [], "notes": "3^(a+2) = 9*3^a = 63. Common error: 7+2 or 7^2. Calculator route via logs also works."},
+    "Q024-06": {"answer": "C", "confidence": "high", "est_pct_correct": 80, "difficulty_opinion": "easy", "flags": ["minor: f(-2) = 0, so the sum reduces to f(3); the 'sum' adds little"], "notes": "f(-2) = -8+8 = 0; f(3) = 27-12 = 15; total 15. A is sign error."},
+    "Q024-07": {"answer": "B", "confidence": "high", "est_pct_correct": 85, "difficulty_opinion": "easy", "flags": [], "notes": "x+7 = 16 -> x = 9; check sqrt(16) = 4. A = 4-7, C = 16, D = 16+7."},
+    "Q024-08": {"answer": "A", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "Random assignment supports causation; volunteers not randomly sampled, so generalize only to similar people. C is the trap (confuses selection with assignment); B overgeneralizes; D reverses causation."},
+    "Q024-09": {"answer": "C", "confidence": "high", "est_pct_correct": 55, "difficulty_opinion": "medium", "flags": [], "notes": "a+b+c = 36; total = 75; d+e = 39; mean 19.5. D (sum) and A (15-12) are traps."},
+    "Q024-10": {"answer": "B", "confidence": "high", "est_pct_correct": 45, "difficulty_opinion": "medium", "flags": [], "notes": "Base angles 30, apex 120. Altitude = 10 sin30 = 5, half-base = 5√3, area = 5*5√3 = 25√3 (= 1/2*10*10*sin120). D omits 1/2; A uses 1/2*10*5 without the √3; C = 1/2*10*10."}
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T03:03:03+00:00",
+  "updated_at": "2026-10-27T03:03:41+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 261,
     "act_reading": 219,
     "sat_reading_writing": 257,
-    "sat_math": 204
+    "sat_math": 214
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 214,
+      "PASS": 224,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 215,
+      "candidates": 225,
       "passed_after_revision": 1
     }
   },
@@ -1397,13 +1397,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 204,
+      "accepted": 214,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 68,
-        "Algebra": 62,
-        "Geometry and Trigonometry": 40,
-        "Problem-Solving and Data Analysis": 34
+        "Advanced Math": 72,
+        "Algebra": 65,
+        "Geometry and Trigonometry": 41,
+        "Problem-Solving and Data Analysis": 36
       },
       "by_subskill": {
         "A number from the sum with its reciprocal": 1,
@@ -1417,6 +1417,7 @@
         "Area of a trapezoid": 1,
         "Area of a triangle formed by two radii and a chord": 1,
         "Area of a triangle that is a right triangle": 1,
+        "Area of an isosceles triangle with 30° base angles": 1,
         "Center of a circle from a point and its radius": 1,
         "Chained percent relationships": 1,
         "Coefficient that makes two lines parallel": 1,
@@ -1428,6 +1429,7 @@
         "Comparing the mean and median after adding a value": 1,
         "Comparing volumes of a sphere and a cylinder": 1,
         "Complementary angles and the sine-cosine relationship": 1,
+        "Conclusion from a randomized experiment with volunteers": 1,
         "Conclusions from a randomized experiment": 1,
         "Condition for two real solutions": 1,
         "Condition on a slope for an intersection with a negative x-coordinate": 1,
@@ -1439,6 +1441,7 @@
         "Constant term from the minimum value of a quadratic": 1,
         "Constant term in a circle equation from its radius": 1,
         "Constant that puts a parabola's vertex on the y-axis": 1,
+        "Constant-rate projection to a limit": 1,
         "Converting a monthly growth rate to an annual rate": 1,
         "Converting a rate between units": 1,
         "Coordinate of a vertex from a triangle's area": 1,
@@ -1452,7 +1455,9 @@
         "Dividing a polynomial by a monomial": 1,
         "Effect of replacing a value on the mean": 1,
         "Effect of sample size on the margin of error": 1,
+        "Equal earnings at two hourly rates": 1,
         "Equation of a circle with an unknown constant": 1,
+        "Evaluating a cubic function at two inputs": 1,
         "Evaluating a linear function after finding its intercept": 1,
         "Evaluating a linear function at a related input": 1,
         "Evaluating a linear function given by a table": 1,
@@ -1477,6 +1482,7 @@
         "Hypotenuse from area and a leg ratio": 1,
         "Hypotenuse when it exceeds a leg by a given amount": 1,
         "Identifying a quadratic equation with no real solutions": 1,
+        "Identifying an exponential function from a table": 1,
         "Identifying the solution of a linear system": 1,
         "Inscribed and central angles with algebra": 1,
         "Intercepts of a line in standard form": 1,
@@ -1494,9 +1500,11 @@
         "Linear equation from a ratio of quantities sold": 1,
         "Linear equation with infinitely many solutions": 1,
         "Linear inequality in a savings context": 1,
+        "Linear model for depth below the surface": 1,
         "Lines that avoid a quadrant": 1,
         "Matching a rational expression to a quotient-and-remainder form": 1,
         "Matching coefficients of a product": 1,
+        "Mean of two values from two overall means": 1,
         "Median after finding a missing value from the mean": 1,
         "Minimum of a horizontally shifted quadratic": 1,
         "Minimum of a sum of absolute values": 1,
@@ -1559,6 +1567,7 @@
         "Solving a linear inequality in function notation": 1,
         "Solving a one-step distributed equation": 1,
         "Solving a rational equation": 1,
+        "Solving a simple radical equation": 1,
         "Solving a system with a given relationship": 1,
         "Solving a two-step linear equation with a fraction": 1,
         "Solving an equation involving a rational function": 1,
@@ -1590,6 +1599,7 @@
         "Using symmetry of a parabola": 1,
         "Using two values of a linear function": 1,
         "Value of a completed square from an equation": 1,
+        "Value of a shifted exponential from a known power": 1,
         "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
         "When two linear quantities are equal": 1,
@@ -1612,19 +1622,19 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 41,
+        "easy": 46,
         "hard": 11,
-        "medium": 152
+        "medium": 157
       },
       "by_difficulty_calibrated": {
-        "easy": 85,
+        "easy": 90,
         "hard": 6,
-        "medium": 113
+        "medium": 118
       },
       "calibrated_share": {
-        "easy": 0.417,
-        "hard": 0.029,
-        "medium": 0.554
+        "easy": 0.421,
+        "hard": 0.028,
+        "medium": 0.551
       },
       "answer_key_balance": {
         "-1": 1,
@@ -1655,20 +1665,21 @@
         "5": 2,
         "5.4": 1,
         "50": 2,
-        "6": 3,
+        "6": 4,
         "60": 1,
+        "63": 1,
         "7": 3,
         "8": 2,
         "80": 1,
         "9": 2,
         "90": 1,
-        "A": 34,
-        "B": 42,
-        "C": 39,
-        "D": 26
+        "A": 36,
+        "B": 44,
+        "C": 42,
+        "D": 27
       },
-      "modeling_items": 53,
-      "spr_items": 63,
+      "modeling_items": 58,
+      "spr_items": 65,
       "passages": 0
     }
   },
@@ -1677,7 +1688,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 23
+    "sat_math": 24
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1709,27 +1720,27 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 24,
+    "next_batch": 25,
     "target": 1000,
     "checkpoint": 500,
     "skill_gap_for_next_10": {
-      "Algebra": 12.9,
-      "Advanced Math": 6.9,
-      "Problem-Solving and Data Analysis": -1.9,
-      "Geometry and Trigonometry": -7.9
+      "Algebra": 13.4,
+      "Advanced Math": 6.4,
+      "Problem-Solving and Data Analysis": -2.4,
+      "Geometry and Trigonometry": -7.4
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -31.5,
+      "easy": -34.0,
       "medium": -6.0,
-      "hard": 47.5
+      "hard": 50.0
     },
     "answer_key_gap_for_next_10": {
-      "A": 6.1,
-      "B": -1.9,
-      "C": 1.1,
-      "D": 14.1
+      "A": 6.0,
+      "B": -2.0,
+      "C": 0.0,
+      "D": 15.0
     },
-    "spr_items": 63,
+    "spr_items": 65,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1782,12 +1793,12 @@
     },
     "sat_math": {
       "target": 1000,
-      "accepted": 204,
-      "share_of_target": 0.204
+      "accepted": 214,
+      "share_of_target": 0.214
     }
   },
   "total_target": 3841,
-  "total_accepted": 1715,
+  "total_accepted": 1725,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "sat_math",
   "audits": [
@@ -48959,7 +48970,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 23,
+      "bank_version": 24,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -49085,7 +49096,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T03:03:03+00:00",
+    "heartbeat_at": "2026-10-27T03:03:41+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
