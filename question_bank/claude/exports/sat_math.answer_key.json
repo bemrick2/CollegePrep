@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 10,
+  "bank_version": 12,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -1952,6 +1952,414 @@
       "strategy": {
         "key": "translate_to_algebra",
         "explanation": "Width = area ÷ length."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000097",
+      "correct_answer": "C",
+      "explanation": "Distributing gives 5x − 10 = 3x + 4. Then 2x = 14 and x = 7.",
+      "distractor_explanations": {
+        "A": "−3 subtracts 10 instead of adding it when moving terms, getting 2x = −6.",
+        "B": "3 distributes the 5 only to x, writing 5x − 2.",
+        "D": "14 is the value of 2x."
+      },
+      "hints": [
+        "Distribute the 5 first."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test x = 7: 5(5) = 25 and 21 + 4 = 25."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000098",
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "1",
+          "rationale": "1 writes 5 less than 5 times n as 5n + 5.",
+          "trap": "sign_error"
+        },
+        {
+          "value": "-1/4",
+          "rationale": "−1/4 writes 5 less than 5 times n as 5 − 5n.",
+          "trap": null
+        }
+      ],
+      "explanation": "\"7 added to 3 times n\" is 3n + 7, and \"5 less than 5 times n\" is 5n − 5. Then 3n + 7 = 5n − 5, so 12 = 2n and n = 6.",
+      "distractor_explanations": {},
+      "hints": [
+        "\"5 less than 5n\" means subtract 5 from 5n."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write each phrase as an expression, then set them equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000099",
+      "correct_answer": "B",
+      "explanation": "y = −2x + 3 has a positive y-intercept and a negative slope. For any x < 0, y = −2x + 3 > 3, so y is positive and the line never enters Quadrant III. Each other line has a point with x < 0 and y < 0: (−2, −1) on A, (−1, −1) on C and (−1, −5) on D.",
+      "distractor_explanations": {
+        "A": "y = 2x + 3 passes through (−2, −1), which is in Quadrant III.",
+        "C": "y = −2x − 3 passes through (−1, −1).",
+        "D": "y = 2x − 3 passes through (−1, −5)."
+      },
+      "hints": [
+        "What happens to y when x is negative?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch each line from its slope and y-intercept."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000100",
+      "correct_answer": "D",
+      "explanation": "Divide each term by 3x²: 6x³/(3x²) = 2x and 9x²/(3x²) = 3, giving 2x − 3.",
+      "distractor_explanations": {
+        "A": "This divides only the first term.",
+        "B": "This divides the coefficients but not the powers of x.",
+        "C": "This subtracts 3 from each coefficient instead of dividing."
+      },
+      "hints": [
+        "Divide each term separately."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 1: (6 − 9)/3 = −1, and 2 − 3 = −1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000101",
+      "correct_answer": "A",
+      "explanation": "A parabola is symmetric about the vertical line through its vertex. Because f(1) = f(9), that line is x = (1 + 9)/2 = 5, so the vertex is at x = 5 and f(5) is the minimum value, −5.",
+      "distractor_explanations": {
+        "B": "0 assumes x = 5 is a zero of f.",
+        "C": "5 is the x-coordinate of the vertex, not f(5).",
+        "D": "9 is an input with the same output as 1."
+      },
+      "hints": [
+        "Where is the axis of symmetry if f(1) = f(9)?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Sketch a parabola with equal heights at x = 1 and x = 9."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000102",
+      "correct_answer": "44",
+      "accepted_answers": [
+        "44"
+      ],
+      "common_errors": [
+        {
+          "value": "40",
+          "rationale": "40 doubles the 20% annual increase instead of compounding it.",
+          "trap": null
+        },
+        {
+          "value": "1.44",
+          "rationale": "1.44 is the growth factor, not the percent increase.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Over 2 years the population is multiplied by 1.2² = 1.44, which is an increase of 44%.",
+      "distractor_explanations": {},
+      "hints": [
+        "What is P(t + 2) divided by P(t)?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare P(0) = 1,500 with P(2) = 2,160."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000103",
+      "correct_answer": "B",
+      "explanation": "(3/8)(1,240) = 465.",
+      "distractor_explanations": {
+        "A": "155 is 1/8 of the visitors.",
+        "C": "775 is the number expected not to buy a ticket.",
+        "D": "1,240 is the total number of visitors."
+      },
+      "hints": [
+        "What fraction of visitors buy a ticket?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Multiply 1,240 by 3/8."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000104",
+      "correct_answer": "C",
+      "explanation": "If 3/4 of the tank takes 18 minutes, then 1/4 takes 6 minutes, and the whole tank takes 4 × 6 = 24 minutes.",
+      "distractor_explanations": {
+        "A": "6 is the time for 1/4 of the tank.",
+        "B": "13.5 multiplies 18 by 3/4 instead of dividing.",
+        "D": "72 multiplies 18 by 4 without dividing by 3."
+      },
+      "hints": [
+        "How long does 1/4 of the tank take?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (3/4)t = 18."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000105",
+      "correct_answer": "A",
+      "explanation": "Corresponding sides are proportional: AB/DE = BC/EF, so (x + 2)/6 = 10/12. Then x + 2 = 5 and x = 3.",
+      "distractor_explanations": {
+        "B": "5 is the length of AB, not x.",
+        "C": "5.2 inverts one ratio: (x + 2)/6 = 12/10.",
+        "D": "10 assumes AB = BC."
+      },
+      "hints": [
+        "Match corresponding sides in the same order."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve (x + 2)/6 = 10/12."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000106",
+      "correct_answer": "7",
+      "accepted_answers": [
+        "7"
+      ],
+      "common_errors": [
+        {
+          "value": "6",
+          "rationale": "6 is the height of the triangle, not the y-coordinate.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "4",
+          "rationale": "4 omits the 1/2 in the area formula and ignores the base's y-coordinate.",
+          "trap": null
+        }
+      ],
+      "explanation": "The base from (1, 1) to (7, 1) has length 6. Area = (1/2)(6)(h) = 18 gives h = 6. Since y > 1, the third vertex is 6 units above the line y = 1, so y = 7.",
+      "distractor_explanations": {},
+      "hints": [
+        "Use the side on y = 1 as the base."
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Plot the base and find the height."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000107",
+      "correct_answer": "B",
+      "explanation": "Kai starts with $120, which is the value of s when w = 0, and the savings grow by $35 for each week, so the rate is 35. The equation is s = 120 + 35w.",
+      "distractor_explanations": {
+        "A": "This swaps the starting amount and the weekly amount.",
+        "C": "This adds the two amounts and treats the sum as a weekly rate.",
+        "D": "This subtracts each week's deposit instead of adding it."
+      },
+      "hints": [
+        "What is s when w = 0?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "After 1 week Kai should have $155; check each equation at w = 1."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000108",
+      "correct_answer": "A",
+      "explanation": "Adding the two equations eliminates y: 3x = 9, so x = 3. Then 2(3) + y = 1 gives y = −5. Check in the second equation: 3 − (−5) = 8.",
+      "distractor_explanations": {
+        "B": "(−3, 7) satisfies 2x + y = 1 but not x − y = 8.",
+        "C": "(5, −3) satisfies x − y = 8 but not 2x + y = 1.",
+        "D": "(3, 5) has the wrong sign for y."
+      },
+      "hints": [
+        "Add the equations to eliminate y."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Check each pair in both equations."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000109",
+      "correct_answer": "18/13",
+      "accepted_answers": [
+        "18/13",
+        "1.384",
+        "1.385"
+      ],
+      "common_errors": [
+        {
+          "value": "3",
+          "rationale": "3 is the y-intercept of line ℓ, not the x-coordinate of the intersection.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "-18/5",
+          "rationale": "−18/5 gives line m the slope −3/2 instead of 3/2.",
+          "trap": "sign_error"
+        }
+      ],
+      "explanation": "Line ℓ has slope (−1 − 5)/(6 − (−3)) = −6/9 = −2/3, and through (6, −1) its equation is y = −(2/3)x + 3. Line m has the negative reciprocal slope 3/2 and passes through the origin, so y = (3/2)x. Setting (3/2)x = −(2/3)x + 3 gives (13/6)x = 3, so x = 18/13.",
+      "distractor_explanations": {},
+      "hints": [
+        "Find the slope of ℓ, then the slope of m."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Write both equations, then set them equal."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000110",
+      "correct_answer": "D",
+      "explanation": "x = −3 comes from the factor x + 3, and x = 5/2 comes from 2x − 5 = 0. So (x + 3)(2x − 5) = 0 has exactly these solutions; each other choice has at least one wrong root.",
+      "distractor_explanations": {
+        "A": "This has solutions 3 and −5/2; both signs are reversed.",
+        "B": "5x − 2 = 0 gives x = 2/5, not 5/2.",
+        "C": "This has solutions 3 and 2/5."
+      },
+      "hints": [
+        "Set each factor equal to zero."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Substitute x = 5/2 into each equation."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000111",
+      "correct_answer": "5",
+      "accepted_answers": [
+        "5"
+      ],
+      "common_errors": [
+        {
+          "value": "8",
+          "rationale": "8 adds 13 to −5 instead of writing 5 as (5x − 10)/(x − 2).",
+          "trap": null
+        },
+        {
+          "value": "13",
+          "rationale": "13 is the remainder, not the coefficient of x.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "Write the right side over the common denominator: 5 + 13/(x − 2) = (5(x − 2) + 13)/(x − 2) = (5x + 3)/(x − 2). For the two sides to be equal for all x ≠ 2, the numerators must match: ax + 3 = 5x + 3, so a = 5.",
+      "distractor_explanations": {},
+      "hints": [
+        "Combine the right side into a single fraction."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Test x = 3: (3a + 3)/1 = 5 + 13 = 18, so a = 5."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000112",
+      "correct_answer": "C",
+      "explanation": "Over 12 months the balance is multiplied by 1.02¹² ≈ 1.268. A growth factor of 1.268 is an increase of about 26.8% per year. The monthly increases compound, so the yearly increase is more than 12 × 2% = 24%.",
+      "distractor_explanations": {
+        "A": "2.0% is the monthly increase, not the yearly increase.",
+        "B": "24.0% adds twelve 2% increases instead of compounding them.",
+        "D": "124.0% confuses the growth factor 1.24 with a percent increase."
+      },
+      "hints": [
+        "What is B(m + 12) divided by B(m)?"
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Compare B(0) = 400 with B(12) ≈ 507.30."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000113",
+      "correct_answer": "90",
+      "accepted_answers": [
+        "90"
+      ],
+      "common_errors": [
+        {
+          "value": "110",
+          "rationale": "110 adds and subtracts the percents (150 − 40) instead of multiplying the factors.",
+          "trap": null
+        },
+        {
+          "value": "60",
+          "rationale": "60 is y as a percent of z.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "x = 1.5y, and \"40% less than z\" means y = 0.6z. Substituting gives x = 1.5(0.6z) = 0.9z, so x is 90% of z.",
+      "distractor_explanations": {},
+      "hints": [
+        "Write each statement as a multiplication."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Let z = 100. Then y = 60 and x = 90."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000114",
+      "correct_answer": "C",
+      "explanation": "After the new members join, 14 + 10 = 24 of the 40 + 10 = 50 members wear glasses. 24/50 = 0.48, or 48%.",
+      "distractor_explanations": {
+        "A": "25% is 10 out of 40, the new members compared with the old total.",
+        "B": "35% is the original percent, 14 out of 40.",
+        "D": "60% divides 24 by the original 40 members."
+      },
+      "hints": [
+        "Update both the part and the whole."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Compute (14 + 10)/(40 + 10)."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000115",
+      "correct_answer": "A",
+      "explanation": "Complete the square: (x² − 10x + 25) + (y² + 4y + 4) = −k + 25 + 4, so (x − 5)² + (y + 2)² = 29 − k. The radius is 6, so 29 − k = 36 and k = −7.",
+      "distractor_explanations": {
+        "B": "7 makes a sign error when solving 29 − k = 36.",
+        "C": "29 is the sum of the completed-square constants.",
+        "D": "65 adds 36 and 29."
+      },
+      "hints": [
+        "Complete the square for x and for y."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Set the right side equal to r² = 36."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-000116",
+      "correct_answer": "B",
+      "explanation": "The interior angles of a triangle sum to 180°, so the measure of angle R is 180° − 48° − 67° = 65°.",
+      "distractor_explanations": {
+        "A": "19° is the difference between the two given angles.",
+        "C": "115° is the sum of the two given angles.",
+        "D": "132° subtracts only 48° from 180°."
+      },
+      "hints": [
+        "What do the three angles of a triangle add up to?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Subtract the two known angles from 180°."
       }
     }
   ]

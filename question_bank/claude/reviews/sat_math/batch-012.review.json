@@ -1,0 +1,254 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 12,
+  "reviewed_at": "2026-10-27T02:13:40+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 12
+  },
+  "counts": {
+    "PASS": 10,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-000107",
+    "CLD-SAT-M-000108",
+    "CLD-SAT-M-000109",
+    "CLD-SAT-M-000110",
+    "CLD-SAT-M-000111",
+    "CLD-SAT-M-000112",
+    "CLD-SAT-M-000113",
+    "CLD-SAT-M-000114",
+    "CLD-SAT-M-000115",
+    "CLD-SAT-M-000116"
+  ],
+  "results": [
+    {
+      "cand": "Q012-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 88,
+      "blind_flags": [],
+      "blind_notes": "Initial 120 + 35 per week: s = 120 + 35w.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000107"
+    },
+    {
+      "cand": "Q012-02",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "Add equations: 3x = 9, x = 3, y = 1 - 6 = -5. Check: 3 - (-5) = 8.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000108"
+    },
+    {
+      "cand": "Q012-03",
+      "revision": 1,
+      "revision_history": [],
+      "key": "18/13",
+      "computed_answer": "18/13",
+      "blind_answer": "18/13",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 30,
+      "blind_flags": [
+        "minor: answer 18/13 is a non-terminating decimal; make sure the key accepts 18/13, 1.384 and 1.385"
+      ],
+      "blind_notes": "Slope of l = -6/9 = -2/3, so l: y = -2/3 x + 3. m: y = 3/2 x. 3/2 x = -2/3 x + 3 gives 13/6 x = 3, so x = 18/13 (about 1.3846). Several steps, but graphing can shortcut it.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must find a slope, write two equations (one from a perpendicular slope) and solve with fractional coefficients; several sign traps along the way."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000109"
+    },
+    {
+      "cand": "Q012-04",
+      "revision": 1,
+      "revision_history": [],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "x = -3 gives the factor (x+3); x = 5/2 gives (2x-5).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000110"
+    },
+    {
+      "cand": "Q012-05",
+      "revision": 1,
+      "revision_history": [],
+      "key": "5",
+      "computed_answer": "5",
+      "blind_answer": "5",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 50,
+      "blind_flags": [],
+      "blind_notes": "Multiply by (x-2): ax + 3 = 5x - 10 + 13 = 5x + 3, so a = 5.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000111"
+    },
+    {
+      "cand": "Q012-06",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "hard",
+      "blind_est_pct_correct": 38,
+      "blind_flags": [],
+      "blind_notes": "1.02^12 = 1.26824, so the balance grows 26.8% per year. Trap B (12 x 2% = 24%) catches quick solvers.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "hardness": "Students must convert a monthly factor into an annual factor by exponentiation; the additive answer 24% is a strong trap."
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000112"
+    },
+    {
+      "cand": "Q012-07",
+      "revision": 1,
+      "revision_history": [],
+      "key": "90",
+      "computed_answer": "90",
+      "blind_answer": "90",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 55,
+      "blind_flags": [],
+      "blind_notes": "y = 0.6z, x = 1.5(0.6z) = 0.9z, so 90%.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000113"
+    },
+    {
+      "cand": "Q012-08",
+      "revision": 1,
+      "revision_history": [],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 72,
+      "blind_flags": [],
+      "blind_notes": "(14 + 10)/(40 + 10) = 24/50 = 48%. Traps: 35% (14/40) and 60% (24/40).",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000114"
+    },
+    {
+      "cand": "Q012-09",
+      "revision": 1,
+      "revision_history": [],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 45,
+      "blind_flags": [],
+      "blind_notes": "(x-5)^2 + (y+2)^2 = 29 - k = 36, so k = -7. Distractor 7 is the sign error.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000115"
+    },
+    {
+      "cand": "Q012-10",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [],
+      "blind_notes": "180 - 48 - 67 = 65.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-000116"
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+ "bank": "sat_math",
+ "batch": 11,
+ "plan": "SAT Math batch 11: Algebra 3, Advanced Math 3, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 2; 3 student-produced responses; 2 items labelled hard. Screened out before drafting: f(a + k) − f(a) (ACT 219/342), quadratic sign intervals (211/280), circle tangent to the x-axis (747), no-solution systems (029/161/544), fractional linear equations (030/370). Q011-03 and Q011-06 relabelled medium after the blind solver rated them medium.",
+ "candidates": [
+  {
+   "cand": "Q011-01",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Solving a linear equation with parentheses",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "easy",
+   "stem": "What value of x satisfies the equation 5(x − 2) = 3x + 4 ?",
+   "explanation": "Distributing gives 5x − 10 = 3x + 4. Then 2x = 14 and x = 7.",
+   "hints": [
+    "Distribute the 5 first."
+   ],
+   "strategy": {
+    "key": "backsolve",
+    "explanation": "Test x = 7: 5(5) = 25 and 21 + 4 = 25."
+   },
+   "remember": "Distribute, collect like terms, then divide.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−3",
+    "B": "3",
+    "C": "7",
+    "D": "14"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "−3 subtracts 10 instead of adding it when moving terms, getting 2x = −6.",
+     "trap": "sign_error"
+    },
+    "B": {
+     "rationale": "3 distributes the 5 only to x, writing 5x − 2.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "14 is the value of 2x.",
+     "trap": "partial_answer"
+    }
+   }
+  },
+  {
+   "cand": "Q011-02",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Translating a verbal statement into a linear equation",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "When 7 is added to 3 times a number n, the result is 5 less than 5 times n. What is the value of n ?",
+   "explanation": "\"7 added to 3 times n\" is 3n + 7, and \"5 less than 5 times n\" is 5n − 5. Then 3n + 7 = 5n − 5, so 12 = 2n and n = 6.",
+   "hints": [
+    "\"5 less than 5n\" means subtract 5 from 5n."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Write each phrase as an expression, then set them equal."
+   },
+   "remember": "\"a less than b\" is b − a.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "6",
+   "accepted_answers": [
+    "6"
+   ],
+   "common_errors": [
+    {
+     "value": "1",
+     "rationale": "1 writes 5 less than 5 times n as 5n + 5.",
+     "trap": "sign_error"
+    },
+    {
+     "value": "-1/4",
+     "rationale": "−1/4 writes 5 less than 5 times n as 5 − 5n.",
+     "trap": null
+    }
+   ]
+  },
+  {
+   "cand": "Q011-03",
+   "reporting_category": "Algebra",
+   "skill": "Algebra",
+   "subskill": "Lines that avoid a quadrant",
+   "repo_skill_key": "sat_algebra",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, which of the following lines does NOT pass through Quadrant III, where both x and y are negative?",
+   "explanation": "y = −2x + 3 has a positive y-intercept and a negative slope. For any x < 0, y = −2x + 3 > 3, so y is positive and the line never enters Quadrant III. Each other line has a point with x < 0 and y < 0: (−2, −1) on A, (−1, −1) on C and (−1, −5) on D.",
+   "hints": [
+    "What happens to y when x is negative?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch each line from its slope and y-intercept."
+   },
+   "remember": "Slope and y-intercept together determine which quadrants a line crosses.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "y = 2x + 3",
+    "B": "y = −2x + 3",
+    "C": "y = −2x − 3",
+    "D": "y = 2x − 3"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "y = 2x + 3 passes through (−2, −1), which is in Quadrant III.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "y = −2x − 3 passes through (−1, −1).",
+     "trap": null
+    },
+    "D": {
+     "rationale": "y = 2x − 3 passes through (−1, −5).",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q011-04",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Dividing a polynomial by a monomial",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "easy",
+   "stem": "For x ≠ 0, which of the following is equivalent to (6x³ − 9x²)/(3x²) ?",
+   "explanation": "Divide each term by 3x²: 6x³/(3x²) = 2x and 9x²/(3x²) = 3, giving 2x − 3.",
+   "hints": [
+    "Divide each term separately."
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Test x = 1: (6 − 9)/3 = −1, and 2 − 3 = −1."
+   },
+   "remember": "Divide every term of the numerator by the denominator.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "2x − 9x²",
+    "B": "2x³ − 3x²",
+    "C": "3x − 6",
+    "D": "2x − 3"
+   },
+   "answer": "D",
+   "distractors": {
+    "A": {
+     "rationale": "This divides only the first term.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "This divides the coefficients but not the powers of x.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This subtracts 3 from each coefficient instead of dividing.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q011-05",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Using symmetry of a parabola",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "For the quadratic function f, f(1) = f(9), and the minimum value of f(x) is −5. What is the value of f(5) ?",
+   "explanation": "A parabola is symmetric about the vertical line through its vertex. Because f(1) = f(9), that line is x = (1 + 9)/2 = 5, so the vertex is at x = 5 and f(5) is the minimum value, −5.",
+   "hints": [
+    "Where is the axis of symmetry if f(1) = f(9)?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Sketch a parabola with equal heights at x = 1 and x = 9."
+   },
+   "remember": "Equal outputs at two inputs place the vertex midway between them.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "−5",
+    "B": "0",
+    "C": "5",
+    "D": "9"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "0 assumes x = 5 is a zero of f.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "5 is the x-coordinate of the vertex, not f(5).",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "9 is an input with the same output as 1.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q011-06",
+   "reporting_category": "Advanced Math",
+   "skill": "Advanced Math",
+   "subskill": "Percent growth over a multi-year period",
+   "repo_skill_key": "sat_advanced_math",
+   "difficulty": "medium",
+   "stem": "The population of a town is modeled by P(t) = 1,500(1.2)ᵗ, where t is the number of years after 2020. By what percent does the population increase every 2 years? (Disregard the % sign when entering your answer.)",
+   "explanation": "Over 2 years the population is multiplied by 1.2² = 1.44, which is an increase of 44%.",
+   "hints": [
+    "What is P(t + 2) divided by P(t)?"
+   ],
+   "strategy": {
+    "key": "plug_in_numbers",
+    "explanation": "Compare P(0) = 1,500 with P(2) = 2,160."
+   },
+   "remember": "Percent growth compounds; it does not add across periods.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "44",
+   "accepted_answers": [
+    "44"
+   ],
+   "common_errors": [
+    {
+     "value": "40",
+     "rationale": "40 doubles the 20% annual increase instead of compounding it.",
+     "trap": null
+    },
+    {
+     "value": "1.44",
+     "rationale": "1.44 is the growth factor, not the percent increase.",
+     "trap": "wrong_quantity"
+    }
+   ]
+  },
+  {
+   "cand": "Q011-07",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Applying a part-to-whole rate",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "easy",
+   "stem": "At a museum, 3 of every 8 visitors buy a ticket to a special exhibit. If 1,240 people visit the museum on Saturday, how many of them would be expected to buy a ticket to the exhibit?",
+   "explanation": "(3/8)(1,240) = 465.",
+   "hints": [
+    "What fraction of visitors buy a ticket?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Multiply 1,240 by 3/8."
+   },
+   "remember": "\"a of every b\" means the fraction a/b.",
+   "expected_time_seconds": 30,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "155",
+    "B": "465",
+    "C": "775",
+    "D": "1,240"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "155 is 1/8 of the visitors.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "775 is the number expected not to buy a ticket.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "1,240 is the total number of visitors.",
+     "trap": "wrong_quantity"
+    }
+   }
+  },
+  {
+   "cand": "Q011-08",
+   "reporting_category": "Problem-Solving and Data Analysis",
+   "skill": "Problem-Solving and Data Analysis",
+   "subskill": "Time for a whole job from a partial job",
+   "repo_skill_key": "sat_problem_solving_data",
+   "difficulty": "medium",
+   "stem": "A pump working at a constant rate fills 3/4 of a tank in 18 minutes. At this rate, how many minutes does the pump take to fill the entire tank?",
+   "explanation": "If 3/4 of the tank takes 18 minutes, then 1/4 takes 6 minutes, and the whole tank takes 4 × 6 = 24 minutes.",
+   "hints": [
+    "How long does 1/4 of the tank take?"
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve (3/4)t = 18."
+   },
+   "remember": "Time for the whole = time for the part ÷ fraction done.",
+   "expected_time_seconds": 40,
+   "modeling": true,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "6",
+    "B": "13.5",
+    "C": "24",
+    "D": "72"
+   },
+   "answer": "C",
+   "distractors": {
+    "A": {
+     "rationale": "6 is the time for 1/4 of the tank.",
+     "trap": "partial_answer"
+    },
+    "B": {
+     "rationale": "13.5 multiplies 18 by 3/4 instead of dividing.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "72 multiplies 18 by 4 without dividing by 3.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q011-09",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Similar triangles with an algebraic side length",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "Triangle ABC is similar to triangle DEF, where A, B and C correspond to D, E and F, respectively. AB = x + 2, BC = 10, DE = 6 and EF = 12. What is the value of x ?",
+   "explanation": "Corresponding sides are proportional: AB/DE = BC/EF, so (x + 2)/6 = 10/12. Then x + 2 = 5 and x = 3.",
+   "hints": [
+    "Match corresponding sides in the same order."
+   ],
+   "strategy": {
+    "key": "translate_to_algebra",
+    "explanation": "Solve (x + 2)/6 = 10/12."
+   },
+   "remember": "Similar figures: corresponding sides have equal ratios.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "3",
+    "B": "5",
+    "C": "5.2",
+    "D": "10"
+   },
+   "answer": "A",
+   "distractors": {
+    "B": {
+     "rationale": "5 is the length of AB, not x.",
+     "trap": "partial_answer"
+    },
+    "C": {
+     "rationale": "5.2 inverts one ratio: (x + 2)/6 = 12/10.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "10 assumes AB = BC.",
+     "trap": null
+    }
+   }
+  },
+  {
+   "cand": "Q011-10",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Coordinate of a vertex from a triangle's area",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In the xy-plane, a triangle has vertices at (1, 1), (7, 1) and (4, y), where y > 1. The area of the triangle is 18 square units. What is the value of y ?",
+   "explanation": "The base from (1, 1) to (7, 1) has length 6. Area = (1/2)(6)(h) = 18 gives h = 6. Since y > 1, the third vertex is 6 units above the line y = 1, so y = 7.",
+   "hints": [
+    "Use the side on y = 1 as the base."
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Plot the base and find the height."
+   },
+   "remember": "Height is measured from the base's line, not from the x-axis.",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "format": "spr",
+   "answer": "7",
+   "accepted_answers": [
+    "7"
+   ],
+   "common_errors": [
+    {
+     "value": "6",
+     "rationale": "6 is the height of the triangle, not the y-coordinate.",
+     "trap": "partial_answer"
+    },
+    {
+     "value": "4",
+     "rationale": "4 omits the 1/2 in the area formula and ignores the base's y-coordinate.",
+     "trap": null
+    }
+   ]
+  }
+ ]
+}
