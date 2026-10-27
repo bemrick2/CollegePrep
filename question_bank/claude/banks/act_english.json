@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 61,
-  "updated_at": "2026-10-27T23:00:00+00:00",
+  "version": 62,
+  "updated_at": "2026-10-27T23:07:25+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -652,6 +652,17 @@
       "word_count": 190,
       "text": "[1] Elijah McCoy was born in 1844 in Ontario, Canada, to parents who had escaped slavery in {{1|Kentucky, as a teenager, he}} traveled to Scotland to train as a mechanical engineer. [2] When he settled in Michigan, however, the only job he could find was as a fireman and oiler for the Michigan Central Railroad, {{2|shoveling coal and oiling the engine's moving parts}}.\n\n[3] At the time, every train {{3|have}} to stop regularly so that workers could oil its engine by hand. [4] In 1872, McCoy patented an automatic lubricator, a cup that dripped oil {{4|steadily and continuously at a constant rate}} into an engine while it ran. [5] Railroads that adopted the device saved time and money, {{5|since}} engines no longer had to stop for oiling.\n\n[6] McCoy {{9|went on to receive}} more than fifty patents, including ones for a folding ironing board and a lawn sprinkler. [7] Some historians believe that the expression \"the real McCoy\" came from engineers who insisted on {{6|McCoys'}} lubricator rather than imitations, though the phrase's origin is disputed. [8] {{7|For example,}} McCoy's {{8|inventions, kept}} trains and factory machines running more smoothly for decades.",
       "batch": 61,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000062",
+      "title": "Every Man Home",
+      "genre": "informative essay",
+      "word_count": 208,
+      "text": "[1] In August 1914, Ernest Shackleton's ship Endurance left England for Antarctica, where he hoped to lead the first crossing of the continent on foot. [2] In January 1915, the pack ice of the Weddell Sea closed around the {{1|ship, the crew}} could do nothing but wait. [3] For months the ice slowly squeezed the hull, and in November 1915 Endurance {{2|sunk}} beneath it.\n\n[4] The twenty-eight men camped on the drifting ice for months. [5] When the ice began to break up in April 1916, they {{3|rowed three lifeboats to Elephant Island, a barren, uninhabited place}}. [6] Knowing that no ship would search such a remote spot, Shackleton and five companions sailed one lifeboat about 800 miles across stormy seas to South Georgia, {{4|which}} a whaling station operated.\n\n[7] Because they had landed on the island's empty side, Shackleton and two others then {{5|hiked and walked}} across its unmapped mountains to reach the station. [8] It took four attempts, but in August 1916 Shackleton {{6|finally}} reached Elephant Island and rescued all twenty-two men waiting there. [9] Not one member of the crew {{7|were lost}}.\n\n[10] In 2022, an expedition found the wreck of Endurance nearly 10,000 feet below the surface of the Weddell {{8|Sea; remarkably well}} preserved.",
+      "batch": 62,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -41173,6 +41184,503 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-061.review.json",
         "computation": "checks/act_english/batch_061.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000572",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 1,
+      "evidence": "could do nothing but wait",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "ship the crew",
+        "C": "ship, and the crew",
+        "D": "ship, and, the crew"
+      },
+      "correct_answer": "C",
+      "explanation": "Two independent clauses are correctly joined by a comma and the conjunction \"and.\"",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "Without punctuation, the two independent clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from its clause."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each side of the punctuation."
+      },
+      "remember": "Join independent clauses with a comma plus a conjunction, or a period.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-01",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000573",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Irregular past tense",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 2,
+      "evidence": "in November 1915 Endurance",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "had sank",
+        "C": "sinked",
+        "D": "sank"
+      },
+      "correct_answer": "D",
+      "explanation": "The simple past tense of \"sink\" is \"sank.\"",
+      "distractor_explanations": {
+        "A": "\"Sunk\" is the past participle and needs a helping verb such as \"had.\"",
+        "B": "\"Had\" requires the past participle \"sunk,\" not \"sank.\"",
+        "C": "\"Sinked\" is not a standard form of \"sink.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is there a helping verb?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the verb form to the helping verb, if any."
+      },
+      "remember": "Sink, sank, sunk: use \"sunk\" only after a helping verb.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-02",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000574",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Appositive after a noun",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 3,
+      "evidence": "When the ice began to break up in April 1916",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "rowed three lifeboats to Elephant Island; a barren, uninhabited place",
+        "C": "rowed three lifeboats to Elephant Island, which a barren, uninhabited place",
+        "D": "rowed three lifeboats to Elephant Island a barren, uninhabited place"
+      },
+      "correct_answer": "A",
+      "explanation": "\"A barren, uninhabited place\" is an appositive describing Elephant Island, correctly set off with a comma.",
+      "distractor_explanations": {
+        "B": "A semicolon cannot introduce a descriptive phrase.",
+        "C": "\"Which a barren place\" lacks a verb.",
+        "D": "Without a comma, the descriptive phrase runs into the island's name."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does \"a barren, uninhabited place\" describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check how the descriptive phrase is attached."
+      },
+      "remember": "Set off an appositive with a comma.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-03",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000575",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative adverb (where)",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 4,
+      "evidence": "a whaling station operated",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "where",
+        "C": "when",
+        "D": "that"
+      },
+      "correct_answer": "B",
+      "explanation": "The clause tells what was located on South Georgia, a place, so \"where\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Which a whaling station operated\" is not grammatical; \"which\" cannot stand for \"at which.\"",
+        "C": "\"When\" refers to a time, but the clause describes a place.",
+        "D": "\"That a whaling station operated\" is not grammatical here."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the clause describe a place or a time?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute each choice and read the sentence."
+      },
+      "remember": "Use \"where\" for a clause about a place.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-04",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000576",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 5,
+      "evidence": "across its unmapped mountains",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "hiked on foot by walking",
+        "C": "hiked",
+        "D": "walked on foot"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Hiked\" states the idea once, without repetition.",
+      "distractor_explanations": {
+        "A": "\"Hiked\" and \"walked\" mean nearly the same thing here.",
+        "B": "\"On foot\" and \"by walking\" repeat the meaning of \"hiked.\"",
+        "D": "\"On foot\" repeats the meaning of \"walked.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any words repeat an idea?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Choose the most concise option that keeps the meaning."
+      },
+      "remember": "Avoid repeating the same idea.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-05",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000577",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Redundancy",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 6,
+      "evidence": "It took four attempts",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "finally, at last,",
+        "C": "at last, finally,",
+        "D": "in the end, finally,"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Finally\" expresses the idea once and fits after four attempts.",
+      "distractor_explanations": {
+        "B": "\"Finally\" and \"at last\" mean the same thing.",
+        "C": "\"At last\" and \"finally\" mean the same thing.",
+        "D": "\"In the end\" and \"finally\" mean the same thing."
+      },
+      "distractor_traps": {
+        "B": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Do any choices say the same thing twice?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Choose the most concise option."
+      },
+      "remember": "Avoid repeating the same idea.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-06",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000578",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (\"not one\")",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 7,
+      "evidence": "Not one member of the crew",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "was lost",
+        "C": "have been lost",
+        "D": "being lost"
+      },
+      "correct_answer": "B",
+      "explanation": "The subject \"Not one member\" is singular, so the verb is \"was lost.\"",
+      "distractor_explanations": {
+        "A": "\"Not one\" is singular, so the plural \"were\" does not agree.",
+        "C": "\"Have\" is plural and shifts the tense.",
+        "D": "\"Being\" is not a finite verb, so the sentence would lack a main verb."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": null
+      },
+      "hints": [
+        "What is the true subject?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out \"of the crew.\""
+      },
+      "remember": "\"One\" takes a singular verb even after \"not.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 62,
+      "draft_candidate": "E062-07",
+      "created_at": "2026-10-27T23:07:25+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-062.review.json",
+        "computation": "checks/act_english/batch_062.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

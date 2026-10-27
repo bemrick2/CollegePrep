@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T23:07:06+00:00",
+  "updated_at": "2026-10-27T23:07:30+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 537,
+    "act_english": 544,
     "act_reading": 551,
     "sat_reading_writing": 551,
     "sat_math": 990
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 571,
-      "REVISE": 32,
+      "PASS": 578,
+      "REVISE": 35,
       "REJECT": 11,
-      "candidates": 614,
+      "candidates": 624,
       "passed_after_revision": 28
     },
     "act_reading": {
@@ -873,11 +873,11 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 537,
+      "accepted": 544,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 290,
-        "Knowledge of Language": 91,
+        "Conventions of Standard English": 295,
+        "Knowledge of Language": 93,
         "Production of Writing": 156
       },
       "by_subskill": {
@@ -903,6 +903,7 @@
         "Ambiguous pronoun reference": 1,
         "Amount versus number": 1,
         "Apostrophes with decades": 1,
+        "Appositive after a noun": 1,
         "Between versus among": 1,
         "Choosing a detail that supports a claim": 1,
         "Choosing a detail that supports the paragraph's description": 1,
@@ -927,7 +928,7 @@
         "Comma before a nonessential clause": 1,
         "Comma before a nonessential clause (second instance)": 1,
         "Comma between subject and verb": 1,
-        "Comma splice": 16,
+        "Comma splice": 17,
         "Comma splice fixed with an appositive": 1,
         "Comma splice repaired with a relative clause": 1,
         "Comma splices": 1,
@@ -1025,7 +1026,7 @@
         "Introducing a paragraph (topic sentence)": 1,
         "Introducing the essay's topic": 1,
         "Introductory sentence for a paragraph": 1,
-        "Irregular past tense": 1,
+        "Irregular past tense": 2,
         "It's / its": 1,
         "Its / it's": 1,
         "Its versus it's": 2,
@@ -1102,10 +1103,11 @@
         "Pronoun-antecedent agreement with \"each\"": 1,
         "Punctuating conjunctive adverbs": 1,
         "Punctuation before an appositive phrase": 1,
-        "Redundancy": 10,
+        "Redundancy": 12,
         "Redundancy (deleting a sentence)": 1,
         "Reflexive pronouns (nonstandard \"theirselves\")": 1,
         "Register-appropriate wording": 1,
+        "Relative adverb (where)": 1,
         "Relative pronoun": 1,
         "Relative pronoun (where)": 1,
         "Relative pronoun for a place (where)": 1,
@@ -1139,6 +1141,7 @@
         "Subject-verb agreement (\"all ... of the\")": 1,
         "Subject-verb agreement (\"each of\")": 2,
         "Subject-verb agreement (\"each\")": 1,
+        "Subject-verb agreement (\"not one\")": 1,
         "Subject-verb agreement (intervening clause)": 1,
         "Subject-verb agreement (intervening phrase)": 4,
         "Subject-verb agreement (number of)": 1,
@@ -1211,29 +1214,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 288,
+        "easy": 293,
         "hard": 22,
-        "medium": 227
+        "medium": 229
       },
       "by_difficulty_calibrated": {
-        "easy": 308,
+        "easy": 313,
         "hard": 4,
-        "medium": 225
+        "medium": 227
       },
       "calibrated_share": {
-        "easy": 0.574,
+        "easy": 0.575,
         "hard": 0.007,
-        "medium": 0.419
+        "medium": 0.417
       },
       "answer_key_balance": {
-        "A": 137,
-        "B": 138,
-        "C": 140,
-        "D": 122
+        "A": 139,
+        "B": 140,
+        "C": 142,
+        "D": 123
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 59
+      "passages": 60
     },
     "act_reading": {
       "accepted": 551,
@@ -2994,7 +2997,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 61,
+    "act_english": 62,
     "act_reading": 67,
     "sat_reading_writing": 66,
     "sat_math": 91
@@ -3053,6 +3056,15 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "sat_reading_writing": {
+      "next_batch": 67,
+      "skill_gap_for_next_10": {
+        "Craft and Structure": 5.1,
+        "Information and Ideas": -22.1,
+        "Standard English Conventions": 30.9,
+        "Expression of Ideas": -3.8
+      }
+    },
     "act_reading": {
       "next_batch": 68,
       "skill_gap_for_next_10": {
@@ -3062,20 +3074,11 @@
       }
     },
     "act_english": {
-      "next_batch": 62,
+      "next_batch": 63,
       "skill_gap_for_next_10": {
-        "Production of Writing": 65.5,
-        "Knowledge of Language": 21.1,
-        "Conventions of Standard English": -68.5
-      }
-    },
-    "sat_reading_writing": {
-      "next_batch": 67,
-      "skill_gap_for_next_10": {
-        "Craft and Structure": 5.1,
-        "Information and Ideas": -22.1,
-        "Standard English Conventions": 30.9,
-        "Expression of Ideas": -3.8
+        "Production of Writing": 68.4,
+        "Knowledge of Language": 20.6,
+        "Conventions of Standard English": -70.6
       }
     }
   },
@@ -3087,8 +3090,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 537,
-      "share_of_target": 0.779
+      "accepted": 544,
+      "share_of_target": 0.79
     },
     "act_reading": {
       "target": 684,
@@ -3107,7 +3110,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3403,
+  "total_accepted": 3410,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -541691,7 +541694,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 61,
+      "bank_version": 62,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -541838,7 +541841,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T23:07:05+00:00",
+    "heartbeat_at": "2026-10-27T23:07:29+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
