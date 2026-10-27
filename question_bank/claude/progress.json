@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-27T02:40:35+00:00",
+  "updated_at": "2026-10-27T02:41:11+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -21,7 +21,7 @@
     "act_english": 262,
     "act_reading": 219,
     "sat_reading_writing": 263,
-    "sat_math": 160
+    "sat_math": 169
   },
   "review_totals": {
     "act_math": {
@@ -53,10 +53,10 @@
       "passed_after_revision": 20
     },
     "sat_math": {
-      "PASS": 170,
+      "PASS": 179,
       "REVISE": 1,
       "REJECT": 0,
-      "candidates": 171,
+      "candidates": 180,
       "passed_after_revision": 1
     }
   },
@@ -1401,13 +1401,13 @@
       "passages": 268
     },
     "sat_math": {
-      "accepted": 160,
+      "accepted": 169,
       "retired_after_audit": 10,
       "by_skill": {
-        "Advanced Math": 49,
-        "Algebra": 48,
-        "Geometry and Trigonometry": 33,
-        "Problem-Solving and Data Analysis": 30
+        "Advanced Math": 51,
+        "Algebra": 51,
+        "Geometry and Trigonometry": 35,
+        "Problem-Solving and Data Analysis": 32
       },
       "by_subskill": {
         "Angle sum of a quadrilateral": 1,
@@ -1415,14 +1415,17 @@
         "Applying a percent increase": 1,
         "Arc length from coordinates on a circle": 1,
         "Arc length with a radian measure": 1,
+        "Area of a right triangle with legs in a 2 : 1 ratio": 1,
         "Area of a trapezoid": 1,
         "Area of a triangle that is a right triangle": 1,
+        "Center of a circle from a point and its radius": 1,
         "Chained percent relationships": 1,
         "Coefficient that makes two lines parallel": 1,
         "Coefficients from the vertex of a parabola": 1,
         "Comparing a per-use cost with a flat rate": 1,
         "Comparing counts from two percents": 1,
         "Comparing exponential, polynomial and linear values": 1,
+        "Comparing successive percent changes in different orders": 1,
         "Comparing volumes of a sphere and a cylinder": 1,
         "Complementary angles and the sine-cosine relationship": 1,
         "Conclusions from a randomized experiment": 1,
@@ -1525,8 +1528,10 @@
         "Sine of a base angle in an isosceles triangle": 1,
         "Slope from a point and an x-intercept": 1,
         "Slope of a line through a given intersection point": 1,
+        "Slope of a line through the origin meeting a line where x = y": 1,
         "Solution set of a quadratic with no constant term": 1,
         "Solutions of a linear inequality": 1,
+        "Solving a factorable quadratic equation": 1,
         "Solving a formula for one of its variables": 1,
         "Solving a linear equation in a pricing context": 1,
         "Solving a linear equation in one variable": 1,
@@ -1554,17 +1559,21 @@
         "Translating a verbal statement into a linear equation": 1,
         "Unit rate in a proportion": 1,
         "Unknown count from a probability": 1,
+        "Unknown count from a without-replacement probability": 1,
         "Using symmetry of a parabola": 1,
         "Using two values of a linear function": 1,
         "Value of a completed square from an equation": 1,
         "Volume of a rectangular box": 1,
         "Volume of cylinders with the same height and different radii": 1,
+        "When two linear quantities are equal": 1,
+        "Where two linear functions given by tables are equal": 1,
         "Working backward through a markup and a discount": 1,
         "Writing a linear inequality from a context": 1,
         "Writing a linear model for savings": 1,
         "Writing a quadratic equation from its solutions": 1,
         "Writing a system of inequalities from a context": 1,
         "Writing an exponential growth model": 1,
+        "Zero of an exponential function": 1,
         "Zeros of a factorable cubic polynomial": 1,
         "Zeros of a horizontally shifted quadratic": 1,
         "y-intercept from a slope and a point": 1,
@@ -1572,18 +1581,18 @@
         "y-intercept of a quadratic in vertex form": 1
       },
       "by_difficulty_author": {
-        "easy": 28,
-        "hard": 10,
-        "medium": 122
+        "easy": 30,
+        "hard": 11,
+        "medium": 128
       },
       "by_difficulty_calibrated": {
-        "easy": 66,
-        "hard": 5,
-        "medium": 89
+        "easy": 69,
+        "hard": 6,
+        "medium": 94
       },
       "calibrated_share": {
-        "easy": 0.412,
-        "hard": 0.031,
+        "easy": 0.408,
+        "hard": 0.036,
         "medium": 0.556
       },
       "answer_key_balance": {
@@ -1591,7 +1600,7 @@
         "-12": 1,
         "-9": 2,
         "1": 1,
-        "1.5": 1,
+        "1.5": 2,
         "10": 1,
         "11": 2,
         "114": 1,
@@ -1608,25 +1617,25 @@
         "240": 1,
         "3": 3,
         "30": 2,
-        "4": 1,
+        "4": 2,
         "44": 2,
         "5": 2,
         "5.4": 1,
         "50": 2,
-        "6": 2,
+        "6": 3,
         "60": 1,
         "7": 3,
         "8": 2,
         "80": 1,
         "9": 1,
         "90": 1,
-        "A": 28,
-        "B": 30,
-        "C": 31,
+        "A": 29,
+        "B": 33,
+        "C": 33,
         "D": 21
       },
-      "modeling_items": 42,
-      "spr_items": 50,
+      "modeling_items": 45,
+      "spr_items": 53,
       "passages": 0
     }
   },
@@ -1635,7 +1644,7 @@
     "act_english": 26,
     "act_reading": 28,
     "sat_reading_writing": 29,
-    "sat_math": 18
+    "sat_math": 19
   },
   "next_batch_guidance": {
     "act_math": {
@@ -1667,26 +1676,26 @@
     }
   },
   "sat_math_guidance": {
-    "next_batch": 19,
+    "next_batch": 20,
     "target": 700,
     "skill_gap_for_next_10": {
-      "Algebra": 11.5,
-      "Advanced Math": 10.5,
-      "Problem-Solving and Data Analysis": -4.5,
-      "Geometry and Trigonometry": -7.5
+      "Algebra": 11.6,
+      "Advanced Math": 11.6,
+      "Problem-Solving and Data Analysis": -5.2,
+      "Geometry and Trigonometry": -8.2
     },
     "calibrated_difficulty_gap_for_next_10": {
-      "easy": -23.5,
-      "medium": -4.0,
-      "hard": 37.5
+      "easy": -24.2,
+      "medium": -4.5,
+      "hard": 38.8
     },
     "answer_key_gap_for_next_10": {
-      "A": 3.9,
-      "B": 1.9,
-      "C": 0.9,
-      "D": 10.9
+      "A": 4.6,
+      "B": 0.6,
+      "C": 0.6,
+      "D": 12.6
     },
-    "spr_items": 50,
+    "spr_items": 53,
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
@@ -1739,12 +1748,12 @@
     },
     "sat_math": {
       "target": 700,
-      "accepted": 160,
-      "share_of_target": 0.229
+      "accepted": 169,
+      "share_of_target": 0.241
     }
   },
   "total_target": 4700,
-  "total_accepted": 1678,
+  "total_accepted": 1687,
   "next_bank_policy": "ACT Math until 200 accepted; then the bank with the lowest share of its target",
   "next_bank": "sat_math",
   "audits": [
@@ -48699,7 +48708,7 @@
     },
     "sat_math": {
       "bank": "banks/sat_math.json",
-      "bank_version": 18,
+      "bank_version": 19,
       "student_export": "exports/sat_math.student.json",
       "answer_export": "exports/sat_math.answer_key.json",
       "import_export": "exports/import/sat_math.jsonl"
@@ -48825,7 +48834,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-27T02:40:35+00:00",
+    "heartbeat_at": "2026-10-27T02:41:11+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },

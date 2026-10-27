@@ -1,7 +1,7 @@
 {
  "bank": "sat_math",
  "batch": 19,
- "plan": "SAT Math batch 19: Algebra 3, Advanced Math 2, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 3; 3 student-produced responses; 4 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-019.repeats.json): three templates (ACT 011, 312, 076) dropped; I33 (one x-intercept in vertex form) skipped as close to the banned tangency template.",
+ "plan": "SAT Math batch 19: Algebra 3, Advanced Math 2, Problem-Solving and Data Analysis 2, Geometry and Trigonometry 3; 3 student-produced responses; 4 items labelled hard. Ideas pre-checked (reviews/sat_math/ideas-019.repeats.json): three templates (ACT 011, 312, 076) dropped; I33 (one x-intercept in vertex form) skipped as close to the banned tangency template. Q019-02, Q019-06, Q019-09 relabelled medium after the blind solver rated them medium; Q019-07 rated hard. Q019-10 (rotation) withdrawn as outside digital SAT content.",
  "candidates": [
   {
    "cand": "Q019-01",
@@ -55,7 +55,7 @@
    "skill": "Algebra",
    "subskill": "Slope of a line through the origin meeting a line where x = y",
    "repo_skill_key": "sat_algebra",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In the xy-plane, the line y = kx, where k is a constant, intersects the line 3x + 2y = 12 at a point whose x-coordinate and y-coordinate are equal. What is the value of k ?",
    "explanation": "At the intersection point, y = x, and the point also lies on y = kx, so x = kx. The point is not the origin (the origin is not on 3x + 2y = 12), so x ≠ 0 and k = 1. (The point is (2.4, 2.4).)",
    "hints": [
@@ -71,8 +71,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students tend to solve the system first; the insight is that any point with equal coordinates, other than the origin, forces slope 1 for a line through the origin."
+    "single_correct": true
    },
    "choices": {
     "A": "−3/2",
@@ -237,7 +236,7 @@
    "skill": "Problem-Solving and Data Analysis",
    "subskill": "Comparing successive percent changes in different orders",
    "repo_skill_key": "sat_problem_solving_data",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "Store A raises the price of a jacket by 10% and later lowers the new price by 10%. Store B, which starts with the same price, lowers it by 10% and later raises the new price by 10%. Which statement about the final prices is true?",
    "explanation": "Store A's final price is p(1.10)(0.90) = 0.99p, and Store B's is p(0.90)(1.10) = 0.99p. Multiplication is commutative, so the final prices are equal (each is 1% below the original).",
    "hints": [
@@ -253,8 +252,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Many students believe order matters or that the changes cancel; recognising commutative factors is the key step."
+    "single_correct": true
    },
    "choices": {
     "A": "Store A's final price is higher.",
@@ -369,7 +367,7 @@
    "skill": "Geometry and Trigonometry",
    "subskill": "Area of a right triangle with legs in a 2 : 1 ratio",
    "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "hard",
+   "difficulty": "medium",
    "stem": "In right triangle ABC, the right angle is at A, AB = 2 · AC, and BC = 10. What is the area of the triangle?",
    "explanation": "Let AC = x, so AB = 2x. By the Pythagorean theorem, x² + 4x² = 100, so x² = 20. The area is (1/2)(x)(2x) = x² = 20.",
    "hints": [
@@ -385,8 +383,7 @@
    "calculator": "allowed",
    "author_checklist": {
     "solved_independently": true,
-    "single_correct": true,
-    "hardness": "Students must use the leg relationship with the Pythagorean theorem and notice the area equals x², avoiding radicals."
+    "single_correct": true
    },
    "choices": {
     "A": "10",
@@ -409,50 +406,56 @@
      "trap": null
     }
    }
-  },
+  }
+ ],
+ "withdrawn": [
   {
    "cand": "Q019-10",
-   "reporting_category": "Geometry and Trigonometry",
-   "skill": "Geometry and Trigonometry",
-   "subskill": "Rotating a point about the origin",
-   "repo_skill_key": "sat_geometry_trig",
-   "difficulty": "medium",
-   "stem": "In the xy-plane, point P(3, 4) is rotated 90° counterclockwise about the origin. What are the coordinates of the image of P ?",
-   "explanation": "A 90° counterclockwise rotation about the origin maps (x, y) to (−y, x), so (3, 4) maps to (−4, 3). The image is still 5 units from the origin, and it moves from Quadrant I to Quadrant II.",
-   "hints": [
-    "Sketch P and turn it a quarter turn counterclockwise."
-   ],
-   "strategy": {
-    "key": "draw_it_out",
-    "explanation": "Plot (3, 4) and rotate the segment from the origin."
-   },
-   "remember": "90° counterclockwise: (x, y) → (−y, x).",
-   "expected_time_seconds": 40,
-   "modeling": false,
-   "calculator": "allowed",
-   "author_checklist": {
-    "solved_independently": true,
-    "single_correct": true
-   },
-   "choices": {
-    "A": "(−4, 3)",
-    "B": "(4, −3)",
-    "C": "(−3, 4)",
-    "D": "(3, −4)"
-   },
-   "answer": "A",
-   "distractors": {
-    "B": {
-     "rationale": "(4, −3) is the result of a 90° clockwise rotation.",
-     "trap": null
+   "reason": "blind solver: rotation about a point is outside the digital SAT Math content domains (Geometry and Trigonometry covers area/volume, lines/angles/triangles, right-triangle trigonometry and circles); withdrawn as off-test content",
+   "item": {
+    "cand": "Q019-10",
+    "reporting_category": "Geometry and Trigonometry",
+    "skill": "Geometry and Trigonometry",
+    "subskill": "Rotating a point about the origin",
+    "repo_skill_key": "sat_geometry_trig",
+    "difficulty": "medium",
+    "stem": "In the xy-plane, point P(3, 4) is rotated 90° counterclockwise about the origin. What are the coordinates of the image of P ?",
+    "explanation": "A 90° counterclockwise rotation about the origin maps (x, y) to (−y, x), so (3, 4) maps to (−4, 3). The image is still 5 units from the origin, and it moves from Quadrant I to Quadrant II.",
+    "hints": [
+     "Sketch P and turn it a quarter turn counterclockwise."
+    ],
+    "strategy": {
+     "key": "draw_it_out",
+     "explanation": "Plot (3, 4) and rotate the segment from the origin."
     },
-    "C": {
-     "rationale": "(−3, 4) is a reflection across the y-axis.",
-     "trap": null
+    "remember": "90° counterclockwise: (x, y) → (−y, x).",
+    "expected_time_seconds": 40,
+    "modeling": false,
+    "calculator": "allowed",
+    "author_checklist": {
+     "solved_independently": true,
+     "single_correct": true
     },
-    "D": {
-     "rationale": "(3, −4) is a reflection across the x-axis.",
-     "trap": null
+    "choices": {
+     "A": "(−4, 3)",
+     "B": "(4, −3)",
+     "C": "(−3, 4)",
+     "D": "(3, −4)"
+    },
+    "answer": "A",
+    "distractors": {
+     "B": {
+      "rationale": "(4, −3) is the result of a 90° clockwise rotation.",
+      "trap": null
+     },
+     "C": {
+      "rationale": "(−3, 4) is a reflection across the y-axis.",
+      "trap": null
+     },
+     "D": {
+      "rationale": "(3, −4) is a reflection across the x-axis.",
+      "trap": null
+     }
     }
    }
   }

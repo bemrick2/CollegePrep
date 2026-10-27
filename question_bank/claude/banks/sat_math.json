@@ -4,8 +4,8 @@
   "exam": "SAT",
   "section": "Math",
   "id_prefix": "CLD-SAT-M-",
-  "version": 18,
-  "updated_at": "2026-10-27T02:37:34+00:00",
+  "version": 19,
+  "updated_at": "2026-10-27T02:41:09+00:00",
   "passages": [],
   "questions": [
     {
@@ -12223,6 +12223,654 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/sat_math/batch-018.review.json",
         "computation": "checks/sat_math/batch_018.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000171",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Where two linear functions given by tables are equal",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The table below shows three values of each of the linear functions f and g.\nx | 0 | 2 | 4\nf(x) | 3 | 7 | 11\ng(x) | 15 | 11 | 7\nFor what value of x is f(x) = g(x) ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "9"
+      },
+      "correct_answer": "B",
+      "explanation": "From the tables, f(x) = 2x + 3 (slope 4/2 = 2) and g(x) = −2x + 15 (slope −4/2 = −2). Setting 2x + 3 = −2x + 15 gives 4x = 12, so x = 3. The value is between the listed inputs: f(3) = g(3) = 9.",
+      "distractor_explanations": {
+        "A": "At x = 2, f(2) = 7 and g(2) = 11, which are not equal.",
+        "C": "At x = 4, f(4) = 11 and g(4) = 7; the values have swapped, so the functions crossed between 2 and 4.",
+        "D": "9 is the common output, f(3) = g(3), not the input."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "Write an equation for each function."
+      ],
+      "strategy": {
+        "key": "find_the_trend",
+        "explanation": "Notice that f rises by 4 and g falls by 4 from x = 2 to x = 4."
+      },
+      "remember": "Equal outputs can occur at an input not shown in a table.",
+      "expected_time_seconds": 55,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-01",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000172",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "Slope of a line through the origin meeting a line where x = y",
+      "modeling": false,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, the line y = kx, where k is a constant, intersects the line 3x + 2y = 12 at a point whose x-coordinate and y-coordinate are equal. What is the value of k ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−3/2",
+        "B": "−1",
+        "C": "1",
+        "D": "6"
+      },
+      "correct_answer": "C",
+      "explanation": "At the intersection point, y = x, and the point also lies on y = kx, so x = kx. The point is not the origin (the origin is not on 3x + 2y = 12), so x ≠ 0 and k = 1. (The point is (2.4, 2.4).)",
+      "distractor_explanations": {
+        "A": "−3/2 is the slope of the line 3x + 2y = 12.",
+        "B": "−1 gives points with y = −x, where the coordinates are opposites, not equal.",
+        "D": "6 is the y-intercept of 3x + 2y = 12."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "B": "sign_error",
+        "D": "wrong_quantity"
+      },
+      "hints": [
+        "What does x = y tell you about the slope from the origin?"
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Substitute y = x into y = kx."
+      },
+      "remember": "A line through the origin and a point (a, a) has slope 1.",
+      "expected_time_seconds": 60,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-02",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000173",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Algebra",
+      "skill": "Algebra",
+      "subskill": "When two linear quantities are equal",
+      "modeling": true,
+      "repo_skill_key": "sat_algebra",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A phone's battery is at 85% and drops by 12 percentage points each hour while in use. A second phone is at 40% and gains 18 percentage points each hour while charging. After how many hours will the two phones have the same battery level?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "1.5",
+      "accepted_answers": [
+        "1.5",
+        "3/2"
+      ],
+      "common_errors": [
+        {
+          "value": "7.5",
+          "rationale": "7.5 divides 45 by 6, the difference of the rates, instead of their sum.",
+          "trap": null
+        },
+        {
+          "value": "67",
+          "rationale": "67 is the common battery level, not the time.",
+          "trap": "wrong_quantity"
+        }
+      ],
+      "explanation": "The levels are 85 − 12t and 40 + 18t. Setting them equal gives 45 = 30t, so t = 1.5 hours. Check: both phones are at 67% after 1.5 hours.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write an expression for each phone's level."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Solve 85 − 12t = 40 + 18t."
+      },
+      "remember": "When one decreases and the other increases, the gap closes at the sum of the rates.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-03",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "1.5",
+        "blind_answer": "1.5",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [
+          "minor: 3/2 should also be accepted"
+        ],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000174",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Zero of an exponential function",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "The function h is defined by h(x) = 2ˣ − 8. What is the zero of h ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "3",
+        "B": "4",
+        "C": "8",
+        "D": "256"
+      },
+      "correct_answer": "A",
+      "explanation": "A zero is an input where h(x) = 0: 2ˣ − 8 = 0 gives 2ˣ = 8 = 2³, so x = 3. Check: h(3) = 8 − 8 = 0.",
+      "distractor_explanations": {
+        "B": "4 divides 8 by 2 instead of finding the power of 2.",
+        "C": "8 is the value of 2ˣ at the zero, not x.",
+        "D": "256 is 2⁸."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Set h(x) = 0."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Test each choice in 2ˣ."
+      },
+      "remember": "A zero is an input that makes the output 0.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-04",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000175",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Advanced Math",
+      "skill": "Advanced Math",
+      "subskill": "Solving a factorable quadratic equation",
+      "modeling": false,
+      "repo_skill_key": "sat_advanced_math",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Which of the following is a solution to the equation x² − 5x − 14 = 0 ?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "−7",
+        "B": "−2",
+        "C": "2",
+        "D": "14"
+      },
+      "correct_answer": "B",
+      "explanation": "x² − 5x − 14 = (x − 7)(x + 2), so the solutions are x = 7 and x = −2. Only −2 appears among the choices. Check: 4 + 10 − 14 = 0.",
+      "distractor_explanations": {
+        "A": "−7 reverses the sign of the solution 7.",
+        "C": "2 reverses the sign of the solution −2.",
+        "D": "14 is the absolute value of the constant term."
+      },
+      "distractor_traps": {
+        "A": "sign_error",
+        "C": "sign_error",
+        "D": null
+      },
+      "hints": [
+        "Find two numbers that multiply to −14 and add to −5."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Substitute each choice."
+      },
+      "remember": "Factor, then set each factor equal to 0.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-05",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000176",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Comparing successive percent changes in different orders",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "Store A raises the price of a jacket by 10% and later lowers the new price by 10%. Store B, which starts with the same price, lowers it by 10% and later raises the new price by 10%. Which statement about the final prices is true?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Store A's final price is higher.",
+        "B": "Store B's final price is higher.",
+        "C": "The final prices are equal.",
+        "D": "It depends on the original price."
+      },
+      "correct_answer": "C",
+      "explanation": "Store A's final price is p(1.10)(0.90) = 0.99p, and Store B's is p(0.90)(1.10) = 0.99p. Multiplication is commutative, so the final prices are equal (each is 1% below the original).",
+      "distractor_explanations": {
+        "A": "Raising first does not help; the two factors are the same, just in a different order.",
+        "B": "Lowering first does not help either; both give 0.99p.",
+        "D": "Both final prices are 0.99 times the original, whatever it is."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Write each final price as the original times two factors."
+      ],
+      "strategy": {
+        "key": "plug_in_numbers",
+        "explanation": "Use an original price of $100."
+      },
+      "remember": "Successive percent changes multiply, and order doesn't matter.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-06",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000177",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Problem-Solving and Data Analysis",
+      "skill": "Problem-Solving and Data Analysis",
+      "subskill": "Unknown count from a without-replacement probability",
+      "modeling": true,
+      "repo_skill_key": "sat_problem_solving_data",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "A jar holds 3 red tokens and an unknown number of blue tokens. Two tokens are taken from the jar at random at the same time. The probability that both tokens are red is 1/12. How many blue tokens are in the jar?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "6",
+      "accepted_answers": [
+        "6"
+      ],
+      "common_errors": [
+        {
+          "value": "9",
+          "rationale": "9 is the total number of tokens, not the number of blue tokens.",
+          "trap": "wrong_quantity"
+        },
+        {
+          "value": "12",
+          "rationale": "12 is the denominator of the probability, not a count of tokens.",
+          "trap": null
+        }
+      ],
+      "explanation": "If there are n tokens in all, P(both red) = (3/n)((3 − 1)/(n − 1)) = 6/(n(n − 1)) = 1/12, so n(n − 1) = 72 and n = 9. The jar has 9 − 3 = 6 blue tokens.",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "Write the probability in terms of the total n."
+      ],
+      "strategy": {
+        "key": "backsolve",
+        "explanation": "Try totals: with 9 tokens, (3/9)(2/8) = 1/12."
+      },
+      "remember": "Taking two at once: the second token comes from one fewer.",
+      "expected_time_seconds": 80,
+      "calculator": "allowed",
+      "difficulty": "hard",
+      "difficulty_numeric": 4,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "hard",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-07",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "6",
+        "blind_answer": "6",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "hard",
+        "blind_est_pct_correct": 30,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000178",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Center of a circle from a point and its radius",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In the xy-plane, a circle has its center at (a, a), where a > 0, and a radius of 4√2. The circle passes through the origin. What is the value of a ?",
+      "answer_format": "numeric",
+      "choices": null,
+      "correct_answer": "4",
+      "accepted_answers": [
+        "4"
+      ],
+      "common_errors": [
+        {
+          "value": "32",
+          "rationale": "32 is the value of 2a², the square of the radius.",
+          "trap": "partial_answer"
+        },
+        {
+          "value": "16",
+          "rationale": "16 is the value of a², not a.",
+          "trap": "partial_answer"
+        }
+      ],
+      "explanation": "The distance from the center (a, a) to the origin equals the radius: √(a² + a²) = 4√2. So 2a² = 32, a² = 16 and a = 4 (since a > 0).",
+      "distractor_explanations": {},
+      "distractor_traps": {},
+      "hints": [
+        "The distance from the center to the origin is the radius."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Use the distance formula from (a, a) to (0, 0)."
+      },
+      "remember": "Every point on a circle is one radius from the center.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-08",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "4",
+        "blind_answer": "4",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 55,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-SAT-M-000179",
+      "schema_version": "cld-qb/1.0",
+      "exam": "SAT",
+      "section": "Math",
+      "reporting_category": "Geometry and Trigonometry",
+      "skill": "Geometry and Trigonometry",
+      "subskill": "Area of a right triangle with legs in a 2 : 1 ratio",
+      "modeling": false,
+      "repo_skill_key": "sat_geometry_trig",
+      "passage_id": null,
+      "underline": null,
+      "evidence": null,
+      "figure": null,
+      "stem": "In right triangle ABC, the right angle is at A, AB = 2 · AC, and BC = 10. What is the area of the triangle?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "10",
+        "B": "20",
+        "C": "25",
+        "D": "40"
+      },
+      "correct_answer": "B",
+      "explanation": "Let AC = x, so AB = 2x. By the Pythagorean theorem, x² + 4x² = 100, so x² = 20. The area is (1/2)(x)(2x) = x² = 20.",
+      "distractor_explanations": {
+        "A": "10 is the length of the hypotenuse.",
+        "C": "25 treats the triangle as isosceles, with legs 5√2.",
+        "D": "40 omits the factor 1/2."
+      },
+      "distractor_traps": {
+        "A": "wrong_quantity",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Write both legs in terms of AC."
+      ],
+      "strategy": {
+        "key": "translate_to_algebra",
+        "explanation": "Find x² rather than x."
+      },
+      "remember": "Area of a right triangle = (1/2)(leg)(leg); you may not need x itself.",
+      "expected_time_seconds": 65,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 19,
+      "draft_candidate": "Q019-09",
+      "created_at": "2026-10-27T02:41:09+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 50,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/sat_math/batch-019.review.json",
+        "computation": "checks/sat_math/batch_019.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
