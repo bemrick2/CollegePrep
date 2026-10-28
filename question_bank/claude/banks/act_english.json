@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 68,
-  "updated_at": "2026-10-28T01:57:05+00:00",
+  "version": 69,
+  "updated_at": "2026-10-28T02:05:42+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -45868,6 +45868,1071 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-068.review.json",
         "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000637",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (plural pronoun)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000010",
+      "underline": 2,
+      "evidence": "a curved wall more than sixty meters long and two giant dishes",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "was being",
+        "C": "were",
+        "D": "is"
+      },
+      "correct_answer": "C",
+      "explanation": "\"They\" refers to the three structures, so it takes the plural past-tense verb \"were.\"",
+      "distractor_explanations": {
+        "A": "\"They\" is plural and needs the plural verb \"were,\" not \"was.\"",
+        "B": "\"Was\" does not agree with the plural \"they,\" and the progressive form adds nothing.",
+        "D": "\"Is\" is singular and present tense; the subject is plural and the structures were built in the past."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is \"they\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the subject of the verb."
+      },
+      "remember": "Plural subjects take plural verbs.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-01",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000638",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Fewer versus less (count nouns)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000018",
+      "underline": 8,
+      "evidence": "the cover wouldn't hardly close",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "fewer",
+        "C": "a lesser amount of",
+        "D": "a fewer number of"
+      },
+      "correct_answer": "B",
+      "explanation": "Knots can be counted, so \"fewer\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Less\" is for amounts that cannot be counted; knots can be counted.",
+        "C": "\"Amount\" is for uncountable things, so it does not fit countable knots.",
+        "D": "\"A fewer number of\" is not idiomatic; one would say \"a smaller number of.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Can the knots be counted?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide whether the noun is countable."
+      },
+      "remember": "Use \"fewer\" with things you can count.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-02",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000639",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun case (compound object)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000024",
+      "underline": 9,
+      "evidence": "and set off again at a slow, steady jog",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "me",
+        "C": "I myself",
+        "D": "we"
+      },
+      "correct_answer": "B",
+      "explanation": "The pronoun is an object of \"thanked,\" so the object form \"me\" is correct; \"The runner thanked me\" confirms it.",
+      "distractor_explanations": {
+        "A": "\"I\" is a subject pronoun, but the pronoun here is an object of \"thanked.\"",
+        "C": "\"I myself\" is still a subject form and adds an unneeded intensifier.",
+        "D": "\"We\" is a subject pronoun and does not fit as the object of \"thanked.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Would you say \"thanked I\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Remove \"Delia and\" and test each pronoun."
+      },
+      "remember": "Use object pronouns after verbs and prepositions.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-04",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000640",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Possessive pronoun (its)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000026",
+      "underline": 3,
+      "evidence": "A ship could sit in port for a week or more while",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "it is",
+        "C": "its",
+        "D": "the ships"
+      },
+      "correct_answer": "C",
+      "explanation": "The cargo belongs to the ship, so the possessive pronoun \"its\" (no apostrophe) is correct.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is,\" which makes no sense before \"cargo.\"",
+        "B": "\"It is cargo was loaded\" makes no sense.",
+        "D": "\"The ships\" is plural and lacks an apostrophe, and only one ship is meant."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does the word show ownership or stand for two words?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Expand any contraction to test it."
+      },
+      "remember": "A possessive pronoun never takes an apostrophe.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-05",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000641",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Concision (redundancy)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000043",
+      "underline": 8,
+      "evidence": "existed before his",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "several earlier, previous designs",
+        "C": "several designs from an earlier time",
+        "D": "several other designs"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Before his\" already places the designs earlier, so \"several other designs\" avoids the repetition.",
+      "distractor_explanations": {
+        "A": "\"Earlier\" repeats \"before his,\" which follows.",
+        "B": "\"Earlier\" and \"previous\" repeat each other and \"before his.\"",
+        "C": "\"From an earlier time\" repeats \"before his.\""
+      },
+      "distractor_traps": {
+        "A": "wordy_redundant",
+        "B": "wordy_redundant",
+        "C": "wordy_redundant"
+      },
+      "hints": [
+        "Which words repeat \"before his\"?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Cross out ideas the sentence already states."
+      },
+      "remember": "Avoid saying the same thing twice.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-06",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000642",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (long intervening phrase)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000045",
+      "underline": 9,
+      "evidence": "The flood of requests from bakers who wanted to try the recipe",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "was",
+        "C": "were being",
+        "D": "have become"
+      },
+      "correct_answer": "B",
+      "explanation": "The subject is \"The flood,\" which is singular, so the singular \"was\" is needed despite the plural nouns in between.",
+      "distractor_explanations": {
+        "A": "The subject is \"The flood,\" which is singular; \"bakers\" and \"recipe\" are inside modifying phrases.",
+        "C": "The plural verb does not agree with the singular \"flood.\"",
+        "D": "The plural verb does not agree with the singular \"flood,\" and the tense shifts."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Which noun is the subject: \"flood,\" \"requests,\" or \"bakers\"?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out the phrases between subject and verb."
+      },
+      "remember": "Agree the verb with its subject, not the nearest noun.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-07",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000643",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (gerund subject)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000053",
+      "underline": 4,
+      "evidence": "Early incandescent bulbs used carbon filaments that burned out quickly",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "are often",
+        "C": "was",
+        "D": "were being"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Manufacturing them\" names a single activity, so it takes the singular verb \"was.\"",
+      "distractor_explanations": {
+        "A": "The subject is the gerund phrase \"manufacturing them,\" which is singular.",
+        "B": "The plural present-tense verb does not agree with the singular gerund subject or fit the past narrative.",
+        "D": "The plural verb does not agree with the singular gerund subject."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "What is doing the action in the second clause, the filaments or the manufacturing?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Identify the gerund phrase as the subject."
+      },
+      "remember": "A gerund phrase used as a subject is singular.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-08",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 68,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000644",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Possessive pronoun (its)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000054",
+      "underline": 4,
+      "evidence": "so the first version drew",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "it is",
+        "C": "its'",
+        "D": "its"
+      },
+      "correct_answer": "D",
+      "explanation": "The pieces belong to the first version of the game, so the possessive \"its\" is correct.",
+      "distractor_explanations": {
+        "A": "\"It's\" means \"it is\"; \"drew it is pieces\" makes no sense.",
+        "B": "\"Drew it is pieces\" makes no sense.",
+        "C": "\"Its'\" is not a word."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Can you replace the word with two words?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Expand any contraction to test it."
+      },
+      "remember": "Possessive pronouns take no apostrophe.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-09",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000645",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Relative pronoun (whose)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000055",
+      "underline": 2,
+      "evidence": "curiosity outweighed her doubts, asked a technician",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "whose",
+        "C": "who is",
+        "D": "her"
+      },
+      "correct_answer": "B",
+      "explanation": "The curiosity belongs to Kwolek, so the possessive relative pronoun \"whose\" is correct.",
+      "distractor_explanations": {
+        "A": "\"Who's\" means \"who is\"; \"who is curiosity\" makes no sense.",
+        "C": "\"Kwolek, who is curiosity outweighed her doubts\" makes no sense.",
+        "D": "\"Her\" turns the clause into a second independent clause wedged inside the sentence."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Does the word show possession or stand for two words?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Expand any contraction to test it."
+      },
+      "remember": "\"Whose\" shows possession; \"who's\" means \"who is.\"",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-10",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000646",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (neither of)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000056",
+      "underline": 3,
+      "evidence": "The engineers then tried to sell the material as insulation",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "attempt were",
+        "C": "attempts was",
+        "D": "attempts are"
+      },
+      "correct_answer": "C",
+      "explanation": "The subject is \"Neither,\" which is singular, so the verb must be singular.",
+      "distractor_explanations": {
+        "A": "The plural verb agrees with \"attempts,\" but the subject is the singular \"Neither.\"",
+        "B": "\"These attempt\" is ungrammatical, and \"were\" still does not agree with \"Neither.\"",
+        "D": "The plural present-tense verb does not agree with the singular \"Neither\" or fit the past narrative."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "D": "nearest_noun_agreement"
+      },
+      "hints": [
+        "Is \"Neither\" singular or plural?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Cross out \"of these\" and the noun after it."
+      },
+      "remember": "\"Neither\" and \"either\" take singular verbs.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-11",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 60,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000647",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (singular noun)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000059",
+      "underline": 6,
+      "evidence": "In 1944, Congress awarded Henson a medal",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "were being",
+        "C": "are",
+        "D": "was"
+      },
+      "correct_answer": "D",
+      "explanation": "\"Recognition\" is a singular noun, so it takes the singular past-tense verb.",
+      "distractor_explanations": {
+        "A": "\"Recognition\" is singular and needs a singular verb.",
+        "B": "The plural verb does not agree with the singular \"Recognition.\"",
+        "C": "The plural present-tense verb neither agrees with the subject nor fits the past events."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is the subject singular or plural?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the subject and check its number."
+      },
+      "remember": "Singular subjects take singular verbs.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-12",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000648",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Semicolon misuse (phrase after a semicolon)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000062",
+      "underline": 8,
+      "evidence": "an expedition found the wreck of Endurance",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Sea, where it lay remarkably well",
+        "C": "Sea, it was found to be remarkably well",
+        "D": "Sea: it remarkably well"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Where it lay remarkably well preserved\" correctly attaches the description to the wreck in a dependent clause.",
+      "distractor_explanations": {
+        "A": "A semicolon must be followed by an independent clause, but \"remarkably well preserved\" is only a phrase.",
+        "C": "A comma alone cannot join the two independent clauses, creating a comma splice.",
+        "D": "\"It remarkably well preserved\" has no complete verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": "comma_splice",
+        "D": null
+      },
+      "hints": [
+        "What must follow a semicolon?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check what each side of the punctuation can stand as."
+      },
+      "remember": "A semicolon joins two complete clauses.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-13",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000649",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense consistency",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000064",
+      "underline": 5,
+      "evidence": "During the Great Depression",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "will have to",
+        "C": "had to",
+        "D": "must have"
+      },
+      "correct_answer": "C",
+      "explanation": "The essay describes past events, so the simple past fits.",
+      "distractor_explanations": {
+        "A": "The present perfect does not fit a narrative set in the 1930s.",
+        "B": "The future tense does not fit events in the past.",
+        "D": "\"Must have dismount\" is ungrammatical."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "When did these events take place?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the verb to the essay's time frame."
+      },
+      "remember": "Keep verb tense consistent within a narrative.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-14",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000650",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Subject-verb agreement (compound subject)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 5,
+      "evidence": "nearly 2,000 deaths, and thousands more people were injured",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "is being",
+        "C": "has been held",
+        "D": "were"
+      },
+      "correct_answer": "D",
+      "explanation": "Two subjects joined by \"and\" form a plural subject, so the plural past-tense verb is needed.",
+      "distractor_explanations": {
+        "A": "The compound subject \"The explosion and the fires\" is plural.",
+        "B": "The singular present-tense verb neither agrees with the compound subject nor fits past events.",
+        "C": "The singular verb does not agree with the compound subject, and the phrase is wordy."
+      },
+      "distractor_traps": {
+        "A": "nearest_noun_agreement",
+        "B": "nearest_noun_agreement",
+        "C": "nearest_noun_agreement"
+      },
+      "hints": [
+        "How many things does the subject name?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find every part of the subject."
+      },
+      "remember": "Subjects joined by \"and\" take a plural verb.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-15",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000651",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": null,
+      "evidence": "almost every hill and pond was designed",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to explain how Central Park was designed to look natural. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it describes in detail how every tree in the park was chosen.",
+        "B": "No, because it treats the design briefly and turns to the park's human cost.",
+        "C": "Yes, because its main focus is the engineering of the sunken crosstown roads.",
+        "D": "No, because it never says that the park was designed rather than natural."
+      },
+      "correct_answer": "B",
+      "explanation": "The essay mentions the designed landscape briefly but devotes much of its length to the displacement of Seneca Village, so it does not mainly explain the natural-looking design.",
+      "distractor_explanations": {
+        "A": "The essay does not describe how trees were chosen.",
+        "C": "The roads are mentioned in one sentence.",
+        "D": "Sentence 4 says almost every hill and pond was designed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How much of the essay is about the design?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against the exact purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 69,
+      "draft_candidate": "E069-16",
+      "created_at": "2026-10-28T02:05:42+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 2,
+        "evidence": "reviews/act_english/batch-069.review.json",
+        "computation": "checks/act_english/batch_069.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

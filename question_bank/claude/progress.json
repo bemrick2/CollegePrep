@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-28T02:02:52+00:00",
+  "updated_at": "2026-10-28T02:06:01+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 592,
+    "act_english": 607,
     "act_reading": 591,
     "sat_reading_writing": 597,
     "sat_math": 1000
@@ -32,11 +32,11 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 636,
-      "REVISE": 40,
+      "PASS": 651,
+      "REVISE": 41,
       "REJECT": 14,
-      "candidates": 690,
-      "passed_after_revision": 41
+      "candidates": 706,
+      "passed_after_revision": 42
     },
     "act_reading": {
       "PASS": 626,
@@ -873,12 +873,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 592,
+      "accepted": 607,
       "retired_after_audit": 44,
       "by_skill": {
-        "Conventions of Standard English": 318,
-        "Knowledge of Language": 105,
-        "Production of Writing": 169
+        "Conventions of Standard English": 331,
+        "Knowledge of Language": 106,
+        "Production of Writing": 170
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
@@ -962,7 +962,7 @@
         "Comparative with two items": 1,
         "Concision": 7,
         "Concision (eliminating a redundant clause)": 1,
-        "Concision (redundancy)": 9,
+        "Concision (redundancy)": 10,
         "Concision (word choice)": 1,
         "Concision (wordiness)": 1,
         "Concision (wordy compound phrase)": 1,
@@ -1008,10 +1008,11 @@
         "Effect of deleting a phrase": 3,
         "Effect of deleting a sentence": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 30,
+        "Evaluating whether an essay meets a goal": 31,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 2,
         "Faulty comparison (\"any other\")": 1,
+        "Fewer versus less (count nouns)": 1,
         "Function of a detail": 1,
         "Function of a sentence (what would be lost)": 3,
         "Gerund as subject of a clause": 1,
@@ -1090,6 +1091,7 @@
         "Plural possessive": 3,
         "Possessive of an irregular plural": 1,
         "Possessive pronoun (its vs. it's)": 2,
+        "Possessive pronoun (its)": 2,
         "Possessive pronoun (whose vs. who's)": 1,
         "Possessive with a time expression": 1,
         "Precise detail (emphasizing size)": 1,
@@ -1105,6 +1107,7 @@
         "Present perfect with a span of time": 1,
         "Pronoun agreement with a collective noun": 1,
         "Pronoun and tense shift in a narrative": 1,
+        "Pronoun case (compound object)": 1,
         "Pronoun case (object of a preposition)": 1,
         "Pronoun case (who vs. whom)": 2,
         "Pronoun case (who/whom)": 1,
@@ -1124,6 +1127,7 @@
         "Relative adverb (where)": 1,
         "Relative pronoun": 1,
         "Relative pronoun (where)": 1,
+        "Relative pronoun (whose)": 1,
         "Relative pronoun case (whom)": 1,
         "Relative pronoun for a place (where)": 1,
         "Relative pronoun to avoid a comma splice": 1,
@@ -1135,6 +1139,7 @@
         "Semicolon between independent clauses": 4,
         "Semicolon joining two independent clauses": 2,
         "Semicolon misuse (compound predicate)": 1,
+        "Semicolon misuse (phrase after a semicolon)": 1,
         "Semicolons in a series with internal commas": 1,
         "Semicolons joining independent clauses": 1,
         "Sentence boundaries": 5,
@@ -1158,11 +1163,17 @@
         "Subject-verb agreement (\"each of\")": 2,
         "Subject-verb agreement (\"each\")": 1,
         "Subject-verb agreement (\"not one\")": 1,
+        "Subject-verb agreement (compound subject)": 1,
+        "Subject-verb agreement (gerund subject)": 1,
         "Subject-verb agreement (intervening clause)": 1,
         "Subject-verb agreement (intervening phrase)": 4,
         "Subject-verb agreement (inverted order)": 1,
+        "Subject-verb agreement (long intervening phrase)": 1,
+        "Subject-verb agreement (neither of)": 1,
         "Subject-verb agreement (number of)": 1,
         "Subject-verb agreement (plural noun)": 1,
+        "Subject-verb agreement (plural pronoun)": 1,
+        "Subject-verb agreement (singular noun)": 1,
         "Subject-verb agreement across a prepositional phrase": 1,
         "Subject-verb agreement and tense": 1,
         "Subject-verb agreement in a relative clause": 1,
@@ -1221,7 +1232,7 @@
         "Verb tense": 2,
         "Verb tense (past perfect in a past context)": 1,
         "Verb tense and agreement": 1,
-        "Verb tense consistency": 10,
+        "Verb tense consistency": 11,
         "Verb tense consistency (present perfect)": 1,
         "Verb tense consistency in a narrative": 1,
         "Verb tense with a time marker": 1,
@@ -1235,25 +1246,25 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 333,
+        "easy": 343,
         "hard": 22,
-        "medium": 237
-      },
-      "by_difficulty_calibrated": {
-        "easy": 346,
-        "hard": 4,
         "medium": 242
       },
+      "by_difficulty_calibrated": {
+        "easy": 355,
+        "hard": 4,
+        "medium": 248
+      },
       "calibrated_share": {
-        "easy": 0.584,
+        "easy": 0.585,
         "hard": 0.007,
         "medium": 0.409
       },
       "answer_key_balance": {
         "A": 153,
-        "B": 151,
-        "C": 154,
-        "D": 134
+        "B": 157,
+        "C": 159,
+        "D": 138
       },
       "modeling_items": 0,
       "spr_items": 0,
@@ -3059,7 +3070,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 68,
+    "act_english": 69,
     "act_reading": 71,
     "sat_reading_writing": 71,
     "sat_math": 92
@@ -3118,14 +3129,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 69,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 74.8,
-        "Knowledge of Language": 18.4,
-        "Conventions of Standard English": -74.2
-      }
-    },
     "act_reading": {
       "next_batch": 72,
       "skill_gap_for_next_10": {
@@ -3142,6 +3145,14 @@
         "Standard English Conventions": 32.8,
         "Expression of Ideas": -4.6
       }
+    },
+    "act_english": {
+      "next_batch": 70,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 79.9,
+        "Knowledge of Language": 20.5,
+        "Conventions of Standard English": -81.1
+      }
     }
   },
   "section_targets": {
@@ -3152,8 +3163,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 592,
-      "share_of_target": 0.859
+      "accepted": 607,
+      "share_of_target": 0.881
     },
     "act_reading": {
       "target": 684,
@@ -3172,9 +3183,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3554,
+  "total_accepted": 3569,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_english",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -879174,7 +879185,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 68,
+      "bank_version": 69,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -879321,7 +879332,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-28T02:02:51+00:00",
+    "heartbeat_at": "2026-10-28T02:06:00+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
