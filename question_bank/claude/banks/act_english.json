@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 65,
-  "updated_at": "2026-10-28T00:13:57+00:00",
+  "version": 66,
+  "updated_at": "2026-10-28T00:21:24+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -696,6 +696,17 @@
       "word_count": 300,
       "text": "[1] In the 1850s, Hosea Lewis, the keeper of the Lime Rock lighthouse in Newport Harbor, Rhode Island, suffered a stroke that left him unable to work. [2] His teenage daughter, Ida, {{1|took over his duties, she}} kept the lamp burning through the night and rowed her younger siblings across the harbor to school. [3] All that rowing made her one of the strongest and most skilled boat handlers in Newport.\n\n[4] {{2|Ida's skill on the water soon proved to be more than a convenience.}} [5] In 1858, she pulled four young men from the harbor after their sailboat capsized near the rock. [6] {{3|Over the following decades,}} she made many more rescues, often rowing out in storms {{4|that were so severe and violent that}} other boats stayed in the harbor.\n\n[7] The rescue that made Ida famous came in March 1869. [8] A small boat carrying two soldiers across the harbor overturned during a snowstorm, and Ida, {{5|without stopping to put on a coat or shoes,}} rowed out and hauled both men aboard. [9] Soon afterward, {{6|Harper's Weekly a popular national magazine, ran}} a story about the rescue, and visitors began arriving at Lime Rock to meet the young keeper. [10] Among them {{7|were}} President Ulysses S. Grant. [11] Ida, however, {{8|didn't make a big deal out of}} the attention; she went on tending the light and rowing out whenever someone was in trouble.\n\n[12] For years, Ida did the work of a keeper without the title, which officially belonged to her father and later to her mother. [13] In 1879, she was finally appointed keeper of Lime Rock {{9|herself, a position she held}} until her death in 1911. [14] In 1924, Lime Rock itself was renamed Ida Lewis Rock, and its lighthouse became the Ida Lewis Rock Light.",
       "batch": 65,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000066",
+      "title": "A Tree for Boston",
+      "genre": "informative essay",
+      "word_count": 265,
+      "text": "[1] On the morning of December 6, 1917, the harbor of Halifax, Nova Scotia, was crowded with ships supporting the war effort in Europe. [2] In a narrow passage of the harbor, the French cargo ship Mont-Blanc, {{1|which was loaded with explosives}} collided with a Norwegian vessel, the Imo. [3] The collision started a fire aboard the Mont-Blanc, and {{2|they}} quickly abandoned ship and rowed for the opposite shore. [4] Crowds gathered along the waterfront to watch the burning ship {{3|drift slowly and gradually}} toward a pier.\n\n[5] At a nearby railyard, a train dispatcher named Vince Coleman learned of the danger. [6] {{4|Rather than flee, he}} stayed at his telegraph key and sent a warning to stop an incoming passenger train.\n\n[7] At about 9:04 a.m., the Mont-Blanc exploded. [8] The blast, one of the largest explosions ever caused by people before the atomic age, flattened much of the city's north end. [9] The explosion and the fires that followed it {{5|was}} responsible for nearly 2,000 deaths, and thousands more people were injured. [10] Coleman was among those killed. [11] {{6|However,}} his warning is believed to have stopped the train and saved its passengers.\n\n[12] News of the disaster spread quickly. [13] Within days, a relief train from Boston arrived carrying doctors, nurses, and supplies, {{7|in spite}} a blizzard that struck the region the day after the explosion. [14] To thank Boston, Nova Scotia sent a Christmas tree to the city the following year. [15] Since 1971, the province has sent a tree {{8|every year, it}} stands on Boston Common throughout the holiday season.",
+      "batch": 66,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -43844,6 +43855,574 @@
         "revisions_before_pass": 0,
         "evidence": "reviews/act_english/batch-065.review.json",
         "computation": "checks/act_english/batch_065.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000609",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Nonessential clause (paired commas)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 1,
+      "evidence": "collided with a Norwegian vessel",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "which was loaded with explosives,",
+        "C": "loaded with explosives;",
+        "D": "that was loaded with explosives,"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Which was loaded with explosives\" adds information about the Mont-Blanc and must be set off by a pair of commas.",
+      "distractor_explanations": {
+        "A": "The nonessential clause opened by a comma must also be closed by one before the verb \"collided.\"",
+        "C": "A semicolon cannot separate the subject from its verb.",
+        "D": "\"That\" introduces an essential clause, which should not be set off with commas."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does the interrupting clause end?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the sentence without the clause."
+      },
+      "remember": "Close a nonessential clause with a second comma.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-01",
+      "created_at": "2026-10-28T00:21:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000610",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Pronoun clarity",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 2,
+      "evidence": "quickly abandoned ship and rowed for the opposite shore",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "it",
+        "C": "those",
+        "D": "its crew"
+      },
+      "correct_answer": "D",
+      "explanation": "Only people can abandon ship and row, so the sentence needs the clear noun phrase \"its crew.\"",
+      "distractor_explanations": {
+        "A": "\"They\" has no clear plural antecedent; the ships cannot abandon ship.",
+        "B": "\"It\" would refer to the ship, which cannot abandon itself.",
+        "C": "\"Those\" has no clear antecedent."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Who abandoned ship?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find what each pronoun would refer to."
+      },
+      "remember": "Replace a pronoun with a noun when the antecedent is unclear.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-02",
+      "created_at": "2026-10-28T00:21:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000611",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Idiom (rather than)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 4,
+      "evidence": "stayed at his telegraph key",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Rather than fleeing, him",
+        "C": "Rather than flee; he",
+        "D": "Rather then flee, he"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Rather than flee\" is an idiomatic introductory phrase followed by a comma and the subject \"he.\"",
+      "distractor_explanations": {
+        "B": "\"Him\" is an object pronoun and cannot be the subject of \"stayed.\"",
+        "C": "A semicolon cannot follow an introductory phrase.",
+        "D": "\"Then\" refers to time; the comparison requires \"than.\""
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Which pronoun can be a subject?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check each part of the phrase."
+      },
+      "remember": "Use \"than\" for comparisons and a subject pronoun before a verb.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-04",
+      "created_at": "2026-10-28T00:21:23+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000612",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (contrast)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 6,
+      "evidence": "Coleman was among those killed",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Therefore,",
+        "C": "For example,",
+        "D": "Likewise,"
+      },
+      "correct_answer": "A",
+      "explanation": "Coleman died, but his warning succeeded, so the contrast transition \"However\" fits.",
+      "distractor_explanations": {
+        "B": "Coleman's death did not cause the warning to work.",
+        "C": "The warning is not an example of Coleman's death.",
+        "D": "The warning's success is not similar to Coleman's death."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Do the two sentences agree or contrast?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship first."
+      },
+      "remember": "Use \"however\" to signal a contrast.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-06",
+      "created_at": "2026-10-28T00:21:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000613",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Idiom (despite / in spite of)",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 7,
+      "evidence": "a blizzard that struck the region",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "despite of",
+        "C": "despite",
+        "D": "although"
+      },
+      "correct_answer": "C",
+      "explanation": "\"Despite\" correctly introduces the noun phrase \"a blizzard.\"",
+      "distractor_explanations": {
+        "A": "\"In spite\" must be followed by \"of.\"",
+        "B": "\"Despite\" is not followed by \"of.\"",
+        "D": "\"Although\" must introduce a clause, but \"a blizzard that struck the region\" is a noun phrase."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is what follows a clause or a noun phrase?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Test each option with the words that follow."
+      },
+      "remember": "Use \"despite\" or \"in spite of\" before a noun.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-07",
+      "created_at": "2026-10-28T00:21:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000614",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical placement of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": null,
+      "evidence": "thousands more people were injured",
+      "figure": null,
+      "stem": "The writer wants to add the following sentence to the essay:\nMany of the injuries were caused by flying glass from windows shattered by the blast.\nThe sentence would most logically be placed after:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Sentence 4.",
+        "B": "Sentence 6.",
+        "C": "Sentence 12.",
+        "D": "Sentence 9."
+      },
+      "correct_answer": "D",
+      "explanation": "Sentence 9 first mentions the injuries, so a sentence explaining their cause belongs right after it.",
+      "distractor_explanations": {
+        "A": "The explosion has not happened yet, so no injuries have been mentioned.",
+        "B": "This paragraph is about Coleman's warning, before the explosion.",
+        "C": "This paragraph is about the relief effort, not the injuries themselves."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Where does the essay first mention injuries?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the sentence the new one depends on."
+      },
+      "remember": "Place a sentence right after the idea it develops.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-08",
+      "created_at": "2026-10-28T00:21:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000615",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": 8,
+      "evidence": "stands on Boston Common",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "every year it",
+        "C": "every year, and it",
+        "D": "every year, which it"
+      },
+      "correct_answer": "C",
+      "explanation": "Adding \"and\" after the comma correctly joins the two independent clauses.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "B": "Without punctuation, the two independent clauses run together.",
+        "D": "\"Which it stands\" is ungrammatical."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Can both parts stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find where the first clause ends."
+      },
+      "remember": "Join independent clauses with a comma and a conjunction.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-09",
+      "created_at": "2026-10-28T00:21:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000616",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Evaluating whether an essay meets a goal",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000066",
+      "underline": null,
+      "evidence": "a relief train from Boston arrived",
+      "figure": null,
+      "stem": "Suppose the writer's primary purpose had been to describe how a city far from a disaster responded to it. Would this essay accomplish that purpose?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Yes, because it focuses mainly on Boston's relief train and on the gift of the tree.",
+        "B": "Yes, because it explains how Vince Coleman warned an incoming train from far away.",
+        "C": "No, because it mentions Boston's response only briefly and focuses on the explosion.",
+        "D": "No, because it never mentions any response to the disaster from outside Halifax."
+      },
+      "correct_answer": "C",
+      "explanation": "Most of the essay describes the collision, the explosion, and Coleman's warning; Boston's response appears only at the end.",
+      "distractor_explanations": {
+        "A": "Boston's response takes up only the last paragraph.",
+        "B": "Coleman was at a nearby railyard in Halifax, not far away.",
+        "D": "The last paragraph describes Boston's relief train."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "How much of the essay is about Boston?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Check the essay against the exact purpose."
+      },
+      "remember": "Judge the whole essay against the goal.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 66,
+      "draft_candidate": "E066-10",
+      "created_at": "2026-10-28T00:21:24+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_english/batch-066.review.json",
+        "computation": "checks/act_english/batch_066.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

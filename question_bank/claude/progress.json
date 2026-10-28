@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-28T00:21:12+00:00",
+  "updated_at": "2026-10-28T00:21:27+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -18,7 +18,7 @@
   },
   "accepted_by_section": {
     "act_math": 774,
-    "act_english": 574,
+    "act_english": 582,
     "act_reading": 581,
     "sat_reading_writing": 586,
     "sat_math": 1000
@@ -32,10 +32,10 @@
       "passed_after_revision": 3
     },
     "act_english": {
-      "PASS": 608,
-      "REVISE": 38,
-      "REJECT": 13,
-      "candidates": 659,
+      "PASS": 616,
+      "REVISE": 39,
+      "REJECT": 14,
+      "candidates": 669,
       "passed_after_revision": 31
     },
     "act_reading": {
@@ -873,12 +873,12 @@
       "passages": 0
     },
     "act_english": {
-      "accepted": 574,
+      "accepted": 582,
       "retired_after_audit": 34,
       "by_skill": {
-        "Conventions of Standard English": 308,
-        "Knowledge of Language": 101,
-        "Production of Writing": 165
+        "Conventions of Standard English": 313,
+        "Knowledge of Language": 102,
+        "Production of Writing": 167
       },
       "by_subskill": {
         "\"Have\" versus \"of\" after a modal verb": 1,
@@ -929,7 +929,7 @@
         "Comma before a nonessential clause (second instance)": 1,
         "Comma before a nonessential phrase": 1,
         "Comma between subject and verb": 2,
-        "Comma splice": 19,
+        "Comma splice": 20,
         "Comma splice fixed with an appositive": 1,
         "Comma splice repaired with a relative clause": 1,
         "Comma splices": 1,
@@ -1006,7 +1006,7 @@
         "Effect of deleting a phrase": 3,
         "Effect of deleting a sentence": 1,
         "Effective conclusions": 1,
-        "Evaluating whether an essay meets a goal": 29,
+        "Evaluating whether an essay meets a goal": 30,
         "Evaluating whether an essay meets a stated goal": 1,
         "Faulty comparison": 2,
         "Faulty comparison (\"any other\")": 1,
@@ -1018,10 +1018,12 @@
         "Idiom (\"arrive at\")": 1,
         "Idiom (\"by design\")": 1,
         "Idiom (\"capable of\")": 1,
+        "Idiom (despite / in spite of)": 1,
         "Idiom (infinitive after \"ask\")": 1,
         "Idiom (phrasal verb)": 1,
         "Idiom (preposition after a verb)": 1,
         "Idiom (preposition)": 3,
+        "Idiom (rather than)": 1,
         "Idiom for a comparison of clauses": 1,
         "Idiom in an \"as ... as\" comparison": 1,
         "Imply versus infer": 1,
@@ -1043,7 +1045,7 @@
         "Logical connection (contrast)": 1,
         "Logical connection within a sentence (cause)": 1,
         "Logical order of sentences": 3,
-        "Logical placement of a sentence": 2,
+        "Logical placement of a sentence": 3,
         "Lose versus loose": 1,
         "Many versus much": 1,
         "Matching dashes around an interrupting phrase": 1,
@@ -1058,6 +1060,7 @@
         "No comma in a compound predicate": 1,
         "No commas between cumulative adjectives": 1,
         "Nonessential appositive (paired commas)": 1,
+        "Nonessential clause (paired commas)": 1,
         "Nonessential clause with \"which\"": 2,
         "Nonrestrictive clause punctuation": 1,
         "Nonstandard conjunctions": 1,
@@ -1103,6 +1106,7 @@
         "Pronoun case (who/whom)": 1,
         "Pronoun case after a preposition": 1,
         "Pronoun case after a verb": 1,
+        "Pronoun clarity": 1,
         "Pronoun with an unclear antecedent": 1,
         "Pronoun-antecedent agreement": 2,
         "Pronoun-antecedent agreement (company)": 1,
@@ -1183,7 +1187,7 @@
         "Transitions (concession)": 4,
         "Transitions (contrast with an expectation)": 1,
         "Transitions (contrast with an expected result)": 1,
-        "Transitions (contrast)": 7,
+        "Transitions (contrast)": 8,
         "Transitions (example)": 3,
         "Transitions (explaining a cause)": 1,
         "Transitions (persistence despite criticism)": 1,
@@ -1226,29 +1230,29 @@
         "Whose versus who's": 1
       },
       "by_difficulty_author": {
-        "easy": 318,
+        "easy": 325,
         "hard": 22,
-        "medium": 234
+        "medium": 235
       },
       "by_difficulty_calibrated": {
-        "easy": 334,
+        "easy": 341,
         "hard": 4,
-        "medium": 236
+        "medium": 237
       },
       "calibrated_share": {
-        "easy": 0.582,
+        "easy": 0.586,
         "hard": 0.007,
-        "medium": 0.411
+        "medium": 0.407
       },
       "answer_key_balance": {
-        "A": 149,
-        "B": 148,
-        "C": 149,
-        "D": 128
+        "A": 151,
+        "B": 149,
+        "C": 152,
+        "D": 130
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 63
+      "passages": 64
     },
     "act_reading": {
       "accepted": 581,
@@ -3042,7 +3046,7 @@
   },
   "last_completed_batch": {
     "act_math": 80,
-    "act_english": 65,
+    "act_english": 66,
     "act_reading": 70,
     "sat_reading_writing": 70,
     "sat_math": 92
@@ -3102,11 +3106,11 @@
   },
   "verbal_guidance": {
     "act_english": {
-      "next_batch": 66,
+      "next_batch": 67,
       "skill_gap_for_next_10": {
-        "Production of Writing": 71.5,
-        "Knowledge of Language": 18.7,
-        "Conventions of Standard English": -71.5
+        "Production of Writing": 72.8,
+        "Knowledge of Language": 19.4,
+        "Conventions of Standard English": -73.2
       }
     },
     "sat_reading_writing": {
@@ -3135,8 +3139,8 @@
     },
     "act_english": {
       "target": 689,
-      "accepted": 574,
-      "share_of_target": 0.833
+      "accepted": 582,
+      "share_of_target": 0.845
     },
     "act_reading": {
       "target": 684,
@@ -3155,9 +3159,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3515,
+  "total_accepted": 3523,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "act_english",
+  "next_bank": "sat_reading_writing",
   "audits": [
     {
       "bank": "act_math",
@@ -879157,7 +879161,7 @@
     },
     "act_english": {
       "bank": "banks/act_english.json",
-      "bank_version": 65,
+      "bank_version": 66,
       "student_export": "exports/act_english.student.json",
       "answer_export": "exports/act_english.answer_key.json",
       "import_export": "exports/import/act_english.jsonl"
@@ -879304,7 +879308,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-28T00:21:12+00:00",
+    "heartbeat_at": "2026-10-28T00:21:27+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
