@@ -1,0 +1,630 @@
+{
+ "bank": "act_english",
+ "batch": 68,
+ "plan": "Repair batch: factual correction of shared passage CLD-P-ACT-E-000063 (Seneca Village). Corrected passage issued as CLD-P-ACT-E-000068 (content_version 2, supersedes_passage CLD-P-ACT-E-000063). The nine records on hold-defect (CLD-ACT-E-000579..586, 000598) are reissued unchanged against the corrected passage and supersede their originals only after two fresh blind solves (one adversarial with fact check) match the key with no blocking flag. Underline 6, whose item was withdrawn, now carries a reissued plural-noun item (\"household's\"→\"households\") so the passage shows no unanswered error. Sources: audits/fact_correction_seneca_village_2026-10-28.json.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-ACT-E-000068",
+   "title": "A Designed Wilderness",
+   "genre": "informative essay",
+   "word_count": 205,
+   "text": "[1] In 1858, Frederick Law Olmsted and Calvert Vaux won a competition to design a large public park in the middle of {{1|Manhattan, their}} plan, which they called the Greensward Plan, imagined meadows, woods, and lakes where swamps and rocky outcrops then stood.\n\n[2] Building the park took years of labor. [3] Workers blasted rock, moved earth, and planted {{2|many thousands of trees}}. [4] {{3|Although}} the finished park looks as if nature had made it, almost every hill and pond was designed. [5] The designers {{4|also tucked roads for crosstown traffic}} below the level of the park, so that carriages could cross it without disturbing visitors. {{5|}}\n\n[6] The park's creation also had a cost that was long overlooked. [7] To clear the land, the city used its power of eminent domain to take property from the people who lived there, including the roughly 225 residents of Seneca Village, a community that was about two-thirds African American and in which more than half of the Black {{6|household's}} owned their land. [8] The village's {{7|churches, homes, and school, were}} demolished.\n\n[9] Today, Central Park {{8|draws}} millions of visitors each year. [10] {{9|Recent historians have worked to make sure that its full history, including Seneca Village, is remembered.}}",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-ACT-E-000063",
+   "correction": "Sentence 7 corrected per Central Park Conservancy sources (about 225 residents in 1855, about two-thirds African American; more than half of African American households owned their land). See audits/fact_correction_seneca_village_2026-10-28.json."
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "E068-01",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 1,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Comma splice",
+   "repo_skill_key": "act_punctuation",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "Manhattan. Their",
+    "C": "Manhattan their",
+    "D": "Manhattan, and, their"
+   },
+   "answer": "B",
+   "evidence": "plan, which they called the Greensward Plan",
+   "explanation": "\"Their plan ... imagined meadows\" is an independent clause, so a period correctly separates it from the first sentence.",
+   "distractors": {
+    "A": {
+     "rationale": "A comma alone between two independent clauses creates a comma splice.",
+     "trap": "comma_splice"
+    },
+    "C": {
+     "rationale": "Without punctuation, the two independent clauses run together.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The comma after \"and\" wrongly separates the conjunction from its clause.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can each part stand alone?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Find where the first clause ends."
+   },
+   "remember": "Separate independent clauses with a period or semicolon.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-01",
+     "id": "CLD-ACT-E-000579",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000579",
+   "dup_cleared": "supersedes CLD-ACT-E-000579 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000579 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-02",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 2,
+   "reporting_category": "Knowledge of Language",
+   "skill": "Knowledge of Language",
+   "subskill": "Precision and concision",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "a lot of very many trees",
+    "C": "trees, many thousands of them, numerous",
+    "D": "many thousands of trees in large numbers"
+   },
+   "answer": "A",
+   "evidence": "Workers blasted rock, moved earth, and planted",
+   "explanation": "\"Many thousands of trees\" states the amount once, clearly and concisely.",
+   "distractors": {
+    "B": {
+     "rationale": "\"A lot of very many\" is wordy and redundant.",
+     "trap": "wordy_redundant"
+    },
+    "C": {
+     "rationale": "\"Many thousands\" and \"numerous\" repeat the same idea.",
+     "trap": "wordy_redundant"
+    },
+    "D": {
+     "rationale": "\"In large numbers\" repeats \"many thousands.\"",
+     "trap": "wordy_redundant"
+    }
+   },
+   "hints": [
+    "Which choice says the idea once?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Choose the most concise clear option."
+   },
+   "remember": "Avoid repeating the same idea.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-02",
+     "id": "CLD-ACT-E-000580",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000580",
+   "dup_cleared": "supersedes CLD-ACT-E-000580 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000580 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-03",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 3,
+   "reporting_category": "Knowledge of Language",
+   "skill": "Knowledge of Language",
+   "subskill": "Transitions (concession)",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "Because",
+    "C": "Since",
+    "D": "Unless"
+   },
+   "answer": "A",
+   "evidence": "almost every hill and pond was designed",
+   "explanation": "The park looks natural, yet it was designed, so the concessive \"Although\" fits.",
+   "distractors": {
+    "B": {
+     "rationale": "The park's natural look is not the reason it was designed.",
+     "trap": "wrong_transition"
+    },
+    "C": {
+     "rationale": "\"Since\" signals a cause, but the two clauses contrast.",
+     "trap": "wrong_transition"
+    },
+    "D": {
+     "rationale": "\"Unless\" makes the design conditional, which does not make sense.",
+     "trap": "wrong_transition"
+    }
+   },
+   "hints": [
+    "Do the two clauses agree or contrast?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Name the relationship first."
+   },
+   "remember": "Use \"although\" when one clause concedes a point the other contradicts.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-03",
+     "id": "CLD-ACT-E-000581",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000581",
+   "dup_cleared": "supersedes CLD-ACT-E-000581 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000581 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-04",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 4,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Modifier placement",
+   "repo_skill_key": "act_sentence_structure",
+   "difficulty": "medium",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "also tucked roads below for crosstown traffic",
+    "C": "tucked also roads for crosstown traffic",
+    "D": "also tucked, for crosstown traffic, roads"
+   },
+   "answer": "A",
+   "evidence": "below the level of the park",
+   "explanation": "\"Also tucked roads for crosstown traffic below the level of the park\" keeps each modifier next to the words it modifies.",
+   "distractors": {
+    "B": {
+     "rationale": "\"Below\" is now separated from \"the level of the park\" and the sentence becomes confusing.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "Placing \"also\" between the verb and its object is awkward and unidiomatic.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Setting off \"for crosstown traffic\" separates the verb from its object awkwardly.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where does each modifier belong?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Read each option in the full sentence."
+   },
+   "remember": "Keep modifiers next to the words they describe.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 3,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "both solvers: the original underlined text appeared as choice D with no NO CHANGE option",
+     "change": "choice A set to NO CHANGE as the key; distractors moved to B-D"
+    },
+    {
+     "round": 2,
+     "cand": "E064-11",
+     "id": "CLD-ACT-E-000598",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000598",
+   "dup_cleared": "supersedes CLD-ACT-E-000598 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000598 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-05",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 5,
+   "reporting_category": "Production of Writing",
+   "skill": "Production of Writing",
+   "subskill": "Adding a sentence (relevance)",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "medium",
+   "stem": "At this point, the writer is considering adding the following sentence:\nThese sunken roads, called transverse roads, still carry traffic across the park today.\nShould the writer make this addition here?",
+   "choices": {
+    "A": "No, because it shifts the focus from the park's design to modern traffic laws.",
+    "B": "No, because it repeats information already given in sentence 5.",
+    "C": "Yes, because it adds a relevant detail about the roads just described.",
+    "D": "Yes, because it explains why Olmsted and Vaux won the design competition."
+   },
+   "answer": "C",
+   "evidence": "so that carriages could cross it without disturbing visitors",
+   "explanation": "The added sentence names the roads just described and notes their continued use, which supports the paragraph's point about the park's design.",
+   "distractors": {
+    "A": {
+     "rationale": "The sentence is about the roads' continued use, not traffic laws.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "Sentence 5 does not name the roads or say they are still used.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The sentence says nothing about the competition.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the sentence connected to sentence 5?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Compare the sentence with the paragraph's focus."
+   },
+   "remember": "Add a sentence if it supports the paragraph's point.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-05",
+     "id": "CLD-ACT-E-000582",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000582",
+   "dup_cleared": "supersedes CLD-ACT-E-000582 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000582 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-06",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 6,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Plural noun (no apostrophe)",
+   "repo_skill_key": "act_punctuation",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "households'",
+    "C": "household",
+    "D": "households"
+   },
+   "answer": "D",
+   "evidence": "more than half of the Black",
+   "explanation": "Many households owned land, so the plural \"households\" with no apostrophe is correct; nothing follows that they possess.",
+   "distractors": {
+    "A": {
+     "rationale": "\"Household's\" is singular possessive, but the sentence needs a plural noun and nothing follows that is possessed.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "\"Households'\" is plural possessive, but nothing follows that the households possess.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "\"Household\" is singular, but \"more than half of\" refers to many households.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the word plural, possessive, or both?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Decide plural or possessive."
+   },
+   "remember": "Plurals do not take apostrophes.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 3,
+   "revision_history": [
+    {
+     "round": 1,
+     "outcome": "REVISE",
+     "reason": "review tool: hint gave the answer away",
+     "change": "hint reworded"
+    },
+    {
+     "round": 2,
+     "cand": "E064-12",
+     "reason": "withdrawn: its sentence contained the Seneca Village overstatement; reissued on the corrected sentence (\"household's\" replaces \"homeowner's\")"
+    }
+   ],
+   "dup_cleared": "reissue of withdrawn E064-12 on the corrected sentence; expected match only the superseded passage CLD-P-ACT-E-000063"
+  },
+  {
+   "cand": "E068-07",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 7,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Comma between subject and verb",
+   "repo_skill_key": "act_punctuation",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "churches, homes, and school were",
+    "C": "churches, homes, and, school were",
+    "D": "churches, homes and, school, were"
+   },
+   "answer": "B",
+   "evidence": "demolished",
+   "explanation": "The series \"churches, homes, and school\" is the subject; no comma should come between it and the verb \"were.\"",
+   "distractors": {
+    "A": {
+     "rationale": "A comma should not separate the compound subject from its verb \"were.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The comma after \"and\" is unnecessary.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The commas are misplaced, and one separates the subject from the verb.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where does the subject end?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Read the subject and verb together."
+   },
+   "remember": "Do not put a comma between a subject and its verb.",
+   "expected_time_seconds": 30,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-07",
+     "id": "CLD-ACT-E-000583",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000583",
+   "dup_cleared": "supersedes CLD-ACT-E-000583 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000583 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-08",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 8,
+   "reporting_category": "Conventions of Standard English",
+   "skill": "Conventions of Standard English",
+   "subskill": "Verb tense",
+   "repo_skill_key": "act_usage",
+   "difficulty": "easy",
+   "stem": "Which choice is best for the underlined portion?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "drew",
+    "C": "had drawn",
+    "D": "will have drawn"
+   },
+   "answer": "A",
+   "evidence": "Today, Central Park",
+   "explanation": "\"Today\" calls for the present tense, so \"draws\" is correct.",
+   "distractors": {
+    "B": {
+     "rationale": "The past tense does not fit \"Today.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The past perfect does not fit \"Today.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "The future perfect does not fit \"Today.\"",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What time does \"Today\" indicate?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Match the verb to the time marker."
+   },
+   "remember": "Use the present tense for current facts.",
+   "expected_time_seconds": 20,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-08",
+     "id": "CLD-ACT-E-000584",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000584",
+   "dup_cleared": "supersedes CLD-ACT-E-000584 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000584 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-09",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": 9,
+   "reporting_category": "Production of Writing",
+   "skill": "Production of Writing",
+   "subskill": "Concluding sentence (connecting to the previous paragraph)",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "easy",
+   "stem": "Which choice most effectively concludes the essay by connecting the park's present to the cost described in the third paragraph?",
+   "choices": {
+    "A": "NO CHANGE",
+    "B": "The park includes a zoo, several ponds, and an ice rink.",
+    "C": "Olmsted went on to design parks in many other American cities.",
+    "D": "Central Park covers more than 800 acres in the middle of Manhattan."
+   },
+   "answer": "A",
+   "evidence": "residents of Seneca Village",
+   "explanation": "The question asks for a conclusion that connects the present park to the cost of its creation; only the current sentence mentions remembering Seneca Village.",
+   "distractors": {
+    "B": {
+     "rationale": "This lists features but does not connect to the cost described earlier.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This shifts to Olmsted's later career.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "This gives the park's size, not a connection to its cost.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What cost does the third paragraph describe?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Match each choice to the stated goal."
+   },
+   "remember": "Choose the conclusion that meets the specific goal.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-09",
+     "id": "CLD-ACT-E-000585",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged; evidence citation updated to the corrected wording"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000585",
+   "dup_cleared": "supersedes CLD-ACT-E-000585 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000585 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  },
+  {
+   "cand": "E068-10",
+   "passage_id": "CLD-P-ACT-E-000068",
+   "underline": null,
+   "reporting_category": "Production of Writing",
+   "skill": "Production of Writing",
+   "subskill": "Evaluating whether an essay meets a goal",
+   "repo_skill_key": "act_rhetorical_skills",
+   "difficulty": "easy",
+   "stem": "Suppose the writer's primary purpose had been to explain how Central Park was designed to look natural. Would this essay accomplish that purpose?",
+   "choices": {
+    "A": "Yes, because it describes in detail how every tree in the park was chosen.",
+    "B": "No, because it treats the design briefly and turns to the park's human cost.",
+    "C": "Yes, because its main focus is the engineering of the transverse roads.",
+    "D": "No, because it never says that the park was designed rather than natural."
+   },
+   "answer": "B",
+   "evidence": "almost every hill and pond was designed",
+   "explanation": "The essay mentions the designed landscape briefly but devotes much of its length to the displacement of Seneca Village, so it does not mainly explain the natural-looking design.",
+   "distractors": {
+    "A": {
+     "rationale": "The essay does not describe how trees were chosen.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The roads are mentioned in one sentence.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Sentence 4 says almost every hill and pond was designed.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "How much of the essay is about the design?"
+   ],
+   "strategy": {
+    "key": "read_question_first",
+    "explanation": "Check the essay against the exact purpose."
+   },
+   "remember": "Judge the whole essay against the goal.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true,
+    "choice_lengths": "balanced"
+   },
+   "essay_level": true,
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "E063-10",
+     "id": "CLD-ACT-E-000586",
+     "reason": "hold-defect: factual overstatement in shared passage CLD-P-ACT-E-000063; passage corrected as CLD-P-ACT-E-000068; item text unchanged"
+    }
+   ],
+   "supersedes": "CLD-ACT-E-000586",
+   "dup_cleared": "supersedes CLD-ACT-E-000586 (hold-defect: factual overstatement in its shared passage); expected matches only CLD-ACT-E-000586 and its passage CLD-P-ACT-E-000063, of which CLD-P-ACT-E-000068 is the corrected version"
+  }
+ ]
+}
