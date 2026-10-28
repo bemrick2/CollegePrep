@@ -1,0 +1,88 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 74,
+  "reviewed_at": "2026-10-28T03:05:32+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 74
+  },
+  "counts": {
+    "PASS": 2,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-E-000734",
+    "CLD-ACT-E-000735"
+  ],
+  "results": [
+    {
+      "cand": "E074-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver A (nonblocking): NO CHANGE was listed as option B instead of A",
+          "change": "NO CHANGE moved to A; key moves from A to C; wording unchanged"
+        }
+      ],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 78,
+      "blind_flags": [],
+      "blind_notes": "Paragraph 4 is about new games (Ultimate, disc golf) enabled by the improved disc. C links back to para 3's steadier throws and introduces the new games. A (hula hoop) is off-topic; B is too narrow and gives detail about Ultimate before Ultimate is introduced in [12]; D goes against the paragraph's focus on organized games. Single best answer. The off-topic sentence [14] duplicates the original [11]; another item presumably tests it, and it does not affect this item.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000734"
+    },
+    {
+      "cand": "E074-02",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "both blind solvers (nonblocking, factual): the Frisbie Pie Company closed in about 1958, the same year as the renaming, so 'had closed by then' overstated the order of events",
+          "change": "added sentence now reads 'closed around that time'; key unchanged"
+        }
+      ],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "'The name stuck' needs a referent for the borrowed name: [6] says a founder borrowed the pie-tin name, and the renaming happens in [5]-[6]. 'Around that time' fits 1958. It reads well before [7] 'Sales soon soared.' A: no name has been adopted yet. B: comes before the renaming. D: the paragraph is about ridges. Factually sound, since the Frisbie Pie Company closed in 1958. No issues.",
+      "blind2_answer": "C",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "medium",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-E-000735"
+    }
+  ]
+}

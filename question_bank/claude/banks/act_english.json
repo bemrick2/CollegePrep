@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 73,
-  "updated_at": "2026-10-28T03:01:07+00:00",
+  "version": 74,
+  "updated_at": "2026-10-28T03:05:32+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -52843,6 +52843,148 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-073.review.json",
         "computation": "checks/act_english/batch_073.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000734",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Topic sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000076",
+      "underline": 9,
+      "evidence": "invented Ultimate, a team sport",
+      "figure": null,
+      "stem": "Which choice most effectively introduces the main topic of this paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Ultimate is sometimes described as a mix of soccer and football.",
+        "C": "These steadier throws soon made entirely new games possible.",
+        "D": "Some people still prefer to throw the disc simply for fun."
+      },
+      "correct_answer": "C",
+      "explanation": "The paragraph describes Ultimate and disc golf; this choice links the accurate throws from the previous paragraph to the new games.",
+      "distractor_explanations": {
+        "A": "The paragraph is about new sports, not other Wham-O toys.",
+        "B": "This mentions only one of the paragraph's two sports and ignores the link to Headrick's ridges.",
+        "D": "This does not introduce the sports discussed in the paragraph."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What do the sentences in this paragraph describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the whole paragraph before choosing."
+      },
+      "remember": "A topic sentence should cover the whole paragraph and link it to the one before.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "E074-01",
+      "created_at": "2026-10-28T03:05:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 78,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-074.review.json",
+        "computation": "checks/act_english/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000735",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Logical placement of a sentence",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000076",
+      "underline": null,
+      "evidence": "borrowed the name",
+      "figure": null,
+      "stem": "The writer wants to add the following sentence to the essay:\nThe name stuck, even though the pie company itself closed around that time.\nThe sentence would most logically be placed after:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "Sentence 2.",
+        "B": "Sentence 4.",
+        "C": "Sentence 6.",
+        "D": "Sentence 9."
+      },
+      "correct_answer": "C",
+      "explanation": "Sentence 6 explains that the founder borrowed the pie company's name; the new sentence follows directly from it.",
+      "distractor_explanations": {
+        "A": "The disc has not been named the Frisbee yet.",
+        "B": "\"Pluto Platter\" is not the name that stuck, and the pie company's name has not been borrowed yet.",
+        "D": "Sentence 9 is about Headrick's ridges, not the name."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Which sentence describes borrowing the pie company's name?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find the sentence the new one depends on."
+      },
+      "remember": "Place a sentence right after the idea it develops.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 74,
+      "draft_candidate": "E074-02",
+      "created_at": "2026-10-28T03:05:32+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-074.review.json",
+        "computation": "checks/act_english/batch_074.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
