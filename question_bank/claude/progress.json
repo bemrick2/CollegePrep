@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-28T00:14:08+00:00",
+  "updated_at": "2026-10-28T00:17:13+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -20,7 +20,7 @@
     "act_math": 774,
     "act_english": 574,
     "act_reading": 570,
-    "sat_reading_writing": 578,
+    "sat_reading_writing": 586,
     "sat_math": 1000
   },
   "review_totals": {
@@ -46,11 +46,11 @@
       "passed_after_revision": 41
     },
     "sat_reading_writing": {
-      "PASS": 605,
-      "REVISE": 49,
+      "PASS": 613,
+      "REVISE": 51,
       "REJECT": 8,
-      "candidates": 662,
-      "passed_after_revision": 54
+      "candidates": 672,
+      "passed_after_revision": 55
     },
     "sat_math": {
       "PASS": 1030,
@@ -1600,13 +1600,13 @@
       "passages": 68
     },
     "sat_reading_writing": {
-      "accepted": 578,
+      "accepted": 586,
       "retired_after_audit": 27,
       "by_skill": {
-        "Craft and Structure": 158,
-        "Expression of Ideas": 122,
-        "Information and Ideas": 178,
-        "Standard English Conventions": 120
+        "Craft and Structure": 160,
+        "Expression of Ideas": 123,
+        "Information and Ideas": 181,
+        "Standard English Conventions": 122
       },
       "by_subskill": {
         "Agreement with indefinite pronouns": 1,
@@ -1619,6 +1619,7 @@
         "Central ideas (literary)": 1,
         "Central ideas and details": 1,
         "Colon before a list": 4,
+        "Colon before a list or explanation": 1,
         "Colon before an explanation": 1,
         "Colon before an explanatory appositive": 1,
         "Colon introducing a list": 1,
@@ -1627,7 +1628,7 @@
         "Comma after a long introductory phrase": 1,
         "Comma after an introductory dependent clause": 1,
         "Comma with a coordinating conjunction": 1,
-        "Command of evidence: quantitative": 36,
+        "Command of evidence: quantitative": 37,
         "Command of evidence: quantitative (comparing differences)": 2,
         "Command of evidence: quantitative (computed values)": 3,
         "Command of evidence: quantitative (interaction)": 1,
@@ -1638,7 +1639,7 @@
         "Command of evidence: quantitative (weaken)": 1,
         "Command of evidence: textual": 1,
         "Command of evidence: textual (illustrate a claim)": 2,
-        "Command of evidence: textual (quotation)": 7,
+        "Command of evidence: textual (quotation)": 8,
         "Command of evidence: textual (support a hypothesis)": 1,
         "Command of evidence: textual (supporting a claim)": 4,
         "Command of evidence: textual (supporting a hypothesis)": 7,
@@ -1661,7 +1662,7 @@
         "Function of a quotation": 1,
         "Function of a sentence": 10,
         "Function of a sentence (literary)": 4,
-        "Inferences": 53,
+        "Inferences": 54,
         "Inferences (alternative explanation)": 3,
         "Inferences (base rates)": 1,
         "Inferences (literary)": 5,
@@ -1760,11 +1761,11 @@
         "Subject-verb agreement (intervening clause)": 1,
         "Subject-verb agreement (intervening phrases)": 4,
         "Subject-verb agreement (inverted compound subject)": 1,
-        "Subject-verb agreement (inverted order)": 2,
+        "Subject-verb agreement (inverted order)": 3,
         "Subject-verb agreement (long subject)": 3,
         "Subject-verb agreement (neither/nor)": 1,
         "Subject-verb agreement (title as subject)": 1,
-        "Text structure and purpose": 19,
+        "Text structure and purpose": 20,
         "Text structure and purpose (function of a sentence)": 1,
         "Transitions": 5,
         "Transitions (addition)": 4,
@@ -1790,7 +1791,7 @@
         "Transitions (restatement)": 2,
         "Transitions (similarity)": 1,
         "Transitions (simultaneity)": 1,
-        "Transitions (specification)": 3,
+        "Transitions (specification)": 4,
         "Transitions (time sequence)": 1,
         "Transitions (time)": 2,
         "Verb form (irregular past participle)": 1,
@@ -1806,33 +1807,33 @@
         "Verb tense in a past counterfactual": 2,
         "Verb tense with \"since\"": 1,
         "Who versus whom": 1,
-        "Words in context": 87,
+        "Words in context": 88,
         "Words in context (precise tone)": 1
       },
       "by_difficulty_author": {
-        "easy": 253,
+        "easy": 258,
         "hard": 32,
-        "medium": 293
+        "medium": 296
       },
       "by_difficulty_calibrated": {
-        "easy": 334,
+        "easy": 339,
         "hard": 9,
-        "medium": 235
+        "medium": 238
       },
       "calibrated_share": {
         "easy": 0.578,
-        "hard": 0.016,
-        "medium": 0.407
+        "hard": 0.015,
+        "medium": 0.406
       },
       "answer_key_balance": {
-        "A": 141,
-        "B": 145,
-        "C": 147,
-        "D": 145
+        "A": 142,
+        "B": 147,
+        "C": 150,
+        "D": 147
       },
       "modeling_items": 0,
       "spr_items": 0,
-      "passages": 605
+      "passages": 613
     },
     "sat_math": {
       "accepted": 1000,
@@ -3039,7 +3040,7 @@
     "act_math": 80,
     "act_english": 65,
     "act_reading": 69,
-    "sat_reading_writing": 69,
+    "sat_reading_writing": 70,
     "sat_math": 92
   },
   "next_batch_guidance": {
@@ -3096,14 +3097,6 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
-    "act_english": {
-      "next_batch": 66,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 71.5,
-        "Knowledge of Language": 18.7,
-        "Conventions of Standard English": -71.5
-      }
-    },
     "act_reading": {
       "next_batch": 70,
       "skill_gap_for_next_10": {
@@ -3113,12 +3106,20 @@
       }
     },
     "sat_reading_writing": {
-      "next_batch": 70,
+      "next_batch": 71,
       "skill_gap_for_next_10": {
-        "Craft and Structure": 6.6,
-        "Information and Ideas": -25.1,
-        "Standard English Conventions": 32.9,
-        "Expression of Ideas": -4.4
+        "Craft and Structure": 6.9,
+        "Information and Ideas": -26.0,
+        "Standard English Conventions": 33.0,
+        "Expression of Ideas": -3.8
+      }
+    },
+    "act_english": {
+      "next_batch": 66,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 71.5,
+        "Knowledge of Language": 18.7,
+        "Conventions of Standard English": -71.5
       }
     }
   },
@@ -3140,8 +3141,8 @@
     },
     "sat_reading_writing": {
       "target": 694,
-      "accepted": 578,
-      "share_of_target": 0.833
+      "accepted": 586,
+      "share_of_target": 0.844
     },
     "sat_math": {
       "target": 1000,
@@ -3150,9 +3151,9 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3496,
+  "total_accepted": 3504,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
-  "next_bank": "sat_reading_writing",
+  "next_bank": "act_english",
   "audits": [
     {
       "bank": "act_math",
@@ -879166,7 +879167,7 @@
     },
     "sat_reading_writing": {
       "bank": "banks/sat_reading_writing.json",
-      "bank_version": 69,
+      "bank_version": 70,
       "student_export": "exports/sat_reading_writing.student.json",
       "answer_export": "exports/sat_reading_writing.answer_key.json",
       "import_export": "exports/import/sat_reading_writing.jsonl"
@@ -879299,7 +879300,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-28T00:14:07+00:00",
+    "heartbeat_at": "2026-10-28T00:17:11+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
