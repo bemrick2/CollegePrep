@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "baseline": "combined/baseline/prep-and-price-combined-bank-screening.zip",
   "targets": "1,000 retained, independently AI-reviewed candidates each for SAT Math, SAT R&W, ACT English, ACT Reading (combined ChatGPT + Claude). ACT Math bulk generation paused.",
   "tasks": [
@@ -46,7 +46,7 @@
     {
       "id": "T9",
       "task": "Generate SAT Math (priority) and upper-difficulty verbal toward 1,000 reviewed each",
-      "status": "in progress. Reconciled reviewed_draft totals: ACT English 855, ACT Math 1441, ACT Reading 868, SAT Math 1000, SAT Reading and Writing 871. SAT Math reached the 1,000 target with batch 92 (AI-reviewed drafts; none human-approved). Recent: SAT Math 84-92; SAT R&W 62-67; ACT English 57-62; ACT Reading 63-67. Revisions queued for each bank's next batch: SAT R&W S067-03, S067-06 (sw67_revised); ACT English E062-08, E062-09, E062-10 (ae62_revised; E062-10 is the third round of E061-04 and will be withdrawn if it fails again); ACT Reading R067-03 (rd67_revised). Withdrawn: Q084-13 (answer cue after revision 2); Q092-10 (sector-to-cone at the edge of SAT scope). Near-duplicate rejects kept as recorded by the review tool. Factual corrections caught by blind solvers and fixed before banking: Nutshell Studies composites, Danish comet medal, Nobel nomination rule (1962), 1808 importation ban wording, narrator pronouns in ACT Reading 65. Author errors caught: Q086-07 second true choice; S067-06 noun-adjunct second answer (fixed before solving); E059-01 grammatical distractor (fixed before solving). Method: SAT Math keys script-verified (checks/sat_math/batch_0NN.py), one rubric-v2 blind solver; verbal two blind solvers (B adversarial with fact-check); numeric SAT Math choices sorted ascending from batch 85. Verbal difficulty remains mostly easy/medium in AI solves; labels provisional. ACT Math paused. Nothing human-approved, imported, deployed or published."
+      "status": "in progress. Reconciled reviewed_draft totals: ACT English 875, ACT Math 1441, ACT Reading 887, SAT Math 1000, SAT Reading and Writing 890. SAT Math reached the 1,000 target with batch 92 (AI-reviewed drafts; none human-approved). Recent: SAT Math 84-92; SAT R&W 62-69; ACT English 57-64; ACT Reading 63-69. Revisions queued for each bank's next batch: SAT R&W S069-06 (hint contained the key word; sw69_revised); ACT Reading R069-03 (key overstated; rd69_revised); ACT English none. Withdrawn: E063-11 (former E062-08, failed twice); E064-12 (its only fix needs a change to banked passage CLD-P-ACT-E-000063). Q084-13 (answer cue after revision 2); Q092-10 (sector-to-cone at the edge of SAT scope). Near-duplicate rejects kept as recorded by the review tool. Factual corrections caught by blind solvers and fixed before banking: Nutshell Studies composites, Danish comet medal, Nobel nomination rule (1962), 1808 importation ban wording, narrator pronouns in ACT Reading 65. Author errors caught: Q086-07 second true choice; S067-06 noun-adjunct second answer (fixed before solving); E059-01 grammatical distractor (fixed before solving). Method: SAT Math keys script-verified (checks/sat_math/batch_0NN.py), one rubric-v2 blind solver; verbal two blind solvers (B adversarial with fact-check); numeric SAT Math choices sorted ascending from batch 85. Verbal difficulty remains mostly easy/medium in AI solves; labels provisional. ACT Math paused. Nothing human-approved, imported, deployed or published. Open issue for human review: banked passage CLD-P-ACT-E-000063 sentence 7 calls Seneca Village \"a community of mostly African American homeowners\"; solver B notes many residents rented and some were Irish or German, so \"mostly African American residents, many of them property owners\" is more accurate. Not edited, because banked content is preserved as reviewed."
     }
   ],
   "log": [
@@ -61,6 +61,10 @@
     {
       "date": "2026-10-27",
       "event": "T7 completed"
+    },
+    {
+      "date": "2026-10-28",
+      "event": "T9 progress: SAT R&W 69, ACT English 64, ACT Reading 68-69 reviewed"
     }
   ]
 }
