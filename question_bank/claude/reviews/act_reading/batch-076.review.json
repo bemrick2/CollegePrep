@@ -1,0 +1,124 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_reading",
+  "batch": 76,
+  "reviewed_at": "2026-10-28T03:00:38+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 76
+  },
+  "counts": {
+    "PASS": 3,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-ACT-R-000719",
+    "CLD-ACT-R-000720",
+    "CLD-ACT-R-000721"
+  ],
+  "results": [
+    {
+      "cand": "R076-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "both blind solvers (nonblocking): stem said the phrase 'first appeared' in the report, which the passage does not state",
+          "change": "stem now asks where the passage says a reporter used the phrase; key unchanged"
+        }
+      ],
+      "key": "A",
+      "computed_answer": "A",
+      "blind_answer": "A",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 92,
+      "blind_flags": [
+        "minor: stem word 'reporter' echoes 'news report' in A, a light lexical cue (non-blocking)"
+      ],
+      "blind_notes": "P1: 'in a news report filed the next day, a reporter used a phrase... the \"dust bowl.\"' B is the 1928 report calling erosion 'a national menace' (P3); C: the Act is mentioned with no such phrase; D: Bennett's demonstrations involved no speech. One defensible answer. Pure detail retrieval.",
+      "blind2_answer": "A",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000719"
+    },
+    {
+      "cand": "R076-02",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver B (blocking) and A (nonblocking): choosing west over east required outside knowledge the passage does not give",
+          "change": "choices now differ only in degrees; direction removed; difficulty relabeled medium"
+        }
+      ],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 85,
+      "blind_flags": [],
+      "blind_notes": "P1: Earth turns 15 degrees per hour; 2 hours x 15 = 30 degrees. A is the per-hour rate, C confuses hours with degrees, D overmultiplies. Paragraph reference is correct; the calculation needs only passage info.",
+      "blind2_answer": "B",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000720"
+    },
+    {
+      "cand": "R076-03",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "outcome": "REVISE",
+          "reason": "blind solver B (blocking): the gull appears before the crab, so 'first animal Mara notices' had two defensible answers",
+          "change": "stem limited to animals in the pool; gull distractor replaced with anemone"
+        }
+      ],
+      "key": "D",
+      "computed_answer": "D",
+      "blind_answer": "D",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 90,
+      "blind_flags": [],
+      "blind_notes": "P4: the 'rock' she had been staring at moved and turned out to be a crab; 'After that' come the fish, snail, and anemone. The gull overhead is not in the pool, so the stem's 'in the pool' rules it out. A, B, and C are later sightings, which tests order. No ambiguity.",
+      "blind2_answer": "D",
+      "blind2_flags": [],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-ACT-R-000721"
+    }
+  ]
+}

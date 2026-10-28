@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 74,
-  "updated_at": "2026-10-28T02:55:39+00:00",
+  "version": 75,
+  "updated_at": "2026-10-28T03:00:39+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -52131,6 +52131,221 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-075.review.json",
         "computation": "checks/act_reading/batch_075.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000719",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000078",
+      "underline": null,
+      "evidence": "in a news report filed the next day, a reporter used a phrase",
+      "figure": null,
+      "stem": "According to the passage, the phrase \"dust bowl\" was used by a reporter in:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "a news report written the day after Black Sunday.",
+        "B": "a government report on soil erosion published in 1928.",
+        "C": "the text of the Soil Conservation Act signed in 1935.",
+        "D": "a speech that Bennett gave to farmers at a demonstration."
+      },
+      "correct_answer": "A",
+      "explanation": "Paragraph 1 says a reporter used the phrase \"dust bowl\" in a news report filed the day after Black Sunday.",
+      "distractor_explanations": {
+        "B": "The 1928 report called erosion \"a national menace\"; it did not use the phrase.",
+        "C": "The passage does not connect the phrase to the act.",
+        "D": "No such speech is mentioned."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does paragraph 1 say the phrase was used?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Locate the phrase in paragraph 1."
+      },
+      "remember": "Answer detail questions from the text.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "R076-01",
+      "created_at": "2026-10-28T03:00:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [
+          "minor: stem word 'reporter' echoes 'news report' in A, a light lexical cue (non-blocking)"
+        ],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-076.review.json",
+        "computation": "checks/act_reading/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000720",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Applying a stated rule",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000080",
+      "underline": null,
+      "evidence": "Because Earth turns 15 degrees every hour",
+      "figure": null,
+      "stem": "Based on the information in paragraph 1, if a ship's local time differed from its home-port time by exactly two hours, how many degrees east or west of its home port would the ship be?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "15 degrees",
+        "B": "30 degrees",
+        "C": "2 degrees",
+        "D": "60 degrees"
+      },
+      "correct_answer": "B",
+      "explanation": "Paragraph 1 says Earth turns 15 degrees every hour, so a two-hour difference corresponds to 2 x 15 = 30 degrees.",
+      "distractor_explanations": {
+        "A": "Fifteen degrees corresponds to a one-hour difference, not two.",
+        "C": "This confuses hours with degrees.",
+        "D": "This doubles the correct result; two hours at 15 degrees per hour is 30 degrees."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "How many degrees does Earth turn in one hour?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Multiply the time difference by 15."
+      },
+      "remember": "Apply a rule stated in the passage to a new case.",
+      "expected_time_seconds": 50,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "R076-02",
+      "created_at": "2026-10-28T03:00:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-076.review.json",
+        "computation": "checks/act_reading/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000721",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000081",
+      "underline": null,
+      "evidence": "Then a rock she had been staring at for two full minutes moved, and she realized it was a crab",
+      "figure": null,
+      "stem": "According to the passage, the first animal Mara notices in the pool is a:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "fish.",
+        "B": "snail.",
+        "C": "anemone.",
+        "D": "crab."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 4 says the first thing Mara notices is a rock that turns out to be a crab.",
+      "distractor_explanations": {
+        "A": "The fish appears after Mara notices the crab.",
+        "B": "The snail appears after the crab.",
+        "C": "The anemone opens after the crab is noticed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What does Mara see first after the long wait?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Follow the order in paragraph 4."
+      },
+      "remember": "Watch for details that occur later in the sequence.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "R076-03",
+      "created_at": "2026-10-28T03:00:38+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 90,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-076.review.json",
+        "computation": "checks/act_reading/batch_076.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

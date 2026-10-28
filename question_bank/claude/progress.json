@@ -1,6 +1,6 @@
 {
   "schema_version": "cld-qb/1.0",
-  "updated_at": "2026-10-28T02:56:09+00:00",
+  "updated_at": "2026-10-28T03:00:43+00:00",
   "workstream": "Claude independent question bank (draft; AI-reviewed only, no human approval)",
   "id_prefixes": {
     "act_math": "CLD-ACT-M-",
@@ -19,7 +19,7 @@
   "accepted_by_section": {
     "act_math": 774,
     "act_english": 662,
-    "act_reading": 683,
+    "act_reading": 686,
     "sat_reading_writing": 675,
     "sat_math": 1000
   },
@@ -39,11 +39,11 @@
       "passed_after_revision": 43
     },
     "act_reading": {
-      "PASS": 718,
+      "PASS": 721,
       "REVISE": 57,
       "REJECT": 3,
-      "candidates": 778,
-      "passed_after_revision": 44
+      "candidates": 781,
+      "passed_after_revision": 47
     },
     "sat_reading_writing": {
       "PASS": 702,
@@ -1283,12 +1283,12 @@
       "passages": 72
     },
     "act_reading": {
-      "accepted": 683,
+      "accepted": 686,
       "retired_after_audit": 35,
       "by_skill": {
         "Craft and Structure": 227,
         "Integration of Knowledge and Ideas": 182,
-        "Key Ideas and Details": 274
+        "Key Ideas and Details": 277
       },
       "by_subskill": {
         "Application": 1,
@@ -1301,7 +1301,7 @@
         "Applying a stated condition to a new case": 1,
         "Applying a stated principle": 1,
         "Applying a stated relationship": 1,
-        "Applying a stated rule": 1,
+        "Applying a stated rule": 2,
         "Applying an argument to new evidence": 1,
         "Applying an explanation": 2,
         "Applying an explanation to a new case": 1,
@@ -1364,7 +1364,7 @@
         "Connecting the opening to the conclusion": 1,
         "Contrasting the passages' approaches": 1,
         "Contrasting two policies across passages": 1,
-        "Detail": 48,
+        "Detail": 50,
         "Detail (EXCEPT)": 1,
         "Detail (Passage A)": 1,
         "Detail (Passage B's proposal)": 1,
@@ -1628,25 +1628,25 @@
         "Word in context": 4
       },
       "by_difficulty_author": {
-        "easy": 416,
+        "easy": 419,
         "hard": 32,
         "medium": 235
       },
       "by_difficulty_calibrated": {
-        "easy": 471,
+        "easy": 474,
         "hard": 2,
         "medium": 210
       },
       "calibrated_share": {
-        "easy": 0.69,
+        "easy": 0.691,
         "hard": 0.003,
-        "medium": 0.307
+        "medium": 0.306
       },
       "answer_key_balance": {
-        "A": 194,
-        "B": 165,
+        "A": 195,
+        "B": 166,
         "C": 163,
-        "D": 161
+        "D": 162
       },
       "modeling_items": 0,
       "spr_items": 0,
@@ -3125,7 +3125,7 @@
   "last_completed_batch": {
     "act_math": 80,
     "act_english": 72,
-    "act_reading": 75,
+    "act_reading": 76,
     "sat_reading_writing": 75,
     "sat_math": 92
   },
@@ -3183,6 +3183,22 @@
     "spr_target_share": 0.25
   },
   "verbal_guidance": {
+    "act_english": {
+      "next_batch": 73,
+      "skill_gap_for_next_10": {
+        "Production of Writing": 70.2,
+        "Knowledge of Language": 22.8,
+        "Conventions of Standard English": -72.8
+      }
+    },
+    "act_reading": {
+      "next_batch": 77,
+      "skill_gap_for_next_10": {
+        "Key Ideas and Details": 57.1,
+        "Craft and Structure": -21.7,
+        "Integration of Knowledge and Ideas": -25.4
+      }
+    },
     "sat_reading_writing": {
       "next_batch": 76,
       "skill_gap_for_next_10": {
@@ -3190,22 +3206,6 @@
         "Information and Ideas": -23.9,
         "Standard English Conventions": 18.1,
         "Expression of Ideas": 0.0
-      }
-    },
-    "act_reading": {
-      "next_batch": 76,
-      "skill_gap_for_next_10": {
-        "Key Ideas and Details": 58.6,
-        "Craft and Structure": -22.6,
-        "Integration of Knowledge and Ideas": -26.1
-      }
-    },
-    "act_english": {
-      "next_batch": 73,
-      "skill_gap_for_next_10": {
-        "Production of Writing": 70.2,
-        "Knowledge of Language": 22.8,
-        "Conventions of Standard English": -72.8
       }
     }
   },
@@ -3222,8 +3222,8 @@
     },
     "act_reading": {
       "target": 684,
-      "accepted": 683,
-      "share_of_target": 0.999
+      "accepted": 686,
+      "share_of_target": 1.003
     },
     "sat_reading_writing": {
       "target": 694,
@@ -3237,7 +3237,7 @@
     }
   },
   "total_target": 3841,
-  "total_accepted": 3794,
+  "total_accepted": 3797,
   "next_bank_policy": "sat_math until 500 live items; then whichever of sat_math, sat_reading_writing, act_english, act_reading has the lowest share of its target. ACT Math: no bulk expansion.",
   "next_bank": "act_english",
   "audits": [
@@ -1320783,7 +1320783,7 @@
     },
     "act_reading": {
       "bank": "banks/act_reading.json",
-      "bank_version": 74,
+      "bank_version": 75,
       "student_export": "exports/act_reading.student.json",
       "answer_export": "exports/act_reading.answer_key.json",
       "import_export": "exports/import/act_reading.jsonl"
@@ -1320923,7 +1320923,7 @@
   "lock": {
     "holder": "session_01B5DFe3n2jaEKwfKJVzUqoG",
     "acquired_at": "2026-10-27T01:35:42+00:00",
-    "heartbeat_at": "2026-10-28T02:56:08+00:00",
+    "heartbeat_at": "2026-10-28T03:00:42+00:00",
     "ttl_minutes": 120,
     "previous_holder": null
   },
