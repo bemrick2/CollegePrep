@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 69,
-  "updated_at": "2026-10-28T00:18:41+00:00",
+  "version": 70,
+  "updated_at": "2026-10-28T00:32:31+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -762,6 +762,17 @@
       "word_count": 509,
       "text": "The summer I turned sixteen, my mother arranged for me to work for her sister, Ines, who tuned pianos for a living. I had imagined spending those months at the community pool with my friends, and I let everyone know it. On the first morning, Ines handed me a canvas bag full of tools I could not name and said only, \"Carry this. Don't drop the forks.\"\n\nThe forks, I learned, were tuning forks, and Ines owned a dozen of them, though she rarely used more than one. Our first stop was a church basement where an upright piano had been pushed against a damp wall for what looked like decades. Ines lifted the lid, played a single chord, and winced as if someone had stepped on her foot. To me it sounded like a piano. \"Listen to the beats,\" she said, striking two keys together. I heard nothing but two notes. She did not explain further. She simply went to work, turning pins with a lever and stopping every few seconds to listen with her head tilted, as though the instrument were whispering.\n\nFor the first two weeks, I was mostly bored. I carried the bag, handed her mutes and felt strips when she held out her hand, and watched the clock on whatever wall was nearest. Ines did not seem to mind my silence; she was not much of a talker herself. At lunch she ate the same sandwich every day, cheese and pickles, and read paperback mysteries with the covers torn off. When I asked why she tore them off, she said she didn't like being told what to expect.\n\nIt was in the third week, in the living room of an elderly man named Mr. Okafor, that something shifted. His piano was old but well cared for, and while Ines worked, he sat in an armchair and told me that his late wife had played it every evening. \"I don't play,\" he said. \"But I like to know it's ready.\" Ines tuned for nearly two hours, longer than she had spent on any instrument that summer, though to my ears the piano had sounded fine when we arrived. When she finished, she played a slow piece I didn't recognize, and Mr. Okafor closed his eyes.\n\nOn the drive home, I asked her why she had taken so long on a piano no one played. She was quiet for a while. \"He listens,\" she said finally. \"That's someone playing it.\"\n\nThe next morning she handed me a fork and pointed at the A above middle C on an old practice piano in her garage. \"Strike them both,\" she said. I did, and for the first time I heard it: a faint wavering, a slow pulse inside the sound, like two people walking almost but not quite in step. I turned the pin a fraction, and the pulse slowed. I turned it again, and it vanished. I looked up, expecting her to say something. She was already reading her mystery, but she had stopped turning the pages.",
       "batch": 70,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-R-000071",
+      "title": "The Fable of the Keyboard",
+      "genre": "social science",
+      "word_count": 482,
+      "text": "Look down at almost any computer keyboard in the English-speaking world, and the top row of letters begins the same way: Q, W, E, R, T, Y. The arrangement dates from the 1870s, when the inventor Christopher Latham Sholes and his partners refined the layout of an early typewriter that the Remington company began selling in 1874. Why Sholes settled on this order is not fully known. One popular explanation holds that he separated letters commonly typed together so that the machine's metal typebars would not collide and jam, though some historians argue that the layout owed more to the needs of the telegraph operators who were among the machine's first users.\n\nWhatever its origins, the layout has outlived the machine it was designed for. That persistence became the centerpiece of an influential 1985 article by the economist Paul David. David argued that QWERTY illustrates \"path dependence\": once typists had learned the layout and manufacturers had built machines around it, switching to anything else became costly for everyone, even if a better design came along. As evidence that better designs existed, he pointed to the keyboard patented by the educational psychologist August Dvorak in 1936, which placed the most common letters on the middle row, and to a 1944 U.S. Navy study reporting that typists retrained on Dvorak's layout quickly outperformed those using QWERTY.\n\nIn 1990, the economists Stan Liebowitz and Stephen Margolis published a pointed reply. They noted that the Navy study appears to have been conducted under the direction of Dvorak himself, who stood to profit from his design, and that a later study for the U.S. government in the 1950s found no meaningful advantage in retraining typists on Dvorak's layout. If no clearly superior layout had been available, they argued, QWERTY's survival was not evidence that the market had gotten stuck with an inferior standard; the layout might simply have been good enough.\n\nThe disagreement turned out to be about more than typewriters. For David, the keyboard was a vivid example of a broader pattern: early, almost accidental choices can lock a society into a technology long after the reasons for it have disappeared. For Liebowitz and Margolis, the case showed how easily such claims can rest on thin evidence, and they urged economists to demand proof that a better alternative truly existed before concluding that people had been trapped by history.\n\nBoth lessons may be worth keeping. The mere fact that QWERTY has survived does not prove that it is the best possible arrangement, but neither does it prove that typists have been held captive. What the keyboard does show, perhaps, is how hard it is to answer such questions after the fact. By the time anyone thinks to ask whether a standard was the right one, the evidence that might have settled the matter is often tangled up with the interests of the people who collected it.",
+      "batch": 71,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -44768,6 +44779,716 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-070.review.json",
         "computation": "checks/act_reading/batch_070.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000617",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Main idea of a passage",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "The disagreement turned out to be about more than typewriters",
+      "figure": null,
+      "stem": "The main purpose of the passage is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "argue that the Dvorak keyboard is superior to QWERTY and should eventually replace it everywhere.",
+        "B": "examine a debate over what the survival of a keyboard layout reveals about technology and markets.",
+        "C": "explain in detail how the first typewriters were invented, manufactured, and sold in the 1870s.",
+        "D": "criticize economists for spending their time studying ordinary objects such as typewriter keyboards."
+      },
+      "correct_answer": "B",
+      "explanation": "Most of the passage presents David's argument, Liebowitz and Margolis's reply, and the author's view of what the debate shows.",
+      "distractor_explanations": {
+        "A": "The author does not take Dvorak's side and questions the evidence for its superiority.",
+        "C": "The typewriter's history appears only in the first paragraph.",
+        "D": "The author treats the economists' debate as worthwhile, not trivial."
+      },
+      "distractor_traps": {
+        "A": "extreme_language",
+        "C": "partial_answer",
+        "D": null
+      },
+      "hints": [
+        "Which paragraphs carry most of the passage?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Summarize each paragraph, then combine."
+      },
+      "remember": "A purpose answer must cover the whole passage.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-01",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000618",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Detail",
+      "modeling": false,
+      "repo_skill_key": "act_main_idea",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "so that the machine's metal typebars would not collide and jam",
+      "figure": null,
+      "stem": "According to the passage, one popular explanation holds that the QWERTY layout was designed to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "make the typewriter easier for the Remington company to sell to new customers.",
+        "B": "place the most commonly used letters on the middle row.",
+        "C": "keep the typewriter's metal typebars from colliding and jamming.",
+        "D": "match the order in which telegraph signals were sent."
+      },
+      "correct_answer": "C",
+      "explanation": "Paragraph 1 says the popular explanation is that Sholes separated common letter pairs to prevent jams.",
+      "distractor_explanations": {
+        "A": "The passage gives no such reason.",
+        "B": "This describes Dvorak's layout, not QWERTY.",
+        "D": "Historians link the layout to telegraph operators' needs, but not to signal order, and this is not the popular explanation."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "What does the popular explanation say?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Locate \"One popular explanation.\""
+      },
+      "remember": "Distinguish details about one item from details about another.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-02",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000619",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "switching to anything else became costly for everyone, even if a better design came along",
+      "figure": null,
+      "stem": "As it is used in paragraph 2, the phrase \"path dependence\" refers to the idea that:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "earlier choices can make later changes costly even when a better option appears.",
+        "B": "technologies always improve steadily along a single, predictable path over time.",
+        "C": "the first version of any invention is usually the best one available.",
+        "D": "people choose technologies mainly by following what experts recommend."
+      },
+      "correct_answer": "A",
+      "explanation": "David's \"path dependence\" means that once people have invested in a choice, switching becomes costly, so an inferior option can persist.",
+      "distractor_explanations": {
+        "B": "David's idea is that a society can stay with a worse technology, not that it always improves.",
+        "C": "David argues that better designs can exist and still not be adopted.",
+        "D": "The passage does not mention expert recommendations."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What does the colon after the phrase introduce?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the explanation after the colon."
+      },
+      "remember": "Terms are often defined right after they are introduced.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-03",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000620",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Function of a paragraph",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "published a pointed reply",
+      "figure": null,
+      "stem": "The main function of paragraph 3 is to:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "offer new evidence that QWERTY was designed to prevent typebars from jamming.",
+        "B": "describe in detail how Dvorak developed and tested his keyboard layout.",
+        "C": "explain why the U.S. Navy decided to adopt the Dvorak keyboard in 1944.",
+        "D": "present a challenge to the evidence David used to support his argument."
+      },
+      "correct_answer": "D",
+      "explanation": "Paragraph 3 questions the Navy study David cited and reports a later study that found no advantage, challenging David's evidence.",
+      "distractor_explanations": {
+        "A": "Paragraph 3 does not discuss why QWERTY was designed.",
+        "B": "Dvorak is mentioned only as the probable director of the Navy study.",
+        "C": "The passage does not say the Navy adopted the layout."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "What did David use as evidence, and what does paragraph 3 say about it?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Connect paragraph 3 to paragraph 2."
+      },
+      "remember": "A paragraph's function is often defined by its relationship to the one before it.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-04",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000621",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Key Ideas and Details",
+      "skill": "Key Ideas and Details",
+      "subskill": "Inference",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "who stood to profit from his design",
+      "figure": null,
+      "stem": "The passage suggests that Liebowitz and Margolis doubted the 1944 Navy study mainly because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "the person who apparently directed it stood to gain from its results.",
+        "B": "it tested typists who had never used any typewriter before.",
+        "C": "it was conducted too long after QWERTY had already become the common standard.",
+        "D": "its findings were contradicted by David's own experiments."
+      },
+      "correct_answer": "A",
+      "explanation": "They noted that Dvorak, who would profit from his design, appears to have directed the study, which raises doubts about its objectivity.",
+      "distractor_explanations": {
+        "B": "The passage does not describe the typists' experience.",
+        "C": "The timing of the study is not their objection.",
+        "D": "David did not run experiments; he cited the study."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What did they note about who ran the study?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find their stated objection."
+      },
+      "remember": "A conflict of interest is a reason to question evidence.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-05",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000622",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Reasoning",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "If no clearly superior layout had been available",
+      "figure": null,
+      "stem": "Based on paragraph 3, Liebowitz and Margolis would accept QWERTY's survival as evidence of being stuck with an inferior standard only if:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "typists had refused to learn any layout other than QWERTY.",
+        "B": "Remington had stopped selling typewriters soon after 1874.",
+        "C": "a clearly better keyboard layout had actually been available.",
+        "D": "the Navy study had been conducted by someone other than Dvorak."
+      },
+      "correct_answer": "C",
+      "explanation": "Their argument is conditional: without a clearly superior alternative, survival does not show being stuck; so being stuck requires that such an alternative existed.",
+      "distractor_explanations": {
+        "A": "Their condition concerns whether a better option existed, not typists' willingness.",
+        "B": "Remington's sales are not part of their argument.",
+        "D": "An unbiased study would not by itself show that a better layout existed."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": "out_of_scope",
+        "D": "partial_answer"
+      },
+      "hints": [
+        "What condition does their \"If\" sentence state?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Turn their conditional statement around."
+      },
+      "remember": "Reason carefully about what a conditional argument requires.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-06",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 75,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000623",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Comparing views",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "demand proof that a better alternative truly existed",
+      "figure": null,
+      "stem": "Which statement best describes how David's view differs from that of Liebowitz and Margolis?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "David believed QWERTY was designed to prevent jams; they believed it was designed for telegraph operators.",
+        "B": "David saw QWERTY as lock-in to a worse technology; they doubted a better one had been shown to exist.",
+        "C": "David favored the 1950s government study; they relied mainly on the 1944 Navy study as their evidence.",
+        "D": "David argued that markets always select the best technology; they argued that markets never do so."
+      },
+      "correct_answer": "B",
+      "explanation": "David treats QWERTY as an example of lock-in to an inferior technology; Liebowitz and Margolis argue that no clearly superior alternative was shown to exist.",
+      "distractor_explanations": {
+        "A": "The passage attributes the telegraph view to some historians, not to Liebowitz and Margolis.",
+        "C": "It is the reverse: David cited the Navy study, and they cited the later study.",
+        "D": "David argued that markets can get stuck; neither side makes an \"always\" or \"never\" claim."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": "extreme_language"
+      },
+      "hints": [
+        "What is each side's main claim?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "State each view in your own words first."
+      },
+      "remember": "Identify the exact point of disagreement.",
+      "expected_time_seconds": 45,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-07",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000624",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Author's view",
+      "modeling": false,
+      "repo_skill_key": "act_author_purpose",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "Both lessons may be worth keeping",
+      "figure": null,
+      "stem": "The author's attitude toward the two positions described in the passage can best be described as:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "strongly in favor of David's view of the keyboard.",
+        "B": "dismissive of both as irrelevant to modern technology.",
+        "C": "convinced that Liebowitz and Margolis settled the debate.",
+        "D": "balanced, finding something worth keeping in each."
+      },
+      "correct_answer": "D",
+      "explanation": "The author says both lessons may be worth keeping and that QWERTY's survival proves neither side's claim.",
+      "distractor_explanations": {
+        "A": "The author says QWERTY's survival does not prove typists were held captive.",
+        "B": "The author says both lessons may be worth keeping.",
+        "C": "The author says such questions are hard to answer after the fact."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": "extreme_language"
+      },
+      "hints": [
+        "What does the first sentence of the last paragraph say?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Look for the author's own judgment."
+      },
+      "remember": "Separate the author's view from the views the author reports.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-08",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000625",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Integration of Knowledge and Ideas",
+      "skill": "Integration of Knowledge and Ideas",
+      "subskill": "Inference about the author's claim",
+      "modeling": false,
+      "repo_skill_key": "act_inference",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "tangled up with the interests of the people who collected it",
+      "figure": null,
+      "stem": "In the last paragraph, the author suggests that questions about whether a standard was the right choice are hard to answer partly because:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "few people today still use the standards that such questions are usually about.",
+        "B": "economists have generally shown little interest in such questions.",
+        "C": "the available evidence is often shaped by people with a stake in the outcome.",
+        "D": "the inventors' original records have usually been lost or destroyed."
+      },
+      "correct_answer": "C",
+      "explanation": "The author says that the evidence is often tangled up with the interests of those who collected it, as with Dvorak and the Navy study.",
+      "distractor_explanations": {
+        "A": "QWERTY is still widely used, as the first paragraph notes.",
+        "B": "The passage describes economists debating exactly such a question.",
+        "D": "The passage does not mention lost records."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": "out_of_scope"
+      },
+      "hints": [
+        "What does the last sentence say about the evidence?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Paraphrase the final sentence."
+      },
+      "remember": "Connect the author's general claim to the earlier example.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-09",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000626",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000071",
+      "underline": null,
+      "evidence": "published a pointed reply",
+      "figure": null,
+      "stem": "As it is used in paragraph 3, the word \"pointed\" most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "sharply critical.",
+        "B": "sharp-tipped.",
+        "C": "aimed in one direction.",
+        "D": "deliberately brief."
+      },
+      "correct_answer": "A",
+      "explanation": "The reply challenged David's evidence directly, so \"pointed\" means sharply critical.",
+      "distractor_explanations": {
+        "B": "This literal sense does not fit a reply.",
+        "C": "A reply is not physically aimed.",
+        "D": "Nothing suggests the reply was short."
+      },
+      "distractor_traps": {
+        "B": "familiar_meaning",
+        "C": "familiar_meaning",
+        "D": null
+      },
+      "hints": [
+        "What does the reply do to David's argument?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Substitute each choice into the sentence."
+      },
+      "remember": "Choose the meaning that fits the context.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 71,
+      "draft_candidate": "R071-10",
+      "created_at": "2026-10-28T00:32:31+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 85,
+        "blind_flags": [],
+        "revisions_before_pass": 0,
+        "evidence": "reviews/act_reading/batch-071.review.json",
+        "computation": "checks/act_reading/batch_071.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
