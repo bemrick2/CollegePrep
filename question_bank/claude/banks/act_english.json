@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 67,
-  "updated_at": "2026-10-28T00:29:29+00:00",
+  "version": 68,
+  "updated_at": "2026-10-28T01:57:05+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -718,6 +718,20 @@
       "word_count": 252,
       "text": "[1] Every ten years, the United States Constitution requires a count of the {{1|countrys'}} population. [2] By the late 1800s, the growing nation had made this task overwhelming: clerks tallying the 1880 census by hand {{2|have needed}} nearly eight years to finish. [3] Herman Hollerith, a young engineer who had worked on that census, believed a machine could do the job faster. [4] {{3|According to one account, his idea came from watching a train conductor punch holes in tickets to record each passenger's appearance.}}\n\n[5] In Hollerith's system, each person's information was recorded by punching holes in specific positions on a paper card. [6] When a clerk pressed a card into the machine, a set of metal pins came down on it. [7] Wherever there was a hole, a pin passed through and touched a small cup of mercury, {{4|completing}} an electrical circuit that advanced a counting dial. [8] Each dial kept a running total, adding one to {{5|their}} count every time a circuit closed.\n\n[9] The results were dramatic. [10] {{6|For instance,}} the Census Office was able to announce the nation's total population for 1890 within weeks rather than years. [11] Hollerith's machines were soon put to work on other {{7|tasks, such as: tracking}} railroad freight and keeping business accounts. [12] In 1896, Hollerith founded the Tabulating Machine Company, which, after a merger, eventually {{8|got a new name and became}} International Business Machines, or IBM. [13] {{9|Punched cards remained a common way to store information for computers well into the 1970s.}}",
       "batch": 67,
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned"
+    },
+    {
+      "passage_id": "CLD-P-ACT-E-000068",
+      "title": "A Designed Wilderness",
+      "genre": "informative essay",
+      "word_count": 205,
+      "text": "[1] In 1858, Frederick Law Olmsted and Calvert Vaux won a competition to design a large public park in the middle of {{1|Manhattan, their}} plan, which they called the Greensward Plan, imagined meadows, woods, and lakes where swamps and rocky outcrops then stood.\n\n[2] Building the park took years of labor. [3] Workers blasted rock, moved earth, and planted {{2|many thousands of trees}}. [4] {{3|Although}} the finished park looks as if nature had made it, almost every hill and pond was designed. [5] The designers {{4|also tucked roads for crosstown traffic}} below the level of the park, so that carriages could cross it without disturbing visitors. {{5|}}\n\n[6] The park's creation also had a cost that was long overlooked. [7] To clear the land, the city used its power of eminent domain to take property from the people who lived there, including the roughly 225 residents of Seneca Village, a community that was about two-thirds African American and in which more than half of the Black {{6|household's}} owned their land. [8] The village's {{7|churches, homes, and school, were}} demolished.\n\n[9] Today, Central Park {{8|draws}} millions of visitors each year. [10] {{9|Recent historians have worked to make sure that its full history, including Seneca Village, is remembered.}}",
+      "content_version": 2,
+      "supersedes_passage": "CLD-P-ACT-E-000063",
+      "correction": "Sentence 7 corrected per Central Park Conservancy sources (about 225 residents in 1855, about two-thirds African American; more than half of African American households owned their land). See audits/fact_correction_seneca_village_2026-10-28.json.",
+      "batch": 68,
       "origin": "ai_generated",
       "author": "ai:claude",
       "license": "original-owned"
@@ -45215,6 +45229,645 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-067.review.json",
         "computation": "checks/act_english/batch_067.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000628",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma splice",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 1,
+      "evidence": "plan, which they called the Greensward Plan",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Manhattan. Their",
+        "C": "Manhattan their",
+        "D": "Manhattan, and, their"
+      },
+      "correct_answer": "B",
+      "explanation": "\"Their plan ... imagined meadows\" is an independent clause, so a period correctly separates it from the first sentence.",
+      "distractor_explanations": {
+        "A": "A comma alone between two independent clauses creates a comma splice.",
+        "C": "Without punctuation, the two independent clauses run together.",
+        "D": "The comma after \"and\" wrongly separates the conjunction from its clause."
+      },
+      "distractor_traps": {
+        "A": "comma_splice",
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Can each part stand alone?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Find where the first clause ends."
+      },
+      "remember": "Separate independent clauses with a period or semicolon.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-01",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 70,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000629",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Precision and concision",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 2,
+      "evidence": "Workers blasted rock, moved earth, and planted",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "a lot of very many trees",
+        "C": "trees, many thousands of them, numerous",
+        "D": "many thousands of trees in large numbers"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Many thousands of trees\" states the amount once, clearly and concisely.",
+      "distractor_explanations": {
+        "B": "\"A lot of very many\" is wordy and redundant.",
+        "C": "\"Many thousands\" and \"numerous\" repeat the same idea.",
+        "D": "\"In large numbers\" repeats \"many thousands.\""
+      },
+      "distractor_traps": {
+        "B": "wordy_redundant",
+        "C": "wordy_redundant",
+        "D": "wordy_redundant"
+      },
+      "hints": [
+        "Which choice says the idea once?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Choose the most concise clear option."
+      },
+      "remember": "Avoid repeating the same idea.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-02",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000630",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Knowledge of Language",
+      "skill": "Knowledge of Language",
+      "subskill": "Transitions (concession)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 3,
+      "evidence": "almost every hill and pond was designed",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "Because",
+        "C": "Since",
+        "D": "Unless"
+      },
+      "correct_answer": "A",
+      "explanation": "The park looks natural, yet it was designed, so the concessive \"Although\" fits.",
+      "distractor_explanations": {
+        "B": "The park's natural look is not the reason it was designed.",
+        "C": "\"Since\" signals a cause, but the two clauses contrast.",
+        "D": "\"Unless\" makes the design conditional, which does not make sense."
+      },
+      "distractor_traps": {
+        "B": "wrong_transition",
+        "C": "wrong_transition",
+        "D": "wrong_transition"
+      },
+      "hints": [
+        "Do the two clauses agree or contrast?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Name the relationship first."
+      },
+      "remember": "Use \"although\" when one clause concedes a point the other contradicts.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-03",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 82,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000631",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Modifier placement",
+      "modeling": false,
+      "repo_skill_key": "act_sentence_structure",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 4,
+      "evidence": "below the level of the park",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "also tucked roads below for crosstown traffic",
+        "C": "tucked also roads for crosstown traffic",
+        "D": "also tucked, for crosstown traffic, roads"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Also tucked roads for crosstown traffic below the level of the park\" keeps each modifier next to the words it modifies.",
+      "distractor_explanations": {
+        "B": "\"Below\" is now separated from \"the level of the park\" and the sentence becomes confusing.",
+        "C": "Placing \"also\" between the verb and its object is awkward and unidiomatic.",
+        "D": "Setting off \"for crosstown traffic\" separates the verb from its object awkwardly."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does each modifier belong?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read each option in the full sentence."
+      },
+      "remember": "Keep modifiers next to the words they describe.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-04",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 2,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000632",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Adding a sentence (relevance)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 5,
+      "evidence": "so that carriages could cross it without disturbing visitors",
+      "figure": null,
+      "stem": "At this point, the writer is considering adding the following sentence:\nThese sunken roads, called transverse roads, still carry traffic across the park today.\nShould the writer make this addition here?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "No, because it shifts the focus from the park's design to modern traffic laws.",
+        "B": "No, because it repeats information already given in sentence 5.",
+        "C": "Yes, because it adds a relevant detail about the roads just described.",
+        "D": "Yes, because it explains why Olmsted and Vaux won the design competition."
+      },
+      "correct_answer": "C",
+      "explanation": "The added sentence names the roads just described and notes their continued use, which supports the paragraph's point about the park's design.",
+      "distractor_explanations": {
+        "A": "The sentence is about the roads' continued use, not traffic laws.",
+        "B": "Sentence 5 does not name the roads or say they are still used.",
+        "D": "The sentence says nothing about the competition."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Is the sentence connected to sentence 5?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Compare the sentence with the paragraph's focus."
+      },
+      "remember": "Add a sentence if it supports the paragraph's point.",
+      "expected_time_seconds": 40,
+      "calculator": "allowed",
+      "difficulty": "medium",
+      "difficulty_numeric": 3,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-05",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000633",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Plural noun (no apostrophe)",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 6,
+      "evidence": "more than half of the Black",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "households'",
+        "C": "household",
+        "D": "households"
+      },
+      "correct_answer": "D",
+      "explanation": "Many households owned land, so the plural \"households\" with no apostrophe is correct; nothing follows that they possess.",
+      "distractor_explanations": {
+        "A": "\"Household's\" is singular possessive, but the sentence needs a plural noun and nothing follows that is possessed.",
+        "B": "\"Households'\" is plural possessive, but nothing follows that the households possess.",
+        "C": "\"Household\" is singular, but \"more than half of\" refers to many households."
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "hints": [
+        "Is the word plural, possessive, or both?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Decide plural or possessive."
+      },
+      "remember": "Plurals do not take apostrophes.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-06",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "D",
+        "blind_answer": "D",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 65,
+        "blind_flags": [],
+        "revisions_before_pass": 2,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000634",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Comma between subject and verb",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 7,
+      "evidence": "demolished",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "churches, homes, and school were",
+        "C": "churches, homes, and, school were",
+        "D": "churches, homes and, school, were"
+      },
+      "correct_answer": "B",
+      "explanation": "The series \"churches, homes, and school\" is the subject; no comma should come between it and the verb \"were.\"",
+      "distractor_explanations": {
+        "A": "A comma should not separate the compound subject from its verb \"were.\"",
+        "C": "The comma after \"and\" is unnecessary.",
+        "D": "The commas are misplaced, and one separates the subject from the verb."
+      },
+      "distractor_traps": {
+        "A": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "Where does the subject end?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Read the subject and verb together."
+      },
+      "remember": "Do not put a comma between a subject and its verb.",
+      "expected_time_seconds": 30,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "medium",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-07",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "B",
+        "blind_answer": "B",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "medium",
+        "blind_est_pct_correct": 72,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000635",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Verb tense",
+      "modeling": false,
+      "repo_skill_key": "act_usage",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 8,
+      "evidence": "Today, Central Park",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "drew",
+        "C": "had drawn",
+        "D": "will have drawn"
+      },
+      "correct_answer": "A",
+      "explanation": "\"Today\" calls for the present tense, so \"draws\" is correct.",
+      "distractor_explanations": {
+        "B": "The past tense does not fit \"Today.\"",
+        "C": "The past perfect does not fit \"Today.\"",
+        "D": "The future perfect does not fit \"Today.\""
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What time does \"Today\" indicate?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match the verb to the time marker."
+      },
+      "remember": "Use the present tense for current facts.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-08",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000636",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Production of Writing",
+      "skill": "Production of Writing",
+      "subskill": "Concluding sentence (connecting to the previous paragraph)",
+      "modeling": false,
+      "repo_skill_key": "act_rhetorical_skills",
+      "passage_id": "CLD-P-ACT-E-000068",
+      "underline": 9,
+      "evidence": "residents of Seneca Village",
+      "figure": null,
+      "stem": "Which choice most effectively concludes the essay by connecting the park's present to the cost described in the third paragraph?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "The park includes a zoo, several ponds, and an ice rink.",
+        "C": "Olmsted went on to design parks in many other American cities.",
+        "D": "Central Park covers more than 800 acres in the middle of Manhattan."
+      },
+      "correct_answer": "A",
+      "explanation": "The question asks for a conclusion that connects the present park to the cost of its creation; only the current sentence mentions remembering Seneca Village.",
+      "distractor_explanations": {
+        "B": "This lists features but does not connect to the cost described earlier.",
+        "C": "This shifts to Olmsted's later career.",
+        "D": "This gives the park's size, not a connection to its cost."
+      },
+      "distractor_traps": {
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "hints": [
+        "What cost does the third paragraph describe?"
+      ],
+      "strategy": {
+        "key": "read_question_first",
+        "explanation": "Match each choice to the stated goal."
+      },
+      "remember": "Choose the conclusion that meets the specific goal.",
+      "expected_time_seconds": 35,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 68,
+      "draft_candidate": "E068-09",
+      "created_at": "2026-10-28T01:57:05+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "A",
+        "blind_answer": "A",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 88,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_english/batch-068.review.json",
+        "computation": "checks/act_english/batch_068.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null
