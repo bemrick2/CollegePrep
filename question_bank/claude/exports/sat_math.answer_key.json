@@ -1,6 +1,6 @@
 {
   "bank": "sat_math",
-  "bank_version": 92,
+  "bank_version": 93,
   "answers": [
     {
       "id": "CLD-SAT-M-000001",
@@ -11644,23 +11644,6 @@
       }
     },
     {
-      "id": "CLD-SAT-M-000585",
-      "correct_answer": "A",
-      "explanation": "The altitude from C to line AB falls outside the triangle. It makes a 30° angle (the supplement of 150°) with line AB, so its length is 10 sin 30° = 5. The area is (1/2)(8)(5) = 20.",
-      "distractor_explanations": {
-        "B": "20√3 uses the height 10 sin 60° = 5√3.",
-        "C": "40 forgets the factor 1/2.",
-        "D": "40√3 makes both errors."
-      },
-      "hints": [
-        "Extend side AB and drop the altitude from C."
-      ],
-      "strategy": {
-        "key": "draw_it_out",
-        "explanation": "Sketch the obtuse triangle and the outside altitude."
-      }
-    },
-    {
       "id": "CLD-SAT-M-000586",
       "correct_answer": "A",
       "explanation": "With hypotenuse h, AC = 0.6h and BC = 0.8h, so the shorter leg is 0.6h. Then h − 0.6h = 10, so h = 25, and the legs are 15 and 20. The area is (1/2)(15)(20) = 150.",
@@ -21951,6 +21934,23 @@
       "strategy": {
         "key": "process_of_elimination",
         "explanation": "Look for the group the data leave out."
+      }
+    },
+    {
+      "id": "CLD-SAT-M-001031",
+      "correct_answer": "B",
+      "explanation": "Because sin P = QR/PQ = 0.6, the sides are in the ratio QR : PR : PQ = 3 : 4 : 5, so cos P = PR/PQ = 0.8. Then PQ = 20/0.8 = 25 and QR = 0.6 × 25 = 15. Check: 15² + 20² = 625 = 25².",
+      "distractor_explanations": {
+        "A": "12 multiplies PR by sin P, but sin P compares QR with the hypotenuse, not with PR.",
+        "C": "16 multiplies PR by cos P, which does not give a side length here.",
+        "D": "25 is the hypotenuse PQ, not QR."
+      },
+      "hints": [
+        "Which side is the hypotenuse, and which side is opposite angle P?"
+      ],
+      "strategy": {
+        "key": "draw_it_out",
+        "explanation": "Label the sides relative to angle P."
       }
     }
   ]

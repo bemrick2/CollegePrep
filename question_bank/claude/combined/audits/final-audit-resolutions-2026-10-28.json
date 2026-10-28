@@ -1,0 +1,108 @@
+{
+ "date": "2026-10-28",
+ "audit": "tools/final_audit.py (final whole-bank audit); tools/dup_screen_all.py (whole-bank duplicate screen)",
+ "superseded_after_fresh_review": [
+  {
+   "old": "CLD-SAT-RW-000053",
+   "new": "CLD-SAT-RW-000724"
+  },
+  {
+   "old": "CLD-SAT-RW-000117",
+   "new": "CLD-SAT-RW-000725"
+  },
+  {
+   "old": "CLD-SAT-RW-000118",
+   "new": "CLD-SAT-RW-000726"
+  },
+  {
+   "old": "CLD-SAT-RW-000127",
+   "new": "CLD-SAT-RW-000727"
+  },
+  {
+   "old": "CLD-SAT-RW-000136",
+   "new": "CLD-SAT-RW-000728"
+  },
+  {
+   "old": "CLD-SAT-RW-000145",
+   "new": "CLD-SAT-RW-000729"
+  },
+  {
+   "old": "CLD-SAT-RW-000172",
+   "new": "CLD-SAT-RW-000730"
+  },
+  {
+   "old": "CLD-SAT-RW-000258",
+   "new": "CLD-SAT-RW-000731"
+  },
+  {
+   "old": "CLD-SAT-RW-000267",
+   "new": "CLD-SAT-RW-000732"
+  },
+  {
+   "old": "CLD-ACT-R-000523",
+   "new": "CLD-ACT-R-000722"
+  },
+  {
+   "old": "CLD-ACT-E-000469",
+   "new": "CLD-ACT-E-000736"
+  }
+ ],
+ "superseded_detail": {
+  "sat_reading_writing 77": "nine SEC items: option began with punctuation after a spaced blank, so literal insertion showed \"word , and\"; preceding word moved into every option on a corrected passage (content_version 2)",
+  "act_english 75/76": "CLD-ACT-E-000469 option D \"however,\" rendered \"Brewsterhowever,\"; options B and D rewritten as clean-seam punctuation errors",
+  "act_reading 77": "CLD-ACT-R-000523 hint repeated the key word; hint reworded"
+ },
+ "quarantined_duplicates": [
+  {
+   "id": "CLD-SAT-M-000585",
+   "kept": "CLD-ACT-M-000243",
+   "replacement": "CLD-SAT-M-001031 (sat_math 93)",
+   "adjudication": "combined/audits/dup-adjudication-final-2026-10-28.json"
+  },
+  {
+   "id": "CLD-ACT-M-000736",
+   "kept": "PP-MATH-000084",
+   "replacement": null,
+   "adjudication": "combined/audits/dup-adjudication-wholebank-2026-10-28.json"
+  },
+  {
+   "id": "PP-MATH-000182",
+   "kept": "PP-MATH-000689",
+   "replacement": null,
+   "adjudication": "combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+   "mechanism": "combined/overlays.json audit_reserved_duplicate (source file not edited)"
+  },
+  {
+   "id": "PP-MATH-000619",
+   "kept": "CLD-ACT-M-000386",
+   "replacement": null,
+   "adjudication": "combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+   "mechanism": "combined/overlays.json audit_reserved_duplicate (source file not edited)"
+  }
+ ],
+ "duplicate_overrides_retained": [
+  {
+   "a": "PP-VERBAL-20261022-F-017",
+   "b": "PP-VERBAL-20261022-I-011",
+   "adjudicator_verdict": "duplicate",
+   "decision": "both retained; open for human editorial review",
+   "reason": "Same subject-verb template (plural subject + \"were\") on two different essays. Each item tests a deliberate error span in its own passage (\"The two pots [H6: was]\"); quarantining either item would leave an untested error visible in its passage, and removing either 10-item passage set is disproportionate to template similarity. Recommended human action: rewrite one span to test a different rule, with a fresh blind review."
+  },
+  {
+   "a": "PP-VERBAL-20261022-C-002",
+   "b": "PP-VERBAL-20261022-K-001",
+   "adjudicator_verdict": "duplicate",
+   "decision": "both retained; open for human editorial review",
+   "reason": "Near-identical singular-subject-with-plural-modifier sentences on two different essays (\"A stack of blue scraps [were]\"); same constraint as above."
+  }
+ ],
+ "accepted_text_spans_chatgpt_english": {
+  "PP-A-ENG-20261022-003 E9": "\"had counted\" has no item; past perfect before \"packing\" is defensible text, not an error. Label without an item.",
+  "PP-A-ENG-20261022-003 E10": "sentence 21 is tested by PP-VERBAL-20261022-C-010 (conclusion), which cites it by sentence number",
+  "PP-A-ENG-20261022-004 F9": "correct text; no item",
+  "PP-A-ENG-20261022-005 G8": "correct text (third item of a series); no item",
+  "PP-A-ENG-20261022-H-01 L1": "correct sentence; no item"
+ },
+ "accepted_text_note": "In the ChatGPT edit-span format the span label (for example \"[E9: had counted]\") is part of the passage text; a span with no item shows a label that no question uses. None of these five shows an untested error. Recommended: strip labels of untested spans at render time.",
+ "nonblocking_metadata": "Four Claude ACT English essay-level items (CLD-ACT-E-000445, -000452, -000456, -000471) carry an underline number that does not exist in their passage. The stems refer to sentences or the whole essay; the items render with no highlight. Recommended: set underline to null on import."
+}

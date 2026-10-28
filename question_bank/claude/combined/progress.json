@@ -1,86 +1,95 @@
 {
-  "updated": "2026-10-28",
-  "baseline": "combined/baseline/prep-and-price-combined-bank-screening.zip",
-  "targets": "1,000 retained, independently AI-reviewed candidates each for SAT Math, SAT R&W, ACT English, ACT Reading (combined ChatGPT + Claude). ACT Math bulk generation paused.",
-  "tasks": [
-    {
-      "id": "T1",
-      "task": "Reconcile baseline with current Claude banks; save combined bank and exact totals",
-      "status": "done (re-run after each change)"
-    },
-    {
-      "id": "T2",
-      "task": "Repair 7 Claude insertion-defect holds (SAT 011,034,043,058,230,206; ACT-E 170) as new candidates with fresh blind review; supersede originals",
-      "status": "done: 7 repairs accepted (CLD-SAT-RW-000380..385, CLD-ACT-E-000383) after two blind solves each; originals marked superseded"
-    },
-    {
-      "id": "T3",
-      "task": "Resolve CLD-SAT-RW-000100 appositive dispute (rewrite as new candidate or keep hold)",
-      "status": "kept on hold (unresolved restrictive/nonrestrictive dispute; a rewrite would move the same dispute)"
-    },
-    {
-      "id": "T4",
-      "task": "Propose display repair for PP-VERBAL-20261022-B-003 empty choice (overlay) and blind-review it",
-      "status": "done: display repair (anchored choices; no empty or space-prefixed option) passed two blind solves; requires source adoption"
-    },
-    {
-      "id": "T5",
-      "task": "Fresh blind review of the 69 REVISED_REVIEW_PENDING records (67 ACT math with computation checks, 2 verbal pilot); keep 16 blueprint holds unless a documented blueprint check resolves them",
-      "status": "done: all 69 blind-solved twice without keys (math: two independent solves with shown computation); 69/69 matched keys; 53 released (51 ACT math + 2 verbal pilot); 16 ACT math keep BLUEPRINT_SUITABILITY_HOLD (answers verified; scope notes recorded, e.g. 214, 228, 258, 302, 494, 623, 624, 690)"
-    },
-    {
-      "id": "T6",
-      "task": "Literal-insertion scan of every fill-in/underline option across ChatGPT verbal records",
-      "status": "done: 947 ChatGPT verbal records scanned; 20 genuine insertion defects held with display-repair overlays; 19 repaired versions passed two blind solves, PP-VERBAL-20261022-H-007 remains on hold (two defensible answers)"
-    },
-    {
-      "id": "T7",
-      "task": "Duplicate screen of Claude post-baseline items (964) against the entire combined bank",
-      "status": "done: 883 post-baseline Claude items screened against 3,426 combined records (Jaccard >= 0.5 on stem+choices+local passage context; thin texts skipped); 170 candidate pairs (all SAT Math vs math) adjudicated by an independent agent; 3 substantive duplicates retired (CLD-SAT-M-000027, 000200, 000005); no verbal pair reached threshold"
-    },
-    {
-      "id": "T8",
-      "task": "Blind review (two independent solves) of ChatGPT verbal records lacking current-version review: SAT R&W 309, ACT English 311, ACT Reading 313",
-      "status": "done: every pending baseline ChatGPT verbal record now has two independent blind solves bound to its content hash (SAT R&W 310, ACT English 311, ACT Reading 312). One blocking finding (PP-VERBAL-20261023-O-014 stem/passage mismatch) repaired via overlay and re-reviewed PASS; display repairs E-016 and C-161..164 re-reviewed PASS. Overlay repairs still require source adoption by the owning workstream. Recurring non-blocking weakness: many ChatGPT ACT Reading distractors are eliminable by absolute wording, so their difficulty is likely overstated (combined/audits/t8-solver-flags.json)."
-    },
-    {
-      "id": "T9",
-      "task": "Generate SAT Math (priority) and upper-difficulty verbal toward 1,000 reviewed each",
-      "status": "in progress. Reconciled reviewed_draft totals: ACT English 904, ACT Math 1441, ACT Reading 908, SAT Math 1000, SAT Reading and Writing 909. SAT Math reached the 1,000 target with batch 92 (AI-reviewed drafts; none human-approved). Recent: SAT Math 84-92; SAT R&W 62-71; ACT English 57-67; ACT Reading 63-71. Revisions queued: none. Withdrawn: E063-11 (former E062-08, failed twice); E064-12 (its only fix needs a change to banked passage CLD-P-ACT-E-000063); Q084-13 (answer cue after revision 2); Q092-10 (sector-to-cone at the edge of SAT scope). Near-duplicate rejects kept as recorded by the review tool. Factual corrections caught by blind solvers and fixed before banking: Nutshell Studies composites, Ida Lewis 1924 renaming (state renamed the rock; the light was renamed separately), Danish comet medal, Nobel nomination rule (1962), 1808 importation ban wording, narrator pronouns in ACT Reading 65. Author errors caught: Q086-07 second true choice; S067-06 noun-adjunct second answer (fixed before solving); E059-01 grammatical distractor (fixed before solving). Method: SAT Math keys script-verified (checks/sat_math/batch_0NN.py), one rubric-v2 blind solver; verbal two blind solvers (B adversarial with fact-check); numeric SAT Math choices sorted ascending from batch 85. Verbal difficulty remains mostly easy/medium in AI solves; labels provisional. ACT Math paused. Nothing human-approved, imported, deployed or published. Open issue for human review: banked passage CLD-P-ACT-E-000063 sentence 7 calls Seneca Village \"a community of mostly African American homeowners\"; solver B notes many residents rented and some were Irish or German, so \"mostly African American residents, many of them property owners\" is more accurate. Not edited, because banked content is preserved as reviewed."
-    }
-  ],
-  "log": [
-    {
-      "date": "2026-10-27",
-      "event": "T2/T4/T6 completed; reconciled bank regenerated"
-    },
-    {
-      "date": "2026-10-27",
-      "event": "T5 completed"
-    },
-    {
-      "date": "2026-10-27",
-      "event": "T7 completed"
-    },
-    {
-      "date": "2026-10-28",
-      "event": "T9 progress: SAT R&W 69, ACT English 64, ACT Reading 68-69 reviewed"
-    },
-    {
-      "date": "2026-10-28",
-      "event": "T9 progress: ACT English 65, SAT R&W 70, ACT Reading 70 reviewed"
-    },
-    {
-      "date": "2026-10-28",
-      "event": "T9 progress: ACT English 66, SAT R&W 71 reviewed"
-    },
-    {
-      "date": "2026-10-28",
-      "event": "T9 progress: ACT English 67 reviewed (sentence 8 reworded before banking after both solvers flagged a singular-they reading)"
-    },
-    {
-      "date": "2026-10-28",
-      "event": "T9 progress: ACT Reading 71 reviewed"
-    }
-  ]
+ "updated": "2026-10-28",
+ "baseline": "combined/baseline/prep-and-price-combined-bank-screening.zip",
+ "targets": "1,000 retained, independently AI-reviewed candidates each for SAT Math, SAT R&W, ACT English, ACT Reading (combined ChatGPT + Claude). ACT Math bulk generation paused.",
+ "tasks": [
+  {
+   "id": "T1",
+   "task": "Reconcile baseline with current Claude banks; save combined bank and exact totals",
+   "status": "done (re-run after each change)"
+  },
+  {
+   "id": "T2",
+   "task": "Repair 7 Claude insertion-defect holds (SAT 011,034,043,058,230,206; ACT-E 170) as new candidates with fresh blind review; supersede originals",
+   "status": "done: 7 repairs accepted (CLD-SAT-RW-000380..385, CLD-ACT-E-000383) after two blind solves each; originals marked superseded"
+  },
+  {
+   "id": "T3",
+   "task": "Resolve CLD-SAT-RW-000100 appositive dispute (rewrite as new candidate or keep hold)",
+   "status": "kept on hold (unresolved restrictive/nonrestrictive dispute; a rewrite would move the same dispute)"
+  },
+  {
+   "id": "T4",
+   "task": "Propose display repair for PP-VERBAL-20261022-B-003 empty choice (overlay) and blind-review it",
+   "status": "done: display repair (anchored choices; no empty or space-prefixed option) passed two blind solves; requires source adoption"
+  },
+  {
+   "id": "T5",
+   "task": "Fresh blind review of the 69 REVISED_REVIEW_PENDING records (67 ACT math with computation checks, 2 verbal pilot); keep 16 blueprint holds unless a documented blueprint check resolves them",
+   "status": "done: all 69 blind-solved twice without keys (math: two independent solves with shown computation); 69/69 matched keys; 53 released (51 ACT math + 2 verbal pilot); 16 ACT math keep BLUEPRINT_SUITABILITY_HOLD (answers verified; scope notes recorded, e.g. 214, 228, 258, 302, 494, 623, 624, 690)"
+  },
+  {
+   "id": "T6",
+   "task": "Literal-insertion scan of every fill-in/underline option across ChatGPT verbal records",
+   "status": "done: 947 ChatGPT verbal records scanned; 20 genuine insertion defects held with display-repair overlays; 19 repaired versions passed two blind solves, PP-VERBAL-20261022-H-007 remains on hold (two defensible answers)"
+  },
+  {
+   "id": "T7",
+   "task": "Duplicate screen of Claude post-baseline items (964) against the entire combined bank",
+   "status": "done: 883 post-baseline Claude items screened against 3,426 combined records (Jaccard >= 0.5 on stem+choices+local passage context; thin texts skipped); 170 candidate pairs (all SAT Math vs math) adjudicated by an independent agent; 3 substantive duplicates retired (CLD-SAT-M-000027, 000200, 000005); no verbal pair reached threshold"
+  },
+  {
+   "id": "T8",
+   "task": "Blind review (two independent solves) of ChatGPT verbal records lacking current-version review: SAT R&W 309, ACT English 311, ACT Reading 313",
+   "status": "done: every pending baseline ChatGPT verbal record now has two independent blind solves bound to its content hash (SAT R&W 310, ACT English 311, ACT Reading 312). One blocking finding (PP-VERBAL-20261023-O-014 stem/passage mismatch) repaired via overlay and re-reviewed PASS; display repairs E-016 and C-161..164 re-reviewed PASS. Overlay repairs still require source adoption by the owning workstream. Recurring non-blocking weakness: many ChatGPT ACT Reading distractors are eliminable by absolute wording, so their difficulty is likely overstated (combined/audits/t8-solver-flags.json)."
+  },
+  {
+   "id": "T9",
+   "task": "Generate SAT Math (priority) and upper-difficulty verbal toward 1,000 reviewed each",
+   "status": "done: all four targets met in the reconciled bank (reviewed_draft): ACT English 1002, ACT Reading 1003, SAT Math 1000, SAT Reading and Writing 1008; ACT Math 1438 (bulk generation paused). Generation stopped 2026-10-28 after SAT R&W 76, ACT English 73-74, ACT Reading 75-76. Seneca Village overstatement (CLD-P-ACT-E-000063) resolved: corrected passage CLD-P-ACT-E-000068 from Central Park Conservancy sources, all 9 items re-reviewed and superseded (audits/fact_correction_seneca_village_2026-10-28.json). Factual problems caught by blind solvers and fixed before banking in this phase include Smokey Bear's naming, Argentine ant behavior (introduced range only), the Frisbie Pie Company closing date, a longitude item needing outside knowledge, and a dust-bowl 'first appeared' claim. Nothing human-approved, imported, deployed or published; difficulty provisional."
+  },
+  {
+   "id": "T10",
+   "task": "Final whole-bank structural, review-evidence, passage-consistency and duplicate audit; resolve or quarantine and replace; build the final package",
+   "status": "done: final whole-bank audit (tools/final_audit.py -> combined/audits/final-audit-2026-10-28.json): structure, review evidence, passage consistency, literal insertion, hints and duplicates (post-baseline screen plus a new whole-bank pairwise and math-signature screen, tools/dup_screen_all.py). 0 blocking findings after resolution. Resolved: 11 items superseded by repaired versions after two fresh blind solves (9 SAT R&W insertion seams, 1 ACT English option seam, 1 ACT Reading hint leak); 4 duplicates quarantined (CLD-SAT-M-000585, replaced by CLD-SAT-M-001031; CLD-ACT-M-000736; PP-MATH-000182 and PP-MATH-000619 via overlay). Nonblocking, open for human review: 2 ChatGPT ACT English template-duplicate pairs kept by recorded override; 4 stale underline numbers on Claude essay-level items; 5 ChatGPT edit-span labels with no item (no untested errors). See combined/audits/final-audit-resolutions-2026-10-28.json."
+  }
+ ],
+ "log": [
+  {
+   "date": "2026-10-27",
+   "event": "T2/T4/T6 completed; reconciled bank regenerated"
+  },
+  {
+   "date": "2026-10-27",
+   "event": "T5 completed"
+  },
+  {
+   "date": "2026-10-27",
+   "event": "T7 completed"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "T9 progress: SAT R&W 69, ACT English 64, ACT Reading 68-69 reviewed"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "T9 progress: ACT English 65, SAT R&W 70, ACT Reading 70 reviewed"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "T9 progress: ACT English 66, SAT R&W 71 reviewed"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "T9 progress: ACT English 67 reviewed (sentence 8 reworded before banking after both solvers flagged a singular-they reading)"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "T9 progress: ACT Reading 71 reviewed"
+  },
+  {
+   "date": "2026-10-28",
+   "event": "targets met; generation stopped; final whole-bank audit run (0 blocking after 11 supersessions and 4 duplicate quarantines); T9 and T10 done"
+  }
+ ]
 }

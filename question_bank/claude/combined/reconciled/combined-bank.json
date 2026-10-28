@@ -1,13 +1,13 @@
 {
  "meta": {
-  "generated_at": "2026-10-28T03:06:07+00:00",
+  "generated_at": "2026-10-28T03:19:47+00:00",
   "baseline_zip_sha256": "5e97823b612c576551e2bba67cca6545e305f1119190d761b864719fc2f9f099",
   "baseline_records": 3345,
-  "claude_current_records": 4004,
+  "claude_current_records": 4016,
   "notes": {
-   "resolved_by_fresh_review": 986,
-   "claude_retired_after_baseline": 63,
-   "claude_new_since_baseline": 2486
+   "resolved_by_fresh_review": 985,
+   "claude_retired_after_baseline": 73,
+   "claude_new_since_baseline": 2498
   },
   "definitions": "(exactly one per record):\n  reviewed_draft   current content version has independent AI review evidence (blind solve without key) and no open hold\n  pending_review   retained, but the current version lacks independent review (self-review only, new, or changed)\n  hold             open hold carried from the baseline or raised since (revision, adjudication, blueprint)\n  reserved_duplicate  excluded/reserved as a duplicate or template variant (baseline) or retired by a concept-repeat audit\n  retired          withdrawn by this workstream after acceptance (superseded by a repair, or retired by audit)\nNo record is human-approved; difficulty is provisional throughout."
  },
@@ -7864,8 +7864,8 @@
    "content_hash": "63684e156420d574",
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
-   "status": "reviewed_draft",
-   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_english/batch-050.review.json"
+   "status": "retired",
+   "status_reason": "withdrawn (hold-defect): literal-insertion seam defect: option D \"however,\" rendered \"Brewsterhowever,\""
   },
   {
    "id": "CLD-ACT-E-000470",
@@ -11856,6 +11856,21 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "status": "reviewed_draft",
    "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_english/batch-074.review.json"
+  },
+  {
+   "id": "CLD-ACT-E-000736",
+   "source": "Claude",
+   "exam": "ACT",
+   "section": "English",
+   "source_bank": "banks/act_english.json",
+   "in_baseline": false,
+   "batch": 76,
+   "draft_candidate": "E076-01",
+   "content_hash": "1ea7709434ea22a2",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_english/batch-076.review.json"
   },
   {
    "id": "PP-B-VERBAL-000001",
@@ -38653,8 +38668,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "3f43ca628e7aac70",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "reserved_duplicate",
+   "status_reason": "withdrawn after baseline (audit-copy): Volume of the same cylinder (r = 3, h = 5, 48π) with overlapping distractors",
+   "superseded_by": "PP-MATH-000084"
   },
   {
    "id": "CLD-ACT-M-000737",
@@ -44826,34 +44842,17 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "a41f9ea4d17c93ae",
-   "status": "reviewed_draft",
-   "status_reason": "fresh blind review(s) after baseline: combined/reviews/revised-math-1.A.results.json; combined/reviews/revised-math-1.B.results.json",
-   "fresh_reviews": [
-    {
-     "content_hash": "a41f9ea4d17c93ae",
-     "verdict": "PASS",
-     "solver": "blind AI solver A (separate agent, answer-free packet)",
-     "answer": "C",
-     "key": "C",
-     "confidence": "high",
-     "notes": "x>=-2; x^2-4=x+2 -> x=3,-2; x^2-4=-(x+2) -> x=1,-2; distinct {-2,1,3}=3",
-     "flags": [],
-     "summary": "",
-     "file": "combined/reviews/revised-math-1.A.results.json"
-    },
-    {
-     "content_hash": "a41f9ea4d17c93ae",
-     "verdict": "PASS",
-     "solver": "blind AI solver B (separate agent, answer-free packet)",
-     "answer": "C",
-     "key": "C",
-     "confidence": "high",
-     "notes": "x>=-2 needed; x=-2 works; else |x-2|=1 -> x=1,3; 3 solutions",
-     "flags": [],
-     "summary": "",
-     "file": "combined/reviews/revised-math-1.B.results.json"
-    }
-   ]
+   "status": "reserved_duplicate",
+   "status_reason": "final audit: duplicate of PP-MATH-000689 (same |x²−4|=x+2 solution-count problem with identical choices and key); combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+   "overlay": {
+    "kind": "audit_reserved_duplicate",
+    "owner": "ChatGPT",
+    "duplicate_of": "PP-MATH-000689",
+    "reason": "same |x²−4|=x+2 solution-count problem with identical choices and key",
+    "audit": "combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+    "date": "2026-10-28",
+    "note": "Source file not edited. Reserved as a duplicate in the reconciled bank; the kept item stays live."
+   }
   },
   {
    "id": "PP-MATH-000183",
@@ -53791,8 +53790,17 @@
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "1c1555fc07e96307",
-   "status": "reviewed_draft",
-   "status_reason": "baseline: current-version external AI PASS evidence"
+   "status": "reserved_duplicate",
+   "status_reason": "final audit: duplicate of CLD-ACT-M-000386 (same square-in-a-semicircle (radius 5, area 20) problem); combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+   "overlay": {
+    "kind": "audit_reserved_duplicate",
+    "owner": "ChatGPT",
+    "duplicate_of": "CLD-ACT-M-000386",
+    "reason": "same square-in-a-semicircle (radius 5, area 20) problem",
+    "audit": "combined/audits/dup-adjudication-wholebank-2026-10-28.json",
+    "date": "2026-10-28",
+    "note": "Source file not edited. Reserved as a duplicate in the reconciled bank; the kept item stays live."
+   }
   },
   {
    "id": "PP-MATH-000620",
@@ -65168,8 +65176,8 @@
    "content_hash": "56407316c9cb041d",
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
-   "status": "reviewed_draft",
-   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_reading/batch-061.review.json"
+   "status": "retired",
+   "status_reason": "withdrawn (hold-defect): hint repeated the key word (\"line\")"
   },
   {
    "id": "CLD-ACT-R-000524",
@@ -68140,6 +68148,21 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "status": "reviewed_draft",
    "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_reading/batch-076.review.json"
+  },
+  {
+   "id": "CLD-ACT-R-000722",
+   "source": "Claude",
+   "exam": "ACT",
+   "section": "Reading",
+   "source_bank": "banks/act_reading.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "R077-01",
+   "content_hash": "56407316c9cb041d",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/act_reading/batch-077.review.json"
   },
   {
    "id": "PP-B-VERBAL-000005",
@@ -91094,8 +91117,8 @@
    "content_hash": "2f7d3ec96d664ee4",
    "human_approved": false,
    "difficulty_status": "provisional (AI/author estimate; no student data)",
-   "status": "reviewed_draft",
-   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_math/batch-059.review.json"
+   "status": "reserved_duplicate",
+   "status_reason": "withdrawn (audit-copy): Area of a triangle with sides 8 and 10 and a given included angle, (1/2)ab sin C, identical choices (20, 20√3, 40, 40√3)"
   },
   {
    "id": "CLD-SAT-M-000586",
@@ -97773,6 +97796,21 @@
    "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_math/batch-092.review.json"
   },
   {
+   "id": "CLD-SAT-M-001031",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Math",
+   "source_bank": "banks/sat_math.json",
+   "in_baseline": false,
+   "batch": 93,
+   "draft_candidate": "Q093-01",
+   "content_hash": "b9f73dfc75cd2f9e",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_math/batch-093.review.json"
+  },
+  {
    "id": "CLD-SAT-RW-000001",
    "source": "Claude",
    "exam": "SAT",
@@ -98737,8 +98775,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "bff8dc59985820d0",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000054",
@@ -99903,8 +99942,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "65ee2e42f81f76ad",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000118",
@@ -99923,8 +99963,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "805f6320d01bf0c0",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000119",
@@ -100089,8 +100130,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "7aac04a14d10d593",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000128",
@@ -100251,8 +100293,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "80943e0f6245823e",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000137",
@@ -100416,8 +100459,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "a95162b986587697",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000146",
@@ -100911,8 +100955,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "94f44d60b796750d",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000173",
@@ -102477,8 +102522,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "9ff4e8c4aeb8b3c4",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000259",
@@ -102641,8 +102687,9 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "content_hash": "d9b9be559ecd390c",
    "changed_since_baseline": false,
-   "status": "reviewed_draft",
-   "status_reason": "current version blind-solved by separate AI reviewer(s) before acceptance (bank validation record)"
+   "status": "retired",
+   "status_reason": "withdrawn after baseline (hold-defect): literal-insertion seam defect: option began with punctuation after a spaced blank (\"word , and\")",
+   "superseded_by": null
   },
   {
    "id": "CLD-SAT-RW-000268",
@@ -109486,6 +109533,141 @@
    "difficulty_status": "provisional (AI/author estimate; no student data)",
    "status": "reviewed_draft",
    "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-076.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000724",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-01",
+   "content_hash": "e8cfc0eef6b6f8a1",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000725",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-02",
+   "content_hash": "9542b7b1353f72f5",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000726",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-03",
+   "content_hash": "36885ba43f09bfc3",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000727",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-04",
+   "content_hash": "f0fc3e5e7a9453c6",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000728",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-05",
+   "content_hash": "cdfca37243af6852",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000729",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-06",
+   "content_hash": "6f481137bc0d5fd8",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000730",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-07",
+   "content_hash": "ed655ef33fd0c2e9",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000731",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-08",
+   "content_hash": "2050e361da23485d",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
+  },
+  {
+   "id": "CLD-SAT-RW-000732",
+   "source": "Claude",
+   "exam": "SAT",
+   "section": "Reading and Writing",
+   "source_bank": "banks/sat_reading_writing.json",
+   "in_baseline": false,
+   "batch": 77,
+   "draft_candidate": "S077-09",
+   "content_hash": "fdb77422efe19b6f",
+   "human_approved": false,
+   "difficulty_status": "provisional (AI/author estimate; no student data)",
+   "status": "reviewed_draft",
+   "status_reason": "blind-solved by separate AI reviewer(s) before acceptance: reviews/sat_reading_writing/batch-077.review.json"
   },
   {
    "id": "PP-B-VERBAL-000009",

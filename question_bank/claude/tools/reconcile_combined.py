@@ -132,6 +132,11 @@ def main():
             if ov.get('content_hash'):
                 rec['content_hash'] = ov['content_hash']
                 rv = [r for r in reviews.get(rid, []) if r.get('content_hash') == ov['content_hash']]
+        if ov and ov.get('kind') == 'audit_reserved_duplicate':
+            rec['status'] = 'reserved_duplicate'
+            rec['status_reason'] = f"final audit: duplicate of {ov['duplicate_of']} ({ov['reason'][:100]}); {ov['audit']}"
+            records.append(rec)
+            continue
         if ov and ov.get('kind') == 'proposed_display_repair' and rec['status'] in ('pending_review', 'reviewed_draft', 'hold'):
             rec['status'] = 'hold'
             rec['status_reason'] = 'literal-insertion defect in source version; proposed display repair awaits fresh review (' + ov['reason'][:90] + ')'

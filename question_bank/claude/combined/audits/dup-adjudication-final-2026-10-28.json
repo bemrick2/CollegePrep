@@ -1,0 +1,564 @@
+{
+ "adjudicator": "independent AI agent (separate context)",
+ "date": "2026-10-28",
+ "pairs": [
+  {
+   "pair": 1,
+   "a": "CLD-SAT-M-000743",
+   "b": "CLD-ACT-M-000642",
+   "verdict": "distinct",
+   "task_a": "Count distinct real zeros of p(x)·p(x−1) by shifting the zeros of a factored cubic and removing the overlap",
+   "task_b": "Count distinct real zeros of a factored polynomial with a repeated factor and an irreducible quadratic factor",
+   "reason": "Both count distinct real zeros from factored forms, but A hinges on shifting zeros under x→x−1 and finding the overlap, while B hinges on multiplicity and a no-real-root quadratic factor. Different key steps."
+  },
+  {
+   "pair": 2,
+   "a": "CLD-SAT-M-000585",
+   "b": "CLD-ACT-M-000243",
+   "verdict": "duplicate",
+   "task_a": "Area of a triangle from two sides and an included obtuse angle (150°) via sin 150° = 1/2",
+   "task_b": "Area of a triangle from two sides and an included 60° angle via (1/2)ab sin C",
+   "reason": "Same setup (two sides 8 and 10 with the included angle), same task (area), same formula (1/2)ab·sin of the included angle, and identical answer choices; only the angle changes (150° vs 60°). A student who has done one is primed for the other."
+  },
+  {
+   "pair": 3,
+   "a": "CLD-SAT-M-000732",
+   "b": "CLD-ACT-M-000248",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Solve |x² − 4| = 3 by splitting into two quadratic cases and counting roots",
+   "reason": "A is a composition f(f(x)) = 0 using the range of f; B is a direct absolute-value split. Different method."
+  },
+  {
+   "pair": 4,
+   "a": "CLD-SAT-M-000732",
+   "b": "CLD-ACT-M-000793",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Factor x³ − x and count real roots",
+   "reason": "A is nested-composition casework; B is a simple cubic factorization. Only the 'how many solutions' wording is shared."
+  },
+  {
+   "pair": 5,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000182",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count solutions of |x² − 4| = x + 2 by casework with branch-condition checks",
+   "reason": "A is composition with a minimum-value argument; B is absolute-value casework with domain checks. Different method."
+  },
+  {
+   "pair": 6,
+   "a": "CLD-SAT-M-000680",
+   "b": "PP-MATH-000187",
+   "verdict": "distinct",
+   "task_a": "Sum of solutions of |x − 3| + |x + 5| = 10 by interval casework on two absolute values",
+   "task_b": "Sum of solutions of (x−3)² = (2x+1)² by equating bases up to sign",
+   "reason": "A uses interval casework on a sum of two absolute values; B equates squares (u² = v² ⇒ u = ±v). Different method."
+  },
+  {
+   "pair": 7,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000412",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Factor a cubic by grouping and count irrational roots",
+   "reason": "A is composition casework; B is factor-by-grouping and classifying roots as irrational. Different task."
+  },
+  {
+   "pair": 8,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000452",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count solutions of x² = |x| + 6 by substituting t = |x|",
+   "reason": "A is composition; B substitutes t = |x| into a quadratic. Different method."
+  },
+  {
+   "pair": 9,
+   "a": "CLD-SAT-M-000680",
+   "b": "PP-MATH-000680",
+   "verdict": "distinct",
+   "task_a": "Sum of solutions of |x − 3| + |x + 5| = 10 by interval casework on two absolute values",
+   "task_b": "Sum of real solutions of (x−1)(x−2)(x−3)(x−4) = 24 by pairing factors and substituting",
+   "reason": "A uses absolute-value interval casework; B pairs factors of a quartic and substitutes. Only the 'sum of all solutions' wording is shared."
+  },
+  {
+   "pair": 10,
+   "a": "CLD-SAT-M-000799",
+   "b": "PP-MATH-000208",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate a triply composed rational function f(f(f(2)))",
+   "reason": "Unit-circle angle identification vs evaluating a repeated composition of a rational function. Unrelated."
+  },
+  {
+   "pair": 11,
+   "a": "CLD-SAT-M-000808",
+   "b": "CLD-ACT-M-000544",
+   "verdict": "distinct",
+   "task_a": "Find k for which a 2×2 linear system with k in two coefficients has no solution (quadratic in k, reject the coincident case)",
+   "task_b": "Find k for which a 2×2 linear system with one parameterized coefficient has no solution (equal slopes)",
+   "reason": "Same skill (no-solution condition for a parameterized 2×2 system), but A puts k in two coefficients, giving a quadratic in k and a coincident-line case to reject (the key trap). B is a one-step slope match. Different difficulty and solution steps. Borderline, judged distinct."
+  },
+  {
+   "pair": 12,
+   "a": "CLD-SAT-M-000743",
+   "b": "PP-MATH-000452",
+   "verdict": "distinct",
+   "task_a": "Count distinct real zeros of p(x)·p(x−1) by shifting the zeros of a factored cubic and removing the overlap",
+   "task_b": "Count solutions of x² = |x| + 6 by substituting t = |x|",
+   "reason": "Shifted-polynomial zero overlap vs absolute-value substitution. Different method."
+  },
+  {
+   "pair": 13,
+   "a": "CLD-SAT-M-000732",
+   "b": "CLD-ACT-M-000479",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count real zeros of f(x)+3 for a factored quadratic by checking whether the shifted minimum is below 0",
+   "reason": "A is composition casework; B checks the sign of a vertically shifted quadratic's minimum. Different task."
+  },
+  {
+   "pair": 14,
+   "a": "CLD-SAT-M-000680",
+   "b": "PP-MATH-000162",
+   "verdict": "distinct",
+   "task_a": "Sum of solutions of |x − 3| + |x + 5| = 10 by interval casework on two absolute values",
+   "task_b": "Sum of real solutions of 4^x − 5·2^x + 4 = 0 by substitution u = 2^x",
+   "reason": "Absolute-value casework vs exponential substitution u = 2^x. Different method."
+  },
+  {
+   "pair": 15,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000783",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate alternating sum of odd minus even integers by pairing terms",
+   "reason": "Trig angle identification vs pairing an arithmetic alternating sum. Unrelated."
+  },
+  {
+   "pair": 16,
+   "a": "CLD-ACT-E-000445",
+   "b": "CLD-ACT-E-000219",
+   "verdict": "distinct",
+   "task_a": "Sentence-placement (logic/cohesion) for sentence 5 in a passage about product sales",
+   "task_b": "Sentence-placement for Sentence 2 in a passage about testing soup batches",
+   "reason": "Same item type (sentence placement), but each depends on an entirely different passage and its cues. Shared template wording only."
+  },
+  {
+   "pair": 17,
+   "a": "CLD-ACT-E-000445",
+   "b": "CLD-ACT-E-000227",
+   "verdict": "distinct",
+   "task_a": "Sentence-placement (logic/cohesion) for sentence 5 in a passage about product sales",
+   "task_b": "Sentence-placement for Sentence 2 in a passage about setting a sundial angle",
+   "reason": "Same sentence-placement template with different passages, sentences and logical cues. Not duplicative."
+  },
+  {
+   "pair": 18,
+   "a": "CLD-ACT-E-000445",
+   "b": "CLD-ACT-E-000239",
+   "verdict": "distinct",
+   "task_a": "Sentence-placement (logic/cohesion) for sentence 5 in a passage about product sales",
+   "task_b": "Sentence-placement for Sentence 2 in a passage about marathon runners",
+   "reason": "Same sentence-placement template with different passages and reasoning (time order vs referent cues). Not duplicative."
+  },
+  {
+   "pair": 19,
+   "a": "CLD-SAT-M-000732",
+   "b": "CLD-ACT-M-000642",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count distinct real zeros of a factored polynomial with a repeated factor and an irreducible quadratic factor",
+   "reason": "Composition casework vs reading zeros from factored form with multiplicity. Different method."
+  },
+  {
+   "pair": 20,
+   "a": "CLD-SAT-M-000743",
+   "b": "PP-MATH-000182",
+   "verdict": "distinct",
+   "task_a": "Count distinct real zeros of p(x)·p(x−1) by shifting the zeros of a factored cubic and removing the overlap",
+   "task_b": "Count solutions of |x² − 4| = x + 2 by casework with branch-condition checks",
+   "reason": "Shifted-polynomial zeros vs absolute-value casework. Different method."
+  },
+  {
+   "pair": 21,
+   "a": "CLD-SAT-M-001025",
+   "b": "CLD-ACT-M-000347",
+   "verdict": "distinct",
+   "task_a": "Find constants of f(x)=a·b^x+c from three values and compute f(3)",
+   "task_b": "Find linear f from f(f(x)) = 4x + 9 and compute f(1)",
+   "reason": "Exponential-plus-constant from successive differences vs linear functional equation f(f(x)). Different task."
+  },
+  {
+   "pair": 22,
+   "a": "CLD-SAT-M-000731",
+   "b": "PP-MATH-000382",
+   "verdict": "distinct",
+   "task_a": "Find x² + y² from x + y and 1/x + 1/y using xy",
+   "task_b": "Solve a 3-variable linear system for z",
+   "reason": "Symmetric-function identity for x² + y² vs solving a linear 3×3 system. Different task."
+  },
+  {
+   "pair": 23,
+   "a": "CLD-SAT-M-000743",
+   "b": "PP-MATH-000353",
+   "verdict": "distinct",
+   "task_a": "Count distinct real zeros of p(x)·p(x−1) by shifting the zeros of a factored cubic and removing the overlap",
+   "task_b": "Use Intermediate Value Theorem sign changes to count zeros of a cubic",
+   "reason": "Shifted zeros of a factored polynomial vs IVT sign changes on a cubic from data points. Different method."
+  },
+  {
+   "pair": 24,
+   "a": "CLD-SAT-M-000799",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Telescoping sum of 1/(n(n+1))",
+   "reason": "Trig angle vs telescoping sum. Unrelated."
+  },
+  {
+   "pair": 25,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate a quotient of fraction sums/differences",
+   "reason": "Trig angle vs fraction arithmetic. Unrelated."
+  },
+  {
+   "pair": 26,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000267",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate (a+b)/(a−b) given a/b",
+   "reason": "Trig angle vs ratio substitution. Unrelated."
+  },
+  {
+   "pair": 27,
+   "a": "CLD-SAT-M-000600",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "Solve a linear equation for the grouped expression 4x + 7 by treating it as a single variable",
+   "task_b": "Evaluate composition f(g(−1)) with exponential f",
+   "reason": "Solving for a grouped linear expression vs evaluating a composition. Unrelated."
+  },
+  {
+   "pair": 28,
+   "a": "CLD-SAT-M-000680",
+   "b": "CLD-ACT-M-000081",
+   "verdict": "distinct",
+   "task_a": "Sum of solutions of |x − 3| + |x + 5| = 10 by interval casework on two absolute values",
+   "task_b": "Solve 4^x − 3·2^x − 4 = 0 via u = 2^x and reject the negative root",
+   "reason": "Absolute-value interval casework vs exponential quadratic substitution. Different method."
+  },
+  {
+   "pair": 29,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000370",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Solve a proportion by cross-multiplication",
+   "reason": "Trig angle vs proportion. Unrelated."
+  },
+  {
+   "pair": 30,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate g(−5) + g(1) for g(x) = |x + 3|",
+   "reason": "Trig angle vs absolute-value function evaluation. Unrelated."
+  },
+  {
+   "pair": 31,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000554",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count solutions of f(x) = 1 for a piecewise function",
+   "reason": "Composition f(f(x)) vs piecewise branch solving. Different method."
+  },
+  {
+   "pair": 32,
+   "a": "CLD-SAT-M-000732",
+   "b": "CLD-ACT-M-000288",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count solutions of sin(2x) = 1/2 on [0, 2π)",
+   "reason": "Composition casework vs counting trig solutions over a compressed period. Different method."
+  },
+  {
+   "pair": 33,
+   "a": "CLD-ACT-E-000445",
+   "b": "CLD-ACT-E-000065",
+   "verdict": "distinct",
+   "task_a": "Sentence-placement (logic/cohesion) for sentence 5 in a passage about product sales",
+   "task_b": "Sentence-placement for Sentence 2 in a third paragraph about a traced path and misread digits",
+   "reason": "Sentence-placement template with different passages and cues. Not duplicative."
+  },
+  {
+   "pair": 34,
+   "a": "CLD-SAT-M-000577",
+   "b": "CLD-ACT-M-000051",
+   "verdict": "distinct",
+   "task_a": "Simplify a quotient of two rational expressions by factoring",
+   "task_b": "Simplify a single rational expression by factoring and canceling",
+   "reason": "Both factor x² − 9, but A divides two rational expressions (invert and multiply, simplify to a constant), while B simplifies a single fraction. Related skill, different task."
+  },
+  {
+   "pair": 35,
+   "a": "CLD-SAT-M-000591",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "Find f(1) for f(x)=a·b^x using f(2)·f(4) = f(3)² and f(5)",
+   "task_b": "Evaluate g(−5) + g(1) for g(x) = |x + 3|",
+   "reason": "Exponential model with a product-of-values trick vs plugging into an absolute-value function. Unrelated."
+  },
+  {
+   "pair": 36,
+   "a": "CLD-SAT-M-000600",
+   "b": "CLD-ACT-M-000661",
+   "verdict": "distinct",
+   "task_a": "Solve a linear equation for the grouped expression 4x + 7 by treating it as a single variable",
+   "task_b": "Solve |x − 3| = |x − 7| (midpoint/equidistance)",
+   "reason": "Linear equation in a grouped expression vs equidistance absolute-value equation. Different task."
+  },
+  {
+   "pair": 37,
+   "a": "CLD-SAT-M-000613",
+   "b": "CLD-ACT-M-000051",
+   "verdict": "distinct",
+   "task_a": "Rationalize a denominator with a conjugate",
+   "task_b": "Simplify a single rational expression by factoring and canceling",
+   "reason": "Conjugate rationalization of a radical vs factoring and canceling a rational expression. Different technique."
+  },
+  {
+   "pair": 38,
+   "a": "CLD-SAT-M-000680",
+   "b": "CLD-ACT-M-000677",
+   "verdict": "distinct",
+   "task_a": "Sum of solutions of |x − 3| + |x + 5| = 10 by interval casework on two absolute values",
+   "task_b": "Add two 2D vectors componentwise",
+   "reason": "Absolute-value equation sum of solutions vs vector addition. Unrelated."
+  },
+  {
+   "pair": 39,
+   "a": "CLD-SAT-M-000731",
+   "b": "PP-MATH-000689",
+   "verdict": "distinct",
+   "task_a": "Find x² + y² from x + y and 1/x + 1/y using xy",
+   "task_b": "Count distinct solutions of |x² − 4| = x + 2 by casework with branch checks",
+   "reason": "Symmetric-sum identity vs absolute-value casework. Unrelated."
+  },
+  {
+   "pair": 40,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000248",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Find k so that ||x| − 2| = k has exactly three solutions",
+   "reason": "A counts solutions of a composition; B finds the parameter k giving exactly three solutions of a nested absolute value. Different task."
+  },
+  {
+   "pair": 41,
+   "a": "CLD-SAT-M-000732",
+   "b": "PP-MATH-000608",
+   "verdict": "distinct",
+   "task_a": "Count solutions of f(f(x)) = 0 for a quadratic f by solving f(x) = each zero of f and using f's minimum",
+   "task_b": "Count solutions of x² + 1/x² = 5 via t = x²",
+   "reason": "Composition casework vs x² + 1/x² substitution. Different method."
+  },
+  {
+   "pair": 42,
+   "a": "CLD-SAT-M-000742",
+   "b": "CLD-ACT-M-000102",
+   "verdict": "distinct",
+   "task_a": "Minimum of g(x) = f(x/2) where f is a quadratic built from zeros and f(0) (horizontal stretch preserves range)",
+   "task_b": "Identify vertex/max-min of a quadratic in vertex form",
+   "reason": "A builds f from zeros and f(0), then uses horizontal-stretch invariance of the minimum; B reads the vertex from vertex form. Different task."
+  },
+  {
+   "pair": 43,
+   "a": "CLD-SAT-M-000742",
+   "b": "CLD-ACT-M-000330",
+   "verdict": "distinct",
+   "task_a": "Minimum of g(x) = f(x/2) where f is a quadratic built from zeros and f(0) (horizontal stretch preserves range)",
+   "task_b": "Minimum of a factored quadratic via midpoint of zeros",
+   "reason": "Both find a quadratic's minimum via the midpoint of the zeros, but A requires finding the leading coefficient from f(0) and recognizing that g(x) = f(x/2) has the same minimum (a transformation concept absent from B). Related, not same steps."
+  },
+  {
+   "pair": 44,
+   "a": "CLD-SAT-M-000743",
+   "b": "CLD-ACT-M-000479",
+   "verdict": "distinct",
+   "task_a": "Count distinct real zeros of p(x)·p(x−1) by shifting the zeros of a factored cubic and removing the overlap",
+   "task_b": "Count real zeros of f(x)+3 for a factored quadratic by checking whether the shifted minimum is below 0",
+   "reason": "Shifted-polynomial zero overlap vs sign of a shifted quadratic's minimum. Different method."
+  },
+  {
+   "pair": 45,
+   "a": "CLD-SAT-M-000799",
+   "b": "PP-MATH-000481",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Bound √7 − √6 between fractions by rationalizing",
+   "reason": "Trig angle vs bounding a radical difference. Unrelated."
+  },
+  {
+   "pair": 46,
+   "a": "CLD-SAT-M-000799",
+   "b": "PP-MATH-000653",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Find f(π/2) for f(x)=a cos x + b from f(0) and f(π)",
+   "reason": "A finds an angle from cos and the sign of sin; B solves for constants of a cosine model. Different task."
+  },
+  {
+   "pair": 47,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000528",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Solve a linear equation with distribution",
+   "reason": "Trig angle vs linear equation. Unrelated."
+  },
+  {
+   "pair": 48,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000570",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate composition f(g(−1)) with exponential f",
+   "reason": "Trig angle vs composition evaluation. Unrelated."
+  },
+  {
+   "pair": 49,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000573",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Evaluate a complex-number expression (2+i)(2−i)+i²",
+   "reason": "Trig angle vs complex arithmetic. Unrelated."
+  },
+  {
+   "pair": 50,
+   "a": "CLD-SAT-M-000799",
+   "b": "CLD-ACT-M-000683",
+   "verdict": "distinct",
+   "task_a": "Find θ in [0, 2π) given cos θ = −1/2 and sign of sin θ (quadrant reasoning)",
+   "task_b": "Exact value of sin(5π/3) from reference angle",
+   "reason": "Both use unit-circle values, but A is inverse (find θ from cos value and quadrant) while B is direct evaluation of sin at a given angle. Different task."
+  },
+  {
+   "pair": 51,
+   "a": "CLD-SAT-M-000853",
+   "b": "CLD-ACT-M-000032",
+   "verdict": "distinct",
+   "task_a": "Determine where g(f(x)) = x when g∘f simplifies to |x|",
+   "task_b": "Identify a value not in the domain of a square-root function",
+   "reason": "A analyzes g(f(x)) = |x| to find where it equals x; B finds a domain restriction of a square root. Different task."
+  },
+  {
+   "pair": 52,
+   "a": "CLD-SAT-M-000853",
+   "b": "CLD-ACT-M-000281",
+   "verdict": "distinct",
+   "task_a": "Determine where g(f(x)) = x when g∘f simplifies to |x|",
+   "task_b": "Find range of a shifted square-root function",
+   "reason": "Composition identity condition vs range of a shifted square root. Different task."
+  },
+  {
+   "pair": 53,
+   "a": "CLD-SAT-M-000883",
+   "b": "CLD-ACT-M-000555",
+   "verdict": "distinct",
+   "task_a": "Probability that 3n + 4 meets an inequality and a parity condition for random n in 1–50",
+   "task_b": "Probability of perfect square or cube in 1–100 by inclusion-exclusion",
+   "reason": "Both are probability from 1..N, but A combines a linear inequality with parity while B uses inclusion-exclusion on squares and cubes. Different counting method."
+  },
+  {
+   "pair": 54,
+   "a": "CLD-SAT-M-000903",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "Find k in f(x)=kx² from f(3) − f(1) and evaluate f(5)",
+   "task_b": "Evaluate g(−5) + g(1) for g(x) = |x + 3|",
+   "reason": "Find k from a difference of quadratic values vs evaluate an absolute-value function. Different task."
+  },
+  {
+   "pair": 55,
+   "a": "CLD-SAT-M-000945",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "Combine 2^(x+1)·3^(x−1) into a multiple of 6^x and solve for 6^x",
+   "task_b": "Evaluate a quotient of fraction sums/differences",
+   "reason": "Exponent-rule manipulation to isolate 6^x vs fraction arithmetic. Unrelated."
+  },
+  {
+   "pair": 56,
+   "a": "CLD-SAT-M-000946",
+   "b": "CLD-ACT-M-000682",
+   "verdict": "distinct",
+   "task_a": "Find x/y from a homogeneous quadratic x² − 5xy + 6y² = 0 with one root excluded",
+   "task_b": "Square the complex number (1 + i)",
+   "reason": "Factoring a homogeneous quadratic for x/y vs squaring a complex number. Unrelated."
+  },
+  {
+   "pair": 57,
+   "a": "CLD-SAT-M-000981",
+   "b": "PP-MATH-000554",
+   "verdict": "distinct",
+   "task_a": "Compare average rates of change of an exponential over shifted intervals",
+   "task_b": "Count solutions of f(x) = 1 for a piecewise function",
+   "reason": "Exponential average rate-of-change ratio vs piecewise equation solving. Unrelated."
+  },
+  {
+   "pair": 58,
+   "a": "CLD-SAT-M-000990",
+   "b": "PP-MATH-000177",
+   "verdict": "distinct",
+   "task_a": "Evaluate x(x+1)(x+3)(x+4) given x² + 4x = 6 by pairing factors",
+   "task_b": "Telescoping sum of 1/(n(n+1))",
+   "reason": "Pairing factors with substitution vs telescoping sum. Different technique."
+  },
+  {
+   "pair": 59,
+   "a": "CLD-SAT-M-000990",
+   "b": "CLD-ACT-M-000079",
+   "verdict": "distinct",
+   "task_a": "Evaluate x(x+1)(x+3)(x+4) given x² + 4x = 6 by pairing factors",
+   "task_b": "Evaluate a sum of absolute values of numbers",
+   "reason": "Pairing-factor product trick vs numeric absolute values. Unrelated."
+  },
+  {
+   "pair": 60,
+   "a": "CLD-SAT-M-000990",
+   "b": "CLD-ACT-M-000225",
+   "verdict": "distinct",
+   "task_a": "Evaluate x(x+1)(x+3)(x+4) given x² + 4x = 6 by pairing factors",
+   "task_b": "Evaluate a quotient of fraction sums/differences",
+   "reason": "Pairing-factor product trick vs fraction arithmetic. Unrelated."
+  },
+  {
+   "pair": 61,
+   "a": "CLD-SAT-M-000990",
+   "b": "CLD-ACT-M-000267",
+   "verdict": "distinct",
+   "task_a": "Evaluate x(x+1)(x+3)(x+4) given x² + 4x = 6 by pairing factors",
+   "task_b": "Evaluate (a+b)/(a−b) given a/b",
+   "reason": "Pairing-factor product trick vs ratio substitution. Unrelated."
+  },
+  {
+   "pair": 62,
+   "a": "CLD-SAT-M-000990",
+   "b": "CLD-ACT-M-000491",
+   "verdict": "distinct",
+   "task_a": "Evaluate x(x+1)(x+3)(x+4) given x² + 4x = 6 by pairing factors",
+   "task_b": "Evaluate g(−5) + g(1) for g(x) = |x + 3|",
+   "reason": "Pairing-factor product trick vs evaluating an absolute-value function. Unrelated."
+  }
+ ]
+}

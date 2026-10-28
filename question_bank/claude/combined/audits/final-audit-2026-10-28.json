@@ -1,0 +1,102 @@
+{
+ "audit": "final whole-bank audit (structure, review evidence, passage consistency, insertion, hints, duplicates)",
+ "generated_at": "2026-10-28T03:19:48+00:00",
+ "records": 5843,
+ "reviewed_draft": {
+  "ACT English": 1002,
+  "ACT Math": 1438,
+  "ACT Reading": 1003,
+  "SAT Math": 1000,
+  "SAT Reading and Writing": 1008
+ },
+ "findings_total": 6,
+ "blocking_total": 0,
+ "blocking_by_check": {},
+ "nonblocking_by_check": {
+  "structure:STALE_UNDERLINE_ON_ESSAY_ITEM": 4,
+  "duplicates:DUPLICATE_RETAINED_BY_OVERRIDE": 2
+ },
+ "act_english_orphan_spans": [],
+ "passage_set_sizes": {
+  "ACT English": {
+   "passages": 111,
+   "min": 2,
+   "max": 14,
+   "mean": 9.0,
+   "sets_under_5": 14
+  },
+  "ACT Reading": {
+   "passages": 115,
+   "min": 2,
+   "max": 10,
+   "mean": 8.7,
+   "sets_under_5": 7
+  }
+ },
+ "near_duplicate_pairs_between_reviewed_records": 203,
+ "near_duplicate_pairs_unadjudicated": 0,
+ "near_duplicate_pairs_adjudicated_duplicate": [],
+ "exact_duplicate_groups": [],
+ "findings": [
+  {
+   "id": "CLD-ACT-E-000445",
+   "source": "Claude",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "structure",
+   "code": "STALE_UNDERLINE_ON_ESSAY_ITEM",
+   "detail": "underline 9 not in passage (essay-level item; renders with no highlight)",
+   "blocking": false
+  },
+  {
+   "id": "CLD-ACT-E-000452",
+   "source": "Claude",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "structure",
+   "code": "STALE_UNDERLINE_ON_ESSAY_ITEM",
+   "detail": "underline 9 not in passage (essay-level item; renders with no highlight)",
+   "blocking": false
+  },
+  {
+   "id": "CLD-ACT-E-000456",
+   "source": "Claude",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "structure",
+   "code": "STALE_UNDERLINE_ON_ESSAY_ITEM",
+   "detail": "underline 10 not in passage (essay-level item; renders with no highlight)",
+   "blocking": false
+  },
+  {
+   "id": "CLD-ACT-E-000471",
+   "source": "Claude",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "structure",
+   "code": "STALE_UNDERLINE_ON_ESSAY_ITEM",
+   "detail": "underline 9 not in passage (essay-level item; renders with no highlight)",
+   "blocking": false
+  },
+  {
+   "id": "PP-VERBAL-20261022-F-017",
+   "source": "ChatGPT",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "duplicates",
+   "code": "DUPLICATE_RETAINED_BY_OVERRIDE",
+   "detail": "PP-VERBAL-20261022-I-011: both retained; open for human editorial review",
+   "blocking": false
+  },
+  {
+   "id": "PP-VERBAL-20261022-C-002",
+   "source": "ChatGPT",
+   "section": "ACT English",
+   "status": "reviewed_draft",
+   "check": "duplicates",
+   "code": "DUPLICATE_RETAINED_BY_OVERRIDE",
+   "detail": "PP-VERBAL-20261022-K-001: both retained; open for human editorial review",
+   "blocking": false
+  }
+ ]
+}

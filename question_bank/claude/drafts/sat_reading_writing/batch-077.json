@@ -1,0 +1,630 @@
+{
+ "bank": "sat_reading_writing",
+ "batch": 77,
+ "plan": "Final-audit repair batch: nine SEC items whose options began with punctuation after a spaced blank (literal insertion showed \"word , and\"). Each is reissued on a corrected passage (content_version 2) with the preceding word moved into every option; keys unchanged. Each supersedes its original only after two fresh blind solves. Difficulty provisional.",
+ "passages": [
+  {
+   "passage_id": "CLD-P-SAT-RW-000744",
+   "title": "Transit hours",
+   "genre": "civics",
+   "word_count": 32,
+   "text": "The decision by the city's transit authority to extend service hours on weekends and ______ riders who work late shifts, many of whom previously had to pay for taxis to get home.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000053",
+   "correction": "display repair: the word before the blank (\"holidays\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000745",
+   "title": "Two portraits",
+   "genre": "arts",
+   "word_count": 37,
+   "text": "Of the two portraits the museum acquired last year, the ______ in the east wing was long attributed to a little-known painter; recent analysis of its pigments suggests that it was painted by the workshop's founder herself.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000120",
+   "correction": "display repair: the word before the blank (\"one\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000746",
+   "title": "Bridge cables",
+   "genre": "engineering",
+   "word_count": 22,
+   "text": "The engineers tested the bridge's cables for ______ replaced the three that showed the most wear before reopening the bridge to traffic.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000121",
+   "correction": "display repair: the word before the blank (\"corrosion\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000747",
+   "title": "The treaty debate",
+   "genre": "history",
+   "word_count": 21,
+   "text": "Historians have long ______ the treaty's harsh terms, rather than any single political leader, made the war that followed nearly inevitable.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000132",
+   "correction": "display repair: the word before the blank (\"argued\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000748",
+   "title": "The Rosetta Stone",
+   "genre": "history",
+   "word_count": 30,
+   "text": "The Rosetta ______ in 1799 by French soldiers near the Egyptian town of Rashid, carries the same decree in three scripts, a feature that later helped scholars decipher Egyptian hieroglyphs.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000142",
+   "correction": "display repair: the word before the blank (\"Stone\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000749",
+   "title": "Naming a species",
+   "genre": "biology",
+   "word_count": 31,
+   "text": "The two researchers who first described the tiny freshwater snail in ______ it after the river where they found it, a stretch of water that had not been surveyed in decades.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000151",
+   "correction": "display repair: the word before the blank (\"2019\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000750",
+   "title": "Water tower",
+   "genre": "local history",
+   "word_count": 27,
+   "text": "The engineer who designed the town's first water ______ the structure would last a century; it was finally replaced in 2019, 104 years after it was built.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000181",
+   "correction": "display repair: the word before the blank (\"tower\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000751",
+   "title": "Above all",
+   "genre": "exploration",
+   "word_count": 25,
+   "text": "The expedition's success depended on one thing more than any ______ the weather in the narrow window when the pass would be free of ice.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000267",
+   "correction": "display repair: the word before the blank (\"other\") moved into every option so literal insertion leaves no space before punctuation"
+  },
+  {
+   "passage_id": "CLD-P-SAT-RW-000752",
+   "title": "Sold out",
+   "genre": "commerce",
+   "word_count": 20,
+   "text": "By noon the bakery had sold every loaf of ______ by evening, even the last tray of pastries was gone.",
+   "content_version": 2,
+   "supersedes_passage": "CLD-P-SAT-RW-000277",
+   "correction": "display repair: the word before the blank (\"bread\") moved into every option so literal insertion leaves no space before punctuation"
+  }
+ ],
+ "candidates": [
+  {
+   "cand": "S077-01",
+   "passage_id": "CLD-P-SAT-RW-000744",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Subject-verb agreement (long subject)",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "holidays has benefited",
+    "B": "holidays have benefited",
+    "C": "holidays, has benefited",
+    "D": "holidays—have benefited"
+   },
+   "answer": "A",
+   "evidence": "The decision by the city's transit authority",
+   "explanation": "The subject is \"decision,\" which is singular; the phrases that follow modify it. No punctuation belongs between subject and verb.",
+   "distractors": {
+    "B": {
+     "rationale": "The subject is \"decision\" (singular), not \"hours\" or \"holidays.\"",
+     "trap": "nearest_noun_agreement"
+    },
+    "C": {
+     "rationale": "A comma should not separate a subject from its verb.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A dash should not separate the subject from its verb, and \"have\" is plural.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Strip the prepositional phrases: what is the subject?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Remove punctuation choices first, then check agreement."
+   },
+   "remember": "Don't separate a subject from its verb with punctuation.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S006-04",
+     "id": "CLD-SAT-RW-000053",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"holidays\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000053",
+   "dup_cleared": "supersedes CLD-SAT-RW-000053 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000053 and its passage"
+  },
+  {
+   "cand": "S077-02",
+   "passage_id": "CLD-P-SAT-RW-000745",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Restrictive clause (no commas)",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "one that hangs",
+    "B": "one, which hangs",
+    "C": "one which hangs,",
+    "D": "one, that hangs"
+   },
+   "answer": "A",
+   "evidence": "Of the two portraits the museum acquired last year",
+   "explanation": "The clause tells which of the two portraits is meant, so it is essential (restrictive) and takes no commas: \"the one that hangs in the east wing was ...\"",
+   "distractors": {
+    "B": {
+     "rationale": "A comma here sets off the clause as nonessential, but the clause identifies which of the two portraits is meant; the single comma also separates the subject from its verb.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "The comma after \"hangs\" splits the verb from its modifier \"in the east wing.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "\"That\" introduces an essential clause and is never set off by a comma.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the clause needed to know which portrait the sentence means?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Remove the clause: is the sentence still clear?"
+   },
+   "remember": "Essential clauses identify the noun: no commas.",
+   "expected_time_seconds": 60,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S013-04",
+     "id": "CLD-SAT-RW-000117",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"one\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000117",
+   "dup_cleared": "supersedes CLD-SAT-RW-000117 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000117 and its passage"
+  },
+  {
+   "cand": "S077-03",
+   "passage_id": "CLD-P-SAT-RW-000746",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Compound predicate (no comma)",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "corrosion, and",
+    "B": "corrosion; and",
+    "C": "corrosion, they",
+    "D": "corrosion and"
+   },
+   "answer": "D",
+   "evidence": "The engineers tested the bridge's cables for",
+   "explanation": "\"The engineers\" is the subject of both \"tested\" and \"replaced.\" Two verbs sharing one subject are joined by \"and\" with no comma.",
+   "distractors": {
+    "A": {
+     "rationale": "A comma before \"and\" is used when it joins two independent clauses; here \"replaced\" has no new subject, so the comma is unnecessary.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "A semicolon must join two independent clauses, and \"replaced the three ...\" has no subject.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A comma alone cannot join two independent clauses; this creates a comma splice.",
+     "trap": "comma_splice"
+    }
+   },
+   "hints": [
+    "Does the second verb have its own subject?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Check whether a new subject follows the blank."
+   },
+   "remember": "One subject + two verbs: no comma before \"and.\"",
+   "expected_time_seconds": 50,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S013-05",
+     "id": "CLD-SAT-RW-000118",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"corrosion\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000118",
+   "dup_cleared": "supersedes CLD-SAT-RW-000118 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000118 and its passage"
+  },
+  {
+   "cand": "S077-04",
+   "passage_id": "CLD-P-SAT-RW-000747",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "No punctuation between a verb and its that-clause",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "argued, that",
+    "B": "argued that",
+    "C": "argued that,",
+    "D": "argued: that"
+   },
+   "answer": "B",
+   "evidence": "Historians have long",
+   "explanation": "\"That the treaty's harsh terms ... made the war nearly inevitable\" is the object of \"argued,\" so no punctuation separates them.",
+   "distractors": {
+    "A": {
+     "rationale": "A comma should not separate the verb \"argued\" from the clause that is its object.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A comma after \"that\" splits the clause's subject, \"the treaty's harsh terms,\" from its own conjunction.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A colon cannot come between a verb and its object.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "What does \"argued\" need to be followed by?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Remove punctuation between a verb and its object."
+   },
+   "remember": "No punctuation between a verb and the clause it introduces.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S014-06",
+     "id": "CLD-SAT-RW-000127",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"argued\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000127",
+   "dup_cleared": "supersedes CLD-SAT-RW-000127 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000127 and its passage"
+  },
+  {
+   "cand": "S077-05",
+   "passage_id": "CLD-P-SAT-RW-000748",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Commas around a nonessential participial phrase",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "Stone rediscovered",
+    "B": "Stone, rediscovered",
+    "C": "Stone, which rediscovered",
+    "D": "Stone; rediscovered"
+   },
+   "answer": "B",
+   "evidence": "near the Egyptian town of Rashid, carries",
+   "explanation": "\"Rediscovered in 1799 ... Rashid\" is extra information about the stone, so it is set off by a pair of commas; the second comma is already in place before \"carries.\"",
+   "distractors": {
+    "A": {
+     "rationale": "Without a comma before it, the phrase is not set off, yet a comma follows it before \"carries.\"",
+     "trap": null
+    },
+    "C": {
+     "rationale": "\"Which rediscovered\" makes the stone the one doing the rediscovering.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A semicolon would separate the subject \"The Rosetta Stone\" from its verb \"carries.\"",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is there already a comma at the end of the phrase?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Match the comma that closes the phrase."
+   },
+   "remember": "Nonessential phrases need commas on both sides.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S015-06",
+     "id": "CLD-SAT-RW-000136",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"Stone\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000136",
+   "dup_cleared": "supersedes CLD-SAT-RW-000136 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000136 and its passage"
+  },
+  {
+   "cand": "S077-06",
+   "passage_id": "CLD-P-SAT-RW-000749",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "No comma between a subject and its verb",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "2019 named",
+    "B": "2019, named",
+    "C": "2019 named,",
+    "D": "2019, named,"
+   },
+   "answer": "A",
+   "evidence": "The two researchers who first described the tiny freshwater snail in",
+   "explanation": "However long the subject is, no comma separates it from its verb, \"named.\"",
+   "distractors": {
+    "B": {
+     "rationale": "A comma would separate the long subject \"The two researchers who first described ...\" from its verb.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A comma would separate the verb \"named\" from its object \"it.\"",
+     "trap": null
+    },
+    "D": {
+     "rationale": "Paired commas would wrongly set off the main verb as if it were extra information.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Where does the subject end and the verb begin?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Remove commas between subject and verb."
+   },
+   "remember": "Never put a single comma between a subject and its verb.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S016-06",
+     "id": "CLD-SAT-RW-000145",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"2019\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000145",
+   "dup_cleared": "supersedes CLD-SAT-RW-000145 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000145 and its passage"
+  },
+  {
+   "cand": "S077-07",
+   "passage_id": "CLD-P-SAT-RW-000750",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Punctuation between subject and verb",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "easy",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "tower predicted, that",
+    "B": "tower, predicted that",
+    "C": "tower predicted: that",
+    "D": "tower predicted that"
+   },
+   "answer": "D",
+   "evidence": "The engineer who designed the town's first water",
+   "explanation": "The subject (\"The engineer who designed the town's first water tower\") leads straight into the verb and its object clause with no punctuation: \"predicted that.\"",
+   "distractors": {
+    "A": {
+     "rationale": "No comma belongs between a verb and the clause that is its object.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "A comma here would separate the subject from its verb.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "A colon must follow a complete independent clause; \"The engineer ... predicted\" is not complete without its object.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Is the clause before the blank a complete sentence?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Eliminate punctuation that splits subject, verb and object."
+   },
+   "remember": "Never separate a subject from its verb, or a verb from its object, with punctuation.",
+   "expected_time_seconds": 45,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S019-07",
+     "id": "CLD-SAT-RW-000172",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"tower\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000172",
+   "dup_cleared": "supersedes CLD-SAT-RW-000172 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000172 and its passage"
+  },
+  {
+   "cand": "S077-08",
+   "passage_id": "CLD-P-SAT-RW-000751",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Colon introducing an explanation",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "other;",
+    "B": "other,",
+    "C": "other, it was",
+    "D": "other:"
+   },
+   "answer": "D",
+   "evidence": "The expedition's success depended on one thing more than any",
+   "explanation": "A complete clause that anticipates something (\"one thing more than any other\") is followed by a colon introducing that thing: the weather.",
+   "distractors": {
+    "A": {
+     "rationale": "A semicolon must join two independent clauses; \"the weather ...\" is a noun phrase.",
+     "trap": null
+    },
+    "B": {
+     "rationale": "A comma here makes the phrase read as a loosely attached afterthought; a colon is needed to introduce the thing named.",
+     "trap": null
+    },
+    "C": {
+     "rationale": "This creates a comma splice.",
+     "trap": "comma_splice"
+    }
+   },
+   "hints": [
+    "Is the part before the blank a complete sentence that sets something up?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Rule out marks that need a clause on both sides."
+   },
+   "remember": "Use a colon after a complete clause to introduce what it announces.",
+   "expected_time_seconds": 40,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S028-08",
+     "id": "CLD-SAT-RW-000258",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"other\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000258",
+   "dup_cleared": "supersedes CLD-SAT-RW-000258 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000258 and its passage"
+  },
+  {
+   "cand": "S077-09",
+   "passage_id": "CLD-P-SAT-RW-000752",
+   "reporting_category": "Standard English Conventions",
+   "skill": "Standard English Conventions",
+   "subskill": "Semicolon between independent clauses",
+   "repo_skill_key": "sat_standard_english",
+   "difficulty": "medium",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": {
+    "A": "bread,",
+    "B": "bread;",
+    "C": "bread, which",
+    "D": "bread: and"
+   },
+   "answer": "B",
+   "evidence": "even the last tray of pastries was gone",
+   "explanation": "\"By noon the bakery had sold every loaf of bread\" and \"by evening, even the last tray of pastries was gone\" are independent clauses, so a semicolon joins them.",
+   "distractors": {
+    "A": {
+     "rationale": "A comma alone between two independent clauses is a comma splice.",
+     "trap": "comma_splice"
+    },
+    "C": {
+     "rationale": "\"Which\" cannot introduce the independent clause that follows.",
+     "trap": null
+    },
+    "D": {
+     "rationale": "A colon followed by \"and\" is not standard here.",
+     "trap": null
+    }
+   },
+   "hints": [
+    "Can each side of the blank stand alone?"
+   ],
+   "strategy": {
+    "key": "process_of_elimination",
+    "explanation": "Check whether both sides are complete clauses."
+   },
+   "remember": "A semicolon joins two closely related independent clauses.",
+   "expected_time_seconds": 35,
+   "modeling": false,
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "revision": 2,
+   "revision_history": [
+    {
+     "round": 1,
+     "cand": "S029-08",
+     "id": "CLD-SAT-RW-000267",
+     "reason": "literal-insertion seam defect (space before punctuation)",
+     "change": "word \"bread\" moved from the passage into every option; keys and rationales unchanged"
+    }
+   ],
+   "supersedes": "CLD-SAT-RW-000267",
+   "dup_cleared": "supersedes CLD-SAT-RW-000267 (final whole-bank audit 2026-10-28: literal-insertion seam defect (space before punctuation)); expected matches only CLD-SAT-RW-000267 and its passage"
+  }
+ ]
+}

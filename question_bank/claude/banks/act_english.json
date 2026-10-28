@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "English",
   "id_prefix": "CLD-ACT-E-",
-  "version": 74,
-  "updated_at": "2026-10-28T03:05:32+00:00",
+  "version": 75,
+  "updated_at": "2026-10-28T03:17:22+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-E-000001",
@@ -52985,6 +52985,77 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_english/batch-074.review.json",
         "computation": "checks/act_english/batch_074.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-E-000736",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "English",
+      "reporting_category": "Conventions of Standard English",
+      "skill": "Conventions of Standard English",
+      "subskill": "Commas around an interrupting word",
+      "modeling": false,
+      "repo_skill_key": "act_punctuation",
+      "passage_id": "CLD-P-ACT-E-000050",
+      "underline": 6,
+      "evidence": "earned little from them",
+      "figure": null,
+      "stem": "Which choice is best for the underlined portion?",
+      "answer_format": "choice",
+      "choices": {
+        "A": "NO CHANGE",
+        "B": "; however,",
+        "C": ", however,",
+        "D": ", however;"
+      },
+      "correct_answer": "C",
+      "explanation": "\"However\" interrupts the subject and verb, so it is set off with commas on both sides.",
+      "distractor_explanations": {
+        "A": "\"However\" interrupts the sentence, so it needs a comma on each side.",
+        "B": "A semicolon cannot come between the subject \"Brewster\" and its verb.",
+        "D": "A semicolon cannot separate the subject \"Brewster\" from its verb \"earned.\""
+      },
+      "distractor_traps": {
+        "A": null,
+        "B": null,
+        "D": null
+      },
+      "hints": [
+        "Does \"however\" interrupt the sentence?"
+      ],
+      "strategy": {
+        "key": "process_of_elimination",
+        "explanation": "Check for matching commas."
+      },
+      "remember": "An interrupting word needs commas on both sides.",
+      "expected_time_seconds": 25,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 76,
+      "draft_candidate": "E076-01",
+      "created_at": "2026-10-28T03:17:22+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 80,
+        "blind_flags": [],
+        "revisions_before_pass": 2,
+        "evidence": "reviews/act_english/batch-076.review.json",
+        "computation": "checks/act_english/batch_076.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

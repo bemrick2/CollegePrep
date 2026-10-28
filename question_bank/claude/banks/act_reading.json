@@ -4,8 +4,8 @@
   "exam": "ACT",
   "section": "Reading",
   "id_prefix": "CLD-ACT-R-",
-  "version": 75,
-  "updated_at": "2026-10-28T03:00:39+00:00",
+  "version": 76,
+  "updated_at": "2026-10-28T03:15:34+00:00",
   "passages": [
     {
       "passage_id": "CLD-P-ACT-R-000001",
@@ -52346,6 +52346,77 @@
         "revisions_before_pass": 1,
         "evidence": "reviews/act_reading/batch-076.review.json",
         "computation": "checks/act_reading/batch_076.py"
+      },
+      "review_status": "ai_reviewed_pending_human",
+      "human_review": null
+    },
+    {
+      "id": "CLD-ACT-R-000722",
+      "schema_version": "cld-qb/1.0",
+      "exam": "ACT",
+      "section": "Reading",
+      "reporting_category": "Craft and Structure",
+      "skill": "Craft and Structure",
+      "subskill": "Vocabulary in context",
+      "modeling": false,
+      "repo_skill_key": "act_vocabulary_in_context",
+      "passage_id": "CLD-P-ACT-R-000061",
+      "underline": null,
+      "evidence": "drew a neat stroke through it",
+      "figure": null,
+      "stem": "As it is used in paragraph 4, the word stroke most nearly means:",
+      "answer_format": "choice",
+      "choices": {
+        "A": "blow.",
+        "B": "caress.",
+        "C": "line.",
+        "D": "sudden illness."
+      },
+      "correct_answer": "C",
+      "explanation": "Arno \"drew a neat stroke\" through a line in the ledger, so \"stroke\" means a line drawn with a pen.",
+      "distractor_explanations": {
+        "A": "A \"blow\" is a hit, which does not fit drawing in a ledger.",
+        "B": "A caress is a gentle touch, not a mark on a page.",
+        "D": "This medical sense does not fit drawing in a ledger."
+      },
+      "distractor_traps": {
+        "A": "familiar_meaning",
+        "B": "familiar_meaning",
+        "D": "familiar_meaning"
+      },
+      "hints": [
+        "What kind of mark would someone make with a pen in a ledger?"
+      ],
+      "strategy": {
+        "key": "predict_then_match",
+        "explanation": "Replace the word with a simple synonym."
+      },
+      "remember": "Choose the meaning that fits the action described.",
+      "expected_time_seconds": 20,
+      "calculator": "allowed",
+      "difficulty": "easy",
+      "difficulty_numeric": 2,
+      "difficulty_basis": "provisional editorial estimate; not statistically calibrated",
+      "difficulty_calibrated": "easy",
+      "difficulty_calibration_basis": "rubric rating by the blind solver (est. share of typical test-takers correct); AI estimate, not student data",
+      "origin": "ai_generated",
+      "author": "ai:claude",
+      "license": "original-owned",
+      "batch": 77,
+      "draft_candidate": "R077-01",
+      "created_at": "2026-10-28T03:15:33+00:00",
+      "validation": {
+        "status": "PASS",
+        "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+        "computed_answer": "C",
+        "blind_answer": "C",
+        "blind_confidence": "high",
+        "blind_difficulty_opinion": "easy",
+        "blind_est_pct_correct": 92,
+        "blind_flags": [],
+        "revisions_before_pass": 1,
+        "evidence": "reviews/act_reading/batch-077.review.json",
+        "computation": "checks/act_reading/batch_077.py"
       },
       "review_status": "ai_reviewed_pending_human",
       "human_review": null

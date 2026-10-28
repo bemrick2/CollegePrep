@@ -1,0 +1,59 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "act_english",
+  "batch": 75,
+  "reviewed_at": "2026-10-28T03:15:31+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 75
+  },
+  "counts": {
+    "PASS": 0,
+    "REVISE": 1,
+    "REJECT": 0
+  },
+  "appended_ids": [],
+  "results": [
+    {
+      "cand": "E075-01",
+      "revision": 2,
+      "revision_history": [
+        {
+          "round": 1,
+          "cand": "E050-06",
+          "id": "CLD-ACT-E-000469",
+          "reason": "literal-insertion seam defect: option D \"however,\" inserted after \"Brewster\" rendered \"Brewsterhowever,\"",
+          "change": "options B and D rewritten as punctuation errors that insert cleanly (B \"; however,\", D \", however;\"); key and passage unchanged"
+        }
+      ],
+      "key": "C",
+      "computed_answer": "C",
+      "blind_answer": "C",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "easy",
+      "blind_est_pct_correct": 80,
+      "blind_flags": [],
+      "blind_notes": "'Brewster, however, earned little from them.' - interrupting conjunctive adverb between subject and verb needs paired commas. A (NO CHANGE): opening comma without closing comma. B: semicolon between subject and verb creates fragments. D: semicolon after 'however' separates subject from verb. Note: passage contains other errors (S2 'objects...was', S4 comma splice 'in 1817, however,', S6 'number of kaleidoscopes was') presumably targeted by other items; they do not affect this item, though S4's 'however' contrasts with S7's.",
+      "blind2_answer": "C",
+      "blind2_flags": [
+        "non-blocking: passage contains untested errors in sentences 2, 4, 6 unless they are targets of other items"
+      ],
+      "blind2_difficulty_opinion": "easy",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true,
+        "choice_lengths": "balanced"
+      },
+      "structural_problems": [],
+      "near_duplicates": [
+        {
+          "with": "CLD-ACT-E-000469",
+          "similarity": 1.0
+        }
+      ],
+      "status": "REVISE",
+      "reason": "blind solver flagged: non-blocking: passage contains untested errors in sentences 2, 4, 6 unless they are targets of other items"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+ "bank": "sat_math",
+ "batch": 93,
+ "plan": "SAT Math batch 93 (final-audit replacement): one new Geometry and Trigonometry item replacing CLD-SAT-M-000585, retired as a near-duplicate of CLD-ACT-M-000243 (independent adjudication combined/audits/dup-adjudication-final-2026-10-28.json). Difficulty provisional.",
+ "candidates": [
+  {
+   "cand": "Q093-01",
+   "reporting_category": "Geometry and Trigonometry",
+   "skill": "Geometry and Trigonometry",
+   "subskill": "Right triangle side from a sine value",
+   "repo_skill_key": "sat_geometry_trig",
+   "difficulty": "medium",
+   "stem": "In right triangle PQR, angle R is a right angle and sin P = 0.6. If PR = 20, what is the length of QR?",
+   "explanation": "Because sin P = QR/PQ = 0.6, the sides are in the ratio QR : PR : PQ = 3 : 4 : 5, so cos P = PR/PQ = 0.8. Then PQ = 20/0.8 = 25 and QR = 0.6 × 25 = 15. Check: 15² + 20² = 625 = 25².",
+   "hints": [
+    "Which side is the hypotenuse, and which side is opposite angle P?"
+   ],
+   "strategy": {
+    "key": "draw_it_out",
+    "explanation": "Label the sides relative to angle P."
+   },
+   "remember": "Sine compares the opposite side with the hypotenuse.",
+   "expected_time_seconds": 70,
+   "modeling": false,
+   "calculator": "allowed",
+   "author_checklist": {
+    "solved_independently": true,
+    "single_correct": true
+   },
+   "choices": {
+    "A": "12",
+    "B": "15",
+    "C": "16",
+    "D": "25"
+   },
+   "answer": "B",
+   "distractors": {
+    "A": {
+     "rationale": "12 multiplies PR by sin P, but sin P compares QR with the hypotenuse, not with PR.",
+     "trap": "wrong_quantity"
+    },
+    "C": {
+     "rationale": "16 multiplies PR by cos P, which does not give a side length here.",
+     "trap": "wrong_quantity"
+    },
+    "D": {
+     "rationale": "25 is the hypotenuse PQ, not QR.",
+     "trap": "wrong_quantity"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "cld-qb/1.0",
+  "bank": "sat_math",
+  "batch": 93,
+  "reviewed_at": "2026-10-28T03:17:15+00:00",
+  "method": "author self-check; scripted recomputation from the stem (checks/); blind solve by a separate AI reviewer given only student-facing text; automated structure and near-duplicate screens",
+  "blind_solver": {
+    "kind": "blind AI solver (separate agent, answer-free packet, rubric v2)",
+    "batch": 93
+  },
+  "counts": {
+    "PASS": 1,
+    "REVISE": 0,
+    "REJECT": 0
+  },
+  "appended_ids": [
+    "CLD-SAT-M-001031"
+  ],
+  "results": [
+    {
+      "cand": "Q093-01",
+      "revision": 1,
+      "revision_history": [],
+      "key": "B",
+      "computed_answer": "B",
+      "blind_answer": "B",
+      "blind_confidence": "high",
+      "blind_difficulty_opinion": "medium",
+      "blind_est_pct_correct": 62,
+      "blind_flags": [],
+      "blind_notes": "Right angle at R, so PQ is the hypotenuse, PR is adjacent to P and QR is opposite P. sin P = QR/PQ = 0.6 = 3/5, so cos P = 0.8 = PR/PQ, which gives PQ = 20/0.8 = 25 and QR = 0.6*25 = 15 (3-4-5 scaled by 5). Checked each option: A 12 = 0.6*20 (treats PR as the hypotenuse); C 16 = 0.8*20 (same mistake using cosine); D 25 is the hypotenuse PQ. Only B works. All distractors are plausible errors. No ambiguity, no wording defect, nothing in the item gives the answer away.",
+      "author_checklist": {
+        "solved_independently": true,
+        "single_correct": true
+      },
+      "structural_problems": [],
+      "near_duplicates": [],
+      "status": "PASS",
+      "reason": "key, independent computation and blind solve agree; no blocking flags",
+      "id": "CLD-SAT-M-001031"
+    }
+  ]
+}
