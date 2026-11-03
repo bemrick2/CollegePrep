@@ -1,0 +1,20 @@
+{
+  "run": "pipeline/runs/FL/2026-10-03",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/fl-2026-10-03 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "e9d8d10926b882d6",
+      "reason": "Barry \"Academic year 2026-2027\" On campus column: Housing/Food $3,268 against $21,240 in the Fall/Spring table above it on the same page; the table sits among the adult-learner budgets and its student population is not stated."
+    },
+    {
+      "candidate_id": "2d23d1cb4bc0098c",
+      "reason": "Florida Gateway \"Student Living On-Campus (Fall & Spring)\" Dependent In-State: the page prints no academic year (only a \"© 2025\" footer), so the year cannot be stated; it is never guessed."
+    },
+    {
+      "candidate_id": "782b38ad63f53957",
+      "reason": "Florida Gateway \"Student Living On-Campus (Fall & Spring)\" Dependent Out of State: the page prints no academic year; not dated."
+    }
+  ]
+}

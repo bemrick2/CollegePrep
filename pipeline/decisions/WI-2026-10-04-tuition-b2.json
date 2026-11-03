@@ -1,0 +1,51 @@
+{
+  "run": "pipeline/runs/WI/2026-10-04",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/wi-2026-10-04 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [
+    {
+      "candidate_id": "27feb6a00c8c5eaf",
+      "accept_issues": true,
+      "reason": "UW-La Crosse \"Cost to attend\" page, table under heading \"Undergraduate Overview 2026-27\" (lead \"2026-27 costs for full time undergraduate students are:\"), column \"Non-resident\": Tuition/Fees $21,077, Housing traditional double $4,834, FoodStryker Classic meal plan $3,336, \"TOTALS divide in half for per semester costs\" $29,247, copied as printed. Full-time undergraduate, out-of-state, academic year, on campus. The table is not marked estimated (the 2027-28 table above it is, and was not used). Open issue conflicting_sources accepted: the financial-aid page's \"The 2026-2027 Financial Aid Allowance/COA\" table itemizes the non-resident budget differently (\"Estimated Tuition\" $19,042 with fees on separate rows, Housing $5,316, Food $4,038); this record keeps the cost page's own published rates."
+    },
+    {
+      "candidate_id": "00a52a0eb1db282a",
+      "accept_issues": true,
+      "reason": "Concordia University Wisconsin table captioned \"2026-2027 CUW Traditional Undergraduate Cost of Attendance (full year)\" (under \"2026-2027 tuition, housing, and other costs for Undergraduate students\"), column \"On Campus/Off Campus (Not with Family)\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $14,080, Transportation* $1,260, Personal Expenses* $2,000, Total $56,210; column \"Living At Home\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $3,500, Transportation* $2,500, Personal Expenses* $2,000, Total $46,870, copied as printed. Tuition matches the \"Per Year\" cell \"Tuition (full-time, 12-18 credits)\" $37,080 in the tuition table above it. Private, residency not applicable, full year. Open issue arrangement_unlabeled accepted: the school prints one column for both on-campus and off-campus-not-with-family students, so that budget keeps the page's combined header and no single arrangement is asserted."
+    }
+  ],
+  "reject": [
+    {
+      "candidate_id": "4b3a758b64e0a12c",
+      "reason": "UW-La Crosse \"Undergraduate Overview 2026-27\" WI resident column: the reader stored the \"MN resident (reciprocity)\" column as a second, unlabeled living arrangement of the in-state record, so the record mixes two residencies."
+    },
+    {
+      "candidate_id": "d9894927ded0d730",
+      "reason": "UW-La Crosse \"Undergraduate Overview 2027-28 Estimated Expenses\" (lead \"ESTIMATED 2027-28 costs\"): a projection for a later year, and the MN reciprocity column is merged into the record as a living arrangement."
+    },
+    {
+      "candidate_id": "ef24e8076db632e1",
+      "reason": "UW-La Crosse 2027-28 estimated table, \"Midwest (Scholarship)\"/\"Return to WI\" columns: a projection, and a scholarship/exchange rate rather than in-state or out-of-state."
+    },
+    {
+      "candidate_id": "7dcfdcc369025990",
+      "reason": "UW-La Crosse 2026-27 overview, \"Midwest (Scholarship)\" column ($15,421): a scholarship exchange rate, not in-state or out-of-state; no residency to record."
+    },
+    {
+      "candidate_id": "8df2e873004186e3",
+      "reason": "UW-La Crosse aid page \"The 2026-2027 Financial Aid Allowance/COA\", Wisconsin column: tuition is printed as \"Estimated Tuition\" $8,926 with segregated, registration, Canvas and career fees on separate rows, while the cost page publishes the 2026-27 Tuition/Fees rate itself; the cost page is the published price, so this aid budget is not recorded."
+    },
+    {
+      "candidate_id": "b78e84b10c6eba13",
+      "reason": "UW-La Crosse aid page Minnesota column: a reciprocity rate; it names another state and has no in-state or out-of-state residency."
+    },
+    {
+      "candidate_id": "1222b9e7ca47e0e0",
+      "reason": "UW-La Crosse aid page Non-Resident column: \"Estimated Tuition\" $19,042 aid budget; the cost page's published 2026-27 non-resident rate is recorded instead (27feb6a00c8c5eaf)."
+    },
+    {
+      "candidate_id": "880816de07d7a784",
+      "reason": "UW-Superior \"Full-time, undergraduate student living on campus\" (2026-27), column \"Minnesota Resident – 12-18 Credits\" ($11,360): a reciprocity rate naming another state, not in-state or out-of-state (the Wisconsin resident and nonresident columns are already on file)."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "run": "pipeline/runs/MN/2026-10-04",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/mn-2026-10-04 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [
+    {
+      "candidate_id": "89371568cb92dd4e",
+      "accept_issues": true,
+      "reason": "Southwest Minnesota State \"Paying for College\" page, panel \"Estimated Total Cost — Undergraduate Cost for 2026-27\", table captioned \"Cost breakdown to attend SMSU\": Tuition & Fees $11,516, Housing & Food $11,850, Books, Materials, Supplies, Equipment $1,200, Transportation, Personal Expenses, Loan fees $3,652, TOTAL $28,218, copied as printed. Undergraduate, academic year (\"The annual cost of attendance is shown in the Estimated Total Cost panel\"). Open issue residency_unknown accepted: residency is recorded as not_applicable because SMSU charges one rate to every student; its cost-of-attendance page states under its own heading \"SMSU does Not charge out-of-state tuition\". Open issue conflicting_sources accepted: the other source is that page's one-semester budget (\"Tuition and Fees (at 12-18 credits)\" $5,758, \"Housing and Food Estimate\" $5,925), the same budget per semester; it is rejected below so only the annual figures are recorded."
+    }
+  ],
+  "reject": [
+    {
+      "candidate_id": "404bf54f4346036d",
+      "reason": "SMSU \"Estimating Charges\" table: the same budget for one semester (\"Total Estimated Charges for One Semester\" $12,283); the annual figures from the Paying for College panel are recorded instead, and per-semester figures are never annualized."
+    },
+    {
+      "candidate_id": "34c8ef1d8d343aea",
+      "reason": "Hamline \"COLLEGE COST COMPARISON WORKSHEET\" PDF (file name \"Cost_Comparison_Worksheet_FY24\", uploaded 2025-02): prints no 2026-27 label; the figures belong to an earlier year and are not re-dated."
+    }
+  ]
+}

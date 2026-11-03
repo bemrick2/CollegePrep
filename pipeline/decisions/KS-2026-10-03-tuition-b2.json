@@ -1,0 +1,16 @@
+{
+  "run": "pipeline/runs/KS/2026-10-03",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/ks-2026-10-03 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "559b180c012a006e",
+      "reason": "Pittsburg State \"Undergraduate In-State and Gorilla Advantage Tuition & Costs\" (per semester, academic year 2026-2027): the row \"Tuition (flat rate, incl. campus fees)\" $4,442.00 includes fees but is recorded as tuition alone; the column covers residents of 34 states, so it is not the Kansas in-state rate; and the \"Academic Year Total\" row ($20,518) is mixed into a per-semester record."
+    },
+    {
+      "candidate_id": "aade1cb8d0adada1",
+      "reason": "Pittsburg State \"Undergraduate Out-of-State Tuition & Costs\" (per semester): \"Tuition (flat rate, incl. campus fees)\" $10,114.00 recorded as tuition alone, and the \"Academic Year Total\" row is mixed into a per-semester record."
+    }
+  ]
+}

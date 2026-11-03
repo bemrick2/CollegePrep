@@ -1,0 +1,60 @@
+{
+  "institution_key": "ipeds-238616",
+  "academic_year": "2026-27",
+  "records": [
+    {
+      "books_supplies": 1250,
+      "components": {
+        "Books & Supplies*": 1250,
+        "Consolidated Fee": 540,
+        "Housing & Food**": 14080,
+        "Personal Expenses*": 2000,
+        "Total": 56210,
+        "Transportation*": 1260,
+        "Tuition": 37080
+      },
+      "cost_period": "academic_year",
+      "currency": "USD",
+      "last_verified_at": "2026-10-05",
+      "living_arrangements": [
+        {
+          "arrangement": "unlabeled",
+          "column_header": "On Campus/Off Campus (Not with Family)",
+          "components": {
+            "Books & Supplies*": 1250,
+            "Consolidated Fee": 540,
+            "Housing & Food**": 14080,
+            "Personal Expenses*": 2000,
+            "Total": 56210,
+            "Transportation*": 1260,
+            "Tuition": 37080
+          },
+          "total_cost_of_attendance": 56210
+        },
+        {
+          "arrangement": "with_parents_or_family",
+          "column_header": "Living At Home",
+          "components": {
+            "Books & Supplies*": 1250,
+            "Consolidated Fee": 540,
+            "Housing & Food**": 3500,
+            "Personal Expenses*": 2000,
+            "Total": 46870,
+            "Transportation*": 2500,
+            "Tuition": 37080
+          },
+          "total_cost_of_attendance": 46870
+        }
+      ],
+      "mandatory_fees": null,
+      "notes": "Extracted by cost_table/v2 from the table \"2026-2027 tuition, housing, and other costs for Undergraduate students Cost of Attendance 2026-2027 CUW Traditional Unde\"; printed rows copied, totals never recomputed. Reviewed 2026-11-02: Concordia University Wisconsin table captioned \"2026-2027 CUW Traditional Undergraduate Cost of Attendance (full year)\" (under \"2026-2027 tuition, housing, and other costs for Undergraduate students\"), column \"On Campus/Off Campus (Not with Family)\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $14,080, Transportation* $1,260, Personal Expenses* $2,000, Total $56,210; column \"Living At Home\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $3,500, Transportation* $2,500, Personal Expenses* $2,000, Total $46,870, copied as printed. Tuition matches the \"Per Year\" cell \"Tuition (full-time, 12-18 credits)\" $37,080 in the tuition table above it. Private, residency not applicable, full year. Open issue arrangement_unlabeled accepted: the school prints one column for both on-campus and off-campus-not-with-family students, so that budget keeps the page's combined header and no single arrangement is asserted. Evidence: sources/pipeline/WI/2026-10-04/evidence.json#00a52a0eb1db282a.",
+      "on_campus_food_housing": null,
+      "residency": "not_applicable",
+      "source_url": "https://www.cuw.edu/admissions/undergraduate-admissions/tuition-fees.html",
+      "student_population": "undergraduate",
+      "total_cost_of_attendance": 56210,
+      "tuition": 37080,
+      "verification_status": "partially_verified"
+    }
+  ]
+}

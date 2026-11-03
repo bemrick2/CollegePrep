@@ -1,0 +1,24 @@
+{
+  "run": "pipeline/runs/TN/2026-10-02-r2",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/tn-2026-10-02 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "734fc97580a1bac1",
+      "reason": "Tennessee Wesleyan \"Undergraduate Tuition\" table, NURSING block (2026-2027 column Tuition $31,880, Clinical Fees $2,250, RN-BSN $400): program-specific nursing tuition, not the general undergraduate rate."
+    },
+    {
+      "candidate_id": "032cd38b74f0d1f4",
+      "reason": "Tennessee Wesleyan NURSING tuition block, second fetch: program-specific tuition."
+    },
+    {
+      "candidate_id": "f6a185b0b9a359e0",
+      "reason": "Tennessee Wesleyan NURSING tuition block, third fetch: program-specific tuition."
+    },
+    {
+      "candidate_id": "d6309aa0f5f3cd20",
+      "reason": "Tennessee Wesleyan \"COA2627.pdf\": five stacked budgets read into one record (components \"Tuition & Fees\" through \"Tuition & Fees (5)\", several totals), with no column labels for residency or arrangement."
+    }
+  ]
+}

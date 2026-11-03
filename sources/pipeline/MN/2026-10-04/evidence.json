@@ -3779,6 +3779,56 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "89371568cb92dd4e": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "89371568cb92dd4e",
+   "reason": "Southwest Minnesota State \"Paying for College\" page, panel \"Estimated Total Cost — Undergraduate Cost for 2026-27\", table captioned \"Cost breakdown to attend SMSU\": Tuition & Fees $11,516, Housing & Food $11,850, Books, Materials, Supplies, Equipment $1,200, Transportation, Personal Expenses, Loan fees $3,652, TOTAL $28,218, copied as printed. Undergraduate, academic year (\"The annual cost of attendance is shown in the Estimated Total Cost panel\"). Open issue residency_unknown accepted: residency is recorded as not_applicable because SMSU charges one rate to every student; its cost-of-attendance page states under its own heading \"SMSU does Not charge out-of-state tuition\". Open issue conflicting_sources accepted: the other source is that page's one-semester budget (\"Tuition and Fees (at 12-18 credits)\" $5,758, \"Housing and Food Estimate\" $5,925), the same budget per semester; it is rejected below so only the annual figures are recorded."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition & Fees",
+    "snippet": "Tuition & Fees | $11,516",
+    "value": 11516
+   },
+   {
+    "field": "column:Housing & Food",
+    "snippet": "Housing & Food | $11,850",
+    "value": 11850
+   },
+   {
+    "field": "column:Books, Materials, Supplies, Equipment",
+    "snippet": "Books, Materials, Supplies, Equipment | $1,200",
+    "value": 1200
+   },
+   {
+    "field": "column:Transportation, Personal Expenses, Loan fees",
+    "snippet": "Transportation, Personal Expenses, Loan fees | $3,652",
+    "value": 3652
+   },
+   {
+    "field": "column:TOTAL",
+    "snippet": "TOTAL | $28,218",
+    "value": 28218
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "residency_unknown",
+   "conflicting_sources:https://www.smsu.edu/campuslife/financialaid/budget.html"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T04:44:30+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 05 Oct 2026 02:20:54 GMT",
+   "page_file": "834e81663f8f85ee470a.json.gz",
+   "requested_url": "https://www.smsu.edu/admission/paying-for-college.html",
+   "sha256": "834e81663f8f85ee470a04a1ee8454be3a2fa79348616ec6552b920c178b64c3",
+   "title": "Paying for College | Southwest Minnesota State University",
+   "url": "https://www.smsu.edu/admission/paying-for-college.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "8bd0006ce858b146": {
   "decision": {
    "candidate_id": "8bd0006ce858b146",

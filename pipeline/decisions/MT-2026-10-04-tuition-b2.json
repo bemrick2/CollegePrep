@@ -1,0 +1,40 @@
+{
+  "run": "pipeline/runs/MT/2026-10-04",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/mt-2026-10-04 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "f9040ffe07855b37",
+      "reason": "Montana Western admissions table, lead \"COST OF ATTENDANCE BY SEMESTER FOR 2026-2027\", Resident column: per-semester figures recorded as academic year, and the record is dated 2027-28."
+    },
+    {
+      "candidate_id": "aab54a63a70bb850",
+      "reason": "Montana Western admissions table, \"WUE\" column: a regional exchange rate, per semester, recorded as academic year 2027-28."
+    },
+    {
+      "candidate_id": "64f4943d7b922bab",
+      "reason": "Montana Western admissions table, \"Non-Resident\" column: per-semester figures (lead \"COST OF ATTENDANCE BY SEMESTER FOR 2026-2027\") recorded as academic year and dated 2027-28."
+    },
+    {
+      "candidate_id": "1eff6ca59ddc9f9c",
+      "reason": "Montana Western cost of attendance, \"Graduates\" / \"Off Campus\" table (includes \"Grad Certificate Fee (First Year ONLY)\"): graduate budget, with credit-load columns merged."
+    },
+    {
+      "candidate_id": "9f2ea0c628b889cc",
+      "reason": "Montana Western \"Graduates\" off-campus table, second fetch: graduate budget."
+    },
+    {
+      "candidate_id": "7b28671fe076d2b8",
+      "reason": "Montana Western \"Graduates\" off-campus table, third fetch: graduate budget."
+    },
+    {
+      "candidate_id": "72c4814950871f0c",
+      "reason": "Montana Western \"FY25 Budget Overview Presentation\" PDF: institutional budget totals (revenue and expenditures), not student prices."
+    },
+    {
+      "candidate_id": "aa8b65c8764c00fe",
+      "reason": "MSU-Northern \"Cost of Attendance / Estimated Expense Budget\" (2026-2027), \"WUE\" column: a regional exchange rate, not in-state or out-of-state (both are already on file)."
+    }
+  ]
+}
