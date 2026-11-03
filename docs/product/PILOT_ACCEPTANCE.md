@@ -45,10 +45,11 @@ as "no credit".
 - **Owner: Research (#191).** Either verify UTC's AP and CLEP tables, or explicitly exclude the mappings that can't be
   supported. Whatever #191 decides, the engine already enforces two rules:
   - only verified rows are used;
-  - an awarded course fills a plan row only when a reviewed structure records that course for the row: the row's own
-    course code, a choice option's own code, or `any_of`. Courses that appear only in printed wording never fill a row:
-    free text ("A or B", "A/B", comma lists), alternatives printed in a course's title ("MATH 1130 College Algebra,
-    MATH 1830: …, or MATH 1950: …"), and free-text choice options (section 4).
+  - an awarded course fills a plan row only from the row's own course code, a choice option's own code, `any_of`, or
+    free text that is exactly one course or a plain combination ("BIOL 1113& BIOL 1111"; every course required).
+    Anything else printed in wording never fills a row: "A or B", "A/B", comma lists, a code qualified by an exclusion,
+    note or level ("excluding MUS 156", "COMM 400-Level"), alternatives printed in a course's title ("MATH 1130
+    College Algebra, MATH 1830: …, or MATH 1950: …"), and choice options printed that way (section 4).
 - **What changes once #191 verifies UTC's tables**, from the tested scenario in `web/scripts/roadmap.pilot.test.ts`:
   - **Microeconomics and Macroeconomics** fill their plan rows, 6 hours in all.
   - **English Language** is **partly** placed. ENGL 1020 fills its row. ENGL 1010 isn't placed, because Management
@@ -65,7 +66,7 @@ as "no credit".
 A plan's printed notes are shown verbatim, under the row they qualify. A mark with no note on file is said to be
 one: "The plan prints “*” here, but no note for it is on file."
 - **Pilot plans:** all 12 verified UTC plans cite every mark they print; 0 unexplained marks, 0 bare marks.
-- **Elsewhere (not in the pilot):** across 3,100 verified plans, 1 row has an unexplained mark. In plans that print no
+- **Elsewhere (not in the pilot):** across 3,099 verified plans, 1 row has an unexplained mark. In plans that print no
   footnotes at all, symbols aren't read as marks, so a few rows still show a symbol as printed with no note (8 found by
   a narrow scan; the 2026-11-03 review's broader count, before the spaced-mark fix, was 176 rows in 15 plans). Not a
   pilot blocker; on the reader backlog.
@@ -92,18 +93,19 @@ Public Policy), shown under "Elective (ENGL 1010 or 1011)*":
 Courses that exist only in a row's printed wording are never filled automatically. Three places they occur:
 - **Free-text rows:** "MATH 1710 or MATH 1730", "Elective (ENGL 1010 or 1011)*", "INM 101or VOK 101",
   "ENGL 221/MODL 221", "ART 3700 level or higher …", and comma lists with no "or" ("two courses from: CHEM 3353,
-  CHEM 3363, and CHEM 4333"). Only a single code, or a plain combination ("BIOL 1113& BIOL 1111"), is read from
-  free text; a combination counts only when every course is awarded.
+  CHEM 3363, and CHEM 4333"), and a code qualified by an exclusion, note or level ("Select any ensemble, excluding
+  MUS 156", "Human Behavior (May not use COMM 200S)", "COMM 400-Level"). Only a single code, or a plain combination
+  ("BIOL 1113& BIOL 1111"), is read from free text; a combination counts only when every course is awarded.
 - **Alternatives printed in a course's title** (UTC Clear Path): "MATH 1130 College Algebra or MATH 1830: …". Only
   the row's own code (MATH 1130) fills it; the page adds "Credit for MATH 1830, printed here as an alternative, isn’t
   matched to this row automatically." Excluded courses ("or higher, excluding MS 204", "except 1493") are never read
   as alternatives.
-- **Free-text choice options:** an option printed as "ENGL 103 or ENGL 104" is never completed; options with their
-  own codes, or stored as `any_of`, are.
+- **Free-text choice options:** the same rule applies to each option. "ENGL 103 or ENGL 104" is never completed; an
+  option with its own code, stored as `any_of`, or printed as one course or a plain combination, is.
 
 | What is enforced | Where it is tested |
 |---|---|
-| No credit is placed into such a row, for each of the ten printed free-text shapes on file | `web/src/lib/engine/unresolvedOrRows.test.ts` |
+| No credit is placed into such a row, for each of the thirteen printed free-text shapes on file | `web/src/lib/engine/unresolvedOrRows.test.ts` |
 | A coded row's title alternatives, and free-text choice options, are never filled; the row's own code and coded options are (controls) | same file; `planFormats.test.ts`; `storedPlans.test.ts` (UTC General Biology) |
 | An exam whose course appears only in such a row is reported as "Named among alternatives: not placed automatically", never "applies" and never "not a course this plan lists" | same file, and `planFormats.test.ts` |
 | No requirement, whole term, coverage or applicable hours follow from it | same file |
@@ -111,8 +113,8 @@ Courses that exist only in a row's printed wording are never filled automaticall
 | On UTC Economics B.A. with every record verified: AP Calculus AB (MATH 1950, a title alternative) isn't placed and covers nothing; CLEP College Algebra (MATH 1130, the row's own code) is placed | same file |
 | The page shows the row as printed, with its note and the "isn’t matched automatically" line; a course row names its printed alternatives | `web/src/features/planning/CollegePlan.test.tsx` |
 
-**Scale (2026-11-03 scan of 3,100 verified plans):**
-- **Free-text rows that name courses:** 4,983 rows in the plans of 1,252 programs. Before this change their wording
+**Scale (2026-11-03 scan of 3,099 verified plans):**
+- **Free-text rows that name courses:** 5,439 rows in the plans of 1,336 programs. Before this change their wording
   was parsed into alternatives and could be filled; now they're never filled and carry the "isn’t matched
   automatically" line. The count is an upper bound: it includes cross-listings ("CHEM 3210/3210L") and a few
   mis-read codes, which are left unfilled (the safe direction).
