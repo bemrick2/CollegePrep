@@ -148,6 +148,50 @@ class Policy(unittest.TestCase):
         self.assertTrue(b.gpa_linked({'gpa_requirement': '3.50+'}))
 
 
+class CurrentPrices(unittest.TestCase):
+    """Current published tuition counts the printed tuition cell or the printed combined tuition-and-fees cell (same category)."""
+
+    def rows(self, **over):
+        base = {'institution_key': 'k1', 'academic_year': '2026-27', 'verification_status': 'verified', 'tuition': None,
+                'tuition_and_mandatory_fees': None}
+        return [('data/institutions/x/costs/2026-27.json', 'costs', {**base, **over})]
+
+    def test_combined_tuition_and_fees_counts(self):
+        self.assertEqual(b.classify_prices(self.rows(tuition_and_mandatory_fees=11516), {'k1'})['verified'], {'k1'})
+        self.assertEqual(b.classify_prices(self.rows(tuition=8379), {'k1'})['verified'], {'k1'})
+        p = b.classify_prices(self.rows(tuition_and_mandatory_fees=11516, verification_status='partially_verified'), {'k1'})
+        self.assertEqual((p['verified'], p['partially_verified']), (set(), {'k1'}))
+
+    def test_no_tuition_older_year_ipeds_or_unregistered_do_not_count(self):
+        self.assertFalse(b.classify_prices(self.rows(total_cost_of_attendance=28218), {'k1'})['verified'])
+        self.assertFalse(b.classify_prices(self.rows(tuition=1, academic_year='2025-26'), {'k1'})['verified'])
+        self.assertFalse(b.classify_prices(self.rows(tuition=1), {'k2'})['verified'])
+        ipeds = [('data/national/ipeds/2023-24/TN/costs.csv', 'costs', {**self.rows(tuition=1)[0][2]})]
+        self.assertFalse(b.classify_prices(ipeds, {'k1'})['verified'])
+
+    def test_per_semester_records_are_never_an_annual_price(self):
+        p = b.classify_prices(self.rows(tuition=8379, cost_period='semester', verification_status='partially_verified'), {'k1'})
+        self.assertEqual((p['verified'], p['partially_verified'], p['per_semester_only']), (set(), set(), {'k1'}))
+        both = self.rows(tuition=8379, cost_period='semester') + self.rows(tuition_and_mandatory_fees=16758, cost_period='academic_year')
+        p = b.classify_prices(both, {'k1'})
+        self.assertEqual((p['verified'], p['per_semester_only']), ({'k1'}, set()))
+        for period in ('fall_and_spring_semesters', None):
+            self.assertEqual(b.classify_prices(self.rows(tuition=1, cost_period=period), {'k1'})['verified'], {'k1'}, period)
+
+    def test_year_unlabeled_only_and_owner_disputed_are_reported(self):
+        unl = 'aid_year_in_force_at_review_source_unlabeled'
+        p = b.classify_prices(self.rows(tuition=1, academic_year_basis=unl, verification_status='partially_verified'), {'k1'})
+        self.assertEqual((p['partially_verified'], p['year_unlabeled_only']), ({'k1'}, {'k1'}))
+        p = b.classify_prices(self.rows(tuition=1, academic_year_basis=unl) + self.rows(tuition=2), {'k1'})
+        self.assertEqual(p['year_unlabeled_only'], set())  # one labelled record is enough
+        rows = [('data/institutions/boisestate/costs/2026-27.json', 'costs',
+                 {**self.rows(tuition_and_mandatory_fees=14738.5)[0][2], 'residency': 'out_of_state'})]
+        p = b.classify_prices(rows, {'k1'})
+        self.assertEqual(p['verified'], {'k1'})  # still counted; status untouched
+        self.assertIn('Boise State', p['owner_disputed']['k1'][0])
+        self.assertIn('Boise State', next(iter(b.classify_prices(rows, set())['owner_disputed_outside_registry'])))
+
+
 class Committed(unittest.TestCase):
     """The committed baseline files."""
 

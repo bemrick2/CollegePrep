@@ -44,9 +44,28 @@ class ImportContractTests(unittest.TestCase):
                 r"requirement_kind text not null check \(requirement_kind in \(([^)]*)\)\)"),
             ('costs', 'residency'): latest_check_values('institution_costs_residency_check',
                 r"residency text not null check \(residency in \(([^)]*)\)\)"),
+            ('costs', 'cost_period'): latest_check_values('institution_costs_cost_period_check',
+                r"add column cost_period text check \(cost_period is null or cost_period in \(([^)]*)\)\)"),
         }
         for (domain, field), values in expected.items():
             self.assertEqual(CONTROLLED_VALUES[domain][field], values, f'{domain}.{field} drifted from the migration')
+
+    def test_every_cost_period_is_allowed_by_the_database(self):
+        # #296: institution_costs.cost_period is checked in the migration; a record with another value would fail import.
+        allowed = latest_check_values('institution_costs_cost_period_check',
+            r"add column cost_period text check \(cost_period is null or cost_period in \(([^)]*)\)\)")
+        self.assertEqual(allowed, {'academic_year', 'fall_and_spring_semesters', 'semester'})
+        seen = {r.get('cost_period') for _, d, r in records() if d == 'costs'}
+        self.assertTrue(seen - {None} <= allowed, seen - {None} - allowed)
+
+    def test_bad_cost_period_is_caught_before_the_database(self):
+        # #296: validate_data (through import_contract_errors) refuses an unknown period; an unstated period stays allowed.
+        base = {'institution_key': 'x', 'academic_year': '2026-27', 'residency': 'in_state'}
+        self.assertTrue(import_contract_errors('costs', {**base, 'cost_period': 'quarter'}))
+        self.assertTrue(import_contract_errors('costs', {**base, 'cost_period': 'per_semester'}))
+        for ok in ('academic_year', 'fall_and_spring_semesters', 'semester', None):
+            self.assertEqual(import_contract_errors('costs', {**base, 'cost_period': ok}), [], ok)
+        self.assertEqual(import_contract_errors('costs', base), [])
 
     def test_new_unmapped_domain_fails_validation_and_import(self):
         with tempfile.TemporaryDirectory() as tmp:

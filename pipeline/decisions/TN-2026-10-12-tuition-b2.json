@@ -1,0 +1,12 @@
+{
+  "run": "pipeline/runs/TN/2026-10-12",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/tn-2026-10-12-38294889340 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "a54fa173be89fa4c",
+      "reason": "King University \"2026-2027 Traditional Undergraduate Cost of Attendance\": the reader recorded the \"Commuter\" column as living with parents or family; a commuter budget is not necessarily with family (the same reader mapping withdrew Hollins in PR #285). Queued until the reader assigns commuter columns correctly."
+    }
+  ]
+}

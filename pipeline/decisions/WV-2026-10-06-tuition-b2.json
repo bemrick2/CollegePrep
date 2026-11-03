@@ -1,0 +1,20 @@
+{
+  "run": "pipeline/runs/WV/2026-10-06",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/wv-2026-10-06 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "19116399d0cef22a",
+      "reason": "West Liberty \"2026-2027 Undergraduate Financial Aid Cost of Attendance\", \"Metro Rate\" table (Tuition & Fees $15,530): the page's third rate (\"Metro Tuition\", printed between \"In-State Tuition\" and \"Out-of-State Tuition\" in the base tuition table), neither in-state nor out-of-state (both are already on file)."
+    },
+    {
+      "candidate_id": "ce12b6c912846363",
+      "reason": "West Liberty \"Metro Rate\" table, second fetch of the same page: a regional rate, not in-state or out-of-state."
+    },
+    {
+      "candidate_id": "d874a0ec012630de",
+      "reason": "West Liberty \"2627-Cost-Sheet-Estimator.pdf\": layout lines misread (\"Tuition &\" split from its row, amounts such as \"$14710\" used as labels); no field can be tied to a printed row."
+    }
+  ]
+}

@@ -207,19 +207,73 @@
   }
  },
  "current_published_tuition": {
-  "note": "Separate from IPEDS: a school-published tuition record for 2026-27 or later in data/institutions, verified against the official page (pipeline research). IPEDS tuition stays available_older.",
-  "verified_schools": 184,
-  "partially_verified_schools": 10,
-  "enrollment_weighted_verified": 0.066
+  "note": "Separate from IPEDS: a school-published tuition record for 2026-27 or later in data/institutions, verified against the official page (pipeline research). A record counts when it has the printed tuition or the school's own printed combined tuition-and-fees figure (tuition_and_mandatory_fees); both are the same category. Only annual records count (cost_period academic_year, fall_and_spring_semesters or unstated); a per-semester record is never read as a year's price. IPEDS tuition stays available_older.",
+  "verified_schools": 263,
+  "partially_verified_schools": 20,
+  "enrollment_weighted_verified": 0.136,
+  "year_unlabeled_only": {
+   "verified": 0,
+   "partially_verified": 13
+  },
+  "year_unlabeled_only_schools": [
+   "csi",
+   "frontrange",
+   "lanecollege",
+   "nnmc",
+   "pennwest",
+   "pueblocc",
+   "riohondo",
+   "seattlecentral",
+   "southeastern",
+   "southseattle",
+   "stcloudstate",
+   "usd",
+   "wssu"
+  ],
+  "per_semester_only_schools": [
+   "ciachef",
+   "lcu",
+   "wpunj"
+  ],
+  "owner_disputed": [
+   {
+    "institution_key": "ipeds-142115",
+    "folder": "boisestate",
+    "status": "verified",
+    "why": "Boise State out-of-state: $14,738.50 is half the annual non-resident tuition; probably per semester"
+   },
+   {
+    "institution_key": "ipeds-229115",
+    "folder": "ttu",
+    "status": "verified",
+    "why": "TTU out-of-state: components from the \"Online Plus\" table"
+   },
+   {
+    "institution_key": "ipeds-240329",
+    "folder": "uwlax",
+    "status": "partially_verified",
+    "why": "UW-La Crosse 2027-28: from the \"2027-28 Estimated Expenses\" projection table (owner ruled 2026-11-03: downgraded to partially verified, supabase/corrections.json)"
+   }
+  ],
+  "owner_disputed_outside_registry": [
+   {
+    "folder": "npc",
+    "why": "NPC in-state: the source column is \"In District\""
+   },
+   {
+    "folder": "tsc",
+    "why": "TSC in-state: the table is for \"Texas in-district residents\""
+   }
+  ]
  },
  "policy_layer": {
   "note": "Separate measure. From research records in data/institutions/<folder>/ (awards of type institutional_merit, AP/IB/CLEP credit policies, appeals). not_researched means no record yet, never that the school has no policy.",
   "merit": {
-   "source_found": 1374,
+   "source_found": 1375,
    "not_researched": 8,
    "candidates_rejected": 91,
    "partially_verified": 103,
-   "searched_not_found": 125,
+   "searched_not_found": 124,
    "source_inaccessible": 340,
    "verified": 75,
    "no_published_score_formula": 2,
@@ -236,10 +290,10 @@
    "candidate_in_run": 41
   },
   "aid_appeals": {
-   "searched_not_found": 458,
+   "searched_not_found": 457,
    "candidates_rejected": 764,
    "source_found": 225,
-   "candidate_in_run": 322,
+   "candidate_in_run": 323,
    "not_researched": 8,
    "source_inaccessible": 340,
    "partially_verified": 1,

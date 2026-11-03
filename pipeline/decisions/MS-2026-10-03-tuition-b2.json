@@ -1,0 +1,12 @@
+{
+  "run": "pipeline/runs/MS/2026-10-03",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/ms-2026-10-03 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [],
+  "reject": [
+    {
+      "candidate_id": "4410c121c94e3d52",
+      "reason": "Southern Miss admissions \"Basic Costs\" (2026-27): Resident and Non-Resident are rows, not columns, so both were read into one record with residency not_applicable; the same figures ($10,794 / $12,794 per year) are already on file as the verified in-state and out-of-state records."
+    }
+  ]
+}

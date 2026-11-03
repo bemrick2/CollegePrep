@@ -1,0 +1,18 @@
+{
+  "run": "pipeline/runs/NJ/2026-10-05",
+  "reviewer": "Research session 2026-11-02 (current tuition b2)",
+  "reader_commit_note": "Candidates re-extracted locally from pipeline-run/nj-2026-10-05 (archived pages) by `python -m pipeline review` with the costs reader at origin/main 43d4c726 (after the PR #285 reader fixes); candidate ids are unchanged from the branch where the page was already read. Each candidate was reviewed against the archived official page.",
+  "approve": [
+    {
+      "candidate_id": "44a76c41264ef03f",
+      "accept_issues": true,
+      "reason": "William Paterson \"Undergraduate Tuition and Fees\" page, table under heading \"Tuition and Fees - Fall 2026/Spring 2027\", FULL-TIME block, column \"In-State\": \"TUITION - per semester*\" $ 8,379, Technology Fee $178, Student Govt Assn Fee $ 105, \"TOTAL per semester\" $ 8,662, copied as printed. Full-time (12-19 credits, per the footnote) undergraduate, in-state. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. The PART-TIME per-credit block was not used. Page conflict noted: the intro sentence says a New Jersey resident \"would pay $16,758 ($8,379 per semester) for tuition and fees\", while the table prints $8,379 as tuition alone and $8,662 as the semester total with fees; the table's cells are recorded."
+    },
+    {
+      "candidate_id": "ad7351abde09e837",
+      "accept_issues": true,
+      "reason": "William Paterson table under heading \"Tuition and Fees - Fall 2026/Spring 2027\", FULL-TIME block, column \"Out-of-State\": \"TUITION - per semester*\" $13,692, Technology Fee $178, Student Govt Assn Fee $105, \"TOTAL per semester\" $ 13,975, copied as printed. Full-time undergraduate, out-of-state. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. The page also describes an out-of-state tuition waiver that lets qualified domestic students pay the in-state rate; this record is the printed non-resident rate."
+    }
+  ],
+  "reject": []
+}
