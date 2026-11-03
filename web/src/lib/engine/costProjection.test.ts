@@ -114,4 +114,11 @@ describe('full program and potential savings from family-entered aid', () => {
     expect(fullProgram({ institution_key: 'x', status: 'missing_cost' }, { grantsPerYear: 1, loansPerYear: 1 })).toBeNull()
     expect(potentialSaving(projectRow(priv, '2026-27', { residency: 'in_state' }), { grantsPerYear: 1, loansPerYear: null })).toBeNull()
   })
+  it('skips a per-semester price, as the server does: no yearly cost, never an annualized one (#296)', () => {
+    const sem = school('contract-semester', 'four_year', { costs: [{ ...V, residency: 'in_state', tuition: 9000, cost_period: 'semester' }] })
+    const r = projectRow(sem, '2026-27', { residency: 'in_state' })
+    expect(r).toMatchObject({ status: 'missing_cost' })
+    expect(JSON.stringify(r)).not.toContain('9000')
+    expect(JSON.stringify(r)).not.toContain('18000')
+  })
 })

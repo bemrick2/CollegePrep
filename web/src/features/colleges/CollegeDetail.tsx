@@ -6,7 +6,7 @@ import { Button, Notice, PageLoading, Segmented, cx } from '../../components/ui'
 import { Figure, PageHeader, Row, RowList, Section, compactUsd } from '../../components/layout'
 import { ChevronLeft } from '../../components/icons'
 import { useHomeState } from '../../lib/homeState'
-import { pickCost } from '../../lib/engine/residency'
+import { isAnnualCost, pickCost } from '../../lib/engine/residency'
 import { meritAwards } from '../../lib/engine/merit'
 import { fitSentence, schoolFit } from '../../lib/engine/programFit'
 import { costPhrase, outlookFor } from '../parent/CostOutlook'
@@ -256,8 +256,11 @@ function AwardList({ awards }: { awards: Record<string, unknown>[] }) {
   )
 }
 
-function CostBreakdown({ costs, schoolState, level, year, onYear }: { costs: CostRecord[]; schoolState: string | null; level: string | null; year: string; onYear: (y: string) => void }) {
+function CostBreakdown({ costs: all, schoolState, level, year, onYear }: { costs: CostRecord[]; schoolState: string | null; level: string | null; year: string; onYear: (y: string) => void }) {
   const { homeState } = useHomeState()
+  // Only yearly figures are shown per year or multiplied by years; a per-semester price is listed as printed (#296).
+  const costs = all.filter(isAnnualCost)
+  const perSemester = all.filter((x) => !isAnnualCost(x))
   const picked = pickCost(costs, schoolState, homeState)
   const [residency, setResidency] = useState(picked.cost?.residency ?? costs[0]?.residency ?? '')
   useEffect(() => {
@@ -272,6 +275,19 @@ function CostBreakdown({ costs, schoolState, level, year, onYear }: { costs: Cos
       subtitle="Published cost of attendance, before aid"
       action={<Segmented label="Academic year" value={year} onChange={onYear} options={YEARS.map((y) => ({ value: y, label: y }))} />}
     >
+      {perSemester.length > 0 && (
+        <div className="mb-4 grid gap-1 text-sm">
+          {perSemester.map((x) => (
+            <p key={`sem-${x.residency}`}>
+              <span className="font-semibold text-ink">{usd(x.total_cost_of_attendance ?? x.tuition_and_mandatory_fees ?? x.tuition) ?? '—'}</span>{' '}
+              <span className="text-ink-3">
+                per semester, {RESIDENCY_LABEL[x.residency] ?? x.residency}, as published. Not shown as a yearly price.
+              </span>{' '}
+              <SourceLink href={x.source_url} verified={x.last_verified_at} />
+            </p>
+          ))}
+        </div>
+      )}
       {costs.length === 0 || !cost ? (
         <Missing what="cost of attendance for this year" />
       ) : (
