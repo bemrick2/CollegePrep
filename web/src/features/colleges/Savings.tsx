@@ -419,6 +419,7 @@ const APPLIES_LABEL: Record<ExamApplicability['status'], string> = {
   partly: 'partly in the plan',
   elective_only: 'elective credit only',
   not_in_plan: 'not a course this plan uses',
+  printed_alternative: 'named among alternatives in the plan; not placed automatically',
   school_assigns: 'depends on which course the school assigns',
   no_course: 'no course listed',
 }

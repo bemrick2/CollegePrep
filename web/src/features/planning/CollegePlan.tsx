@@ -5,7 +5,7 @@ import { useHomeState } from '../../lib/homeState'
 import type { InstitutionComparison } from '../../lib/data/types'
 import { buildRoadmap } from '../../lib/engine/planning/roadmap'
 import { projectRow } from '../../lib/engine/costProjection'
-import type { CreditFit, CreditLine, Evidence, LivingArrangement, Roadmap, TermCoverage } from '../../lib/engine/planning/types'
+import type { CreditFit, CreditLine, Evidence, LivingArrangement, PlanPrintedNotes, Roadmap, TermCoverage } from '../../lib/engine/planning/types'
 import { formatShortDate } from '../../lib/engine/dates'
 import { useExamPlan } from '../colleges/useExamPlan'
 import { CollegesTabs } from '../colleges/CollegesTabs'
@@ -27,6 +27,7 @@ const FIT: Record<CreditFit, { tone: 'go' | 'warn' | 'neutral'; label: string }>
   applies: { tone: 'go', label: 'Fills a course in this plan' },
   partly: { tone: 'warn', label: 'Fills part of a course group' },
   accepted_not_in_plan: { tone: 'warn', label: 'Credit, but not a course this plan lists' },
+  printed_alternative: { tone: 'neutral', label: 'Named among alternatives: not placed automatically' },
   elective_only: { tone: 'neutral', label: 'Elective credit only' },
   unknown: { tone: 'neutral', label: 'Credit; where it counts isn’t on file' },
   none: { tone: 'neutral', label: 'No credit at this score' },
@@ -206,6 +207,7 @@ function RoadmapView({
           <>
             {plan.title && r.plans.length <= 1 && <p className="mb-3 text-sm font-semibold text-ink">{plan.title}</p>}
             <PlanTerms terms={plan.terms} />
+            <PrintedNotes printed={plan.printed} cited={new Set(plan.terms.flatMap((t) => t.rows.flatMap((x) => x.notes.map((n) => n.marker))))} />
             <p className="mt-3 text-sm text-ink-2">
               {plan.totalCredits != null
                 ? `${plan.totalCredits} credit hours in total, as printed. `
@@ -337,6 +339,50 @@ const NOT_CHECKED: Record<NonNullable<TermCoverage['notChecked']>, string> = {
   hours: 'Under 12 printed credit hours, or none printed: not checked for whole-term coverage.',
 }
 
+/**
+ * What the plan prints outside its grid, verbatim: footnotes no row cites (the cited ones are shown under their rows),
+ * notes printed with the plan, the source's own notice, and its degree checklist.
+ */
+function PrintedNotes({ printed, cited }: { printed: PlanPrintedNotes; cited: Set<string> }) {
+  const loose = printed.footnotes.filter((f) => !cited.has(f.marker))
+  if (!loose.length && !printed.planNotes.length && !printed.sourceNotice.length && !printed.summary.length) return null
+  return (
+    <div className="mt-4 rounded-xl border border-line p-3 text-sm text-ink-2">
+      <h3 className="text-sm font-bold text-ink">Printed with this plan</h3>
+      <ul className="mt-2 grid gap-1">
+        {loose.map((f) => (
+          <li key={`f-${f.marker}`}>
+            <span className="font-semibold">Note ({f.marker}):</span> {f.text}
+          </li>
+        ))}
+        {printed.planNotes.map((t, i) => (
+          <li key={`n-${i}`}>{t}</li>
+        ))}
+        {printed.sourceNotice.map((t, i) => (
+          <li key={`s-${i}`}>{t}</li>
+        ))}
+      </ul>
+      {printed.summary.length > 0 && (
+        <details className="mt-2">
+          <summary className="cursor-pointer font-semibold text-ink">Degree checklist, as printed</summary>
+          <div className="mt-2 grid gap-3 sm:grid-cols-2">
+            {printed.summary.map((s) => (
+              <div key={s.heading}>
+                <p className="font-semibold text-ink">{s.heading}</p>
+                <ul className="mt-1 grid gap-0.5">
+                  {s.items.map((t, i) => (
+                    <li key={i}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  )
+}
+
 /** The plan's terms under their year headings, every row as printed. Year headings are not terms (#230). */
 function PlanTerms({ terms }: { terms: TermCoverage[] }) {
   const groups: { heading: string | null; terms: TermCoverage[] }[] = []
@@ -380,6 +426,17 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                           {x.options.length > 0 && <span className="block text-ink-3">{x.choose > 1 ? `Choose ${x.choose} of` : 'Any one of'}: {x.options.join('; ')}</span>}
                           {x.milestone && <span className="block text-ink-3">Milestone: {x.milestone}</span>}
                           {x.note && <span className="block text-ink-3">Note: {x.note}</span>}
+                          {x.notes.map((n) => (
+                            <span key={n.marker} className="mt-0.5 block text-ink-2">
+                              <span className="font-semibold">Note ({n.marker}):</span> {n.text}
+                            </span>
+                          ))}
+                          {x.unexplainedMarks.map((m) => (
+                            <span key={m} className="mt-0.5 block text-ink-3">
+                              The plan prints “{m}” here, but no note for it is on file.
+                            </span>
+                          ))}
+                          {x.unresolved && <span className="mt-0.5 block text-ink-3">As printed. Credit you bring isn’t matched to this row automatically.</span>}
                         </span>
                         {x.credits != null && <span className="shrink-0 tabular-nums">{String(x.credits)}</span>}
                       </li>

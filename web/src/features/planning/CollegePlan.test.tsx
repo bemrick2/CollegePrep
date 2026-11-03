@@ -48,6 +48,17 @@ describe('college plan pilot (#195), on the stored Tennessee records', () => {
     expect(screen.getByText(/120 credit hours in total, as printed/)).toBeInTheDocument()
     const plan = screen.getByRole('heading', { name: 'Degree plan' }).closest('section')!
     expect(within(plan).getByRole('link', { name: /^Source, verified / })).toHaveAttribute('href', expect.stringContaining('cob-management-bsba'))
+    // The printed placement condition sits under the row it qualifies, in full: no unexplained asterisk (2026-11-03).
+    const row = within(plan).getByText('Elective (ENGL 1010 or 1011)*').closest('li')!
+    expect(within(row).getByText(/Note \(\*\):/)).toBeInTheDocument()
+    expect(row).toHaveTextContent('If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required.')
+    expect(row).toHaveTextContent('As printed. Credit you bring isn’t matched to this row automatically.')
+    expect(within(plan).queryByText(/no note for it is on file/)).not.toBeInTheDocument()
+    // What the plan prints outside the grid: the source's notice and its degree checklist, verbatim.
+    const printed = within(plan).getByRole('heading', { name: 'Printed with this plan' }).closest('div')!
+    expect(printed).toHaveTextContent('Please refer to the Undergraduate Catalog for further program requirements and course descriptions.')
+    expect(within(printed).getByText('Degree checklist, as printed')).toBeInTheDocument()
+    expect(printed).toHaveTextContent('50% of Business Hours at UTC')
     // Exam credit: the AP table isn't verified, so no credit is claimed or placed.
     const credit = screen.getByRole('heading', { name: 'Exam credit' }).closest('section')!
     expect(within(credit).getAllByText('Academic year unconfirmed')).toHaveLength(2)

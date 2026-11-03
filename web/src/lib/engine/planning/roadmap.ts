@@ -13,8 +13,8 @@ import { FAMILY_LABEL, examOptions, matchExam, policyKindOf, type CreditPolicy, 
 import { termsSaving, type FamilyAid } from '../costProjection'
 import { gatedSaving, withheldReason, type CompletionEvidence } from '../earlyCompletion'
 import { pickCost } from '../residency'
-import { planTerms, type PlanTermLike } from '../planItems'
-import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
+import { entryCodes, planTerms, rowMarks, unresolvedAlternatives, type PlanTermLike } from '../planItems'
+import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanPrintedNotes, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
 
 type Rec = Record<string, unknown>
 
@@ -78,6 +78,8 @@ function fitOf(a: ExamApplicability | undefined, hasPlan: boolean): CreditFit {
       return 'partly'
     case 'not_in_plan':
       return 'accepted_not_in_plan'
+    case 'printed_alternative':
+      return 'printed_alternative'
     case 'elective_only':
       return 'elective_only'
     default:
@@ -103,7 +105,16 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
   const planRecs = reqs.filter((r) => r.requirement_kind === 'program_plan')
   const plans = planRecs.map((r) => ({ key: String(r.requirement_key ?? ''), title: str((r.rule_details as Rec | undefined)?.source_section) }))
   const planRec = planRecs.find((r) => planKey != null && r.requirement_key === planKey) ?? planRecs[0] ?? null
-  const planDetails = (planRec?.rule_details ?? null) as { catalog_year?: string; source_section?: string; rule_text?: string; terms?: PlanTermLike[] } | null
+  const planDetails = (planRec?.rule_details ?? null) as {
+    catalog_year?: string
+    source_section?: string
+    rule_text?: string
+    terms?: PlanTermLike[]
+    footnotes?: unknown
+    plan_notes?: unknown
+    source_notice?: unknown
+    degree_summary?: unknown
+  } | null
   const catalogYear = str(planDetails?.catalog_year) ?? str(planRec?.academic_year)
   const terms = verified(planRec) ? (planDetails?.terms ?? []) : []
   const termViews = planTerms(terms)
@@ -146,6 +157,8 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
       m.status === 'qualifies' ? fitOf(a, hasPlan) : m.status === 'below' || m.status === 'not_awarded' ? 'none' : m.status === 'planned' ? 'planned' : m.status === 'no_table' ? 'not_verified' : 'see_table'
     if (a && fit === 'accepted_not_in_plan')
       unknown('credit', `${inst} awards ${a.course} for ${exam.name}, but this major's plan lists other courses. Whether ${a.course} can substitute isn't published in the records on file.`)
+    for (const n of a?.named ?? [])
+      unknown('credit', `${inst} awards ${n.code} for ${exam.name}. This major's plan names it only in a row printed with alternatives (“${n.item}”), so that credit isn't placed there automatically, and no term, coverage or saving counts it. The school decides how it applies.`)
     if (a && a.status === 'school_assigns') unknown('credit', `For ${exam.name}, ${inst} lists more than one course (${a.course}); which one a student gets isn't on file.`)
     if (a && a.hours == null) unknown('credit', `${inst}'s table lists no credit hours for ${exam.name}.`)
     const ev = evidence(t, tableYear(t))
@@ -234,6 +247,9 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     unknown('cost', text)
   }
 
+  // Everything the plan prints outside its grid, verbatim, and which footnotes each row cites.
+  const printed = printedNotes(planDetails)
+  const noteFor = new Map(printed.footnotes.map((f) => [f.marker, f.text]))
   // Timeline and savings: whole plan terms only.
   const termList = termViews.map((t) => ({
     term: t.number,
@@ -241,7 +257,24 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     group: t.group,
     creditHours: t.creditHours,
     rows: t.entries.map(
-      (e): PlanCourseRow => ({ kind: e.kind as PlanCourseRow['kind'], code: e.code, title: e.title, text: e.text, credits: e.credits, note: e.note, milestone: e.milestone, options: e.choices.map((x) => x.text), choose: e.choose }),
+      (e): PlanCourseRow => {
+        const marks = rowMarks(e, [...noteFor.keys()])
+        return {
+          kind: e.kind as PlanCourseRow['kind'],
+          code: e.code,
+          title: e.title,
+          text: e.text,
+          credits: e.credits,
+          note: e.note,
+          milestone: e.milestone,
+          options: e.choices.map((x) => x.text),
+          choose: e.choose,
+          notes: marks.cited.map((m) => ({ marker: m, text: noteFor.get(m)! })),
+          unexplainedMarks: marks.unexplained,
+          // Labelled only when the row names a course a reader might expect credit to fill.
+          unresolved: unresolvedAlternatives(e) && entryCodes(e).length > 0,
+        }
+      },
     ),
     covered: dc.coveredTerms.some((x) => x.term === t.termIndex),
     notChecked: t.notChecked,
@@ -281,7 +314,7 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     status: !hasPlan ? 'blocked' : allCreditVerified && cost.value ? 'ready' : 'partial',
     plan: hasPlan
       ? {
-          value: { catalogYear, title: str(planDetails?.source_section), terms: termList, totalCredits: num(totalRec?.minimum_credits), totalText: /\btotal\b.*\d/i.test(str(planDetails?.rule_text) ?? '') ? str(planDetails?.rule_text) : null },
+          value: { catalogYear, title: str(planDetails?.source_section), terms: termList, totalCredits: num(totalRec?.minimum_credits), totalText: /\btotal\b.*\d/i.test(str(planDetails?.rule_text) ?? '') ? str(planDetails?.rule_text) : null, printed },
           evidence: evidence(planRec, catalogYear),
         }
       : { value: null, evidence: missing(planRec ? 'Plan on file but not verified.' : 'No plan on file.', planRec, catalogYear) },
@@ -296,4 +329,31 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
     earlyCompletion: early,
     unknowns,
   }
+}
+
+const texts = (v: unknown): string[] => (Array.isArray(v) ? v : []).map((x) => (typeof x === 'string' ? x : typeof (x as { text?: unknown })?.text === 'string' ? String((x as { text: string }).text) : '')).map((x) => x.trim()).filter(Boolean)
+const SUMMARY_HEADING: Record<string, string> = { degree_requirements: 'Degree requirements', graduation_requirements: 'Graduation requirements' }
+
+/**
+ * A plan's printed notes, verbatim: footnotes (a list of {marker, text} or a map of marker to text), notes printed
+ * around the grid, the source's own notice, and the "Completed:" checklist. Nothing is reworded or dropped.
+ */
+export function printedNotes(d: { footnotes?: unknown; plan_notes?: unknown; source_notice?: unknown; degree_summary?: unknown } | null): PlanPrintedNotes {
+  const raw = d?.footnotes
+  const footnotes: PlanPrintedNotes['footnotes'] = Array.isArray(raw)
+    ? raw.flatMap((f) => {
+        const x = f as { marker?: unknown; text?: unknown; cited?: unknown }
+        return typeof x?.marker === 'string' && typeof x?.text === 'string' && x.text.trim() ? [{ marker: x.marker, text: x.text.trim(), cited: x.cited !== false }] : []
+      })
+    : raw && typeof raw === 'object'
+      ? Object.entries(raw as Record<string, unknown>).flatMap(([marker, text]) => (typeof text === 'string' && text.trim() ? [{ marker, text: text.trim(), cited: true }] : []))
+      : []
+  const ds = d?.degree_summary
+  const summary = ds && typeof ds === 'object' && !Array.isArray(ds)
+    ? Object.entries(ds as Record<string, unknown>).flatMap(([k, v]) => {
+        const items = texts(v)
+        return items.length ? [{ heading: SUMMARY_HEADING[k] ?? k.replace(/_/g, ' '), items }] : []
+      })
+    : []
+  return { footnotes, planNotes: texts(d?.plan_notes), sourceNotice: texts(d?.source_notice), summary }
 }

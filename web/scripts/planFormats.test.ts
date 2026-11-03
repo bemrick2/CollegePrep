@@ -164,10 +164,12 @@ describe('review findings on stored plans (#242)', () => {
     expect(readPlanItem('Semester Seven')!.kind).toBe('heading')
   })
 
-  it('splits joined "or" in free text for credit too', () => {
+  it('a joined "or" in free text is read for display and reporting, never filled by credit', () => {
     const terms: PlanTermLike[] = [{ term_index: 1, label: 'Fall', credit_hours: '15', items: ['INM 101or VOK 101'] }]
     const m = { status: 'qualifies', exam: { name: 'X' }, earned: [{ course: 'VOK 101', credits: 1, minimumText: '3' }] }
-    expect(degreeCredit([m as never], terms).coveredTerms).toEqual([{ term: 1, label: 'Fall' }])
+    const r = degreeCredit([m as never], terms)
+    expect(r.coveredTerms).toEqual([])
+    expect(r.accepted[0]).toMatchObject({ status: 'printed_alternative', matched: [], named: [{ code: 'VOK 101', term: 1, item: 'INM 101or VOK 101' }] })
   })
 
   it('a plan-total row in the last semester does not make it a year block (JSU)', () => {
@@ -254,7 +256,8 @@ describe('review findings on stored plans (#242)', () => {
     const term = (items: unknown[]): PlanTermLike => ({ term_index: 1, label: 'Fall', credit_hours: '15', items: items as never })
     expect(degreeCredit([exam('BIOC 3653')], [term([{ text: 'Major, General Education, and Elective courses, or BIOC 3653', credits: 7 }])]).coveredTerms).toEqual([])
     expect(degreeCredit([exam('SOC 4500')], [term(['Social & Behavioral Science If ANTH 4500/SOC 4500 course option not taken'])]).coveredTerms).toEqual([])
-    // A plain list of courses is still met.
-    expect(degreeCredit([exam('MATH 152')], [term(['MATH 151 or MATH 152'])]).coveredTerms).toHaveLength(1)
+    // A list of courses printed as one string is never filled; the same list stored as any_of is.
+    expect(degreeCredit([exam('MATH 152')], [term(['MATH 151 or MATH 152'])]).coveredTerms).toEqual([])
+    expect(degreeCredit([exam('MATH 152')], [term([{ any_of: [{ code: 'MATH 151' }, { code: 'MATH 152' }] }])]).coveredTerms).toHaveLength(1)
   })
 })

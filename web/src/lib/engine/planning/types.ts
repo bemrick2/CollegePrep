@@ -57,7 +57,7 @@ export interface Line<T> {
  * planned: no score entered yet. see_table: the table needs something we don't read (criteria, an IB level, an exam it
  * doesn't list), so the family should read it.
  */
-export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'elective_only' | 'unknown' | 'none' | 'not_verified' | 'planned' | 'see_table'
+export type CreditFit = 'applies' | 'partly' | 'accepted_not_in_plan' | 'printed_alternative' | 'elective_only' | 'unknown' | 'none' | 'not_verified' | 'planned' | 'see_table'
 
 export interface PlanRow {
   term: number
@@ -117,6 +117,21 @@ export interface PlanCourseRow {
   options: string[]
   /** How many of the options the requirement takes, as printed (1 when the plan prints no count). */
   choose: number
+  /** The plan's footnotes this row cites, as printed ({marker, text}). */
+  notes: { marker: string; text: string }[]
+  /** Marks printed in the row that have no footnote on file (shown as such, never as a bare symbol). */
+  unexplainedMarks: string[]
+  /** The row names courses among alternatives that exist only in its printed wording: never filled by credit automatically. */
+  unresolved: boolean
+}
+
+/** Everything a plan prints outside its grid, verbatim (Clear Path and plangrid readers). */
+export interface PlanPrintedNotes {
+  footnotes: { marker: string; text: string; cited: boolean }[]
+  planNotes: string[]
+  sourceNotice: string[]
+  /** The printed degree checklist, by column ("Degree requirements", "Graduation requirements"). */
+  summary: { heading: string; items: string[] }[]
 }
 
 /** One of the school's plans for the major (a track, a concentration, a four-year or transfer path). */
@@ -152,7 +167,7 @@ export interface Roadmap {
    * blocked: no verified plan for this major, so credit can be shown as accepted only.
    */
   status: 'ready' | 'partial' | 'blocked'
-  plan: Line<{ catalogYear: string | null; title: string | null; terms: TermCoverage[]; totalCredits: number | null; totalText: string | null }>
+  plan: Line<{ catalogYear: string | null; title: string | null; terms: TermCoverage[]; totalCredits: number | null; totalText: string | null; printed: PlanPrintedNotes }>
   /** Every plan the school prints for this major, in order; the roadmap uses `planKey` (default: the first). */
   plans: PlanChoice[]
   planKey: string | null

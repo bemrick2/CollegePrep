@@ -324,3 +324,74 @@ export function entryCodes(e: PlanEntry): string[] {
   const own = e.code ? [e.code, ...titleAlternatives(e.code, e.title)] : codesInText(e.text)
   return [...new Set([...own, ...e.choices.flatMap(entryCodes)])]
 }
+
+/**
+ * A row whose alternatives exist only in its printed wording ("MATH 1710 or MATH 1730", "Elective (ENGL 1010 or
+ * 1011)*", "ART 3700 level or higher Art History Elective", "WR 122Zor WR 123"): no reviewed structure (a course
+ * code, an option list or any_of) says which courses satisfy it, or under what condition. It is shown as printed and
+ * is never filled by credit automatically (degreeCredit), so it can't make a requirement, a term, coverage or a
+ * saving look met. Courses parsed out of free text are a guess; a wrong guess would over-report credit.
+ */
+export function unresolvedAlternatives(e: PlanEntry): boolean {
+  return !e.code && !e.choices.length && isRequirement(e) && /\bor\b|(?<=\d[A-Z]?)or\b|\//i.test(e.text)
+}
+
+/** Footnote marks printed in a row: runs of these symbols (digits count only when listed on the row itself). */
+// A mark is attached to the text before it ("1011)*", "Journalism*", "2000**+"); a symbol standing alone between
+// spaces ("Design + 2D Drawing") is part of the wording.
+const MARK_RUN = /(?<=\S)[*+\u2020\u2021\u00a7#^]+(?=\s|$|[),.;:])/g
+
+/**
+ * The footnotes a row cites. `markers` are the plan's footnote markers. A combined run ("**+") cites each note it
+ * contains, longest marker first. Anything left over is a mark with no note on file: returned in `unexplained`, so
+ * the page can say so instead of showing an unexplained asterisk.
+ *
+ * Symbols are also wording: a level ("300+", "2000+"), a wildcard ("3**", "ANTH 37xx+"), "C++". So marks are read
+ * only when the plan prints footnotes, and a run right after a digit, an "x" or a "C" counts only when it is exactly
+ * one of the plan's markers; otherwise it is left as wording, with no claim either way.
+ */
+export function rowMarks(e: PlanEntry, markers: string[]): { cited: string[]; unexplained: string[] } {
+  const known = [...new Set(markers)].sort((a, b) => b.length - a.length)
+  const cited: string[] = []
+  const unexplained: string[] = []
+  for (const m of e.footnotes) (known.includes(m) ? cited : unexplained).push(m)
+  if (!known.length) return { cited: [...new Set(cited)], unexplained: [...new Set(unexplained)] }
+  const texts = [e.text, ...e.choices.map((c) => c.text)]
+  for (const t of texts)
+    for (const m of t.matchAll(MARK_RUN)) {
+      const run = m[0]
+      if (/[\dxXC]$/.test(t.slice(0, m.index))) {
+        // After a digit, "x" or "C": a citation only when the run splits wholly into different known markers.
+        const parts: string[] = []
+        let rest = run
+        while (rest) {
+          const k = known.find((x) => rest.startsWith(x))
+          if (!k || parts.includes(k)) break
+          parts.push(k)
+          rest = rest.slice(k.length)
+        }
+        if (!rest) cited.push(...parts)
+        continue
+      }
+      let rest = run
+      const inRun: string[] = []
+      while (rest) {
+        const k = known.find((x) => rest.startsWith(x))
+        // The same note twice ("**" where only "*" has a note): the whole run is unexplained, never split into
+        // notes it doesn't print. A part with no note ("+" in "*+"): that part is unexplained, the rest is cited.
+        if (k && inRun.includes(k)) {
+          unexplained.push(run)
+          inRun.length = 0
+          break
+        }
+        if (!k) {
+          unexplained.push(rest)
+          break
+        }
+        inRun.push(k)
+        rest = rest.slice(k.length)
+      }
+      cited.push(...inRun)
+    }
+  return { cited: [...new Set(cited)], unexplained: [...new Set(unexplained)] }
+}
