@@ -20,7 +20,7 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-12 | Primary target school | ✅ live | `supportsPrimarySchool = true` in `LiveSource` |
 | CR-13 | Major certainty and saved interests | ✅ live | Read/written through `student_academic_interests`; checked locally |
 | CR-14 | Structured program, admission and degree-path fields | 🚧 schema in PR #89, data in #91/#92 | Program match by name; admission/transfer/undeclared shown as unverified questions; progression text quoted |
-| CR-15 | Household home state | ⏳ open | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
+| CR-15 | Household home state | 🚧 migration `20261102060000` (unapplied on hosted): `households.home_state` and `students.home_state` (no-household profiles); see §CR-15 | Asked (optional) in onboarding and on cost screens; kept in this browser; labelled as the family's answer |
 | CR-16 | Subscription owner + household entitlement | 🚧 migrations `20261006103015`/`20261006103023` and edge functions merged (#108); untested against real Stripe | `PlanCard` reads `household_entitlement` (sandbox status display-only); checkout and portal via edge functions |
 | CR-17 | How each school bills tuition (flat rate or per credit) | ⏳ open | Credit savings counted only as whole terms finished early; the remainder is shown, not counted |
 | CR-18 | Loan terms (federal limits, rates) as sourced records | ⏳ open | Families enter planned borrowing; it is shown as borrowed, never as a saving; no limits or rates shown |
@@ -28,9 +28,9 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
 | CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | 🚧 migration in repo (`20261102020000_parent_emails`, #298), unapplied on hosted | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
-| CR-23 | Reserved assessment pool; fresh vs repeat on the server | 🚧 part 1 in migration `20261022050000` (#248, unapplied on hosted): reserved pool, checks (version required, 4-hour live window, resumed), repeats, pool counts; `seen_before` on practice items and first-answer estimates still open | Client reads `pool` and the server's check order (`benchmark_questions`); demo mirrors the same rules. Paired release: see §CR-23 |
+| CR-23 | Reserved assessment pool; fresh vs repeat on the server | 🚧 part 1 in migration `20261022050000` (#248, unapplied on hosted): reserved pool, checks (version required, 4-hour live window, resumed), repeats, pool counts; part 2 in migration `20261102050000` (unapplied on hosted): `practice_session_items.seen_before` / `last_seen`, `student_skill_estimates.first_answers` / `first_answer_accuracy` | Client reads `pool` and the server's check order (`benchmark_questions`); demo mirrors the same rules. Paired release: see §CR-23 |
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | 🚧 migration `20261022030000`, unapplied on hosted | Enforced by checks on `practice_questions`; generated items need a `human:` review to be served |
-| CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
+| CR-25 | "Report a problem" on a question | 🚧 migration `20261102040000` (unapplied on hosted): `report_question_problem`, service-only `question_reports`; see §CR-25 | No UI; nothing stored |
 | CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | 🚧 migration in repo (`20261102010000_account_setup`, #298), unapplied on hosted | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
 | CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | 🚧 migration in repo (`20261102030000_practice_reminders`, #298), unapplied on hosted | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
 | CR-28 | Planning profile: high school courses, dual enrollment, optional GPA band (college planning pilot) | ⏳ proposal (#196); not started until hosted is restored and the privacy policy names the fields | Pilot inputs are demo-only (`docs/product/COLLEGE_PLANNING_PILOT.md`) |
@@ -216,6 +216,13 @@ Everything else is shown as a question to ask the school.
 
 **Why.** Cost screens choose a school's in-state or out-of-state published price from the family's home state. Without it, every school showed its cheapest residency price, which understates cost for out-of-state options (for example, a Tennessee family looking at Oregon). The UI labels the state as the family's answer, not a residency determination. When a school publishes no out-of-state price, the UI flags it instead of showing the in-state figure as theirs. The state currently lives in one browser.
 
+**Built (`20261102060000_household_home_state`, unapplied on hosted):**
+- `households.home_state text null`: a USPS code for one of the 50 states, DC, or the territories PR, GU, VI, AS and MP, uppercase (`public.is_us_home_state_code`). Anything else, lowercase included, is refused. Null means not answered.
+- Read: every household member, with the household row (`households` select, as `name` and `time_zone`).
+- Write: `set_household_home_state(p_household, p_state)` returns the stored value. It is open to a guardian with `set_goals` or `manage_members`. Anyone else gets 42501, and an unknown code gets 22023. The column has no client update grant, so `set_goals` gains no other household-settings write.
+- `students.home_state`, the same codes, for a profile with no household: written by the linked student (no household, or independent) or a `manage_students` guardian (the existing `student_update` rule). When the student is in a household, read the household's value.
+- Cost views unchanged: `cost_projection` still takes `assumptions.residency` from the client, and `compare_institutions` has no residency input. The server infers no residency.
+
 ## CR-16. Subscription owner and household entitlement
 
 **Need.** Three pieces, with the full field list and event map in `docs/product/APP_DISTRIBUTION_AND_PAYMENTS.md` ("Entitlement model"):
@@ -373,9 +380,11 @@ In the app and the local database, an item is served only if a review approved i
    - run `scripts/local/live_stack.sh test` with the same migrations;
    - run the hosted acceptance steps in `LAUNCH_CHECKLIST.md` (B1).
 
-**Still open (CR-23 part 2):**
-- `seen_before` on practice items (the client marks it today).
-- `student_skill_estimates` first-answer fields.
+**Built, part 2 (`20261102050000_practice_seen_and_first_answer`, unapplied on hosted):**
+- `practice_session_items.seen_before boolean` and `last_seen timestamptz`: whether the student had been shown the question before the session served it. "Shown" is #263's exposure rule: any earlier attempt (answered, skipped or abandoned), or an assignment to a progress check, attempted or not. A trigger sets both when the item is inserted, so they hold whatever inserts the session; they are frozen at serving time. Read with the item (the student and `view_progress` guardians); never client-written. Older rows are backfilled from exposure before their session started.
+- `student_skill_estimates` adds `first_answers bigint` and `first_answer_accuracy numeric` (null with none), after the existing columns. These are over the skill's 30 most recent first answers. A first answer is a submitted, non-skipped attempt with no earlier attempt at that question by the student and no earlier assignment of it to another check. A correct repeat raises `accuracy` but never `first_answer_accuracy`. Existing columns, thresholds and the recommender are unchanged.
+- The recommender (`recommend_internal`, behind `recommend_practice_set` and `start_practice_session`) ranks by the same exposure rule (`student_exposure_internal`). An item a check assigned, then returned to practice, is not ranked as fresh.
+- `recommend_practice_set` and `start_practice_session` keep their signatures (CR-26 replaces both); the served session carries `seen_before`.
 
 ## CR-24. Rights gate on published questions
 
@@ -407,6 +416,19 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 - Never shown to other families.
 
 **Client:** a "Report a problem" link on the answer review, sending a reason and an optional note. It will be shown only once the RPC exists.
+
+**Built (`20261102040000_question_reports`, unapplied on hosted):**
+- `report_question_problem(p_attempt uuid, p_reason text, p_note text default null) returns jsonb`: `{"report_id", "created", "updated", "status": "open"}` and nothing else.
+- Callers: the attempt's student, or a guardian with `view_progress` in the student's household. Anyone else, anon, the service role (no user) and a missing attempt all get the same 42501.
+- Reasons `wrong_key`, `two_answers`, `unclear`, `typo`, `other`. The note is trimmed of all leading and trailing whitespace (spaces, tabs, newlines); a note of only whitespace counts as none. At most 500 characters (22023 otherwise).
+- One open report per reporter, student, question and content version (the question's content hash).
+  - A repeat returns that report with `created: false` and replaces its reason and note. `updated` is true when either changed.
+  - A change sets `updated_at` and adds one to `revision`: a report is filed at revision 1, with `updated_at` null. A closed report is never matched and never changes; a trigger refuses any rewrite of it.
+  - The same note rules apply to a repeat, and a repeat is never rate-limited.
+  - A new version, or the report being closed, allows a new one.
+- Rate limit per reporter: 10 new reports an hour and 30 a day: 22023 with `hint = 'rate_limited'`.
+- Reserved (check) items: reportable once the attempt was submitted (answered or skipped), or by the student while that attempt's check is live. Otherwise 42501, with a message that doesn't name the reserve.
+- `question_reports`: service role only (RLS, no client grants), so no family reads any report, its own included. Editors close one with `resolve_question_report(p_report, 'resolved' | 'dismissed', p_reviewed_by, p_resolution_note)` (service role only).
 
 ## CR-26. Setup on the account
 
