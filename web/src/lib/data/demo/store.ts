@@ -72,6 +72,8 @@ export interface DemoStore {
   reminders?: Record<string, import('../source').ReminderSettings>
   reminderChanges?: { id: string; student_id: string; enabled: boolean; by: 'student' | 'guardian'; at: string; notifyGuardians: boolean }[]
   devices?: { id: string; user_id: string; permission: import('../source').DevicePermission; platform: import('../source').DevicePlatform | null; subscribed: boolean; checked_at: string }[]
+  /** #263 mirror: studentId → reserved item → when it was last assigned to a check (counts as seen). Optional so older saved demos still load. */
+  checkExposure?: Record<string, Record<string, string>>
 }
 
 const KEY = 'pp-demo-v1'
