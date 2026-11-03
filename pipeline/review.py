@@ -8,6 +8,7 @@ Outputs in the run directory (all deterministic for a given crawl and repository
 """
 from __future__ import annotations
 import json, re
+from urllib.parse import urlsplit
 from collections import Counter, defaultdict
 from datetime import date
 
@@ -162,6 +163,9 @@ def merge_pages(group):
     return merged
 
 
+STAGING_HOST = re.compile(r'(?:training|staging|stage|test|dev|preview|beta)[-.]', re.I)
+
+
 def dedupe(cands):
     """Same candidate id from several fetches of one document -> keep one; different documents yielding
     the same natural key with different values -> both flagged as conflicting."""
@@ -189,7 +193,8 @@ def dedupe(cands):
     # Distinct ids for one natural key (e.g. two extractors) would collide on import; keep the richest.
     keep = {}
     for key, group in by_key.items():
-        keep[key] = max(group, key=lambda g: (len(g['evidence']), g['candidate_id']))
+        # MI (CMU): the same table on www.cmich.edu and on its training-www copy - the public site is the source cited
+        keep[key] = max(group, key=lambda g: (not STAGING_HOST.match(urlsplit(g['source'].get('url') or '').netloc), len(g['evidence']), g['candidate_id']))
         for g in group:
             if g is not keep[key] and not any(i.startswith('conflicting_sources') for i in g['issues']):
                 g['superseded_by'] = keep[key]['candidate_id']

@@ -2039,6 +2039,51 @@ class ReviewAndPromoteTests(unittest.TestCase):
         self.assertEqual(len(out), 2)
         self.assertTrue(all(any(i.startswith('conflicting_sources') for i in c['issues']) for c in out))
 
+    def test_tiered_award_and_its_per_row_records_are_never_both_active(self):
+        """#299 (AHU, UMT, OLLU): a reviewed tiered award supersedes the per-row records the list reader made from the same table."""
+        from scripts.validate_data import superseded_award_errors
+        base = {'institution_key': 'ipeds-1', 'academic_year': '2026-27', 'source_url': 'https://www.example.edu/merit'}
+        tiered = {**base, 'award_name': 'Merit Scholarships', 'award_tiers': [{'gpa': '3.0 to 3.49'}], 'verification_status': 'partially_verified'}
+        row = {**base, 'award_name': 'Merit Scholarships: GPA 3.0 to 3.49', 'gpa_requirement': 'GPA: 3.0 to 3.49', 'verification_status': 'partially_verified'}
+        rows = lambda *rs: [(Path('x.json'), 'awards', r) for r in rs]
+        self.assertEqual(len(superseded_award_errors(rows(tiered, row))), 1)
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'verification_status': 'unverified'})), [])  # superseded: history
+        self.assertEqual(superseded_award_errors(rows({**tiered, 'verification_status': 'unverified'}, row)), [])
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'award_name': 'Merit Scholarships Plus'})), [])  # another award
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'academic_year': '2027-28'})), [])
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'source_url': 'https://other.example.org/merit'})), [])  # another site
+        # #299 confirm-review: the bypasses below each hid a live double award before names and hosts were normalised.
+        for variant in ({'award_name': 'MERIT scholarships: GPA 3.0 to 3.49'},             # case
+                        {'award_name': 'Merit  Scholarships :  GPA 3.0 to 3.49'},          # spacing
+                        {'source_url': 'https://example.edu/merit'},                        # bare host vs www.
+                        {'source_url': 'https://WWW.Example.edu/merit'},                     # host case
+                        {'award_name': 'Merit Scholarships - GPA 3.0 to 3.49'},            # " - " separator
+                        {'award_name': 'Merit Scholarships – GPA 3.0 to 3.49'},       # en dash separator
+                        {'gpa_requirement': None, 'award_amount_text': '$2,000 per year'}, # amount only
+                        {'gpa_requirement': None, 'award_min': 2000, 'award_max': 2000}):
+            with self.subTest(variant=variant):
+                self.assertEqual(len(superseded_award_errors(rows(tiered, {**row, **variant}))), 1)
+        self.assertEqual(len(superseded_award_errors(rows({**tiered, 'award_name': ' Merit Scholarships '}, row))), 1)  # trailing space
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'gpa_requirement': None})), [])  # a bare name names no tier
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'award_name': 'Merit Scholarships-Plus'})), [])
+        # UA: in-state and out-of-state awards are distinct names, not rows of one another.
+        ua = {**tiered, 'award_name': 'In-State Scholarship'}
+        self.assertEqual(superseded_award_errors(rows(ua, {**row, 'award_name': 'Out-of-State Scholarship: 3.5 GPA'})), [])
+        # The one listed exception (UTK In-State Volunteer, both sides verified) matches its normalised name only.
+        utk = {**base, 'institution_key': 'utk', 'award_tiers': [{}], 'verification_status': 'verified'}
+        utk_row = {**row, 'institution_key': 'utk', 'verification_status': 'verified'}
+        self.assertEqual(superseded_award_errors(rows({**utk, 'award_name': 'In-State  Volunteer Scholarship'},
+                                                      {**utk_row, 'award_name': 'In-State Volunteer Scholarship: 4.0 GPA'})), [])
+        self.assertEqual(len(superseded_award_errors(rows({**utk, 'award_name': 'Out-of-State Volunteer Scholarship'},
+                                                          {**utk_row, 'award_name': 'Out-of-State Volunteer Scholarship: 4.0 GPA'}))), 1)
+
+    def test_identical_copies_keep_the_public_site(self):
+        a = self.cand(); a['source']['url'] = 'https://www.example.edu/x'
+        b = json.loads(json.dumps(a)); b['candidate_id'] = 'ffffffffffffffff'; b['source']['url'] = 'https://training-www.example.edu/x'
+        for order in ([a, b], [b, a]):  # MI (CMU): the same table on www and on a training copy of the site
+            [m] = review.dedupe(json.loads(json.dumps(order)))
+            self.assertEqual(m['source']['url'], 'https://www.example.edu/x')
+
     def test_change_against_verified_record_is_an_exception(self):
         c = self.cand()
         old = {**c['record'], 'verification_status': 'verified',
@@ -2613,6 +2658,164 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(self.got(mid), {})  # criteria columns must be one block at the right
         self.assertEqual(self.got(usa.replace('<th>SAT</th>', '<th>SAT Score</th>'))['Scholarships for Incoming Freshman']['record']['award_tiers'][0]['test'],
                          'ACT 21-22 / SAT 1060-1120')
+
+    def test_two_row_headers(self):
+        """MI (CMU): "ACT | SAT | GPA" over the GPA bands; SD (SDSU): an ACT row over an SAT row, then GPA rows. Archived pages lost
+        the spans, so a two-row header is rebuilt only when every row fits it exactly."""
+        cmu = """<title>Scholarships for incoming freshmen</title><h2>Freshmen merit scholarships</h2><table>
+<tr><th>ACT</th><th>SAT</th><th>GPA</th></tr><tr><th>3.0-3.29</th><th>3.3-3.59</th><th>3.6-3.79</th></tr>
+<tr><td>&lt;22 or no score</td><td>&lt;1100 or no score</td><td>$3,500</td><td>$4,000</td><td>$4,500</td></tr>
+<tr><td>22-24</td><td>1100-1190</td><td>$4,250</td><td>$4,750</td><td>$5,250</td></tr></table>"""
+        r = self.got(cmu)['Freshmen merit scholarships']['record']
+        self.assertEqual((len(r['award_tiers']), r['award_min'], r['award_max']), (6, 3500, 5250))
+        self.assertEqual(r['award_tiers'][0], {'test': 'ACT <22 or no score / SAT <1100 or no score', 'gpa': 'GPA 3.0-3.29', 'amount_text': '$3,500'})
+        sd = """<title>First-Time Student Scholarships</title><h2>Eligibility</h2><table>
+<tr><td>TEST SCORES</td><td>ACT</td><td>32+</td><td>28</td><td>No test score or lower than 28 ACT or 1300 SAT</td></tr>
+<tr><td>SAT</td><td>1420+</td><td>1300</td></tr>
+<tr><td>GPA</td><td>4.00+</td><td>$4,000</td><td>$4,000</td><td>$3,000</td></tr><tr><td>3.90</td><td>$4,000</td><td>$3,000</td><td>$3,000</td></tr>
+<tr><td>3.75</td><td>$4,000</td><td>$3,000</td><td>$2,000</td></tr></table>"""
+        r = self.got(sd)['First-Time Student Scholarships']['record']  # "Eligibility" names no award; the page does
+        self.assertEqual(len(r['award_tiers']), 9)
+        self.assertEqual(r['award_tiers'][0], {'gpa': '4.00+', 'test': 'ACT 32+ / SAT 1420+', 'amount_text': '$4,000'})
+        self.assertEqual(r['award_tiers'][2]['test'], 'No test score or lower than 28 ACT or 1300 SAT')  # stands alone
+        self.assertEqual(r['test_requirement'], 'Tiers by GPA and ACT 32+ / SAT 1420+, ACT 28 / SAT 1300, No test score or lower than 28 ACT or 1300 SAT')
+        lead = sd.replace('<h2>Eligibility</h2>', '<h2>Eligibility</h2><p>The grid below shows guaranteed award amounts for first-time students enrolling in fall 2026, '
+                          'spring 2027, summer 2027, fall 2027 and spring 2028. No scholarship application is required to receive the guarantee.</p>')
+        lead = lead.replace('</table>', '</table><p>Then look for the 2027-2028 Incoming First-Time Student Scholarship Application.</p>')
+        c = self.got(lead)['First-Time Student Scholarships']  # the application's year label never dates the guaranteed grid
+        self.assertEqual((c['academic_year'], c['issues']), ('2027-28', ['conflicting_year_statement:2026-27', 'year_label_only_in_other_aid:2027-28']))
+        dc = lead.replace(' No scholarship application is required to receive the guarantee.', '')  # KS (Dodge City): the application is for these awards
+        self.assertEqual(self.got(dc)['First-Time Student Scholarships']['issues'], [])
+        one = lead.replace('fall 2026, spring 2027, summer 2027, fall 2027 and spring 2028', 'fall 2027 and spring 2028')
+        self.assertEqual(self.got(one)['First-Time Student Scholarships']['issues'], [])  # one entering year in the grid's own lead dates it
+        # an ACT band with no SAT partner that is itself a score: which SAT band goes with which ACT band is not printed
+        self.assertEqual(self.got(sd.replace('No test score or lower than 28 ACT or 1300 SAT', '26')), {})
+        self.assertEqual(self.got(sd.replace('<tr><td>3.90</td>', '<tr><td>3.90</td><td>$1</td>')), {})  # a row that does not fit
+
+    def test_amounts_printed_by_component(self):
+        """LA (ULM, McNeese): each award's amount is printed as components (academic, housing, TOPS) beside a total. Every
+        component is kept as printed; no single amount is chosen, so the record is held for review."""
+        ulm = """<title>ULM Scholarship Information for Freshmen</title><h2>2026-2027 Freshman Scholarships &amp; Awards</h2><table>
+<tr><th>GPA 3.5-4.0</th><th>Academic Scholarship</th><th>Housing Award**</th><th>TOPS***</th><th>Total Annual Award (ULM &amp; TOPS)</th></tr>
+<tr><td>President's DistinguishedACT 33-36*</td><td>$6,000</td><td>$6,000</td><td>$10,065</td><td>$22,065</td></tr>
+<tr><td>President's DistinguishedACT 31-32*</td><td>$5,000</td><td>$5,000</td><td>$10,065</td><td>$20,065</td></tr>
+<tr><td>Ace's AwardACT 20-22</td><td>$1,000</td><td>-</td><td>$5,788</td><td>$6,788</td></tr></table>"""
+        got = self.got(ulm)
+        self.assertEqual(sorted(got), ["Ace's Award (GPA 3.5-4.0)", "President's Distinguished (GPA 3.5-4.0)"])
+        c = got["President's Distinguished (GPA 3.5-4.0)"]
+        self.assertEqual((c['academic_year'], c['issues']), ('2026-27', ['amount_by_component', 'component_is_other_aid']))
+        self.assertEqual(c['record']['award_tiers'][1], {'gpa': 'GPA 3.5-4.0', 'test': 'ACT 31-32*', 'Academic Scholarship': '$5,000', 'Housing Award**': '$5,000',
+                                                         'TOPS***': '$10,065', 'Total Annual Award (ULM & TOPS)': '$20,065',
+                                                         'amount_text': 'Academic Scholarship: $5,000; Housing Award**: $5,000; TOPS***: $10,065; Total Annual Award (ULM & TOPS): $20,065'})
+        self.assertNotIn('award_max', c['record'])  # the total includes state aid: never the school's award
+        self.assertNotIn('Housing Award**', got["Ace's Award (GPA 3.5-4.0)"]['record']['award_tiers'][0])  # "-" is no housing award
+        self.assertIsNone(P.status_for(c, accepted_issues=False))
+        oos = ulm.replace('<th>TOPS***</th>', '<th>Out-of-State Warhawk Scholarship*</th>').replace(' (ULM &amp; TOPS)', '')  # the school's own award
+        self.assertEqual(self.got(oos)["Ace's Award (GPA 3.5-4.0)"]['issues'], ['amount_by_component'])
+        self.assertEqual(self.got(ulm.replace('<td>$1,000</td>', '<td>see note</td>')), {})  # a cell that is not an amount
+        self.assertEqual(self.got(ulm.replace('<th>Academic Scholarship</th>', '<th>Transfer Award</th>')), {})  # never a transfer table
+        mc = """<title>Freshman Academic Scholarships</title><h2>Freshman Academic Scholarships</h2><table>
+<tr><th>GPA</th><th>Fees/Books Awards*</th><th>Campus Housing*</th><th>1-Year Value</th></tr>
+<tr><td>Presidential Award ACT 30-36 / SAT 1360-1600</td></tr><tr><td>3.25+</td><td>$2,500</td><td>$2,000</td><td>$9,000</td></tr>
+<tr><td>University Scholars Award ACT 27-29 / SAT 1260-1350</td></tr><tr><td>3.50+</td><td>$2,250</td><td>$1,750</td><td>$8,000</td></tr>
+<tr><td>3.25 – 3.49</td><td>$2,000</td><td>$1,750</td><td>$7,500</td></tr></table>"""
+        got = self.got(mc)  # "Fees/Books Awards*" names what the award pays for: not a fee table
+        self.assertEqual(sorted(got), ['Presidential Award', 'University Scholars Award'])
+        t = got['University Scholars Award']['record']['award_tiers']
+        self.assertEqual((len(t), t[1]['gpa'], t[1]['test'], t[1]['1-Year Value']), (2, '3.25 – 3.49', 'ACT 27-29 / SAT 1260-1350', '$7,500'))
+
+    def test_awards_in_columns(self):
+        """TN (Union), OH (Shawnee State), LA (Dillard): one award per column, its GPA, scores and amount down the side."""
+        uu = """<title>Scholarships</title><h2>2026-2027 Freshman Academic Awards</h2><table>
+<tr><th></th><th>University Scholarship</th><th>Dean's Scholarship</th><th>Provost's Scholarship</th></tr>
+<tr><td>MinimumACT / SAT / CLT</td><td>18 / 960 / 55</td><td>21 / 1060 / 67</td><td>24 / 1160 / 79</td></tr>
+<tr><td>Minimum GPA</td><td>2.0</td><td>2.5</td><td>3.0</td></tr><tr><td>On-Campus Award Amount</td><td>$11,000</td><td>$12,000</td><td>$15,000</td></tr>
+<tr><td>Off-Campus Award Amount</td><td>$8,000</td><td>$9,000</td><td>$11,000</td></tr></table>"""
+        r = self.got(uu)["Dean's Scholarship"]['record']
+        self.assertEqual((r['gpa_requirement'], r['test_requirement'], r['award_min'], r['award_max'], r['thresholds']),
+                         ('Minimum GPA: 2.5', 'MinimumACT / SAT / CLT: 21 / 1060 / 67', 9000, 12000, {'gpa_min': 2.5, 'act_min': 21, 'sat_min': 1060}))
+        two = uu.replace('<td>21 / 1060 / 67</td>', '<td>21 / 1060</td>')  # a cell that does not print one number per named test
+        self.assertEqual(self.got(two)["Dean's Scholarship"]['record']['thresholds'], {'gpa_min': 2.5})
+        self.assertEqual(r['award_amount_text'], 'On-Campus Award Amount: $12,000; Off-Campus Award Amount: $9,000')
+        acc = """<title>Scholarships</title><h2>Placement Scholarships</h2><table><tr><th>Scholarship</th><th>Shawnee Achievement</th><th>Shawnee Excellence</th></tr>
+<tr><td>GPA</td><td>3.9+</td><td>3.6+</td></tr><tr><td>Scores</td><td>AAF 276+WP 7+READ 241+</td><td>AAF 263+WP 5+READ 241+</td></tr>
+<tr><td>Amount</td><td>$4,000/year</td><td>$3,000/year</td></tr></table>"""
+        self.assertEqual(self.got(acc), {})  # placement-test scores are not ACT/SAT criteria
+        sh = acc.replace('AAF 276+WP 7+READ 241+', 'ACT 27+ orSAT 1260+').replace('AAF 263+WP 5+READ 241+', 'ACT 25+ orSAT 1200+')
+        self.assertEqual(self.got(sh)['Shawnee Excellence']['record']['test_requirement'], 'Scores: ACT 25+ orSAT 1200+')
+        gpa_scores = sh.replace('<td>3.9+</td><td>3.6+</td>', '<td>ACT 30+</td><td>ACT 27+</td>')
+        self.assertEqual(self.got(gpa_scores), {})  # a GPA row that prints scores is not read as GPA criteria
+        sbu = """<title>Financial Aid</title><h2>Freshman Academic Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Residency Grant</th><th>Annual Total</th></tr>
+<tr><td>Provost's Scholar Award(3.80-3.99 GPA)</td><td>$12,000</td><td>$3,500</td><td>$15,500</td></tr>
+<tr><td>Dean's Scholar Award(3.30-3.79 GPA)</td><td>$11,000</td><td>$3,500</td><td>$14,500</td></tr>
+<tr><td>Bearcat Scholar Award I(3.00-3.29 GPA)</td><td>$10,000</td><td>$3,500</td><td>$13,500</td></tr></table>"""
+        self.assertNotIn('Amount', self.got(sbu))  # MO (SBU): rows are awards, columns are amounts - never one award per column
+        self.assertNotIn('Annual Total', self.got(sbu.replace('Residency Grant', 'Housing')))
+        rows = """<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th>Scholarship</th><th>In-State</th><th>Out-of-State</th></tr>
+<tr><td>Trustee (3.8 GPA)</td><td>$5,000</td><td>$9,000</td></tr><tr><td>Dean (3.5 GPA)</td><td>$3,000</td><td>$7,000</td></tr>
+<tr><td>Award</td><td>$500</td><td>$500</td></tr></table>"""
+        self.assertNotIn('In-State', self.got(rows))  # a side label that prints a GPA band is an award row, not an attribute
+        cols = """<title>Scholarships</title><h2>Freshman Scholarships</h2><table><tr><th>Scholarship</th><th>Amount</th><th>Annual Total</th></tr>
+<tr><td>Minimum GPA</td><td>3.5</td><td>3.0</td></tr><tr><td>Award</td><td>$12,000</td><td>$15,500</td></tr></table>"""
+        self.assertNotIn('Annual Total', self.got(cols))  # an amount or total column is never an award
+
+    def test_tier_bands_with_to_and_side_columns(self):
+        """PA (SRU) "3.00 to 3.24" under "Non-PA Residents"; MO (UCM) a side award printed beside the first row; ND (UND) a GPA
+        band with a printed test-score alternative; CO (UNC) award names that carry their GPA band."""
+        sru = """<title>First-Year Scholarships | Slippery Rock University</title><h2>Non-PA Residents</h2><table><tr><th>GPA</th><th>Scholarship</th></tr>
+<tr><td>3.00 to 3.24</td><td>$1,000/year</td></tr><tr><td>3.25 to 3.79</td><td>$2,000/year</td></tr><tr><td>3.9 and higher</td><td>$4,000/year</td></tr></table>"""
+        r = self.got(sru, {**INST, 'state': 'PA'})['First-Year Scholarships']['record']
+        self.assertEqual((len(r['award_tiers']), r['award_min'], r['award_max'], r['residency_requirement']), (3, 1000, 4000, 'Out-of-state'))
+        ucm = """<title>Future Freshman Scholarships</title><h2>Value: Per Year</h2><table><tr><th>Cumulative High School GPA</th><th>Red &amp; Black Scholarship</th>
+<th>ACT Excellence Scholarship(27+ Superscore)</th></tr><tr><td>3.75+</td><td>$4,000</td><td>$1,000</td></tr><tr><td>3.5 to 3.74 GPA</td><td>$3,000</td></tr>
+<tr><td>3.25 to 3.49</td><td>$2,000</td></tr></table>"""
+        c = self.got(ucm)['Red & Black Scholarship']
+        self.assertEqual((len(c['record']['award_tiers']), c['record']['award_max'], c['issues']), (3, 4000, ['side_award_column_unread']))
+        und = """<title>Freshmen Scholarships</title><h2>Automatic Academic Scholarships</h2><table><tr><th>Unweighted, Cumulative High School GPA</th><th>Freshman Scholarship Award</th></tr>
+<tr><td>3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA*</td><td>$14,000 $3,500 / year for a maximum of 4 years</td></tr>
+<tr><td>3.70 - 3.89 GPA</td><td>$11,000 $2,750 / year for a maximum of 4 years</td></tr><tr><td>3.50 - 3.69 GPA</td><td>$1,500 non-renewable</td></tr></table>"""
+        c = self.got(und)['Automatic Academic Scholarships']
+        self.assertEqual((len(c['record']['award_tiers']), c['issues'], 'award_max' in c['record']), (3, ['alternative_criteria_in_tier'], False))
+        self.assertEqual(c['record']['test_requirement'], '30+ ACT (1370+ SAT) with 3.00+ GPA*')  # the printed test-score path
+        one = und.replace(' / year for a maximum of 4 years', '/yrfor a max of 4 years')  # the four-year total is never the annual award
+        self.assertNotIn('award_max', self.got(one)['Automatic Academic Scholarships']['record'])
+        umt = """<title>Admissions Scholarship</title><h2>Montana Admissions Scholarship Amounts</h2><table><tr><th>High School GPA</th><th>Amount</th></tr>
+<tr><td>4.0+</td><td>$4,000 renewable for four years ($16,000 four-year value)</td></tr><tr><td>3.5 to 3.99</td><td>$3,000 renewablefor four years ($12,000 four-year value)</td></tr>
+<tr><td>3.0 to 3.49</td><td>$2,000 renewablefor four years ($8,000 four-year value)</td></tr></table>"""
+        r = self.got(umt)['Montana Admissions Scholarship Amounts']['record']  # MT (UM): annual amounts beside four-year totals
+        self.assertEqual((r['award_min'], r['award_max']), (2000, 4000))
+        gs = """<title>Scholarships</title><h2>Merit-Based Aid</h2><table><tr><th>Calculated Admissions GPA</th><th>Annual Award Amount (One – Time)</th></tr>
+<tr><td>4.00 +</td><td>$1000</td></tr><tr><td>3.80 – 3.99</td><td>$750</td></tr><tr><td>3.50 – 3.79</td><td>$500</td></tr></table>"""
+        self.assertEqual(list(self.got(gs)), ['Merit-Based Aid'])  # GA (Georgia Southern): an amount column never names the award
+        unc = """<title>Scholarships</title><h2>First-Year Student Scholarships – Fall 2026, Spring 2027</h2><table>
+<tr><th>First-Year Scholarships (Weighted GPA)</th><th>Colorado Resident</th><th>Non-Resident</th></tr>
+<tr><td>Trustee (4.00 GPA)</td><td>$4,500/yr</td><td>$7,500/yr</td></tr><tr><td>Presidential (3.80 – 3.99 GPA)</td><td>$3,500/yr</td><td>$6,500/yr</td></tr></table>"""
+        got = self.got(unc)
+        self.assertEqual(sorted(got), ['Presidential', 'Trustee'])
+        c = got['Trustee']
+        self.assertEqual((c['record']['gpa_requirement'], c['record']['award_amount_text'], c['issues']),
+                         ('4.00 GPA (Weighted GPA)', 'Colorado Resident: $4,500/yr; Non-Resident: $7,500/yr', ['amount_by_residency']))
+
+    def test_undergraduate_headings_and_amount_first_columns(self):
+        """MI (Cleary), KY (Spalding): "Undergraduate" is not a graduate table; NE (Concordia): a "First-year ... Scholarship" column
+        names the awards; WI (Carthage), NE (Nebraska Methodist): the amount column printed before the GPA column, and ">= 3.7"."""
+        cl = """<title>Undergraduate Admissions Scholarships</title><h2>Undergraduate Admissions Scholarships</h2><table>
+<tr><th>Scholarship Name</th><th>Amount</th><th>GPA</th></tr><tr><td>Presidential</td><td>$10,000</td><td>3.7 +</td></tr>
+<tr><td>Enterprise</td><td>$7,500</td><td>3.2 +</td></tr><tr><td>Entrepreneurship</td><td>$4,000</td><td>3.0 +</td></tr></table>"""
+        self.assertEqual(self.got(cl)['Enterprise']['record']['award_max'], 7500)
+        self.assertEqual(self.got(cl.replace('Undergraduate Admissions', 'Graduate Admissions')), {})  # a graduate table stays unread
+        self.assertEqual(self.got(cl.replace('<h2>Undergraduate Admissions Scholarships</h2>', '<h2>Undergraduate Students</h2>')), {})  # MI (MSU): fee tables
+        self.assertEqual(self.got(cl.replace('<h2>Undergraduate Admissions Scholarships</h2>', '<h2>Undergraduate Scholarships for International Students</h2>')), {})
+        cu = """<title>Scholarships</title><h2>Merit Aid</h2><table><tr><th>Fall 2027 Amount</th><th>First-year College Student Academic Scholarship</th><th>High School GPA</th></tr>
+<tr><td>$24,000</td><td>President's Scholarship</td><td>4.0 and 31 or higher on the ACT</td></tr><tr><td>$17,000</td><td>Dean's Scholarship</td><td>3.38-3.67</td></tr>
+<tr><td>$16,000</td><td>Achievement Award</td><td>2.00-3.37</td></tr></table>"""
+        self.assertEqual(sorted(self.got(cu)), ['Achievement Award', "Dean's Scholarship", "President's Scholarship"])
+        ca = """<title>Undergraduate Scholarships</title><h2>Academic Scholarships</h2><table><tr><th>Scholarship Amount</th><th>GPA</th></tr>
+<tr><td>$24,000 per year</td><td>3.75-4.0</td></tr><tr><td>$23,000 per year</td><td>3.5-3.74</td></tr><tr><td>$22,000 per year</td><td>&gt;= 3.0</td></tr></table>"""
+        r = self.got(ca)['Academic Scholarships']['record']
+        self.assertEqual((r['award_tiers'][2], r['award_min'], r['award_max']), ({'gpa': '>= 3.0', 'amount_text': '$22,000 per year'}, 22000, 24000))
+        an = ca.replace('<table>', '<p>Awarded to first-time transfer students only based on their college GPA:</p><table>')
+        self.assertEqual(self.got(an), {})  # SC (Anderson): college-GPA tiers led by a transfer line are transfer awards
 
     def test_freshman_pages_that_also_list_transfer_awards(self):
         ku = """<title>KU Scholarships | Renewable Merit Awards for Freshmen &amp; Transfers</title><h2>In-state freshman merit scholarships</h2><table>

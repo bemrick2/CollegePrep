@@ -117,6 +117,74 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "0d2a6649623df8a9": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "0d2a6649623df8a9",
+   "reason": "ULM President's Distinguished (GPA 3.5-4.0) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": [
+     {
+      "Academic Scholarship": "$6,000",
+      "Housing Award**": "$6,000",
+      "TOPS***": "$10,065",
+      "Total Annual Award (ULM & TOPS)": "$22,065",
+      "amount_text": "Academic Scholarship: $6,000; Housing Award**: $6,000; TOPS***: $10,065; Total Annual Award (ULM & TOPS): $22,065",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 33-36*"
+     },
+     {
+      "Academic Scholarship": "$5,000",
+      "Housing Award**": "$5,000",
+      "TOPS***": "$10,065",
+      "Total Annual Award (ULM & TOPS)": "$20,065",
+      "amount_text": "Academic Scholarship: $5,000; Housing Award**: $5,000; TOPS***: $10,065; Total Annual Award (ULM & TOPS): $20,065",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 31-32*"
+     },
+     {
+      "Academic Scholarship": "$5,000",
+      "Housing Award**": "$5,000",
+      "TOPS***": "$6,588",
+      "Total Annual Award (ULM & TOPS)": "$16,588",
+      "amount_text": "Academic Scholarship: $5,000; Housing Award**: $5,000; TOPS***: $6,588; Total Annual Award (ULM & TOPS): $16,588",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 30*"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Tiers by test score and GPA: ACT 33-36*, GPA 3.5-4.0 → Academic Scholarship: $6,000; Housing Award**: $6,000; TOPS***: $10,065; Total Annual Award (ULM & TOPS): $22,065; ACT 31-32*, GPA 3.5-4.0 → Academic Scholarship: $5,000; Housing Award**: $5,000; TOPS***: $10,065; Total Annual Award (ULM & TOPS): $20,065; ACT 30*, GPA 3.5-4.0 → Academic Scholarship: $5,000; Housing Award**: $5,000; TOPS***: $6,588; Total Annual Award (ULM & TOPS): $16,588"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Annual Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "0e7cc7fe8ac2b186": {
   "decision": {
    "candidate_id": "0e7cc7fe8ac2b186",
@@ -363,6 +431,104 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "270dcc6de1e79a3a": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "270dcc6de1e79a3a",
+   "reason": "ULM Academic Excellence (GPA 3.5-4.0) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": [
+     {
+      "Academic Scholarship": "$3,250",
+      "Housing Award": "$3,250",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$18,600",
+      "amount_text": "Academic Scholarship: $3,250; Housing Award: $3,250; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $18,600",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 27-29 orSAT 1260-1350"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Tiers by test score and GPA: ACT 27-29 orSAT 1260-1350, GPA 3.5-4.0 → Academic Scholarship: $3,250; Housing Award: $3,250; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $18,600"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Printed by component: Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "28fb29b2334ff2e2": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "28fb29b2334ff2e2",
+   "reason": "ULM Academic Merit (GPA 3.0-3.49) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": [
+     {
+      "Academic Scholarship": "$2,000",
+      "HousingAward": "$1,500",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$15,600",
+      "amount_text": "Academic Scholarship: $2,000; HousingAward: $1,500; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $15,600",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 23-26 orSAT 1130-1250"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Tiers by test score and GPA: ACT 23-26 orSAT 1130-1250, GPA 3.0-3.49 → Academic Scholarship: $2,000; HousingAward: $1,500; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $15,600"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Printed by component: Academic Scholarship, HousingAward, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
  "2c396be385c1cc1f": {
   "decision": {
    "candidate_id": "2c396be385c1cc1f",
@@ -412,6 +578,55 @@
    "sha256": "2f77c530a44ac938d78eb93263fd41049d4fd9b2cf3bdf539c77100b3488134e",
    "title": "Dual Enrollment - McNeese State University",
    "url": "https://www.mcneese.edu/about-us/leadership-team/administrative-and-student-affairs/division-of-administrative-and-student-affairs/student-central/admissions/dual-enrollment/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "45b4063993bad7c1": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "45b4063993bad7c1",
+   "reason": "ULM Academic Excellence (GPA 3.0-3.49) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": [
+     {
+      "Academic Scholarship": "$3,000",
+      "HousingAward": "$2,500",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$17,600",
+      "amount_text": "Academic Scholarship: $3,000; HousingAward: $2,500; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $17,600",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 27-29 orSAT 1260-1350"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Tiers by test score and GPA: ACT 27-29 orSAT 1260-1350, GPA 3.0-3.49 → Academic Scholarship: $3,000; HousingAward: $2,500; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $17,600"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Printed by component: Academic Scholarship, HousingAward, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
   },
   "year_basis": "source_unlabeled"
  },
@@ -562,6 +777,106 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "518516344e24de14": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "518516344e24de14",
+   "reason": "ULM Academic Merit (GPA 3.0-3.49) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": [
+     {
+      "Academic Scholarship": "$2,000",
+      "Housing Award**": "$1,500",
+      "TOPS***": "$6,188",
+      "Total Award (ULM & TOPS)": "$9,688",
+      "amount_text": "Academic Scholarship: $2,000; Housing Award**: $1,500; TOPS***: $6,188; Total Award (ULM & TOPS): $9,688",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 23-26"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Tiers by test score and GPA: ACT 23-26, GPA 3.0-3.49 → Academic Scholarship: $2,000; Housing Award**: $1,500; TOPS***: $6,188; Total Award (ULM & TOPS): $9,688"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "6261c13c1f4239db": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "6261c13c1f4239db",
+   "reason": "ULM President's Distinguished (GPA 3.0-3.49) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": [
+     {
+      "Academic Scholarship": "$5,000",
+      "Housing Award**": "$3,000",
+      "TOPS***": "$6,188",
+      "Total Award (ULM & TOPS)": "$14,188",
+      "amount_text": "Academic Scholarship: $5,000; Housing Award**: $3,000; TOPS***: $6,188; Total Award (ULM & TOPS): $14,188",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 30-36*"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Tiers by test score and GPA: ACT 30-36*, GPA 3.0-3.49 → Academic Scholarship: $5,000; Housing Award**: $3,000; TOPS***: $6,188; Total Award (ULM & TOPS): $14,188"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "691e83782c56d25a": {
   "decision": {
    "candidate_id": "691e83782c56d25a",
@@ -612,6 +927,56 @@
    "url": "https://www.southeastern.edu/admin/fin_aid/cost/undergrad/"
   },
   "year_basis": "source_unlabeled"
+ },
+ "6e3f8f1fbb6956cf": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "6e3f8f1fbb6956cf",
+   "reason": "ULM Academic Merit (GPA 3.5-4.0) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": [
+     {
+      "Academic Scholarship": "$2,000",
+      "Housing Award**": "$2,000",
+      "TOPS***": "$6,188",
+      "Total Annual Award (ULM & TOPS)": "$10,188",
+      "amount_text": "Academic Scholarship: $2,000; Housing Award**: $2,000; TOPS***: $6,188; Total Annual Award (ULM & TOPS): $10,188",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 23-26"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Tiers by test score and GPA: ACT 23-26, GPA 3.5-4.0 → Academic Scholarship: $2,000; Housing Award**: $2,000; TOPS***: $6,188; Total Annual Award (ULM & TOPS): $10,188"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Annual Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
  },
  "77ae31bb893600a2": {
   "decision": {
@@ -718,6 +1083,55 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "8e848e7721be9c81": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "8e848e7721be9c81",
+   "reason": "ULM President's Distinguished (GPA 3.0-3.49) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": [
+     {
+      "Academic Scholarship": "$5,000",
+      "HousingAward": "$3,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$20,100",
+      "amount_text": "Academic Scholarship: $5,000; HousingAward: $3,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $20,100",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 30-36 orSAT 1360-1600"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Tiers by test score and GPA: ACT 30-36 orSAT 1360-1600, GPA 3.0-3.49 → Academic Scholarship: $5,000; HousingAward: $3,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $20,100"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Printed by component: Academic Scholarship, HousingAward, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
  "8ff477852c791c58": {
   "decision": {
    "candidate_id": "8ff477852c791c58",
@@ -811,6 +1225,55 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "9f18729ef6252003": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "9f18729ef6252003",
+   "reason": "ULM Ace's Award (GPA 3.5-4.0): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": [
+     {
+      "Academic Scholarship": "$1,000",
+      "TOPS***": "$5,788",
+      "Total Annual Award (ULM & TOPS)": "$6,788",
+      "amount_text": "Academic Scholarship: $1,000; TOPS***: $5,788; Total Annual Award (ULM & TOPS): $6,788",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 20-22"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Tiers by test score and GPA: ACT 20-22, GPA 3.5-4.0 → Academic Scholarship: $1,000; TOPS***: $5,788; Total Annual Award (ULM & TOPS): $6,788"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Annual Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "a1c6df4f41fd44a7": {
   "decision": {
    "candidate_id": "a1c6df4f41fd44a7",
@@ -842,6 +1305,112 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "a2c3066f81ef6f1d": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "a2c3066f81ef6f1d",
+   "reason": "ULM President's Distinguished (GPA 3.5-4.0) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": [
+     {
+      "Academic Scholarship": "$6,000",
+      "Housing Award": "$6,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$24,100",
+      "amount_text": "Academic Scholarship: $6,000; Housing Award: $6,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $24,100",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 33-36 orSAT 1450-1600"
+     },
+     {
+      "Academic Scholarship": "$5,000",
+      "Housing Award": "$5,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$22,100",
+      "amount_text": "Academic Scholarship: $5,000; Housing Award: $5,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $22,100",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 30-32 orSAT 1360-1440"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Tiers by test score and GPA: ACT 33-36 orSAT 1450-1600, GPA 3.5-4.0 → Academic Scholarship: $6,000; Housing Award: $6,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $24,100; ACT 30-32 orSAT 1360-1440, GPA 3.5-4.0 → Academic Scholarship: $5,000; Housing Award: $5,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $22,100"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Printed by component: Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a2f625084cdacdbb": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "a2f625084cdacdbb",
+   "reason": "ULM Ace's Award** (GPA 3.5-4.0): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": [
+     {
+      "Academic Scholarship": "$1,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100**",
+      "Total Award": "$13,100",
+      "amount_text": "Academic Scholarship: $1,000; Out-of-State Warhawk Scholarship*: $12,100**; Total Award: $13,100",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 20-22 orSAT 1030-1120"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Tiers by test score and GPA: ACT 20-22 orSAT 1030-1120, GPA 3.5-4.0 → Academic Scholarship: $1,000; Out-of-State Warhawk Scholarship*: $12,100**; Total Award: $13,100"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Printed by component: Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
  "a31e306ad7973765": {
   "decision": {
    "candidate_id": "a31e306ad7973765",
@@ -865,6 +1434,55 @@
    "sha256": "68e2f692c4e5fba0cbfcc7658794931ea73841466b4864f5e87195e9b28c87b0",
    "title": "Scholarships & Financial Aid | Centenary College of Louisiana",
    "url": "https://www.centenary.edu/admission/tuition-aid/freshman-tuition-and-aid/"
+  },
+  "year_basis": "source_unlabeled"
+ },
+ "a5ab992131cb451c": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "a5ab992131cb451c",
+   "reason": "ULM Academic Merit (GPA 3.5-4.0) (Out-of-State Warhawk Scholarships with Domestic Academic Scholarships): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": [
+     {
+      "Academic Scholarship": "$2,000",
+      "Housing Award": "$2,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100",
+      "Total Award": "$16,100",
+      "amount_text": "Academic Scholarship: $2,000; Housing Award: $2,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $16,100",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 23-26 orSAT 1130-1250"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Tiers by test score and GPA: ACT 23-26 orSAT 1130-1250, GPA 3.5-4.0 → Academic Scholarship: $2,000; Housing Award: $2,000; Out-of-State Warhawk Scholarship*: $12,100; Total Award: $16,100"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 33-36 orSAT 1450-1600 | $6,000 | $6,000 | $12,100 | $24,100 || President's DistinguishedACT 30-32 orSAT 1360-1440 | $5,000 | $5,000 | $12,100 | $22,100 || Academic Exc",
+    "value": "Printed by component: Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
   },
   "year_basis": "source_unlabeled"
  },
@@ -1411,6 +2029,56 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "ce666306e2d9771b": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "ce666306e2d9771b",
+   "reason": "ULM Academic Excellence (GPA 3.0-3.49) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": [
+     {
+      "Academic Scholarship": "$3,000",
+      "Housing Award**": "$2,500",
+      "TOPS***": "$6,188",
+      "Total Award (ULM & TOPS)": "$11,688",
+      "amount_text": "Academic Scholarship: $3,000; Housing Award**: $2,500; TOPS***: $6,188; Total Award (ULM & TOPS): $11,688",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 27-29"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Tiers by test score and GPA: ACT 27-29, GPA 3.0-3.49 → Academic Scholarship: $3,000; Housing Award**: $2,500; TOPS***: $6,188; Total Award (ULM & TOPS): $11,688"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "cf6ab8d17b41dc98": {
   "decision": {
    "candidate_id": "cf6ab8d17b41dc98",
@@ -1507,6 +2175,56 @@
    "url": "https://www.centenary.edu/admission/how-to-apply/advanced-placement-other-considerations/"
   },
   "year_basis": "source_unlabeled"
+ },
+ "d882175f859c9ea2": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "d882175f859c9ea2",
+   "reason": "ULM Academic Excellence (GPA 3.5-4.0) (Freshman Scholarships & Awards): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": [
+     {
+      "Academic Scholarship": "$3,250",
+      "Housing Award**": "$3,250",
+      "TOPS***": "$6,588",
+      "Total Annual Award (ULM & TOPS)": "$13,088",
+      "amount_text": "Academic Scholarship: $3,250; Housing Award**: $3,250; TOPS***: $6,588; Total Annual Award (ULM & TOPS): $13,088",
+      "gpa": "GPA 3.5-4.0",
+      "test": "ACT 27-29"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Tiers by test score and GPA: ACT 27-29, GPA 3.5-4.0 → Academic Scholarship: $3,250; Housing Award**: $3,250; TOPS***: $6,588; Total Annual Award (ULM & TOPS): $13,088"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.5-4.0 | Academic Scholarship | Housing Award** | TOPS*** | Total Annual Award (ULM & TOPS) || President's DistinguishedACT 33-36* | $6,000 | $6,000 | $10,065 | $22,065 || President's DistinguishedACT 31-32* | $5,000 | $5,000 | $10,065 | $20,065 || President's DistinguishedACT 30* | $5,000 | $5",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Annual Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
  },
  "dc23b01811528934": {
   "decision": {
@@ -1952,6 +2670,55 @@
   },
   "year_basis": "source_unlabeled"
  },
+ "f8707e98cd008a72": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "f8707e98cd008a72",
+   "reason": "ULM Ace's Award (GPA 3.0-3.49): the table headed '2026-2027 Freshman Scholarships & Awards' prints each award by ACT band within its GPA table, with the amount as components (Academic Scholarship, Housing Award**, TOPS***) and a 'Total Annual Award (ULM & TOPS)'. Every component is stored as printed in award_tiers; no single amount is set. Accepted issues: amount_by_component ('**Students must live on campus to be eligible for the housing award'); component_is_other_aid ('***TOPS (Taylor Opportunity Program for Students) is a state-funded scholarship program for Louisiana Residents. The TOPS amounts listed are estimates based on prior academic year'), so the total is never the school's award. Year 2026-27 is the table's own label and agrees with 'This offer is only valid if the student enrolls at ULM beginning with the Fall 2026 semester.' Held at partially_verified because the amounts are by component."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": [
+     {
+      "Academic Scholarship": "$1,000",
+      "TOPS***": "$5,788",
+      "Total Award (ULM & TOPS)": "$6,788",
+      "amount_text": "Academic Scholarship: $1,000; TOPS***: $5,788; Total Award (ULM & TOPS): $6,788",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 20-22"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Tiers by test score and GPA: ACT 20-22, GPA 3.0-3.49 → Academic Scholarship: $1,000; TOPS***: $5,788; Total Award (ULM & TOPS): $6,788"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | Housing Award** | TOPS*** | Total Award (ULM & TOPS) || President's DistinguishedACT 30-36* | $5,000 | $3,000 | $6,188 | $14,188 || Academic ExcellenceACT 27-29 | $3,000 | $2,500 | $6,188 | $11,688 || Academic MeritACT 23-26 | $2,000 | $1,500 | $6,188 | $9,688 |",
+    "value": "Printed by component: Academic Scholarship, Housing Award**, TOPS***, Total Award (ULM & TOPS)"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component",
+   "component_is_other_aid"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:26:22+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "f370b0a31c9a88bde252.json.gz",
+   "requested_url": "https://www.ulm.edu/scholarships/freshmen.html",
+   "sha256": "f370b0a31c9a88bde252491f48eb3e8d65ac870ded7c85412ae7d9766e21f4a6",
+   "title": "ULM Scholarship Information for Freshmen | ULM University of Louisiana at Monroe",
+   "url": "https://www.ulm.edu/scholarships/freshmen.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "fc4f8e3fb904dd6f": {
   "decision": {
    "candidate_id": "fc4f8e3fb904dd6f",
@@ -1987,6 +2754,54 @@
    "url": "https://www.lsus.edu/scholarships"
   },
   "year_basis": "labeled_in_source"
+ },
+ "fd517e28800344a2": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "fd517e28800344a2",
+   "reason": "ULM Ace's Award** (GPA 3.0-3.49): 'Out-of-State Warhawk Scholarships with Domestic Academic Scholarships' prints each award by ACT or SAT band within its GPA table as components (Academic Scholarship, Housing Award, Out-of-State Warhawk Scholarship*) and a Total Award; all stored as printed, no single amount set. Accepted issues: amount_by_component (the housing award and the Warhawk scholarship are separate components; '**Out-of-State Warhawk Scholarships require minimum ACT score of 21', so the Ace's Award ACT 20 row does not carry the Warhawk amount). The page prints no academic year, so the record is keyed to the year in force at review (2026-27, source_unlabeled): partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": [
+     {
+      "Academic Scholarship": "$1,000",
+      "Out-of-State Warhawk Scholarship*": "$12,100**",
+      "Total Award": "$13,100",
+      "amount_text": "Academic Scholarship: $1,000; Out-of-State Warhawk Scholarship*: $12,100**; Total Award: $13,100",
+      "gpa": "GPA 3.0-3.49",
+      "test": "ACT 20-22 orSAT 1030-1120"
+     }
+    ]
+   },
+   {
+    "field": "test_requirement",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Tiers by test score and GPA: ACT 20-22 orSAT 1030-1120, GPA 3.0-3.49 → Academic Scholarship: $1,000; Out-of-State Warhawk Scholarship*: $12,100**; Total Award: $13,100"
+   },
+   {
+    "field": "award_amount_text",
+    "snippet": "GPA 3.0-3.49 | Academic Scholarship | HousingAward | Out-of-State Warhawk Scholarship* | Total Award || President's DistinguishedACT 30-36 orSAT 1360-1600 | $5,000 | $3,000 | $12,100 | $20,100 || Academic ExcellenceACT 27-29 orSAT 1260-1350 | $3,000 | $2,500 | $12,100 | $17,600 || Academic MeritACT ",
+    "value": "Printed by component: Academic Scholarship, HousingAward, Out-of-State Warhawk Scholarship*, Total Award"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "amount_by_component"
+  ],
+  "source": {
+   "fetched_at": "2026-10-03T13:23:36+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "efa4e36746da39c5f9b6.json.gz",
+   "requested_url": "https://ulm.edu/scholarships/outofstate.html",
+   "sha256": "efa4e36746da39c5f9b69e042597ebef62ce98a9f35f983929dab4e6234d646b",
+   "title": "Scholarships for Out-Of-State Students | ULM University of Louisiana at Monroe",
+   "url": "https://ulm.edu/scholarships/outofstate.html"
+  },
+  "year_basis": "source_unlabeled"
  },
  "m9399e7b46558d8f": {
   "decision": {

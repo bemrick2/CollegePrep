@@ -13,7 +13,7 @@ Tags: [Certain] = checked in code or the law's text; [Likely]; [Guessing].
 | 3 | **Who the account holder is** | (a) Adults only; students only under a household. (b) Independent student sign-up (students 18+ without a parent). | **(a) at launch.** The schema has `is_independent` [Certain], but contracting with minors is risky [Likely]. Revisit for students who are 18 or older. |
 | 4 | **Legal entity and contacts** | LLC or other entity; privacy email; postal address | Required in both documents. |
 | 5 | **Data retention** | Per data type; see the privacy draft | Delete practice history within 30 days of deleting the student or household. Keep email-sent records 13 months. Keep billing records per tax law. |
-| 6 | **Deletion and export** | (a) Build in-app deletion and export. (b) Manual by email, with a stated response time. | **(b) at launch, (a) soon.** No deletion or export function exists today [Certain, no such RPC in migrations]. Manual handling needs a documented runbook and a service-role procedure, owned by Research. |
+| 6 | **Deletion and export** | (a) Build in-app deletion and export. (b) Manual by email, with a stated response time. | **(b) at launch, (a) soon.** Status: the service-role procedure (`admin_export_*`, `admin_delete_*`) and the runbook `docs/operations/DATA_REQUESTS.md` are in the repository (#294) but **not applied on hosted** [Certain]; the in-app path reuses them later. **OPEN for owner and counsel** (runbook section 0; every value there is a placeholder, not policy): the response and acknowledgement deadlines, requester authority (a guardian who is not the account holder; a student aged 13–17), export delivery, billing and request-log retention periods, Stripe redaction, Resend log retention, and the backup/PITR window. |
 | 7 | **AI hints** | Keep off, or enable with a named provider | **Keep off at launch.** It is off by default (`ai_help_enabled`) [Certain]. Enabling it needs a provider, a policy update, and a no-training commitment from that provider. |
 | 8 | **Data region** | US or other | Must match the hosted Supabase project's region; this is the owner's fact to confirm. |
 | 9 | **Refunds, trial and renewal notices** | Policy choices | State auto-renewal laws (for example California's) require clear disclosure and easy cancellation [Likely]. Stripe's customer portal provides cancellation [Certain, #108]. |
@@ -29,5 +29,5 @@ Tags: [Certain] = checked in code or the law's text; [Likely]; [Guessing].
 
 ## Promises in the drafts that the app can't keep yet ([[NOT BUILT]])
 
-- Deletion and export (decision 6).
+- Deletion and export (decision 6): manual procedure written, not yet applied on hosted; in-app not built.
 - Data export on shutdown (terms §7).
