@@ -7415,6 +7415,15 @@
       "audit": "OR/2026-10-05-b (independent audit 2026-11-02)",
       "approved_by": "Brandon (repository owner), instruction of 2026-10-23 07:44 CT in the Claude session: downgrade plans with unresolved material requirements",
       "approved_on": "2026-10-23"
+    },
+    {
+      "natural_key": "[\"degree_requirements\", \"ipeds-208646\", null, \"2026-27\", {\"program_key\": \"business-administration-major\", \"requirement_key\": \"business-administration-typical-four-year-curriculum\"}]",
+      "record": "data/institutions/eou/degree_requirements/2026-27.json",
+      "reason": "A check on 2026-11-03 found this plan's term structure misread: all 12 terms are labelled 'TYPICAL FIRST YEAR CURRICULUM' (Fall/Winter/Spring), and the page's 'TYPICAL SECOND/THIRD/FOURTH YEAR CURRICULUM' headings are stored as items in terms 3, 6 and 9, so terms 4-12 carry the wrong year; the page's 'Updated June 2024' line and a '|' are stored as items in term 12. Every printed line is present, but the plan's years are wrong (they would be shown as the names of covered terms), so it is partially verified until a corrected re-read passes independent review. Found after the 2026-11-02 audit kept it verified.",
+      "previous_status": "verified",
+      "audit": "OR/2026-10-05-b (term-label check 2026-11-03)",
+      "approved_by": "Brandon (repository owner), instruction of 2026-10-23 07:44 CT in the Claude session: downgrade plans with unresolved material requirements",
+      "approved_on": "2026-10-23"
     }
   ]
 }
