@@ -1866,7 +1866,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Pacific University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Reed College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Linfield University | covered | 38 | 39 | 0 | 61 | met | queued | met | met | degree_maps:not_published |
-| Eastern Oregon University | covered_open_items | 31 | 34 | 12 | 0 | met | open | queued | queued | admission_rules:no_official_statement, requirement_groups:layout_not_readable |
+| Eastern Oregon University | covered_open_items | 31 | 34 | 11 | 0 | met | open | queued | queued | admission_rules:no_official_statement, requirement_groups:layout_not_readable |
 | Oregon State University-Cascades Campus | covered | 26 | 28 | 0 | 26 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:not_published |
 | Corban University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Pacific Northwest College of Art | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |

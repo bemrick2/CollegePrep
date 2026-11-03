@@ -1993,6 +1993,30 @@ class ReviewAndPromoteTests(unittest.TestCase):
         self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'award_name': 'Merit Scholarships Plus'})), [])  # another award
         self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'academic_year': '2027-28'})), [])
         self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'source_url': 'https://other.example.org/merit'})), [])  # another site
+        # #299 confirm-review: the bypasses below each hid a live double award before names and hosts were normalised.
+        for variant in ({'award_name': 'MERIT scholarships: GPA 3.0 to 3.49'},             # case
+                        {'award_name': 'Merit  Scholarships :  GPA 3.0 to 3.49'},          # spacing
+                        {'source_url': 'https://example.edu/merit'},                        # bare host vs www.
+                        {'source_url': 'https://WWW.Example.edu/merit'},                     # host case
+                        {'award_name': 'Merit Scholarships - GPA 3.0 to 3.49'},            # " - " separator
+                        {'award_name': 'Merit Scholarships – GPA 3.0 to 3.49'},       # en dash separator
+                        {'gpa_requirement': None, 'award_amount_text': '$2,000 per year'}, # amount only
+                        {'gpa_requirement': None, 'award_min': 2000, 'award_max': 2000}):
+            with self.subTest(variant=variant):
+                self.assertEqual(len(superseded_award_errors(rows(tiered, {**row, **variant}))), 1)
+        self.assertEqual(len(superseded_award_errors(rows({**tiered, 'award_name': ' Merit Scholarships '}, row))), 1)  # trailing space
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'gpa_requirement': None})), [])  # a bare name names no tier
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'award_name': 'Merit Scholarships-Plus'})), [])
+        # UA: in-state and out-of-state awards are distinct names, not rows of one another.
+        ua = {**tiered, 'award_name': 'In-State Scholarship'}
+        self.assertEqual(superseded_award_errors(rows(ua, {**row, 'award_name': 'Out-of-State Scholarship: 3.5 GPA'})), [])
+        # The one listed exception (UTK In-State Volunteer, both sides verified) matches its normalised name only.
+        utk = {**base, 'institution_key': 'utk', 'award_tiers': [{}], 'verification_status': 'verified'}
+        utk_row = {**row, 'institution_key': 'utk', 'verification_status': 'verified'}
+        self.assertEqual(superseded_award_errors(rows({**utk, 'award_name': 'In-State  Volunteer Scholarship'},
+                                                      {**utk_row, 'award_name': 'In-State Volunteer Scholarship: 4.0 GPA'})), [])
+        self.assertEqual(len(superseded_award_errors(rows({**utk, 'award_name': 'Out-of-State Volunteer Scholarship'},
+                                                          {**utk_row, 'award_name': 'Out-of-State Volunteer Scholarship: 4.0 GPA'}))), 1)
 
     def test_identical_copies_keep_the_public_site(self):
         a = self.cand(); a['source']['url'] = 'https://www.example.edu/x'
