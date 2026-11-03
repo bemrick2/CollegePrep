@@ -7513,6 +7513,13 @@
       "reason": "Superseded, not deleted (owner-authorized 2026-11-03, #299): this per-row record was made by the list reader from one row of the table 'Your Good Grades Guarantee Your OLLU Scholarship'. The same table is now one reviewed tiered award, 'Your Good Grades Guarantee Your OLLU Scholarship' in data/institutions/ollusa/awards/2026-27.json (sources/pipeline/TX/2026-10-04/evidence.json#5486a72ab3c15a25), whose tiers match these rows exactly; keeping both would count and offer the award twice. Status lowered from partially_verified to unverified.",
       "approved_by": "Brandon (repository owner), relayed by the coordinator on PR #299",
       "approved_on": "2026-11-03"
+    },
+    {
+      "natural_key": "[\"awards\", \"utk\", null, \"2026-27\", {\"award_name\": \"Out-of-State Volunteer Scholarship\"}]",
+      "record": "data/institutions/utk/awards/2026-27.json",
+      "reason": "Superseded, not deleted (2026-11-03, #299): the verified per-row records of the same award from the same page are kept as the active representation, because a tiered award and its per-row records must never both be active and the verified one is stronger: 'Out-of-State Volunteer Scholarship: UT Core Weighted GPA 4.0+, ACT/SAT Score 34-36/1490–1600'; 'Out-of-State Volunteer Scholarship: UT Core Weighted GPA 4.0+, ACT/SAT Score 30-33/1360–1480'; 'Out-of-State Volunteer Scholarship: UT Core Weighted GPA 3.8+, ACT/SAT Score 28+/1300+' (in data/institutions/utk/awards/2026-27.json). Status lowered from partially_verified to unverified; no verified record changed.",
+      "approved_by": "Coordinator on PR #299 (no verified record changes; the verified per-row records are kept)",
+      "approved_on": "2026-11-03"
     }
   ]
 }

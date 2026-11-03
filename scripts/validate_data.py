@@ -154,9 +154,10 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
     return [f"{label} record {index}: {e}" for e in errors]
 
 ACTIVE = ('verified', 'partially_verified')
-# Pairs already on main before this check (#299): UTK's per-row Volunteer records are verified and its tiered records partially
-# verified. Superseding either side changes a verified record, which needs the owner; listed so the check blocks every new pair.
-KNOWN_DOUBLE_AWARDS = {('utk', '2026-27', 'In-State Volunteer Scholarship'), ('utk', '2026-27', 'Out-of-State Volunteer Scholarship')}
+# The one pair on main where both sides are verified (#299): UTK's In-State Volunteer tiered record and its per-row records.
+# Superseding either side downgrades a verified record, which needs the owner; listed so the check blocks every other pair.
+# (UTK's Out-of-State tiered record was partially verified and is superseded by its verified per-row records.)
+KNOWN_DOUBLE_AWARDS = {('utk', '2026-27', 'In-State Volunteer Scholarship')}
 
 
 def superseded_award_errors(rows):
