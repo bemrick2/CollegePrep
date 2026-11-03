@@ -27,12 +27,12 @@ Status as of 2026-10-03 (backend contracts deployed in PR #54). Originally filed
 | CR-19 | Credit applicability: hours on equivalency rows, elective/gen-ed designations, plans for more majors | ⏳ open | Credit checked course by course against the major's verified plan where one exists; otherwise "unknown"; savings shown only as potential |
 | CR-20 | Cost-of-attendance period (academic year vs 12 months) | ⏳ open | COA labelled "academic year"; summer and break living is the family's own number |
 | CR-21 | Question review metadata; serve only reviewed items | 🚧 migration `20261007140000` merged (#142), unapplied on hosted | Demo and local DB serve only items whose current content hash a review approved (`questionReview.ts`); live has no review fields |
-| CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | ⏳ open (reference SQL in `scripts/local/proposals/cr22_parent_emails.sql`, local only) | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
+| CR-22 | Parent emails: weekly-summary opt-in, service-only digest and inactivity payloads, delivery log | 🚧 migration in repo (`20261102020000_parent_emails`, #298), unapplied on hosted | Opt-in and email preview behind `VITE_WEEKLY_DIGEST`; sender `supabase/functions/send-weekly-digest` (not deployed) |
 | CR-23 | Reserved assessment pool; fresh vs repeat on the server | 🚧 part 1 in migration `20261022050000` (#248, unapplied on hosted): reserved pool, checks (version required, 4-hour live window, resumed), repeats, pool counts; `seen_before` on practice items and first-answer estimates still open | Client reads `pool` and the server's check order (`benchmark_questions`); demo mirrors the same rules. Paired release: see §CR-23 |
 | CR-24 | Rights gate: a published question needs an allowed license (+ attribution when required) | 🚧 migration `20261022030000`, unapplied on hosted | Enforced by checks on `practice_questions`; generated items need a `human:` review to be served |
 | CR-25 | "Report a problem" on a question | ⏳ open | No UI; nothing stored |
-| CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | ⏳ open (reference SQL in `scripts/local/proposals/cr26_account_setup.sql`, local only) | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
-| CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | ⏳ open (reference SQL in `scripts/local/proposals/cr27_practice_reminders.sql`, local only) | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
+| CR-26 | Setup on the account: test choice, test date, study days, 5–30 min sessions, practice-test score source, setup completion, benchmark schedule | 🚧 migration in repo (`20261102010000_account_setup`, #298), unapplied on hosted | Behind `VITE_ACCOUNT_SETUP`; without it, answers stay in this browser and sessions are 5–15 min |
+| CR-27 | Practice reminders: settings, device permission, deliveries, snooze, guardian notice when a linked student turns them off | 🚧 migration in repo (`20261102030000_practice_reminders`, #298), unapplied on hosted | Behind `VITE_PRACTICE_REMINDERS`; push sender, action endpoint and notice email built and tested locally, not deployed |
 | CR-28 | Planning profile: high school courses, dual enrollment, optional GPA band (college planning pilot) | ⏳ proposal (#196); not started until hosted is restored and the privacy policy names the fields | Pilot inputs are demo-only (`docs/product/COLLEGE_PLANNING_PILOT.md`) |
 
 Live content note: the bank has no exam versions, skills or questions yet, so live practice and benchmarks show their empty states until content is loaded.
@@ -309,7 +309,7 @@ In the app and the local database, an item is served only if a review approved i
 
 ## CR-22. Parent accountability emails
 
-**Need.** A scheduled sender has no signed-in user, so it needs service-role-only data functions. A reference implementation runs on the local disposable database only, in `scripts/local/proposals/cr22_parent_emails.sql`:
+**Need.** A scheduled sender has no signed-in user, so it needs service-role-only data functions. The migration is `supabase/migrations/20261102020000_parent_emails.sql` (in the repo, unapplied on hosted; it replaced Design's local reference SQL, and its header lists the differences):
 
 - `alert_preferences.weekly_digest`: the guardian opts in per student. Default off; the guardian may write it.
 - `parent_email_deliveries(user_id, kind, period_key)`: one row per email sent, so sending is idempotent.
@@ -410,7 +410,7 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 
 ## CR-26. Setup on the account
 
-Reference SQL, applied only to the local database: `scripts/local/proposals/cr26_account_setup.sql`. Behind `VITE_ACCOUNT_SETUP` in the app.
+Migration in the repo, unapplied on hosted: `supabase/migrations/20261102010000_account_setup.sql` (it replaced Design's local reference SQL; its header lists the differences). Behind `VITE_ACCOUNT_SETUP` in the app.
 
 **Why:** a guardian's setup choices must appear on the student's own device, and finished setup must not be asked again on another device. The local backend run (`web/scripts/local/setup.local.test.ts`) verifies both, using separate clients for the parent, the student's phone and the student's laptop.
 
@@ -435,7 +435,7 @@ Reference SQL, applied only to the local database: `scripts/local/proposals/cr26
 
 ## CR-27. Practice reminders
 
-Reference SQL, applied only to the local database: `scripts/local/proposals/cr27_practice_reminders.sql`. It builds on CR-22's `parent_email_deliveries`.
+Migration in the repo, unapplied on hosted: `supabase/migrations/20261102030000_practice_reminders.sql` (it replaced Design's local reference SQL; its header lists the differences). It builds on CR-22's `parent_email_deliveries`, so it runs after `20261102020000`.
 
 **Tables:**
 - `practice_reminder_settings`: times on the quarter hour (at most 3), days, quiet hours, school days and hours, a daily limit (1–3), a weekly limit (1–14), and `snoozed_until`.
