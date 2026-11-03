@@ -1,25 +1,58 @@
--- CR-27 (issue #37) REFERENCE IMPLEMENTATION, proposed by Design. Applied ONLY to the local disposable database by
--- scripts/local/live_stack.sh, after CR-22; it is not a migration. Research owns the schema and may adopt, change or
--- replace it.
+-- CR-27 (issue #37, #218 A2): practice reminders (web push and the native apps' FCM), claimed before they are sent,
+-- and the guardian notice when a linked student turns them off. Replaces Design's local reference SQL
+-- (scripts/local/proposals/cr27_practice_reminders.sql, removed in the same change).
 --
--- Practice reminders (web push) and the guardian notice when a linked student turns them off.
+-- Depends on CR-22 (20261102020000_parent_emails.sql): the reminders-off notice is recorded in parent_email_deliveries
+-- (kind 'reminders_off', period_key = the change id). That is why this migration runs after it, not before.
 --
---   practice_reminder_settings      the family's reminder times, days, quiet and school hours, limits; snooze
---   practice_reminder_changes       every on/off change, who made it, and whether guardians are to be told
---   notification_devices            each signed-in browser/device: permission as last seen on app open, push keys
---   practice_reminder_deliveries    one row per reminder (claimed before sending: never two per reminder, whatever the
---                                   number of devices or overlapping sender runs) and what the student did with it
+--   practice_reminder_settings    the family's reminder times (quarter hours, at most 3), days, quiet and school hours,
+--                                 daily (1-3) and weekly (1-14) limits; snoozed_until
+--   practice_reminder_changes     every on/off change, who made it (role), the household at the time, and whether
+--                                 guardians are to be told
+--   notification_devices          each signed-in browser / app install: permission as last seen when the app opened
+--                                 there, and push keys. No client access at all
+--   practice_reminder_deliveries  one row per reminder, claimed before sending (at most one claimed-or-sent row per
+--                                 student and reminder key, whatever the number of devices or overlapping sender runs),
+--                                 and what the student did with it
 --
 -- Rules the server enforces:
---   - settings: readable by anyone who can view the student; writable by a guardian with set_goals or by the
---     student's own login (the family chooses together);
---   - a snooze ("Remind me later") is the student's own and never notifies anyone;
---   - when the student's own login turns reminders OFF, and the student belongs to a household and isn't independent,
---     the change is flagged for guardians: one email per guardian with view permission, at most one per student
---     per 24 hours (later changes are still recorded and shown in the app);
---   - an independent or household-less student is never reported to anyone;
---   - device permission is what the app saw the last time it opened on that device. Turning notifications off in
---     phone settings is not visible until then, so nothing here claims immediate detection.
+-- * Settings: read by anyone who may view the student and by those who may write them; written only through
+--   set_practice_reminders, by the student's own login or a guardian with set_goals in the student's household.
+-- * A snooze ("Remind me later") is the student's own and never notifies anyone.
+-- * When the student's own login turns reminders OFF, and the student belongs to a household and is not independent,
+--   the change is flagged for guardians: one email per guardian with view_progress in that same household, at most one
+--   flagged change per student per 24 hours (later changes are still recorded and shown in the app). An independent or
+--   household-less student is never reported. "Emailed" is shown only from a parent_email_deliveries row.
+-- * Device permission is what the app saw the last time it opened on that device; nothing here claims to detect a
+--   change made in phone settings while the app is closed. Families see permission and platform, never endpoints,
+--   tokens or keys.
+-- * Push endpoints must belong to a known web push service (FCM, Mozilla, Apple, Windows), so the sender never posts
+--   to an arbitrary URL a client supplied. A database whose owner has run
+--   `alter database ... set collegeprep.local_push_endpoints = 'on'` (scripts/local/live_stack.sh; hosted never does)
+--   also accepts https://127.0.0.1 and https://localhost, for the local fake push service.
+--
+-- Differences from the reference SQL (all intentional):
+-- * report_notification_device can no longer overwrite another login's device: the upsert only updates a row the
+--   caller owns (the reference checked ownership first, then upserted, so a concurrent first report of the same id
+--   by another login could replace that login's endpoint and keys with the caller's). It also refuses a null device
+--   id, an unknown channel, and an endpoint outside the known push services (above), and keeps at most 20 devices per
+--   login (the least recently seen are dropped).
+-- * set_practice_reminders serialises per student (transaction advisory lock) before reading the previous settings, so
+--   two simultaneous "off" saves can't both flag a change and email guardians twice. It refuses a p_settings that is
+--   not a JSON object.
+-- * practice_reminder_changes records household_id at the time of the change, and reminder_opt_out_payload notifies
+--   only guardians of that same household (a student who has since moved household is not reported to the new one).
+--   The payload is plpgsql rather than SQL (it reads auth.users.email, which the CI auth stub does not have).
+-- * claim_practice_reminder claims only for a linked, non-archived student whose reminders are still on, so a student
+--   who turns reminders off between the candidate list and the send gets nothing. It refuses null keys and slots.
+-- * finish_practice_reminder accepts only 'sent', 'failed' or 'gone', and records a device only when it is one of the
+--   student's own login (otherwise, or when it was removed meanwhile, device_id stays null and the outcome is still
+--   recorded; the reference would fail on a removed device and leave the reminder 'claimed').
+-- * snooze_practice_reminder_delivery takes 15 minutes to 24 hours (as snooze_practice_reminders does) and only a
+--   claimed or sent delivery; snooze_practice_reminders marks only the latest sent, not yet snoozed delivery.
+-- * days must be distinct weekdays, school_days too (public.iso_weekdays_valid, from CR-26).
+-- * Column grants: clients read neither updated_by (settings) nor changed_by / household_id (changes).
+-- * Settings are also readable by a set_goals guardian without view_progress (the #218 C1 precedent).
 
 create table public.practice_reminder_settings (
   student_id uuid primary key references public.students(id) on delete cascade,
@@ -37,44 +70,57 @@ create table public.practice_reminder_settings (
   updated_by uuid references auth.users(id) on delete set null,
   updated_at timestamptz not null default now(),
   check (cardinality(times) between 1 and 3),
-  check (cardinality(days) between 1 and 7 and days <@ array[1,2,3,4,5,6,7]::smallint[]),
-  check (school_days <@ array[1,2,3,4,5,6,7]::smallint[]),
+  check (cardinality(days) between 1 and 7 and public.iso_weekdays_valid(days)),
+  check (cardinality(school_days) between 0 and 7 and public.iso_weekdays_valid(school_days)),
   check (quiet_start ~ '^([01]\d|2[0-3]):[0-5]\d$' and quiet_end ~ '^([01]\d|2[0-3]):[0-5]\d$'),
   check ((school_start is null) = (school_end is null)),
   check (school_start is null or (school_start ~ '^([01]\d|2[0-3]):[0-5]\d$' and school_end ~ '^([01]\d|2[0-3]):[0-5]\d$'))
 );
+create index practice_reminder_settings_updated_by_idx on public.practice_reminder_settings(updated_by);
 
+-- Reminder times: distinct quarter hours ("HH:00", "HH:15", "HH:30", "HH:45").
 create function public.reminder_times_valid(p_times text[]) returns boolean
 language sql immutable set search_path = '' as $$
   select coalesce(bool_and(t ~ '^([01]\d|2[0-3]):(00|15|30|45)$'), false) and count(*) = count(distinct t)
   from unnest(p_times) t
 $$;
+revoke all on function public.reminder_times_valid(text[]) from public, anon;
+grant execute on function public.reminder_times_valid(text[]) to authenticated, service_role;
 alter table public.practice_reminder_settings add constraint practice_reminder_times_valid check (public.reminder_times_valid(times));
 
 alter table public.practice_reminder_settings enable row level security;
 revoke all on public.practice_reminder_settings from anon, authenticated;
-grant select on public.practice_reminder_settings to authenticated;
-grant all on public.practice_reminder_settings to service_role;
-create policy reminder_settings_read on public.practice_reminder_settings for select to authenticated using (public.can_view_student(student_id));
+grant select, insert, update, delete on public.practice_reminder_settings to service_role;
+grant select (student_id, enabled, times, days, quiet_start, quiet_end, school_days, school_start, school_end,
+  max_per_day, max_per_week, snoozed_until, updated_at) on public.practice_reminder_settings to authenticated;
+create policy reminder_settings_read on public.practice_reminder_settings for select to authenticated
+  using (public.can_view_student(student_id) or public.can_set_student_goals(student_id));
 
 create table public.practice_reminder_changes (
   id uuid primary key default gen_random_uuid(),
   student_id uuid not null references public.students(id) on delete cascade,
+  -- The student's household when the change was made; the notice goes only to that household's guardians.
+  household_id uuid references public.households(id) on delete set null,
   enabled boolean not null,
   changed_by uuid references auth.users(id) on delete set null,
   changed_by_role text not null check (changed_by_role in ('student', 'guardian')),
   changed_at timestamptz not null default now(),
-  notify_guardians boolean not null default false
+  notify_guardians boolean not null default false,
+  check (not notify_guardians or (household_id is not null and changed_by_role = 'student' and not enabled))
 );
 create index practice_reminder_changes_student_idx on public.practice_reminder_changes(student_id, changed_at desc);
+create index practice_reminder_changes_household_idx on public.practice_reminder_changes(household_id);
+create index practice_reminder_changes_changed_by_idx on public.practice_reminder_changes(changed_by);
 alter table public.practice_reminder_changes enable row level security;
 revoke all on public.practice_reminder_changes from anon, authenticated;
-grant select on public.practice_reminder_changes to authenticated;
-grant all on public.practice_reminder_changes to service_role;
-create policy reminder_changes_read on public.practice_reminder_changes for select to authenticated using (public.can_view_student(student_id));
+grant select, insert, update, delete on public.practice_reminder_changes to service_role;
+grant select (id, student_id, enabled, changed_by_role, changed_at, notify_guardians)
+  on public.practice_reminder_changes to authenticated;
+create policy reminder_changes_read on public.practice_reminder_changes for select to authenticated
+  using (public.can_view_student(student_id));
 
 create table public.notification_devices (
-  id uuid primary key,                        -- generated by the app, kept in that browser
+  id uuid primary key,                        -- generated by the app, kept on that device
   user_id uuid not null references auth.users(id) on delete cascade,
   permission text not null check (permission in ('granted', 'denied', 'default', 'unsupported')),
   platform text check (platform in ('ios', 'android', 'desktop', 'other')),
@@ -91,19 +137,21 @@ create table public.notification_devices (
   check (channel = 'webpush' or endpoint is null),
   check (channel = 'fcm' or push_token is null)
 );
-create index notification_devices_user_idx on public.notification_devices(user_id);
+create index notification_devices_user_idx on public.notification_devices(user_id, checked_at desc);
+create index notification_devices_token_idx on public.notification_devices(push_token) where push_token is not null;
 alter table public.notification_devices enable row level security;
 revoke all on public.notification_devices from anon, authenticated;
-grant all on public.notification_devices to service_role;
--- No direct client access: devices are written through report_notification_device and summarized without keys.
+grant select, insert, update, delete on public.notification_devices to service_role;
+-- No client grant: devices are written through report_notification_device and summarized, without keys, by
+-- student_notification_devices.
 
 create table public.practice_reminder_deliveries (
   id uuid primary key default gen_random_uuid(),
   student_id uuid not null references public.students(id) on delete cascade,
   device_id uuid references public.notification_devices(id) on delete set null,
-  slot text not null check (length(slot) <= 10),
+  slot text not null check (length(slot) between 1 and 10),
   -- One reminder = one key (local date + slot, or the snooze's end). At most one claimed-or-sent row per key.
-  reminder_key text not null check (length(reminder_key) <= 80),
+  reminder_key text not null check (length(reminder_key) between 1 and 80),
   channel text check (channel in ('webpush', 'fcm')),
   status text not null check (status in ('claimed', 'sent', 'failed', 'gone')),
   sent_at timestamptz not null default now(),
@@ -111,16 +159,39 @@ create table public.practice_reminder_deliveries (
   snoozed_at timestamptz
 );
 create index practice_reminder_deliveries_student_idx on public.practice_reminder_deliveries(student_id, sent_at desc);
-create unique index practice_reminder_once on public.practice_reminder_deliveries(student_id, reminder_key) where status in ('claimed', 'sent');
+create index practice_reminder_deliveries_device_idx on public.practice_reminder_deliveries(device_id);
+create unique index practice_reminder_once on public.practice_reminder_deliveries(student_id, reminder_key)
+  where status in ('claimed', 'sent');
 alter table public.practice_reminder_deliveries enable row level security;
 revoke all on public.practice_reminder_deliveries from anon, authenticated;
-grant select (id, student_id, slot, channel, status, sent_at, opened_at, snoozed_at) on public.practice_reminder_deliveries to authenticated;
-grant all on public.practice_reminder_deliveries to service_role;
-create policy reminder_deliveries_read on public.practice_reminder_deliveries for select to authenticated using (public.can_view_student(student_id));
+grant select, insert, update, delete on public.practice_reminder_deliveries to service_role;
+grant select (id, student_id, slot, channel, status, sent_at, opened_at, snoozed_at)
+  on public.practice_reminder_deliveries to authenticated;
+create policy reminder_deliveries_read on public.practice_reminder_deliveries for select to authenticated
+  using (public.can_view_student(student_id));
 
 -- CR-22's delivery record also covers the reminders-off notice (period_key = the change id).
 alter table public.parent_email_deliveries drop constraint parent_email_deliveries_kind_check;
-alter table public.parent_email_deliveries add constraint parent_email_deliveries_kind_check check (kind in ('weekly_digest', 'inactivity', 'reminders_off'));
+alter table public.parent_email_deliveries add constraint parent_email_deliveries_kind_check
+  check (kind in ('weekly_digest', 'inactivity', 'reminders_off'));
+
+-- ---------------------------------------------------------------------------------------------------------------
+-- Internal helpers
+-- ---------------------------------------------------------------------------------------------------------------
+
+create function public.local_push_endpoints_enabled() returns boolean
+language sql stable security definer set search_path = '' as $$
+  select exists (select 1 from pg_catalog.pg_db_role_setting d
+    where d.setdatabase = (select oid from pg_catalog.pg_database where datname = pg_catalog.current_database())
+      and d.setrole = 0 and 'collegeprep.local_push_endpoints=on' = any(d.setconfig))
+$$;
+
+-- A web push endpoint the sender may post to: a known push service, or (local stack only) the local fake.
+create function public.push_endpoint_allowed(p_endpoint text) returns boolean
+language sql stable set search_path = '' as $$
+  select p_endpoint ~ '^https://(fcm\.googleapis\.com|android\.googleapis\.com|updates\.push\.services\.mozilla\.com|web\.push\.apple\.com|[a-z0-9-]+\.notify\.windows\.com)/'
+    or (p_endpoint ~ '^https://(127\.0\.0\.1|localhost)(:[0-9]{1,5})?/' and public.local_push_endpoints_enabled())
+$$;
 
 -- ---------------------------------------------------------------------------------------------------------------
 -- Client RPCs
@@ -128,7 +199,8 @@ alter table public.parent_email_deliveries add constraint parent_email_deliverie
 
 create function public.set_practice_reminders(p_student uuid, p_settings jsonb) returns jsonb
 language plpgsql volatile security definer set search_path = '' as $$
-declare v_student public.students; v_old public.practice_reminder_settings; v_role text; v_enabled boolean; v_notify boolean := false;
+declare v_student public.students; v_old public.practice_reminder_settings; v_role text; v_enabled boolean;
+  v_notify boolean := false;
 begin
   select * into v_student from public.students where id = p_student and archived_at is null;
   if not found then raise exception 'Not allowed to change reminders for this student' using errcode = '42501'; end if;
@@ -136,6 +208,11 @@ begin
   elsif public.has_household_permission(v_student.household_id, 'set_goals') then v_role := 'guardian';
   else raise exception 'Not allowed to change reminders for this student' using errcode = '42501';
   end if;
+  if p_settings is null or jsonb_typeof(p_settings) <> 'object' then
+    raise exception 'Reminder settings must be a JSON object' using errcode = '22023';
+  end if;
+  -- One change at a time per student, so the previous state and the 24-hour notice rule see every earlier change.
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('practice_reminders:' || p_student::text, 0));
   select * into v_old from public.practice_reminder_settings where student_id = p_student;
   v_enabled := coalesce((p_settings->>'enabled')::boolean, v_old.enabled, false);
 
@@ -154,7 +231,7 @@ begin
     quiet_start = excluded.quiet_start, quiet_end = excluded.quiet_end, school_days = excluded.school_days,
     school_start = excluded.school_start, school_end = excluded.school_end, max_per_day = excluded.max_per_day,
     max_per_week = excluded.max_per_week, updated_by = excluded.updated_by, updated_at = excluded.updated_at,
-    -- Turning reminders back on (or changing them) ends any snooze.
+    -- Turning reminders back on ends any snooze.
     snoozed_until = case when excluded.enabled and not s.enabled then null else s.snoozed_until end;
 
   if v_old.student_id is null or v_old.enabled is distinct from v_enabled then
@@ -165,8 +242,8 @@ begin
       and not exists (select 1 from public.practice_reminder_changes c where c.student_id = p_student and c.notify_guardians
                       and c.changed_at > now() - interval '24 hours');
     if v_old.student_id is not null or v_enabled then
-      insert into public.practice_reminder_changes(student_id, enabled, changed_by, changed_by_role, notify_guardians)
-      values (p_student, v_enabled, auth.uid(), v_role, v_notify);
+      insert into public.practice_reminder_changes(student_id, household_id, enabled, changed_by, changed_by_role, notify_guardians)
+      values (p_student, v_student.household_id, v_enabled, auth.uid(), v_role, v_notify);
     end if;
   end if;
   return jsonb_build_object('enabled', v_enabled, 'guardians_notified', v_notify);
@@ -177,46 +254,68 @@ language plpgsql volatile security definer set search_path = '' as $$
 declare v timestamptz;
 begin
   perform public.require_linked_student(p_student);
-  if p_minutes is null or p_minutes not between 15 and 1440 then raise exception 'Snooze is 15 minutes to 24 hours' using errcode = '22023'; end if;
+  if p_minutes is null or p_minutes not between 15 and 1440 then
+    raise exception 'Snooze is 15 minutes to 24 hours' using errcode = '22023';
+  end if;
   update public.practice_reminder_settings set snoozed_until = now() + make_interval(mins => p_minutes)
   where student_id = p_student and enabled returning snoozed_until into v;
   if not found then raise exception 'Reminders are off' using errcode = '22023'; end if;
   update public.practice_reminder_deliveries set snoozed_at = now()
-  where id = (select id from public.practice_reminder_deliveries where student_id = p_student order by sent_at desc limit 1);
+  where id = (select d.id from public.practice_reminder_deliveries d
+              where d.student_id = p_student and d.status = 'sent' and d.snoozed_at is null
+              order by d.sent_at desc limit 1);
   return v;
 end $$;
 
-create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null, p_platform text default null,
-  p_channel text default 'webpush', p_token text default null)
+create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null,
+  p_platform text default null, p_channel text default 'webpush', p_token text default null)
 returns void language plpgsql volatile security definer set search_path = '' as $$
-declare v_owner uuid; v_granted boolean := p_permission = 'granted';
+declare v_me uuid := auth.uid(); v_channel text := coalesce(p_channel, 'webpush'); v_granted boolean := p_permission = 'granted';
+  v_endpoint text; v_rows integer;
 begin
-  if auth.uid() is null then raise exception 'Sign in first' using errcode = '42501'; end if;
-  select user_id into v_owner from public.notification_devices where id = p_device;
-  if v_owner is not null and v_owner <> auth.uid() then raise exception 'Not your device' using errcode = '42501'; end if;
-  -- A native token belongs to one install: if another login reported it before (shared phone), it moves here.
-  if p_channel = 'fcm' and p_token is not null then
-    delete from public.notification_devices where push_token = p_token and id <> p_device;
+  if v_me is null then raise exception 'Sign in first' using errcode = '42501'; end if;
+  if p_device is null then raise exception 'A device id is required' using errcode = '22023'; end if;
+  if v_channel not in ('webpush', 'fcm') then raise exception 'Unknown push channel' using errcode = '22023'; end if;
+  if exists (select 1 from public.notification_devices d where d.id = p_device and d.user_id <> v_me) then
+    raise exception 'Not your device' using errcode = '42501';
   end if;
-  insert into public.notification_devices as d (id, user_id, permission, platform, channel, push_token, endpoint, p256dh, auth_secret, checked_at, gone_at)
-  values (p_device, auth.uid(), p_permission, p_platform, coalesce(p_channel, 'webpush'),
-          case when v_granted and p_channel = 'fcm' then p_token end,
-          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->>'endpoint' end,
-          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->'keys'->>'p256dh' end,
-          case when v_granted and coalesce(p_channel, 'webpush') = 'webpush' then p_subscription->'keys'->>'auth' end, now(), null)
+  v_endpoint := case when v_granted and v_channel = 'webpush' then p_subscription->>'endpoint' end;
+  if v_endpoint is not null and not public.push_endpoint_allowed(v_endpoint) then
+    raise exception 'Unsupported push service' using errcode = '22023';
+  end if;
+  -- A native token belongs to one install: if another login reported it before (shared phone), it moves here.
+  if v_channel = 'fcm' and v_granted and p_token is not null then
+    delete from public.notification_devices d where d.push_token = p_token and d.id <> p_device;
+  end if;
+  insert into public.notification_devices as d (id, user_id, permission, platform, channel, push_token, endpoint, p256dh,
+      auth_secret, checked_at, gone_at)
+  values (p_device, v_me, p_permission, p_platform, v_channel,
+          case when v_granted and v_channel = 'fcm' then p_token end,
+          v_endpoint,
+          case when v_endpoint is not null then p_subscription->'keys'->>'p256dh' end,
+          case when v_endpoint is not null then p_subscription->'keys'->>'auth' end, now(), null)
   on conflict (id) do update set permission = excluded.permission, platform = coalesce(excluded.platform, d.platform),
     channel = excluded.channel, push_token = excluded.push_token,
     endpoint = excluded.endpoint, p256dh = excluded.p256dh, auth_secret = excluded.auth_secret, checked_at = now(),
-    gone_at = case when excluded.endpoint is distinct from d.endpoint or excluded.push_token is distinct from d.push_token then null else d.gone_at end;
+    gone_at = case when excluded.endpoint is distinct from d.endpoint or excluded.push_token is distinct from d.push_token
+                   then null else d.gone_at end
+  -- Never another login's row, even when it was created between the check above and this statement.
+  where d.user_id = v_me;
+  get diagnostics v_rows = row_count;
+  if v_rows = 0 then raise exception 'Not your device' using errcode = '42501'; end if;
+  -- At most 20 devices per login: the least recently seen go first.
+  delete from public.notification_devices d where d.user_id = v_me and d.id in (
+    select x.id from public.notification_devices x where x.user_id = v_me order by x.checked_at desc, x.id offset 20);
 end $$;
 
--- What a family may see about a student's devices: permission as last seen, never endpoints or keys.
+-- What a family may see about a student's devices: permission as last seen, never endpoints, tokens or keys.
 create function public.student_notification_devices(p_student uuid)
 returns table (device_id uuid, permission text, platform text, can_receive boolean, checked_at timestamptz)
 language plpgsql stable security definer set search_path = '' as $$
 begin
   if not public.can_view_student(p_student) then raise exception 'Not allowed to view this student' using errcode = '42501'; end if;
-  return query select d.id, d.permission, d.platform, d.permission = 'granted' and (d.endpoint is not null or d.push_token is not null) and d.gone_at is null, d.checked_at
+  return query select d.id, d.permission, d.platform,
+      d.permission = 'granted' and (d.endpoint is not null or d.push_token is not null) and d.gone_at is null, d.checked_at
     from public.notification_devices d join public.students s on s.linked_user_id = d.user_id
     where s.id = p_student order by d.checked_at desc;
 end $$;
@@ -228,7 +327,8 @@ language plpgsql stable security definer set search_path = '' as $$
 begin
   if not public.can_view_student(p_student) then raise exception 'Not allowed to view this student' using errcode = '42501'; end if;
   return query select c.id, c.enabled, c.changed_by_role, c.changed_at, c.notify_guardians,
-      (select d.sent_at from public.parent_email_deliveries d where d.user_id = auth.uid() and d.kind = 'reminders_off' and d.period_key = c.id::text)
+      (select d.sent_at from public.parent_email_deliveries d
+       where d.user_id = auth.uid() and d.kind = 'reminders_off' and d.period_key = c.id::text)
     from public.practice_reminder_changes c where c.student_id = p_student order by c.changed_at desc limit 20;
 end $$;
 
@@ -264,8 +364,9 @@ begin
     continue when jsonb_array_length(v_devices) = 0;
     v_tz := public.student_time_zone(r.student_id);
     v_today := (p_now at time zone v_tz)::date;
-    v_monday := v_today - (extract(isodow from v_today)::int - 1);
+    v_monday := v_today - (extract(isodow from v_today)::integer - 1);
     v_week := public.local_week_bounds(v_monday, v_tz);
+    v_goal := null;
     select g.target_questions into v_goal from public.weekly_practice_goals g
       where g.student_id = r.student_id and g.week_start = v_monday and g.subject is null;
     select count(*) into v_week_done from public.practice_attempts a
@@ -289,21 +390,38 @@ begin
   end loop;
 end $$;
 
--- Claim a reminder before sending: false when this key was already claimed or sent (another run, a retry).
+-- Claim a reminder before sending: false when this key was already claimed or sent (another run, a retry), or when
+-- the student's reminders are no longer on. The unique index makes concurrent claims of one key yield one true.
 create function public.claim_practice_reminder(p_id uuid, p_student uuid, p_key text, p_slot text, p_at timestamptz default now())
 returns boolean language plpgsql volatile security definer set search_path = '' as $$
 begin
+  if p_id is null or p_student is null or p_key is null or p_slot is null then
+    raise exception 'Claim needs an id, a student, a key and a slot' using errcode = '22023';
+  end if;
   insert into public.practice_reminder_deliveries(id, student_id, slot, reminder_key, status, sent_at)
-  values (p_id, p_student, p_slot, p_key, 'claimed', p_at) on conflict do nothing;
+  select p_id, p_student, p_slot, p_key, 'claimed', coalesce(p_at, now())
+  from public.practice_reminder_settings s
+  join public.students st on st.id = s.student_id and st.archived_at is null and st.linked_user_id is not null
+  where s.student_id = p_student and s.enabled
+  on conflict do nothing;
   return found;
 end $$;
 
 -- The outcome on the one device tried last. 'gone' retires that device; a sent snooze is used up.
 create function public.finish_practice_reminder(p_id uuid, p_device uuid, p_channel text, p_status text)
 returns void language plpgsql volatile security definer set search_path = '' as $$
-declare v public.practice_reminder_deliveries;
+declare v public.practice_reminder_deliveries; v_device uuid;
 begin
-  update public.practice_reminder_deliveries set device_id = p_device, channel = p_channel, status = p_status
+  if p_status is null or p_status not in ('sent', 'failed', 'gone') then
+    raise exception 'A reminder finishes as sent, failed or gone' using errcode = '22023';
+  end if;
+  -- Only a device of the student's own login is recorded; one since removed (or anyone else's) is left out, and the
+  -- outcome is still recorded so it counts toward the limits.
+  select d.id into v_device from public.practice_reminder_deliveries r
+    join public.students st on st.id = r.student_id
+    join public.notification_devices d on d.user_id = st.linked_user_id
+    where r.id = p_id and d.id = p_device;
+  update public.practice_reminder_deliveries set device_id = v_device, channel = p_channel, status = p_status
   where id = p_id and status = 'claimed' returning * into v;
   if v.id is null then return; end if;
   if p_status = 'sent' and v.slot = 'snooze' then
@@ -316,34 +434,46 @@ language sql volatile security definer set search_path = '' as $$
   update public.notification_devices set gone_at = now() where id = p_device
 $$;
 
--- The notification's "Remind me later" button, after the action endpoint has verified its signed token.
+-- The notification's "Remind me later" button, after the action endpoint has verified its signed token. Works once.
 create function public.snooze_practice_reminder_delivery(p_delivery uuid, p_minutes integer default 60) returns timestamptz
 language plpgsql volatile security definer set search_path = '' as $$
 declare v_student uuid; v timestamptz;
 begin
-  update public.practice_reminder_deliveries set snoozed_at = coalesce(snoozed_at, now()) where id = p_delivery and snoozed_at is null
+  if p_minutes is null or p_minutes not between 15 and 1440 then
+    raise exception 'Snooze is 15 minutes to 24 hours' using errcode = '22023';
+  end if;
+  update public.practice_reminder_deliveries set snoozed_at = now()
+  where id = p_delivery and snoozed_at is null and status in ('claimed', 'sent')
   returning student_id into v_student;
-  if v_student is null then return null; end if;  -- unknown or already used
+  if v_student is null then return null; end if;  -- unknown, not delivered, or already used
   update public.practice_reminder_settings set snoozed_until = now() + make_interval(mins => p_minutes)
   where student_id = v_student and enabled returning snoozed_until into v;
   return v;
 end $$;
 
--- Guardians to tell, one email each per flagged change, until a delivery is recorded.
+-- Guardians to tell, one email each per flagged change, until a delivery is recorded: guardians with view_progress in
+-- the household the student was in when the change was made (and still is), not independent, not archived.
 create function public.reminder_opt_out_payload() returns setof jsonb
-language sql stable security definer set search_path = '' as $$
+language plpgsql stable security definer set search_path = '' as $$
+begin
+  return query
   select jsonb_build_object('user_id', u.id, 'email', u.email, 'guardian_name', p.display_name,
     'student_id', st.id, 'student_name', st.display_name, 'changed_at', c.changed_at,
     'time_zone', public.student_time_zone(st.id), 'period_key', c.id::text)
   from public.practice_reminder_changes c
   join public.students st on st.id = c.student_id and st.archived_at is null and not st.is_independent
-  join public.household_members m on m.household_id = st.household_id and m.role = 'guardian' and m.can_view_progress
+    and st.household_id = c.household_id
+  join public.household_members m on m.household_id = c.household_id and m.role = 'guardian' and m.can_view_progress
   join auth.users u on u.id = m.user_id and u.email is not null
   left join public.profiles p on p.id = u.id
   where c.notify_guardians and not c.enabled and c.changed_at > now() - interval '14 days'
-    and not exists (select 1 from public.parent_email_deliveries d where d.user_id = u.id and d.kind = 'reminders_off' and d.period_key = c.id::text)
-$$;
+    and not exists (select 1 from public.parent_email_deliveries d
+                    where d.user_id = u.id and d.kind = 'reminders_off' and d.period_key = c.id::text)
+  order by c.changed_at, u.id;
+end $$;
 
+revoke all on function public.local_push_endpoints_enabled() from public, anon, authenticated;
+revoke all on function public.push_endpoint_allowed(text) from public, anon, authenticated;
 revoke all on function public.set_practice_reminders(uuid, jsonb) from public, anon;
 revoke all on function public.snooze_practice_reminders(uuid, integer) from public, anon;
 revoke all on function public.report_notification_device(uuid, text, jsonb, text, text, text) from public, anon;
@@ -368,3 +498,9 @@ grant execute on function public.finish_practice_reminder(uuid, uuid, text, text
 grant execute on function public.retire_notification_device(uuid) to service_role;
 grant execute on function public.snooze_practice_reminder_delivery(uuid, integer) to service_role;
 grant execute on function public.reminder_opt_out_payload() to service_role;
+comment on function public.set_practice_reminders(uuid, jsonb) is
+  'CR-27: save reminder settings. The student''s own login, or a guardian with set_goals in the student''s household.';
+comment on function public.claim_practice_reminder(uuid, uuid, text, text, timestamptz) is
+  'CR-27, service role only: claim one reminder before sending; false when already claimed or sent, or reminders are off.';
+comment on function public.reminder_opt_out_payload() is
+  'CR-27, service role only: one row per guardian to tell about a flagged reminders-off change, until it is recorded.';

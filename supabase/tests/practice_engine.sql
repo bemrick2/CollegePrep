@@ -251,7 +251,8 @@ begin
   -- A student with no history gets every skill and both sections, not one section ordered by id (CR-6).
   perform hp_test.check((select array_agg(question_id order by item_position) from public.recommend_practice_set(current_setting('t.st_new')::uuid, 5))
     = array[hp_test.q(1), hp_test.q(4), hp_test.q(8), hp_test.q(3), hp_test.q(7)], 'new-student set spans skills and sections');
-  perform hp_test.expect_error(format('select * from public.recommend_practice_set(%L, 20)', current_setting('t.st_e')), '22023');
+  -- CR-26 (20261102010000): sessions are 5 to 30 minutes.
+  perform hp_test.expect_error(format('select * from public.recommend_practice_set(%L, 31)', current_setting('t.st_e')), '22023');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
   perform hp_test.expect_error(format('select * from public.recommend_practice_set(%L, 10)', current_setting('t.st_e')), '42501');
   perform hp_test.as_owner();
