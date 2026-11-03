@@ -536,7 +536,10 @@ def policy_status(reg):
     for path, domain, r in records():
         k = r.get('institution_key')
         if not k: continue
-        if domain == 'awards' and r.get('award_type') in MERIT_TYPES: by_key[k]['merit'].append(r)
+        # A superseded or downgraded award (verification_status 'unverified', e.g. per-row records replaced by a reviewed tiered
+        # award, #299) is history: it is never counted as a merit record beside its replacement.
+        if domain == 'awards' and r.get('award_type') in MERIT_TYPES:
+            if r.get('verification_status') in ('verified', 'partially_verified'): by_key[k]['merit'].append(r)
         elif domain == 'credit_policies' and r.get('policy_kind') in ('AP', 'IB', 'CLEP'): by_key[k]['exam_credit'].append(r)
         elif domain == 'appeals': by_key[k]['aid_appeals'].append(r)
     att_p = ROOT / 'baseline/policy/pipeline_attempts.json'
@@ -560,6 +563,11 @@ def policy_status(reg):
         merit = by_key[k].get('merit', [])
         s['merit_score_linked'] = any(score_linked(r) for r in merit)
         s['merit_gpa_linked'] = any(gpa_linked(r) for r in merit)
+        # Criteria coverage by the strongest status that carries it: 'verified', 'partially_verified' or None. GPA-only means a GPA
+        # criterion on file and no ACT/SAT criterion.
+        best = lambda rs: 'verified' if any(r.get('verification_status') == 'verified' for r in rs) else 'partially_verified' if rs else None
+        s['merit_score_linked_status'] = best([r for r in merit if score_linked(r)])
+        s['merit_gpa_only_status'] = None if s['merit_score_linked'] else best([r for r in merit if gpa_linked(r)])
         out[k] = s
     out['_unregistered_pending'] = sorted(k for k, v in cands.items() if k not in {i['institution_key'] for i in reg}
                                           and (v.get('merit_scholarships') or {}).get('undecided'))
@@ -616,6 +624,9 @@ def report(rows, secs, reg):
     _CACHE['policy'] = pol
     pl['merit_score_linked_schools'] = sum(1 for s in pol.values() if s['merit_score_linked'])
     pl['merit_gpa_linked_schools'] = sum(1 for s in pol.values() if s['merit_gpa_linked'])
+    for kind in ('score_linked', 'gpa_only'):
+        for st in ('verified', 'partially_verified'):
+            pl[f'merit_{kind}_{st}_schools'] = sum(1 for s in pol.values() if s[f'merit_{kind}_status'] == st)
     mr_p = ROOT / 'baseline/policy/merit_research.json'
     pl['merit_research_findings_schools'] = len(json.loads(mr_p.read_text())['schools']) if mr_p.exists() else 0
     ew = lambda keys: round(sum(w(r) for r in rows if r['institution_key'] in keys) / W, 4) if W else 0
@@ -700,6 +711,10 @@ def markdown(rep):
           "`baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land."]
     L += ['', f"- Schools with a merit record that states an ACT/SAT criterion: {p['merit_score_linked_schools']:,}; a GPA criterion: "
           f"{p['merit_gpa_linked_schools']:,}.",
+          f"  - ACT/SAT criterion on a verified record: {p['merit_score_linked_verified_schools']:,}; only on partially verified records: "
+          f"{p['merit_score_linked_partially_verified_schools']:,}.",
+          f"  - GPA criterion and no ACT/SAT criterion (GPA-only), on a verified record: {p['merit_gpa_only_verified_schools']:,}; only on "
+          f"partially verified records: {p['merit_gpa_only_partially_verified_schools']:,}.",
           f"- Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; "
           f"`baseline/policy/merit_research.json`): {p['merit_research_findings_schools']}.",
           f"- Merit records on file (verified or partially verified), enrollment-weighted: {p['merit_on_file_enrollment_weighted']:.1%}; "
