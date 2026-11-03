@@ -66,6 +66,15 @@ describe('question import contract (question_import/v1)', () => {
     expect(problems([a], new Set([questionKey(a)]))).toContain('stem: duplicates a question already in the bank')
   })
 
+  it('(#293 review) strategies, remember and trap labels are validated: they reach students and the review copy', () => {
+    const a = asImport(0)
+    expect(problems([{ ...a, strategies: [{ strategy_key: 'x', role: '<img src=x onerror=alert(1)>', is_fastest: false, explanation: 'e' }] }]).join(' ')).toMatch(/strategies: each/)
+    expect(problems([{ ...a, strategies: [{ strategy_key: 7, role: 'primary', is_fastest: false, explanation: 'e' }] }]).join(' ')).toMatch(/strategies: each/)
+    expect(problems([{ ...a, strategies: 'plug in' }]).join(' ')).toMatch(/strategies: each/)
+    expect(problems([{ ...a, remember: 5 }]).join(' ')).toMatch(/remember: text/)
+    expect(problems([{ ...a, distractors: a.distractors.map((d, i) => (i === 0 ? { ...d, trap: 3 } : d)) }]).join(' ')).toMatch(/trap label is text/)
+  })
+
   describe('question_import/v2: author identities', () => {
     const TI = testIdentities()
     const v2 = (i: number, extra: Partial<ImportedQuestion>) => asImport(i, { contract: IMPORT_CONTRACT_V2, ...extra })
