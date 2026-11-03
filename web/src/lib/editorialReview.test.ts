@@ -59,6 +59,23 @@ describe('review items from an imported batch (labelled TEST-ONLY fixtures, not 
 })
 
 describe('review packets for an imported batch', () => {
+  it('the review copy shows everything the sign-off hash covers that students see: remember, trap labels, strategies, expected time', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'choice' && l.remember && l.distractors.some((d) => d.trap) && l.strategies?.length)!
+    const reg = intake(emptyRegistry(), [line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const review = Object.entries(packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).toContain(`Remember this.</b> ${line.remember!.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}`)
+    expect(review).toContain(`trap shown to students: ${line.distractors.find((d) => d.trap)!.trap}`)
+    expect(review).toContain(line.strategies![0]!.strategy_key)
+    expect(review).toContain(`Expected time.</b> ${line.expected_time_seconds} seconds`)
+  })
+
+  it('an item without lists gets the same content hash as one with empty lists, so filling them in later voids nothing', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
+    const { distractors: _d, choices: _c, strategies: _s, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown; strategies?: unknown }
+    const hashOf = (l: unknown) => latest(intake(emptyRegistry(), [l as typeof line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry.candidates[line.import_id]!).content_hash
+    expect(hashOf(bare)).toBe(hashOf({ ...bare, choices: [], distractors: [], strategies: [] }))
+  })
+
   it('a numeric item imported without distractors or choices (allowed by the contract) gets packets', () => {
     const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
     const { distractors: _d, choices: _c, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown }
