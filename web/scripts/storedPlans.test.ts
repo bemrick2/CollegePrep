@@ -71,10 +71,12 @@ describe.skipIf(!schools.includes('utc'))('UTC Clear Path alternatives printed i
     expect(degreeCredit(summarizeSchool(policies, calc).matches, plan('management-b-s-b-a')).accepted[0]).toMatchObject({ course: 'MATH 1950', status: 'not_in_plan' })
   })
 
-  it('General Biology lists MATH 1950 among the options, so the same credit applies there', () => {
+  it('General Biology prints MATH 1950 only as an alternative in a course title: named, never placed (#302 review)', () => {
     const r = degreeCredit(summarizeSchool(policies, calc).matches, plan('biology-general-biology-b-s'))
-    expect(r.accepted[0]).toMatchObject({ course: 'MATH 1950', status: 'applies' })
-    expect(r.accepted[0]!.matched[0]).toMatchObject({ code: 'MATH 1950', term: 2 })
+    expect(r.accepted[0]).toMatchObject({ course: 'MATH 1950', status: 'printed_alternative', matched: [] })
+    expect(r.accepted[0]!.named![0]).toMatchObject({ code: 'MATH 1950', term: 2 })
+    expect(r.coveredTerms).toEqual([])
+    expect(r.applicableHours).toBe(0)
   })
 })
 

@@ -1,5 +1,5 @@
 import type { ExamMatch } from './examCredit'
-import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, scanCodes, type PlanEntry, type PlanTermLike } from './planItems'
+import { COURSE_NUMBER, entryCodes, isRequirement, planTerms, printedAlternatives, reviewedCodes, unresolvedAlternatives, type PlanEntry, type PlanTermLike } from './planItems'
 
 /**
  * Three different questions about credit a student brings, answered only from verified records:
@@ -58,18 +58,22 @@ interface PlanItem {
   pick: { options: Option[]; n: number } | null
   /** The term is a regular full-time semester (planTerms' notChecked is null); only such terms can be "covered". */
   checked: boolean
+  /** Codes named in the row's printed wording when it is an unresolved "or" row: never filled, only reported. */
+  named: string[]
 }
 
 /**
  * One option of a choice block, as the courses it needs: each inner list is one requirement, met by any one of its
- * codes. A combination ("CHEM 101 & CHEM 101L") needs every course, so each is its own requirement; anything else
- * ("ENGL 221/MODL 221", "BA F454 or F421", a nested any_of) is one requirement with its alternatives.
+ * codes. Only reviewed codes count (planItems.reviewedCodes): an option whose courses exist only in its wording
+ * ("ENGL 103 or ENGL 104", "NUTR 300/FSTC 300") has none, so it is never completed automatically, and alternatives
+ * printed in an option's title aren't read. A plain combination ("CHEM 101 & CHEM 101L") needs every course, so each
+ * is its own requirement; a nested any_of is one requirement with its reviewed alternatives.
  */
 type Option = string[][]
 function optionOf(o: PlanEntry): Option {
-  const codes = entryCodes(o)
+  const codes = reviewedCodes(o)
   if (!codes.length) return []
-  return !o.code && /[+&]|\bAND\b/i.test(o.text) ? codes.map((c) => [c]) : [codes]
+  return !o.code && !o.choices.length && /[+&]|\bAND\b/i.test(o.text) ? codes.map((c) => [c]) : [codes]
 }
 /** The block's printed count, or one written in its text ("Complete two of the following:") when none is stored. */
 const NUMBER: Record<string, number> = { two: 2, three: 3, four: 4, five: 5 }
@@ -83,35 +87,35 @@ function planItems(terms: PlanTerm[]): PlanItem[] {
   // Heading terms have no rows; inline headings and printed subtotals aren't requirements (#230).
   return planTerms(terms).flatMap((t) =>
     t.entries.filter(isRequirement).map((e) => {
-      const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits }
+      const base = { term: t.termIndex, label: t.label, checked: t.notChecked === null, text: e.choices.length ? `${e.text} ${e.choices.map((c) => c.text).join(' / ')}` : e.text, credits: e.credits, named: [] as string[] }
       // A structured course, or a choice among options: any one of its codes.
       // Any choice block ("any one of", "choose N of"): done only when N whole options are awarded with unused courses.
-      if (e.choices.length) return { ...base, any: [], combos: [], pick: { options: e.choices.map(optionOf).filter((o) => o.length > 0), n: printedCount(e) } }
-      if (e.code || e.choices.length) return { ...base, any: entryCodes(e), combos: [], pick: null }
+      // Courses named only in printed wording (a title's "or MATH 1830: …", an option's "A or B", free text) are
+      // reported, never filled.
+      const named = printedAlternatives(e)
+      if (e.choices.length) return { ...base, named, any: [], combos: [], pick: { options: e.choices.map(optionOf).filter((o) => o.length > 0), n: printedCount(e) } }
+      // A structured course: only its own code. Alternatives printed in its title aren't a reviewed structure.
+      if (e.code) return { ...base, named, any: [e.code], combos: [], pick: null }
       // Free text that is more than a list of courses ("Major, General Education, and Elective courses, or BIOC 3653";
       // "… If ANTH 4500/SOC 4500 course option not taken"; a note) can't be shown as met by exam credit: a named course
       // may fill only part of it, or only under a condition. It stays a requirement nothing fills (#268 data check).
-      // ("Elective (ENGL 1010 or 1011)" names its courses and stays fillable.)
       if (/\b(if|unless|not taken|note)\b/i.test(e.text) || /\b(courses|general education|gen ed|electives)\b.*\bor\b/i.test(e.text))
-        return { ...base, any: [], combos: [], pick: null }
-      // Free text: "A or B" is any one; "CHEM 102+103", "BIOL 1113& BIOL 1111" and "A and B" are combinations that
-      // count only when all were awarded.
-      const combos: string[][] = []
-      const any: string[] = []
-      let subject: string | null = null
-      for (const seg of e.text.toUpperCase().split(/[,/]|\bOR\b|(?<=\d[A-Z]?)OR\b/)) {
-        const scan = scanCodes(seg, subject)
-        subject = scan.subject
-        const codes = scan.codes
-        if (/[+&]|\bAND\b/.test(seg) && codes.length > 1) combos.push(codes)
-        else any.push(...codes)
-      }
-      return { ...base, any, combos, pick: null }
+        return { ...base, named: entryCodes(e), any: [], combos: [], pick: null }
+      // Alternatives that exist only in the printed wording ("A or B", "Elective (ENGL 1010 or 1011)*", "ART 3700 level
+      // or higher …", a comma list) are never filled automatically: which course satisfies the row, and under what
+      // condition (a placement footnote), isn't recorded in a reviewed structure (planItems.unresolvedAlternatives).
+      if (unresolvedAlternatives(e)) return { ...base, any: [], combos: [], pick: null, named: entryCodes(e) }
+      // Free text that is one code fills with it; a plain combination ("CHEM 102+103", "BIOL 1113& BIOL 1111",
+      // "ENGL 1010 and ENGL 1020") counts only when every course was awarded.
+      const codes = reviewedCodes(e)
+      return codes.length > 1 ? { ...base, any: [], combos: [codes], pick: null } : { ...base, any: codes, combos: [], pick: null }
     }),
   )
 }
 
-export type Applicability = 'applies' | 'partly' | 'elective_only' | 'not_in_plan' | 'school_assigns' | 'no_course'
+/** printed_alternative: the course is named only in a row printed with alternatives ("ENGL 101 or ENGL 131"), which
+ *  is never filled automatically; the school decides whether it counts there. */
+export type Applicability = 'applies' | 'partly' | 'elective_only' | 'not_in_plan' | 'printed_alternative' | 'school_assigns' | 'no_course'
 
 export interface ExamApplicability {
   examName: string
@@ -121,6 +125,8 @@ export interface ExamApplicability {
   status: Applicability
   /** Where the credit lands in the plan; credits are the plan item's, as printed. */
   matched: { code: string; term: number; label: string; item: string; credits: number | string | null }[]
+  /** Awarded courses not placed anywhere that a row names only among printed alternatives (never filled). */
+  named?: { code: string; term: number; label: string; item: string }[]
 }
 
 export interface DegreeCreditResult {
@@ -154,7 +160,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     const codes: string[] = []
     /** Awarded codes that filled a single row: they can't count again for a combination or a choice block. */
     const claimed: string[] = []
-    if (!groups.length) return { status: (elective ? 'elective_only' : 'no_course') as Applicability, matched, codes, claimed }
+    if (!groups.length) return { status: (elective ? 'elective_only' : 'no_course') as Applicability, matched, codes, claimed, named: [] as { code: string; term: number; label: string; item: string }[] }
     let anyAssigned = false
     let hit = 0
     for (const g of groups) {
@@ -190,8 +196,12 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
         hit++
       }
     }
-    const status: Applicability = hit === groups.length ? 'applies' : hit > 0 ? 'partly' : anyAssigned ? 'school_assigns' : 'not_in_plan'
-    return { status, matched, codes, claimed }
+    let status: Applicability = hit === groups.length ? 'applies' : hit > 0 ? 'partly' : anyAssigned ? 'school_assigns' : 'not_in_plan'
+    // Not placed anywhere, but named in an unresolved "or" row: say so, never "not in the plan" and never "applies".
+    const placed = new Set(matched.flatMap((m) => m.code.split(' or ')))
+    const named = items.flatMap((x) => groups.flat().filter((c) => !placed.has(c) && x.named.includes(c)).map((code) => ({ code, term: x.term, label: x.label, item: x.text })))
+    if (status === 'not_in_plan' && named.length) status = 'printed_alternative'
+    return { status, matched, codes, claimed, named }
   }
 
   for (const m of matches.filter((x) => x.status === 'qualifies')) {
@@ -210,7 +220,7 @@ export function degreeCredit(matches: ExamMatch[], terms: PlanTerm[]): DegreeCre
     const r = evaluate(courses[0] ?? null, used)
     for (const c of r.codes) earnedCodes.add(c)
     for (const c of r.claimed) claimedCodes.add(c)
-    accepted.push({ examName: m.exam.name, course: courses[0] ?? null, hours, status: r.status, matched: r.matched })
+    accepted.push({ examName: m.exam.name, course: courses[0] ?? null, hours, status: r.status, matched: r.matched, ...(r.named.length ? { named: r.named } : {}) })
   }
 
   // Awarded courses not already used by a single row. Each one fills at most one combination or one choice option,
