@@ -7325,6 +7325,24 @@
       "reason": "Academic year unconfirmed: the official page (vandercook.edu Music Scholarships & Grants, archived 2026-10-05) prints this award with no academic year; the only year label on the page is \"2026-2027 Federal Changes\", which belongs to other aid and never dated this award. The award may well be current, but the page does not say so, so the record is partially_verified (aid year in force at review, source unlabeled) until a dated official source confirms it. Name, amount and criteria unchanged.",
       "approved_by": "Brandon (repository owner), 2026-10-23 06:27 CT instruction in the Claude session: “I authorize correcting the scholarship issues you identified. Verify official sources and applicable entry/award years before changing records: - Preserve 2025-26 awards as historical; do not relabel them current without evidence. - Investigate and correct JCU, HSUTX, Alabama out-of-state awards, Manchester and Georgia Southern. - Complete UAB’s missing Blazer tiers or mark the stored award as incomplete so the app cannot imply complete coverage. - Correct UCA Schedler Honors to competitive, with no expected or guaranteed offer implied. Preserve prior values, evidence and correction history. These corrections do not require another owner decision.” Applied to the records below because they carry the same defect found while correcting JCU (a year taken from another program's label, which never dated the merit table), and the change only lowers what is claimed.",
       "approved_on": "2026-10-23"
+    },
+    {
+      "natural_key": "[\"costs\", \"ipeds-240329\", null, \"2027-28\", {\"residency\": \"out_of_state\"}]",
+      "record": "data/institutions/uwlax/costs/2027-28.json",
+      "reason": "Estimate, not a published price: the source table is headed \"Undergraduate Overview 2027-28 Estimated Expenses\" and its lead reads \"ESTIMATED 2027-28 costs for full time undergraduate students are:\". Under the #285/#296 standard a projection marked estimated is not a verified price, so the record is partially_verified with its open issue (estimate) accepted for this reason. Amount (Tuition/Fees $21,109, Non-resident column), source (https://www.uwlax.edu/cost/) and year (2027-28) unchanged. The printed row \"Food Stryker Classic (19 per week)\" $3,470 was missing from components; it is added verbatim (label and cell as printed in the same Non-resident column of the archived table, sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3); no total is recomputed.",
+      "accept_issues": true,
+      "approved_by": "Brandon (repository owner), 2026-11-03 decision relayed by the coordinator in the Claude session for PR #296: \"UW-La Crosse 2027-28 out-of-state: downgrade verified to partially_verified. AUTHORIZED.\"",
+      "approved_on": "2026-11-03",
+      "superseded": {
+        "verification_status": "verified",
+        "last_verified_at": "2026-10-05",
+        "components": {
+          "Housingtraditional double": 4980,
+          "TOTALSdivide in half for per semester costs": 29559,
+          "Tuition/Fees": 21109
+        },
+        "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Overview 2027-28 Estimated Expenses Undergraduate Overview 2027-28 Estimated Expenses \"; printed rows copied, totals never recomputed. Reviewed 2026-10-04: Cost column checked against the published table (residency and living arrangement from the column headers; components and total as printed). Evidence: sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3."
+      }
     }
   ]
 }

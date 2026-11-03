@@ -371,6 +371,10 @@ begin
     where institution_id = '50000000-0000-0000-0000-000000000004' and residency = 'in_state'$q$, '23514');
   perform hp_test.check((select cost_period = 'semester' and total_direct_cost = 20500 from public.institution_costs_with_provenance
     where institution_id = '50000000-0000-0000-0000-000000000004' and residency = 'in_state'), 'provenance view serves cost_period');
+  perform hp_test.check((select c->>'cost_period' = 'semester' and (c->>'total_direct_cost')::numeric = 20500
+      and c ? 'tuition_and_mandatory_fees'
+    from jsonb_array_elements(public.compare_institutions(array['contract-private'], '2026-27')->'institutions'->0->'domains'->'costs') c
+    where c->>'residency' = 'in_state'), 'compare_institutions serves cost_period and the printed totals');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   r := public.cost_projection(st, array['contract-private', 'contract-two'], '2026-27', '{"residency": "in_state", "exam_credits": 24}');
   i := r->'institutions'->0;

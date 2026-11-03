@@ -8,5 +8,12 @@
       "candidate_id": "3e96ee84ec1f38b7",
       "reason": "University of Utah \"2026-2027 Cost of Attendance: Undergraduate Academic Year\", column \"WUE Student\" (Tuition & Fees $15,720): the Western Undergraduate Exchange rate, a regional rate that is neither in-state nor out-of-state (Resident and Non-Resident are already on file)."
     }
+  ],
+  "record_reviews": [
+    {
+      "record": "data/institutions/utah/costs/2026-27.json",
+      "result": "supported; no change (stays verified, both residencies)",
+      "reason": "Owner question 2026-11-03 (the $12,404 non-resident figure). Checked against the archived official page (https://financialaid.utah.edu/tuition-and-fees/cost-of-attendance.php, fetched 2026-10-04, page cc5c9b730dbdd75a4092). The page prints three undergraduate populations: (1) the general table under \"2026-2027 Cost of Attendance: Undergraduate Academic Year\", whose lead says \"The School of Business, College of Social Work, and the College of Cultural & Social Transformation have separate Cost of Attendance estimates.\", Living On-Campus*, columns Resident / Non-Resident / WUE Student: Tuition & Fees $10,480 / $32,932 / $15,720, Living Expenses (Housing) $11,300, Living Expenses (Food) $7,898, Subtotal of Direct Costs $29,678 / $52,130, Books, Course Materials, Supplies and Equipment $1,600, Personal/Miscellaneous Expenses** $12,000, Transportation/Travel $2,600, Total of Direct and Indirect Costs $45,878 / $68,330; (2) \"2026 - 2027 Undergraduate Business Budgets\" (Tuition & Fees \"Resident: $14,894 Non-Resident: $37,034 WUE Student: $22,340\"); (3) \"2026 - 2027 Undergraduate Social Work Budgets\" (Tuition & Fees \"Resident: $10,480 Non-Resident: $12,404 WUE Student: $15,720\", Living On-Campus totals \"Resident: $45,878 Non-Resident: $47,802 WUE Student: $51,118\"). The $12,404 figure appears only in the Social Work budgets table, which is internally consistent ($47,802 - $45,878 = $12,404 - $10,480). Both stored records (in_state $10,480 / $45,878; out_of_state $32,932 / $68,330, every component) match the general table cell for cell, so the general undergraduate record is supported and is not corrected. The Business and Social Work program budgets are separate populations and are not recorded."
+    }
   ]
 }

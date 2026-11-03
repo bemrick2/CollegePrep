@@ -1783,6 +1783,43 @@ do not guarantee admission there. These Transfer Pathways have been effective be
         self.assertEqual(rec['verification_status'], 'verified')
         self.assertIn('Supersedes the partially_verified record last verified 2026-10-02 (evidence sources/pipeline/ZZ/run/evidence.json#m0).', rec['notes'])
 
+    def test_set_fields_needs_a_quote_fills_only_empty_fields_and_is_reproducible(self):
+        """#296 review: a reviewed override in the decision (SMSU population and arrangement) is applied by promote, so a
+        re-promotion reproduces the record; each field needs its printed quote and never replaces a read value."""
+        tmp = Path(tempfile.mkdtemp())
+        run = tmp / 'run'; run.mkdir()
+        url = 'https://u.edu/cost'
+        cand = {'candidate_id': 'c1', 'domain': 'costs', 'institution_key': 'ipeds-1', 'academic_year': '2026-27', 'year_basis': 'labeled_in_source',
+                'issues': [], 'record': {'institution_key': 'ipeds-1', 'academic_year': '2026-27', 'residency': 'not_applicable',
+                                         'tuition_and_mandatory_fees': 11516, 'cost_period': 'academic_year', 'source_url': url,
+                                         'last_verified_at': '2026-10-05'},
+                'source': {'url': url}, 'extractor': 'cost_table/v2', 'evidence': []}
+        (run / 'candidates.json').write_text(json.dumps([cand])); (run / 'verify.json').write_text('[]')
+        reg = {'state': 'ZZ', 'institutions': [{'institution_key': 'ipeds-1', 'folder': 'x'}]}
+        f = tmp / 'data/institutions/x/costs/2026-27.json'
+        def run_with(extra):
+            (tmp / 'dec.json').write_text(json.dumps({'run': 'run', 'approve': [{'candidate_id': 'c1', 'reason': 'ok', **extra}]}))
+            with mock.patch.object(P, 'ROOT', tmp), mock.patch.object(P, 'write_registry', lambda *_: None, create=True), \
+                    mock.patch('pipeline.registry.write', lambda *_: None):
+                P.promote(reg, tmp / 'dec.json', log=lambda *_: None)
+            return json.loads(f.read_text())['records'][0]
+        ok = {'set_fields': {'student_population': 'undergraduate', 'living_arrangement': 'on_campus'},
+              'set_fields_evidence': {'student_population': 'Undergraduate Cost for 2026-27',
+                                      'living_arrangement': 'Housing and food include your residence hall room'}}
+        rec = run_with(ok)
+        self.assertEqual((rec['student_population'], rec['living_arrangement']), ('undergraduate', 'on_campus'))
+        self.assertIn('student_population \'undergraduate\' ("Undergraduate Cost for 2026-27")', rec['notes'])
+        f.unlink()
+        self.assertEqual(run_with(ok), rec)  # promoting again from the decision gives the same record
+        for bad in ({'set_fields': {'student_population': 'undergraduate'}},  # no quote
+                    {'set_fields': {'student_population': 'undergraduate'}, 'set_fields_evidence': {'student_population': ' '}},
+                    {'set_fields': {'residency': 'in_state'}, 'set_fields_evidence': {'residency': 'Resident'}},  # protected
+                    {'set_fields': {'academic_year_basis': 'labeled_in_source'},  # protected, though the reader left it empty
+                     'set_fields_evidence': {'academic_year_basis': '2026-27'}},
+                    {'set_fields': {'tuition_and_mandatory_fees': 1}, 'set_fields_evidence': {'tuition_and_mandatory_fees': '$1'}}):
+            with self.assertRaises(ValueError, msg=bad):
+                run_with(bad)
+
     def test_superseding_a_verified_record_on_main_needs_the_owner(self):
         old = {'source_url': 'https://u.edu/a', 'notes': 'Evidence: sources/pipeline/AL/r/evidence.json#x.', 'verification_status': 'verified'}
         rec = {'source_url': 'https://u.edu/a'}
