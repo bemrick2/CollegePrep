@@ -37,6 +37,7 @@ insert into dr_decisions values
  ('public.question_reports', 'personal'),
  ('public.billing_events', 'retained'), ('public.parent_email_deliveries', 'retained'),
  ('public.invitation_code_attempts', 'security'), ('public.notification_devices', 'security'),
+ ('public.notification_device_claims', 'security'), ('public.notification_device_claim_failures', 'security'),
  ('public.data_request_log', 'request_log'), ('public.data_request_billing_refs', 'request_log'),
  ('public.retained_email_records', 'request_log'),
  ('public.academic_programs', 'reference'), ('public.admissions_metrics', 'reference'), ('public.app_settings', 'reference'),
@@ -94,7 +95,12 @@ insert into dr_columns select t, c, d from (values
   ('public.billing_events', array['id', 'provider', 'event_id', 'event_type', 'household_id', 'provider_subscription_id', 'payload', 'received_at', 'processed_at', 'error', 'deidentified_at'], array['export', 'export', 'omit', 'export', 'omit', 'omit', 'omit', 'export', 'export', 'omit', 'omit']),
   ('public.parent_email_deliveries', array['id', 'user_id', 'kind', 'period_key', 'sent_at'], array['export', 'export', 'export', 'export', 'export']),
   ('public.invitation_code_attempts', array['user_id', 'attempted_at'], array['omit', 'omit']),
-  ('public.notification_devices', array['id', 'user_id', 'permission', 'platform', 'channel', 'push_token', 'endpoint', 'p256dh', 'auth_secret', 'checked_at', 'gone_at', 'created_at', 'handle'], array['omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit'])) v(t, cs, ds), unnest(cs, ds) u(c, d);
+  ('public.notification_devices', array['id', 'user_id', 'permission', 'platform', 'channel', 'push_token', 'endpoint', 'p256dh', 'auth_secret', 'checked_at', 'gone_at', 'created_at', 'handle'], array['omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit']),
+  -- Device claims and failed confirmations (20261103010000): security records, never exported.
+  ('public.notification_device_claims', array['id', 'target_device_id', 'claimant_user_id', 'device_id', 'permission', 'platform', 'channel', 'push_token',
+    'endpoint', 'p256dh', 'auth_secret', 'nonce_hash', 'status', 'created_at', 'expires_at', 'issued_at', 'resolved_at'],
+    array['omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit']),
+  ('public.notification_device_claim_failures', array['id', 'user_id', 'failed_at'], array['omit', 'omit', 'omit'])) v(t, cs, ds), unnest(cs, ds) u(c, d);
 grant select on dr_columns to anon, authenticated, service_role;
 
 -- 1. Completeness: every base table outside the platform schemas has a decision, and every decision names a table.
@@ -206,6 +212,18 @@ select ('60000000-0000-0000-0000-0000000000' || right(u::text, 2))::uuid, u, 'gr
   'https://push.example/ep-' || right(u::text, 2), 'p256-' || right(u::text, 2), 'secret-' || right(u::text, 2)
 from unnest(array['20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000a2',
   '20000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051', '20000000-0000-0000-0000-000000000052']::uuid[]) u;
+-- Device claims (security records): S1's login claims gb's device; gb claims g1's device; g2 claims gb's device.
+-- Failed confirmations: g1 and gb.
+insert into public.notification_device_claims(target_device_id, claimant_user_id, device_id, permission, platform, channel,
+  endpoint, p256dh, auth_secret, expires_at)
+values ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051', gen_random_uuid(), 'granted', 'desktop', 'webpush',
+        'https://push.example/ep-b1', 'p256-claim-51', 'secret-claim-51', now() + interval '10 minutes'),
+       ('60000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000b1', gen_random_uuid(), 'granted', 'desktop', 'webpush',
+        'https://push.example/ep-a1', 'p256-claim-b1', 'secret-claim-b1', now() + interval '10 minutes'),
+       ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-0000000000a2', gen_random_uuid(), 'granted', 'desktop', 'webpush',
+        'https://push.example/ep-b1', 'p256-claim-a2', 'secret-claim-a2', now() + interval '10 minutes');
+insert into public.notification_device_claim_failures(user_id) values
+ ('20000000-0000-0000-0000-0000000000a1'), ('20000000-0000-0000-0000-0000000000b1');
 
 -- Rows in every per-student table.
 create function dr_test.seed_student(p_student uuid, p_guardian uuid, p_tag text) returns void language plpgsql as $$
@@ -832,6 +850,14 @@ begin
   perform set_config('collegeprep.data_request_deidentify', '', true);
   -- Devices: g1's and S1's login's push devices deleted; g2's kept.
   perform hp_test.eq((r->'removed'->>'notification_devices')::int, 2, 'two devices removed');
+  -- Device claims made by or on g1 and S1's login (S1's claim on gb's device, gb's claim on g1's device) and g1's failed
+  -- confirmation go with them; g2's claim on gb's device and gb's failure stay.
+  perform hp_test.eq((r->'removed'->>'notification_device_claims')::int, 2, 'two device claims removed');
+  perform hp_test.eq((r->'removed'->>'notification_device_claim_failures')::int, 1, 'one failed confirmation removed');
+  perform hp_test.eq((select array_agg(claimant_user_id::text || '>' || target_device_id::text) from public.notification_device_claims),
+    array['20000000-0000-0000-0000-0000000000a2>60000000-0000-0000-0000-0000000000b1'], 'claims left');
+  perform hp_test.eq((select array_agg(user_id) from public.notification_device_claim_failures),
+    array['20000000-0000-0000-0000-0000000000b1']::uuid[], 'failures left');
   perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_devices),
     array['20000000-0000-0000-0000-000000000052', '20000000-0000-0000-0000-0000000000a2', '20000000-0000-0000-0000-0000000000b1']::uuid[], 'devices left');
   -- The runbook's next step, straight away: the listed accounts are deleted through the admin API (here: the stub's
@@ -956,6 +982,8 @@ begin
   perform hp_test.check(not exists (select 1 from public.parent_email_deliveries where sent_at <= now() - interval '13 months'), 'no parent email older than 13 months');
   perform hp_test.eq((select count(*) from public.parent_email_deliveries), 9::bigint, 'current parent email records stay');
   perform hp_test.eq((select count(*) from public.notification_devices), 2::bigint, 'only g2 and gb devices remain');
+  perform hp_test.eq((select count(*) from public.notification_device_claims), 1::bigint, 'only g2''s device claim remains');
+  perform hp_test.eq((select count(*) from public.notification_device_claim_failures), 1::bigint, 'only gb''s failed confirmation remains');
   perform hp_test.eq((select count(*) from public.data_request_log where action = 'export'), 6::bigint, 'six exports logged');
   perform hp_test.eq((select count(*) from public.data_request_log where action = 'delete'), 3::bigint, 'three live deletions logged, no dry runs');
 end $$;

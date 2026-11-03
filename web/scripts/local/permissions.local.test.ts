@@ -2,7 +2,7 @@
 //
 // Guardian and student permissions tested directly against the server: raw PostgREST table reads/writes and RPCs
 // with each role's own signed token, not through LiveSource, so a client-side check can't hide a server gap.
-// Runs on the local disposable backend (every migration plus Design's reference SQL). Skipped unless
+// Runs on the local disposable backend (every repository migration). Skipped unless
 // LOCAL_BACKEND_URL is set (scripts/local/live_stack.sh test).
 //
 // Roles, one household: PARENT (created it: every permission), CO (default guardian invite: manage students, set

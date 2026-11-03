@@ -1,6 +1,6 @@
 // Lives outside src/ because it uses Node APIs (crypto, child_process, https).
 //
-// End-to-end check of practice reminders (CR-27) against the local disposable backend with the reference SQL:
+// End-to-end check of practice reminders (CR-27) against the local disposable backend (every migration):
 // the real edge functions under Deno (push sender, "Remind me later" action, parent email sender), a fake HTTPS
 // push service that decrypts what it receives the way a browser would, and a fake mail endpoint for Resend.
 // Skipped unless LOCAL_BACKEND_URL and DENO_BIN are set (scripts/local/live_stack.sh test).

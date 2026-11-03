@@ -490,6 +490,49 @@ Migration in the repo, unapplied on hosted: `supabase/migrations/20261102030000_
 - **One device per reminder:** the sender tries a single device, the one opened most recently (the native app wins a same-day tie), and falls back only if the push service rejects it.
 - **Native devices:** `notification_devices` gains `channel` (`webpush` | `fcm`) and `push_token`. `report_notification_device` takes `p_channel` and `p_token`, and a token moves to the latest login that reports it.
 
+**Update 2026-11-03: a device moves only with proof (`20261103010000_device_claims`, unapplied on hosted).** Owner requirement: moving a device registration needs authenticated proof that the caller controls the device. Knowing another person's device id, token or endpoint is not enough. This replaces "a token moves to the latest login that reports it".
+
+**Release blocker:** `VITE_PRACTICE_REMINDERS` stays off until the app implements all three of:
+- `unregister_notification_device` on sign-out and account switch;
+- the verify push in `sw.js` (and the native apps);
+- `confirm_device_claim`.
+
+**`report_notification_device` returns a status** (it returned nothing before):
+- `registered`: recorded as before.
+- `verification_pending`: the device id, token or endpoint is held by another login. Nothing moved. Call the `verify-notification-device` function with the user's session; it sends a silent push with a nonce to that device.
+- `verification_limited`: too many claims. The limits are 5 claims per login per hour, and 3 pending claims per device, one per login. A login's newest report replaces its own older claim. Try again later.
+- `device_held`: nothing moved. Generate a new device id and report again. This happens when either:
+  - the id is held by another login and that row has no live push target; or
+  - the held device is a browser and this report carries no subscription keys (for example `denied`).
+- `22023` "Unsupported push service": the browser's push service isn't one the server accepts. Show "this device can't receive reminders"; it is not an error to retry.
+
+**The verify push.**
+- **Web push:**
+  - Payload: `{ "type": "verify-device", "nonce": "…", "claim": "…" }`.
+  - It is sent to the held endpoint, encrypted to the keys in **this** report's subscription. Only the browser that really owns that subscription can read it: the same browser, re-reporting.
+  - `sw.js` must handle `type: "verify-device"` on its own path, and never show it as a practice reminder.
+  - Browsers require every push to show a notification (`userVisibleOnly`). Show at most a quiet "Checking this device…" notification.
+  - Pass the nonce to an open app window, or confirm it from the service worker if it has the session.
+- **FCM:** a data-only message with the same keys, sent to the held token. It is background on iOS and has no notification block. The native app handles it the same way, separately from reminders.
+- **Volume:** at most 3 verify pushes per device per hour, whoever is claiming.
+
+**`confirm_device_claim(p_nonce)`.** The app on the device returns the nonce under whoever is signed in there. The result:
+- `confirmed`: the device is now this login's. Report again.
+- `verification_pending`: another held row still needs its own proof.
+- `declined`: the device's owner is still signed in there, so it stays theirs.
+- `expired`: the claim had expired (claims last 10 minutes).
+- `invalid`: an unknown or used nonce, or another login's claim.
+- `locked`: 5 counted attempts in an hour.
+
+`expired`, `invalid` and `locked` move nothing. Attempts are counted only for unknown, used or expired nonces, never for another login's live claim. A value that isn't 64 lowercase hex characters is refused with `22023`.
+
+**Sign-out:** call `unregister_notification_device(p_device)` on sign-out and on account switch, then report on the next sign-in.
+- It removes this login's registration at once, so a shared device stops getting the previous person's reminders.
+- It also withdraws this login's pending claims made from that device.
+- The challenge applies only when the previous owner never signed out.
+
+**Unchanged:** `student_notification_devices` returns `device_handle` (an opaque per-row handle, stable while the device keeps its owner), never the device id.
+
 ## Product decisions flagged (not contract requests)
 
 - **Benchmark counts as practice.** The benchmark's attempts count toward the streak and the weekly goal, because they are ordinary attempts. Students who finish onboarding with a benchmark see "Done for today".

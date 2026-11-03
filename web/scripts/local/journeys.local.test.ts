@@ -1,7 +1,7 @@
 // Lives outside src/ because it uses Node APIs (crypto).
 //
 // The three account journeys end to end against the local disposable backend (every repository migration plus the
-// CR-26 reference SQL): a parent with an invited student and two other guardians, and a student who signs up alone.
+// CR-26 migration): a parent with an invited student and two other guardians, and a student who signs up alone.
 // Each `device()` is a separate client for the same account, so "another device" means nothing carried over but the
 // login. Skipped unless LOCAL_BACKEND_URL is set (scripts/local/live_stack.sh test).
 //

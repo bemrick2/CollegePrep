@@ -120,7 +120,8 @@ What the export contains:
   - invitation code digests;
   - question text or answer keys (attempts list question ids and the answers given);
   - payment-provider ids or raw payment events. Invoices are in the Stripe customer portal;
-  - push devices (endpoints, keys, tokens, handles): security records, never exported.
+  - push devices (endpoints, keys, tokens, handles): security records, never exported;
+  - device claims and failed device-claim confirmations (`notification_device_claims`, `notification_device_claim_failures`): security records, never exported.
 
 The test (`dr_columns` in `supabase/tests/data_requests.sql`) lists every column of every personal, retained and security table as exported or omitted. It fails when a new column has no decision.
 
@@ -222,6 +223,7 @@ Always offer the export first.
 | Question reports filed by a departing account about a student who stays (for example a student who has moved to another household) | **Kept** for the editors **without the reporter or the note**. Reason, status, review and revision are unchanged | The report is about the question, not the reporter. A closed report's guard (CR-25) refuses note changes even from the service role; the data-request functions use its one exemption (below) |
 | Household, memberships, invitations, saved schools, subscription state (Stripe, comp, and departing accounts' personal subscriptions), payment-customer map | **Deleted** | Personal data |
 | Account profiles, invitation-code rate-limit rows and push devices (`notification_devices`: endpoint, keys, token, handle) of the accounts listed for deletion | **Deleted**; never exported; the auth account itself through the admin API | Personal and security data |
+| Device claims made by those accounts or on their devices (`notification_device_claims`), and their failed claim confirmations (`notification_device_claim_failures`) | **Deleted**; never exported | Security data (20261103010000) |
 | Payment events (`billing_events`) linked to the household, to its or a departing account's subscriptions, or naming their customer or subscription ids | **Kept, de-identified** (see below) | Billing records are kept as tax law requires (decision #5); the period is **OPEN O6** |
 | Payment-provider customer and subscription ids | **Kept** in `data_request_billing_refs` and in the request's `data_request_log.kept.billing_refs` | Lets the invoices Stripe holds be found for tax, and later events about them be de-identified on arrival |
 | Invitation emails sent in the last 13 months | **Kept** in `retained_email_records`: recipient address, send count, last sent time. No link to any account. Removed by `admin_purge_expired_retention()` after 13 months | Email-sent records are kept 13 months (decision #5) |
@@ -309,6 +311,8 @@ CR-15 and CR-23 (#295): `households.home_state`, `students.home_state` and `prac
 
 CR-22, CR-26 and CR-27 (#298) are covered: setup progress and the reminder tables are personal; `parent_email_deliveries` is retained (13 months, de-identified); `notification_devices` is security (deleted, never exported).
 
+Device proof (#301, `20261103010000_device_claims.sql`) is covered: `notification_device_claims` and `notification_device_claim_failures` are security (deleted with the account, never exported). The two delete paths are replaced in that migration to include them.
+
 ## 6. In-app deletion and export later (Apple 5.1.1(v))
 
 The in-app path reuses these functions. It needs a client RPC that is `security definer`, which works like this:
@@ -329,6 +333,7 @@ The code for these jobs exists and is tested. **No schedule exists for any of th
 |---|---|---|---|---|
 | Billing re-scrub | `admin_rescrub_billing_events(request_id)` (`20261102070000_data_requests.sql`; `supabase/tests/data_requests.sql` section 8) | De-identifies any payment event about a deleted household that arrived after the deletion and was not already stored de-identified. Idempotent; returns how many it changed. | A manual runbook step about 3 days after each household deletion (section 2, step 5). Could later be a daily scheduled edge function or pg_cron job over open deletions (`billing_rescrubbed_at is null`). | **NOT ACTIVATED.** No schedule; manual only once hosted. |
 | Retention purge | `admin_purge_expired_retention()` (same migration and test, section 10) | Deletes retained invitation email records past `retain_until` and every `parent_email_deliveries` record sent more than 13 months ago. Returns the counts per table. | A manual monthly runbook step, or a monthly pg_cron job (`select public.admin_purge_expired_retention()`), or a scheduled edge function. | **NOT ACTIVATED.** No schedule. Until it runs, email-sent records are kept longer than 13 months. |
+| Device claim expiry and purge | `purge_device_claims(p_now)` (#301, `20261103010000_device_claims.sql`; `supabase/tests/device_claims.sql` section 11) | Closes pending device claims past their 10-minute expiry, which also clears the claimant's endpoint, keys and token. Deletes resolved claims older than 30 days and failed confirmations older than a day; the attempt limit only looks back an hour. Returns the counts. | A daily pg_cron job (`select public.purge_device_claims(now())`) or a scheduled edge function, with the service role. | **NOT ACTIVATED.** No schedule. Until it runs, resolved claims (without push credentials) and failure rows are kept indefinitely. |
 | Reminder claim expiry | `expire_practice_reminder_claims(p_now)` (#298, `20261102030000_practice_reminders.sql`; `supabase/tests/practice_reminders.sql`) | Marks reminder claims the sender never finished as `failed` (`claim_expired`) after `practice_reminder_claim_timeout()`. Not a privacy job, but it is the third background job these tables need. | The reminder sender edge function (`send-practice-reminders`) on its own schedule, or pg_cron. | **NOT ACTIVATED.** No schedule; the reminder sender is not scheduled either. |
 
 Accepted consequence of the 13-month purge (owner, 2026-11-03): an inactivity alert's record is also the "already sent for this stretch" marker. A guardian whose student stays inactive for more than 13 months in a row can therefore get that alert once more after the purge.

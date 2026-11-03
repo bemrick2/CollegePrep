@@ -15,7 +15,7 @@ Hosted deployment is **held** (`.operations/supabase-live-hold.json`). Owner, 20
 
 Columns:
 - **Implemented:** in the code on `main` or in an open PR, as noted.
-- **Local:** checked by unit and component tests, or by `scripts/local/live_stack.sh test`. That runs every migration plus Design's reference SQL, with real SQL, RLS and RPCs: 57 end-to-end tests on main (58 with #269); each run fails if any test is skipped.
+- **Local:** checked by unit and component tests, or by `scripts/local/live_stack.sh test`. That runs every migration (the reference SQL proposals became migrations in #298), with real SQL, RLS and RPCs: 57 end-to-end tests on main (58 with #269); each run fails if any test is skipped.
 - **Hosted:** checked on the hosted project. **Nothing is hosted-tested since the 2026-10-06 pause.**
 - **Blocked by:** what is still in the way.
 
@@ -311,4 +311,4 @@ Repeat everything in the native apps for M2 (`NATIVE_APPS.md` § Acceptance). Th
 
 ## Research dependencies
 
-All remaining database contracts are in one list: **#218**. That covers reference SQL waiting for migrations, open contracts, and questions found while integrating.
+All remaining database contracts are in one list: **#218**. That covers open contracts and questions found while integrating (the A1–A3 reference SQL became migrations in #298).
