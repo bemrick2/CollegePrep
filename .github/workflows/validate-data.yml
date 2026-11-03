@@ -144,6 +144,22 @@ jobs:
         run: python scripts/test_practice_seen_backfill.py
       - name: Household home state (CR-15)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_home_state.sql
+      - name: Data export and deletion requests; every table has a data-request decision (A4)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/data_requests.sql
+      - name: A webhook event racing a household deletion is still de-identified (A4)
+        run: python scripts/test_data_request_concurrency.py
+      - name: Data requests again under Supabase's default privileges, as on hosted (A4)
+        # Hosted grants every new table and function to anon, authenticated and service_role by default; the
+        # migration must revoke what it does not mean to grant. A separate database, so other tests are unaffected.
+        run: |
+          psql -v ON_ERROR_STOP=1 -c 'create database hosted_defaults'
+          export PGDATABASE=hosted_defaults
+          for kind in tables functions sequences; do
+            psql -v ON_ERROR_STOP=1 -c "alter default privileges for role postgres in schema public grant all on $kind to anon, authenticated, service_role"
+          done
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/support/auth_stub.sql
+          for migration in supabase/migrations/*.sql; do psql -q -v ON_ERROR_STOP=1 -f "$migration"; done
+          PGOPTIONS='-c dr.expect_supabase_defaults=on' psql -v ON_ERROR_STOP=1 -f supabase/tests/data_requests.sql
       - name: Device registrations move only with proof (device claims)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/device_claims.sql
       - name: Import every repository record twice into the disposable database

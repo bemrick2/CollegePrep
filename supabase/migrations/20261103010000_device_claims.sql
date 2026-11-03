@@ -54,6 +54,8 @@
 --   resolved claims older than 30 days and failure rows older than 1 day. Returns the counts.
 -- * Reports and confirmations of one device id, token or endpoint are serialised by the same transaction advisory
 --   locks as before (ids in sorted order, then token, then endpoint).
+-- * Data requests (#294): both new tables are security records, deleted with the account (claims made by it or on its
+--   devices, and its failed confirmations) and never exported; the two delete paths are replaced to include them.
 -- Objects are altered or replaced in place. device_handle (student_notification_devices) is unchanged.
 
 create table public.notification_device_claims (
@@ -400,3 +402,191 @@ comment on function public.unregister_notification_device(uuid) is
   'Remove this login''s registration of a device (sign-out, account switch).';
 comment on function public.issue_device_claim_challenges(uuid) is
   'Service role only: nonces for pending device claims, returned once, with the held device''s push target.';
+
+-- ---------------------------------------------------------------------------------------------------------------
+-- Data requests (A4, 20261102070000_data_requests.sql): device claims and failed confirmations are security records,
+-- deleted with the account and never exported. The two delete paths, as in 20261102070000, plus these tables (in the
+-- removed counts and deleted before the account's devices). The export functions are unchanged: they never list them.
+-- ---------------------------------------------------------------------------------------------------------------
+
+create or replace function public.data_request_delete_student_internal(p_student uuid, p_apply boolean, p_log uuid,
+  p_shared boolean default true) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare v_s public.students; v_auth uuid[] := '{}'; v_removed jsonb; v_kept jsonb;
+begin
+  select * into v_s from public.students s where s.id = p_student for update;
+  if not found then raise exception 'No student %', p_student using errcode = 'P0002'; end if;
+  -- The student's own login goes too, unless it belongs to another household or holds a subscription.
+  if v_s.linked_user_id is not null
+     and not exists (select 1 from public.household_members m where m.user_id = v_s.linked_user_id
+                     and m.household_id is distinct from v_s.household_id)
+     and not exists (select 1 from public.subscriptions x where x.owner_user_id = v_s.linked_user_id) then
+    v_auth := array[v_s.linked_user_id];
+  end if;
+  v_removed := jsonb_build_object(
+    'students', 1,
+    'weekly_practice_goals', (select count(*) from public.weekly_practice_goals x where x.student_id = p_student),
+    'practice_sessions', (select count(*) from public.practice_sessions x where x.student_id = p_student),
+    'practice_session_items', (select count(*) from public.practice_session_items i
+      join public.practice_sessions x on x.id = i.session_id where x.student_id = p_student),
+    'practice_attempts', (select count(*) from public.practice_attempts x where x.student_id = p_student),
+    'practice_attempt_events', (select count(*) from public.practice_attempt_events x where x.student_id = p_student),
+    'ai_help_requests', (select count(*) from public.ai_help_requests x where x.student_id = p_student),
+    'practice_benchmarks', (select count(*) from public.practice_benchmarks x where x.student_id = p_student),
+    'practice_benchmark_items', (select count(*) from public.practice_benchmark_items x where x.student_id = p_student),
+    'student_test_scores', (select count(*) from public.student_test_scores x where x.student_id = p_student),
+    'student_exam_plan', (select count(*) from public.student_exam_plan x where x.student_id = p_student),
+    'student_planning_preferences', (select count(*) from public.student_planning_preferences x where x.student_id = p_student),
+    'student_academic_interests', (select count(*) from public.student_academic_interests x where x.student_id = p_student),
+    'alert_preferences', (select count(*) from public.alert_preferences x where x.student_id = p_student),
+    'household_invitations', (select count(*) from public.household_invitations x where x.student_id = p_student),
+    'household_members', (select count(*) from public.household_members m
+      where m.user_id = v_s.linked_user_id and m.household_id = v_s.household_id),
+    'profiles', (select count(*) from public.profiles p where p.id = any (v_auth)),
+    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_auth)),
+    'notification_devices', (select count(*) from public.notification_devices d where d.user_id = any (v_auth)),
+    'notification_device_claims', (select count(*) from public.notification_device_claims c where c.claimant_user_id = any (v_auth)
+      or c.target_device_id in (select d.id from public.notification_devices d where d.user_id = any (v_auth))),
+    'notification_device_claim_failures', (select count(*) from public.notification_device_claim_failures f where f.user_id = any (v_auth)),
+    'student_setup_progress', (select count(*) from public.student_setup_progress x where x.student_id = p_student),
+    'practice_reminder_settings', (select count(*) from public.practice_reminder_settings x where x.student_id = p_student),
+    'practice_reminder_changes', (select count(*) from public.practice_reminder_changes x where x.student_id = p_student),
+    'practice_reminder_deliveries', (select count(*) from public.practice_reminder_deliveries x where x.student_id = p_student),
+    'question_reports', (select count(*) from public.question_reports x where x.student_id = p_student));
+  v_kept := jsonb_build_object('retained_email_records', (select count(*) from public.household_invitations i
+    where i.student_id = p_student and i.recipient_email is not null and i.email_send_count > 0
+      and i.last_emailed_at > now() - interval '13 months'));
+  -- Shared records (parent emails, question reports): from a household deletion, the household de-identifies them once
+  -- for all its students and accounts.
+  if p_shared then
+    v_kept := v_kept || jsonb_build_object('parent_email_deliveries',
+      public.data_request_deidentify_email_deliveries(array[p_student], v_auth, false),
+      'question_reports', public.data_request_deidentify_reports(array[p_student], v_auth, false));
+  end if;
+  if p_apply then
+    insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until, data_request_id)
+    select 'household_invitation', i.recipient_email, i.email_send_count, i.last_emailed_at,
+      i.last_emailed_at + interval '13 months', p_log
+    from public.household_invitations i
+    where i.student_id = p_student and i.recipient_email is not null and i.email_send_count > 0
+      and i.last_emailed_at > now() - interval '13 months';
+    delete from public.household_members m where m.user_id = v_s.linked_user_id and m.household_id = v_s.household_id;
+    delete from public.profiles p where p.id = any (v_auth);
+    delete from public.invitation_code_attempts a where a.user_id = any (v_auth);
+    -- Device claims made by or on these accounts, and their failed confirmations (security records, never exported).
+    delete from public.notification_device_claims c where c.claimant_user_id = any (v_auth)
+      or c.target_device_id in (select d.id from public.notification_devices d where d.user_id = any (v_auth));
+    delete from public.notification_device_claim_failures f where f.user_id = any (v_auth);
+    delete from public.notification_devices d where d.user_id = any (v_auth);
+    if p_shared then
+      perform public.data_request_deidentify_email_deliveries(array[p_student], v_auth, true);
+      perform public.data_request_deidentify_reports(array[p_student], v_auth, true);
+    end if;
+    -- Every per-student table references students(id) on delete cascade.
+    delete from public.students s where s.id = p_student;
+    if exists (select 1 from public.practice_attempts where student_id = p_student)
+       or exists (select 1 from public.practice_sessions where student_id = p_student)
+       or exists (select 1 from public.practice_attempt_events where student_id = p_student)
+       or exists (select 1 from public.household_invitations where student_id = p_student) then
+      raise exception 'Student % rows remain after delete', p_student;
+    end if;
+  end if;
+  return jsonb_build_object('removed', v_removed, 'kept', v_kept, 'auth_users_to_delete', to_jsonb(v_auth));
+end $$;
+
+create or replace function public.data_request_delete_household_internal(p_household uuid, p_apply boolean, p_log uuid) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare v_removed jsonb := '{}'::jsonb; v_kept jsonb := '{}'::jsonb; v_auth uuid[] := '{}'; v_accounts uuid[];
+  v_links uuid[]; v_billing jsonb; v_events bigint[]; v_students uuid[]; r jsonb; s uuid;
+begin
+  perform 1 from public.households h where h.id = p_household for update;
+  if not found then raise exception 'No household %', p_household using errcode = 'P0002'; end if;
+  if exists (select 1 from public.subscriptions x where x.household_id = p_household
+             and public.data_request_live_subscription(x.provider, x.status)) then
+    raise exception 'Household % has a live subscription: cancel it with the payment provider first', p_household
+      using errcode = '55000';
+  end if;
+  select coalesce(array_agg(x.linked_user_id), '{}') into v_links from public.students x
+    where x.household_id = p_household and x.linked_user_id is not null;
+  v_accounts := public.data_request_household_accounts(p_household);
+  if exists (select 1 from public.subscriptions x where x.owner_user_id = any (v_accounts)
+             and public.data_request_live_subscription(x.provider, x.status)) then
+    raise exception 'A member account of household % owns a live subscription: cancel it first', p_household
+      using errcode = '55000';
+  end if;
+  if p_apply then
+    perform pg_advisory_xact_lock(public.data_request_billing_lock_key());
+  end if;
+  v_billing := public.data_request_household_billing(p_household, v_accounts);
+  v_events := array(select jsonb_array_elements_text(v_billing->'event_ids')::bigint);
+
+  select coalesce(array_agg(x.id), '{}') into v_students from public.students x where x.household_id = p_household;
+  for s in select x.id from public.students x where x.household_id = p_household order by x.created_at, x.id loop
+    r := public.data_request_delete_student_internal(s, p_apply, p_log, false);
+    v_removed := public.data_request_add_counts(v_removed, r->'removed');
+    v_kept := public.data_request_add_counts(v_kept, r->'kept');
+    v_auth := v_auth || array(select jsonb_array_elements_text(r->'auth_users_to_delete')::uuid);
+  end loop;
+
+  v_removed := public.data_request_add_counts(v_removed, jsonb_build_object(
+    'households', 1,
+    'household_members', (select count(*) from public.household_members m where m.household_id = p_household
+      and m.user_id <> all (v_links)),
+    'household_invitations', (select count(*) from public.household_invitations i
+      where i.household_id = p_household and i.student_id is null),
+    'household_saved_schools', (select count(*) from public.household_saved_schools x where x.household_id = p_household),
+    'billing_customers', (select count(*) from public.billing_customers x where x.household_id = p_household),
+    'subscriptions', (select count(*) from public.subscriptions x where x.household_id = p_household
+      or (x.household_id is null and x.owner_user_id = any (v_accounts))),
+    'profiles', (select count(*) from public.profiles p where p.id = any (v_accounts)),
+    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_accounts)),
+    'notification_devices', (select count(*) from public.notification_devices d where d.user_id = any (v_accounts)),
+    -- Claims linking a student's login and a household account were counted with the student already.
+    'notification_device_claims', (select count(*) from public.notification_device_claims c
+      where (c.claimant_user_id = any (v_accounts)
+             or c.target_device_id in (select d.id from public.notification_devices d where d.user_id = any (v_accounts)))
+        and not (c.claimant_user_id = any (v_auth)
+             or c.target_device_id in (select d.id from public.notification_devices d where d.user_id = any (v_auth)))),
+    'notification_device_claim_failures', (select count(*) from public.notification_device_claim_failures f where f.user_id = any (v_accounts))));
+  v_kept := public.data_request_add_counts(v_kept, jsonb_build_object(
+    'retained_email_records', (select count(*) from public.household_invitations i
+      where i.household_id = p_household and i.student_id is null and i.recipient_email is not null
+        and i.email_send_count > 0 and i.last_emailed_at > now() - interval '13 months'),
+    'billing_events', cardinality(v_events),
+    'parent_email_deliveries', public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, false),
+    'question_reports', public.data_request_deidentify_reports(v_students, v_auth || v_accounts, false)));
+  -- Provider references, so the invoices the provider holds can still be found for tax, and so later events about
+  -- them are de-identified on arrival (record_billing_event, admin_rescrub_billing_events).
+  v_kept := v_kept || jsonb_build_object('billing_event_ids', to_jsonb(v_events), 'billing_refs',
+    jsonb_build_object('customers', v_billing->'customers', 'subscriptions', v_billing->'subscriptions'));
+  v_auth := v_auth || v_accounts;
+
+  if p_apply then
+    insert into public.data_request_billing_refs(request_id, provider, kind, ref)
+    select p_log, 'stripe', 'customer', c from jsonb_array_elements_text(v_billing->'customers') c
+    union select p_log, 'stripe', 'subscription', x from jsonb_array_elements_text(v_billing->'subscriptions') x
+    on conflict do nothing;
+    insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until, data_request_id)
+    select 'household_invitation', i.recipient_email, i.email_send_count, i.last_emailed_at,
+      i.last_emailed_at + interval '13 months', p_log
+    from public.household_invitations i
+    where i.household_id = p_household and i.student_id is null and i.recipient_email is not null
+      and i.email_send_count > 0 and i.last_emailed_at > now() - interval '13 months';
+    update public.billing_events e set household_id = null, payload = public.data_request_scrub_billing_payload(e.payload),
+      deidentified_at = coalesce(e.deidentified_at, now())
+    where e.id = any (v_events);
+    delete from public.subscriptions x where x.household_id = p_household
+      or (x.household_id is null and x.owner_user_id = any (v_accounts));
+    delete from public.profiles p where p.id = any (v_accounts);
+    delete from public.invitation_code_attempts a where a.user_id = any (v_accounts);
+    delete from public.notification_device_claims c where c.claimant_user_id = any (v_accounts)
+      or c.target_device_id in (select d.id from public.notification_devices d where d.user_id = any (v_accounts));
+    delete from public.notification_device_claim_failures f where f.user_id = any (v_accounts);
+    delete from public.notification_devices d where d.user_id = any (v_accounts);
+    perform public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, true);
+    perform public.data_request_deidentify_reports(v_students, v_auth || v_accounts, true);
+    -- Cascades household_members, household_invitations, household_saved_schools and billing_customers.
+    delete from public.households h where h.id = p_household;
+  end if;
+  return jsonb_build_object('removed', v_removed, 'kept', v_kept, 'auth_users_to_delete', to_jsonb(v_auth));
+end $$;

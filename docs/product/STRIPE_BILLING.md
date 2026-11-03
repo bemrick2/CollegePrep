@@ -47,15 +47,20 @@ iOS app (later) ── Apple IAP ── App Store Server Notifications ──> (
 - **`billing-portal`** (POST `{household_id}`) opens a Portal session for the household's customer. Billing guardians only.
 - **`stripe-webhook`** is deployed with JWT verification off; Stripe's signature authenticates it instead.
   1. Verifies the `Stripe-Signature` header with `STRIPE_WEBHOOK_SECRET`.
-  2. Records the event once in `billing_events`, keyed on `(provider, event_id)`. A duplicate of an already-processed event is acknowledged and skipped.
+  2. Records the event once in `billing_events`, keyed on `(provider, event_id)`, through the service-only SQL function `record_billing_event` (A4, `docs/operations/DATA_REQUESTS.md`). A duplicate of an already-processed event is acknowledged and skipped. The event is stored **already de-identified** in two cases. One is when it names the customer or subscription of a household deleted under a data request. The other is when its type is not one of the handled events below. The call waits for any household deletion in progress.
   3. For handled events, retrieves the subscription **fresh from Stripe** and upserts the household's row from its *current* state. Duplicate, delayed and out-of-order deliveries therefore all converge on the same result.
   4. A subscription with no household metadata, no owner or no Prep & Price lookup key (for example, one made by hand in the dashboard) is recorded with an error and acknowledged, not retried forever.
-  5. Transient failures return 500, so Stripe retries.
+  5. Transient failures return 500, so Stripe retries. That includes a failed household lookup: a database error is never treated as a missing (deleted) household.
+  6. An event whose household no longer exists (deleted under a data request, or never ours) is kept for the tax record, de-identified and with no household link.
 
   Handled events:
   - `checkout.session.completed`
   - `customer.subscription.created`, `.updated`, `.deleted`, `.paused`, `.resumed`
   - `invoice.paid`, `invoice.payment_failed`, `invoice.payment_action_required`
+
+  **The webhook endpoint stays subscribed to exactly these events.** Do not add others in the Stripe dashboard or in `scripts/stripe/setup_billing.mjs`. Disputes, reviews and Radar warnings can name the cardholder without naming the customer or the subscription, so a household deletion could never find and de-identify them. As a safeguard, any event of another type that does arrive is stored de-identified (`storeRawBillingEvent` in `_shared/billing.ts`, tested in `stripeLogic.test.ts` and `supabase/tests/data_requests.sql`).
+
+  **Deploy order (A4):** the webhook calls `record_billing_event` and `deidentify_billing_event` from `20261102070000_data_requests.sql`. Apply that migration before deploying this version of the function; until it is applied, the webhook returns 500 and Stripe retries.
 
 ### Status → access
 
