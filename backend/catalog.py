@@ -11,7 +11,9 @@ IMPORT_DOMAINS = frozenset({'institutions','costs','admissions_metrics','state_a
     'credit_policies','federal_aid','academic_programs','transfer_policies','degree_requirements','state_policies',
     'program_catalogs'})
 CONTROLLED_VALUES = {
-    'costs': {'residency': frozenset({'in_state','out_of_state','district','international','not_applicable'})},
+    'costs': {'residency': frozenset({'in_state','out_of_state','district','international','not_applicable'}),
+        # #296: the period the figures cover; a semester record is never a year's price (institution_costs_cost_period_check).
+        'cost_period': frozenset({'academic_year','fall_and_spring_semesters','semester'})},
     'credit_policies': {'policy_kind': frozenset({'AP','CLEP','IB','dual_enrollment','A_level','DSST','other',
         'cambridge_international','statewide_dual_credit','industry_certification'})},
     'appeals': {'appeal_kind': frozenset({'need_based_special_circumstances','professional_judgment',
@@ -22,6 +24,8 @@ CONTROLLED_VALUES = {
     'state_policies': {'policy_kind': frozenset({'tuition_residency','statewide_articulation','transfer_pathway','dual_enrollment',
         'transfer_guarantee','dual_admission','other'})},
 }
+# Controlled fields the database allows to be null (older imports state no cost period: read as an academic year).
+NULLABLE_CONTROLLED = {('costs','cost_period')}
 # Fields the normalized tables require (not null) beyond provenance.
 REQUIRED_IMPORT_FIELDS = {
     'costs': ('academic_year','residency'),
@@ -45,6 +49,7 @@ def import_contract_errors(domain,r):
     for field in REQUIRED_IMPORT_FIELDS.get(domain,()):
         if r.get(field) in (None,''): errors.append('%s record missing %s required by the database'%(domain,field))
     for field,allowed in CONTROLLED_VALUES.get(domain,{}).items():
+        if r.get(field) is None and (domain,field) in NULLABLE_CONTROLLED: continue
         if r.get(field) not in allowed: errors.append('%s.%s=%r is not allowed by the database check constraint'%(domain,field,r.get(field)))
     return errors
 

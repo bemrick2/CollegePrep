@@ -5,6 +5,7 @@
     {
       "books_supplies": null,
       "components": {
+        "Food Stryker Classic (19 per week)": 3470,
         "Housingtraditional double": 4980,
         "TOTALSdivide in half for per semester costs": 29559,
         "Tuition/Fees": 21109
@@ -14,7 +15,7 @@
       "last_verified_at": "2026-10-05",
       "living_arrangement": "on_campus",
       "mandatory_fees": null,
-      "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Overview 2027-28 Estimated Expenses Undergraduate Overview 2027-28 Estimated Expenses \"; printed rows copied, totals never recomputed. Reviewed 2026-10-04: Cost column checked against the published table (residency and living arrangement from the column headers; components and total as printed). Evidence: sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3.",
+      "notes": "Extracted by cost_table/v2 from the table \"Undergraduate Overview 2027-28 Estimated Expenses Undergraduate Overview 2027-28 Estimated Expenses \"; printed rows copied, totals never recomputed. Reviewed 2026-10-04: Cost column checked against the published table (residency and living arrangement from the column headers; components and total as printed). Evidence: sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3. Corrected 2026-11-03 (owner-approved, supabase/corrections.json; accept_issues: estimate): Estimate, not a published price: the source table is headed \"Undergraduate Overview 2027-28 Estimated Expenses\" and its lead reads \"ESTIMATED 2027-28 costs for full time undergraduate students are:\". Under the #285/#296 standard a projection marked estimated is not a verified price, so the record is partially_verified with its open issue (estimate) accepted for this reason. Amount (Tuition/Fees $21,109, Non-resident column), source (https://www.uwlax.edu/cost/) and year (2027-28) unchanged. The printed row \"Food Stryker Classic (19 per week)\" $3,470 was missing from components; it is added verbatim (label and cell as printed in the same Non-resident column of the archived table, sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3); no total is recomputed. Previously verified (2026-10-04 review); the earlier status and components are kept in supabase/corrections.json.",
       "on_campus_food_housing": null,
       "residency": "out_of_state",
       "source_url": "https://www.uwlax.edu/cost/",
@@ -22,7 +23,8 @@
       "total_cost_of_attendance": null,
       "tuition": null,
       "tuition_and_mandatory_fees": 21109,
-      "verification_status": "verified"
+      "verification_status": "partially_verified",
+      "verification_correction_reason": "Estimate, not a published price: the source table is headed \"Undergraduate Overview 2027-28 Estimated Expenses\" and its lead reads \"ESTIMATED 2027-28 costs for full time undergraduate students are:\". Under the #285/#296 standard a projection marked estimated is not a verified price, so the record is partially_verified with its open issue (estimate) accepted for this reason. Amount (Tuition/Fees $21,109, Non-resident column), source (https://www.uwlax.edu/cost/) and year (2027-28) unchanged. The printed row \"Food Stryker Classic (19 per week)\" $3,470 was missing from components; it is added verbatim (label and cell as printed in the same Non-resident column of the archived table, sources/pipeline/WI/2026-10-04/evidence.json#5f1b2bedb0c31db3); no total is recomputed."
     }
   ]
 }

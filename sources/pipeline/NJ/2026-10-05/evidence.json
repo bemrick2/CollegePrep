@@ -1334,6 +1334,50 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "44a76c41264ef03f": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "44a76c41264ef03f",
+   "reason": "William Paterson \"Undergraduate Tuition and Fees\" page, table under heading \"Tuition and Fees - Fall 2026/Spring 2027\", FULL-TIME block, column \"In-State\": \"TUITION - per semester*\" $ 8,379, Technology Fee $178, Student Govt Assn Fee $ 105, \"TOTAL per semester\" $ 8,662, copied as printed. Full-time (12-19 credits, per the footnote) undergraduate, in-state. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. The PART-TIME per-credit block was not used. Page conflict noted: the intro sentence says a New Jersey resident \"would pay $16,758 ($8,379 per semester) for tuition and fees\", while the table prints $8,379 as tuition alone and $8,662 as the semester total with fees; the table's cells are recorded."
+  },
+  "evidence": [
+   {
+    "field": "column:TUITION - per semester*",
+    "snippet": "TUITION - per semester* | $ 8,379 | $13,692",
+    "value": 8379
+   },
+   {
+    "field": "column:Technology Fee",
+    "snippet": "Technology Fee | $178 | $178",
+    "value": 178
+   },
+   {
+    "field": "column:Student Govt Assn Fee",
+    "snippet": "Student Govt Assn Fee | $ 105 | $105",
+    "value": 105
+   },
+   {
+    "field": "column:TOTAL per semester",
+    "snippet": "TOTAL per semester | $ 8,662 | $ 13,975",
+    "value": 8662
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "cost_period_semester"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T01:55:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2e8e275a81b861f4ca73.json.gz",
+   "requested_url": "https://www.wpunj.edu/studentaccounts/tuition-and-fees/index.html",
+   "sha256": "2e8e275a81b861f4ca738eee1279c86b9aa53a47cbe992dbf1b7cb428461957b",
+   "title": "Undergraduate Tuition and Fees - William Paterson University",
+   "url": "https://www.wpunj.edu/studentaccounts/tuition-and-fees/index.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "45caf9f9173a6083": {
   "decision": {
    "candidate_id": "45caf9f9173a6083",
@@ -3786,6 +3830,50 @@
    "sha256": "90f036344f5d034a32053014268bbcd8e1ff21849d93ffa56241477fc7fb6b5b",
    "title": "Chemistry, B.S. < Georgian Court University",
    "url": "https://catalog.georgian.edu/undergraduate/school-arts-sciences/biology/chem-bs/"
+  },
+  "year_basis": "labeled_in_source"
+ },
+ "ad7351abde09e837": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "ad7351abde09e837",
+   "reason": "William Paterson table under heading \"Tuition and Fees - Fall 2026/Spring 2027\", FULL-TIME block, column \"Out-of-State\": \"TUITION - per semester*\" $13,692, Technology Fee $178, Student Govt Assn Fee $105, \"TOTAL per semester\" $ 13,975, copied as printed. Full-time undergraduate, out-of-state. Recorded per semester (cost_period semester), never annualized; open issue cost_period_semester accepted for that reason. The page also describes an out-of-state tuition waiver that lets qualified domestic students pay the in-state rate; this record is the printed non-resident rate."
+  },
+  "evidence": [
+   {
+    "field": "column:TUITION - per semester*",
+    "snippet": "TUITION - per semester* | $ 8,379 | $13,692",
+    "value": 13692
+   },
+   {
+    "field": "column:Technology Fee",
+    "snippet": "Technology Fee | $178 | $178",
+    "value": 178
+   },
+   {
+    "field": "column:Student Govt Assn Fee",
+    "snippet": "Student Govt Assn Fee | $ 105 | $105",
+    "value": 105
+   },
+   {
+    "field": "column:TOTAL per semester",
+    "snippet": "TOTAL per semester | $ 8,662 | $ 13,975",
+    "value": 13975
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "cost_period_semester"
+  ],
+  "source": {
+   "fetched_at": "2026-10-06T01:55:25+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "2e8e275a81b861f4ca73.json.gz",
+   "requested_url": "https://www.wpunj.edu/studentaccounts/tuition-and-fees/index.html",
+   "sha256": "2e8e275a81b861f4ca738eee1279c86b9aa53a47cbe992dbf1b7cb428461957b",
+   "title": "Undergraduate Tuition and Fees - William Paterson University",
+   "url": "https://www.wpunj.edu/studentaccounts/tuition-and-fees/index.html"
   },
   "year_basis": "labeled_in_source"
  },
