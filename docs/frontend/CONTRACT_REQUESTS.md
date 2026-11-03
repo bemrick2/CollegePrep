@@ -500,7 +500,7 @@ Migration in the repo, unapplied on hosted: `supabase/migrations/20261102030000_
 **`report_notification_device` returns a status** (it returned nothing before):
 - `registered`: recorded as before.
 - `verification_pending`: the device id, token or endpoint is held by another login. Nothing moved. Call the `verify-notification-device` function with the user's session; it sends a silent push with a nonce to that device.
-- `verification_limited`: too many claims. The limits are 5 claims per login per hour, and 3 pending claims per device, one per login. A login's newest report replaces its own older claim. Try again later.
+- `verification_limited`: too many claims. The limits are 5 claims per login per hour, and 3 pending claims per device, one per login. A login's newest report replaces its own older claim. Try again later; if it repeats, re-subscribe with a new device id (see "When the slots stay full" below).
 - `device_held`: nothing moved. Generate a new device id and report again. This happens when either:
   - the id is held by another login and that row has no live push target; or
   - the held device is a browser and this report carries no subscription keys (for example `denied`).
@@ -530,6 +530,12 @@ Migration in the repo, unapplied on hosted: `supabase/migrations/20261102030000_
 - It removes this login's registration at once, so a shared device stops getting the previous person's reminders.
 - It also withdraws this login's pending claims made from that device.
 - The challenge applies only when the previous owner never signed out.
+
+**When the slots stay full (client mitigation, required).** Three logins acting together can hold all 3 pending claim slots of a device, and keep re-claiming it. Each still gets only one verify push an hour, and none can read a push meant for another, so nothing moves, but a legitimate claimant can be kept waiting. The review accepted this as a low residual risk. The client works around it rather than waiting:
+- **Browser:** if a report returns `verification_limited` twice in a row, or no verify push arrives within the claim's 10 minutes, unsubscribe the browser's push subscription and subscribe again. That gives a new endpoint and keys. Then generate a new device id, store it, and report again.
+- **Native app:** do the same with a refreshed FCM token (delete the token, get a new one).
+- **Why it works:** the new id, endpoint or token is held by nobody, so the report returns `registered` at once, with no challenge.
+- **Afterwards:** the old row keeps only the dead subscription. The push service reports it gone, and the sender retires it.
 
 **Unchanged:** `student_notification_devices` returns `device_handle` (an opaque per-row handle, stable while the device keeps its owner), never the device id.
 
