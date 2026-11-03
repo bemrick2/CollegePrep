@@ -1,6 +1,6 @@
 # UTC credit mappings for the planning pilot (#191)
 
-**Owner:** Research. **Reader:** Design (`PILOT_ACCEPTANCE.md` §2, checklist item 4). **As of:** 2026-11-03, main `c8bbce6`.
+**Owner:** Research. **Reader:** Design (`PILOT_ACCEPTANCE.md` §2, checklist item 4). **As of:** 2026-11-03, main `58252e6`.
 **Scope:** UTC's AP table (57 rows) and CLEP table (36 rows) in `data/institutions/utc/credit_policies/2026-27.json`, for
 the UTC Management B.S.B.A. pilot.
 
@@ -11,6 +11,8 @@ excluded.** No data file changes. Both records stay `partially_verified`, so the
 only) already excludes them. Design needs no new mechanism: the exclusion shape is the whole table at
 `partially_verified` (see "Exclusion shape" below).
 
+- **Other UTC credit records:** IB (25 rows) and dual enrollment are also `partially_verified`, so they're hidden too
+  (`PILOT_ACCEPTANCE.md` §1).
 - **Values:** every one of the 93 rows was compared cell by cell (exam, minimum score, course(s), hours) with the raw
   pages fetched today. Every score, course and hour value is printed as stored. The only differences are spacing in
   3 CLEP course cells and 2 non-numeric hours cells stored as empty (details below).
@@ -40,7 +42,7 @@ request is `pipeline/run-request.json` on that branch. The branch is never merge
 | [Math Placement Criteria](https://www.utc.edu/arts-and-sciences/mathematics/student-resources/placement-test/placement) | 2026-11-03 22:32 | `d9af1ab0944bed2daf85.json.gz` | `d9af1ab0944bed2d…` | "Beginning Fall 2026" (renumbering note) |
 | [Registrar: Course Catalogs](https://www.utc.edu/academic-affairs/registrar/course-catalogs) | 2026-11-03 22:32 | `d894945ade4e20d0ca30.json.gz` | `d894945ade4e20d0…` | lists "2026-27"; links catoid=53 |
 | [2026-2027 Undergraduate Catalog home](https://catalog.utc.edu/index.php?catoid=53) | 2026-11-03 22:32 | `2aa05d341ff4b556668d.json.gz` | `2aa05d341ff4b556…` | "2026-2027 Undergraduate Catalog" (home page only) |
-| Catalog content pages (`content.php?catoid=53&navoid=2300`, `2283`, `2292`, `2293`, then 11 more) | 2026-11-03 | — | — | `blocked_bot_challenge` ×4, then `host_challenge_stop` |
+| Catalog content pages (`content.php?catoid=53&navoid=2300`, `2283`, `2292`, `2293`, then others) | 2026-11-03 | — | — | `blocked_bot_challenge`: 4 consecutive challenges (5 in all; navoid 2300 retried once), then 10 stop records (`host_challenge_stop`) |
 | Catalog search (`search_advanced.php`: "Advanced Placement", "MATH 1950", "DATA 2130") | 2026-11-03 | — | — | `disallowed_by_robots` |
 
 The comparison was repeated against the 2026-11-02 weekly run (AP `325ccc1a80bcc4cb…`, CLEP `f9a07c5ebe7c392f…`) with
