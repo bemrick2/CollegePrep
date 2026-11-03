@@ -206,11 +206,10 @@ describe.skipIf(!URL_ || !DENO)('practice reminders: push sender, snooze action,
     const devices = await parent.studentDevices(studentId)
     expect(devices.map((d) => [d.permission, d.platform, d.canReceive])).toEqual(expect.arrayContaining([['granted', 'android', true], ['granted', 'desktop', true], ['denied', 'ios', false]]))
     expect(JSON.stringify(devices)).not.toContain('sub/one')
-    // A device id belongs to the login that reported it last (a shared browser): it leaves the student's devices, and
-    // comes back when the student's login reports it again.
+    // Another login can't take the device over by its id alone: without the device's own subscription it stays the
+    // student's (a shared browser moves only when the new login presents the same endpoint).
     await parent.reportNotificationDevice({ deviceId, permission: 'denied', platform: 'desktop', subscription: null })
-    expect((await parent.studentDevices(studentId)).some((d) => d.deviceId === deviceId)).toBe(false)
-    await student.reportNotificationDevice({ deviceId, permission: 'granted', platform: 'android', subscription: { endpoint: `https://127.0.0.1:${PORTS.push}/sub/one`, keys: { p256dh: b64u(ua.pub), auth: b64u(authSecret) } } })
+    expect((await parent.studentDevices(studentId)).filter((d) => d.platform === 'android' && d.canReceive)).toHaveLength(1)
   })
 
   it('a guardian turns reminders on; at the chosen time exactly one push goes out, to one device, encrypted; then the daily limit holds', async () => {

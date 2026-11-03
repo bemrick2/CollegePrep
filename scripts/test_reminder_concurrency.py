@@ -6,11 +6,15 @@
 2. The guardian notice: the student's two devices turn reminders off at once. The second waits for the first (the
    per-student advisory lock) and sees reminders already off, so exactly one change is flagged and guardians get one
    notice each.
-3. A shared browser: one device id reported by two logins at once. The second waits for the first (the advisory
-   lock on the device id), then takes the device over: one row, the second login's, with the second login's endpoint
-   and keys only, never a mix.
+3. A shared browser: one device id reported by two logins at once with the browser's one endpoint and each login's
+   own keys. The second waits for the first (the advisory lock on the device id), then takes the device over: one
+   row, the second login's, with the second login's keys only, never a mix. A second login presenting a different
+   endpoint for that id waits too, then takes nothing over.
 4. A shared phone: one FCM token reported by two logins at once under different device ids. The second waits (the
    lock on the token), then the token is only on the second login's device.
+5. A shared browser under two device ids: one web endpoint reported by two logins at once. The second waits (the
+   lock on the endpoint), then the endpoint is only on the second login's device. Without that lock both rows would
+   keep the endpoint.
 
 Committed fixtures need their own database, so this creates and drops <REMINDER_CONCURRENCY_DB, default
 reminder_concurrency> using the PG* environment.
@@ -103,17 +107,24 @@ def main():
         expect(psql('-At', '-c', 'set role service_role; select count(*) from public.reminder_opt_out_payload()').stdout.strip().splitlines()[-1] == '1',
                'one notice for the one guardian')
 
-        # 3. One device id reported first by two logins at once.
+        # 3. One device id reported first by two logins at once (the same browser, so the same endpoint).
+        rep = lambda dev, uid, ep, key: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{dev}', 'granted', "
+                                         f"'{{\"endpoint\":\"https://fcm.googleapis.com/fcm/send/{ep}\",\"keys\":{{\"p256dh\":\"k-{key}\",\"auth\":\"a-{key}\"}}}}', 'android');")
+        row_of = lambda where: psql('-At', '-c', f"select count(*) || ' ' || string_agg(id || ' ' || user_id || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret, ';') "
+                                                 f"from public.notification_devices where {where}").stdout.strip()
         dev = '5f000000-0000-4000-a000-0000000000aa'
-        rep = lambda uid, ep: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{dev}', 'granted', "
-                               f"'{{\"endpoint\":\"https://fcm.googleapis.com/fcm/send/{ep}\",\"keys\":{{\"p256dh\":\"k-{ep}\",\"auth\":\"a-{ep}\"}}}}', 'android');")
-        (ra, oa, ea), (rb, ob, eb), waited = race(rep(STUDENT, 'student'), rep(OUTSIDER, 'outsider'))
+        (ra, oa, ea), (rb, ob, eb), waited = race(rep(dev, STUDENT, 'shared', 'student'), rep(dev, OUTSIDER, 'shared', 'outsider'))
         expect(ra == 0 and rb == 0, f'both reports succeed {ea.strip()} {eb.strip()[:200]}')
         expect(waited >= 1.0, f'the second report waited for the first ({waited:.2f}s)')
-        row = psql('-At', '-c', f"select count(*) || ' ' || string_agg(user_id || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret, ';') "
-                               f"from public.notification_devices where id = '{dev}'").stdout.strip()
-        expect(row == f'1 {OUTSIDER} https://fcm.googleapis.com/fcm/send/outsider k-outsider a-outsider',
-               f'one row: the later login, with its own endpoint and keys ({row})')
+        row = row_of(f"id = '{dev}'")
+        expect(row == f'1 {dev} {OUTSIDER} https://fcm.googleapis.com/fcm/send/shared k-outsider a-outsider',
+               f'one row: the later login, with its own keys ({row})')
+        dev = '5f000000-0000-4000-a000-0000000000ab'
+        (ra, oa, ea), (rb, ob, eb), waited = race(rep(dev, STUDENT, 'mine', 'student'), rep(dev, OUTSIDER, 'other', 'outsider'))
+        expect(ra == 0 and rb == 0 and waited >= 1.0, f'a report with another endpoint waits, then returns ({waited:.2f}s) {eb.strip()[:200]}')
+        row = row_of(f"id = '{dev}'")
+        expect(row == f'1 {dev} {STUDENT} https://fcm.googleapis.com/fcm/send/mine k-student a-student',
+               f'without the device\'s endpoint, nothing is taken over ({row})')
 
         # 4. One FCM token reported by two logins at once, under different device ids.
         tok = 'fcm-registration-token-shared-0001'
@@ -123,6 +134,15 @@ def main():
         expect(waited >= 1.0, f'the second token report waited for the first ({waited:.2f}s)')
         row = psql('-At', '-c', f"select count(*) || ' ' || string_agg(id || ' ' || user_id, ';') from public.notification_devices where push_token = '{tok}'").stdout.strip()
         expect(row == f'1 5f000000-0000-4000-a000-0000000000b2 {OUTSIDER}', f'the token is on the later login\'s device only ({row})')
+
+        # 5. One web endpoint reported by two logins at once, under different device ids.
+        (ra, oa, ea), (rb, ob, eb), waited = race(rep('5f000000-0000-4000-a000-0000000000c1', STUDENT, 'browser', 'student'),
+                                                  rep('5f000000-0000-4000-a000-0000000000c2', OUTSIDER, 'browser', 'outsider'))
+        expect(ra == 0 and rb == 0, f'both endpoint reports succeed {ea.strip()} {eb.strip()[:200]}')
+        expect(waited >= 1.0, f'the second endpoint report waited for the first ({waited:.2f}s)')
+        row = row_of("endpoint = 'https://fcm.googleapis.com/fcm/send/browser'")
+        expect(row == f'1 5f000000-0000-4000-a000-0000000000c2 {OUTSIDER} https://fcm.googleapis.com/fcm/send/browser k-outsider a-outsider',
+               f'the endpoint is on the later login\'s device only ({row})')
     finally:
         psql('-c', f'drop database if exists {DB} with (force)', db='postgres', check=False)
     print('reminder concurrency test passed')

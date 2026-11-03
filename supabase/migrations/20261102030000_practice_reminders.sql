@@ -36,7 +36,9 @@
 --   the latest login that reports it", applied to the device id, the FCM token and the web push endpoint alike). The
 --   reference refused a device id another login had reported (a shared browser could never get reminders for its new
 --   login), moved only FCM tokens, and kept a web endpoint under two logins (the previous student's reminders kept
---   going to the shared browser). Reports of one id, token or endpoint are serialised by advisory locks, so a
+--   going to the shared browser). A device id held by another login moves only when the caller presents that row's
+--   endpoint or token (a row with neither moves freely), so knowing an id is not enough to silence a student's
+--   reminders. Reports of one id, token or endpoint are serialised by advisory locks, so a
 --   concurrent report can't leave one login's row with another login's keys. It also refuses a null device id, an
 --   unknown channel, and an endpoint outside the known push services (above), and keeps at most 20 devices per login
 --   (the least recently seen are dropped).
@@ -55,10 +57,14 @@
 --   recorded; the reference would fail on a removed device and leave the reminder 'claimed').
 -- * snooze_practice_reminder_delivery takes 15 minutes to 24 hours (as snooze_practice_reminders does) and only a
 --   claimed or sent delivery; snooze_practice_reminders marks only the latest sent, not yet snoozed delivery.
--- * Lost claims: a claim younger than practice_reminder_claim_timeout() (15 minutes) counts as sent toward the daily
---   and weekly limits and the minimum gap (practice_reminder_candidates); an older one becomes 'failed' with
---   failure_reason 'claim_expired', in claim_practice_reminder (that student) or the service-only sweep
---   expire_practice_reminder_claims(). The reference left a lost claim 'claimed' forever and never counted it.
+-- * Lost claims: claimed_at records when a claim was made (clock_timestamp()). A claim younger than
+--   practice_reminder_claim_timeout() (15 minutes) counts as sent toward the daily and weekly limits and the minimum
+--   gap (practice_reminder_candidates); an older one becomes 'failed' with failure_reason 'claim_expired', in
+--   claim_practice_reminder (that student) or the service-only sweep expire_practice_reminder_claims(). A sender that
+--   finishes an expired claim as sent records it as sent (the reason kept as history; 'claim_expired_resent', still
+--   counted, if the reminder was claimed again meanwhile). The reference left a lost claim 'claimed' forever.
+-- * student_notification_devices returns device_handle (a random per-row handle), never the device id, and taking over
+--   a device id needs the device's own endpoint or token (see report_notification_device).
 -- * snooze_practice_reminder_delivery is refused (null, token not used up) while reminders are off.
 -- * days must be distinct weekdays, school_days too (public.iso_weekdays_valid, from CR-26).
 -- * Column grants: clients read neither updated_by (settings) nor changed_by / household_id (changes).
@@ -143,6 +149,9 @@ create table public.notification_devices (
   checked_at timestamptz not null default now(),
   gone_at timestamptz,                         -- the push service said the subscription no longer exists
   created_at timestamptz not null default now(),
+  -- What families see instead of the id: a random handle, stable while the device keeps its owner, so the app can
+  -- list and compare devices; it is useless to report_notification_device.
+  handle uuid not null unique default gen_random_uuid(),
   check ((endpoint is null) = (p256dh is null) and (endpoint is null) = (auth_secret is null)),
   check (channel = 'webpush' or endpoint is null),
   check (channel = 'fcm' or push_token is null)
@@ -165,10 +174,14 @@ create table public.practice_reminder_deliveries (
   channel text check (channel in ('webpush', 'fcm')),
   status text not null check (status in ('claimed', 'sent', 'failed', 'gone')),
   sent_at timestamptz not null default now(),
+  -- When the claim was actually made (clock_timestamp(), not the sender run's start): the claim timeout counts from it.
+  claimed_at timestamptz not null default clock_timestamp(),
   opened_at timestamptz,
   snoozed_at timestamptz,
-  -- Why a reminder failed: 'claim_expired' when a claim was never finished (see practice_reminder_claim_timeout).
-  failure_reason text check (failure_reason is null or (status = 'failed' and length(failure_reason) between 1 and 40))
+  -- History of a claim that outlived practice_reminder_claim_timeout(): 'claim_expired' (status 'failed', or 'sent'
+  -- when the sender finished it as sent afterwards), or 'claim_expired_resent' when it was finished as sent after the
+  -- same reminder had been claimed again (the unique index allows one live row per reminder; it still counts as sent).
+  failure_reason text check (failure_reason is null or (status in ('failed', 'sent') and length(failure_reason) between 1 and 40))
 );
 create index practice_reminder_deliveries_student_idx on public.practice_reminder_deliveries(student_id, sent_at desc);
 create index practice_reminder_deliveries_device_idx on public.practice_reminder_deliveries(device_id);
@@ -297,11 +310,17 @@ end $$;
 -- is taken over or removed, so the previous student's reminders never go to it again. Reports of one device id, token
 -- or endpoint are serialised (transaction advisory locks, always taken in the order id, token, endpoint), so two
 -- logins reporting at once end with one row holding the later login and that login's own keys, never a mix.
+--
+-- Moving a device id needs proof of the device: when another login's row holds an endpoint or a token, the caller must
+-- present that same endpoint or token (which only that browser or install has). Otherwise, including a report with no
+-- endpoint or token ('denied', 'default', 'unsupported'), the other login's row is kept and nothing is taken over; the
+-- call returns without an error, as an app-open report always does. A row holding neither moves to the caller. A
+-- presented token or endpoint is itself that proof, so it moves from another device id to the caller's.
 create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null,
   p_platform text default null, p_channel text default 'webpush', p_token text default null)
 returns void language plpgsql volatile security definer set search_path = '' as $$
 declare v_me uuid := auth.uid(); v_channel text := coalesce(p_channel, 'webpush'); v_granted boolean := p_permission = 'granted';
-  v_endpoint text; v_token text; v_previous uuid;
+  v_endpoint text; v_token text; v_prev record;
 begin
   if v_me is null then raise exception 'Sign in first' using errcode = '42501'; end if;
   if p_device is null then raise exception 'A device id is required' using errcode = '22023'; end if;
@@ -318,17 +337,21 @@ begin
   if v_endpoint is not null then
     perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('notification_endpoint:' || v_endpoint, 0));
   end if;
+  select d.user_id, d.endpoint, d.push_token into v_prev from public.notification_devices d where d.id = p_device for update;
+  if v_prev.user_id is not null and v_prev.user_id <> v_me then
+    if (v_prev.endpoint is not null or v_prev.push_token is not null)
+       and not coalesce(v_prev.endpoint = v_endpoint, false) and not coalesce(v_prev.push_token = v_token, false) then
+      return;  -- no proof of this device: the other login keeps it
+    end if;
+    -- Taken over: the previous login's delivery history stays with its student, unattributed to this device.
+    update public.practice_reminder_deliveries r set device_id = null where r.device_id = p_device;
+  end if;
   -- The same install or browser subscription under another device id (any login) is this device now.
   if v_token is not null then
     delete from public.notification_devices d where d.push_token = v_token and d.id <> p_device;
   end if;
   if v_endpoint is not null then
     delete from public.notification_devices d where d.endpoint = v_endpoint and d.id <> p_device;
-  end if;
-  select d.user_id into v_previous from public.notification_devices d where d.id = p_device for update;
-  if v_previous is distinct from v_me and v_previous is not null then
-    -- Another login's device: its delivery history stays with that login's student, unattributed to this device.
-    update public.practice_reminder_deliveries r set device_id = null where r.device_id = p_device;
   end if;
   insert into public.notification_devices as d (id, user_id, permission, platform, channel, push_token, endpoint, p256dh,
       auth_secret, checked_at, gone_at)
@@ -341,19 +364,21 @@ begin
     endpoint = excluded.endpoint, p256dh = excluded.p256dh, auth_secret = excluded.auth_secret, checked_at = now(),
     gone_at = case when d.user_id = excluded.user_id and excluded.endpoint is not distinct from d.endpoint
                     and excluded.push_token is not distinct from d.push_token then d.gone_at end,
-    created_at = case when d.user_id = excluded.user_id then d.created_at else now() end;
+    created_at = case when d.user_id = excluded.user_id then d.created_at else now() end,
+    handle = case when d.user_id = excluded.user_id then d.handle else gen_random_uuid() end;
   -- At most 20 devices per login: the least recently seen go first.
   delete from public.notification_devices d where d.user_id = v_me and d.id in (
     select x.id from public.notification_devices x where x.user_id = v_me order by x.checked_at desc, x.id offset 20);
 end $$;
 
--- What a family may see about a student's devices: permission as last seen, never endpoints, tokens or keys.
+-- What a family may see about a student's devices: permission as last seen, never endpoints, tokens, keys or the
+-- device id (a viewer who knew the id could report it); device_handle identifies a device for display only.
 create function public.student_notification_devices(p_student uuid)
-returns table (device_id uuid, permission text, platform text, can_receive boolean, checked_at timestamptz)
+returns table (device_handle uuid, permission text, platform text, can_receive boolean, checked_at timestamptz)
 language plpgsql stable security definer set search_path = '' as $$
 begin
   if not public.can_view_student(p_student) then raise exception 'Not allowed to view this student' using errcode = '42501'; end if;
-  return query select d.id, d.permission, d.platform,
+  return query select d.handle, d.permission, d.platform,
       d.permission = 'granted' and (d.endpoint is not null or d.push_token is not null) and d.gone_at is null, d.checked_at
     from public.notification_devices d join public.students s on s.linked_user_id = d.user_id
     where s.id = p_student order by d.checked_at desc;
@@ -417,7 +442,8 @@ begin
            count(distinct date_trunc('minute', d.sent_at)) filter (where d.sent_at <@ v_week), max(d.sent_at)
       into v_sent_today, v_sent_week, v_last
       from public.practice_reminder_deliveries d where d.student_id = r.student_id
-        and (d.status = 'sent' or (d.status = 'claimed' and d.sent_at > p_now - public.practice_reminder_claim_timeout()));
+        and (d.status = 'sent' or (d.status = 'failed' and d.failure_reason = 'claim_expired_resent')
+             or (d.status = 'claimed' and d.claimed_at > now() - public.practice_reminder_claim_timeout()));
     return next jsonb_build_object(
       'student_id', r.student_id, 'time_zone', v_tz,
       'settings', jsonb_build_object('enabled', r.enabled, 'times', to_jsonb(r.times), 'days', to_jsonb(r.days),
@@ -441,7 +467,7 @@ begin
   -- This student's lost claims fail first, so a reminder whose claim was lost may be claimed again.
   update public.practice_reminder_deliveries d set status = 'failed', failure_reason = 'claim_expired'
   where d.student_id = p_student and d.status = 'claimed'
-    and d.sent_at <= coalesce(p_at, now()) - public.practice_reminder_claim_timeout();
+    and d.claimed_at <= pg_catalog.clock_timestamp() - public.practice_reminder_claim_timeout();
   insert into public.practice_reminder_deliveries(id, student_id, slot, reminder_key, status, sent_at)
   select p_id, p_student, p_slot, p_key, 'claimed', coalesce(p_at, now())
   from public.practice_reminder_settings s
@@ -467,7 +493,19 @@ begin
     where r.id = p_id and d.id = p_device;
   update public.practice_reminder_deliveries set device_id = v_device, channel = p_channel, status = p_status
   where id = p_id and status = 'claimed' returning * into v;
-  if v.id is null then return; end if;
+  if v.id is null then
+    -- A claim that expired before its sender finished: a send that did happen is still recorded as sent (it counts
+    -- toward the limits), with failure_reason kept as history. If the reminder was claimed again meanwhile, the
+    -- unique index allows only one live row: this one stays 'failed', marked 'claim_expired_resent', and still counts.
+    if p_status <> 'sent' then return; end if;
+    update public.practice_reminder_deliveries r set device_id = v_device, channel = p_channel,
+      status = case when exists (select 1 from public.practice_reminder_deliveries o where o.student_id = r.student_id
+                     and o.reminder_key = r.reminder_key and o.id <> r.id and o.status in ('claimed', 'sent')) then 'failed' else 'sent' end,
+      failure_reason = case when exists (select 1 from public.practice_reminder_deliveries o where o.student_id = r.student_id
+                     and o.reminder_key = r.reminder_key and o.id <> r.id and o.status in ('claimed', 'sent')) then 'claim_expired_resent' else r.failure_reason end
+    where r.id = p_id and r.status = 'failed' and r.failure_reason = 'claim_expired' returning * into v;
+    if v.id is null or v.status <> 'sent' then return; end if;
+  end if;
   if p_status = 'sent' and v.slot = 'snooze' then
     update public.practice_reminder_settings set snoozed_until = null where student_id = v.student_id;
   end if;
@@ -479,7 +517,7 @@ language plpgsql volatile security definer set search_path = '' as $$
 declare n integer;
 begin
   update public.practice_reminder_deliveries d set status = 'failed', failure_reason = 'claim_expired'
-  where d.status = 'claimed' and d.sent_at <= coalesce(p_now, now()) - public.practice_reminder_claim_timeout();
+  where d.status = 'claimed' and d.claimed_at <= coalesce(p_now, pg_catalog.clock_timestamp()) - public.practice_reminder_claim_timeout();
   get diagnostics n = row_count;
   return n;
 end $$;

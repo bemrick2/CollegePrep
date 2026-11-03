@@ -226,15 +226,34 @@ begin
     jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/denied', 'keys', keys), 'ios');
   perform hp_test.as_owner();
   perform hp_test.ok((select endpoint is null and p256dh is null from public.notification_devices where id = '5f000000-0000-4000-a000-000000000002'), 'denied: no keys kept');
-  -- A shared browser: the same device id reported by another login moves to that login, with that login's keys only.
+  -- Knowing a device id is not enough to take it over: another login's report with no endpoint ('denied'), or with a
+  -- different one, leaves the student's row as it was.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform public.report_notification_device(d1, 'denied', null, 'desktop');
+  perform public.report_notification_device(d1, 'unsupported');
   perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/mine',
+    'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');
+  perform public.report_notification_device(d1, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-guess-0001');
+  perform hp_test.as_owner();
+  perform hp_test.is((select user_id::text || ' ' || permission || ' ' || endpoint || ' ' || p256dh from public.notification_devices where id = d1),
+    '20000000-0000-0000-0000-000000000051 granted https://fcm.googleapis.com/fcm/send/abc BPUBLICKEYSECRET', 'without the device''s endpoint, no takeover');
+  -- A shared browser: another login presenting the device's own endpoint takes it over, with its own keys only.
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/abc',
     'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');
   perform hp_test.as_owner();
   perform hp_test.is((select user_id::text || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret || ' ' || platform from public.notification_devices where id = d1),
-    '20000000-0000-0000-0000-0000000000a1 https://fcm.googleapis.com/fcm/send/mine PARENTKEY PARENTAUTH desktop', 'the device id moved to the parent, with the parent''s keys');
+    '20000000-0000-0000-0000-0000000000a1 https://fcm.googleapis.com/fcm/send/abc PARENTKEY PARENTAUTH desktop', 'the device moved to the parent, with the parent''s keys');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform hp_test.is((select count(*) from public.student_notification_devices(st) x where x.device_id = d1), 0::bigint, 'it is no longer the student''s device');
+  perform hp_test.is((select count(*) from public.student_notification_devices(st) x where x.platform = 'android'), 0::bigint, 'it is no longer the student''s device');
+  -- A device row with no endpoint or token moves to whoever reports it (nothing to prove).
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+  perform public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'default', null, 'ios');
+  perform hp_test.as_owner();
+  perform hp_test.is((select user_id from public.notification_devices where id = '5f000000-0000-4000-a000-000000000002'),
+    '20000000-0000-0000-0000-000000000099'::uuid, 'a device without push credentials moves freely');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'denied', null, 'ios');
   -- The student signs in on it again: it moves back.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/abc', 'keys', keys), 'android');
@@ -243,14 +262,37 @@ begin
     '20000000-0000-0000-0000-000000000051 https://fcm.googleapis.com/fcm/send/abc', 'and back to the student');
   perform hp_test.as_anon();
   perform hp_test.err(format($q$select public.report_notification_device(%L, 'granted')$q$, gen_random_uuid()), '42501');
-  -- What the family sees.
+  -- What the family sees: a handle, never the device id (a viewer who knew the id could report it).
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   select count(*), string_agg(x::text, ' ') into n, v from public.student_notification_devices(st) x;
   perform hp_test.is(n, 5::bigint, 'the parent sees the student''s five devices');
+  perform hp_test.ok(v not like '%' || d1::text || '%' and v not like '%5f000000-%', 'no device id in what the family sees');
+  perform set_config('t.handles', (select string_agg(x.device_handle::text, ',') from public.student_notification_devices(st) x), true);
+  perform hp_test.as_owner();
+  perform hp_test.is((select count(*) from public.notification_devices d where d.handle::text = any (string_to_array(current_setting('t.handles'), ','))
+    and d.user_id = '20000000-0000-0000-0000-000000000051'), 5::bigint, 'each handle names one of the student''s devices');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.is((select array_agg(x.device_handle order by x.device_handle) from public.student_notification_devices(st) x),
+    (select array_agg(x.device_handle order by x.device_handle) from public.student_notification_devices(st) x), 'handles are stable between calls');
+  perform hp_test.err('select handle from public.notification_devices', '42501');
   perform hp_test.ok(v not like '%googleapis%' and v not like '%SECRET%' and v not like '%mozilla%', 'no endpoint or key in what the family sees');
   perform hp_test.is((select count(*) from public.student_notification_devices(st) x where x.can_receive), 4::bigint, 'four can receive');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');
   perform hp_test.is((select count(*) from public.student_notification_devices(st)), 5::bigint, 'the viewer sees them too');
+  -- A view-only guardian (who may not change reminders) can't silence the student through a device: reporting a handle
+  -- 'denied' touches none of the student's devices, nor does reporting a device id without its endpoint.
+  for v in select x.device_handle::text from public.student_notification_devices(st) x loop
+    perform public.report_notification_device(v::uuid, 'denied', null, 'desktop');
+  end loop;
+  perform public.report_notification_device(d1, 'denied', null, 'desktop');
+  perform hp_test.is((select count(*) from public.student_notification_devices(st) x where x.can_receive), 4::bigint,
+    'a view-only guardian who knows the handles can''t silence the student');
+  perform hp_test.as_service();
+  perform hp_test.ok((select jsonb_array_length(p->'devices') = 4 from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text) is not false,
+    'the sender still has the student''s four devices');
+  perform hp_test.as_owner();
+  perform hp_test.is((select count(*) from public.notification_devices where user_id = '20000000-0000-0000-0000-000000000051' and permission = 'granted' and endpoint is not null),
+    4::bigint, 'the student''s devices are unchanged');
   foreach v in array array['20000000-0000-0000-0000-0000000000c2', '20000000-0000-0000-0000-0000000000c1', '20000000-0000-0000-0000-0000000000d1',
       '20000000-0000-0000-0000-000000000099'] loop
     perform hp_test.as_user(v::uuid);
@@ -275,14 +317,20 @@ begin
     '20000000-0000-0000-0000-0000000000d1', 'a web endpoint moves to the latest login');
   perform hp_test.is((select user_id from public.notification_devices where push_token = 'fcm-registration-token-000000001'),
     '20000000-0000-0000-0000-000000000099'::uuid, 'and belongs to the latest login');
-  -- The same native install (device id) signed in by another login: the row moves, token and all.
+  -- The same native install (device id) signed in by another login: with a different token, no takeover; with the
+  -- install's own token, the row moves.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   perform public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000002');
   perform hp_test.as_owner();
   perform hp_test.is((select user_id::text || ' ' || push_token from public.notification_devices where id = d6),
-    '20000000-0000-0000-0000-000000000052 fcm-registration-token-000000002', 'a native device id moves to the latest login, with its token');
-  perform hp_test.is((select count(*) from public.notification_devices where push_token = 'fcm-registration-token-000000001'), 0::bigint,
-    'the previous login''s token is gone with it');
+    '20000000-0000-0000-0000-000000000099 fcm-registration-token-000000001', 'a native device id needs its own token to move');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
+  perform public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001');
+  perform hp_test.as_owner();
+  perform hp_test.is((select user_id::text || ' ' || push_token from public.notification_devices where id = d6),
+    '20000000-0000-0000-0000-000000000052 fcm-registration-token-000000001', 'with it, the native device moves to the latest login');
+  perform hp_test.is((select count(*) from public.notification_devices where push_token = 'fcm-registration-token-000000001'), 1::bigint,
+    'one row holds the token');
   -- At most 20 devices per login: the least recently seen go.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
   for n in 1..22 loop
@@ -398,43 +446,75 @@ begin
   -- A shared browser moving to another login takes the student's reminders off it: no longer a candidate device, and
   -- the delivery history stays the student's without pointing at the device.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform public.report_notification_device(d1, 'granted', '{"endpoint":"https://fcm.googleapis.com/fcm/send/parent","keys":{"p256dh":"pk","auth":"pa"}}');
+  perform public.report_notification_device(d1, 'granted', '{"endpoint":"https://fcm.googleapis.com/fcm/send/new","keys":{"p256dh":"pk","auth":"pa"}}');
   perform hp_test.as_service();
   select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
   perform hp_test.ok(not exists (select 1 from jsonb_array_elements(c->'devices') x where x->>'id' = d1::text), 'the moved device gets none of the student''s reminders');
-  perform hp_test.ok(c::text not like '%send/parent%' and c::text not like '%send/abc%', 'neither login''s endpoint for that device is in the student''s candidates');
+  perform hp_test.ok(c::text not like '%send/new%', 'that browser''s endpoint is not in the student''s candidates');
   perform hp_test.is((select count(*) from public.practice_reminder_deliveries where device_id = d1), 0::bigint, 'the student''s deliveries no longer point at it');
   perform hp_test.as_owner();
 end $$;
 
--- 5b. Lost claims: a recent unfinished claim counts toward the limits and the gap; an old one expires as failed.
+-- 5b. Lost claims: claimed_at is the claim's own clock time. A recent unfinished claim counts toward the limits and the
+--     gap; an old one expires as failed; a sender that finishes an expired claim as sent still records the send.
 do $$
-declare st uuid := current_setting('t.st')::uuid; base integer; c jsonb; n integer; old_id uuid := gen_random_uuid(); young uuid := gen_random_uuid();
+declare st uuid := current_setting('t.st')::uuid; base integer; c jsonb; n integer; old_id uuid := gen_random_uuid();
+  young uuid := gen_random_uuid(); late uuid := gen_random_uuid(); again uuid := gen_random_uuid(); t0 timestamptz;
 begin
   perform hp_test.as_service();
   select (p->'context'->>'sentThisWeek')::integer into base from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
-  perform hp_test.is(public.claim_practice_reminder(old_id, st, 'lost:old', '16:30', now() - interval '20 minutes'), true, 'an old claim (left unfinished)');
-  select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
-  perform hp_test.is((c->'context'->>'sentThisWeek')::integer, base, 'a claim older than the timeout does not count');
-  perform hp_test.is(public.claim_practice_reminder(young, st, 'lost:young', '16:45', now() + interval '1 minute'), true, 'a recent claim (in flight)');
+  -- The claim time is the clock at the claim, whatever the run's start time (p_at) says.
+  t0 := clock_timestamp();
+  perform hp_test.is(public.claim_practice_reminder(young, st, 'lost:young', '16:45', now() - interval '1 hour'), true, 'a claim in flight');
+  perform hp_test.ok((select claimed_at >= t0 and claimed_at <= clock_timestamp() from public.practice_reminder_deliveries where id = young),
+    'claimed_at is the clock at the claim, not the run''s start');
   select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
   perform hp_test.is((c->'context'->>'sentThisWeek')::integer, base + 1, 'a claim younger than the timeout counts toward the weekly limit');
-  perform hp_test.is((c->'context'->>'lastSentAt')::timestamptz, now() + interval '1 minute', 'and toward the minimum gap');
+  perform hp_test.is((c->'context'->>'lastSentAt')::timestamptz, (select max(sent_at) from public.practice_reminder_deliveries
+    where student_id = st and (status = 'sent' or id = young)), 'and toward the minimum gap');
+  -- An old claim: made 20 minutes ago by the clock.
+  perform hp_test.is(public.claim_practice_reminder(old_id, st, 'lost:old', '16:30', now()), true, 'another claim, left unfinished');
+  perform hp_test.as_owner();
+  update public.practice_reminder_deliveries set claimed_at = clock_timestamp() - interval '20 minutes' where id = old_id;
+  perform hp_test.as_service();
+  select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
+  perform hp_test.is((c->'context'->>'sentThisWeek')::integer, base + 1, 'a claim older than the timeout does not count');
+  -- Claiming expires the student's lost claims; the lost reminder may be claimed again; a claim in flight may not.
+  perform hp_test.is(public.claim_practice_reminder(again, st, 'lost:old', '16:30'), true, 'an expired claim frees its reminder');
   perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired' from public.practice_reminder_deliveries where id = old_id),
-    'claiming expired the student''s lost claim');
-  -- The lost reminder may be claimed again; a claim in flight may not.
-  perform hp_test.is(public.claim_practice_reminder(gen_random_uuid(), st, 'lost:old', '16:30'), true, 'an expired claim frees its reminder');
+    'the lost claim expired as failed');
   perform hp_test.is(public.claim_practice_reminder(gen_random_uuid(), st, 'lost:young', '16:45'), false, 'a claim in flight still holds its reminder');
-  -- The sweep expires every lost claim; finishing one after expiry changes nothing.
-  n := public.expire_practice_reminder_claims(now() + interval '20 minutes');
-  perform hp_test.ok(n >= 2, 'the sweep expires lost claims (' || n || ')');
-  perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired' from public.practice_reminder_deliveries where id = young), 'swept');
-  perform hp_test.is(public.expire_practice_reminder_claims(now() + interval '20 minutes'), 0, 'a second sweep finds none');
-  perform public.finish_practice_reminder(young, null, null, 'sent');
-  perform hp_test.is((select status from public.practice_reminder_deliveries where id = young), 'failed', 'an expired claim is not finished later');
+  -- The expired claim's sender did send, and finishes now: recorded, but the reminder was claimed again meanwhile, so
+  -- it stays failed as 'claim_expired_resent', and still counts as sent.
+  select (p->'context'->>'sentThisWeek')::integer into base from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
+  perform public.finish_practice_reminder(old_id, null, 'webpush', 'sent');
+  perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired_resent' from public.practice_reminder_deliveries where id = old_id),
+    'a late send after a re-claim is kept as history');
+  perform public.finish_practice_reminder(again, null, 'webpush', 'failed');
+  select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
+  perform hp_test.is((c->'context'->>'sentThisWeek')::integer, base, 'it still counts as sent (the re-claim it replaces does not)');
+  -- The sweep expires every lost claim. A sender finishing an expired claim as sent records it as sent, keeping the
+  -- reason as history; finishing one as failed changes nothing.
+  perform hp_test.as_owner();
+  update public.practice_reminder_deliveries set claimed_at = clock_timestamp() - interval '20 minutes' where id = young;
+  perform hp_test.as_service();
+  perform hp_test.is(public.claim_practice_reminder(late, st, 'lost:late', '17:15'), true, 'a third claim');
+  n := public.expire_practice_reminder_claims(clock_timestamp() + interval '20 minutes');
+  perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired' from public.practice_reminder_deliveries where id = young),
+    'the third claim expired the old one');
+  perform hp_test.is(n, 1, 'the sweep expires the remaining unfinished claim');
+  perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired' from public.practice_reminder_deliveries where id = late), 'swept');
+  perform hp_test.is(public.expire_practice_reminder_claims(clock_timestamp() + interval '20 minutes'), 0, 'a second sweep finds none');
+  perform public.finish_practice_reminder(young, null, 'fcm', 'sent');
+  perform hp_test.ok((select status = 'sent' and failure_reason = 'claim_expired' and channel = 'fcm' from public.practice_reminder_deliveries where id = young),
+    'an expired claim that did send is recorded as sent, with its history');
+  perform hp_test.is(public.claim_practice_reminder(gen_random_uuid(), st, 'lost:young', '16:45'), false, 'and its reminder is not claimed again');
+  perform public.finish_practice_reminder(late, null, null, 'failed');
+  perform hp_test.ok((select status = 'failed' and failure_reason = 'claim_expired' from public.practice_reminder_deliveries where id = late),
+    'an expired claim finished as failed stays failed');
   perform hp_test.as_owner();
   perform hp_test.err($q$insert into public.practice_reminder_deliveries(student_id, slot, reminder_key, status, failure_reason)
-    values (current_setting('t.st')::uuid, 's', 'k', 'sent', 'claim_expired')$q$, '23514');
+    values (current_setting('t.st')::uuid, 's', 'k', 'claimed', 'claim_expired')$q$, '23514');
 end $$;
 
 -- 5c. Partial settings: a key left out keeps its stored value.
