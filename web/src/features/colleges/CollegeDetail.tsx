@@ -256,11 +256,20 @@ function AwardList({ awards }: { awards: Record<string, unknown>[] }) {
   )
 }
 
+/** The one figure a per-semester record prints, named for what it is; null when it prints none. */
+function semesterFigure(x: CostRecord): { label: string; amount: number } | null {
+  if (x.total_cost_of_attendance != null) return { label: 'Cost of attendance', amount: x.total_cost_of_attendance }
+  if (x.total_direct_cost != null) return { label: 'Total billed', amount: x.total_direct_cost }
+  if (x.tuition_and_mandatory_fees != null) return { label: 'Tuition and fees', amount: x.tuition_and_mandatory_fees }
+  if (x.tuition != null) return { label: 'Tuition', amount: x.tuition }
+  return null
+}
+
 function CostBreakdown({ costs: all, schoolState, level, year, onYear }: { costs: CostRecord[]; schoolState: string | null; level: string | null; year: string; onYear: (y: string) => void }) {
   const { homeState } = useHomeState()
   // Only yearly figures are shown per year or multiplied by years; a per-semester price is listed as printed (#296).
   const costs = all.filter(isAnnualCost)
-  const perSemester = all.filter((x) => !isAnnualCost(x))
+  const perSemester = all.filter((x) => !isAnnualCost(x)).map((x) => ({ x, fig: semesterFigure(x) })).filter((r) => r.fig)
   const picked = pickCost(costs, schoolState, homeState)
   const [residency, setResidency] = useState(picked.cost?.residency ?? costs[0]?.residency ?? '')
   useEffect(() => {
@@ -277,11 +286,11 @@ function CostBreakdown({ costs: all, schoolState, level, year, onYear }: { costs
     >
       {perSemester.length > 0 && (
         <div className="mb-4 grid gap-1 text-sm">
-          {perSemester.map((x) => (
-            <p key={`sem-${x.residency}`}>
-              <span className="font-semibold text-ink">{usd(x.total_cost_of_attendance ?? x.tuition_and_mandatory_fees ?? x.tuition) ?? '—'}</span>{' '}
+          {perSemester.map(({ x, fig }, i) => (
+            <p key={`sem-${i}`}>
+              <span className="font-semibold text-ink">{usd(fig!.amount)}</span>{' '}
               <span className="text-ink-3">
-                per semester, {RESIDENCY_LABEL[x.residency] ?? x.residency}, as published. Not shown as a yearly price.
+                {fig!.label} per semester, {RESIDENCY_LABEL[x.residency] ?? x.residency}, as published. Not shown as a yearly price.
               </span>{' '}
               <SourceLink href={x.source_url} verified={x.last_verified_at} />
             </p>

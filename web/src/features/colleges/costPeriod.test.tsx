@@ -33,9 +33,25 @@ describe('per-semester prices', () => {
         </AppProvider>
       </MemoryRouter>,
     )
-    expect(await screen.findByText(/per semester, In-state, as published\. Not shown as a yearly price\./)).toBeInTheDocument()
+    expect(await screen.findByText(/Cost of attendance per semester, In-state, as published\. Not shown as a yearly price\./)).toBeInTheDocument()
     expect(screen.getByText('$21,000')).toBeInTheDocument()
     expect(screen.queryByText('Per year')).not.toBeInTheDocument()
     expect(screen.queryByText('$84,000')).not.toBeInTheDocument()
+  })
+
+  it('name the figure shown: tuition alone is labelled tuition, never cost of attendance', async () => {
+    const tuitionOnly = { ...SEM, total_cost_of_attendance: null, tuition: 19755, total_direct_cost: 23235 }
+    const c: InstitutionComparison = { ...base, domains: { ...base.domains, costs: [tuitionOnly] as never } }
+    const src = new DemoSource(emptyStore(), { snapshot: { ...snap, institutions: snap.institutions.map((x) => (x.institution_key === base.institution_key ? c : x)) } as never })
+    src.switchPersona(DEMO_STUDENT, 'Student (demo)')
+    render(
+      <MemoryRouter initialEntries={[`/colleges/${encodeURIComponent(base.institution_key)}`]}>
+        <AppProvider source={src}>
+          <App />
+        </AppProvider>
+      </MemoryRouter>,
+    )
+    expect(await screen.findByText(/Total billed per semester/)).toBeInTheDocument()
+    expect(screen.getByText('$23,235')).toBeInTheDocument()
   })
 })

@@ -30,7 +30,8 @@ export function projectRow(c: InstitutionComparison, year: string, a: CostAssump
   const exam = a.exam_credits ?? 0
   const verified = (d: string) => ((c.domains[d as keyof typeof c.domains] ?? []) as Rec[]).filter((r) => r.verification_status === 'verified' && (r.academic_year == null || r.academic_year === year))
 
-  // A per-semester price is never used as a yearly one (#296; the server's cost_projection skips it the same way).
+  // A per-semester price is never used as a yearly one (owner rule 2026-11-03). The server's cost_projection does the
+  // same only once #296 adds cost_period to institution_costs; until then the importer drops the field (#218).
   const costs = verified('costs').filter((r) => r.cost_period !== 'semester')
   const cost = costs.find((r) => r.residency === a.residency) ?? costs.find((r) => r.residency === 'not_applicable') ?? null
   const tuition = num(cost?.tuition)
