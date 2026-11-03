@@ -7,8 +7,9 @@ or on #218. It replaces status claims in older summaries. Detailed procedures st
 
 Tags: [Certain] checked in the repository or a tool on this date · [Likely] strong evidence, not directly checked ·
 [Guessing] judgement. **Open questions to Research and Deep Dive** are on #218 (2026-11-03, 22:31 and 22:40 UTC).
-Rows that depend on their answers say "pending reply". This document was fact-checked against the repository by an
-independent reviewer before merge.
+Rows that depend on their answers say "pending reply". An AI review agent checked this document against the
+repository (two rounds). That is not human approval. A few claims can't be checked from the repository and are tagged
+[Likely]: test-run totals, the staging upload time, and what this session's Supabase connection can see.
 
 ## Verdict
 
@@ -43,16 +44,17 @@ Four separate levels, never merged into one.
 | Level | What is true [Certain unless tagged] |
 |---|---|
 | **Implemented locally** | Household accounts and invitations, guardian roles, four-screen setup, practice and the weekly plan, reserved progress checks with server-assigned items, reminders and parent emails (against fakes), Stripe (against mocks), question intake and review tooling, the data-request procedure, college discovery and comparison, the planning pilot. `scripts/local/live_stack.sh test` (real SQL, RLS and RPCs; stub auth; fake push and mail) runs in CI when web or database paths change. |
-| **Merged into main** | All of the above, at `aeb45bbb73`. The web suite passed 508 (71 skipped) on the #302 head. There are 40 migrations in the repository. |
-| **Applied to hosted** | Only what was applied before the 2026-10-06 pause: **21 migrations, through `20261006120000`** (`SUPABASE_PAUSE.md`; the manifest lists 20 and must be reconciled). **19 are unapplied.** Five edge functions are deployed: billing-plans, billing-checkout, billing-portal, stripe-webhook and send-household-invitation. Staging Auth is configured for `college-optimizer-staging.netlify.app`. What hosted holds now is unknown: the 2026-10-02 reconciliation counted 17,865 source records, and the pause audit recorded 25,651 in the ledger. Canonical staging serves one upload from 2026-10-06 16:09 UTC with no commit recorded, pointing at the paused project. |
+| **Merged into main** | All of the above, at `aeb45bbb73`. [Likely] The web suite passed 508 (71 skipped) on the #302 head. There are 40 migrations in the repository. |
+| **Applied to hosted** | Only what was applied before the 2026-10-06 pause: **21 migrations, through `20261006120000`** (`SUPABASE_PAUSE.md`; the manifest lists 20 and must be reconciled). **19 are unapplied.** Five edge functions are deployed: billing-plans, billing-checkout, billing-portal, stripe-webhook and send-household-invitation. Staging Auth is configured for `college-optimizer-staging.netlify.app`. What hosted holds now is unknown: the 2026-10-02 reconciliation counted 17,865 source records, and the pause audit recorded 25,651 in the ledger. [Likely, from Netlify's deploy record] Canonical staging serves one upload from 2026-10-06 16:09 UTC with no commit recorded, pointing at the paused project. |
 | **Tested successfully on hosted** | **Before the pause, recorded:** (1) reference-data reconciliation on 2026-10-02 (`docs/coverage/live-supabase.json`); (2) on 2026-10-06 on staging, a sign-up → confirmation email → return, and a sandbox checkout, portal and cancel at period end, with production isolation checked (`STRIPE_BILLING.md`, "Staging Auth confirmation and sandbox billing"). Both predate 19 migrations and are not the H3 acceptance tests. **Since the pause: nothing.** No practice, check, invitation acceptance, guardian-role, reminder or parent-email journey has a hosted pass. `docs/acceptance/` doesn't exist. |
 
 **Hosted project state:** `.operations/supabase-live-hold.json` says `hold: true`. The owner paused the project on
 2026-10-06. This session's Supabase connection can't see the CollegePrep project, which is in a different
 organization, so its current state isn't confirmed from here.
 
-**One live item to reconcile on resume:** a sandbox subscription was left active until 2026-11-06, and webhook retries
-may be pending (`SUPABASE_PAUSE.md`).
+**One live item to reconcile on resume:** a sandbox subscription was set to cancel at period end on 2026-11-06
+(`STRIPE_BILLING.md`). If the project is still paused then, Stripe's subscription-ended events to `stripe-webhook`
+will fail and may need a manual replay (`SUPABASE_PAUSE.md`: provider retries need reconciliation on resume).
 
 ## 2. Release status by area
 
@@ -71,7 +73,7 @@ release, §3).
 | Privacy, export, deletion | **Blocked** | Data-request procedure and runbook merged (#294) | Unapplied | Privacy and terms approved (Owner + counsel, A3); runbook §0 (A4); in-app links and age attestation (Design, A9, after A3) |
 | Mobile usability | **In progress** | 390 px demo runs (setup; the planning pilot earlier) | None | Design: a 390 px pass of the release flows on main (P11); Owner: real phones during H3 (L8) |
 | Migrations, deployment, end-to-end acceptance | **Blocked** | 40 migrations apply on the local stack in CI | 21 applied, 19 pending; hold on; staging stale | P1–P8. Before lifting the hold, remove the push trigger from `deploy-migrations.yml` (H1.3); otherwise a merge would apply migrations to production without the copy-first step |
-| Operations: backups, monitoring, production callbacks | **Not started** | — | The pause is not a tested backup (`SUPABASE_PAUSE.md`) | Owner: a backup and restore decision (PITR window, A4). Design/Research: error monitoring. Owner: production Auth callback URLs (`STRIPE_BILLING.md`) |
+| Operations: backups, monitoring, production callbacks | **Blocked** (nothing done yet) | — | The pause is not a tested backup (`SUPABASE_PAUSE.md`) | Owner: a backup and restore decision (PITR window, A4). Design/Research: error monitoring. Owner: production Auth callback URLs (`STRIPE_BILLING.md`) |
 
 ### Question bank: actual counts [Certain, from `PRACTICE_READINESS.md`, `BANK_INTAKE_2026-10-28.md`, `STRIPE_BILLING.md` on main]
 
@@ -87,6 +89,9 @@ gates). "Usable" means a hosted student could be served it today.
 | SAT Reading and Writing | 10 (6 + 4) | 0 | 0 | 0 / 0 | 695 | 695 |
 | SAT Math | 10 (6 + 4) | 0 | 0 | 0 / 0 | 1,000 | 1,000 |
 | **Total** | **58 (37 + 21)** | **0** | **0** | **0 / 0** | **3,831** | — |
+
+"On hosted" is inferred: the 2026-10-06 audit recorded 0 exam versions, and every question requires one
+(`practice_questions.exam_version_id`, `20261002183112`). It is a snapshot from that date, not today's state.
 
 **Reconciling the saved banks:**
 - **The delivered bank** has 5,843 drafts on branch `qb/final-reconciled-bank-v2-2026-10-28` (`6b253cf3`, not on
@@ -134,14 +139,15 @@ gates). "Usable" means a hosted student could be served it today.
 | # | Blocker | Owner | PR / issue | Depends on | Pass condition |
 |---|---|---|---|---|---|
 | P1 | Restore the hosted project and reconcile it | Owner → Research | `SUPABASE_PAUSE.md` | O1 | Project `ACTIVE_HEALTHY`. H0: the live history equals the manifest plus `20261006120000`, and every version to apply is absent live. Sandbox subscription and webhook retries reconciled. Push trigger removed from `deploy-migrations.yml` before `hold=false` |
-| P2 | Decide how the pool migration ships | Owner (O9) → Research | #218 | — | Under O9(a): a reviewed "no reserve yet" release of `20261022050000` + `20261023010000` passes `assessment_pool.sql` and `assessment_assignment.sql` on a copy, with checks showing "Not measured". Under O9(b): the reserve exists first (P5, P6a) |
-| P3a | Apply migrations up to `20261022040000` (copy first, then hosted) | Research | H1 | P1 | The suites pass on the copy; the production history lists each version once; import reconciliation shows no differences |
+| P2 | Decide how the pool migration ships | Owner (O9) → Research | #218 | — | Under O9(a), Research changes the release tooling, which today refuses the pool without a non-empty reserve (`apply_migrations.py` `REQUIRES_RESERVE`, `make_reserve_migration.py`), and `DEPLOYING.md`, as a reviewed PR. The pass condition is a "no reserve yet" release of `20261022050000` + `20261023010000` that passes `assessment_pool.sql` and `assessment_assignment.sql` on a copy, with checks showing "Not measured". Under O9(b), the reserve comes first (P5, P6a), with no tooling change |
+| P3a | Apply migrations up to `20261022040000` (copy first, then hosted) | Research | H1 | P1 | On the copy, every `supabase/tests/*.sql` suite whose migrations are applied passes; the pool and assignment suites wait for P3b. The production history lists each applied version once; import reconciliation shows no differences |
 | P5 | A reviewed SAT pilot set | Owner (reviewer) → Design (packets, ledger) | A2, #254 | O2 | About 56 SAT items approved per item with `human:` in the ledger: one week of practice (≈ 48) plus 8 reserve, which gives a shortened 8-of-18 starting check [Guessing on what is enough for a pilot] |
 | P6a | Get approved items onto hosted | Research (path) + Design (contract) | pending reply | P3a, P5 | Approved items are published on hosted; a per-section count matches the ledger |
 | P3b | Apply the pool, assignment and `20261102*` migrations | Research | H1/H2 | P2, P3a (+ P6a under O9(b)) | The full suites pass on the copy; production history has all 40 once; the H2 reserve query shows the planned reserve, or none under O9(a) |
+| P6b | Apply the pilot reserve | Research, from Design's ledger | H2 | P5, P6a, P3b | Under O9(a): a reserve-only run of the 8 approved SAT items, after H2.1 confirms no candidate has been attempted. Under O9(b) this is part of P3b. The H2 reserve query shows the 8 items |
 | P4 | Email sending (A7) | Owner | A7 | P1 | Resend domain `mail.getcimiento.com` verified, `RESEND_API_KEY` set; H3.1 passes |
 | P7 | Deploy staging from main | Research or Design; Owner approves | `DEPLOYING.md` | P3b | `verify_deploy.sh` reports the merge commit on canonical staging |
-| P8 | Owner acceptance run | Owner runs, Design writes up | H3.1–3.3, 3.5, 3.6, 3.7; `docs/acceptance/<date>.md` | P4, P6a, P7 | Every listed H3 "Pass" line holds exactly, with evidence. (H3.4 exam plan is out of scope.) |
+| P8 | Owner acceptance run | Owner runs, Design writes up | H3.1–3.3, 3.5, 3.6, 3.7; `docs/acceptance/<date>.md` | P4, P6b, P7 | Every listed H3 "Pass" line holds exactly, with evidence. (H3.4 exam plan is out of scope.) |
 | P9 | Planning pilot, if included | Research (#191), Deep Dive, Owner (O5) | `PILOT_ACCEPTANCE.md` §8 | P3b | Checklist items 4–7 done; flag on for staging only |
 | P10 | Per-semester costs never shown as annual | Design | #305 | — | Merged with tests on every listed path |
 | P11 | Mobile pass at 390 px of the release flows | Design | — | — | Screenshots of setup, practice, check, parent summary and college pages on main at 390 px; no horizontal scroll or clipped controls; recorded in `docs/acceptance/` |
@@ -191,7 +197,7 @@ gates). "Usable" means a hosted student could be served it today.
 | O6 | Email | Verify `mail.getcimiento.com` in Resend and set `RESEND_API_KEY`, right after O1 |
 | O7 | Run the acceptance accounts (H3) | Two browsers, `qa-` accounts |
 | O8 | Abandoned starting check: no check for 28 days, then a mini (#279) | Accept for release |
-| O9 | How the assessment pool ships: (a) apply it with an explicitly empty reserve, so checks show "Not measured" until reviewed items exist; or (b) keep the rule that the pool ships only with a reserve, which keeps account setup, reports, home state and data requests off hosted until review produces one | **(a)**. The client already handles "no reserve". It unblocks every later migration, including the data-request procedure. Keep reserve candidates unpublished until the reserve is made, so practice can't expose them. This reverses the CR-23 release rule in `DEPLOYING.md`, so it needs your approval |
+| O9 | How the assessment pool ships. (a) Apply it with an explicitly empty reserve: checks show "Not measured" until reviewed items exist. This needs a reviewed change to the release tooling (P2). (b) Keep the rule that the pool ships only with a reserve, which keeps account setup, reports, home state and data requests off hosted until review produces one | **(a).** The client already handles "no reserve": every question defaults to the practice pool, and the server refuses a check with "Not measured". It unblocks every later migration, including the data-request procedure. Safeguards: the reserve script refuses any item already attempted, planned into a session or assigned to a check, and H2.1 confirms this before reserving. Choose reserve candidates before practice opens, and keep stale staging builds off the hosted project. This reverses the CR-23 release rule in `DEPLOYING.md`, so it needs your approval |
 
 **Optional:**
 - Stripe live setup and a live-charge go-ahead (paid launch only).
@@ -216,6 +222,7 @@ gates). "Usable" means a hosted student could be served it today.
    - P2 (rehearsed on a copy);
    - P6a;
    - P3b;
+   - P6b reserve;
    - P7 staging;
    - P8 owner acceptance.
 
@@ -229,7 +236,7 @@ gates). "Usable" means a hosted student could be served it today.
 
 **Effort** (only where there is evidence):
 - **Design's remaining work is small and defined:** P10 is in review, then P11, A9 and the acceptance write-ups.
-- **Research's work** is P2/P3 on a copy plus an import path. The tooling for H1 and H2 exists and is tested locally,
+- **Research's work** is P2 (a tooling change under O9(a)), P3a/P3b and P6b on a copy, plus an import path. The tooling for H1 and H2 exists and is tested locally,
   but the import path doesn't exist yet. Pending reply for an estimate.
 - **The long poles can't be estimated from the repository:**
   - when hosted is restored;
