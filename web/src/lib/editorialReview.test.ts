@@ -69,6 +69,15 @@ describe('review packets for an imported batch', () => {
     expect(review).toContain(`Expected time.</b> ${line.expected_time_seconds} seconds`)
   })
 
+  it('(#293 review) the review copy escapes every field, even ones a validator should already have refused', () => {
+    const line = testOnlyBatch(1)[0]!
+    const hostile = { ...line, strategies: [{ strategy_key: 'k<b>', role: '<img src=x onerror=alert(1)>', is_fastest: false, explanation: '<script>x</script>' }], remember: '<i>r</i>' } as unknown as typeof line
+    const reg = intake(emptyRegistry(), [hostile], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const review = Object.entries(packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).not.toMatch(/<img|<script|<i>r|k<b>/)
+    expect(review).toContain('&lt;img src=x onerror=alert(1)&gt;')
+  })
+
   it('an item without lists gets the same content hash as one with empty lists, so filling them in later voids nothing', () => {
     const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
     const { distractors: _d, choices: _c, strategies: _s, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown; strategies?: unknown }

@@ -41,7 +41,10 @@ editorial stage 3 (`QUESTION_REVIEW_WORKFLOW.md`).
   - the packet builder crashed on the 398 numeric (student-produced response) items, which the contract allows to
     come without `distractors`;
   - missing `choices`, `distractors` and `strategies` are filled in as empty lists once, at intake and when an
-    item is read, so a later step filling them in can't change the content hash and void sign-offs;
+    item is read, so writing them out later doesn't change the content hash (a resubmitted line is still a new
+    version, and a rights check is per version, so stage 3 is signed again);
+  - the validator now checks `strategies`, `remember` and trap labels (they reach students), and every field in
+    the packets is escaped;
   - the review copy now shows everything the sign-off hash covers that students see: the "Remember this" line,
     trap labels, strategies and expected time;
   - line breaks in stems and choices (inline tables, two-line systems such as `cld-sat-m-000069`) are kept in the

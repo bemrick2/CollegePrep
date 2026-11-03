@@ -85,7 +85,8 @@ export const stateOf = (item: ReviewItem, ledger: Ledger, reviewers: ReviewerReg
 
 // --- packets -------------------------------------------------------------------------------------------------------
 
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
+// Every value is text from an untrusted batch: always stringified and escaped.
+const esc = (s: unknown) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 const csv = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`
 const table = (rows: unknown[][]) => rows.map((r) => r.map(csv).join(',')).join('\n') + '\n'
 const page = (title: string, body: string) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
@@ -119,7 +120,7 @@ ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<l
 <p><b>Hints.</b> ${q.hints.map(esc).join(' / ')}</p>
 ${q.remember ? `<p><b>Remember this.</b> ${esc(q.remember)}</p>` : ''}<p><b>Expected time.</b> ${q.expected_time_seconds ?? '—'} seconds</p>
 <ul>${(q.distractors ?? []).map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}${d.trap ? ` <i>(trap shown to students: ${esc(d.trap)})</i>` : ''}</li>`).join('')}</ul>
-${(q.strategies ?? []).length ? `<p><b>Strategies shown to students.</b></p><ul>${(q.strategies ?? []).map((st) => `<li>${esc(st.strategy_key)} (${st.role}${st.is_fastest ? ', fastest' : ''}): ${esc(st.explanation)}</li>`).join('')}</ul>` : ''}</article>`)
+${(q.strategies ?? []).length ? `<p><b>Strategies shown to students.</b></p><ul>${(q.strategies ?? []).map((st) => `<li>${esc(st.strategy_key)} (${esc(st.role)}${st.is_fastest === true ? ', fastest' : ''}): ${esc(st.explanation)}</li>`).join('')}</ul>` : ''}</article>`)
       .join('\n')
     files[`review-${g}.html`] = page(`${label} review copy: ${g}. Contains the key: not for blind solvers.`, full)
   }
