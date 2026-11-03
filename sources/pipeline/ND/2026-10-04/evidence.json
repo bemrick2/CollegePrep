@@ -287,6 +287,53 @@
   },
   "year_basis": "labeled_in_source"
  },
+ "33bc42376e59ea4d": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "33bc42376e59ea4d",
+   "reason": "UND Automatic Academic Scholarships (freshmen admissions page): 'If you meet the criteria and submit your completed admission application, official transcripts(s), and - if required - your official test scores by the Feb. 1 priority deadline for the upcoming fall semester, you'll automatically be awarded one of the following academic scholarships.' Three tiers by unweighted cumulative high-school GPA: '3.90+ GPA or 30+ ACT (1370+ SAT) with 3.00+ GPA*' $14,000 ($3,500 / year for a maximum of 4 years); '3.70 - 3.89 GPA' $11,000 ($2,750 / year for a maximum of 4 years); '3.50 - 3.69 GPA' $1,500 non-renewable. No award_min/max is set, because the printed figures mix four-year totals with annual amounts. Accepted issue alternative_criteria_in_tier: the top tier prints a test-score alternative ('*You must submit official ACT or SAT test scores to qualify for this scholarship'), copied as printed. No year printed: partially_verified."
+  },
+  "evidence": [
+   {
+    "field": "award_tiers",
+    "snippet": "Unweighted, Cumulative High School GPA | Freshman Scholarship Award || 3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA* | $14,000 $3,500 / year for a maximum of 4 years || 3.70 - 3.89 GPA | $11,000 $2,750 / year for a maximum of 4 years || 3.50 - 3.69 GPA | $1,500 non-renewable",
+    "value": [
+     {
+      "amount_text": "$14,000 $3,500 / year for a maximum of 4 years",
+      "unweighted, cumulative high school gpa": "3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA*"
+     },
+     {
+      "amount_text": "$11,000 $2,750 / year for a maximum of 4 years",
+      "unweighted, cumulative high school gpa": "3.70 - 3.89 GPA"
+     },
+     {
+      "amount_text": "$1,500 non-renewable",
+      "unweighted, cumulative high school gpa": "3.50 - 3.69 GPA"
+     }
+    ]
+   },
+   {
+    "field": "gpa_requirement",
+    "snippet": "Unweighted, Cumulative High School GPA | Freshman Scholarship Award || 3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA* | $14,000 $3,500 / year for a maximum of 4 years || 3.70 - 3.89 GPA | $11,000 $2,750 / year for a maximum of 4 years || 3.50 - 3.69 GPA | $1,500 non-renewable",
+    "value": "Tiered by Unweighted, Cumulative High School GPA: 3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA* → $14,000 $3,500 / year for a maximum of 4 years; 3.70 - 3.89 GPA → $11,000 $2,750 / year for a maximum of 4 years; 3.50 - 3.69 GPA → $1,500 non-renewable"
+   }
+  ],
+  "extractor": "merit_table/v1",
+  "issues": [
+   "alternative_criteria_in_tier"
+  ],
+  "source": {
+   "fetched_at": "2026-10-04T06:27:46+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "3320d8d240d6a89c5b2f.json.gz",
+   "requested_url": "https://und.edu/admissions/freshmen/scholarships.html",
+   "sha256": "3320d8d240d6a89c5b2f0d319f916a328863ce51ca5e43233e6f76c251b3b03b",
+   "title": "Freshmen Scholarships | University of North Dakota",
+   "url": "https://und.edu/admissions/freshmen/scholarships.html"
+  },
+  "year_basis": "source_unlabeled"
+ },
  "38451dc654a7ea83": {
   "decision": {
    "candidate_id": "38451dc654a7ea83",
