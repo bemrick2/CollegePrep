@@ -1,7 +1,8 @@
 # College-planning pilot: acceptance package (Tennessee business, Slice 1)
 
-Prepared by Design, 2026-11-03, on main `22040b8f26` plus the branch `design/plan-notes-or-rows`. It is one place
-to accept or reject the pilot. Sections owned by Research and Deep Dive state today's facts and who must act.
+One place to accept or reject the pilot (`COLLEGE_PLANNING_PILOT.md` §4, `PLANNING_ENGINE.md` flag gate). Started by
+Deep Dive on 2026-11-03 from main `22040b8f26` (#300); merged with Design's package from `design/plan-notes-or-rows`
+(#302). Each owner keeps its own section current; the owner accepts the whole.
 
 **What acceptance would approve:** showing the pilot page (`/colleges/plan`, behind `VITE_PLANNING_PILOT`) to pilot
 families. **What it doesn't:** any hosted import, migration or deploy (held), turning on deployed flags (off), or
@@ -14,6 +15,25 @@ release of the wider app. Deep Dive's completion is not release approval.
 | UTC | 13 business programs | **12 verified eight-term plans** (Accounting; Business Analytics; Economics B.A.; Economics, Financial Economics; Economics, International Public Policy; Entrepreneurship; Finance, Business Finance; Finance, Investments; Management; Management, Healthcare Management; Marketing; Marketing, Professional Sales). No plan for HR. | AP, CLEP, IB, dual enrollment: all **partially verified** | 2026-27 cost of attendance, verified, by living arrangement |
 | UTK | 9 B.S.B.A. majors (listing not verified) | none on file | AP, CLEP, IB, Cambridge, Statewide Dual Credit, industry: partially verified (academic year unconfirmed); dual enrollment verified | verified |
 | MTSU | business majors | none on file | AP, CLEP, dual enrollment: partially verified | none on file |
+
+### Degree plans (Deep Dive): ready
+
+The pilot fixture (`web/src/features/planning/pilotFixture.json`, rebuilt from `data/institutions`) holds the 12 UTC
+plans, all `verified` as of #297 (main `6b81928934`). Each stores what its Clear Path PDF prints, verbatim: the term
+rows; the notice above the plan; the footnotes, with their marks; and the "Completed:" checklist (`degree_summary`).
+An independent reviewer checked all of it (#297). Two plans have truncated rows to fix (section 5).
+
+**Printed conditions on the pilot plans** (each now shown under the row that prints its mark, section 3):
+
+| Plans | Mark | Printed text (verbatim) | Rows it qualifies |
+|---|---|---|---|
+| Management; Accounting; Business Analytics; Entrepreneurship; Finance: Business Finance; Finance: Investments; Management: Healthcare Management; Marketing; Marketing: Professional Sales; Economics: Financial Economics | `*` | "If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required." | Term 1: "Elective (ENGL 1010 or 1011)*" |
+| Economics, B.A. | `*` | "Foreign language sequence may satisfy up to 4 General Education courses, depending on language. Consult catalog for more detail." | Terms 1–4: "Foreign Language 1–4 (…)*" |
+| Economics: International Public Policy, B.A. | `*` | "Foreign language sequence may satisfy up to 4 general education courses, depending on language. Consult catalog for more detail." | Term 1: "Foreign Language 1 (Humanities and Fine Arts)*", "Humanities and Fine Arts or Elective*" |
+| Economics: International Public Policy, B.A. | `**` | "Consult with advisor about General Education Requirements" | Term 7: the "History of Economic Thought, PSPS 3052 …, or PSPS 3053 …**" row |
+| Economics: International Public Policy, B.A. | `***` | "If 2000-level Program Electives are taken, additional 3000-4000 level General Electives must be completed" | Term 6: "Approved Program Elective (3000-4000 level)***" |
+
+The checklist and the notice are display only; nothing is computed from them.
 
 ## 2. Supported credit mappings
 
@@ -124,6 +144,10 @@ plan-level promotion also needs confirmed completeness.
   - **Each must be corrected from the source page, or the plan excluded, before acceptance.**
 - **EOU page debris stored as course rows** (Deep Dive): EOU is not a pilot school, so the pilot page is unaffected.
   It stays documented cleanup unless Deep Dive finds it affects matching.
+- **Plans held as partially verified nationwide** (528, Deep Dive): not shown; the page says "on file but not yet
+  verified".
+- **Dual-enrollment course equivalencies** (Research): none on file; policy only.
+- **Out of Slice 1:** comparison across schools, high-school course advice, account storage of plan choices.
 - **Not built for the pilot:** prerequisites, course availability and sequencing (so time and money saved are
   withheld); applying placement conditions automatically; Statewide Dual Credit and IB in the engine.
 - **UTK and MTSU:** no business plans on file, so the page shows "No degree plan on file", plus their tables' status.
@@ -149,8 +173,9 @@ The pilot uses inputs the privacy draft (`docs/legal/PRIVACY_POLICY_DRAFT.md`) d
 | Field | Where it is kept today | Proposed policy row |
 |---|---|---|
 | AP, CLEP and other exams a student plans or has taken, with scores | On the device (`useExamPlan`). With `VITE_EXAM_PLAN` on, in `student_exam_plan` on our servers | "Exams the student plans or has taken (AP, CLEP and similar) and scores, entered by a parent or student, to check them against colleges' published credit tables." |
-| Home state | In the browser (`pp-home-state`, CR-15) | "Home state, to show in-state or out-of-state prices." Listed under "Kept only in your browser" until CR-15 moves it. |
+| Home state | Today in the browser (`pp-home-state`). #295 (CR-15) adds `households.home_state` / `students.home_state`, written by `set_household_home_state`; not live while the hosted hold stands | "Home state, entered by a parent or guardian, to show in-state or out-of-state published prices. It is your answer, not a residency determination." Under "Kept only in your browser" until the client uses CR-15; then under account data. |
 | Living arrangement (on campus, off campus, with family) | Not stored: chosen on the page each visit | Not personal data we keep; no row needed while it isn't stored. |
+| School and major chosen on the plan page | Not stored: page state only | No row needed while it isn't stored. |
 
 - **Existing rows that already cover the pilot:** grade and graduation year, academic interests, saved colleges.
 - **New wording needed:** state that results compare against colleges' **published** tables and plans, and that the
@@ -166,4 +191,5 @@ The pilot uses inputs the privacy draft (`docs/legal/PRIVACY_POLICY_DRAFT.md`) d
 | 4 | UTC AP/CLEP: verified, or unsupported mappings explicitly excluded (#191) | Research | open |
 | 5 | Truncated rows in UTC Economics, International Public Policy and UTC Entrepreneurship corrected, or those plans excluded | Deep Dive | open |
 | 6 | Privacy policy rows for the pilot's fields approved | Owner + counsel | open (section 7) |
-| 7 | Pilot shown to families: hosted restore, import of the verified records, flag on | Owner → Research | held |
+| 7 | Mobile pass at 390 px | Design | open |
+| 8 | Pilot shown to families: hosted restore, import of the verified records, flag on, owner sign-off | Owner → Research | held |

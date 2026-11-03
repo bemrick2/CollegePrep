@@ -134,6 +134,16 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_reminders.sql
       - name: Concurrent reminder claims, reminders-off saves and device reports (CR-27)
         run: python scripts/test_reminder_concurrency.py
+      - name: Report a problem with a question (CR-25)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/question_reports.sql
+      - name: Concurrent question reports keep the rate limit and one open report (CR-25)
+        run: python scripts/test_question_report_concurrency.py
+      - name: Seen-before on practice items and first-answer metrics (CR-23 part 2)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_seen.sql
+      - name: Seen-before backfill on sessions that existed before the migration (CR-23 part 2)
+        run: python scripts/test_practice_seen_backfill.py
+      - name: Household home state (CR-15)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_home_state.sql
       - name: Import every repository record twice into the disposable database
         run: |
           python scripts/import_supabase.py --output /tmp/import --reconcile-sql /tmp/reconcile.psql
