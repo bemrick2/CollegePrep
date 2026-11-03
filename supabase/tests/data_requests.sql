@@ -212,8 +212,9 @@ select ('60000000-0000-0000-0000-0000000000' || right(u::text, 2))::uuid, u, 'gr
   'https://push.example/ep-' || right(u::text, 2), 'p256-' || right(u::text, 2), 'secret-' || right(u::text, 2)
 from unnest(array['20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000a2',
   '20000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051', '20000000-0000-0000-0000-000000000052']::uuid[]) u;
--- Device claims (security records): S1's login claims gb's device; gb claims g1's device; g2 claims gb's device.
--- Failed confirmations: g1 and gb.
+-- Device claims (security records): S1's login claims gb's device; gb claims g1's device; g2 claims gb's device; g1
+-- claims gb's device (a claim only the household path removes: no device of A is its target).
+-- Failed confirmations: g1, gb, S1's login and I's login (the last two only the student path removes).
 insert into public.notification_device_claims(target_device_id, claimant_user_id, device_id, permission, platform, channel,
   endpoint, p256dh, auth_secret, expires_at)
 values ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051', gen_random_uuid(), 'granted', 'desktop', 'webpush',
@@ -221,9 +222,12 @@ values ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-0000000
        ('60000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000b1', gen_random_uuid(), 'granted', 'desktop', 'webpush',
         'https://push.example/ep-a1', 'p256-claim-b1', 'secret-claim-b1', now() + interval '10 minutes'),
        ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-0000000000a2', gen_random_uuid(), 'granted', 'desktop', 'webpush',
-        'https://push.example/ep-b1', 'p256-claim-a2', 'secret-claim-a2', now() + interval '10 minutes');
+        'https://push.example/ep-b1', 'p256-claim-a2', 'secret-claim-a2', now() + interval '10 minutes'),
+       ('60000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-0000000000a1', gen_random_uuid(), 'granted', 'desktop', 'webpush',
+        'https://push.example/ep-b1', 'p256-claim-a1', 'secret-claim-a1', now() + interval '10 minutes');
 insert into public.notification_device_claim_failures(user_id) values
- ('20000000-0000-0000-0000-0000000000a1'), ('20000000-0000-0000-0000-0000000000b1');
+ ('20000000-0000-0000-0000-0000000000a1'), ('20000000-0000-0000-0000-0000000000b1'), ('20000000-0000-0000-0000-000000000051'),
+ ('20000000-0000-0000-0000-000000000052');
 
 -- Rows in every per-student table.
 create function dr_test.seed_student(p_student uuid, p_guardian uuid, p_tag text) returns void language plpgsql as $$
@@ -850,14 +854,19 @@ begin
   perform set_config('collegeprep.data_request_deidentify', '', true);
   -- Devices: g1's and S1's login's push devices deleted; g2's kept.
   perform hp_test.eq((r->'removed'->>'notification_devices')::int, 2, 'two devices removed');
-  -- Device claims made by or on g1 and S1's login (S1's claim on gb's device, gb's claim on g1's device) and g1's failed
-  -- confirmation go with them; g2's claim on gb's device and gb's failure stay.
-  perform hp_test.eq((r->'removed'->>'notification_device_claims')::int, 2, 'two device claims removed');
-  perform hp_test.eq((r->'removed'->>'notification_device_claim_failures')::int, 1, 'one failed confirmation removed');
+  -- Device claims made by or on g1 and S1's login (S1's claim on gb's device, gb's claim on g1's device, g1's claim on
+  -- gb's device) and their failed confirmations (g1's from the household path, S1's login's from the student path) go
+  -- with them; g2's claim on gb's device and gb's and I's failures stay.
+  perform hp_test.eq((r->'removed'->>'notification_device_claims')::int, 3, 'three device claims removed');
+  perform hp_test.eq((r->'removed'->>'notification_device_claim_failures')::int, 2, 'two failed confirmations removed');
+  perform hp_test.check(not exists (select 1 from public.notification_device_claims where claimant_user_id = '20000000-0000-0000-0000-0000000000a1'),
+    'the household path deleted g1''s claim on a device outside the household');
+  perform hp_test.check(not exists (select 1 from public.notification_device_claim_failures where user_id = '20000000-0000-0000-0000-000000000051'),
+    'the student path deleted S1''s login''s failed confirmation');
   perform hp_test.eq((select array_agg(claimant_user_id::text || '>' || target_device_id::text) from public.notification_device_claims),
     array['20000000-0000-0000-0000-0000000000a2>60000000-0000-0000-0000-0000000000b1'], 'claims left');
-  perform hp_test.eq((select array_agg(user_id) from public.notification_device_claim_failures),
-    array['20000000-0000-0000-0000-0000000000b1']::uuid[], 'failures left');
+  perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_device_claim_failures),
+    array['20000000-0000-0000-0000-000000000052', '20000000-0000-0000-0000-0000000000b1']::uuid[], 'failures left');
   perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_devices),
     array['20000000-0000-0000-0000-000000000052', '20000000-0000-0000-0000-0000000000a2', '20000000-0000-0000-0000-0000000000b1']::uuid[], 'devices left');
   -- The runbook's next step, straight away: the listed accounts are deleted through the admin API (here: the stub's
@@ -946,6 +955,9 @@ begin
   perform hp_test.eq(r->'auth_users_to_delete', '["20000000-0000-0000-0000-000000000052"]'::jsonb, 'independent login listed');
   perform hp_test.check(not exists (select 1 from public.profiles where id = '20000000-0000-0000-0000-000000000052'), 'independent profile deleted');
   perform hp_test.check(not exists (select 1 from public.notification_devices where user_id = '20000000-0000-0000-0000-000000000052'), 'independent device deleted');
+  perform hp_test.eq((r->'removed'->>'notification_device_claim_failures')::int, 1, 'the independent login''s failed confirmation counted');
+  perform hp_test.check(not exists (select 1 from public.notification_device_claim_failures where user_id = '20000000-0000-0000-0000-000000000052'),
+    'and deleted by the student path');
   perform set_config('role', 'service_role', true);
   perform hp_test.expect_error(format('select public.admin_record_auth_deletion(%L)', r->>'request_id'), '55000', '%still exist%');
   perform set_config('role', 'none', true);
