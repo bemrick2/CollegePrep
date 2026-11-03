@@ -132,8 +132,6 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/parent_emails.sql
       - name: Practice reminders (CR-27)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_reminders.sql
-      - name: Device registrations move only with proof (device claims)
-        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/device_claims.sql
       - name: Concurrent reminder claims, reminders-off saves and device reports (CR-27)
         run: python scripts/test_reminder_concurrency.py
       - name: Report a problem with a question (CR-25)
@@ -146,6 +144,8 @@ jobs:
         run: python scripts/test_practice_seen_backfill.py
       - name: Household home state (CR-15)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_home_state.sql
+      - name: Device registrations move only with proof (device claims)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/device_claims.sql
       - name: Import every repository record twice into the disposable database
         run: |
           python scripts/import_supabase.py --output /tmp/import --reconcile-sql /tmp/reconcile.psql
