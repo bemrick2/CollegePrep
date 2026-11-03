@@ -217,10 +217,10 @@ Everything else is shown as a question to ask the school.
 **Why.** Cost screens choose a school's in-state or out-of-state published price from the family's home state. Without it, every school showed its cheapest residency price, which understates cost for out-of-state options (for example, a Tennessee family looking at Oregon). The UI labels the state as the family's answer, not a residency determination. When a school publishes no out-of-state price, the UI flags it instead of showing the in-state figure as theirs. The state currently lives in one browser.
 
 **Built (`20261102060000_household_home_state`, unapplied on hosted):**
-- `households.home_state text null`: a USPS code for one of the 50 states or DC, uppercase (`public.is_us_state_code`); anything else, territories and lowercase included, is refused (23514). Null means not answered.
+- `households.home_state text null`: a USPS code for one of the 50 states, DC, or the territories PR, GU, VI, AS and MP, uppercase (`public.is_us_home_state_code`). Anything else, lowercase included, is refused. Null means not answered.
 - Read: every household member, with the household row (`households` select, as `name` and `time_zone`).
-- Write: a guardian with `manage_members`, by updating the row, like the household's name and time zone. Other members' updates reach no row (0 rows, no error).
-- `students.home_state`, same codes, for a profile with no household: written by the linked student (no household, or independent) or a `manage_students` guardian (the existing `student_update` rule). When the student is in a household, read the household's value.
+- Write: `set_household_home_state(p_household, p_state)` returns the stored value. It is open to a guardian with `set_goals` or `manage_members`. Anyone else gets 42501, and an unknown code gets 22023. The column has no client update grant, so `set_goals` gains no other household-settings write.
+- `students.home_state`, the same codes, for a profile with no household: written by the linked student (no household, or independent) or a `manage_students` guardian (the existing `student_update` rule). When the student is in a household, read the household's value.
 - Cost views unchanged: `cost_projection` still takes `assumptions.residency` from the client, and `compare_institutions` has no residency input. The server infers no residency.
 
 ## CR-16. Subscription owner and household entitlement
@@ -383,6 +383,7 @@ In the app and the local database, an item is served only if a review approved i
 **Built, part 2 (`20261102050000_practice_seen_and_first_answer`, unapplied on hosted):**
 - `practice_session_items.seen_before boolean` and `last_seen timestamptz`: whether the student had been shown the question before the session served it. "Shown" is #263's exposure rule: any earlier attempt (answered, skipped or abandoned), or an assignment to a progress check, attempted or not. A trigger sets both when the item is inserted, so they hold whatever inserts the session; they are frozen at serving time. Read with the item (the student and `view_progress` guardians); never client-written. Older rows are backfilled from exposure before their session started.
 - `student_skill_estimates` adds `first_answers bigint` and `first_answer_accuracy numeric` (null with none), after the existing columns. These are over the skill's 30 most recent first answers. A first answer is a submitted, non-skipped attempt with no earlier attempt at that question by the student and no earlier assignment of it to another check. A correct repeat raises `accuracy` but never `first_answer_accuracy`. Existing columns, thresholds and the recommender are unchanged.
+- The recommender (`recommend_internal`, behind `recommend_practice_set` and `start_practice_session`) ranks by the same exposure rule (`student_exposure_internal`). An item a check assigned, then returned to practice, is not ranked as fresh.
 - `recommend_practice_set` and `start_practice_session` keep their signatures (CR-26 replaces both); the served session carries `seen_before`.
 
 ## CR-24. Rights gate on published questions
@@ -417,10 +418,13 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 **Client:** a "Report a problem" link on the answer review, sending a reason and an optional note. It will be shown only once the RPC exists.
 
 **Built (`20261102040000_question_reports`, unapplied on hosted):**
-- `report_question_problem(p_attempt uuid, p_reason text, p_note text default null) returns jsonb`: `{"report_id", "created", "status": "open"}` and nothing else.
+- `report_question_problem(p_attempt uuid, p_reason text, p_note text default null) returns jsonb`: `{"report_id", "created", "updated", "status": "open"}` and nothing else.
 - Callers: the attempt's student, or a guardian with `view_progress` in the student's household. Anyone else, anon, the service role (no user) and a missing attempt all get the same 42501.
-- Reasons `wrong_key`, `two_answers`, `unclear`, `typo`, `other`; the note is trimmed, blank means none, and at most 500 characters (22023 otherwise).
-- One open report per reporter, question and content version (the question's content hash). A repeat returns the open report with `created: false`, changes nothing and isn't rate-limited. A new version, or the report being closed, allows a new one.
+- Reasons `wrong_key`, `two_answers`, `unclear`, `typo`, `other`. The note is trimmed of all leading and trailing whitespace (spaces, tabs, newlines); a note of only whitespace counts as none. At most 500 characters (22023 otherwise).
+- One open report per reporter, student, question and content version (the question's content hash).
+  - A repeat returns that report with `created: false` and replaces its reason and note. `updated` is true when either changed.
+  - The same note rules apply to a repeat, and a repeat is never rate-limited.
+  - A new version, or the report being closed, allows a new one.
 - Rate limit per reporter: 10 new reports an hour and 30 a day: 22023 with `hint = 'rate_limited'`.
 - Reserved (check) items: reportable once the attempt was submitted (answered or skipped), or by the student while that attempt's check is live. Otherwise 42501, with a message that doesn't name the reserve.
 - `question_reports`: service role only (RLS, no client grants), so no family reads any report, its own included. Editors close one with `resolve_question_report(p_report, 'resolved' | 'dismissed', p_reviewed_by, p_resolution_note)` (service role only).

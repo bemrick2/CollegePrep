@@ -4,18 +4,20 @@
 --   - Callers: the attempt's student (their own login), or a guardian with view_progress in the student's household
 --     (can_view_student's guardian rule). Anyone else, including anon and the service role (no user), gets 42501. A
 --     missing attempt gets the same error as someone else's, so the RPC never says whether an attempt id exists.
---   - Reasons: wrong_key, two_answers, unclear, typo, other. The note is optional, trimmed (an empty note is no note),
---     and at most 500 characters. Anything else is 22023.
+--   - Reasons: wrong_key, two_answers, unclear, typo, other. The note is optional, trimmed of all leading and trailing
+--     whitespace (spaces, tabs, newlines; a note of only whitespace is no note), and at most 500 characters. Anything
+--     else is 22023.
 --   - Reserved (assessment) items: reportable only once the attempt was submitted (answered or skipped), or, by the
 --     student, while the attempt's own progress check is still live. Otherwise 42501. Practice items are reportable
 --     from any of the caller's visible attempts.
---   - One open report per reporter, question and content version (the question's content hash when reported, from
---     practice_question_content_hash): repeating the call returns the open report ({"created": false}) and changes
---     nothing, and does not count against the rate limit. After an editor resolves it, or the content changes, the same
---     person can report again.
+--   - One open report per reporter, student, question and content version (the question's content hash when reported,
+--     from practice_question_content_hash). Repeating the call returns that open report ({"created": false}) and
+--     replaces its reason and note with the new ones ("updated": true when either changed); the same note rules apply,
+--     and a repeat never counts against the rate limit. A guardian reporting the same question for two students files
+--     two reports. After an editor resolves it, or the content changes, the same person can report again.
 --   - Rate limit per reporter: at most 10 new reports in any hour and 30 in any 24 hours (22023, hint 'rate_limited').
 --     Calls for one reporter are serialised with a transaction advisory lock, so concurrent calls can't exceed it.
---   - Returns only {"report_id", "created", "status"}: never the key, an explanation, another family's report, or
+--   - Returns only {"report_id", "created", "updated", "status"}: never the key, an explanation, another family's report, or
 --     whether an item is reserved.
 -- * question_reports is readable and writable only by the service role (RLS on, no client grants or policies), so no
 --   family ever reads a report, their own included.
@@ -33,7 +35,7 @@ create table public.question_reports (
   reporter_user_id uuid references auth.users(id) on delete set null,
   reporter_role text not null check (reporter_role in ('student', 'guardian')),
   reason text not null check (reason in ('wrong_key', 'two_answers', 'unclear', 'typo', 'other')),
-  note text check (note is null or (length(note) between 1 and 500 and note = btrim(note))),
+  note text check (note is null or (length(note) between 1 and 500 and note !~ '^\s' and note !~ '\s$')),
   status text not null default 'open' check (status in ('open', 'resolved', 'dismissed')),
   created_at timestamptz not null default now(),
   reviewed_at timestamptz,
@@ -46,7 +48,7 @@ comment on table public.question_reports is
   'CR-25: problem reports on questions. Service role only; filed through report_question_problem, closed through resolve_question_report.';
 comment on column public.question_reports.content_hash is
   'CR-25: practice_question_content_hash of the question when reported: the content version the report is about.';
-create unique index question_reports_open_idx on public.question_reports(reporter_user_id, question_id, content_hash)
+create unique index question_reports_open_idx on public.question_reports(reporter_user_id, student_id, question_id, content_hash)
   where status = 'open';
 create index question_reports_reporter_idx on public.question_reports(reporter_user_id, created_at);
 create index question_reports_question_idx on public.question_reports(question_id, status);
@@ -60,7 +62,8 @@ create function public.report_question_problem(p_attempt uuid, p_reason text, p_
 language plpgsql security definer set search_path = '' as $$
 declare
   v_uid uuid := auth.uid(); v_a public.practice_attempts; v_s public.students; v_q public.practice_questions;
-  v_role text; v_note text := nullif(btrim(p_note), ''); v_hash text; v_id uuid;
+  v_role text; v_note text := nullif(regexp_replace(p_note, '^\s+|\s+$', '', 'g'), ''); v_hash text; v_id uuid;
+  v_old public.question_reports;
 begin
   if v_uid is null then raise exception 'Authentication required' using errcode = '42501'; end if;
   if p_reason is null or p_reason not in ('wrong_key', 'two_answers', 'unclear', 'typo', 'other') then
@@ -89,10 +92,15 @@ begin
   v_hash := public.practice_question_content_hash(v_q);
   -- One reporter at a time: the open-report check and the rate limit can't be raced.
   perform pg_advisory_xact_lock(hashtextextended('question_reports:' || v_uid::text, 0));
-  select r.id into v_id from public.question_reports r
-  where r.reporter_user_id = v_uid and r.question_id = v_q.id and r.content_hash = v_hash and r.status = 'open';
-  if v_id is not null then
-    return jsonb_build_object('report_id', v_id, 'created', false, 'status', 'open');
+  select r.* into v_old from public.question_reports r
+  where r.reporter_user_id = v_uid and r.student_id = v_s.id and r.question_id = v_q.id and r.content_hash = v_hash
+    and r.status = 'open'
+  for update;
+  if v_old.id is not null then
+    -- A repeat on your own open report replaces its reason and note; it is not a new report.
+    update public.question_reports r set reason = p_reason, note = v_note where r.id = v_old.id;
+    return jsonb_build_object('report_id', v_old.id, 'created', false,
+      'updated', v_old.reason is distinct from p_reason or v_old.note is distinct from v_note, 'status', 'open');
   end if;
   if (select count(*) from public.question_reports r where r.reporter_user_id = v_uid and r.created_at > now() - interval '1 hour') >= 10
      or (select count(*) from public.question_reports r where r.reporter_user_id = v_uid and r.created_at > now() - interval '24 hours') >= 30 then
@@ -102,12 +110,12 @@ begin
     reporter_role, reason, note)
   values (v_q.id, v_hash, v_q.pool, v_a.id, v_s.id, v_uid, v_role, p_reason, v_note)
   returning id into v_id;
-  return jsonb_build_object('report_id', v_id, 'created', true, 'status', 'open');
+  return jsonb_build_object('report_id', v_id, 'created', true, 'updated', false, 'status', 'open');
 end $$;
 revoke all on function public.report_question_problem(uuid, text, text) from public, anon;
 grant execute on function public.report_question_problem(uuid, text, text) to authenticated, service_role;
 comment on function public.report_question_problem(uuid, text, text) is
-  'CR-25: report a problem with an attempt''s question (student, or guardian with view_progress). One open report per reporter, question and content version; rate-limited; returns only the report id.';
+  'CR-25: report a problem with an attempt''s question (student, or guardian with view_progress). One open report per reporter, student, question and content version (a repeat updates it); rate-limited; returns only the report id.';
 
 -- Service role only: an editor closes an open report.
 create function public.resolve_question_report(p_report uuid, p_status text, p_reviewed_by text,

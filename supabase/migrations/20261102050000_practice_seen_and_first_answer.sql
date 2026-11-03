@@ -11,6 +11,10 @@
 --   student and no earlier assignment of it to another progress check. Repeats never count, so a question answered
 --   correctly the second time is not improvement. The existing columns, thresholds (knowledge_weak, pacing_weak) and
 --   the recommender are unchanged; the new columns come last. first_answer_accuracy is null with no first answers.
+-- * The recommender (recommend_internal, behind recommend_practice_set and start_practice_session) ranks items by the
+--   same exposure rule: "never seen" and "least recently seen" come from student_exposure_internal, so an item a check
+--   assigned (attempted or not) and later returned to practice is not ranked as fresh. Before this it looked at
+--   attempts only. Signature, buckets, budget and the pool rule are unchanged.
 -- Scope: recommend_practice_set and start_practice_session keep their signatures (CR-26 replaces both to widen the
 -- session length); the served session carries seen_before on its items. The client may stop deriving it from attempts.
 
@@ -43,19 +47,56 @@ language plpgsql security definer set search_path = '' as $$
 declare v_student uuid;
 begin
   select ps.student_id into v_student from public.practice_sessions ps where ps.id = new.session_id;
-  select max(e.at) into new.last_seen from (
-    select a.presented_at as at from public.practice_attempts a
-      where a.student_id = v_student and a.question_id = new.question_id
-    union all
-    select b.assigned_at from public.practice_benchmark_items b
-      where b.student_id = v_student and b.question_id = new.question_id
-  ) e;
+  -- The #263 exposure rule, the same helper the recommender and checks use.
+  select x.last_seen into new.last_seen from public.student_exposure_internal(v_student) x where x.question_id = new.question_id;
   new.seen_before := new.last_seen is not null;
   return new;
 end $$;
 revoke all on function public.practice_session_item_seen() from public, anon, authenticated;
 create trigger practice_session_item_seen before insert on public.practice_session_items
   for each row execute function public.practice_session_item_seen();
+
+-- From 20261022050000; the change is that "seen" is the #263 exposure rule (student_exposure_internal), not attempts only.
+create or replace function public.recommend_internal(p_student uuid, p_target_minutes integer, p_exam_version uuid)
+returns table (item_position integer, question_id uuid, skill_id uuid, expected_time_seconds integer, reason text)
+language plpgsql stable set search_path = '' as $$
+declare v_budget integer := p_target_minutes * 60; v_used integer := 0; r record;
+begin
+  item_position := 0;
+  for r in
+    with est as (select * from public.skill_estimates_internal(p_student)),
+    seen as (select x.question_id as qid, x.last_seen from public.student_exposure_internal(p_student) x),
+    cand as (
+      select q.id, qs.skill_id as sid, q.section, q.expected_time_seconds as secs, s.last_seen,
+        case when e.knowledge_weak then 'weak_knowledge' when e.pacing_weak then 'weak_pacing'
+          when qs.skill_id is null then 'untagged' when e.skill_id is null then 'new_skill' else 'review' end as why,
+        case when e.knowledge_weak then 0 when e.pacing_weak then 1
+          when qs.skill_id is null then 4 when e.skill_id is null then 2 else 3 end as bucket,
+        abs(coalesce(q.difficulty, 3) - case when e.accuracy is null then 3 when e.accuracy < 0.6 then 2
+          when e.accuracy <= 0.85 then 3 else 4 end) as gap
+      from public.practice_questions q
+      left join public.practice_question_skills qs on qs.question_id = q.id and qs.is_primary
+      left join est e on e.skill_id = qs.skill_id
+      left join seen s on s.qid = q.id
+      where q.status = 'published' and q.review_current and q.pool = 'practice' and q.expected_time_seconds is not null
+        and (p_exam_version is null or q.exam_version_id = p_exam_version)
+    ), ranked as (
+      select c.*, row_number() over (partition by coalesce(c.sid::text, 'untagged:' || c.section)
+        order by c.last_seen nulls first, c.gap, c.id) as turn
+      from cand c
+    )
+    select * from ranked
+    order by turn, bucket, section, gap, last_seen nulls first, id
+  loop
+    exit when v_used >= v_budget;
+    continue when v_used + r.secs > v_budget;
+    v_used := v_used + r.secs;
+    item_position := item_position + 1;
+    question_id := r.id; skill_id := r.sid; expected_time_seconds := r.secs; reason := r.why;
+    return next;
+  end loop;
+end $$;
+revoke all on function public.recommend_internal(uuid, integer, uuid) from public, anon, authenticated;
 
 -- Per primary skill: the 30 most recent first answers (see the header) and how many were correct.
 create function public.first_answer_estimates_internal(p_student uuid)

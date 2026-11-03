@@ -38,6 +38,11 @@ begin
   perform set_config('t.inv_goals', public.create_household_invitation(hh, 'guardian', null, 72, array['set_goals']), true);
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform public.accept_household_invitation(current_setting('t.inv'));
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform set_config('t.st3', public.add_student(hh, 'Second Student')::text, true);
+  perform set_config('t.inv3', public.create_household_invitation(hh, 'student', current_setting('t.st3')::uuid), true);
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000053');
+  perform public.accept_household_invitation(current_setting('t.inv3'));
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
   perform public.accept_household_invitation(current_setting('t.inv_co'));
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000c1');
@@ -95,15 +100,16 @@ declare r jsonb; a1 uuid := current_setting('t.a1')::uuid; who record; n bigint;
 begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   r := public.report_question_problem(a1, 'wrong_key', '  The key says B but A is right.  ');
-  perform hp_test.eq((select array_agg(k order by k) from jsonb_object_keys(r) k), array['created', 'report_id', 'status'], 'the result carries only id, created and status');
+  perform hp_test.eq((select array_agg(k order by k) from jsonb_object_keys(r) k), array['created', 'report_id', 'status', 'updated'], 'the result carries only id, created, updated and status');
   perform hp_test.eq(r->>'created', 'true', 'student report created');
+  perform hp_test.eq(r->>'updated', 'false', 'a new report is not an update');
   perform hp_test.eq(r->>'status', 'open', 'a new report is open');
   perform set_config('t.rep_student', r->>'report_id', true);
 
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   perform hp_test.eq(public.report_question_problem(a1, 'unclear')->>'created', 'true', 'PARENT (view_progress) reports');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a2');
-  perform hp_test.eq(public.report_question_problem(a1, 'two_answers', '   ')->>'created', 'true', 'CO (default guardian) reports');
+  perform hp_test.eq(public.report_question_problem(a1, 'two_answers', E' \t\n\r\n  \t')->>'created', 'true', 'CO (default guardian) reports');
 
   for who in select * from (values ('20000000-0000-0000-0000-0000000000c1'::uuid, 'GOALS without view_progress'),
       ('20000000-0000-0000-0000-0000000000b1'::uuid, 'another household''s guardian'),
@@ -125,7 +131,7 @@ begin
   select count(*) into n from public.question_reports where question_id = '30000000-0000-0000-0000-000000000001';
   perform hp_test.eq(n, 3::bigint, 'three reports: student, PARENT, CO');
   perform hp_test.eq((select note from public.question_reports where id = current_setting('t.rep_student')::uuid), 'The key says B but A is right.', 'note trimmed');
-  perform hp_test.eq((select note from public.question_reports where reporter_user_id = '20000000-0000-0000-0000-0000000000a2'), null::text, 'a blank note is no note');
+  perform hp_test.eq((select note from public.question_reports where reporter_user_id = '20000000-0000-0000-0000-0000000000a2'), null::text, 'a note of only spaces, tabs and newlines is no note');
   perform hp_test.eq((select string_agg(reporter_role, ',' order by reporter_role) from public.question_reports), 'guardian,guardian,student', 'reporter roles');
   perform hp_test.eq((select count(*) from public.question_reports q join public.practice_questions p on p.id = q.question_id
     where q.content_hash = public.practice_question_content_hash(p) and q.question_pool = 'practice' and q.student_id = current_setting('t.st')::uuid), 3::bigint,
@@ -145,25 +151,45 @@ begin
   perform hp_test.eq((select count(*) from public.question_reports), 3::bigint, 'refused calls store nothing');
 end $$;
 
--- Idempotence: one open report per reporter, question and content version.
+-- Repeats: one open report per reporter, student, question and content version; a repeat updates its reason and note.
 do $$
 declare r jsonb; a1 uuid := current_setting('t.a1')::uuid; v_hash text;
 begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  r := public.report_question_problem(a1, 'typo', 'a different note');
+  -- The same reason and note: nothing changes.
+  r := public.report_question_problem(a1, 'wrong_key', E'\nThe key says B but A is right.\t');
   perform hp_test.eq(r->>'created', 'false', 'a repeat is not a new report');
+  perform hp_test.eq(r->>'updated', 'false', 'an identical repeat changes nothing');
   perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'a repeat returns the open report');
-  -- A 500-character note is the maximum and is accepted (on a repeat, nothing changes).
-  perform hp_test.eq(public.report_question_problem(a1, 'other', repeat('y', 500))->>'created', 'false', '500 characters is allowed');
+  -- A different reason and note: the open report is updated.
+  r := public.report_question_problem(a1, 'typo', E'\t  Second thoughts: a typo in choice C. \n');
+  perform hp_test.eq(r->>'created' || '|' || (r->>'updated'), 'false|true', 'a changed repeat updates the open report');
+  perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'the same report');
+  -- The note rules hold on an update: 500 characters is the maximum, 501 is refused and changes nothing.
+  perform hp_test.eq(public.report_question_problem(a1, 'typo', repeat('y', 500))->>'updated', 'true', '500 characters is allowed on an update');
+  perform hp_test.expect_error(format($q$select public.report_question_problem(%L, 'other', %L)$q$, a1, repeat('z', 501)), '22023', '%500%');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select reason || '|' || length(note) from public.question_reports where id = current_setting('t.rep_student')::uuid),
+    'typo|500', 'a refused update leaves the last good one');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  -- A whitespace-only note on a repeat clears the note.
+  r := public.report_question_problem(a1, 'typo', E'\n\t \n');
+  perform hp_test.eq(r->>'updated', 'true', 'clearing the note is an update');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select note from public.question_reports where id = current_setting('t.rep_student')::uuid), null::text, 'whitespace-only note on a repeat is no note');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform public.report_question_problem(a1, 'wrong_key', E'\tThe key says B but A is right.\n');
   perform hp_test.as_owner();
   perform hp_test.eq((select reason || '|' || note from public.question_reports where id = current_setting('t.rep_student')::uuid),
-    'wrong_key|The key says B but A is right.', 'a repeat changes nothing');
+    'wrong_key|The key says B but A is right.', 'trimmed of tabs and newlines on update');
   perform hp_test.eq((select count(*) from public.question_reports where reporter_user_id = '20000000-0000-0000-0000-000000000051'), 1::bigint, 'still one report');
 
   -- Another attempt at the same question is the same question: still the same open report.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform set_config('t.a1b', public.start_practice_attempt(current_setting('t.st')::uuid, '30000000-0000-0000-0000-000000000001')::text, true);
-  perform hp_test.eq(public.report_question_problem(current_setting('t.a1b')::uuid, 'typo')->>'report_id', current_setting('t.rep_student'), 'a second attempt finds the same open report');
+  r := public.report_question_problem(current_setting('t.a1b')::uuid, 'wrong_key', 'The key says B but A is right.');
+  perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'a second attempt finds the same open report');
+  perform hp_test.eq(r->>'updated', 'false', 'unchanged');
 
   -- New content is a new version: the same person may report it again.
   perform hp_test.as_owner();
@@ -176,6 +202,18 @@ begin
   perform hp_test.check((select content_hash from public.question_reports where id = (r->>'report_id')::uuid) <> v_hash, 'the new report names the new version');
   update public.practice_questions set stem = 'Question 1' where id = '30000000-0000-0000-0000-000000000001';
   perform hp_test.eq((select content_hash from public.question_reports where id = current_setting('t.rep_student')::uuid), v_hash, 'restored content');
+
+  -- The key includes the student: a guardian reporting one question for two of their students files two reports.
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000053');
+  perform set_config('t.a53', public.start_practice_attempt(current_setting('t.st3')::uuid, '30000000-0000-0000-0000-000000000001')::text, true);
+  perform public.submit_practice_attempt(current_setting('t.a53')::uuid, 'B');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform hp_test.eq(public.report_question_problem(a1, 'unclear')->>'created', 'false', 'PARENT''s report for the first student is open');
+  r := public.report_question_problem(current_setting('t.a53')::uuid, 'unclear');
+  perform hp_test.eq(r->>'created', 'true', 'the same question for a second student is a second report');
+  perform hp_test.eq(public.report_question_problem(current_setting('t.a53')::uuid, 'unclear')->>'report_id', r->>'report_id', 'and is idempotent for that student');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select count(*) from public.question_reports where reporter_user_id = '20000000-0000-0000-0000-0000000000a1'), 2::bigint, 'PARENT has two reports');
 end $$;
 
 -- Review: service role only; closing a report lets the reporter report that version again.
@@ -187,7 +225,7 @@ begin
   perform hp_test.as_anon();
   perform hp_test.expect_error(format($q$select public.resolve_question_report(%L, 'resolved', 'Editor')$q$, rep), '42501');
   perform hp_test.as_service();
-  perform hp_test.eq((select count(*) from public.question_reports), 4::bigint, 'service role reads every report');
+  perform hp_test.eq((select count(*) from public.question_reports), 5::bigint, 'service role reads every report');
   perform hp_test.expect_error(format($q$select public.resolve_question_report(%L, 'open', 'Editor')$q$, rep), '22023');
   perform hp_test.expect_error(format($q$select public.resolve_question_report(%L, 'resolved', '  ')$q$, rep), '22023');
   perform hp_test.expect_error(format($q$select public.resolve_question_report(%L, 'resolved', 'Editor')$q$, gen_random_uuid()), '22023');
@@ -241,7 +279,7 @@ begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   r := public.report_question_problem(r4, 'two_answers');
   perform hp_test.eq(r->>'created', 'true', 'the student reports a check item during the live check');
-  perform hp_test.eq((select array_agg(k order by k) from jsonb_object_keys(r) k), array['created', 'report_id', 'status'], 'still only id, created and status');
+  perform hp_test.eq((select array_agg(k order by k) from jsonb_object_keys(r) k), array['created', 'report_id', 'status', 'updated'], 'still only id, created, updated and status');
   perform public.submit_practice_attempt(r4, 'A');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   perform hp_test.eq(public.report_question_problem(r4, 'two_answers')->>'created', 'true', 'a guardian reports a check item once answered');

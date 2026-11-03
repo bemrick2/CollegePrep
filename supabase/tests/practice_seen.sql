@@ -130,6 +130,34 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- The recommender ranks by the same exposure rule: q8 (assigned to a check, never attempted, returned to practice) is not
+-- fresh. qN, a never-seen item of the same skill, comes first, though by id alone q8 would (attempts-only ranking).
+do $$
+declare st uuid := current_setting('t.st')::uuid; p8 integer; pn integer; s uuid;
+begin
+  perform hp_test.as_owner();
+  insert into public.practice_questions(id, exam_version_id, question_type_id, section, difficulty, difficulty_label, stem, choices,
+    answer_format, accepted_answers, expected_time_seconds, status, license, origin)
+  values ('3b000000-0000-0000-0000-000000000001', '40000000-0000-0000-0000-000000000001', '41000000-0000-0000-0000-000000000001', 'math',
+    2, 'medium', 'Fresh data item', '["A","B","C","D"]', 'choice', '["A"]', 60, 'published', 'original-owned', 'authored');
+  insert into public.practice_question_skills(question_id, skill_id, is_primary)
+    values ('3b000000-0000-0000-0000-000000000001', '42000000-0000-0000-0000-00000000000c', true);
+  perform public.approve_practice_question('3b000000-0000-0000-0000-000000000001', 'test fixture');
+  perform hp_test.eq((select count(*) from public.practice_attempts where student_id = st and question_id = '30000000-0000-0000-0000-000000000008'), 0::bigint,
+    'q8 was never attempted');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  select item_position into p8 from public.recommend_practice_set(st, 15) where question_id = '30000000-0000-0000-0000-000000000008';
+  select item_position into pn from public.recommend_practice_set(st, 15) where question_id = '3b000000-0000-0000-0000-000000000001';
+  perform hp_test.check(pn is not null and p8 is not null and pn < p8, format('a never-seen item ranks before a check-assigned one (fresh %s, assigned %s)', pn, p8));
+  s := public.start_practice_session(st, 15);
+  perform hp_test.check((select position from public.practice_session_items where session_id = s and question_id = '3b000000-0000-0000-0000-000000000001')
+    < (select position from public.practice_session_items where session_id = s and question_id = '30000000-0000-0000-0000-000000000008'), 'sessions follow the same order');
+  perform hp_test.eq((select string_agg(seen_before::text, ',' order by position) from public.practice_session_items where session_id = s
+    and question_id in ('3b000000-0000-0000-0000-000000000001', '30000000-0000-0000-0000-000000000008')), 'false,true', 'and mark it seen');
+  perform public.end_practice_session(s);
+  perform hp_test.as_owner();
+end $$;
+
 -- First answers. History so far (student 51): q1 wrong (A), q2 opened, q3 skipped, q4 right in its own check (fresh),
 -- q8 assigned to that check and never attempted, q6 right. Now: q1 right (a repeat), q2 right (shown before), q3 right
 -- (shown before), q8 right (assigned before), q7 right (fresh).

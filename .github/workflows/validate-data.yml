@@ -128,8 +128,12 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/question_rights.sql
       - name: Report a problem with a question (CR-25)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/question_reports.sql
+      - name: Concurrent question reports keep the rate limit and one open report (CR-25)
+        run: python scripts/test_question_report_concurrency.py
       - name: Seen-before on practice items and first-answer metrics (CR-23 part 2)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_seen.sql
+      - name: Seen-before backfill on sessions that existed before the migration (CR-23 part 2)
+        run: python scripts/test_practice_seen_backfill.py
       - name: Household home state (CR-15)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_home_state.sql
       - name: Import every repository record twice into the disposable database
