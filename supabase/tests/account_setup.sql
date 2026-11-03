@@ -188,6 +188,10 @@ begin
   perform hp_test.ok((select benchmark_scheduled_for is null from public.student_setup_progress where student_id = st), 'a named null clears the schedule');
   perform hp_test.err(format($q$select public.update_setup_progress(%L, jsonb_build_object('benchmark_scheduled_for', now() + interval '61 days'))$q$, st), '22023', '%60 days%');
   perform hp_test.err(format($q$select public.update_setup_progress(%L, '{"high_school": "Central"}')$q$, st), '22023', '%Unknown%');
+  perform hp_test.err(format($q$select public.update_setup_progress(%L, jsonb_build_object('benchmark_scheduled_for', now() - interval '25 hours'))$q$, st), '22023', '%past%');
+  perform public.update_setup_progress(st, jsonb_build_object('benchmark_scheduled_for', now() - interval '23 hours'));
+  perform hp_test.ok((select benchmark_scheduled_for = now() - interval '23 hours' from public.student_setup_progress where student_id = st),
+    'up to a day in the past is accepted (a check scheduled for earlier today)');
   perform hp_test.err(format($q$select public.update_setup_progress(%L, '{"setup_completed": "yes"}')$q$, st), '22023');
   perform hp_test.err(format($q$select public.update_setup_progress(%L, '{"benchmark_scheduled_for": 5}')$q$, st), '22023');
   perform hp_test.err(format($q$select public.update_setup_progress(%L, '{"benchmark_scheduled_for": "soon"}')$q$, st), '22007');
@@ -208,6 +212,23 @@ begin
   update public.students set archived_at = now() where id = current_setting('t.st_b')::uuid;
   perform hp_test.err(format($q$select public.update_setup_progress(%L, '{"setup_completed": true}')$q$, current_setting('t.st_b')), '42501');
   perform hp_test.as_owner();
+end $$;
+
+-- 5b. The first time is kept, shown with times that differ (now() is constant inside this transaction).
+do $$
+declare st uuid := current_setting('t.st')::uuid;
+begin
+  perform hp_test.as_owner();
+  update public.student_setup_progress set setup_completed_at = '2026-01-05 10:00+00', starting_point_answered_at = '2026-01-04 09:00+00'
+  where student_id = st;
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  perform public.update_setup_progress(st, '{"setup_completed": true, "starting_point_answered": true}');
+  perform hp_test.as_owner();
+  perform hp_test.is((select setup_completed_at from public.student_setup_progress where student_id = st), '2026-01-05 10:00+00'::timestamptz,
+    'setup_completed_at keeps its first value');
+  perform hp_test.is((select starting_point_answered_at from public.student_setup_progress where student_id = st), '2026-01-04 09:00+00'::timestamptz,
+    'starting_point_answered_at keeps its first value');
+  perform hp_test.ok((select updated_at = now() from public.student_setup_progress where student_id = st), 'the write itself is recorded');
 end $$;
 
 -- 6. Privileges: the function is the only write path; no anon grants anywhere.

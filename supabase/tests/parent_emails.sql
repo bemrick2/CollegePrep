@@ -13,10 +13,14 @@ update auth.users set email = right(id::text, 2) || '@example.test';
 insert into public.profiles(id, display_name) values ('20000000-0000-0000-0000-0000000000a1', 'Pat Parent');
 
 -- PARENT also guards Cleo in the other household (view_progress), so one guardian spans two households.
--- Riley practised 2 days ago (3 answers); Ben never has; Cleo once, 20 days ago.
+-- Riley practised 2 days ago (3 answers) and took a progress check on another day that week (1 answer, not a
+-- practice day); Ben never has; Cleo once, 20 days ago.
 do $$
-declare inv text; v_at timestamptz := now() - interval '2 days';
+declare inv text; v_at timestamptz := now() - interval '2 days'; v_check timestamptz; v_bench uuid;
 begin
+  -- The other household is created after the first, explicitly: the summary's time zone is the earliest household's,
+  -- and households created in one transaction share now().
+  update public.households set created_at = created_at + interval '1 minute' where id = current_setting('t.hh2')::uuid;
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000d1');
   inv := public.create_household_invitation(current_setting('t.hh2')::uuid, 'guardian', null, 72, array['view_progress']);
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
@@ -28,6 +32,13 @@ begin
   insert into public.practice_attempts(student_id, question_id, presented_at, submitted_at, elapsed_ms, selected_answer, is_correct)
   values (current_setting('t.st2')::uuid, hp_test.q(1), now() - interval '20 days', now() - interval '20 days', 30000, 'B', true);
   perform set_config('t.week', (date_trunc('week', (v_at at time zone 'America/Chicago'))::date)::text, true);
+  v_check := case when (v_at at time zone 'America/Chicago')::date > current_setting('t.week')::date
+                  then v_at - interval '1 day' else v_at + interval '1 day' end;
+  insert into public.practice_benchmarks(student_id, kind, exam_version_id, started_at, completed_at)
+  values (current_setting('t.st')::uuid, 'initial', '40000000-0000-0000-0000-000000000001', v_check, v_check + interval '5 minutes')
+  returning id into v_bench;
+  insert into public.practice_attempts(student_id, question_id, benchmark_id, presented_at, submitted_at, elapsed_ms, selected_answer, is_correct)
+  values (current_setting('t.st')::uuid, hp_test.q(6), v_bench, v_check, v_check + interval '1 minute', 30000, 'D', true);
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
   insert into public.weekly_practice_goals(student_id, week_start, target_questions) values (current_setting('t.st')::uuid, current_setting('t.week')::date, 10);
   perform hp_test.as_owner();
@@ -107,9 +118,10 @@ begin
   perform hp_test.as_owner();
   select s into a1 from jsonb_array_elements(a1->'students') s where s->>'student_name' = 'Riley';
   perform hp_test.is((a1->>'questions_submitted')::integer, coalesce((prog->>'questions_submitted')::integer, 0), 'questions match the dashboard');
-  perform hp_test.is((a1->>'questions_submitted')::integer, 3, 'three answers that week');
+  perform hp_test.is((a1->>'questions_submitted')::integer, 4, 'four answers that week (the check counts, as on the dashboard)');
   perform hp_test.is((a1->>'goal_questions')::integer, 10, 'the weekly goal');
-  perform hp_test.is((a1->>'days_practised')::integer, 1, 'one practice day');
+  perform hp_test.is((a1->>'days_practised')::integer, 1, 'one practice day: the progress check''s day is not a practice day');
+  perform hp_test.is((a1->'last_check'->>'kind'), 'initial', 'the last progress check');
   perform hp_test.ok(a1->>'last_practice_at' is not null, 'last practice time');
   -- The summary shows inactivity as the dashboard does (student_inactivity(): the guardian's smallest enabled threshold
   -- on any channel, here the 1-day push alert); only the separate inactivity EMAIL uses the email preference's own.
@@ -152,12 +164,40 @@ begin
   update public.students set archived_at = null where id = current_setting('t.st_b')::uuid;
 end $$;
 
+-- 4b. The two permission checks, each on its own.
+do $$
+declare week date := current_setting('t.week')::date; rows jsonb;
+begin
+  -- Per student (can_view_student, as the guardian): the parent loses view_progress in the other household only. They
+  -- are still a recipient through the first household, but Cleo leaves their summary.
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000d1');
+  perform public.update_member_permissions(current_setting('t.hh2')::uuid, '20000000-0000-0000-0000-0000000000a1', p_view_progress => false);
+  perform hp_test.as_service();
+  select p into rows from public.weekly_digest_payload(week) p where p->>'user_id' = '20000000-0000-0000-0000-0000000000a1';
+  perform hp_test.is((select array_agg(s->>'student_name' order by o) from jsonb_array_elements(rows->'students') with ordinality x(s, o)),
+    array['Ben', 'Riley'], 'a student the guardian may no longer view leaves the summary');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000d1');
+  perform public.update_member_permissions(current_setting('t.hh2')::uuid, '20000000-0000-0000-0000-0000000000a1', p_view_progress => true);
+  -- Per recipient (a guardian with view_progress): the linked student may opt in about themselves (they can view
+  -- their own data), but is no guardian, so gets no summary.
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  insert into public.alert_preferences(student_id, channel, enabled, weekly_digest) values (current_setting('t.st')::uuid, 'email', false, true);
+  perform hp_test.as_service();
+  perform hp_test.ok(not exists (select 1 from public.weekly_digest_payload(week) p where p->>'user_id' = '20000000-0000-0000-0000-000000000051'),
+    'the student is not a recipient of their own summary');
+  perform hp_test.as_owner();
+  delete from public.alert_preferences where user_id = '20000000-0000-0000-0000-000000000051';
+end $$;
+
 -- 5. Inactivity: the email preference's own threshold, once per stretch, with a key independent of session settings.
 do $$
 declare rows jsonb; k1 text; k2 text; ben uuid := current_setting('t.st_b')::uuid;
 begin
   perform hp_test.as_service();
+  perform set_config('request.jwt.claims', '{"role":"service_role","n":1}', true);
   select jsonb_agg(p) into rows from public.inactivity_alert_payload() p;
+  perform hp_test.is(current_setting('request.jwt.claims'), '{"role":"service_role","n":1}', 'inactivity: the caller''s claims are restored');
+  perform hp_test.is(current_setting('request.jwt.claim.sub'), '', 'inactivity: the caller''s sub is restored');
   -- Riley: email alert at 5 days (2 days without practice: not due), push alert at 1 day (not an email). Cleo: email
   -- alert off. Ben: never practised, email alert at 3 days. CO and the viewer have no enabled email alert.
   perform hp_test.is(jsonb_array_length(rows), 1, 'one alert is due');

@@ -32,11 +32,16 @@
 --   also accepts https://127.0.0.1 and https://localhost, for the local fake push service.
 --
 -- Differences from the reference SQL (all intentional):
--- * report_notification_device can no longer overwrite another login's device: the upsert only updates a row the
---   caller owns (the reference checked ownership first, then upserted, so a concurrent first report of the same id
---   by another login could replace that login's endpoint and keys with the caller's). It also refuses a null device
---   id, an unknown channel, and an endpoint outside the known push services (above), and keeps at most 20 devices per
---   login (the least recently seen are dropped).
+-- * report_notification_device: a device belongs to the login that reported it last (the contract's "a token moves to
+--   the latest login that reports it", applied to the device id, the FCM token and the web push endpoint alike). The
+--   reference refused a device id another login had reported (a shared browser could never get reminders for its new
+--   login), moved only FCM tokens, and kept a web endpoint under two logins (the previous student's reminders kept
+--   going to the shared browser). Reports of one id, token or endpoint are serialised by advisory locks, so a
+--   concurrent report can't leave one login's row with another login's keys. It also refuses a null device id, an
+--   unknown channel, and an endpoint outside the known push services (above), and keeps at most 20 devices per login
+--   (the least recently seen are dropped).
+-- * set_practice_reminders applies a partial patch: a key left out keeps the stored value (the reference reset it to
+--   the default; array() of no rows is '{}', never null, so its coalesce never applied). A first save fills defaults.
 -- * set_practice_reminders serialises per student (transaction advisory lock) before reading the previous settings, so
 --   two simultaneous "off" saves can't both flag a change and email guardians twice. It refuses a p_settings that is
 --   not a JSON object.
@@ -50,6 +55,11 @@
 --   recorded; the reference would fail on a removed device and leave the reminder 'claimed').
 -- * snooze_practice_reminder_delivery takes 15 minutes to 24 hours (as snooze_practice_reminders does) and only a
 --   claimed or sent delivery; snooze_practice_reminders marks only the latest sent, not yet snoozed delivery.
+-- * Lost claims: a claim younger than practice_reminder_claim_timeout() (15 minutes) counts as sent toward the daily
+--   and weekly limits and the minimum gap (practice_reminder_candidates); an older one becomes 'failed' with
+--   failure_reason 'claim_expired', in claim_practice_reminder (that student) or the service-only sweep
+--   expire_practice_reminder_claims(). The reference left a lost claim 'claimed' forever and never counted it.
+-- * snooze_practice_reminder_delivery is refused (null, token not used up) while reminders are off.
 -- * days must be distinct weekdays, school_days too (public.iso_weekdays_valid, from CR-26).
 -- * Column grants: clients read neither updated_by (settings) nor changed_by / household_id (changes).
 -- * Settings are also readable by a set_goals guardian without view_progress (the #218 C1 precedent).
@@ -156,7 +166,9 @@ create table public.practice_reminder_deliveries (
   status text not null check (status in ('claimed', 'sent', 'failed', 'gone')),
   sent_at timestamptz not null default now(),
   opened_at timestamptz,
-  snoozed_at timestamptz
+  snoozed_at timestamptz,
+  -- Why a reminder failed: 'claim_expired' when a claim was never finished (see practice_reminder_claim_timeout).
+  failure_reason text check (failure_reason is null or (status = 'failed' and length(failure_reason) between 1 and 40))
 );
 create index practice_reminder_deliveries_student_idx on public.practice_reminder_deliveries(student_id, sent_at desc);
 create index practice_reminder_deliveries_device_idx on public.practice_reminder_deliveries(device_id);
@@ -179,6 +191,12 @@ alter table public.parent_email_deliveries add constraint parent_email_deliverie
 -- Internal helpers
 -- ---------------------------------------------------------------------------------------------------------------
 
+-- A claim not finished within this time is treated as lost (the sender stopped between claim and finish). Until then
+-- it counts as sent toward the limits and the minimum gap, so a crashed run can't make the next run send again early;
+-- after it, the claim becomes 'failed' (reason 'claim_expired').
+create function public.practice_reminder_claim_timeout() returns interval
+language sql immutable set search_path = '' as $$ select interval '15 minutes' $$;
+
 create function public.local_push_endpoints_enabled() returns boolean
 language sql stable security definer set search_path = '' as $$
   select exists (select 1 from pg_catalog.pg_db_role_setting d
@@ -200,7 +218,7 @@ $$;
 create function public.set_practice_reminders(p_student uuid, p_settings jsonb) returns jsonb
 language plpgsql volatile security definer set search_path = '' as $$
 declare v_student public.students; v_old public.practice_reminder_settings; v_role text; v_enabled boolean;
-  v_notify boolean := false;
+  v_notify boolean := false; v_stored boolean;
 begin
   select * into v_student from public.students where id = p_student and archived_at is null;
   if not found then raise exception 'Not allowed to change reminders for this student' using errcode = '42501'; end if;
@@ -216,16 +234,23 @@ begin
   select * into v_old from public.practice_reminder_settings where student_id = p_student;
   v_enabled := coalesce((p_settings->>'enabled')::boolean, v_old.enabled, false);
 
+  -- A key left out keeps the stored value (or the default, for a first save); a key given replaces it.
+  v_stored := v_old.student_id is not null;
   insert into public.practice_reminder_settings as s (student_id, enabled, times, days, quiet_start, quiet_end, school_days,
       school_start, school_end, max_per_day, max_per_week, updated_by, updated_at)
   values (p_student, v_enabled,
-    coalesce(array(select jsonb_array_elements_text(p_settings->'times')), array['16:30']),
-    coalesce(array(select (jsonb_array_elements_text(p_settings->'days'))::smallint), array[1,2,3,4,5,6,7]::smallint[]),
-    coalesce(p_settings->>'quiet_start', '21:00'), coalesce(p_settings->>'quiet_end', '07:00'),
-    coalesce(array(select (jsonb_array_elements_text(p_settings->'school_days'))::smallint), array[1,2,3,4,5]::smallint[]),
-    case when p_settings ? 'school_start' then p_settings->>'school_start' else '08:00' end,
-    case when p_settings ? 'school_end' then p_settings->>'school_end' else '15:00' end,
-    coalesce((p_settings->>'max_per_day')::smallint, 1), coalesce((p_settings->>'max_per_week')::smallint, 5),
+    case when p_settings ? 'times' then array(select jsonb_array_elements_text(p_settings->'times'))
+         when v_stored then v_old.times else array['16:30'] end,
+    case when p_settings ? 'days' then array(select (jsonb_array_elements_text(p_settings->'days'))::smallint)
+         when v_stored then v_old.days else array[1,2,3,4,5,6,7]::smallint[] end,
+    case when p_settings ? 'quiet_start' then p_settings->>'quiet_start' when v_stored then v_old.quiet_start else '21:00' end,
+    case when p_settings ? 'quiet_end' then p_settings->>'quiet_end' when v_stored then v_old.quiet_end else '07:00' end,
+    case when p_settings ? 'school_days' then array(select (jsonb_array_elements_text(p_settings->'school_days'))::smallint)
+         when v_stored then v_old.school_days else array[1,2,3,4,5]::smallint[] end,
+    case when p_settings ? 'school_start' then p_settings->>'school_start' when v_stored then v_old.school_start else '08:00' end,
+    case when p_settings ? 'school_end' then p_settings->>'school_end' when v_stored then v_old.school_end else '15:00' end,
+    case when p_settings ? 'max_per_day' then (p_settings->>'max_per_day')::smallint when v_stored then v_old.max_per_day else 1 end,
+    case when p_settings ? 'max_per_week' then (p_settings->>'max_per_week')::smallint when v_stored then v_old.max_per_week else 5 end,
     auth.uid(), now())
   on conflict (student_id) do update set enabled = excluded.enabled, times = excluded.times, days = excluded.days,
     quiet_start = excluded.quiet_start, quiet_end = excluded.quiet_end, school_days = excluded.school_days,
@@ -267,42 +292,56 @@ begin
   return v;
 end $$;
 
+-- A device (an app install or a browser profile) belongs to the login that reported it last: on a shared phone or
+-- browser, the device id, the FCM token or the web push endpoint moves to the new login, and the previous login's row
+-- is taken over or removed, so the previous student's reminders never go to it again. Reports of one device id, token
+-- or endpoint are serialised (transaction advisory locks, always taken in the order id, token, endpoint), so two
+-- logins reporting at once end with one row holding the later login and that login's own keys, never a mix.
 create function public.report_notification_device(p_device uuid, p_permission text, p_subscription jsonb default null,
   p_platform text default null, p_channel text default 'webpush', p_token text default null)
 returns void language plpgsql volatile security definer set search_path = '' as $$
 declare v_me uuid := auth.uid(); v_channel text := coalesce(p_channel, 'webpush'); v_granted boolean := p_permission = 'granted';
-  v_endpoint text; v_rows integer;
+  v_endpoint text; v_token text; v_previous uuid;
 begin
   if v_me is null then raise exception 'Sign in first' using errcode = '42501'; end if;
   if p_device is null then raise exception 'A device id is required' using errcode = '22023'; end if;
   if v_channel not in ('webpush', 'fcm') then raise exception 'Unknown push channel' using errcode = '22023'; end if;
-  if exists (select 1 from public.notification_devices d where d.id = p_device and d.user_id <> v_me) then
-    raise exception 'Not your device' using errcode = '42501';
-  end if;
   v_endpoint := case when v_granted and v_channel = 'webpush' then p_subscription->>'endpoint' end;
+  v_token := case when v_granted and v_channel = 'fcm' then p_token end;
   if v_endpoint is not null and not public.push_endpoint_allowed(v_endpoint) then
     raise exception 'Unsupported push service' using errcode = '22023';
   end if;
-  -- A native token belongs to one install: if another login reported it before (shared phone), it moves here.
-  if v_channel = 'fcm' and v_granted and p_token is not null then
-    delete from public.notification_devices d where d.push_token = p_token and d.id <> p_device;
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('notification_device:' || p_device::text, 0));
+  if v_token is not null then
+    perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('notification_token:' || v_token, 0));
+  end if;
+  if v_endpoint is not null then
+    perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended('notification_endpoint:' || v_endpoint, 0));
+  end if;
+  -- The same install or browser subscription under another device id (any login) is this device now.
+  if v_token is not null then
+    delete from public.notification_devices d where d.push_token = v_token and d.id <> p_device;
+  end if;
+  if v_endpoint is not null then
+    delete from public.notification_devices d where d.endpoint = v_endpoint and d.id <> p_device;
+  end if;
+  select d.user_id into v_previous from public.notification_devices d where d.id = p_device for update;
+  if v_previous is distinct from v_me and v_previous is not null then
+    -- Another login's device: its delivery history stays with that login's student, unattributed to this device.
+    update public.practice_reminder_deliveries r set device_id = null where r.device_id = p_device;
   end if;
   insert into public.notification_devices as d (id, user_id, permission, platform, channel, push_token, endpoint, p256dh,
       auth_secret, checked_at, gone_at)
-  values (p_device, v_me, p_permission, p_platform, v_channel,
-          case when v_granted and v_channel = 'fcm' then p_token end,
-          v_endpoint,
+  values (p_device, v_me, p_permission, p_platform, v_channel, v_token, v_endpoint,
           case when v_endpoint is not null then p_subscription->'keys'->>'p256dh' end,
           case when v_endpoint is not null then p_subscription->'keys'->>'auth' end, now(), null)
-  on conflict (id) do update set permission = excluded.permission, platform = coalesce(excluded.platform, d.platform),
+  on conflict (id) do update set user_id = excluded.user_id, permission = excluded.permission,
+    platform = case when d.user_id = excluded.user_id then coalesce(excluded.platform, d.platform) else excluded.platform end,
     channel = excluded.channel, push_token = excluded.push_token,
     endpoint = excluded.endpoint, p256dh = excluded.p256dh, auth_secret = excluded.auth_secret, checked_at = now(),
-    gone_at = case when excluded.endpoint is distinct from d.endpoint or excluded.push_token is distinct from d.push_token
-                   then null else d.gone_at end
-  -- Never another login's row, even when it was created between the check above and this statement.
-  where d.user_id = v_me;
-  get diagnostics v_rows = row_count;
-  if v_rows = 0 then raise exception 'Not your device' using errcode = '42501'; end if;
+    gone_at = case when d.user_id = excluded.user_id and excluded.endpoint is not distinct from d.endpoint
+                    and excluded.push_token is not distinct from d.push_token then d.gone_at end,
+    created_at = case when d.user_id = excluded.user_id then d.created_at else now() end;
   -- At most 20 devices per login: the least recently seen go first.
   delete from public.notification_devices d where d.user_id = v_me and d.id in (
     select x.id from public.notification_devices x where x.user_id = v_me order by x.checked_at desc, x.id offset 20);
@@ -377,7 +416,8 @@ begin
     select count(distinct date_trunc('minute', d.sent_at)) filter (where (d.sent_at at time zone v_tz)::date = v_today),
            count(distinct date_trunc('minute', d.sent_at)) filter (where d.sent_at <@ v_week), max(d.sent_at)
       into v_sent_today, v_sent_week, v_last
-      from public.practice_reminder_deliveries d where d.student_id = r.student_id and d.status = 'sent';
+      from public.practice_reminder_deliveries d where d.student_id = r.student_id
+        and (d.status = 'sent' or (d.status = 'claimed' and d.sent_at > p_now - public.practice_reminder_claim_timeout()));
     return next jsonb_build_object(
       'student_id', r.student_id, 'time_zone', v_tz,
       'settings', jsonb_build_object('enabled', r.enabled, 'times', to_jsonb(r.times), 'days', to_jsonb(r.days),
@@ -398,6 +438,10 @@ begin
   if p_id is null or p_student is null or p_key is null or p_slot is null then
     raise exception 'Claim needs an id, a student, a key and a slot' using errcode = '22023';
   end if;
+  -- This student's lost claims fail first, so a reminder whose claim was lost may be claimed again.
+  update public.practice_reminder_deliveries d set status = 'failed', failure_reason = 'claim_expired'
+  where d.student_id = p_student and d.status = 'claimed'
+    and d.sent_at <= coalesce(p_at, now()) - public.practice_reminder_claim_timeout();
   insert into public.practice_reminder_deliveries(id, student_id, slot, reminder_key, status, sent_at)
   select p_id, p_student, p_slot, p_key, 'claimed', coalesce(p_at, now())
   from public.practice_reminder_settings s
@@ -429,6 +473,17 @@ begin
   end if;
 end $$;
 
+-- Sweep: every lost claim becomes 'failed' (reason 'claim_expired'). Returns how many.
+create function public.expire_practice_reminder_claims(p_now timestamptz default now()) returns integer
+language plpgsql volatile security definer set search_path = '' as $$
+declare n integer;
+begin
+  update public.practice_reminder_deliveries d set status = 'failed', failure_reason = 'claim_expired'
+  where d.status = 'claimed' and d.sent_at <= coalesce(p_now, now()) - public.practice_reminder_claim_timeout();
+  get diagnostics n = row_count;
+  return n;
+end $$;
+
 create function public.retire_notification_device(p_device uuid) returns void
 language sql volatile security definer set search_path = '' as $$
   update public.notification_devices set gone_at = now() where id = p_device
@@ -442,10 +497,12 @@ begin
   if p_minutes is null or p_minutes not between 15 and 1440 then
     raise exception 'Snooze is 15 minutes to 24 hours' using errcode = '22023';
   end if;
-  update public.practice_reminder_deliveries set snoozed_at = now()
-  where id = p_delivery and snoozed_at is null and status in ('claimed', 'sent')
-  returning student_id into v_student;
-  if v_student is null then return null; end if;  -- unknown, not delivered, or already used
+  -- Refused (null, and the token is not used up) when reminders are off: there is nothing to snooze.
+  update public.practice_reminder_deliveries r set snoozed_at = now()
+  where r.id = p_delivery and r.snoozed_at is null and r.status in ('claimed', 'sent')
+    and exists (select 1 from public.practice_reminder_settings s where s.student_id = r.student_id and s.enabled)
+  returning r.student_id into v_student;
+  if v_student is null then return null; end if;  -- unknown, not delivered, already used, or reminders are off
   update public.practice_reminder_settings set snoozed_until = now() + make_interval(mins => p_minutes)
   where student_id = v_student and enabled returning snoozed_until into v;
   return v;
@@ -473,6 +530,9 @@ begin
 end $$;
 
 revoke all on function public.local_push_endpoints_enabled() from public, anon, authenticated;
+revoke all on function public.practice_reminder_claim_timeout() from public, anon, authenticated;
+revoke all on function public.expire_practice_reminder_claims(timestamptz) from public, anon, authenticated;
+grant execute on function public.expire_practice_reminder_claims(timestamptz) to service_role;
 revoke all on function public.push_endpoint_allowed(text) from public, anon, authenticated;
 revoke all on function public.set_practice_reminders(uuid, jsonb) from public, anon;
 revoke all on function public.snooze_practice_reminders(uuid, integer) from public, anon;

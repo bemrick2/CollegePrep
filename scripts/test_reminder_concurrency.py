@@ -6,8 +6,11 @@
 2. The guardian notice: the student's two devices turn reminders off at once. The second waits for the first (the
    per-student advisory lock) and sees reminders already off, so exactly one change is flagged and guardians get one
    notice each.
-3. A device id first reported by two logins at once: the second waits for the first's row, then is refused, and the
-   first login's endpoint and keys are untouched.
+3. A shared browser: one device id reported by two logins at once. The second waits for the first (the advisory
+   lock on the device id), then takes the device over: one row, the second login's, with the second login's endpoint
+   and keys only, never a mix.
+4. A shared phone: one FCM token reported by two logins at once under different device ids. The second waits (the
+   lock on the token), then the token is only on the second login's device.
 
 Committed fixtures need their own database, so this creates and drops <REMINDER_CONCURRENCY_DB, default
 reminder_concurrency> using the PG* environment.
@@ -105,10 +108,21 @@ def main():
         rep = lambda uid, ep: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{dev}', 'granted', "
                                f"'{{\"endpoint\":\"https://fcm.googleapis.com/fcm/send/{ep}\",\"keys\":{{\"p256dh\":\"k-{ep}\",\"auth\":\"a-{ep}\"}}}}', 'android');")
         (ra, oa, ea), (rb, ob, eb), waited = race(rep(STUDENT, 'student'), rep(OUTSIDER, 'outsider'))
-        expect(ra == 0, f'the first report succeeds {ea.strip()}')
-        expect(rb != 0 and 'Not your device' in eb, f'the concurrent second report is refused {eb.strip()[:200]}')
-        row = psql('-At', '-c', f"select user_id || ' ' || endpoint || ' ' || p256dh from public.notification_devices where id = '{dev}'").stdout.strip()
-        expect(row == f'{STUDENT} https://fcm.googleapis.com/fcm/send/student k-student', f'the first login keeps its endpoint and keys ({row})')
+        expect(ra == 0 and rb == 0, f'both reports succeed {ea.strip()} {eb.strip()[:200]}')
+        expect(waited >= 1.0, f'the second report waited for the first ({waited:.2f}s)')
+        row = psql('-At', '-c', f"select count(*) || ' ' || string_agg(user_id || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret, ';') "
+                               f"from public.notification_devices where id = '{dev}'").stdout.strip()
+        expect(row == f'1 {OUTSIDER} https://fcm.googleapis.com/fcm/send/outsider k-outsider a-outsider',
+               f'one row: the later login, with its own endpoint and keys ({row})')
+
+        # 4. One FCM token reported by two logins at once, under different device ids.
+        tok = 'fcm-registration-token-shared-0001'
+        fcm = lambda uid, d: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{d}', 'granted', null, 'ios', 'fcm', '{tok}');")
+        (ra, oa, ea), (rb, ob, eb), waited = race(fcm(STUDENT, '5f000000-0000-4000-a000-0000000000b1'), fcm(OUTSIDER, '5f000000-0000-4000-a000-0000000000b2'))
+        expect(ra == 0 and rb == 0, f'both token reports succeed {ea.strip()} {eb.strip()[:200]}')
+        expect(waited >= 1.0, f'the second token report waited for the first ({waited:.2f}s)')
+        row = psql('-At', '-c', f"select count(*) || ' ' || string_agg(id || ' ' || user_id, ';') from public.notification_devices where push_token = '{tok}'").stdout.strip()
+        expect(row == f'1 5f000000-0000-4000-a000-0000000000b2 {OUTSIDER}', f'the token is on the later login\'s device only ({row})')
     finally:
         psql('-c', f'drop database if exists {DB} with (force)', db='postgres', check=False)
     print('reminder concurrency test passed')

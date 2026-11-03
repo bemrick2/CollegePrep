@@ -21,7 +21,8 @@
 -- Differences from the reference SQL (all intentional):
 -- * update_setup_progress refuses an archived student for every caller (the reference checked archival only for the
 --   student's own login), refuses a patch that is not a JSON object or carries an unknown key, and requires the two
---   flags to be JSON booleans and benchmark_scheduled_for to be null or a timestamp. The 60-day limit is unchanged.
+--   flags to be JSON booleans and benchmark_scheduled_for to be null or a timestamp, at most one day in the past (the
+--   reference had no lower bound). The 60-day limit is unchanged.
 -- * student_setup_progress is also readable by the guardians who may write it (manage_students / set_goals without
 --   view_progress), the #218 C1 precedent: otherwise they could write a row they can never read back.
 -- * Clients read the progress columns and updated_at only; updated_by (a user id) is not granted.
@@ -113,7 +114,8 @@ comment on table public.student_setup_progress is
   'CR-26: setup completion, starting-point answer and benchmark schedule per student. Written only by update_setup_progress.';
 
 -- p_patch keys (all optional): setup_completed (boolean; true records completion once), starting_point_answered
--- (boolean; likewise), benchmark_scheduled_for (timestamp or null; present = set or clear it, at most 60 days ahead).
+-- (boolean; likewise), benchmark_scheduled_for (timestamp or null; present = set or clear it; from one day ago to 60
+-- days ahead).
 create function public.update_setup_progress(p_student uuid, p_patch jsonb) returns void
 language plpgsql volatile security definer set search_path = '' as $$
 declare v_key text; v_at timestamptz;
@@ -140,6 +142,9 @@ begin
   v_at := (p_patch->>'benchmark_scheduled_for')::timestamptz;
   if v_at > now() + interval '60 days' then
     raise exception 'Schedule the benchmark within 60 days' using errcode = '22023';
+  end if;
+  if v_at < now() - interval '1 day' then
+    raise exception 'The benchmark can''t be scheduled more than a day in the past' using errcode = '22023';
   end if;
   insert into public.student_setup_progress as p (student_id, setup_completed_at, starting_point_answered_at,
       benchmark_scheduled_for, updated_by, updated_at)
