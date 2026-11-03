@@ -63,6 +63,8 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
+      - name: Edge function unit tests (Deno)
+        run: deno test supabase/functions/_shared/
       - name: PostgREST 12.2.3
         run: |
           curl -fsSL -o /tmp/pgrst.tar.xz https://github.com/PostgREST/postgrest/releases/download/v12.2.3/postgrest-v12.2.3-linux-static-x64.tar.xz

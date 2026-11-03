@@ -127,7 +127,7 @@ do $$ begin
   perform hp_test.expect_error(format($q$update public.student_planning_preferences set exam_family = 'sat', target_score = 1205 where student_id = %L$q$, current_setting('t.st')), '23514');
   update public.student_planning_preferences set exam_family = 'sat', target_score = 1350 where student_id = current_setting('t.st')::uuid;
   perform hp_test.expect_error(format($q$update public.student_planning_preferences set goals = array['win'] where student_id = %L$q$, current_setting('t.st')), '23514');
-  perform hp_test.expect_error(format($q$update public.student_planning_preferences set daily_minutes = 30 where student_id = %L$q$, current_setting('t.st')), '23514');
+  perform hp_test.expect_error(format($q$update public.student_planning_preferences set daily_minutes = 31 where student_id = %L$q$, current_setting('t.st')), '23514');  -- 5-30 since CR-26
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   perform hp_test.check((select target_score = 1350 and set_by = '20000000-0000-0000-0000-0000000000a2' from public.student_planning_preferences),
     'student reads what the guardian set');

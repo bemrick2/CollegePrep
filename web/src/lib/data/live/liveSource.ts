@@ -214,8 +214,8 @@ export class LiveSource implements DataSource {
   }
 
   async studentDevices(studentId: string): Promise<DeviceStatus[]> {
-    const rows = await rpc<{ device_id: string; permission: DevicePermission; platform: DevicePlatform | null; can_receive: boolean; checked_at: string }[]>(this.sb, 'student_notification_devices', { p_student: studentId })
-    return (rows ?? []).map((r) => ({ deviceId: r.device_id, permission: r.permission, platform: r.platform, canReceive: r.can_receive, checkedAt: r.checked_at }))
+    const rows = await rpc<{ device_handle: string; permission: DevicePermission; platform: DevicePlatform | null; can_receive: boolean; checked_at: string }[]>(this.sb, 'student_notification_devices', { p_student: studentId })
+    return (rows ?? []).map((r) => ({ deviceId: r.device_handle, permission: r.permission, platform: r.platform, canReceive: r.can_receive, checkedAt: r.checked_at }))
   }
 
   async reminderHistory(studentId: string): Promise<ReminderChange[]> {
