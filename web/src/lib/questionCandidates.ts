@@ -115,8 +115,17 @@ const clone = <T,>(x: T): T => JSON.parse(JSON.stringify(x))
 
 /** The question as the app and the ledger see it: the import line with its import_id as the id. */
 export function asQuestion(v: CandidateVersion, importId: string): FixtureQuestion {
-  const { contract: _c, import_id: _i, origin: _o, author: _a, license: _l, source_attribution: _s, source_url: _u, requested_pool: _p, status: _st, ...content } = v.item
+  const { contract: _c, import_id: _i, origin: _o, author: _a, license: _l, source_attribution: _s, source_url: _u, requested_pool: _p, status: _st, ...content } = withLists(v.item)
   return { id: importId, ...(content as Omit<FixtureQuestion, 'id'>) }
+}
+
+/**
+ * The contract lets a numeric item leave out `choices` and `distractors`, and any item leave out `strategies`. The app's
+ * question shape always has them, as lists, so they are filled in as empty lists once, here and in the content hash at
+ * intake, so a hash never changes because a later step fills them in.
+ */
+export function withLists<T extends Partial<ImportedQuestion>>(item: T): T {
+  return { ...item, choices: item.choices ?? [], distractors: item.distractors ?? [], strategies: item.strategies ?? [] }
 }
 
 export const latest = (c: Candidate): CandidateVersion => c.versions[c.versions.length - 1]!
@@ -151,7 +160,7 @@ export function intake(reg: Registry, items: ImportedQuestion[], batch: string, 
   for (const raw of items) {
     const item = clone(raw)
     const id = item.import_id
-    const hash = contentHash({ id, ...item } as unknown as FixtureQuestion)
+    const hash = contentHash({ id, ...withLists(item) } as unknown as FixtureQuestion)
     const rec = recordHash(item)
     const key = questionKey(item)
     const existing = next.candidates[id]

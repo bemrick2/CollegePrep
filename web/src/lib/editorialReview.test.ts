@@ -59,6 +59,42 @@ describe('review items from an imported batch (labelled TEST-ONLY fixtures, not 
 })
 
 describe('review packets for an imported batch', () => {
+  it('the review copy shows everything the sign-off hash covers that students see: remember, trap labels, strategies, expected time', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'choice' && l.remember && l.distractors.some((d) => d.trap) && l.strategies?.length)!
+    const reg = intake(emptyRegistry(), [line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const review = Object.entries(packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).toContain(`Remember this.</b> ${line.remember!.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')}`)
+    expect(review).toContain(`trap shown to students: ${line.distractors.find((d) => d.trap)!.trap}`)
+    expect(review).toContain(line.strategies![0]!.strategy_key)
+    expect(review).toContain(`Expected time.</b> ${line.expected_time_seconds} seconds`)
+  })
+
+  it('(#293 review) the review copy escapes every field, even ones a validator should already have refused', () => {
+    const line = testOnlyBatch(1)[0]!
+    const hostile = { ...line, strategies: [{ strategy_key: 'k<b>', role: '<img src=x onerror=alert(1)>', is_fastest: false, explanation: '<script>x</script>' }], remember: '<i>r</i>' } as unknown as typeof line
+    const reg = intake(emptyRegistry(), [hostile], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const review = Object.entries(packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).not.toMatch(/<img|<script|<i>r|k<b>/)
+    expect(review).toContain('&lt;img src=x onerror=alert(1)&gt;')
+  })
+
+  it('an item without lists gets the same content hash as one with empty lists, so filling them in later voids nothing', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
+    const { distractors: _d, choices: _c, strategies: _s, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown; strategies?: unknown }
+    const hashOf = (l: unknown) => latest(intake(emptyRegistry(), [l as typeof line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry.candidates[line.import_id]!).content_hash
+    expect(hashOf(bare)).toBe(hashOf({ ...bare, choices: [], distractors: [], strategies: [] }))
+  })
+
+  it('a numeric item imported without distractors or choices (allowed by the contract) gets packets', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
+    const { distractors: _d, choices: _c, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown }
+    const reg = intake(emptyRegistry(), [bare as typeof line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const files = packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)
+    const review = Object.entries(files).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).toContain('Accepted:')
+    expect(Object.entries(files).find(([k]) => k.startsWith('blind-'))![1]).toContain('(Enter a number.)')
+  })
+
   const items = itemsFromRegistry(batch(4), TI, R)
   const files = packetFiles(items, EMPTY, R, 'Imported batch')
 
