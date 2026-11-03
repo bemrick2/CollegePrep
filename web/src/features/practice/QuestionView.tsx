@@ -94,7 +94,7 @@ export function QuestionView({
                   >
                     {isRight ? <Check size={16} /> : isWrongPick ? <X size={16} /> : c.key}
                   </span>
-                  <span className="text-ink">{c.text}</span>
+                  <span className="whitespace-pre-line text-ink">{c.text}</span>
                   <span className="sr-only">{i < 9 ? `(press ${i + 1})` : ''}</span>
                 </button>
               )

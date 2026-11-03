@@ -126,6 +126,14 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/frontend_contracts.sql
       - name: Question rights gate and generated-item review rule (CR-24)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/question_rights.sql
+      - name: Setup on the account (CR-26)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/account_setup.sql
+      - name: Parent emails (CR-22)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/parent_emails.sql
+      - name: Practice reminders (CR-27)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_reminders.sql
+      - name: Concurrent reminder claims, reminders-off saves and device reports (CR-27)
+        run: python scripts/test_reminder_concurrency.py
       - name: Data export and deletion requests; every table has a data-request decision (A4)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/data_requests.sql
       - name: Data requests again under Supabase's default privileges, as on hosted (A4)

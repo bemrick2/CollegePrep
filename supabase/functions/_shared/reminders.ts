@@ -5,7 +5,8 @@
 //   - reminders are on, and the student hasn't snoozed them;
 //   - it's one of the family's chosen times (or the end of a snooze), on a chosen day;
 //   - it isn't quiet hours (overnight by default) or school hours on a school day;
-//   - the daily and weekly limits aren't reached, and the last reminder was at least MIN_GAP_MINUTES ago;
+//   - the daily and weekly limits aren't reached, and the last reminder was at least MIN_GAP_MINUTES ago (the end of
+//     a snooze is exempt from the daily limit and the gap, not from the weekly limit);
 //   - the student hasn't already done today's planned practice, and the week's goal isn't met.
 
 export interface ReminderSettings {
@@ -142,9 +143,12 @@ export function reminderDecision(s: ReminderSettings, c: ReminderContext, window
   if (inSchoolHours(s, weekday, minutes)) return { reason: 'school_hours', slot }
   if (c.weeklyGoal && c.weekDone >= c.weeklyGoal) return { reason: 'week_goal_met', slot }
   if (c.practisedToday >= plannedToday(s, c.weeklyGoal)) return { reason: 'practice_done', slot }
-  if (c.sentToday >= s.maxPerDay) return { reason: 'daily_limit', slot }
+  // "Remind me later" answers a reminder that was just sent, so the daily limit and the minimum gap would always stop
+  // it. The snooze is exempt from both; it stays one reminder, because its key (the snooze's end) is claimed once and
+  // a sent snooze clears snoozedUntil. The weekly limit still applies.
+  if (!fromSnooze && c.sentToday >= s.maxPerDay) return { reason: 'daily_limit', slot }
   if (c.sentThisWeek >= s.maxPerWeek) return { reason: 'weekly_limit', slot }
-  if (c.lastSentAt && nowMs - Date.parse(c.lastSentAt) < MIN_GAP_MINUTES * 60_000) return { reason: 'too_soon', slot }
+  if (!fromSnooze && c.lastSentAt && nowMs - Date.parse(c.lastSentAt) < MIN_GAP_MINUTES * 60_000) return { reason: 'too_soon', slot }
   return { reason: 'send', slot }
 }
 

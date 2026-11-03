@@ -85,13 +85,14 @@ export const stateOf = (item: ReviewItem, ledger: Ledger, reviewers: ReviewerReg
 
 // --- packets -------------------------------------------------------------------------------------------------------
 
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
+// Every value is text from an untrusted batch: always stringified and escaped.
+const esc = (s: unknown) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
 const csv = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`
 const table = (rows: unknown[][]) => rows.map((r) => r.map(csv).join(',')).join('\n') + '\n'
 const page = (title: string, body: string) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title>
 <style>body{font:15px/1.5 Georgia,serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#111;background:#fff}
 article{break-inside:avoid;border-top:1px solid #999;padding:1rem 0}h1{font-size:1.3rem}.id{font:12px monospace;color:#555}
-.passage{white-space:pre-wrap;background:#f4f4f4;padding:.75rem}ul.choices{list-style:none;padding-left:0}.ans{margin-top:.5rem}
+.passage{white-space:pre-wrap;background:#f4f4f4;padding:.75rem}ul.choices{list-style:none;padding-left:0}.ans{margin-top:.5rem}\narticle>p,article li{white-space:pre-wrap}
 .key{color:#064;font-weight:bold}</style></head><body><h1>${esc(title)}</h1>${body}</body></html>`
 
 export const SIGNOFF_COLUMNS = ['id', 'stage', 'reviewer_id', 'by', 'date', 'result', 'hash', 'rights_hash', 'answer', 'seconds', 'license', 'note', 'author_identity'] as const
@@ -117,7 +118,9 @@ ${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}<p>${esc(q.ste
 ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<li><b>${esc(c.key)}.</b> ${esc(c.text)}${q.accepted_answers.includes(c.key) ? ' <span class="key">(key)</span>' : ''}</li>`).join('')}</ul>` : `<p class="key">Accepted: ${esc(q.accepted_answers.join(', '))}</p>`}
 <p><b>Explanation.</b> ${esc(q.teaching_explanation)}</p><p><b>Strategy.</b> ${esc(q.strategy_explanation)}</p>
 <p><b>Hints.</b> ${q.hints.map(esc).join(' / ')}</p>
-<ul>${q.distractors.map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}</li>`).join('')}</ul></article>`)
+${q.remember ? `<p><b>Remember this.</b> ${esc(q.remember)}</p>` : ''}<p><b>Expected time.</b> ${q.expected_time_seconds ?? '—'} seconds</p>
+<ul>${(q.distractors ?? []).map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}${d.trap ? ` <i>(trap shown to students: ${esc(d.trap)})</i>` : ''}</li>`).join('')}</ul>
+${(q.strategies ?? []).length ? `<p><b>Strategies shown to students.</b></p><ul>${(q.strategies ?? []).map((st) => `<li>${esc(st.strategy_key)} (${esc(st.role)}${st.is_fastest === true ? ', fastest' : ''}): ${esc(st.explanation)}</li>`).join('')}</ul>` : ''}</article>`)
       .join('\n')
     files[`review-${g}.html`] = page(`${label} review copy: ${g}. Contains the key: not for blind solvers.`, full)
   }

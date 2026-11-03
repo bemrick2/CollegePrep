@@ -19,7 +19,11 @@ export interface DigestStudent {
   /** Up to three skills flagged by student_skill_estimates. */
   focus: { skill_name: string; section: string; reason: 'knowledge' | 'pacing'; accuracy: number | null; pacing_ratio: number | null }[]
   last_check: { kind: 'initial' | 'mini' | 'full'; completed_at: string } | null
-  /** Present only when this guardian turned on the alert and the threshold is reached. */
+  /**
+   * As on the parent dashboard (student_inactivity()): present when this guardian has an inactivity alert enabled for
+   * the student on any channel and the smallest such threshold is reached. The separate inactivity email
+   * (inactivity_alert_payload) uses only the email alert's own threshold.
+   */
   inactivity: { threshold_days: number; days_inactive: number | null } | null
 }
 
