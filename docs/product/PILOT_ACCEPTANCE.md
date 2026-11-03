@@ -43,13 +43,20 @@ Each table is named on the page as "Academic year unconfirmed" or "on file but n
 as "no credit".
 
 - **Owner: Research (#191).** Either verify UTC's AP and CLEP tables, or explicitly exclude the mappings that can't be
-  supported. Whatever #191 decides, the engine already enforces two rules:
-  - only verified rows are used;
-  - an awarded course fills a plan row only from the row's own course code, a choice option's own code, `any_of`, or
-    free text that is exactly one course or a plain combination ("BIOL 1113& BIOL 1111"; every course required).
-    Anything else printed in wording never fills a row: "A or B", "A/B", comma lists, a code qualified by an exclusion,
-    note or level ("excluding MUS 156", "COMM 400-Level"), alternatives printed in a course's title ("MATH 1130
-    College Algebra, MATH 1830: …, or MATH 1950: …"), and choice options printed that way (section 4).
+  supported.
+  - **Outcome (2026-11-03): all 57 AP and 36 CLEP mappings are excluded.**
+    - Every value matches the raw registrar pages, but neither page prints an academic year.
+    - The 2026-2027 catalog is behind a bot challenge.
+    - AP Statistics' MATH 2100 was renumbered MATH 1530 in Fall 2026.
+    - Both records stay `partially_verified`, so nothing in the engine changes.
+    - Exact list, reasons and plan-row answers: `UTC_CREDIT_MAPPINGS.md`.
+  - Whatever #191 decides, the engine already enforces two rules:
+    - only verified rows are used;
+    - an awarded course fills a plan row only from the row's own course code, a choice option's own code, `any_of`, or
+      free text that is exactly one course or a plain combination ("BIOL 1113& BIOL 1111"; every course required).
+      Anything else printed in wording never fills a row: "A or B", "A/B", comma lists, a code qualified by an
+      exclusion, note or level ("excluding MUS 156", "COMM 400-Level"), alternatives printed in a course's title
+      ("MATH 1130 College Algebra, MATH 1830: …, or MATH 1950: …"), and choice options printed that way (section 4).
 - **What changes once #191 verifies UTC's tables**, from the tested scenario in `web/scripts/roadmap.pilot.test.ts`:
   - **Microeconomics and Macroeconomics** fill their plan rows, 6 hours in all.
   - **English Language** is **partly** placed. ENGL 1020 fills its row. ENGL 1010 isn't placed, because Management
@@ -190,7 +197,7 @@ The pilot uses inputs the privacy draft (`docs/legal/PRIVACY_POLICY_DRAFT.md`) d
 | 1 | Plan notes and footnotes shown with their rows; no unexplained mark in a pilot plan | Design | done on this branch (tests above) |
 | 2 | Courses that appear only in printed wording (free-text rows, title alternatives, free-text options) can't receive credit, coverage or savings | Design | done on this branch (tests above) |
 | 3 | #297's pilot tests and fixture reviewed | Design | done (see the #218 note) |
-| 4 | UTC AP/CLEP: verified, or unsupported mappings explicitly excluded (#191) | Research | open |
+| 4 | UTC AP/CLEP: verified, or unsupported mappings explicitly excluded (#191) | Research | excluded: all 93 rows stay `partially_verified`, because no year-labelled source could be read. List and reasons in `UTC_CREDIT_MAPPINGS.md` (in review) |
 | 5 | Truncated rows in UTC Economics, International Public Policy and UTC Entrepreneurship corrected, or those plans excluded | Deep Dive | open |
 | 6 | Privacy policy rows for the pilot's fields approved | Owner + counsel | open (section 7) |
 | 7 | Mobile pass at 390 px | Design | open |
