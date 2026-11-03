@@ -30,6 +30,9 @@ up() {
   psql -q -X -v ON_ERROR_STOP=1 -d postgres -c "drop database if exists $DB with (force)" -c "create database $DB" >/dev/null
   # The demo bank is generated and has no human review; its 'fixture:' approvals count only here (CR-24 migration).
   psql -q -X -v ON_ERROR_STOP=1 -d postgres -c "alter database $DB set collegeprep.fixture_approvals = 'on'" >/dev/null
+  # The local fake push service listens on https://127.0.0.1; only a database with this set accepts such an endpoint
+  # (CR-27, 20261102030000_practice_reminders.sql). Hosted never sets it.
+  psql -q -X -v ON_ERROR_STOP=1 -d postgres -c "alter database $DB set collegeprep.local_push_endpoints = 'on'" >/dev/null
   export PGDATABASE=$DB
   psql -q -X -v ON_ERROR_STOP=1 >/dev/null <<'SQL'
 do $$ begin
@@ -56,10 +59,6 @@ SQL
     psql -q -X -v ON_ERROR_STOP=1 -f "$m" >/dev/null || { echo "migration failed: $m" >&2; exit 1; }
   done
   psql -q -X -v ON_ERROR_STOP=1 -c "grant usage on schema public to anon, authenticated, service_role" >/dev/null
-  # Local-only reference implementations of open contract requests (not migrations; see each file's header).
-  for p in "$ROOT"/scripts/local/proposals/*.sql; do
-    [ -e "$p" ] && { psql -q -X -v ON_ERROR_STOP=1 -f "$p" >/dev/null || { echo "proposal failed: $p" >&2; exit 1; }; }
-  done
   (cd "$ROOT/web" && npx vite-node scripts/local/seedFromFixtures.ts) > "$RUN/seed.sql"
   psql -q -X -v ON_ERROR_STOP=1 -f "$RUN/seed.sql" >/dev/null
   # CR-10: the canonical AP/CLEP catalog, from Research's own list (backend/exam_keys.py), as the importer loads it.
@@ -128,7 +127,7 @@ from public.institutions where institution_key = 'local-test-university';
 SQL
 
   cat > "$RUN/pgrst.conf" <<CONF
-db-uri = "postgres://authenticator:authenticator@${PGHOST}:5432/${DB}"
+db-uri = "postgres://authenticator:authenticator@${PGHOST}:${PGPORT:-5432}/${DB}"
 db-schemas = "public"
 db-anon-role = "anon"
 jwt-secret = "${SECRET}"

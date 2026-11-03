@@ -1722,7 +1722,7 @@ def extract_run(targets, run_dir, today=None):
                     pk = next((c['record']['program_key'] for c in pm if c['domain'] == 'academic_programs'), None)
                     if lay and pk:  # two-column Clear Path plan read from word positions (clearpath_plan/v1)
                         from . import clearpath
-                        for c in clearpath.extract_layout(inst, e, page.lines, json.loads(run.load_page(lay['page_file'])[0].text), pk, today_year):
+                        for c in clearpath.extract_layout(inst, e, page, json.loads(run.load_page(lay['page_file'])[0].text), pk, today_year):
                             c['program_role'] = 'degree_map'; cands.append(c); n_c += 1
                 except Exception as exc:  # an unusual PDF must not stop the run; it is counted
                     roles['degree_map']['errors'][f'programmap:{type(exc).__name__}'] += 1
