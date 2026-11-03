@@ -566,19 +566,28 @@ def policy_status(reg):
     return out
 
 
-def current_prices(reg):
-    """Schools with a verified school-published tuition record for the planning year or later (research records, not IPEDS)."""
-    from backend.catalog import records
-    keys = {i['institution_key'] for i in reg}
+def published_tuition(r):
+    """A costs record states the school's tuition when it has the tuition cell, or the school's own combined "tuition and
+    (mandatory) fees" cell as printed (`tuition_and_mandatory_fees`, never a sum the pipeline made). Both count as the same
+    category: a school-published current tuition price."""
+    return r.get('tuition') is not None or r.get('tuition_and_mandatory_fees') is not None
+
+
+def classify_prices(rows, keys):
+    """(path, domain, record) rows -> {'verified': keys, 'partially_verified': keys} for the planning year or later."""
     by = collections.defaultdict(set)
-    for path, domain, r in records():
+    for path, domain, r in rows:
         if domain != 'costs' or 'data/national' in str(path) or r.get('institution_key') not in keys: continue
-        if r.get('verification_status') == 'verified' and r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
-            by['verified'].add(r['institution_key'])
-        elif r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
-            by['partially_verified'].add(r['institution_key'])
+        if not published_tuition(r) or str(r.get('academic_year') or '') < PLANNING_YEAR: continue
+        by['verified' if r.get('verification_status') == 'verified' else 'partially_verified'].add(r['institution_key'])
     by['partially_verified'] -= by['verified']
     return by
+
+
+def current_prices(reg):
+    """Schools with a school-published tuition record for the planning year or later (research records, not IPEDS)."""
+    from backend.catalog import records
+    return classify_prices(records(), {i['institution_key'] for i in reg})
 
 
 def degree_detail():
@@ -643,7 +652,9 @@ def report(rows, secs, reg):
         'fields': per,
         'current_published_tuition': {
             'note': f'Separate from IPEDS: a school-published tuition record for {PLANNING_YEAR} or later in data/institutions, '
-                    'verified against the official page (pipeline research). IPEDS tuition stays available_older.',
+                    'verified against the official page (pipeline research). A record counts when it has the printed tuition or the '
+                    "school's own printed combined tuition-and-fees figure (tuition_and_mandatory_fees); both are the same category. "
+                    'IPEDS tuition stays available_older.',
             'verified_schools': len(cpk), 'partially_verified_schools': len(cp['partially_verified']),
             'enrollment_weighted_verified': round(sum(w(r) for r in rows if r['institution_key'] in cpk) / W, 4) if W else 0},
         'policy_layer': {'note': 'Separate measure. From research records in data/institutions/<folder>/ (awards of type '

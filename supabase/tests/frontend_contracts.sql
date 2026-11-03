@@ -354,6 +354,35 @@ begin
   perform hp_test.as_owner();
 end $$;
 
+-- #296: a per-semester price is never read as a year's price. A verified semester record for the requested residency is
+-- skipped (the school's annual one-price row is used, unchanged), and a school whose only verified price is per semester
+-- reads as missing_cost. Annual records ('academic_year', 'fall_and_spring_semesters' or null) are projected as before.
+insert into public.institution_costs(institution_id, academic_year, residency, tuition, mandatory_fees, cost_period,
+  total_direct_cost, source_id, verification_status, last_verified_at) values
+ ('50000000-0000-0000-0000-000000000004', '2026-27', 'in_state', 20000, 500, 'semester', 20500,
+  '50000000-0000-0000-0000-000000000001', 'verified', current_date),
+ ('50000000-0000-0000-0000-000000000003', '2026-27', 'in_state', 1500, 100, 'semester', null,
+  '50000000-0000-0000-0000-000000000001', 'verified', current_date);
+do $$
+declare r jsonb; i jsonb; st uuid := current_setting('t.st')::uuid;
+begin
+  perform hp_test.as_owner();
+  perform hp_test.expect_error($q$update public.institution_costs set cost_period = 'quarter'
+    where institution_id = '50000000-0000-0000-0000-000000000004' and residency = 'in_state'$q$, '23514');
+  perform hp_test.check((select cost_period = 'semester' and total_direct_cost = 20500 from public.institution_costs_with_provenance
+    where institution_id = '50000000-0000-0000-0000-000000000004' and residency = 'in_state'), 'provenance view serves cost_period');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
+  r := public.cost_projection(st, array['contract-private', 'contract-two'], '2026-27', '{"residency": "in_state", "exam_credits": 24}');
+  i := r->'institutions'->0;
+  perform hp_test.check(i->>'status' = 'ok' and i->'cost'->>'residency' = 'not_applicable', 'semester row skipped ' || i::text);
+  perform hp_test.eq((i->>'baseline_total')::numeric, 164000::numeric, 'annual numbers unchanged');
+  perform hp_test.eq((i->>'savings_total')::numeric, 20500::numeric, 'annual savings unchanged');
+  perform hp_test.check(r->'institutions'->1->>'status' = 'missing_cost', 'a semester-only price is not a year''s price');
+  perform hp_test.as_owner();
+end $$;
+delete from public.institution_costs where cost_period = 'semester' and institution_id in
+  ('50000000-0000-0000-0000-000000000004', '50000000-0000-0000-0000-000000000003');
+
 -- CR-11 award test criteria: shape is enforced, and compare_institutions serves the columns.
 do $$ begin
   perform hp_test.as_owner();

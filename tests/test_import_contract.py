@@ -48,6 +48,14 @@ class ImportContractTests(unittest.TestCase):
         for (domain, field), values in expected.items():
             self.assertEqual(CONTROLLED_VALUES[domain][field], values, f'{domain}.{field} drifted from the migration')
 
+    def test_every_cost_period_is_allowed_by_the_database(self):
+        # #296: institution_costs.cost_period is checked in the migration; a record with another value would fail import.
+        allowed = latest_check_values('institution_costs_cost_period_check',
+            r"add column cost_period text check \(cost_period is null or cost_period in \(([^)]*)\)\)")
+        self.assertEqual(allowed, {'academic_year', 'fall_and_spring_semesters', 'semester'})
+        seen = {r.get('cost_period') for _, d, r in records() if d == 'costs'}
+        self.assertTrue(seen - {None} <= allowed, seen - {None} - allowed)
+
     def test_new_unmapped_domain_fails_validation_and_import(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

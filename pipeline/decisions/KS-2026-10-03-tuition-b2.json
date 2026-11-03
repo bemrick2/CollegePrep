@@ -6,11 +6,13 @@
   "reject": [
     {
       "candidate_id": "559b180c012a006e",
-      "reason": "Pittsburg State \"Undergraduate In-State and Gorilla Advantage Tuition & Costs\" (per semester, academic year 2026-2027): the row \"Tuition (flat rate, incl. campus fees)\" $4,442.00 includes fees but is recorded as tuition alone; the column covers residents of 34 states, so it is not the Kansas in-state rate; and the \"Academic Year Total\" row ($20,518) is mixed into a per-semester record."
+      "reason": "Pittsburg State \"Undergraduate In-State and Gorilla Advantage Tuition & Costs\" (lead \"Tuition & costs per semester (academic year 2026-2027)\"): the column is per semester, and its row \"Tuition (flat rate, incl. campus fees)\" $4,442.00 includes campus fees but the reader stored it as tuition alone; the \"Academic Year Total* (estimated)\" row ($20,518) is also mixed into the per-semester record. Kansas is among the 34 states listed for this In-State/Gorilla Advantage rate, so the residency itself is not the problem. Queued for a reader fix: read \"incl. campus fees\" as tuition_and_mandatory_fees, keep the semester period, and keep the academic-year total out of a semester record.",
+      "queued_reader_fix": "Pittsburg State: flat rate including campus fees is a combined tuition-and-fees cell, per semester; academic-year total row kept out of the semester record"
     },
     {
       "candidate_id": "aade1cb8d0adada1",
-      "reason": "Pittsburg State \"Undergraduate Out-of-State Tuition & Costs\" (per semester): \"Tuition (flat rate, incl. campus fees)\" $10,114.00 recorded as tuition alone, and the \"Academic Year Total\" row is mixed into a per-semester record."
+      "reason": "Pittsburg State \"Undergraduate Out-of-State Tuition & Costs\" (per semester, academic year 2026-2027): \"Tuition (flat rate, incl. campus fees)\" $10,114.00 includes campus fees but was stored as tuition alone, and the \"Academic Year Total\" row is mixed into a per-semester record. Queued for the same reader fix.",
+      "queued_reader_fix": "Pittsburg State out-of-state: same fix"
     }
   ]
 }
