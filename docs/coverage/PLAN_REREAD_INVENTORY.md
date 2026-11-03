@@ -132,6 +132,16 @@ This file reconciles the plans on main `16ec809` with the plans re-read by the `
 
 Not re-read, by reader and status: eou acalog_plan/v1 partially_verified: 1, eou acalog_plan/v1 verified: 20, pdx smartcatalog_program/v1 partially_verified: 1, pdx smartcatalog_program/v1 verified: 6, utc clearpath_plan/v1 partially_verified: 69, utc clearpath_plan/v1 verified: 14, utc pilot_hand_review partially_verified: 1, utc pilot_hand_review verified: 2, utk no evidence ref verified: 1.
 
+## The 115 not re-read: resolved (2026-11-02, `programs/utc-clearpath-notes`)
+
+| Group | Count | Outcome |
+|---|---|---|
+| UTC Clear Path (`clearpath_plan/v1`) | 83 | The reader now stores what the PDF prints outside the grid (notice, footnotes, unmarked notes, the 'Completed:' checklist). The independent review approved 76: 63 were verified again and 13 verified plans gained their notice and checklist. 7 stay partially verified: Geology and Hydrogeology (the checklist continues onto page 2); Political Science ('*' printed twice, '**' with no note); Environmental Compliance, Languages and Linguistics, Spanish, and Spanish for the Professions (an uncited note about specific courses) |
+| UTC pilot hand review | 3 | Nursing: verified, and its two notes are stored on the rows they mark. CS Data Science and AI: verified, and its PDF prints no notes. Psychology: stays partially verified, because its checklist prints '**' with no note |
+| EOU (`acalog_plan/v1`) | 21 | 3 verified plans downgraded after an independent audit: Early Childhood Education's program conditions, and the English/Writing BA-only language note (on-campus and online). 1 was already partially verified. The other 17 were also audited, comparing every printed line in order: 16 are complete and stay verified. Multidisciplinary Studies was downgraded because its term labels are misread: the page's 'THRID YEAR' heading is stored as an item, and terms 7-9 are labelled Second Year. Follow-up, not a verification issue: some EOU records store page debris ('Updated June 2024', '|') and plan notes as course rows (Art, History, Theatre) |
+| PDX (`smartcatalog_program/v1`) | 7 | All 6 verified records downgraded after an independent audit. Their terms are the whole requirements section, and its elective definitions, grade/GPA rules and printed totals are not stored. 1 was already partially verified |
+| UTK hand review | 1 | Verified. It stores its footnote, its grade, progression and elective rules, and its prior-credit notes |
+
 ## Held reasons
 
 The 290 held plans carry 302 reason labels, because 12 plans have two reasons each:

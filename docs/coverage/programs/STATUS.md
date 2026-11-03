@@ -110,7 +110,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | RI | **in_progress** | 12 | 0 | 0% (needs 80%) | 0 | 10 | 14 |
 | SC | **in_progress** | 37 | 1 | 23% (needs 80%) | 0 | 31 | 40 |
 | SD | **in_progress** | 15 | 0 | 0% (needs 80%) | 0 | 13 | 15 |
-| TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 1 | 33 | 62 |
+| TN | **in_progress** | 43 | 1 | 5% (needs 80%) | 0 | 33 | 62 |
 | TX | **in_progress** | 118 | 7 | 17% (needs 80%) | 0 | 95 | 137 |
 | UT | **in_progress** | 12 | 2 | 29% (needs 80%) | 0 | 8 | 19 |
 | VA | **in_progress** | 49 | 3 | 20% (needs 80%) | 0 | 37 | 58 |
@@ -1854,7 +1854,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | University of Oregon | covered | 71 | 78 | 58 | 122 | met | met | met | queued | admission_rules:no_official_statement |
 | Oregon State University | covered | 103 | 107 | 88 | 222 | met | met | met | met | – |
 | Chemeketa Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
-| Portland State University | covered | 70 | 71 | 6 | 0 | met | queued | queued | met | degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
+| Portland State University | covered | 70 | 71 | 0 | 0 | met | queued | queued | met | degree_maps:layout_not_readable, requirement_groups:layout_not_readable |
 | Mt Hood Community College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
 | University of Portland | covered | 52 | 52 | 0 | 0 | met | queued | queued | queued | admission_rules:no_official_statement, degree_maps:not_published, requirement_groups:layout_not_readable |
 | Southern Oregon University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
@@ -1866,7 +1866,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | Pacific University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Reed College | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Linfield University | covered | 38 | 39 | 0 | 61 | met | queued | met | met | degree_maps:not_published |
-| Eastern Oregon University | covered_open_items | 31 | 34 | 15 | 0 | met | open | queued | queued | admission_rules:no_official_statement, requirement_groups:layout_not_readable |
+| Eastern Oregon University | covered_open_items | 31 | 34 | 12 | 0 | met | open | queued | queued | admission_rules:no_official_statement, requirement_groups:layout_not_readable |
 | Oregon State University-Cascades Campus | covered | 26 | 28 | 0 | 26 | met | queued | met | queued | admission_rules:no_official_statement, degree_maps:not_published |
 | Corban University | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:layout_not_readable |
 | Pacific Northwest College of Art | exception | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:out_of_scope |
@@ -2099,7 +2099,7 @@ Registered: four-year schools in the national registry (pipeline/registry; scope
 | The University of Tennessee-Knoxville | partial | 1 | 99 | 1 | 0 | queued | met | queued | met | catalog:bot_challenge, requirement_groups:not_yet_researched |
 | Middle Tennessee State University | partial | 0 | 97 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | University of Memphis | partial | 0 | 62 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
-| The University of Tennessee-Chattanooga | partial_unqueued | 121 | – | 15 | 121 | queued | open | met | queued | admission_rules:not_yet_researched, catalog:bot_challenge |
+| The University of Tennessee-Chattanooga | partial | 121 | – | 78 | 121 | queued | met | met | queued | admission_rules:not_yet_researched, catalog:bot_challenge |
 | East Tennessee State University | partial | 0 | 71 | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |
 | Tennessee Technological University | partial | 29 | – | 0 | 0 | queued | queued | queued | queued | admission_rules:not_yet_researched, catalog:not_yet_researched, degree_maps:not_yet_researched, requirement_groups:not_yet_researched |
 | Tennessee State University | partial | 0 | – | 0 | 0 | queued | queued | queued | queued | institution:bot_challenge |

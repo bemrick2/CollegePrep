@@ -110,8 +110,105 @@ def term_ok(items, total):
     return sum(_span(h)[0] for _, h in items) == lo and sum(_span(h)[1] for _, h in items) == hi
 
 
+# ---- printed notes, footnotes and the degree summary ---------------------------------------------------------------
+NOTE_MARK = re.compile(r'^([*+]+)\s*(.*\S)\s*$')
+CITED = re.compile(r'(?<=[\w).])\s?([*+]+)(?=[\s,;]|$)')  # 'Elective (ENGL 1010 or 1011)*', 'Genetics *', 'Sensing*,'
+NOTES_END = re.compile(r'^\s*(Completed:?|Graduation Requirements:?)(\s|$)')
+TOTALS = re.compile(r'^\s*\d{1,2}(?:-\d{1,2})?(?:\s{2,}\d{1,2}(?:-\d{1,2})?){1,2}\s*$')
+NOTICE = re.compile(r'^Please (refer|see)\b')
+TITLE_MORE = re.compile(r',\s*B\.\s?[A-Z][A-Za-z.]*\.?$')  # the plan's name continued on line 2: '..., B.S.'
+NOTE_UNFINISHED = re.compile(r'(\b(or|and|the|of|for|to|in|with|as|from|a|an)|[,:\-–(])$')
+
+
+def cited_marks(text):
+    """Marks printed on a row; a combined mark ('**+') cites each note ('**' and '+')."""
+    return {r for t in CITED.findall(text or '') for r in re.findall(r'\*+|\++', t)}
+
+
+def printed_notes(lines):
+    """Everything a Clear Path PDF prints outside the plan grid, verbatim, from the text layer:
+    - notice: the line(s) between the title and the first year ('Please refer to the Undergraduate Catalog ...');
+    - footnotes: [{marker, text}] printed between the last term total and the 'Completed:' checklist; a line that does
+      not start with a marker continues the note above only when that note is visibly unfinished (ends on 'of', 'as',
+      a comma, an open parenthesis ...) or the line starts in lower case or with '(';
+    - plan_notes: [{text, location}] the other unmarked lines there; one printed right after a footnote that does not
+      end a sentence may continue it, and its location says so (the review decides);
+    - summary: {'graduation_requirements': [...], 'degree_requirements': [...]} the two columns of the checklist;
+    - problems: anything printed there that cannot be read this way.
+    None when the page is not laid out like this (no year row, no term total or no checklist).
+    `lines` are the raw lines of the text layer (leading spaces kept: they place a checklist row alone on its line in
+    its column); a page break ('\\f') starts a new page, whose running title is not part of the plan."""
+    brk = {i for i, l in enumerate(lines) if '\f' in l}
+    width = max((len(l.rstrip()) for l in lines), default=0)   # the printed line width: a wrapped note runs to it
+    first = next((i for i, l in enumerate(lines) if YEAR.match(l.strip())), None)
+    end = next((i for i, l in enumerate(lines) if NOTES_END.match(l)), None)
+    if first is None or end is None: return None
+    tots = [i for i in range(first, end) if TOTALS.match(lines[i])]
+    if not tots: return None
+    problems, notice = set(), []
+    for l in lines[1:first]:
+        s = l.strip()
+        if not s or not re.search(r'\w', s) or HEADER.match(s): continue
+        if NOTICE.match(s): notice.append(s)
+        elif TITLE_MORE.search(s) and not notice: continue        # the plan's name, printed on a second line
+        else: problems.add('unread_text_above_plan')
+    footnotes, plan_notes, prev = [], [], None    # prev: the note (dict) the last line went into
+    last_len = 0                                  # printed length of the line the last note ended on
+    for l in lines[tots[-1] + 1:end]:
+        s = l.strip()
+        if not s or not re.search(r'\w', s) or TITLE.match(s): continue   # a page's running title is page text
+        if re.search(r'\S\s{3,}\S', s): problems.add('notes_region_unreadable'); prev = None; continue   # columns: not a note
+        m = NOTE_MARK.match(s)
+        if m:
+            prev = {'marker': m.group(1), 'text': m.group(2)}; footnotes.append(prev); last_len = len(l.rstrip()); continue
+        if prev is not None and (NOTE_UNFINISHED.search(prev['text']) or s[0].islower() or s[0] == '('):
+            prev['text'] += ' ' + s; last_len = len(l.rstrip()); continue
+        after = footnotes[-1] if footnotes and prev is footnotes[-1] else None
+        # only a footnote whose last line runs to the printed width and ends no sentence may continue on the next line
+        loc = (f"printed directly after footnote {after['marker']}, which it may continue"
+               if after and not re.search(r'[.)]$', after['text']) and last_len >= 0.85 * width else 'printed below the plan grid')
+        prev = {'text': s, 'location': loc}; plan_notes.append(prev); last_len = len(l.rstrip())
+    seen = [f['marker'] for f in footnotes]
+    if len(set(seen)) != len(seen): problems.add('footnote_marker_duplicate')
+    summary = {'graduation_requirements': [], 'degree_requirements': []}
+    hi = next((i for i in range(end, len(lines)) if re.match(r'^\s*Graduation Requirements', lines[i])), None)
+    split = lines[hi].find('Degree Requirements') if hi is not None else -1
+    if split < 0: problems.add('summary_unreadable')
+    else:
+        for i in range(end, len(lines)):
+            l = lines[i]
+            if i in brk and i > hi:   # the checklist goes on over a page break: its columns cannot be placed from the text
+                if any(x.strip() and not TITLE.match(x.strip()) for x in lines[i:]): problems.add('summary_spans_pages')
+                break
+            if not l.strip() or NOTES_END.match(l) or i == hi: continue
+            for mm in re.finditer(r'\S(?:.*?\S)?(?=\s{3,}|\s*$)', l):
+                t = mm.group(0)
+                summary['degree_requirements' if mm.start() >= split - 6 else 'graduation_requirements'].append(t)
+    return {'notice': notice, 'footnotes': footnotes, 'plan_notes': plan_notes, 'summary': summary, 'problems': problems}
+
+
+def add_notes(rd, lines, terms):
+    """Store the printed notes in rule_details; returns the issues that hold the plan."""
+    pn = printed_notes(lines)
+    if pn is None: return {'notes_not_read'}
+    issues = set(pn['problems'])
+    if pn['notice']: rd['source_notice'] = pn['notice']
+    if pn['footnotes']: rd['footnotes'] = pn['footnotes']
+    if pn['plan_notes']: rd['plan_notes'] = [dict(x, scope='this plan') for x in pn['plan_notes']]
+    rd['degree_summary'] = pn['summary']
+    cited = set()
+    for t in terms:
+        for i in t['items']: cited |= cited_marks(i if isinstance(i, str) else (i.get('text') or i.get('title')))
+    for s in pn['summary']['graduation_requirements'] + pn['summary']['degree_requirements']: cited |= cited_marks(s)
+    if cited - {f['marker'] for f in pn['footnotes']}: issues.add('footnote_missing')
+    for f in pn['footnotes']:
+        if f['marker'] not in cited: f['cited'] = False   # no row prints its mark: it reads as a note on the whole plan
+    return issues
+
+
 def extract(inst, entry, page, program_key, today_year):
     lines = page.lines
+    raw = page.text.split('\n')   # not splitlines(): it splits at a page break ('\f') too
     head = next((l for l in lines[:3] if TITLE.match(l.strip())), None)
     if not head: return []
     m = TITLE.match(head.strip())
@@ -128,6 +225,7 @@ def extract(inst, entry, page, program_key, today_year):
                           'items': [_item(t, h) for t, h in items if h is not None]})
     rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
           'terms': terms, 'source_section': f'Clear Path for Advising – {m.group(1)}'}
+    issues |= add_notes(rd, raw, terms)   # notes, footnotes and the degree summary, as printed
     rec = {'program_key': program_key, 'requirement_key': 'clear-path-four-year-plan', 'requirement_kind': 'program_plan', 'rule_details': rd}
     ev = [{'field': 'catalog_year', 'value': year, 'snippet': head.strip()[:200]}] + \
          [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t['credit_hours']} hours"} for t in terms]
@@ -220,8 +318,10 @@ def parse_layout(pages):
     return years or None
 
 
-def extract_layout(inst, entry, page_text_lines, pages, program_key, today_year):
-    """As extract(), from word positions; the plan title and year still come from the text layer's first line."""
+def extract_layout(inst, entry, page, pages, program_key, today_year):
+    """As extract(), from word positions; the plan title and year still come from the text layer's first line, and the
+    printed notes and checklist from its raw lines (page.lines strips the leading spaces that place a checklist row)."""
+    page_text_lines = page.lines
     head = next((l for l in page_text_lines[:3] if TITLE.match(l.strip())), None)
     if not head: return []
     m = TITLE.match(head.strip()); year = f'{m.group(2)}-{m.group(3)}'; acad = academic_year_of(year)
@@ -239,6 +339,7 @@ def extract_layout(inst, entry, page_text_lines, pages, program_key, today_year)
     if len(terms) < 8: issues.add('fewer_than_four_years')
     rd = {'schema': 'requirement_group/v1', 'catalog_year': year, 'group_type': 'sequence', 'category': 'recommended_sequence',
           'terms': terms, 'source_section': f'Clear Path for Advising – {m.group(1)}'}
+    issues |= add_notes(rd, page.text.split('\n'), terms)   # notes, footnotes and the degree summary, as printed
     rec = {'program_key': program_key, 'requirement_key': 'clear-path-four-year-plan', 'requirement_kind': 'program_plan', 'rule_details': rd}
     ev = [{'field': 'catalog_year', 'value': year, 'snippet': head.strip()[:200]}] + \
          [{'field': 'term', 'value': t['label'], 'snippet': f"{t['label']}: {len(t['items'])} items, {t['credit_hours']} hours"} for t in terms]

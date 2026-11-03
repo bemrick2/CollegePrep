@@ -1759,6 +1759,143 @@ class ClearPathLayoutTests(unittest.TestCase):
         self.assertIsNone(CP.blocks([100], [100, 120]))
 
 
+class ClearPathNotesTests(unittest.TestCase):
+    """Everything a UTC Clear Path PDF prints outside the plan grid, from the stored text layers (review 2026-11-02)."""
+    GRID = ['Fourth Year – 27 Hours',
+            'Fall Semester:                                    Hrs      Spring Semester:                                   Hrs',
+            'MGT 3310: Organizational Motivation and Leadership 3        Approved Program Elective (3000-4000 Level)        3',
+            '                                                  15                                                          12']
+    CHECK = ['', 'Completed:',
+             'Graduation Requirements:                          Hrs      Degree Requirements:                               Hrs',
+             '120 Total Hours                                            22-27 General Education Hours',
+             '54 Upper Division (3000-4000 Level) Hours                  92 Program (Major) Hours',
+             '50% of Business Hours at UTC                               Foreign Language Hours (Not Required)',
+             '                                                           1-6 Elective Hours']
+
+    def page(self, notes, top=('Please refer to the Undergraduate Catalog for further program requirements and course descriptions.',), check=None):
+        return ['CLEAR PATH for ADVISING – Management, B.S.B.A.                    2026-2027', *top, '', *self.GRID, *notes, *(self.CHECK if check is None else check)]
+
+    def test_management_footnote_notice_and_summary(self):  # cob-management-bsba-2026
+        from programs import clearpath as CP
+        n = CP.printed_notes(self.page(['*If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required.']))
+        self.assertEqual(n['notice'], ['Please refer to the Undergraduate Catalog for further program requirements and course descriptions.'])
+        self.assertEqual(n['footnotes'], [{'marker': '*', 'text': 'If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required.'}])
+        self.assertEqual((n['plan_notes'], n['problems']), ([], set()))
+        self.assertEqual(n['summary'], {'graduation_requirements': ['120 Total Hours', '54 Upper Division (3000-4000 Level) Hours', '50% of Business Hours at UTC'],
+                                        'degree_requirements': ['22-27 General Education Hours', '92 Program (Major) Hours', 'Foreign Language Hours (Not Required)', '1-6 Elective Hours']})
+        rd = {}
+        terms = [{'items': [{'credits': '1-4', 'text': 'Elective (ENGL 1010 or 1011)*'}]}]
+        self.assertEqual(CP.add_notes(rd, self.page(['*If a student does not place into ENGL 1020, ENGL 1010 or 1011 is required.']), terms), set())
+        self.assertEqual(rd['footnotes'], [{'marker': '*', 'text': 'If a student does not place into ENGL 1020, ENGL 1010 or 1011 is required.'}])
+        self.assertEqual(rd['source_notice'][0][:11], 'Please refe')
+        self.assertNotIn('plan_notes', rd)
+
+    def test_wrapped_notes_join_only_when_unfinished(self):  # criminal justice ('as'), general math (lower-case 'of')
+        from programs import clearpath as CP
+        n = CP.printed_notes(self.page(['*Approved Statistics Course: MATH 1530, or SOC 2500. (SOC 2500 does not count as', 'a Quantitative Reasoning course.)',
+                                        '*Must take either a) MATH 3100 with 6 credit hours', 'of MATH Electives (3000-4000 level). Either MATH 3100 or MATH 4140 will do.']))
+        self.assertEqual([f['text'] for f in n['footnotes']],
+                         ['Approved Statistics Course: MATH 1530, or SOC 2500. (SOC 2500 does not count as a Quantitative Reasoning course.)',
+                          'Must take either a) MATH 3100 with 6 credit hours of MATH Electives (3000-4000 level). Either MATH 3100 or MATH 4140 will do.'])
+        self.assertEqual(n['problems'], {'footnote_marker_duplicate'})
+        n = CP.printed_notes(self.page(['*Must take either a) MATH 3100 and 12 credit hours of MATH Elective (3000-4000 level) or b) MATH 4130 and 4140 and 9 credit hours of',
+                                        'MATH Elective (3000-4000 level). Either MATH 3100 or MATH 4140 will fulfill the Quantitative Reasoning requirement.']))
+        self.assertEqual((len(n['footnotes']), n['plan_notes']), (1, []))   # general math: 'of' ends the line, the next starts upper case
+
+    def test_unmarked_notes_and_their_location(self):  # geology (after a footnote with no full stop), pre-professional biology (after one)
+        from programs import clearpath as CP
+        n = CP.printed_notes(self.page(['**BIOL 1120/1120L, ESC 1510/1510L, or PHYS 2310/2310L',
+                                        'Students must have completed a minimum of 30 hours of Geology coursework to take licensure exam.',
+                                        '***If taken at the 2000 level, additional upper division electives are required.',
+                                        'Students interested in pre-health careers should consult an advisor regarding General Education options.']))
+        self.assertEqual([f['marker'] for f in n['footnotes']], ['**', '***'])
+        self.assertEqual(n['plan_notes'], [   # geology: the '**' line stops far short of the printed width, so it ends there (review 2026-11-02)
+            {'text': 'Students must have completed a minimum of 30 hours of Geology coursework to take licensure exam.', 'location': 'printed below the plan grid'},
+            {'text': 'Students interested in pre-health careers should consult an advisor regarding General Education options.', 'location': 'printed below the plan grid'}])
+        long = '**BIOL 1120/1120L, ESC 1510/1510L, CHEM 1120/1120L, PHYS 1040/1040L, PHYS 2300/2300L, PHYS 2310/2310L, or GEOL 1105L, GEOL 1110L'
+        n = CP.printed_notes(self.page([long, 'Students must have completed it.']))   # runs to the printed width, ends no sentence
+        self.assertEqual(n['plan_notes'][0]['location'], 'printed directly after footnote **, which it may continue')
+        n = CP.printed_notes(self.page([long + ' or', 'GEOL 2250', 'Students must have completed it.']))   # the joined note ends on a short line
+        self.assertEqual(n['plan_notes'][0]['location'], 'printed below the plan grid')
+        n = CP.printed_notes(self.page([long + '.', 'Students must have completed it.']))
+        self.assertEqual(n['plan_notes'][0]['location'], 'printed below the plan grid')
+        rd = {}
+        CP.add_notes(rd, self.page(['Students must complete X.']), [])
+        self.assertEqual(rd['plan_notes'], [{'text': 'Students must complete X.', 'location': 'printed below the plan grid', 'scope': 'this plan'}])
+        n = CP.printed_notes(self.page(['Students must complete X.', 'Students must also complete Y.']))
+        self.assertEqual([p['location'] for p in n['plan_notes']], ['printed below the plan grid'] * 2)
+
+    def test_marks_cited_on_rows_and_in_the_checklist(self):
+        from programs import clearpath as CP
+        self.assertEqual(CP.cited_marks('BIOL 3250: Genetics *'), {'*'})                       # chemistry pre-professional
+        self.assertEqual(CP.cited_marks('Geography of Asia, GEOG 4650: Remote Sensing*, or GEOG'), {'*'})   # secondary education geography
+        self.assertEqual(CP.cited_marks('Approved Experiential Learning**+'), {'**', '+'})   # classics: one row, two notes
+        self.assertEqual(CP.cited_marks('(Humanities and Fine Arts)***'), {'***'})
+        self.assertEqual(CP.cited_marks('Elective (ENGL 1010 or 1011)'), set())
+        check = list(self.CHECK); check[4] = '39 Upper Division (3000-4000 Level) Hours**              41 Program (Major) Hours'
+        rd = {}   # psychology: the checklist prints '**' and no '**' note is printed
+        issues = CP.add_notes(rd, self.page(['*Depending on Minor/Concentration courses, more coursework may be required.'], check=check),
+                              [{'items': [{'credits': 3, 'text': 'Minor/Concentration Course (2000-4000 Level)*'}]}])
+        self.assertEqual(issues, {'footnote_missing'})
+        self.assertNotIn('cited', rd['footnotes'][0])
+        rd = {}   # a note whose mark no row prints reads as a note on the whole plan, and says so
+        self.assertEqual(CP.add_notes(rd, self.page(['*Students can substitute ESC 4995R: Departmental Thesis for ENGL 2820.']), [{'items': ['ENGL 2820: Technical Writing (3)']}]), set())
+        self.assertEqual(rd['footnotes'], [{'marker': '*', 'text': 'Students can substitute ESC 4995R: Departmental Thesis for ENGL 2820.', 'cited': False}])
+
+    def test_layouts_that_hold_the_plan(self):
+        from programs import clearpath as CP
+        n = CP.printed_notes(self.page(['*Consult with advisor and General Education requirements.', '*One Political Theory course required within PSPS Electives.']))
+        self.assertEqual(n['problems'], {'footnote_marker_duplicate'})                         # political science prints '*' twice
+        n = CP.printed_notes(self.page(['MUS 3830: Music Therapy Practicum                 1       Humanities and Fine Arts              3-4']))
+        self.assertEqual(n['problems'], {'notes_region_unreadable'})                           # columns after the last total: not notes
+        n = CP.printed_notes(self.page([], top=('Political Science: Public Policy, B.S.', 'Please refer to the Undergraduate Catalog.')))
+        self.assertEqual((n['notice'], n['problems']), (['Please refer to the Undergraduate Catalog.'], set()))  # the name continued on line 2
+        n = CP.printed_notes(self.page([], top=('Some other printed sentence.',)))
+        self.assertEqual(n['problems'], {'unread_text_above_plan'})
+        n = CP.printed_notes(self.page([], check=['', 'Completed:', '120 Total Hours']))
+        self.assertEqual(n['problems'], {'summary_unreadable'})
+        self.assertIsNone(CP.printed_notes(self.page([], check=[])))                           # no checklist: not this layout
+        self.assertEqual(CP.add_notes({}, ['no plan here'], []), {'notes_not_read'})
+        check = self.CHECK[:6] + ['\fCLEAR PATH for ADVISING – Geology: Geology, B.S.                 2026-2027', '                    Foreign Language (Not Required)']
+        n = CP.printed_notes(self.page([], check=check))                                   # geology: the checklist goes on over a page break
+        self.assertEqual(n['problems'], {'summary_spans_pages'})
+        self.assertNotIn('2026-2027', n['summary']['degree_requirements'])
+        n = CP.printed_notes(self.page([], check=self.CHECK + ['\fCLEAR PATH for ADVISING – Geology: Geology, B.S.                 2026-2027']))
+        self.assertEqual(n['problems'], set())                                             # a page break with only the running title after it
+        n = CP.printed_notes(self.page(['*A note.', '\fCLEAR PATH for ADVISING – Geology: Geology, B.S.                 2026-2027', '**Another note.']))
+        self.assertEqual(([f['text'] for f in n['footnotes']], n['plan_notes'], n['problems']), (['A note.', 'Another note.'], [], set()))
+        n = CP.printed_notes(self.page(['.', '*A note.']))                                     # punctuation-only lines are skipped
+        self.assertEqual((n['footnotes'], n['plan_notes']), ([{'marker': '*', 'text': 'A note.'}], []))
+
+    def test_extract_reads_the_raw_text_layer(self):
+        # Page.lines strips leading spaces, which would place a checklist row printed alone in the right column
+        # (anthropology: 'Foreign Language Hours (Not Required)') in the left one; the reader takes the raw text (review 2026-11-02)
+        from programs import clearpath as CP
+        from pipeline import text as T
+        raw = ['CLEAR PATH for ADVISING – Anthropology, B.A.                    2026-2027', 'First Year – 7-9 Hours',
+               '                                   4-6                                          6-7',
+               'Completed:', 'Graduation Requirements:           Hrs      Degree Requirements:                Hrs',
+               '120 Total Hours                             30 General Education Hours',
+               '                                            Foreign Language Hours (Not Required)']
+        lay = ClearPathLayoutTests().page()
+        e = {'url': 'https://www.utc.edu/a.pdf', 'sha256': 's', 'fetched_at': '2026-10-05T00:00:00'}
+        want = {'graduation_requirements': ['120 Total Hours'], 'degree_requirements': ['30 General Education Hours', 'Foreign Language Hours (Not Required)']}
+        out = CP.extract_layout({'institution_key': 'utc'}, e, T.Page('\n'.join(raw), '', [], [], []), lay, 'anthropology-b-a', '2026-27')
+        self.assertEqual(out[0]['record']['rule_details']['degree_summary'], want)
+
+    def test_verify_checks_notice_and_checklist_verbatim(self):
+        from programs import verify as V
+        text = 'Please refer to the catalog.\n120 Total Hours   22-27 General Education Hours'
+        c = {'extractor': 'clearpath_plan/v1', 'domain': 'degree_requirements', 'source': {}, 'evidence': [],
+             'record': {'rule_details': {'terms': [], 'source_notice': ['Please refer to the catalog.'],
+                                         'degree_summary': {'graduation_requirements': ['120 Total Hours'], 'degree_requirements': ['21 General Education Hours']}}}}
+        probs = V.check_candidate(c, text)
+        self.assertIn('degree_requirements row not verbatim: 21 General Education Hours', probs)
+        self.assertNotIn('source notice not verbatim', probs)
+        c['record']['rule_details']['source_notice'] = ['Please see the courses section.']
+        self.assertIn('source notice not verbatim', V.check_candidate(c, text))
+
+
 class BulletMajorTests(unittest.TestCase):
     def test_two_column_bullets_with_bachelor_awards(self):  # King 2026-2027 Academic Catalog
         from pipeline import text as T
