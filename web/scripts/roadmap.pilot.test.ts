@@ -160,6 +160,14 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(row.notes.map((n) => n.text)).toEqual([expect.stringMatching(/^If a student does not place/), 'A second note printed with the same mark.'])
   })
 
+  it('a per-semester price is never the roadmap\'s yearly cost (#305)', () => {
+    const c = asIfVerified(comparison('utc', '221740'), ['costs'])
+    const sem = { ...c, domains: { ...c.domains, costs: (c.domains.costs as Rec[]).map((r) => ({ ...r, cost_period: 'semester' })) } as never }
+    const r = buildRoadmap({ comparison: sem, programKey: 'management-b-s-b-a', profile: persona })
+    expect(r.cost.value).toBeNull()
+    expect(buildRoadmap({ comparison: c, programKey: 'management-b-s-b-a', profile: persona }).cost.value).not.toBeNull()
+  })
+
   // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
   it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 6 hours fill named rows, English only partly (its conditional elective row is never filled), two exams accepted but not in plan, no timeline', () => {
     const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])

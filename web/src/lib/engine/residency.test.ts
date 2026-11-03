@@ -21,4 +21,11 @@ describe('pickCost', () => {
     const all = [{ residency: 'not_applicable', total_cost_of_attendance: 69210 }]
     expect(pickCost(all, 'TN', 'OR')).toEqual({ cost: all[0], basis: 'matched' })
   })
+  it('never uses a per-semester price as a yearly one (#296)', () => {
+    const sem = [{ residency: 'in_state', total_cost_of_attendance: 21000, cost_period: 'semester' }]
+    expect(pickCost(sem, 'TN', 'TN').cost).toBeNull()
+    const both = [...sem, { residency: 'in_state', total_cost_of_attendance: 36994, cost_period: 'academic_year' }]
+    expect(pickCost(both, 'TN', 'TN').cost).toEqual(both[1])
+    expect(pickCost([{ residency: 'in_state', total_cost_of_attendance: 36994, cost_period: 'fall_and_spring_semesters' }], 'TN', 'TN').cost).not.toBeNull()
+  })
 })

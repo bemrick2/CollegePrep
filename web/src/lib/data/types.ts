@@ -339,6 +339,11 @@ export interface CostRecord {
   last_verified_at: string | null
   /** Printed components, where the record keeps them (e.g. UTC's one "Enrollment Fees" line: enrollment_fees_in_state). */
   components?: Record<string, number | null> | null
+  /** The period the figures cover (#296); null when not recorded (IPEDS figures are academic-year). */
+  cost_period?: 'academic_year' | 'fall_and_spring_semesters' | 'semester' | null
+  /** Tuition and mandatory fees as one printed figure, never split or summed (#296). */
+  tuition_and_mandatory_fees?: number | null
+  total_direct_cost?: number | null
 }
 
 export type ComparisonDomain =

@@ -15,13 +15,22 @@ export type ResidencyBasis =
 export interface CostLike {
   residency: string
   total_cost_of_attendance?: number | null
+  /** The period the school's figure covers (#296). `semester` is one term's price: never a yearly price. */
+  cost_period?: string | null
 }
+
+/**
+ * A figure that may be shown or used as a yearly price: one the school publishes for the academic year (or for fall
+ * and spring together), or with no period recorded (federal IPEDS figures are academic-year). A per-semester figure
+ * is never annualized: it is shown as printed, per semester, or left out of yearly views.
+ */
+export const isAnnualCost = (c: { cost_period?: string | null }) => c.cost_period !== 'semester'
 
 const ORDER_IN = ['in_state', 'in_district', 'not_applicable', 'out_of_state']
 const ORDER_OUT = ['out_of_state', 'not_applicable']
 
 export function pickCost<T extends CostLike>(costs: T[], schoolState: string | null | undefined, homeState: string | null | undefined): { cost: T | null; basis: ResidencyBasis } {
-  const usable = costs.filter((c) => c.total_cost_of_attendance != null)
+  const usable = costs.filter((c) => c.total_cost_of_attendance != null && isAnnualCost(c))
   const by = (order: string[]) => order.map((r) => usable.find((c) => c.residency === r)).find(Boolean) ?? null
   if (!usable.length) return { cost: null, basis: homeState ? 'matched' : 'assumed_in_state' }
   if (!homeState || !schoolState) return { cost: by(ORDER_IN), basis: homeState ? 'matched' : 'assumed_in_state' }
