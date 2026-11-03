@@ -55,6 +55,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | A7 | Email sending works | Owner | ⛔ | Verify the Resend domain (`mail.getcimiento.com` DNS) and set the `RESEND_API_KEY` secret. |
 | A8 | Billing works with live Stripe | Owner | ⛔ | Owner setup in `STRIPE_BILLING.md`, then a real checkout, portal and cancel test. It has only been tested with mocks so far. |
 | A9 | Privacy, Terms and age attestation in the app | Design | ⏳ | Waiting on A3 text. Links go in the footer, sign-up, invitation acceptance and email footers. |
+| A10 | Paid Prep enforced on the server, for a paid launch (#108) | Research (server) → Design (upgrade path) | ⛔ | `start_practice_session`, `start_practice_attempt`, `start_benchmark` and `request_ai_help` don't check the household entitlement (checked on main, 2026-11-02), so a free account could use paid Prep by calling them directly. Hiding it in the UI isn't enforcement. Needs a server check of the production entitlement (never sandbox status), tests with real policies, then the app's upgrade path. A free launch without paid Prep doesn't need it. |
 
 ## B. Needed for the core weekly loop to be honest in production
 
@@ -65,6 +66,7 @@ Simulated tests (fake push service, fake FCM, fake mail) prove the code paths, n
 | B3 | "Full" progress check falls back to a mini until a held-out full-length form exists | Design | 🚧 #167 | Done in code (`FULL_FORM_READY = false`); switch on only when Content delivers a held-out full-length form per exam. |
 | B4 | CR-24 rights gate and CR-25 "report a problem" | Research, then Design (UI) | 🚧 | CR-24 merged (#245, unapplied). CR-25 open. Imported questions follow `QUESTION_IMPORT_CONTRACT.md` (v2); the 2026-10-28 bank is taken in locally (`BANK_INTAKE_2026-10-28.md`). |
 | B5 | Item statistics review, monthly | Content | ⏳ | Needs live traffic and CR-25. |
+| B6 | ACT English and ACT Reading progress checks | Owner decision → Research | ⛔ | A reserved item must be the only question on its passage (#279). In the delivered bank every ACT English and ACT Reading item shares an essay or passage (`BANK_INTAKE_2026-10-28.md`), so those sections stay "not measured" in checks. **Recommendation:** reserve a whole passage set as one unit (every question on it reserved together, and the passage key carried in the import contract). Practice is unaffected. |
 
 ## C. Needed for the college-cost side to be complete (can launch labelled as partial)
 
