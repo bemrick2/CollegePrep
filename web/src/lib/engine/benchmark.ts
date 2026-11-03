@@ -176,6 +176,12 @@ export function pacingVerdict(ratio: number | null): PacingVerdict {
 
 /** Mini benchmark every ~5 weeks (4–6), full every ~10 weeks (8–12) or before a real test. */
 export const MINI_EVERY_DAYS = 35
+/**
+ * The server's floor between progress checks of one exam (#279: practice_benchmark_kinds.min_days_after_prior for
+ * 'mini', 20261023010000): a mini opens at least this many UTC days after the last check started. The 35-day schedule
+ * above stays advisory; this stops the reserve draining. The server's table is the source; this mirrors it for the demo.
+ */
+export const MIN_DAYS_BETWEEN_CHECKS = 28
 export const FULL_EVERY_DAYS = 70
 
 /**
