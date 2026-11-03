@@ -135,6 +135,34 @@ def merge_evidence(prior, new):
     return out
 
 
+# Fields a reviewed override never sets: identity and key fields, status and provenance belong to the reader and promote.
+# The only fields a reviewed override may set (#296 final review): descriptive labels of who the budget is for and where
+# the student lives, read from a printed line the reader did not tie to the table. Nothing else qualifies: prices, totals,
+# periods, components and arrangement budgets are numbers or structure the reader must copy from the table itself, and
+# identity, key, status and provenance fields belong to the reader and promote.
+SET_FIELDS_ALLOWED = frozenset({'student_population', 'living_arrangement'})
+
+
+def set_fields(decision, record):
+    """A decision's reviewed override (#296 review): {"set_fields": {field: value}, "set_fields_evidence": {field: quote}}.
+    Each field needs the printed quote that supports it. Only a field the reader left empty is filled (a printed value is
+    never replaced), and only SET_FIELDS_ALLOWED fields are set. Returns the new record and the note that records the override."""
+    fields = decision.get('set_fields')
+    if not fields: return record, ''
+    quotes = decision.get('set_fields_evidence') or {}
+    if not isinstance(fields, dict) or not isinstance(quotes, dict): raise ValueError('set_fields and set_fields_evidence must be objects')
+    out, notes = dict(record), []
+    for k, v in sorted(fields.items()):
+        q = quotes.get(k)
+        if not (isinstance(q, str) and q.strip()): raise ValueError(f'set_fields.{k} needs a set_fields_evidence quote')
+        if k not in SET_FIELDS_ALLOWED: raise ValueError(f'set_fields cannot set {k} (allowed: {", ".join(sorted(SET_FIELDS_ALLOWED))})')
+        if not (isinstance(v, str) and v.strip()): raise ValueError(f'set_fields.{k} must be a nonempty label')
+        if out.get(k) is not None and out.get(k) != v: raise ValueError(f'set_fields.{k} would replace the read value {out[k]!r}')
+        out[k] = v
+        notes.append(f'{k} {v!r} ("{q.strip()}")')
+    return out, ' Set on review from the page: ' + '; '.join(notes) + '.'
+
+
 def promote(registry, decisions_path: Path, log=print):
     decisions = json.loads(decisions_path.read_text())
     run_dir = ROOT / decisions['run']
@@ -170,9 +198,9 @@ def promote(registry, decisions_path: Path, log=print):
         status = status_for(c, accepted_issues=bool(d.get('accept_issues')))
         if status is None:
             raise ValueError(f"{c['candidate_id']} has open issues {c['issues']}; set accept_issues with a reason to promote it as partially_verified")
-        rec = dict(c['record'])
+        rec, override_note = set_fields(d, dict(c['record']))
         rec['verification_status'] = status
-        rec['notes'] = (rec.get('notes', '') + f" Reviewed {date.today().isoformat()}: {d.get('reason', '').strip()} "
+        rec['notes'] = (rec.get('notes', '') + f" Reviewed {date.today().isoformat()}: {d.get('reason', '').strip()}{override_note} "
                         + (f"{d['supersede'].strip()} " if d.get('supersede') else '')
                         + f"Evidence: sources/pipeline/{registry['state']}/{Path(decisions['run']).name}/evidence.json#{c['candidate_id']}."
                         + (supersedes_note(old) if old else '')).strip()

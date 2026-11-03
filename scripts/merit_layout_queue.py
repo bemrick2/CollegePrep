@@ -22,6 +22,11 @@ scholarship.
 
   Transfer, graduate, international and dual-enrollment pages are neither counted nor classified.
 
+  review_status / review_reason come from docs/coverage/merit_layout_review.csv, a person's reading of the school's flagged
+  pages (verified, partially_verified, not_merit_grid, inaccessible, held, layout_unsupported). A review never removes a school
+  from the queue: held and layout_unsupported schools stay queued with the reason, and not_merit_grid says only that the
+  flagged tables are not an automatic merit grid, never that the school has no scholarship.
+
   python scripts/merit_layout_queue.py     writes docs/coverage/merit_layout_queue.csv (reads the pipeline-run branches)
 """
 from __future__ import annotations
@@ -35,12 +40,24 @@ from pipeline import text as T  # noqa: E402
 from pipeline.extractors import merit  # noqa: E402
 
 OUT = ROOT / 'docs/coverage/merit_layout_queue.csv'
+REVIEW = ROOT / 'docs/coverage/merit_layout_review.csv'
+SUMMARY = ROOT / 'docs/coverage/merit_layout_review_summary.csv'
+REVIEW_STATUS = {'verified', 'partially_verified', 'not_merit_grid', 'inaccessible', 'held', 'layout_unsupported'}
 SCORE = re.compile(r'\b(ACT|SAT|CLT)\b[^.|]{0,40}\b\d{2,4}\b|\b\d{2,4}\b[^.|]{0,20}\b(ACT|SAT|CLT)\b', re.I)
 GPA = re.compile(r'\b[1-4]\.\d{1,2}\b[^.|]{0,30}\bGPA\b|\bGPA\b[^.|]{0,30}\b[1-4]\.\d{1,2}\b', re.I)
 MONEY = re.compile(r'\$\s?\d[\d,]{2,}')
 OTHER_PAGE = re.compile(r'transfer|(?<!under)graduate|/grad/|law\.|/law/|international|pre-college|dual-enrollment|veteran', re.I)
 FIELDS = ['rank', 'institution_key', 'name', 'state', 'undergraduate_enrollment', 'merit_status', 'run', 'layout_status',
-          'pages_crawled', 'merit_pages', 'candidates', 'score_linked_candidates', 'gpa_linked_candidates', 'sample_url']
+          'pages_crawled', 'merit_pages', 'candidates', 'score_linked_candidates', 'gpa_linked_candidates', 'sample_url',
+          'review_status', 'review_reason', 'review_decisions']
+
+
+def reviews():
+    out = {r['institution_key']: r for r in csv.DictReader(open(REVIEW))} if REVIEW.exists() else {}
+    bad = sorted({r['review_status'] for r in out.values()} - REVIEW_STATUS)
+    if bad: raise SystemExit(f'{REVIEW.name}: unknown review_status {bad}')
+    if any(not r['reason'].strip() for r in out.values()): raise SystemExit(f'{REVIEW.name}: every review needs a reason')
+    return out
 
 
 def git(*args, binary=False):
@@ -108,7 +125,7 @@ def main():
     for r in queue:
         run = (attempts.get(r['institution_key'], {}).get('merit_scholarships') or {}).get('run') or r['merit_run']
         by_run.setdefault(run, []).append(r)
-    rows = []
+    rows, reviewed = [], reviews()
     for run_id, rs in sorted(by_run.items()):
         st, day = run_id.split('/', 1)
         registry = {i['institution_key']: i for i in json.loads((ROOT / f'pipeline/registry/{st}.json').read_text())['institutions']}
@@ -128,11 +145,29 @@ def main():
             rows.append({'rank': int(r['rank']), 'institution_key': r['institution_key'], 'name': r['name'], 'state': r['state'],
                          'undergraduate_enrollment': r['undergraduate_enrollment'], 'merit_status': r['merit_status'], 'run': run_id,
                          'layout_status': status, 'pages_crawled': x['pages'], 'merit_pages': x['merit_pages'], 'candidates': x['candidates'],
-                         'score_linked_candidates': x['score'], 'gpa_linked_candidates': x['gpa'], 'sample_url': url})
+                         'score_linked_candidates': x['score'], 'gpa_linked_candidates': x['gpa'], 'sample_url': url,
+                         **{f: (reviewed.get(r['institution_key']) or {}).get(k, '') for f, k in
+                            (('review_status', 'review_status'), ('review_reason', 'reason'), ('review_decisions', 'decisions'))}})
     rows.sort(key=lambda r: r['rank'])
     with open(OUT, 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator='\n'); w.writeheader(); w.writerows(rows)
     print(f'{len(rows)} schools -> {OUT.relative_to(ROOT)}:', dict(Counter(r['layout_status'] for r in rows)))
+    print('reviewed:', dict(Counter((r['layout_status'], r['review_status']) for r in rows if r['review_status'])))
+    # Every reviewed row is counted exactly once, by its one review_status; a school leaves the queue once a merit record is on file
+    # (verified or partially verified), so the queue alone never adds up to the review.
+    in_queue = {r['institution_key']: r['layout_status'] for r in rows}
+    order = ['verified', 'partially_verified', 'not_merit_grid', 'inaccessible', 'held', 'layout_unsupported']
+    summary = []
+    for st in order:
+        keys = [k for k, v in reviewed.items() if v['review_status'] == st]
+        summary.append({'review_status': st, 'rows': len(keys), 'still_in_queue': sum(k in in_queue for k in keys),
+                        'left_queue_record_on_file': sum(k not in in_queue for k in keys),
+                        'left_queue_schools': '; '.join(sorted(reviewed[k]['name'] for k in keys if k not in in_queue))})
+    summary.append({'review_status': 'total', 'rows': len(reviewed), 'still_in_queue': sum(k in in_queue for k in reviewed),
+                    'left_queue_record_on_file': sum(k not in in_queue for k in reviewed), 'left_queue_schools': ''})
+    with open(SUMMARY, 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=list(summary[0]), lineterminator='\n'); w.writeheader(); w.writerows(summary)
+    print('review summary:', [(x['review_status'], x['rows']) for x in summary])
 
 
 if __name__ == '__main__':

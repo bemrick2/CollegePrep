@@ -39,8 +39,13 @@ NOT_MERIT_PAGE = re.compile(r'tuition[- ](?:and|&)[- ]fees|international[- ]bacc
                             # FL r1: faculty emeriti lists (South Florida), state and federal programs on a college page
                             # (Bright Futures, TEACH Grant) are not institutional merit awards.
                             r'emerit|retirees|bright[- ]futures|/teach\b|teach[- ]grant|\bpell\b', re.I)  # Hampton IB credit table
+UNDERGRAD_SCHOLARSHIPS = re.compile(r'\bundergraduates?\b', re.I)
+SCHOLARSHIP_HEADING = re.compile(r'^(?!.*international).*\b(?:scholarships?|merit)\b', re.I)
 HEADER_WORDS = re.compile(r'scholarship|award|merit|name|level|tier|amount|value|gpa|act\b|sat\b|criteria|requirement', re.I)
-THRESHOLD_CELL = re.compile(r'^\s*[<>≤≥]?\s*\d{1,4}(\.\d{1,2})?\s*(\+|[-–]\s*\d{1,4}(\.\d{1,2})?|(?:or|and)\s+(higher|above|up))?\s*$', re.I)
+# PA (SRU) "3.00 to 3.24", MO (UCM) "3.5 to 3.74 GPA", ND (UND) "3.70 - 3.89 GPA"
+THRESHOLD_CELL = re.compile(r'^\s*(?:[<>]=?|[≤≥])?\s*\d{1,4}(\.\d{1,2})?\s*(\+|(?:[-–]|\bto\b)\s*\d{1,4}(\.\d{1,2})?|(?:or|and)\s+(higher|above|up))?\s*(?:gpa)?\s*$', re.I)
+# ND (UND): "3.90+ GPAor30+ ACT (1370+ SAT) with 3.00+ GPA*" - a GPA band with a printed test-score alternative
+THRESHOLD_OR_TEST = re.compile(r'^\s*\d\.\d{1,2}\s*\+?\s*gpa\s*or\s*\d{2,4}\s*\+?\s*(?:act|sat|clt)\b', re.I)
 
 
 PLACEHOLDER = re.compile(r'^\W*(n/?a|none|see\s+(?:requirements|criteria|details|below|website)|varies|tbd|-+|—|–)\W*$', re.I)  # ND (Lake Region): an en dash is an empty cell
@@ -50,10 +55,12 @@ ENROLLMENT = re.compile(r'^(full|half|part|three[-\s]quarter|3/4)[-\s]time(\s*\(
 SCORE = re.compile(r'\b\d{1,4}\b')
 PACKAGE_ROW = re.compile(r'federal|pell|state\s+grants?|outside\s+scholarships?|student\s+employment|work[- ]study|\bloans?\b|^total\b', re.I)
 _N = r'(?:\d{1,2}|two|three|four|five|six|eight|ten)'
-MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|maximum\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b|'
+MULTI_YEAR = re.compile(r'(?<!renewable\s)\b(?:for|over|value|max(?:imum)?\.?\s+of)\s+' + _N + r'\s+(?:fall/spring\s+)?(?:years?|semesters|trimesters|quarters|terms)\b|'
                         r'\b' + _N + r'[\s-]+years?\s+value\b', re.I)  # PA (Penn State campuses): "$26,000 four year value"  # outside parentheses; ND (VCSU "for two year", Minot "maximum of 4 years")
 MULTI_X = re.compile(r'\bx\s*' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\b|\b' + _N + r'\s+(?:years|semesters|trimesters|quarters|terms)\s+x\b', re.I)
 MERGED_GPA = re.compile(r'^(.*?[A-Za-z)])\s*(\d\.\d{1,2}\s*\+?\s*(?:GPA|grade\s+point\s+average)\.?)\s*$', re.I)
+# CO (UNC): "Presidential (3.80 – 3.99 GPA)" under "First-Year Scholarships (Weighted GPA)" - the award and its GPA band in one cell
+NAME_WITH_GPA = re.compile(r'^(.*?[A-Za-z].*?)\s*\(\s*(\d\.\d{1,2}\s*(?:\+|[-–]\s*\d\.\d{1,2})?\s*(?:gpa)?)\s*\)\s*$', re.I)
 MERGED_TEXT = re.compile(r'^(.{3,80}?\b(?:Scholarship|Award|Grant|Fellowship))(?=[A-Z][a-z])')
 
 
@@ -147,12 +154,33 @@ def class_statements(page):
     return out
 
 
+def terms_span_years(s):
+    """True when a sentence lists entering terms of more than one academic year (SD: SDSU "fall 2026, spring 2027, summer 2027,
+    fall 2027 and spring 2028"); "Fall 2027/Spring 2028" (MO: SBU) is one year."""
+    years = {int(m.group(1)) if m.group(0).lower().startswith('fall') else int(m.group(1)) - 1 for m in CURRENT_TERM.finditer(s)}
+    return len(years) > 1
+
+
+SCHOLARSHIP_APPLICATION = re.compile(r'\bscholarship\s+application\b', re.I)
+NO_APPLICATION = re.compile(r'\bno\s+(?:separate\s+|additional\s+)?(?:scholarship\s+)?application\s+(?:is\s+)?(?:required|necessary|needed)', re.I)
+
+
 def merit_text_labels(page):
     """Year labels in the page's text outside sentences and table lines about other aid (FAFSA, Pell, federal or state grants,
     loans, athletics; STATEMENT_OTHER_AID)."""
+    # SD (SDSU): only where the page says the merit award itself needs no application (KS: Dodge City's '2026-2027 scholarship
+    # application' is how its listed awards are applied for)
+    no_application = bool(NO_APPLICATION.search(page.text[:60000]))
+
     def other(s):
         s = re.sub(r'free\s+application\s+for\s+federal\s+student\s+aid', 'FAFSA', s, flags=re.I)
         hits = {m.group(0).lower() for m in STATEMENT_OTHER_AID.finditer(s)}
+        # SD (SDSU): "the 2027-2028 Incoming First-Time and Transfer Student Scholarship Application" dates the application for the
+        # competitive awards, not an automatic grid printed beside it
+        if no_application and SCHOLARSHIP_APPLICATION.search(s): return True
+        # ... and "enrolling in fall 2026, spring 2027, summer 2027, fall 2027 and spring 2028" lists entering terms (read by the
+        # entering-term rules), so its "2027 ... 2028" is no year label
+        if terms_span_years(s): return True
         # MO (SBU): "Freshman & Transfer Scholarships for Fall 2027/Spring 2028" and AL (Stillman) "incoming first-year students,
         # transfers, and current students ... during the 2024-2025 academic year" date first-year awards too
         return bool(hits) and not (hits <= {'transfer'} and STATEMENT_FRESHMAN.search(s))
@@ -169,7 +197,8 @@ def record_year(page, t, year, basis, issues, today_year):
         # the 2025-2026 academic year": the page disagrees with itself, so the year is held for review
         other = sorted(class_statements(page) - {y})
         return y, b, clean + ([f'stale_year_label:{y}'] if y < today_year else []) + [f'conflicting_year_statement:{o}' for o in other]
-    labels = T.year_labels(own)
+    # SD (SDSU): a lead listing entering terms ("fall 2026, spring 2027, ..., fall 2027 and spring 2028") names no single year
+    labels = T.year_labels(' '.join(x for x in re.split(r'(?<=[.!?])\s+', own) if not terms_span_years(x)))
     since = {l for m in re.finditer(r'\b(?:effective|beginning|starting|since|as\s+of)\s+(?:in\s+)?(?:the\s+)?(' + _YEAR + ')', own, re.I) for l in T.year_labels(m.group(1))}
     if basis in LABELED and labels and set(labels) <= since and max(labels) < year:
         labels = {}  # PA (Lancaster Bible): "Effective 2024-25, first-time freshmen ..." is when the scale began; the page is labelled 2026-27
@@ -248,7 +277,7 @@ def _amounts(cell):
 def _list_awards(t, header, body, title, award_type):
     # "Scholarship Criteria" (UTK Orange & White) names the threshold column, not the award.
     name = next((i for i, h in enumerate(header) if any(w in h.lower() for w in ('scholarship', 'award', 'name', 'program'))
-                 and not re.search(r'criteria|requirement|eligib|amount|annual|per\s+year|years?\b|value|total|\$', h, re.I)), None)
+                 and not re.search(r'criteria|requirement|eligib|amount|annual|per\s+year|(?<!first[- ])years?\b|value|total|\$', h, re.I)), None)
     # Annual columns win over four-year totals ("Total over 4 years | Total for academic year", AL: AUM).
     multi_year = re.compile(r'4\s*years?|four\s+years?|total\s+over|over\s+\d|cumulative', re.I)
     # TN (MTSU): "Amt/Yr" is the annual amount column.
@@ -275,6 +304,9 @@ def _list_awards(t, header, body, title, award_type):
         test, gpa, act, sat, combined = gpa, None, None, None, None
     if clt in (name, gpa, act, sat, test, criteria): clt = None
     if name is None: name = 0
+    named_gpa = name == gpa and bool(re.search(r'scholarship|award', header[name], re.I)) and bool(body) and \
+        all(NAME_WITH_GPA.match(r[name]) for r in body if name < len(r) and r[name].strip())
+    if named_gpa: gpa = None  # the column names the award; each cell also prints its GPA band
     body, inherited = _fill_spans(header, body, name)
     used = {i for i in (name, amount, gpa, act, sat, clt, test, criteria, renewal) if i is not None} | set(amount_cols)
     if criteria == name: criteria = None  # the threshold column is the row label (tier rows below)
@@ -284,7 +316,7 @@ def _list_awards(t, header, body, title, award_type):
     gpa_col, clt_col = gpa, clt
     if threshold_label: gpa, act, sat, test, clt = None, None, None, None, None  # every threshold column labels the row instead (TX: UD's CLT too)
     clean = lambda h: h.strip().strip('*').strip()
-    if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None: return []
+    if amount is None and gpa is None and act is None and sat is None and test is None and criteria is None and not amount_cols: return []
     out, section = [], ''
     for ri, row in enumerate(body):
         if name > 0 and len(row) < len(header): continue  # AR (UCA): merged cells shifted this row; its columns no longer line up
@@ -310,6 +342,10 @@ def _list_awards(t, header, body, title, award_type):
             tst = f'{clean(header[combined])}: {tst}'  # the header says which number is which test
         nm, merged_gpa = _split_name(nm)
         if merged_gpa and not g: g = merged_gpa
+        if named_gpa and NAME_WITH_GPA.match(nm):
+            nm, g = NAME_WITH_GPA.match(nm).group(1).strip(), NAME_WITH_GPA.match(nm).group(2).strip()
+            gpa_kind = re.search(r'\(([^)]*\bweighted\b[^)]*)\)', header[name], re.I)  # CO (UNC): "(Weighted GPA)" says which GPA
+            if gpa_kind: g = f'{g} ({gpa_kind.group(1).strip()})'
         if not (amt or g or a or s or tst or crit):
             if sum(1 for c in cells if c.strip()) == 1 and not threshold_label: section = nm  # "Alabama Residents" above its rows
             continue
@@ -577,14 +613,31 @@ def _group_rows(out, labels):
 def _tier_award(t, header, body, context):
     """One threshold column and one amount column: 'GPA | Merit', '3.0 | $14,000'."""
     if len(header) == 3 and re.search(r'4[\s-]*years?|four[\s-]*years?', header[2], re.I): header = header[:2]  # AL (JSU): a 4-year total column
+    issues = []
+    if len(header) == 3 and re.search(r'scholarship|award', header[2], re.I) and sum(1 for r in body if len(r) > 2 and r[2].strip()) <= 1:
+        # MO (UCM): "GPA | Red & Black Scholarship | ACT Excellence Scholarship(27+ Superscore)" - the side award prints one cell
+        # beside the first row; which rows it applies to is not printed, so only the tier column is read and the record is held
+        header, issues = header[:2], ['side_award_column_unread']
+    if len(header) == 2 and not re.search(r'gpa|act|sat|score', header[0], re.I) and re.search(r'\bgpa\b|grade\s+point', header[1], re.I) \
+            and re.search(r'amount|scholarship|award|value', header[0], re.I) and body and all(len(r) >= 2 and T.money_values(r[0]) for r in body):
+        if re.search(r'\bcollege\s+gpa\b', t.get('lead') or '', re.I): return []  # SC (Anderson): "... transfer students only based on their college GPA:"
+        header, body = [header[1], header[0]], [[r[1], r[0]] + list(r[2:]) for r in body]  # WI (Carthage), NE (Nebraska Methodist): the amount column first
     if len(header) != 2 or not re.search(r'gpa|act|sat|score', header[0], re.I): return []
-    rows = [r for r in body if len(r) >= 2 and THRESHOLD_CELL.match(r[0]) and T.money_values(r[1])]
+    rows = [r for r in body if len(r) >= 2 and (THRESHOLD_CELL.match(r[0]) or THRESHOLD_OR_TEST.match(r[0])) and T.money_values(r[1])]
     if len(rows) < 3 or len(rows) < len(body) - 1: return []
+    if any(THRESHOLD_OR_TEST.match(r[0]) for r in rows): issues.append('alternative_criteria_in_tier')
+    # ND (UND): the test-score path printed in the tier ("30+ ACT (1370+ SAT) with 3.00+ GPA*"), copied as printed
+    test_paths = [re.sub(r'(?i)^.*?\bgpa\s*or\s*', '', r[0]).strip() for r in rows if THRESHOLD_OR_TEST.match(r[0])]
     tiers = [{header[0].strip().lower() or 'threshold': r[0], 'amount_text': r[1]} for r in rows]
-    amounts = [v for r in rows for v in T.money_values(r[1])]
-    if any(MULTI_YEAR.search(r[1]) or MULTI_X.search(r[1]) for r in rows):
+    # MT (UM): "$1,000 renewable for four years ($4,000 four-year value)" - a bracketed total is not the annual amount
+    annual = lambda c: re.sub(r'\([^)]*(?:over|total|years?|4-year|four)[^)]*\)', '', c)
+    amounts = [v for r in rows for v in T.money_values(annual(r[1]))]
+    if any(MULTI_YEAR.search(annual(r[1])) or MULTI_X.search(r[1]) for r in rows):
         amounts = []  # ND (Minot): "$10,000 $2,500/year for a maximum of 4 years" mixes totals with annual amounts
     title = (t.get('heading') or t.get('caption') or 'Merit scholarship tiers').strip().lstrip('+-–•*› ').strip()
+    if re.search(r'scholarship', header[1], re.I) and not re.search(r'amount|value|annual|per\s+year|total', header[1], re.I) \
+            and not re.fullmatch(r'(?i)\W*scholarships?\W*', header[1]) and not re.search(r'scholarship|award|grant', title, re.I):
+        title = header[1].strip()  # MO (UCM): "Value: Per Year" heads the "Red & Black Scholarship" column
     rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers}
     if amounts: rec['award_min'], rec['award_max'] = min(amounts), max(amounts)
     if re.search(r'one[\s–-]*time', header[1], re.I):  # Georgia Southern: "Annual Award Amount (One – Time)"
@@ -592,7 +645,9 @@ def _tier_award(t, header, body, context):
         rec['award_amount_text'] = header[1].strip()[:120]
     rec['gpa_requirement' if re.search('gpa', header[0], re.I) else 'test_requirement'] = \
         f"Tiered by {header[0].strip()}: " + '; '.join(f"{r[0]} → {r[1]}" for r in rows)
-    return [(rec, ' || '.join(' | '.join(r) for r in [header] + rows))]
+    if test_paths: rec['test_requirement'] = '; '.join(test_paths)
+    if issues: rec['_issues'] = issues
+    return [(rec, ' || '.join(' | '.join(r[:len(header)]) for r in [header] + rows))]
 
 
 def _grid_award(t, header, body, context):
@@ -613,7 +668,7 @@ def _grid_award(t, header, body, context):
     amounts = [v for tier in tiers for v in T.money_values(tier['amount_text'])]
     title = (t.get('heading') or t.get('caption') or 'Merit scholarship grid').strip().lstrip('+-–•*› ').strip()
     rec = {'award_name': title[:120], 'award_type': 'institutional_merit', 'award_tiers': tiers,
-           'test_requirement': f"Tiers by {header[0] or 'GPA'} and {', '.join(header[i] for i in score_cols[:2])}…",
+           'test_requirement': f"Tiers by {header[0] or 'GPA'} and {', '.join(header[i] for i in score_cols)}",  # SD (SDSU): every printed column
            'award_min': min(amounts), 'award_max': max(amounts)}
     return [(rec, ' || '.join([' | '.join(header)] + evidence_rows))]
 
@@ -621,7 +676,8 @@ def _grid_award(t, header, body, context):
 # A heading that says what the table is about but names no award (AL: South Alabama "Qualifications:", VA: VCU "Eligibility
 # criteria"); the page title names the program instead.
 GENERIC_HEADING = re.compile(r'\s*(?:qualifications?|eligibility(?:\s+(?:criteria|requirements))?|criteria|requirements|award\s+(?:tiers|amounts?|levels)|'
-                             r'amounts?|award\s+grid|scholarship\s+grid|merit\s+scholarship\s+grid|merit\s+scholarship\s+tiers)\s*:?\s*', re.I)
+                             r'amounts?|award\s+grid|scholarship\s+grid|merit\s+scholarship\s+grid|merit\s+scholarship\s+tiers|'
+                             r'(?:non[- ]?\s*)?(?:[A-Z]{2}|in[- ]state|out[- ]of[- ]state)\s+residents?)\s*:?\s*', re.I)  # PA (SRU): "Non-PA Residents"
 GPA_BAND_HEADER = re.compile(r'(?:\bgpa\b[^|]*\d\.\d|\d\.\d[^|]*\bgpa\b|^\s*(?:gpa\s*)?[<>≥≤=]?\s*\d\.\d{1,3}\s*(?:\+|[-–]\s*\d\.\d{1,3}|&\s*higher|and\s+(?:above|higher))?\s*$)', re.I)
 RANK_HEADER = re.compile(r'\btop\s+\d{1,2}\s*%', re.I)
 SCORE_LABEL = re.compile(r'\b(?:act|sat|clt|psat)\b', re.I)  # never GRE, LSAT, MCAT, GMAT grids (graduate and professional tests)
@@ -670,6 +726,158 @@ def _score_row_grid(t, header, body, context, page=None):
     return [(rec, ' || '.join([' | '.join(header)] + evidence_rows))]
 
 
+TEST_NAME = re.compile(r'\s*(?:act|sat|clt|psat)\b[^\d]*', re.I)
+
+
+def stacked_header(rows):
+    """(header, body) for a grid whose header is printed on two rows, or None. Archived pages lost the spans, so only two
+    shapes are rebuilt, each only when every row fits it exactly:
+      group label: MI (CMU) "ACT | SAT | GPA" over "3.0-3.29 | ... | 3.95-4.0" (GPA spans the bands; ACT and SAT span both rows)
+        -> "ACT | SAT | GPA 3.0-3.29 | ...", the label prefixed to each band;
+      stacked tests: SD (SDSU) "TEST SCORES | ACT | 32+ | 28 | ... | No test score ..." over "SAT | 1420+ | 1300 | ...", then
+        "GPA | 4.00+ | $4,000 ..." and "3.90 | $4,000 ...": the SAT row pairs with the numeric ACT bands in order, a trailing
+        band without a score ("No test score ...") stands alone, and the side label ("GPA") is the first body row's spanning cell."""
+    if len(rows) < 4: return None
+    r0, r1 = rows[0], rows[1]
+    if any(T.money_values(c) for c in r0 + r1): return None
+    # group label at the right of the first row, its bands on the second
+    g = r0[-1].strip()
+    width = len(r0) - 1 + len(r1)
+    if (len(r0) >= 2 and len(r1) >= 2 and g and not re.search(r'\d', g) and re.fullmatch(r'(?i)\s*(?:high\s+school\s+)?(?:gpa|class\s+rank)\s*', g)
+            and all(re.search(r'\d', c) for c in r1) and all(c.strip() and not re.search(r'\d', c) for c in r0[:-1])
+            and all(len(r) == width for r in rows[2:])):
+        return r0[:-1] + [f'{g} {c.strip()}' for c in r1], rows[2:]
+    # two test rows across the top
+    if len(r0) < 4 or not TEST_NAME.fullmatch(r0[1]) or not TEST_NAME.fullmatch(r1[0]) or re.search(r'\d', r0[0]): return None
+    bands, other = r0[2:], r1[1:]
+    n, m = len(bands), len(other)
+    first, rest = rows[2], rows[3:]
+    if not (0 < m <= n and len(first) == n + 2 and first[0].strip() and not re.search(r'\d', first[0]) and all(len(r) == n + 1 for r in rest)):
+        return None
+    if not all(re.match(r'\s*\d', b) for b in bands[:m]) or not all(re.match(r'\s*\d', s) for s in other) or any(re.match(r'\s*\d', b) for b in bands[m:]):
+        return None
+    t1, t2 = r0[1].strip(), r1[0].strip()
+    head = [first[0].strip()] + [f'{t1} {b.strip()} / {t2} {other[i].strip()}' if i < m else b.strip() for i, b in enumerate(bands)]
+    return head, [first[1:]] + rest
+
+
+COMPONENT_TOTAL = re.compile(r'\btotal\b|\b\d[\s-]*year\s+value\b|^\s*(?:annual\s+)?value\s*$', re.I)
+# state or federal aid printed as a component (LA: TOPS); "Out-of-State Warhawk Scholarship" is the school's own award
+OTHER_AID_COMPONENT = re.compile(r'\btops\b|\bhope\b|bright\s+futures|\bpell\b|\bstate\s+(?:grant|aid)\b|federal', re.I)
+
+
+def _split_score(label):
+    """"President's DistinguishedACT 33-36 orSAT 1450-1600" -> ("President's Distinguished", 'ACT 33-36 orSAT 1450-1600')."""
+    m = re.search(r'(?i)(act|sat|clt)\s*\d', label)
+    if not m: return None, None
+    return label[:m.start()].strip(' :-–'), label[m.start():].strip()
+
+
+def _component_grid(t, rows):
+    """Awards printed as amount components beside a total: LA (ULM) "GPA 3.5-4.0 | Academic Scholarship | Housing Award | TOPS |
+    Total Annual Award" with one row per award and score band ("President's DistinguishedACT 33-36"); LA (McNeese) "GPA |
+    Fees/Books Awards* | Campus Housing* | 1-Year Value" with the award and score band on a row of its own above its GPA rows.
+    One record per award; each tier keeps every component as printed under its column header. No single amount is chosen: the
+    components may be per semester, conditional (housing) or other aid (TOPS), so the record is held ('amount_by_component')."""
+    header = [c.strip() for c in rows[0]]
+    if len(header) < 4 or not COMPONENT_TOTAL.search(header[-1]) or any(re.search(r'\d', h) or not h for h in header[1:-1]): return []
+    if not all(T.money_values(r[-1]) for r in rows[1:] if len(r) == len(header)): return []
+    comps = header[1:]
+    side = GPA_BAND_HEADER.search(header[0])  # ULM: the GPA band heads the table
+    if not side and not re.fullmatch(r'(?i)(?:high\s+school\s+)?gpa', header[0]): return []
+    awards, order, current, raw = {}, [], None, [' | '.join(header)]
+    for r in rows[1:]:
+        cells = [c.strip() for c in r]
+        if len(cells) == 1 and not side:  # McNeese: "Presidential Award ACT 30-36 / SAT 1360-1600"
+            name, test = _split_score(cells[0])
+            if not name or not test: return []
+            current = (name, test); raw.append(cells[0]); continue
+        if len(cells) != len(header): return []
+        if any(c and not (T.money_values(c) or PLACEHOLDER.match(c)) for c in cells[1:]): return []
+        if side:
+            name, test = _split_score(cells[0])
+            if not name: return []
+            gpa = header[0]
+        else:
+            if current is None or not re.search(r'\d\.\d', cells[0]): return []
+            (name, test), gpa = current, cells[0]
+        printed = [(h, c) for h, c in zip(comps, cells[1:]) if c and not PLACEHOLDER.match(c)]  # ULM: "-" is no housing award
+        tier = {'gpa': gpa, 'test': test, **dict(printed), 'amount_text': '; '.join(f'{h}: {c}' for h, c in printed)}
+        if name not in awards: order.append(name)
+        awards.setdefault(name, []).append(tier)
+        raw.append(' | '.join(cells))
+    if sum(len(v) for v in awards.values()) < 3: return []
+    issues = ['amount_by_component'] + (['component_is_other_aid'] if any(OTHER_AID_COMPONENT.search(h) for h in comps) else [])
+    out = []
+    for name in order:
+        tiers = awards[name]
+        rec = {'award_name': f'{name} ({header[0]})' if side else name, 'award_type': 'institutional_merit', 'award_tiers': tiers,
+               'test_requirement': 'Tiers by test score and GPA: ' + '; '.join(f"{x['test']}, {x['gpa']} → {x['amount_text']}" for x in tiers),
+               'award_amount_text': 'Printed by component: ' + ', '.join(comps), '_issues': list(issues)}
+        out.append((rec, ' || '.join(raw)))
+    return out
+
+
+TRANSPOSED_LABEL = {'gpa': re.compile(r'\bgpa\b|grade\s+point', re.I), 'test': re.compile(r'(?-i:ACT|SAT|CLT)\b|\b(?:act|sat|clt)\b|scores?\b|\btests?\b', re.I),
+                    'amount': re.compile(r'amount|\baward\b|value', re.I)}
+
+
+def _transposed_awards(t, header, body):
+    """One award per column, its attributes down the side: OH (Shawnee State) "Scholarship | Presidential | Shawnee Achievement"
+    over "GPA | 3.8+ | ...", "Scores | ACT 30+ orSAT 1360+ | ...", "Amount | Full Tuition | $5,000/year"; TN (Union) "Minimum ACT /
+    SAT / CLT", "Minimum GPA", "On-Campus Award Amount", "Off-Campus Award Amount"; LA (Dillard) an unlabelled amount row. Each
+    row label must name GPA, a test or an amount (a one-cell title or footnote row is skipped); a score row must name ACT, SAT or
+    CLT (never placement tests), and a GPA row must not print test scores. Cells are copied as printed under their row label."""
+    names = [c.strip() for c in header[1:]]
+    if len(names) < 2 or re.search(r'\d', header[0]) or any(not n or re.search(r'\d|\$', n) or re.search(r'amount|value|total|cost|grant\b', n, re.I) for n in names): return []
+    rows = [r for r in body if len([c for c in r if c.strip()]) > 1 or len(r) == len(header)]
+    if len(rows) < 2 or any(len(r) != len(header) for r in rows): return []
+    if any(re.search(r'\d', r[0]) for r in rows): return []  # MO (SBU): "Dean's Scholar Award(3.30-3.79 GPA)" rows are awards, not attributes
+    kinds = []
+    for r in rows:
+        label = r[0].strip()
+        if not label and sum(bool(T.money_values(c) or re.search(r'tuition', c, re.I)) for c in r[1:]) >= len(names) - 1: kinds.append('amount'); continue
+        kind = next((k for k in ('amount', 'gpa', 'test') if TRANSPOSED_LABEL[k].search(label)), None)
+        if kind == 'gpa' and SCORE_LABEL.search(label): kind = 'test'  # "With ACT/SAT Scores" ... a GPA and a score
+        if kind is None: return []
+        cells = [c for c in r[1:] if c.strip() and not PLACEHOLDER.match(c)]
+        if kind == 'test' and not (SCORE_LABEL.search(label) or all(SCORE_LABEL.search(c) for c in cells)): return []
+        if kind == 'gpa' and any(SCORE_LABEL.search(c) for c in cells): return []
+        kinds.append(kind)
+    if 'amount' not in kinds or not ({'gpa', 'test'} & set(kinds)): return []
+    out = []
+    for j, name in enumerate(names, 1):
+        rec = {'award_name': name, 'award_type': 'institutional_merit'}
+        parts = {'gpa': [], 'test': [], 'amount': []}
+        for r, kind in zip(rows, kinds):
+            c = r[j].strip()
+            if not c or re.fullmatch(r'(?i)not\s+available|n/?a|-+|—', c): continue
+            parts[kind].append(f'{r[0].strip()}: {c}' if r[0].strip() else c)
+        if not parts['amount'] or not (parts['gpa'] or parts['test']): continue
+        if parts['gpa']: rec['gpa_requirement'] = '; '.join(parts['gpa'])
+        if parts['test']: rec['test_requirement'] = '; '.join(parts['test'])
+        rec['award_amount_text'] = '; '.join(parts['amount'])
+        vals = [v for p in parts['amount'] for v in T.money_values(p)]
+        if vals and not any(MULTI_YEAR.search(p) or MULTI_X.search(p) or re.search(r'tuition|\bup\s+to\b|semester', p, re.I) for p in parts['amount']):
+            rec['award_min'], rec['award_max'] = min(vals), max(vals)
+        gpa_cells = [r[j].strip() for r, k in zip(rows, kinds) if k == 'gpa' and r[j].strip()]
+        th = {}
+        if len(gpa_cells) == 1 and _num(gpa_cells[0], 0, 5, True) is not None: th['gpa_min'] = _num(gpa_cells[0], 0, 5, True)
+        # TN (Union): "MinimumACT / SAT / CLT | 21 / 1060 / 67" - one number per named test, in the printed order
+        for r, k in zip(rows, kinds):
+            tests = re.findall(r'(?i)(?<![a-z])(act|sat|clt)\b|(?-i:(ACT|SAT|CLT))', r[0])
+            tests = [a or b for a, b in tests]
+            nums = [x.strip() for x in r[j].split('/')]
+            if k == 'test' and re.search(r'(?i)minimum', r[0]) and len(tests) == len(nums) > 1 and all(re.fullmatch(r'\d{2,4}', x) for x in nums):
+                for t_, n_ in zip(tests, nums):
+                    v = _num(n_, 1, 36) if t_.lower() == 'act' else _num(n_, 400, 1600) if t_.lower() == 'sat' else None
+                    if v is not None: th[f'{t_.lower()}_min'] = v
+        if th: rec['thresholds'] = th
+        raw = ' | '.join(header) + ' || ' + ' || '.join(f'{r[0].strip()} | {r[j].strip()}' for r in rows)
+        out.append((rec, raw))
+    return out if len(out) >= 2 else []
+
+
 def table_footnotes(page, header, rows):
     """Footnotes a header points to with asterisks, copied as printed from the lines after the table: VA (Lynchburg) 'Minimum
     GPA* to qualify' -> '*Weighted GPA is used to determine scholarship eligibility...', FL (UNF) 'Amount (per year)*' -> '*The
@@ -706,7 +914,10 @@ def extract(inst, entry, page, today_year):
         span_issue = spans_criteria(t)
         if len(rows) < 3: continue
         context = ' '.join([t.get('heading') or '', t.get('caption') or ''])
-        if NOT_MERIT.search(context): continue
+        # MI (Cleary) "Undergraduate Admissions Scholarships", KY (Spalding) "Undergraduate Academic Scholarships": "graduate" inside
+        # "undergraduate" names no graduate table when the heading names the scholarships (never "Undergraduate Students" fee
+        # tables, MI: MSU, or international awards)
+        if NOT_MERIT.search(UNDERGRAD_SCHOLARSHIPS.sub('', context) if SCHOLARSHIP_HEADING.search(context) else context): continue
         if re.match(r'\s*(?:for\s+)?transfers?\b(?:\s+students?)?\s*:?\s*$', t.get('lead') or '', re.I) or \
                 (mixed_transfer and re.match(r'\s*(?:for\s+)?(?:new\s+)?transfer', t.get('lead') or '', re.I)):
             continue  # OR (PSU): the "Transfer" grid beside "First Year"; on a freshman-and-transfer page any table led by a transfer line
@@ -721,6 +932,8 @@ def extract(inst, entry, page, today_year):
         if group_label_row(rows, any(rows[0] is grid[ri] for ri, _, _ in T.wide_cells(t)) if grid else False) and HEADER_WORDS.search(' '.join(rows[1])) and not any(T.money_values(c) for c in rows[1]) \
                 and sum(len(r) > len(rows[1]) for r in rows[2:]) <= 1:
             header, body = rows[1], rows[2:]  # OK (Oklahoma Christian): a spanning group label ("Minimum Scores of Recipient") above the header
+        stacked = stacked_header(rows)
+        if stacked: header, body = stacked  # MI (CMU), SD (SDSU): a header printed on two rows
         if sum(1 for r in body if any(PHONE.search(c) for c in r)) >= 2: continue  # NM (Luna): a staff contact table, not awards
         if re.search(r'award\s+amounts?', header[0], re.I) and any(T.money_values(c) for c in header[1:]):
             continue  # ID (BYU-Idaho): a transposed table - columns are award levels, rows are attributes ("Qualifications", "Duration")
@@ -734,14 +947,16 @@ def extract(inst, entry, page, today_year):
         # VA (VCU): "Eligibility criteria" heads a GPA grid; under such a heading only a tier grid is read (NY: Brockport's Excelsior
         # "Eligibility" lists student groups, not awards)
         eligibility_heading = bool(re.fullmatch(r'(?i)\s*eligibility(?:\s+criteria|\s+requirements)?\s*:?\s*', context))
-        if NOT_MERIT.search(' '.join(header)) or (NOT_NAME.search(context) and not eligibility_heading): continue
+        # LA (McNeese): a component column ("Fees/Books Awards*") names what the award pays for, not a fee table
+        component = [] if re.search(r'transfer|graduate|need[- ]based|athlet', ' '.join(header), re.I) else _component_grid(t, rows)
+        if (NOT_MERIT.search(' '.join(header)) and not component) or (NOT_NAME.search(context) and not eligibility_heading): continue
         if any(len(c) > 60 for c in header): continue  # a sentence is not a header row (APSU: "Freshmen | Qualifying freshmen have ...")
         if len(header) == 2 and re.fullmatch(r'\s*(requirements?|criteria|items?|attributes?|details?)\s*', header[0], re.I):
             continue  # key/value facts about one award (UTK: "Requirement | Details", "FAFSA Required | No")
         if re.search(r'\bcollege\s+gpa\b', ' '.join(header), re.I): continue  # college-GPA tiers are transfer awards (CBU)
         if not HEADER_WORDS.search(' '.join(header)): continue  # e.g. worked aid examples, schedules
         shaped = _level_grid(t, rows, page) or _tier_award(t, header, body, context) or _grid_award(t, header, body, context) \
-            or _score_row_grid(t, header, body, context, page)
+            or _score_row_grid(t, header, body, context, page) or component or _transposed_awards(t, header, body)
         if scope_test:
             if not (shaped and 'award_tiers' in shaped[0][0] and 'test_requirement' not in shaped[0][0]): continue
             shaped[0][0]['test_requirement'] = scope_test
@@ -782,7 +997,7 @@ def extract(inst, entry, page, today_year):
             open_to = rec.pop('_open_to', None)
             if open_to and home and open_to == home and 'residency_requirement' not in rec:
                 rec['residency_requirement'] = 'In-state'  # NV (UNR): the matrix page says "Open to Nevada residents"
-            if home and 'residency_requirement' not in rec and re.search(rf'\bnon[- ]{home}\s+residents?\b', page.title + ' ' + context, re.I):
+            if home and 'residency_requirement' not in rec and re.search(rf'\bnon[- ]?\s*(?:{home}|{inst.get("state")})\s+residents?\b', page.title + ' ' + context, re.I):
                 rec['residency_requirement'] = 'Out-of-state'  # WV (Concord): "Non-West Virginia Residents"
             other = re.search(r'(?<!non-)(?<!non )\b(' + '|'.join(v for v in STATES.values() if v != home) + r')\s+residents?\b', page.title + ' ' + context, re.I)
             if other and 'residency_requirement' not in rec:

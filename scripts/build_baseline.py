@@ -536,7 +536,10 @@ def policy_status(reg):
     for path, domain, r in records():
         k = r.get('institution_key')
         if not k: continue
-        if domain == 'awards' and r.get('award_type') in MERIT_TYPES: by_key[k]['merit'].append(r)
+        # A superseded or downgraded award (verification_status 'unverified', e.g. per-row records replaced by a reviewed tiered
+        # award, #299) is history: it is never counted as a merit record beside its replacement.
+        if domain == 'awards' and r.get('award_type') in MERIT_TYPES:
+            if r.get('verification_status') in ('verified', 'partially_verified'): by_key[k]['merit'].append(r)
         elif domain == 'credit_policies' and r.get('policy_kind') in ('AP', 'IB', 'CLEP'): by_key[k]['exam_credit'].append(r)
         elif domain == 'appeals': by_key[k]['aid_appeals'].append(r)
     att_p = ROOT / 'baseline/policy/pipeline_attempts.json'
@@ -560,25 +563,84 @@ def policy_status(reg):
         merit = by_key[k].get('merit', [])
         s['merit_score_linked'] = any(score_linked(r) for r in merit)
         s['merit_gpa_linked'] = any(gpa_linked(r) for r in merit)
+        # Criteria coverage by the strongest status that carries it: 'verified', 'partially_verified' or None. GPA-only means a GPA
+        # criterion on file and no ACT/SAT criterion.
+        best = lambda rs: 'verified' if any(r.get('verification_status') == 'verified' for r in rs) else 'partially_verified' if rs else None
+        s['merit_score_linked_status'] = best([r for r in merit if score_linked(r)])
+        s['merit_gpa_only_status'] = None if s['merit_score_linked'] else best([r for r in merit if gpa_linked(r)])
         out[k] = s
     out['_unregistered_pending'] = sorted(k for k, v in cands.items() if k not in {i['institution_key'] for i in reg}
                                           and (v.get('merit_scholarships') or {}).get('undecided'))
     return out
 
 
-def current_prices(reg):
-    """Schools with a verified school-published tuition record for the planning year or later (research records, not IPEDS)."""
-    from backend.catalog import records
-    keys = {i['institution_key'] for i in reg}
+def published_tuition(r):
+    """A costs record states the school's tuition when it has the tuition cell, or the school's own combined "tuition and
+    (mandatory) fees" cell as printed (`tuition_and_mandatory_fees`, never a sum the pipeline made). Both count as the same
+    category: a school-published current tuition price."""
+    return r.get('tuition') is not None or r.get('tuition_and_mandatory_fees') is not None
+
+
+# Verified (or partially verified) records the owner has been asked to rule on (PR #285, #296). They still count under the
+# rule below; the report names them so the totals can be read with that in mind. (folder, academic_year, residency, why)
+OWNER_DISPUTED = [
+    ('boisestate', '2026-27', 'out_of_state', 'Boise State out-of-state: $14,738.50 is half the annual non-resident tuition; probably per semester'),
+    ('uwlax', '2027-28', 'out_of_state', 'UW-La Crosse 2027-28: from the "2027-28 Estimated Expenses" projection table '
+     '(owner ruled 2026-11-03: downgraded to partially verified, supabase/corrections.json)'),
+    ('ttu', '2026-27', 'out_of_state', 'TTU out-of-state: components from the "Online Plus" table'),
+    ('npc', '2026-27', 'in_state', 'NPC in-state: the source column is "In District"'),
+    ('tsc', '2026-27', 'in_state', 'TSC in-state: the table is for "Texas in-district residents"'),
+]
+ANNUAL_PERIODS = (None, 'academic_year', 'fall_and_spring_semesters')
+
+
+def _folder(path):
+    parts = str(path).replace('\\', '/').split('/')
+    return parts[parts.index('institutions') + 1] if 'institutions' in parts else None
+
+
+def classify_prices(rows, keys):
+    """(path, domain, record) rows for the planning year or later ->
+    verified / partially_verified: schools with an annual published tuition record (tuition cell or the printed combined
+        tuition-and-fees cell), by their best status;
+    per_semester_only: schools whose only such records are per semester (never counted as an annual price);
+    year_unlabeled_only: counted schools whose counted records all print no year (academic_year_basis ..source_unlabeled);
+    owner_disputed: OWNER_DISPUTED entries that feed the count, as {key: [why]}; owner_disputed_outside_registry: the ones
+    on file for a school outside the four-year registry, so not in the count."""
     by = collections.defaultdict(set)
-    for path, domain, r in records():
-        if domain != 'costs' or 'data/national' in str(path) or r.get('institution_key') not in keys: continue
-        if r.get('verification_status') == 'verified' and r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
-            by['verified'].add(r['institution_key'])
-        elif r.get('tuition') is not None and str(r.get('academic_year') or '') >= PLANNING_YEAR:
-            by['partially_verified'].add(r['institution_key'])
-    by['partially_verified'] -= by['verified']
+    annual, semester, labeled = collections.defaultdict(list), set(), set()
+    disputed = collections.defaultdict(list)
+    lookup = {(f, y, res): why for f, y, res, why in OWNER_DISPUTED}
+    outside, folders = {}, {}
+    for path, domain, r in rows:
+        if domain != 'costs' or 'data/national' in str(path): continue
+        if r.get('institution_key') not in keys:
+            why = lookup.get((_folder(path), str(r.get('academic_year')), r.get('residency')))
+            if why: outside[why] = _folder(path)
+            continue
+        if not published_tuition(r) or str(r.get('academic_year') or '') < PLANNING_YEAR: continue
+        k = r['institution_key']
+        folders[k] = _folder(path)
+        if r.get('cost_period') not in ANNUAL_PERIODS:
+            semester.add(k); continue
+        annual[k].append(r)
+        if 'source_unlabeled' not in str(r.get('academic_year_basis') or ''): labeled.add(k)
+        why = lookup.get((_folder(path), str(r.get('academic_year')), r.get('residency')))
+        if why: disputed[k].append(why)
+    for k, rs in annual.items():
+        by['verified' if any(r.get('verification_status') == 'verified' for r in rs) else 'partially_verified'].add(k)
+    by['per_semester_only'] = semester - set(annual)
+    by['year_unlabeled_only'] = set(annual) - labeled
+    by['owner_disputed'] = dict(disputed)
+    by['folders'] = folders
+    by['owner_disputed_outside_registry'] = outside  # why -> folder: on file, but not a four-year registry school
     return by
+
+
+def current_prices(reg):
+    """Schools with a school-published tuition record for the planning year or later (research records, not IPEDS)."""
+    from backend.catalog import records
+    return classify_prices(records(), {i['institution_key'] for i in reg})
 
 
 def degree_detail():
@@ -616,6 +678,9 @@ def report(rows, secs, reg):
     _CACHE['policy'] = pol
     pl['merit_score_linked_schools'] = sum(1 for s in pol.values() if s['merit_score_linked'])
     pl['merit_gpa_linked_schools'] = sum(1 for s in pol.values() if s['merit_gpa_linked'])
+    for kind in ('score_linked', 'gpa_only'):
+        for st in ('verified', 'partially_verified'):
+            pl[f'merit_{kind}_{st}_schools'] = sum(1 for s in pol.values() if s[f'merit_{kind}_status'] == st)
     mr_p = ROOT / 'baseline/policy/merit_research.json'
     pl['merit_research_findings_schools'] = len(json.loads(mr_p.read_text())['schools']) if mr_p.exists() else 0
     ew = lambda keys: round(sum(w(r) for r in rows if r['institution_key'] in keys) / W, 4) if W else 0
@@ -643,9 +708,20 @@ def report(rows, secs, reg):
         'fields': per,
         'current_published_tuition': {
             'note': f'Separate from IPEDS: a school-published tuition record for {PLANNING_YEAR} or later in data/institutions, '
-                    'verified against the official page (pipeline research). IPEDS tuition stays available_older.',
+                    'verified against the official page (pipeline research). A record counts when it has the printed tuition or the '
+                    "school's own printed combined tuition-and-fees figure (tuition_and_mandatory_fees); both are the same category. "
+                    'Only annual records count (cost_period academic_year, fall_and_spring_semesters or unstated); a per-semester '
+                    "record is never read as a year's price. "
+                    'IPEDS tuition stays available_older.',
             'verified_schools': len(cpk), 'partially_verified_schools': len(cp['partially_verified']),
-            'enrollment_weighted_verified': round(sum(w(r) for r in rows if r['institution_key'] in cpk) / W, 4) if W else 0},
+            'enrollment_weighted_verified': round(sum(w(r) for r in rows if r['institution_key'] in cpk) / W, 4) if W else 0,
+            'year_unlabeled_only': {s: len(cp['year_unlabeled_only'] & cp[s]) for s in ('verified', 'partially_verified')},
+            'year_unlabeled_only_schools': sorted(cp['folders'][k] for k in cp['year_unlabeled_only']),
+            'per_semester_only_schools': sorted(cp['folders'][k] for k in cp['per_semester_only']),
+            'owner_disputed': [{'institution_key': k, 'folder': cp['folders'][k], 'status': 'verified' if k in cpk else 'partially_verified', 'why': why}
+                               for k in sorted(cp['owner_disputed']) for why in cp['owner_disputed'][k]],
+            'owner_disputed_outside_registry': [{'folder': k, 'why': why}
+                                                for why, k in sorted(cp['owner_disputed_outside_registry'].items())]},
         'policy_layer': {'note': 'Separate measure. From research records in data/institutions/<folder>/ (awards of type '
                                  'institutional_merit, AP/IB/CLEP credit policies, appeals). not_researched means no record yet, '
                                  'never that the school has no policy.', **pl},
@@ -679,6 +755,15 @@ def markdown(rep):
     c = rep['current_published_tuition']
     L += ['', f"**Current published tuition ({PLANNING_YEAR} or later, school's own page):** {c['verified_schools']:,} schools verified, "
           f"{c['partially_verified_schools']:,} partially verified; {c['enrollment_weighted_verified']:.1%} of undergraduates. {c['note']}"]
+    u = c['year_unlabeled_only']
+    L += ['', f"- Resting only on records whose page prints no year (`source_unlabeled`): {u['verified']:,} of the verified and "
+          f"{u['partially_verified']:,} of the partially verified schools ({', '.join(c['year_unlabeled_only_schools']) or 'none'}).",
+          f"- Per-semester only (not counted above as an annual price): {len(c['per_semester_only_schools']):,} schools "
+          f"({', '.join(c['per_semester_only_schools']) or 'none'}).",
+          f"- Owner-disputed records counted above (each at its current status; the owner's ruling is noted where made): "
+          + ('; '.join(f"{d['why']} ({d['status']}, {d['folder']})" for d in c['owner_disputed']) or 'none') + '.',
+          f"- Owner-disputed records outside the four-year registry (not in this count): "
+          + ('; '.join(f"{d['why']} ({d['folder']})" for d in c['owner_disputed_outside_registry']) or 'none') + '.']
     L += ['', 'Most common reasons a field is not researched:', '']
     for k, f in rep['fields'].items():
         if f['top_reasons_not_researched']:
@@ -700,6 +785,10 @@ def markdown(rep):
           "`baseline/policy/pipeline_attempts.json` is a snapshot: re-run `scripts/harvest_research_status.py` after decisions land."]
     L += ['', f"- Schools with a merit record that states an ACT/SAT criterion: {p['merit_score_linked_schools']:,}; a GPA criterion: "
           f"{p['merit_gpa_linked_schools']:,}.",
+          f"  - ACT/SAT criterion on a verified record: {p['merit_score_linked_verified_schools']:,}; only on partially verified records: "
+          f"{p['merit_score_linked_partially_verified_schools']:,}.",
+          f"  - GPA criterion and no ACT/SAT criterion (GPA-only), on a verified record: {p['merit_gpa_only_verified_schools']:,}; only on "
+          f"partially verified records: {p['merit_gpa_only_partially_verified_schools']:,}.",
           f"- Schools with reviewed statements on how merit is awarded (no fixed criteria, superscoring, test-optional rules; "
           f"`baseline/policy/merit_research.json`): {p['merit_research_findings_schools']}.",
           f"- Merit records on file (verified or partially verified), enrollment-weighted: {p['merit_on_file_enrollment_weighted']:.1%}; "

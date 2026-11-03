@@ -100,6 +100,44 @@ def requirement_group_errors(record):
         errors.append('elective_pool groups need course_rules or courses')
     return errors
 
+# #218 C3: printed cost lines reach institution_costs.components (jsonb object) and .living_arrangements (jsonb
+# array) verbatim; scripts/import_supabase.py copies them, compare_institutions serves them, nothing sums them.
+ARRANGEMENTS={'with_parents_or_family','off_campus_not_with_family','on_campus','other','unlabeled'}
+ARRANGEMENT_AMOUNTS={'total_cost_of_attendance','housing','food','books_supplies','transportation','other_expenses'}
+ARRANGEMENT_TEXT={'arrangement','column_header','source','food_source','notes'}
+
+def _amount(value):
+    return not isinstance(value,bool) and isinstance(value,(int,float)) and value>=0
+
+def printed_lines_errors(lines, where):
+    if not isinstance(lines,dict):
+        return [f'{where} must be an object of printed line -> amount']
+    return [f'{where}[{label!r}] must be a non-negative number' for label,value in lines.items()
+            if not isinstance(label,str) or not label.strip() or not _amount(value)]
+
+def cost_shape_errors(record):
+    errors=[]
+    if record.get('components') is not None:
+        errors.extend(printed_lines_errors(record['components'],'components'))
+    arrangements=record.get('living_arrangements')
+    if arrangements is None:
+        return errors
+    if not isinstance(arrangements,list):
+        return errors+['living_arrangements must be an array']
+    for i,a in enumerate(arrangements):
+        where=f'living_arrangements[{i}]'
+        if not isinstance(a,dict):
+            errors.append(f'{where} must be an object'); continue
+        unknown=set(a)-ARRANGEMENT_AMOUNTS-ARRANGEMENT_TEXT-{'components'}
+        if unknown: errors.append(f'{where} has unknown fields {sorted(unknown)}')
+        if a.get('arrangement') not in ARRANGEMENTS: errors.append(f'{where}.arrangement is invalid')
+        errors.extend(f'{where}.{k} must be text' for k in ARRANGEMENT_TEXT if a.get(k) is not None and not isinstance(a[k],str))
+        errors.extend(f'{where}.{k} must be a non-negative number or null' for k in ARRANGEMENT_AMOUNTS
+                      if a.get(k) is not None and not _amount(a[k]))
+        if a.get('components') is not None:
+            errors.extend(printed_lines_errors(a['components'],f'{where}.components'))
+    return errors
+
 def validate_record(path: Path, record: dict, index: int, domain=None):
     errors = []
     status = record.get("verification_status")
@@ -147,11 +185,65 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
                 errors.append('invalid '+field)
         if 'active' in record and record['active'] is not None and not isinstance(record['active'],bool):
             errors.append('active must be boolean or null')
+    if domain=='costs':
+        errors.extend(cost_shape_errors(record))
     from backend.program_fields import field_errors  # CR-14 program-depth fields
     errors.extend(field_errors(domain,record))
     try: label=path.relative_to(ROOT)
     except ValueError: label=path
     return [f"{label} record {index}: {e}" for e in errors]
+
+ACTIVE = ('verified', 'partially_verified')
+# The one pair on main where both sides are verified (#299): UTK's In-State Volunteer tiered record and its per-row records.
+# Superseding either side downgrades a verified record, which needs the owner; listed so the check blocks every other pair.
+# (UTK's Out-of-State tiered record was partially verified and is superseded by its verified per-row records.)
+KNOWN_DOUBLE_AWARDS = {('utk', '2026-27', 'in-state volunteer scholarship')}  # normalised name; both sides verified (owner item)
+
+
+def _award_name_key(name):
+    """Casefold, collapse whitespace and trim, so case or spacing can't separate a per-row record from its tiered award."""
+    return ' '.join((name or '').split()).casefold()
+
+
+def _award_host(url):
+    from urllib.parse import urlsplit
+    host = urlsplit(url or '').netloc.casefold()
+    return host[4:] if host.startswith('www.') else host
+
+
+PER_ROW_FIELDS = ('gpa_requirement', 'test_requirement', 'award_min', 'award_max', 'award_amount_text')
+# "<title>: <tier>" and "<title> - <tier>" (or an en/em dash) name a row of the title; "<title>-Plus" is another award.
+PER_ROW_SEPARATOR = re.compile(r'\s*:|\s+[-\u2013\u2014]\s')
+
+
+def superseded_award_errors(rows):
+    """#299 (AHU, UMT, OLLU): when a reviewed tiered award replaces the per-row records the list reader made from the same table
+    ("<table title>: <tier>" or "<table title> - <tier>"), the per-row records are superseded (unverified, kept as history). A
+    school-year with an active tiered award and an active per-row record of that award from the same site would count and offer
+    the award twice. Names and hosts are compared normalised (case, spacing, "www."), and a per-row record counts whether it
+    carries a criterion or only an amount."""
+    from collections import defaultdict
+    groups = defaultdict(list)
+    for path, domain, r in rows:
+        if domain == 'awards' and r.get('verification_status') in ACTIVE:
+            groups[(r.get('institution_key'), r.get('academic_year'))].append((path, r))
+    errors = []
+    for (inst, year), recs in groups.items():
+        for _, t in recs:
+            if not t.get('award_tiers'): continue
+            name = _award_name_key(t.get('award_name'))
+            if not name or (inst, year, name) in KNOWN_DOUBLE_AWARDS: continue
+            host = _award_host(t.get('source_url'))
+            for path, r in recs:
+                rn = _award_name_key(r.get('award_name'))
+                if r.get('award_tiers') or not rn.startswith(name) or not PER_ROW_SEPARATOR.match(rn, len(name)):
+                    continue
+                if not any(r.get(f) not in (None, '') for f in PER_ROW_FIELDS):
+                    continue
+                if _award_host(r.get('source_url')) == host:
+                    errors.append(f'{path}: per-row award {r.get("award_name")!r} is active beside its tiered award {t.get("award_name")!r} ({inst} {year}); supersede one')
+    return errors
+
 
 def main() -> int:
     errors = []
@@ -182,6 +274,7 @@ def main() -> int:
         errors.append(str(exc))
     from backend.program_fields import cross_errors
     errors.extend(cross_errors(rows))
+    errors.extend(superseded_award_errors(rows))
     errors.extend(f'{path}: degree requirement without its program {key[2]!r} for {key[1]}' for path, key in requirements if key not in programs)
 
     if errors:

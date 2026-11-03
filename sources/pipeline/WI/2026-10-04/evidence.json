@@ -1,4 +1,98 @@
 {
+ "00a52a0eb1db282a": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "00a52a0eb1db282a",
+   "reason": "Concordia University Wisconsin table captioned \"2026-2027 CUW Traditional Undergraduate Cost of Attendance (full year)\" (under \"2026-2027 tuition, housing, and other costs for Undergraduate students\"), column \"On Campus/Off Campus (Not with Family)\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $14,080, Transportation* $1,260, Personal Expenses* $2,000, Total $56,210; column \"Living At Home\": Tuition $37,080, Consolidated Fee $540, Books & Supplies* $1,250, Housing & Food** $3,500, Transportation* $2,500, Personal Expenses* $2,000, Total $46,870, copied as printed. Tuition matches the \"Per Year\" cell \"Tuition (full-time, 12-18 credits)\" $37,080 in the tuition table above it. Private, residency not applicable, full year. Open issue arrangement_unlabeled accepted: the school prints one column for both on-campus and off-campus-not-with-family students, so that budget keeps the page's combined header and no single arrangement is asserted."
+  },
+  "evidence": [
+   {
+    "field": "column:Tuition",
+    "snippet": "Tuition | $37,080 | $37,080",
+    "value": 37080
+   },
+   {
+    "field": "column:Consolidated Fee",
+    "snippet": "Consolidated Fee | $540 | $540",
+    "value": 540
+   },
+   {
+    "field": "column:Books & Supplies*",
+    "snippet": "Books & Supplies* | $1,250 | $1,250",
+    "value": 1250
+   },
+   {
+    "field": "column:Housing & Food**",
+    "snippet": "Housing & Food** | $14,080 | $3,500",
+    "value": 14080
+   },
+   {
+    "field": "column:Transportation*",
+    "snippet": "Transportation* | $1,260 | $2,500",
+    "value": 1260
+   },
+   {
+    "field": "column:Personal Expenses*",
+    "snippet": "Personal Expenses* | $2,000 | $2,000",
+    "value": 2000
+   },
+   {
+    "field": "column:Total",
+    "snippet": "Total | $56,210 | $46,870",
+    "value": 56210
+   },
+   {
+    "field": "with_parents_or_family:Tuition",
+    "snippet": "Tuition | $37,080 | $37,080",
+    "value": 37080
+   },
+   {
+    "field": "with_parents_or_family:Consolidated Fee",
+    "snippet": "Consolidated Fee | $540 | $540",
+    "value": 540
+   },
+   {
+    "field": "with_parents_or_family:Books & Supplies*",
+    "snippet": "Books & Supplies* | $1,250 | $1,250",
+    "value": 1250
+   },
+   {
+    "field": "with_parents_or_family:Housing & Food**",
+    "snippet": "Housing & Food** | $14,080 | $3,500",
+    "value": 3500
+   },
+   {
+    "field": "with_parents_or_family:Transportation*",
+    "snippet": "Transportation* | $1,260 | $2,500",
+    "value": 2500
+   },
+   {
+    "field": "with_parents_or_family:Personal Expenses*",
+    "snippet": "Personal Expenses* | $2,000 | $2,000",
+    "value": 2000
+   },
+   {
+    "field": "with_parents_or_family:Total",
+    "snippet": "Total | $56,210 | $46,870",
+    "value": 46870
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "arrangement_unlabeled"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T02:31:18+00:00",
+   "kind": "html",
+   "last_modified": "Mon, 03 Aug 2026 18:41:35 GMT",
+   "page_file": "2624ce258b5b860090a6.json.gz",
+   "requested_url": "https://www.cuw.edu/admissions/undergraduate-admissions/tuition-fees.html",
+   "sha256": "2624ce258b5b860090a69e164941dd031c19f37709adb1ab7bcbbd4eb338a4a3",
+   "title": "Undergraduate Tuition & Fees",
+   "url": "https://www.cuw.edu/admissions/undergraduate-admissions/tuition-fees.html"
+  },
+  "year_basis": "labeled_in_source"
+ },
  "02436c4cf794baf2": {
   "decision": {
    "candidate_id": "02436c4cf794baf2",
@@ -656,6 +750,50 @@
    "url": "https://www.mbu.edu/online_learning/dual-enrollment/"
   },
   "year_basis": "source_unlabeled"
+ },
+ "27feb6a00c8c5eaf": {
+  "decision": {
+   "accept_issues": true,
+   "candidate_id": "27feb6a00c8c5eaf",
+   "reason": "UW-La Crosse \"Cost to attend\" page, table under heading \"Undergraduate Overview 2026-27\" (lead \"2026-27 costs for full time undergraduate students are:\"), column \"Non-resident\": Tuition/Fees $21,077, Housing traditional double $4,834, FoodStryker Classic meal plan $3,336, \"TOTALS divide in half for per semester costs\" $29,247, copied as printed. Full-time undergraduate, out-of-state, academic year, on campus. The table is not marked estimated (the 2027-28 table above it is, and was not used). Open issue conflicting_sources accepted: the financial-aid page's \"The 2026-2027 Financial Aid Allowance/COA\" table itemizes the non-resident budget differently (\"Estimated Tuition\" $19,042 with fees on separate rows, Housing $5,316, Food $4,038); this record keeps the cost page's own published rates."
+  },
+  "evidence": [
+   {
+    "field": "on_campus:Tuition/Fees",
+    "snippet": "Tuition/Fees | $10,961 | $11,895 | $21,077 | $15,421 | $16,317 | $10,961/ $11,895",
+    "value": 21077
+   },
+   {
+    "field": "on_campus:Housing traditional double",
+    "snippet": "Housing traditional double | $4,834 | $4,834 | $4,834 | $4,834 | $4,834 | 0",
+    "value": 4834
+   },
+   {
+    "field": "on_campus:FoodStryker Classic meal plan",
+    "snippet": "FoodStryker Classic meal plan | $3,336 | $3,336 | $3,336 | $3,336 | $3,336 | 0",
+    "value": 3336
+   },
+   {
+    "field": "on_campus:TOTALSdivide in half for per semester costs",
+    "snippet": "TOTALSdivide in half for per semester costs | $19,131 | $20,065 | $29,247 | $23,591 | $24,487 | $10,961/$11,895",
+    "value": 29247
+   }
+  ],
+  "extractor": "cost_table/v2",
+  "issues": [
+   "conflicting_sources:https://www.uwlax.edu/finaid/actions/accept-decline-my-finaid-award/"
+  ],
+  "source": {
+   "fetched_at": "2026-10-05T02:44:02+00:00",
+   "kind": "html",
+   "last_modified": null,
+   "page_file": "983b6ea18d4b37c662cb.json.gz",
+   "requested_url": "https://www.uwlax.edu/cost/",
+   "sha256": "983b6ea18d4b37c662cb5075a4795748019b731b48524c9d90fd5207b583a24a",
+   "title": "Cost to attend | UW-La Crosse",
+   "url": "https://www.uwlax.edu/cost/"
+  },
+  "year_basis": "labeled_in_source"
  },
  "2a494d51f8e54bf4": {
   "decision": {

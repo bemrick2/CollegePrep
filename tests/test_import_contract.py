@@ -44,9 +44,28 @@ class ImportContractTests(unittest.TestCase):
                 r"requirement_kind text not null check \(requirement_kind in \(([^)]*)\)\)"),
             ('costs', 'residency'): latest_check_values('institution_costs_residency_check',
                 r"residency text not null check \(residency in \(([^)]*)\)\)"),
+            ('costs', 'cost_period'): latest_check_values('institution_costs_cost_period_check',
+                r"add column cost_period text check \(cost_period is null or cost_period in \(([^)]*)\)\)"),
         }
         for (domain, field), values in expected.items():
             self.assertEqual(CONTROLLED_VALUES[domain][field], values, f'{domain}.{field} drifted from the migration')
+
+    def test_every_cost_period_is_allowed_by_the_database(self):
+        # #296: institution_costs.cost_period is checked in the migration; a record with another value would fail import.
+        allowed = latest_check_values('institution_costs_cost_period_check',
+            r"add column cost_period text check \(cost_period is null or cost_period in \(([^)]*)\)\)")
+        self.assertEqual(allowed, {'academic_year', 'fall_and_spring_semesters', 'semester'})
+        seen = {r.get('cost_period') for _, d, r in records() if d == 'costs'}
+        self.assertTrue(seen - {None} <= allowed, seen - {None} - allowed)
+
+    def test_bad_cost_period_is_caught_before_the_database(self):
+        # #296: validate_data (through import_contract_errors) refuses an unknown period; an unstated period stays allowed.
+        base = {'institution_key': 'x', 'academic_year': '2026-27', 'residency': 'in_state'}
+        self.assertTrue(import_contract_errors('costs', {**base, 'cost_period': 'quarter'}))
+        self.assertTrue(import_contract_errors('costs', {**base, 'cost_period': 'per_semester'}))
+        for ok in ('academic_year', 'fall_and_spring_semesters', 'semester', None):
+            self.assertEqual(import_contract_errors('costs', {**base, 'cost_period': ok}), [], ok)
+        self.assertEqual(import_contract_errors('costs', base), [])
 
     def test_new_unmapped_domain_fails_validation_and_import(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -93,8 +112,28 @@ class ImportContractTests(unittest.TestCase):
         self.assertIn('requirement_group/v1', sql)  # structured plan travels intact into the batch
 
 
-if __name__ == '__main__':
-    unittest.main()
+class CostShapeTests(unittest.TestCase):
+    """#218 C3: components and living_arrangements keep the shape institution_costs stores verbatim."""
+    def errors(self, **fields):
+        from scripts.validate_data import cost_shape_errors
+        return cost_shape_errors(fields)
+
+    def test_printed_shapes_pass(self):
+        self.assertEqual(self.errors(components={'Enrollment Fees': 9874, 'Books': 1200.5}, living_arrangements=[
+            {'arrangement': 'on_campus', 'column_header': 'On Campus', 'total_cost_of_attendance': 30000,
+             'components': {'Housing': 11000}},
+            {'arrangement': 'with_parents_or_family', 'total_cost_of_attendance': None, 'housing': None, 'source': 'p. 2'}]), [])
+        self.assertEqual(self.errors(components=None, living_arrangements=None), [])
+
+    def test_bad_shapes_fail(self):
+        self.assertTrue(self.errors(components=[1, 2]))
+        self.assertTrue(self.errors(components={'Tuition': '9,874'}))
+        self.assertTrue(self.errors(components={'Tuition': True}))
+        self.assertTrue(self.errors(components={'Tuition': -1}))
+        self.assertTrue(self.errors(living_arrangements={'on_campus': 1}))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'dorm'}]))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'on_campus', 'total': 1}]))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'on_campus', 'components': {'Housing': 'x'}}]))
 
 
 class LiveImportWorkflowTests(unittest.TestCase):
@@ -123,3 +162,7 @@ class LiveImportWorkflowTests(unittest.TestCase):
         self.assertIn('cancel-in-progress: false', wf)
         self.assertIn('branches: [main]', wf)
         self.assertNotIn('pull_request', wf)  # PR code never receives the database secret
+
+
+if __name__ == '__main__':
+    unittest.main()

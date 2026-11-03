@@ -1,6 +1,6 @@
 // Tests the shared Stripe edge-function logic (supabase/functions/_shared/billing.ts).
 import { describe, expect, it } from 'vitest'
-import { HANDLED_EVENTS, isLookupKey, planKeyFor, siteUrl, subscriptionIdFromEvent, subscriptionRow } from '../../../../supabase/functions/_shared/billing'
+import { HANDLED_EVENTS, isLookupKey, planKeyFor, siteUrl, storeRawBillingEvent, subscriptionIdFromEvent, subscriptionRow } from '../../../../supabase/functions/_shared/billing'
 
 const sub = (over: Record<string, unknown> = {}) => ({
   id: 'sub_123',
@@ -43,5 +43,11 @@ describe('Stripe billing logic', () => {
   it('redirects only to our own https origin', () => {
     expect(siteUrl('https://prepandprice.example/path')).toBe('https://prepandprice.example')
     expect(() => siteUrl('http://evil.example')).toThrow()
+  })
+
+  it('keeps full payloads only for handled events; anything else is stored de-identified (A4)', () => {
+    for (const t of HANDLED_EVENTS) expect(storeRawBillingEvent(t)).toBe(true)
+    for (const t of ['charge.dispute.created', 'review.opened', 'radar.early_fraud_warning.created', 'customer.updated', 'charge.succeeded'])
+      expect(storeRawBillingEvent(t)).toBe(false)
   })
 })
