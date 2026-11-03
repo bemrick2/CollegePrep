@@ -161,16 +161,25 @@ begin
   perform hp_test.eq(r->>'created', 'false', 'a repeat is not a new report');
   perform hp_test.eq(r->>'updated', 'false', 'an identical repeat changes nothing');
   perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'a repeat returns the open report');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select revision || '|' || (updated_at is null) from public.question_reports where id = current_setting('t.rep_student')::uuid),
+    '1|true', 'filed at revision 1, never updated; an identical repeat bumps nothing');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   -- A different reason and note: the open report is updated.
   r := public.report_question_problem(a1, 'typo', E'\t  Second thoughts: a typo in choice C. \n');
   perform hp_test.eq(r->>'created' || '|' || (r->>'updated'), 'false|true', 'a changed repeat updates the open report');
   perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'the same report');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select revision || '|' || (updated_at is not null) || '|' || (updated_at >= created_at) from public.question_reports
+    where id = current_setting('t.rep_student')::uuid), '2|true|true', 'a change sets updated_at and revision 2');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   -- The note rules hold on an update: 500 characters is the maximum, 501 is refused and changes nothing.
   perform hp_test.eq(public.report_question_problem(a1, 'typo', repeat('y', 500))->>'updated', 'true', '500 characters is allowed on an update');
   perform hp_test.expect_error(format($q$select public.report_question_problem(%L, 'other', %L)$q$, a1, repeat('z', 501)), '22023', '%500%');
   perform hp_test.as_owner();
   perform hp_test.eq((select reason || '|' || length(note) from public.question_reports where id = current_setting('t.rep_student')::uuid),
     'typo|500', 'a refused update leaves the last good one');
+  perform hp_test.eq((select revision from public.question_reports where id = current_setting('t.rep_student')::uuid), 3, 'a refused update bumps nothing (revision 3)');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
   -- A whitespace-only note on a repeat clears the note.
   r := public.report_question_problem(a1, 'typo', E'\n\t \n');
@@ -182,6 +191,7 @@ begin
   perform hp_test.as_owner();
   perform hp_test.eq((select reason || '|' || note from public.question_reports where id = current_setting('t.rep_student')::uuid),
     'wrong_key|The key says B but A is right.', 'trimmed of tabs and newlines on update');
+  perform hp_test.eq((select revision from public.question_reports where id = current_setting('t.rep_student')::uuid), 5, 'each change counted (revision 5)');
   perform hp_test.eq((select count(*) from public.question_reports where reporter_user_id = '20000000-0000-0000-0000-000000000051'), 1::bigint, 'still one report');
 
   -- Another attempt at the same question is the same question: still the same open report.
@@ -190,6 +200,9 @@ begin
   r := public.report_question_problem(current_setting('t.a1b')::uuid, 'wrong_key', 'The key says B but A is right.');
   perform hp_test.eq(r->>'report_id', current_setting('t.rep_student'), 'a second attempt finds the same open report');
   perform hp_test.eq(r->>'updated', 'false', 'unchanged');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select revision from public.question_reports where id = current_setting('t.rep_student')::uuid), 5, 'still revision 5');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
 
   -- New content is a new version: the same person may report it again.
   perform hp_test.as_owner();
@@ -236,6 +249,20 @@ begin
   r := public.report_question_problem(a1, 'wrong_key');
   perform hp_test.eq(r->>'created', 'true', 'after review, the same version can be reported again');
   perform hp_test.check(r->>'report_id' <> rep::text, 'as a new report');
+  -- A closed report is never matched by a repeat, and never changes: the repeat above and a changed one leave it as reviewed.
+  r := public.report_question_problem(a1, 'two_answers', 'Changed after review');
+  perform hp_test.eq(r->>'created' || '|' || (r->>'updated'), 'false|true', 'the repeat updates the new open report');
+  perform hp_test.as_owner();
+  perform hp_test.eq((select reason || '|' || note || '|' || revision || '|' || status from public.question_reports where id = rep),
+    'wrong_key|The key says B but A is right.|5|resolved', 'the resolved report is unchanged');
+  perform hp_test.eq((select revision from public.question_reports where id = (r->>'report_id')::uuid), 2, 'only the open report moved');
+  -- Not even the service role can rewrite a closed report.
+  perform hp_test.as_service();
+  perform hp_test.expect_error(format($q$update public.question_reports set note = 'rewritten' where id = %L$q$, rep), '22023', '%closed%');
+  perform hp_test.expect_error(format($q$update public.question_reports set reason = 'typo', revision = revision + 1, updated_at = now() where id = %L$q$, rep), '22023', '%closed%');
+  perform hp_test.as_owner();
+  perform hp_test.expect_error(format($q$update public.question_reports set revision = 1, updated_at = now() where id = %L$q$, (r->>'report_id')), '23514');
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
 end $$;
 
 -- Families never read reports, their own included.

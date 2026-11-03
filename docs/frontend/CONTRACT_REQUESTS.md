@@ -423,6 +423,7 @@ Needed by stage 10 (monitoring) of the editorial workflow.
 - Reasons `wrong_key`, `two_answers`, `unclear`, `typo`, `other`. The note is trimmed of all leading and trailing whitespace (spaces, tabs, newlines); a note of only whitespace counts as none. At most 500 characters (22023 otherwise).
 - One open report per reporter, student, question and content version (the question's content hash).
   - A repeat returns that report with `created: false` and replaces its reason and note. `updated` is true when either changed.
+  - A change sets `updated_at` and adds one to `revision`: a report is filed at revision 1, with `updated_at` null. A closed report is never matched and never changes; a trigger refuses any rewrite of it.
   - The same note rules apply to a repeat, and a repeat is never rate-limited.
   - A new version, or the report being closed, allows a new one.
 - Rate limit per reporter: 10 new reports an hour and 30 a day: 22023 with `hint = 'rate_limited'`.

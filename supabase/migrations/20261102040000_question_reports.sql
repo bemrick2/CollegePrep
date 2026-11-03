@@ -13,7 +13,10 @@
 --   - One open report per reporter, student, question and content version (the question's content hash when reported,
 --     from practice_question_content_hash). Repeating the call returns that open report ({"created": false}) and
 --     replaces its reason and note with the new ones ("updated": true when either changed); the same note rules apply,
---     and a repeat never counts against the rate limit. A guardian reporting the same question for two students files
+--     and a repeat never counts against the rate limit. A change sets updated_at and adds one to revision (1 when filed,
+--     updated_at null until the first change); an identical repeat changes neither. Only an open report is ever
+--     updated: closed reports are never matched, and a trigger refuses any change to a closed report's reason, note,
+--     revision or updated_at, whoever makes it (22023). A guardian reporting the same question for two students files
 --     two reports. After an editor resolves it, or the content changes, the same person can report again.
 --   - Rate limit per reporter: at most 10 new reports in any hour and 30 in any 24 hours (22023, hint 'rate_limited').
 --     Calls for one reporter are serialised with a transaction advisory lock, so concurrent calls can't exceed it.
@@ -38,11 +41,14 @@ create table public.question_reports (
   note text check (note is null or (length(note) between 1 and 500 and note !~ '^\s' and note !~ '\s$')),
   status text not null default 'open' check (status in ('open', 'resolved', 'dismissed')),
   created_at timestamptz not null default now(),
+  updated_at timestamptz,
+  revision integer not null default 1 check (revision >= 1),
   reviewed_at timestamptz,
   reviewed_by text check (reviewed_by is null or length(btrim(reviewed_by)) between 1 and 200),
   resolution_note text check (resolution_note is null or length(resolution_note) <= 2000),
   check ((status = 'open') = (reviewed_at is null)),
-  check (status = 'open' or reviewed_by is not null)
+  check (status = 'open' or reviewed_by is not null),
+  check ((revision = 1) = (updated_at is null))
 );
 comment on table public.question_reports is
   'CR-25: problem reports on questions. Service role only; filed through report_question_problem, closed through resolve_question_report.';
@@ -57,6 +63,20 @@ create index question_reports_attempt_idx on public.question_reports(attempt_id)
 alter table public.question_reports enable row level security;
 revoke all on public.question_reports from public, anon, authenticated;
 grant select, insert, update, delete on public.question_reports to service_role;
+
+-- A closed report is a record of what was reviewed: its reason, note, revision and updated_at never change again.
+create function public.question_reports_closed_guard() returns trigger
+language plpgsql set search_path = '' as $$
+begin
+  if old.status <> 'open' and (new.reason, new.note, new.revision, new.updated_at)
+      is distinct from (old.reason, old.note, old.revision, old.updated_at) then
+    raise exception 'This report is closed; its reason and note can''t change' using errcode = '22023';
+  end if;
+  return new;
+end $$;
+revoke all on function public.question_reports_closed_guard() from public, anon, authenticated;
+create trigger question_reports_closed_guard before update on public.question_reports
+  for each row execute function public.question_reports_closed_guard();
 
 create function public.report_question_problem(p_attempt uuid, p_reason text, p_note text default null) returns jsonb
 language plpgsql security definer set search_path = '' as $$
@@ -97,10 +117,17 @@ begin
     and r.status = 'open'
   for update;
   if v_old.id is not null then
-    -- A repeat on your own open report replaces its reason and note; it is not a new report.
-    update public.question_reports r set reason = p_reason, note = v_note where r.id = v_old.id;
-    return jsonb_build_object('report_id', v_old.id, 'created', false,
-      'updated', v_old.reason is distinct from p_reason or v_old.note is distinct from v_note, 'status', 'open');
+    -- A repeat on your own open report replaces its reason and note; it is not a new report. Only a change bumps
+    -- updated_at and revision, and only an open report is updated.
+    if v_old.reason is distinct from p_reason or v_old.note is distinct from v_note then
+      update public.question_reports r set reason = p_reason, note = v_note, updated_at = now(), revision = r.revision + 1
+      where r.id = v_old.id and r.status = 'open';
+      if not found then
+        raise exception 'This report is closed; file a new one' using errcode = '22023';
+      end if;
+      return jsonb_build_object('report_id', v_old.id, 'created', false, 'updated', true, 'status', 'open');
+    end if;
+    return jsonb_build_object('report_id', v_old.id, 'created', false, 'updated', false, 'status', 'open');
   end if;
   if (select count(*) from public.question_reports r where r.reporter_user_id = v_uid and r.created_at > now() - interval '1 hour') >= 10
      or (select count(*) from public.question_reports r where r.reporter_user_id = v_uid and r.created_at > now() - interval '24 hours') >= 30 then
