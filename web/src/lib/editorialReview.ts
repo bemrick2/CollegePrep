@@ -117,7 +117,7 @@ ${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}<p>${esc(q.ste
 ${q.answer_format === 'choice' ? `<ul class="choices">${q.choices.map((c) => `<li><b>${esc(c.key)}.</b> ${esc(c.text)}${q.accepted_answers.includes(c.key) ? ' <span class="key">(key)</span>' : ''}</li>`).join('')}</ul>` : `<p class="key">Accepted: ${esc(q.accepted_answers.join(', '))}</p>`}
 <p><b>Explanation.</b> ${esc(q.teaching_explanation)}</p><p><b>Strategy.</b> ${esc(q.strategy_explanation)}</p>
 <p><b>Hints.</b> ${q.hints.map(esc).join(' / ')}</p>
-<ul>${q.distractors.map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}</li>`).join('')}</ul></article>`)
+<ul>${(q.distractors ?? []).map((d) => `<li>${esc(d.choice)}: ${esc(d.rationale)}</li>`).join('')}</ul></article>`)
       .join('\n')
     files[`review-${g}.html`] = page(`${label} review copy: ${g}. Contains the key: not for blind solvers.`, full)
   }

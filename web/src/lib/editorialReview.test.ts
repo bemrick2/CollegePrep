@@ -59,6 +59,16 @@ describe('review items from an imported batch (labelled TEST-ONLY fixtures, not 
 })
 
 describe('review packets for an imported batch', () => {
+  it('a numeric item imported without distractors or choices (allowed by the contract) gets packets', () => {
+    const line = testOnlyBatch(QUESTIONS.length).find((l) => l.answer_format === 'numeric')!
+    const { distractors: _d, choices: _c, ...bare } = line as typeof line & { distractors?: unknown; choices?: unknown }
+    const reg = intake(emptyRegistry(), [bare as typeof line], 'TEST-ONLY-batch.jsonl', AT, new Map()).registry
+    const files = packetFiles(itemsFromRegistry(reg, TI, R), EMPTY, R, 'Imported batch', TI)
+    const review = Object.entries(files).find(([k]) => k.startsWith('review-'))![1]
+    expect(review).toContain('Accepted:')
+    expect(Object.entries(files).find(([k]) => k.startsWith('blind-'))![1]).toContain('(Enter a number.)')
+  })
+
   const items = itemsFromRegistry(batch(4), TI, R)
   const files = packetFiles(items, EMPTY, R, 'Imported batch')
 
