@@ -145,9 +145,10 @@ enforced in code): a solver who has seen the review copy, with the key, can't so
 
 Packets and sign-off recording take the same `--registry` file (steps 1 and 5).
 
-**Real banks:** the original, B and C banks have **not** been delivered (#254). The tests use a stand-in batch labelled
-TEST ONLY (`web/src/lib/__fixtures__/TEST_ONLY_importBatch.ts`), made of the app's own fixture items in the import
-format. Passing those tests validates the tooling, never the real banks.
+**Delivered bank:** the reconciled bank of 2026-10-28 (branch `qb/final-reconciled-bank-v2-2026-10-28`) was taken in
+as a local dry run: 3,831 importable AI drafts, 0 validator problems, 0 refused, packets built
+(`BANK_INTAKE_2026-10-28.md`). None is human-approved. The tests still use a stand-in batch labelled TEST ONLY
+(`web/src/lib/__fixtures__/TEST_ONLY_importBatch.ts`); passing them validates the tooling, not any bank.
 
 ## Proposed first batch (10 items, ACT)
 

@@ -140,7 +140,17 @@ export function validateImport(items: unknown[], skills: { skill_key: string; ex
     if (!Array.isArray(q.hints) || !q.hints.length || !q.hints.every(nonEmpty)) bad('hints', 'at least one hint, none empty, none giving the answer away')
     if (typeof q.teaching_explanation !== 'string' || !q.teaching_explanation.trim()) bad('teaching_explanation', 'required')
     if (typeof q.strategy_explanation !== 'string' || !q.strategy_explanation.trim()) bad('strategy_explanation', 'required')
+    if (q.remember !== undefined && q.remember !== null && typeof q.remember !== 'string') bad('remember', 'text, if given')
     if (typeof q.remember === 'string' && words(q.remember) > 16) bad('remember', 'at most 16 words')
+    if ((Array.isArray(q.distractors) ? q.distractors : []).some((d) => d?.trap !== undefined && d?.trap !== null && typeof d?.trap !== 'string'))
+      bad('distractors', 'a trap label is text or null')
+    if (q.strategies !== undefined && q.strategies !== null) {
+      const ok = (st: unknown) => {
+        const x = st as Record<string, unknown> | null
+        return !!x && nonEmpty(x.strategy_key) && /^[a-z0-9_]+$/.test(String(x.strategy_key)) && (x.role === 'primary' || x.role === 'secondary') && typeof x.is_fastest === 'boolean' && nonEmpty(x.explanation)
+      }
+      if (!Array.isArray(q.strategies) || !q.strategies.every(ok)) bad('strategies', 'each {strategy_key: a catalog key, role: primary or secondary, is_fastest: true or false, explanation: text}')
+    }
 
     // Provenance and rights (CR-24). Checked again by a person at stage 3; this only rejects what can't pass.
     if (!ORIGINS.includes(q.origin as Origin)) bad('origin', ORIGINS.join(', '))
