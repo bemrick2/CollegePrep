@@ -110,6 +110,8 @@ begin
   -- Someone else presenting a live nonce: refused, counted, and the claim stays for its claimant.
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000b1');
   perform public.report_notification_device('6d000000-0000-4000-a000-0000000000e1', 'granted', hp_test.web_keys('https://fcm.googleapis.com/fcm/send/E', 'viewer'), 'desktop');
+  perform hp_test.as_owner();
+  update public.notification_device_claims set issued_at = issued_at - interval '61 minutes' where issued_at is not null;  -- an hour later
   v_nonce := hp_test.nonce_for('20000000-0000-0000-0000-0000000000b1');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000d1');
   perform hp_test.is(public.confirm_device_claim(v_nonce), 'invalid', 'another login''s nonce is refused');
@@ -401,7 +403,7 @@ begin
   delete from public.notification_device_claims;
 end $$;
 
--- 10. At most 3 verify pushes per device per hour, whoever claims.
+-- 10. Per device and hour, verify pushes go to at most 3 distinct claimants.
 do $$
 declare t uuid := '6d000000-0000-4000-a000-0000000000c7'; e2 text := 'https://web.push.apple.com/H'; r record; n bigint;
 begin
@@ -423,6 +425,28 @@ begin
   update public.notification_device_claims set issued_at = issued_at - interval '61 minutes' where issued_at is not null;
   perform hp_test.as_service();
   perform hp_test.is((select count(*) from public.issue_device_claim_challenges(null)), 1::bigint, 'an hour later it goes');
+  perform hp_test.as_owner();
+  delete from public.notification_device_claims;
+end $$;
+
+-- 10b. One login can never use more than its own slot: an attacker re-reporting a device gets one verify push an hour,
+--      and a second login's push still goes.
+do $$
+declare t uuid := '6d000000-0000-4000-a000-0000000000c7'; e2 text := 'https://web.push.apple.com/H'; i integer; n bigint := 0; k bigint;
+begin
+  for i in 1..4 loop
+    perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
+    perform hp_test.is(public.report_notification_device(t, 'granted', hp_test.web_keys(e2, 'attacker'), 'desktop'), 'verification_pending', 'attacker report ' || i);
+    perform hp_test.as_service();
+    select count(*) into k from public.issue_device_claim_challenges('20000000-0000-0000-0000-000000000099');
+    n := n + k;
+  end loop;
+  perform hp_test.is(n, 1::bigint, 'the attacker''s repeated reports get one verify push in the hour');
+  perform hp_test.as_user('20000000-0000-0000-0000-0000000000c2');
+  perform hp_test.is(public.report_notification_device(t, 'granted', hp_test.web_keys(e2, 'manager'), 'desktop'), 'verification_pending', 'a second login claims');
+  perform hp_test.as_service();
+  perform hp_test.is((select count(*) from public.issue_device_claim_challenges('20000000-0000-0000-0000-0000000000c2')), 1::bigint,
+    'and its push still goes');
   perform hp_test.as_owner();
   delete from public.notification_device_claims;
 end $$;

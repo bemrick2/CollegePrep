@@ -31,7 +31,8 @@
 --       browser receives, and that browser can't decrypt it with its own key);
 --     - an FCM target: the HELD row's token (FCM delivers only to the install that holds it).
 --   A web push claim whose claimant presented no keys can't be verified: the report returns 'device_held'.
---   At most 3 verify pushes per held device per hour, whoever claims; further claims wait (and may expire).
+--   Per held device and hour: at most 1 verify push per claimant, and pushes for at most 3 distinct claimants, so one
+--   login (an attacker re-reporting) can never use more than its own slot; further claims wait (and may expire).
 -- * confirm_device_claim(p_nonce) (signed-in caller) returns:
 --     'confirmed'             the caller made the claim: the held row is removed and the caller's report is applied;
 --     'verification_pending'  confirmed, but the caller's report still conflicts with another login's device (each
@@ -325,7 +326,7 @@ begin
   update public.notification_device_claims c set status = 'expired'
   where c.status = 'pending' and c.expires_at <= now() and (p_claimant is null or c.claimant_user_id = p_claimant);
   for r in
-    select c.id, c.expires_at, c.target_device_id, d.channel, d.endpoint, d.push_token,
+    select c.id, c.expires_at, c.target_device_id, c.claimant_user_id, d.channel, d.endpoint, d.push_token,
       c.p256dh as claimant_p256dh, c.auth_secret as claimant_auth
     from public.notification_device_claims c
     join public.notification_devices d on d.id = c.target_device_id
@@ -337,9 +338,14 @@ begin
     order by c.created_at
     for update of c skip locked
   loop
-    -- At most 3 verify pushes per device per hour, whoever claims (counted under the device's row lock).
+    -- Per device and hour (counted under the device's row lock): at most 1 verify push per claimant, and pushes for
+    -- at most 3 distinct claimants. One login can never use more than its own slot, and a claimant who hasn't had a
+    -- push yet gets one while a slot is free.
     perform 1 from public.notification_devices d where d.id = r.target_device_id for update;
-    continue when (select count(*) from public.notification_device_claims x
+    continue when exists (select 1 from public.notification_device_claims x
+                          where x.target_device_id = r.target_device_id and x.claimant_user_id = r.claimant_user_id
+                            and x.issued_at > now() - interval '1 hour');
+    continue when (select count(distinct x.claimant_user_id) from public.notification_device_claims x
                    where x.target_device_id = r.target_device_id and x.issued_at > now() - interval '1 hour') >= 3;
     v_nonce := pg_catalog.encode(pg_catalog.sha256(pg_catalog.convert_to(
       gen_random_uuid()::text || gen_random_uuid()::text || pg_catalog.clock_timestamp()::text, 'UTF8')), 'hex');
