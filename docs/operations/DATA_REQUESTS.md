@@ -1,6 +1,8 @@
 # Data export and deletion requests (runbook)
 
-Launch checklist A4; #218 B8. Owner decisions: `docs/legal/DECISIONS.md` #6 (manual by email at launch, in-app soon) and #5 (retention). This runbook is not legal advice. Items marked **[[OWNER/COUNSEL]]** need confirmation before launch.
+Launch checklist A4; #218 B8. Owner decisions: `docs/legal/DECISIONS.md` #6 (manual by email at launch, in-app soon) and #5 (retention). This runbook is not legal advice.
+
+**Nothing marked OPEN is settled policy.** Each such value is a placeholder chosen so the procedure can run end to end. All of them are listed in section 0 and need an owner or counsel decision before launch.
 
 The database side is in `supabase/migrations/20261102070000_data_requests.sql` and is tested by `supabase/tests/data_requests.sql`. The test runs in the CI `database` job twice: on plain PostgreSQL, and under Supabase's default privileges.
 
@@ -14,18 +16,31 @@ The database side is in `supabase/migrations/20261102070000_data_requests.sql` a
 |---|---|---|
 | 1 | Receive the request at the privacy address and acknowledge it | Privacy mailbox |
 | 2 | Verify the requester against the account email on file | `psql` (read only) |
-| 3 | Export (always offered before a deletion) | `admin_export_student` / `admin_export_household`, saved with `psql \copy` |
+| 3 | Export (always offered before a deletion) | `admin_export_student` / `admin_export_household`, saved with psql `\o` |
 | 4 | For a household with a paid subscription, cancel it immediately with the payment provider | Stripe dashboard |
 | 5 | Dry run the deletion, then run it live | `admin_delete_student` / `admin_delete_household` |
 | 6 | Straight away: re-check the account list, then delete those auth accounts through the admin API | Supabase dashboard or Auth admin API |
 | 7 | Record the auth deletion; reply to the requester | `admin_record_auth_deletion`; privacy mailbox |
-| 8 | About 3 days later (Stripe's retry window), re-scrub late payment events | `admin_rescrub_billing_events` |
+| 8 | About 3 days later (Stripe's retry window), re-scrub late payment events | `admin_rescrub_billing_events` (a manual step: section 7) |
 
-## Response time
+## 0. OPEN for owner and counsel
 
-**We complete a request within 30 days of receiving it.** This is the default because it matches the 30-day practice-history rule in decision #5. **[[OWNER/COUNSEL: confirm 30 days, and whether state law needs a shorter or a different window. CCPA, for example, allows 45 days with acknowledgement within 10 business days.]]**
+None of these is decided. Until each one is, the value used in this runbook is a **placeholder**: it must not be quoted to families or put in the privacy policy as settled.
 
-Acknowledge the request within 5 business days. **[[OWNER/COUNSEL: confirm.]]** Use the date the request arrived as `p_requested_at`, so the log shows how long it took.
+| # | Choice | Placeholder used here | Who decides |
+|---|---|---|---|
+| O1 | **Response deadline** to complete a request | 30 days from receipt. Chosen only because it matches the 30-day practice-history rule in decision #5. State laws differ; CCPA, for example, allows 45 days. | Owner + counsel |
+| O2 | **Acknowledgement deadline** | 5 business days. CCPA, for example, uses 10. | Owner + counsel |
+| O3 | **Requester authority: a guardian who is not the account holder** | They can export their own account data only. Their account is deleted through the account holder. | Owner + counsel |
+| O4 | **Requester authority: a student aged 13–17 with their own login** | Their own export only. For a deletion, confirm with a guardian of the household first. | Counsel |
+| O5 | **Export delivery** | An encrypted attachment or an expiring link, sent only to the verified account email. No method has been chosen. | Owner |
+| O6 | **Billing record retention period** | Kept de-identified "as tax law requires". No period is set (7 years is common). Nothing purges billing events yet. | Counsel |
+| O7 | **Request-log retention period** (`data_request_log`, `data_request_billing_refs`) | Kept indefinitely; no purge exists. CCPA regulations, for example, require 24 months of request records. | Counsel |
+| O8 | **Stripe redaction**: whether to redact the customer's name and email in Stripe after a deletion | Not redacted. The Stripe customer is kept because it holds the invoices. | Owner + counsel |
+| O9 | **Resend log retention** | Whatever Resend's account settings are; not checked. | Owner |
+| O10 | **Backup and point-in-time-recovery window** | Unknown. Deleted rows stay in Supabase backups until they roll off. | Owner (confirm the plan's window, and whether it fits O1 or must be disclosed) |
+
+Use the date the request arrived as `p_requested_at`, so the log shows how long each request took against whatever O1 becomes.
 
 ## 1. Who may ask for what (verification)
 
@@ -49,8 +64,8 @@ from public.students where household_id = '<household id>';
 |---|---|---|
 | Household account holder (`households.created_by`) | The household | The household, or one of its students |
 | Guardian with manage-students | One of the household's students | One of the household's students |
-| Other guardian (view-only and similar) | Their own account data only; ask the account holder for the household | Leaving the household is done in the app; deleting their account goes through the account holder **[[OWNER: confirm]]** |
-| Student 13–17 with their own login | Their own student data (`admin_export_student`) | Confirm with a guardian of the household before deleting **[[COUNSEL: confirm]]** |
+| Other guardian (view-only and similar) | Their own account data only; ask the account holder for the household (**OPEN O3**) | Leaving the household is done in the app; deleting their account goes through the account holder (**OPEN O3**) |
+| Student 13–17 with their own login | Their own student data (`admin_export_student`) (**OPEN O4**) | Confirm with a guardian of the household before deleting (**OPEN O4**) |
 | Student 18+, or an independent student (no household) | Their own student data | Their own student profile and login |
 
 - Students must be 13 or older (decision #1). If you learn a student is under 13, tell the owner. Deleting that student's data at the guardian's request follows the same steps.
@@ -95,17 +110,21 @@ What the export contains:
   - its invitations and saved schools;
   - subscription status and periods, including the personal subscriptions of member accounts that go with it;
   - a summary of every payment event the deletion would keep;
-  - every student's practice history, goals, plans, scores and alert settings.
+  - every student's practice history, goals, plans (including exam intent, planned test date and study days), scores, setup progress, reminder settings, reminder changes and reminder deliveries (without the device), and alert settings (including the weekly-digest choice);
+  - the parent emails sent to the household's guardians: alerts about its students, reminders-off notices, and the weekly digests of accounts that belong to no other household.
 - A student export leaves out guardians' alert settings and other accounts' ids.
 - No export includes:
   - invitation code digests;
   - question text or answer keys (attempts list question ids and the answers given);
-  - payment-provider ids or raw payment events. Invoices are in the Stripe customer portal.
+  - payment-provider ids or raw payment events. Invoices are in the Stripe customer portal;
+  - push devices (endpoints, keys, tokens, handles): security records, never exported.
 
-How to deliver it:
+The test (`dr_columns` in `supabase/tests/data_requests.sql`) lists every column of every personal, retained and security table as exported or omitted. It fails when a new column has no decision.
+
+How to deliver it (**OPEN O5**):
 
 1. Rename the file to `export-<request id>.json`. The request id is in the document.
-2. Send it only to the verified account email, as an encrypted attachment or a link that expires. **[[OWNER: choose the delivery method.]]**
+2. Send it only to the verified account email. The placeholder is an encrypted attachment or a link that expires; the method is **OPEN O5**.
 3. Delete your local copy once it is delivered.
 
 Each export writes a `data_request_log` row with the row counts per table.
@@ -196,13 +215,14 @@ Always offer the export first.
 
 | Data | On deletion | Why |
 |---|---|---|
-| Student profile, practice sessions, items, attempts, attempt events, AI-help requests, progress checks and their items, weekly goals, test scores, exam plan, planning preferences, academic interests, guardians' alert settings for the student | **Deleted at once** (within the 30 days of decision #5) | Practice history rule |
+| Student profile, practice sessions, items, attempts, attempt events, AI-help requests, progress checks and their items, weekly goals, test scores, exam plan, planning preferences, academic interests, setup progress, reminder settings, reminder changes, reminder deliveries, guardians' alert settings for the student | **Deleted at once** (within the 30 days of decision #5) | Practice history rule |
 | Household, memberships, invitations, saved schools, subscription state (Stripe, comp, and departing accounts' personal subscriptions), payment-customer map | **Deleted** | Personal data |
-| Account profiles and invitation-code rate-limit rows of the accounts listed for deletion | **Deleted**; the auth account itself through the admin API | Personal data |
-| Payment events (`billing_events`) linked to the household, to its or a departing account's subscriptions, or naming their customer or subscription ids | **Kept, de-identified** (see below) | Billing records are kept as tax law requires (decision #5) **[[COUNSEL: confirm the period, often 7 years]]** |
+| Account profiles, invitation-code rate-limit rows and push devices (`notification_devices`: endpoint, keys, token, handle) of the accounts listed for deletion | **Deleted**; never exported; the auth account itself through the admin API | Personal and security data |
+| Payment events (`billing_events`) linked to the household, to its or a departing account's subscriptions, or naming their customer or subscription ids | **Kept, de-identified** (see below) | Billing records are kept as tax law requires (decision #5); the period is **OPEN O6** |
 | Payment-provider customer and subscription ids | **Kept** in `data_request_billing_refs` and in the request's `data_request_log.kept.billing_refs` | Lets the invoices Stripe holds be found for tax, and later events about them be de-identified on arrival |
 | Invitation emails sent in the last 13 months | **Kept** in `retained_email_records`: recipient address, send count, last sent time. No link to any account. Removed by `admin_purge_expired_retention()` after 13 months | Email-sent records are kept 13 months (decision #5) |
-| `data_request_log` | **Kept**: ids, counts, requester email, operator, reason, dates | Record that the request was handled **[[COUNSEL: retention period for request records, e.g. 24 months under CCPA regulations]]** |
+| Parent emails (`parent_email_deliveries`: weekly digests, inactivity alerts, reminders-off notices) | **Kept, de-identified.** A departing account's records lose `user_id`. Any inactivity key that names a deleted student (`<student id>:<last practice>`) becomes `deleted-<the record's own id>:<last practice>`, which links to no one and stays unique. A guardian who stays keeps their records, without the student's id. Every record is removed by `admin_purge_expired_retention()` 13 months after it was sent | Email-sent records are kept 13 months (decision #5) |
+| `data_request_log` | **Kept**: ids, counts, requester email, operator, reason, dates | Record that the request was handled; the period is **OPEN O7** |
 
 **De-identifying a payment event.** The household link is cleared and `deidentified_at` is set. The payload keeps **only** an allow-list of keys, at any depth (`data_request_billing_kept_keys()` in the migration):
 
@@ -225,9 +245,10 @@ Everything else is dropped, including:
 
 Outside the database:
 
-- **Stripe.** Do not delete the Stripe customer: Stripe holds the invoices that the tax rule needs. **[[OWNER/COUNSEL: whether to redact the customer's name and email in Stripe after cancellation.]]**
-- **Resend (email).** Resend keeps its own delivery logs under its retention settings. If the address is in a Resend audience or contact list, remove it. Keep any suppression entry (an unsubscribe or bounce): it stops future mail. **[[OWNER: confirm Resend log retention.]]**
-- **Backups.** Deleted rows remain in Supabase backups and point-in-time recovery until those roll off, as set by the project's plan. **[[OWNER: confirm the backup window, and that it is within the stated response time or disclosed.]]**
+- **Stripe.** Do not delete the Stripe customer: Stripe holds the invoices that the tax rule needs. Whether to redact the customer's name and email in Stripe is **OPEN O8**.
+- **Resend (email).** Resend keeps its own delivery logs under its retention settings (**OPEN O9**). If the address is in a Resend audience or contact list, remove it. Keep any suppression entry (an unsubscribe or bounce): it stops future mail.
+- **Push services.** A deleted device's endpoint or token is simply never used again; the browser or FCM expires it.
+- **Backups.** Deleted rows remain in Supabase backups and point-in-time recovery until those roll off, as set by the project's plan (**OPEN O10**).
 - **The privacy mailbox.** Keep the request thread with the request id. It is the record of verification.
 
 ## 4. Recording the request
@@ -260,11 +281,7 @@ where action = 'delete'
        or (subject_kind = 'household' and (kept->>'billing_events')::int > 0 and billing_rescrubbed_at is null));
 ```
 
-Monthly, remove email-sent records past their 13 months:
-
-```sql
-select public.admin_purge_expired_retention();
-```
+The monthly purge and the 3-day re-scrub are operational jobs: see section 7.
 
 ## 5. Keeping this complete
 
@@ -282,10 +299,7 @@ It fails CI when a new table has no decision. When a migration adds a table that
 - add it to the test's decision list;
 - add it to section 3 above.
 
-Proposals that will need this when adopted as migrations:
-
-- CR-22, `parent_email_deliveries`. These are email-sent records, so they are kept 13 months. The proposed `on delete cascade` from `auth.users` would drop them early.
-- CR-27: `notification_devices` (push tokens, deleted, never exported) and `practice_reminder_*`.
+CR-22, CR-26 and CR-27 (#298) are covered: setup progress and the reminder tables are personal; `parent_email_deliveries` is retained (13 months, de-identified); `notification_devices` is security (deleted, never exported).
 
 ## 6. In-app deletion and export later (Apple 5.1.1(v))
 
@@ -298,3 +312,23 @@ The in-app path reuses these functions. It needs a client RPC that is `security 
    - `p_confirm` set to the id.
 
 The definer runs as the owner, so no client grant on the `admin_*` functions is needed. The auth-account step then runs in an Edge Function with the service role, using `auth.admin.deleteUser`. Design owns the UI: a confirmation screen, an export download, and the 'what we keep' text from section 3.
+
+## 7. Operational jobs: implemented, NOT activated
+
+The code for these jobs exists and is tested. **No schedule exists for any of them.** Nothing runs them automatically: there is no pg_cron job, no scheduled edge function and no GitHub Actions schedule. Activating them needs the Supabase hold lifted (`docs/SUPABASE_PAUSE.md`) and the owner's go-ahead. Until then each is a manual step, and none of them runs anywhere today because the procedure is not on hosted.
+
+| Job | Implemented (code, tested in CI) | What it does | Would be scheduled by | Status |
+|---|---|---|---|---|
+| Billing re-scrub | `admin_rescrub_billing_events(request_id)` (`20261102070000_data_requests.sql`; `supabase/tests/data_requests.sql` section 8) | De-identifies any payment event about a deleted household that arrived after the deletion and was not already stored de-identified. Idempotent; returns how many it changed. | A manual runbook step about 3 days after each household deletion (section 2, step 5). Could later be a daily scheduled edge function or pg_cron job over open deletions (`billing_rescrubbed_at is null`). | **NOT ACTIVATED.** No schedule; manual only once hosted. |
+| Retention purge | `admin_purge_expired_retention()` (same migration and test, section 10) | Deletes retained invitation email records past `retain_until` and every `parent_email_deliveries` record sent more than 13 months ago. Returns the counts per table. | A manual monthly runbook step, or a monthly pg_cron job (`select public.admin_purge_expired_retention()`), or a scheduled edge function. | **NOT ACTIVATED.** No schedule. Until it runs, email-sent records are kept longer than 13 months. |
+| Reminder claim expiry | `expire_practice_reminder_claims(p_now)` (#298, `20261102030000_practice_reminders.sql`; `supabase/tests/practice_reminders.sql`) | Marks reminder claims the sender never finished as `failed` (`claim_expired`) after `practice_reminder_claim_timeout()`. Not a privacy job, but it is the third background job these tables need. | The reminder sender edge function (`send-practice-reminders`) on its own schedule, or pg_cron. | **NOT ACTIVATED.** No schedule; the reminder sender is not scheduled either. |
+
+Accepted consequence of the 13-month purge (owner, 2026-11-03): an inactivity alert's record is also the "already sent for this stretch" marker. A guardian whose student stays inactive for more than 13 months in a row can therefore get that alert once more after the purge.
+
+To run them by hand (psql, as the owner):
+
+```sql
+select public.admin_rescrub_billing_events('<request id>');   -- ~3 days after a household deletion
+select public.admin_purge_expired_retention();                -- monthly
+select public.expire_practice_reminder_claims();              -- only if the reminder sender is running
+```

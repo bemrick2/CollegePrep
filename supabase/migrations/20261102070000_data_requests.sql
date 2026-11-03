@@ -235,7 +235,20 @@ begin
     'student_planning_preferences', coalesce((select jsonb_agg(to_jsonb(t) - actors)
       from public.student_planning_preferences t where t.student_id = p_student), '[]'::jsonb),
     'student_academic_interests', coalesce((select jsonb_agg(to_jsonb(t) - actors)
-      from public.student_academic_interests t where t.student_id = p_student), '[]'::jsonb));
+      from public.student_academic_interests t where t.student_id = p_student), '[]'::jsonb),
+    'student_setup_progress', coalesce((select jsonb_agg(case when p_household_view then to_jsonb(t)
+        else to_jsonb(t) - 'updated_by' end)
+      from public.student_setup_progress t where t.student_id = p_student), '[]'::jsonb),
+    'practice_reminder_settings', coalesce((select jsonb_agg(case when p_household_view then to_jsonb(t)
+        else to_jsonb(t) - 'updated_by' end)
+      from public.practice_reminder_settings t where t.student_id = p_student), '[]'::jsonb),
+    -- The student view leaves out who changed it and the household it was in then (possibly another household).
+    'practice_reminder_changes', coalesce((select jsonb_agg(case when p_household_view then to_jsonb(t)
+        else to_jsonb(t) - 'changed_by' - 'household_id' end order by t.changed_at, t.id)
+      from public.practice_reminder_changes t where t.student_id = p_student), '[]'::jsonb),
+    -- Never the device id: devices (push tokens and keys) are security records, not exported.
+    'practice_reminder_deliveries', coalesce((select jsonb_agg(to_jsonb(t) - 'device_id' order by t.sent_at, t.id)
+      from public.practice_reminder_deliveries t where t.student_id = p_student), '[]'::jsonb));
   if p_household_view then
     v := v || jsonb_build_object(
       'alert_preferences', coalesce((select jsonb_agg(to_jsonb(a) order by a.created_at, a.user_id)
@@ -278,7 +291,17 @@ begin
     'billing_events', coalesce((select jsonb_agg(jsonb_build_object('id', e.id, 'provider', e.provider,
       'event_type', e.event_type, 'received_at', e.received_at, 'processed_at', e.processed_at) order by e.id)
       from public.billing_events e
-      where e.id = any (array(select jsonb_array_elements_text(v_billing->'event_ids')::bigint))), '[]'::jsonb));
+      where e.id = any (array(select jsonb_array_elements_text(v_billing->'event_ids')::bigint))), '[]'::jsonb),
+    -- Parent emails sent to the household's guardians: alerts about this household's students, and the weekly
+    -- digests of accounts that belong to nothing else (a guardian also in another household keeps theirs private).
+    'parent_email_deliveries', coalesce((select jsonb_agg(to_jsonb(d) order by d.sent_at, d.id)
+      from public.parent_email_deliveries d
+      where d.user_id in (select m.user_id from public.household_members m where m.household_id = p_household)
+        and ((d.kind = 'weekly_digest' and d.user_id = any (v_accounts))
+          or (d.kind = 'inactivity' and split_part(d.period_key, ':', 1) in
+                (select x.id::text from public.students x where x.household_id = p_household))
+          or (d.kind = 'reminders_off' and d.period_key in (select c.id::text from public.practice_reminder_changes c
+                join public.students x on x.id = c.student_id where x.household_id = p_household)))), '[]'::jsonb));
   -- Per-student tables, every key present even with no students.
   v := v || (select jsonb_object_agg(e.key, '[]'::jsonb) from jsonb_each(public.data_request_student_tables(null, true)) e);
   for s in select x.id from public.students x where x.household_id = p_household order by x.created_at, x.id loop
@@ -384,9 +407,35 @@ begin
     'tables', v_tables);
 end $$;
 
+-- Parent-email delivery records (CR-22/27) are email-sent records: kept 13 months (DECISIONS.md #5), de-identified.
+-- Rows of departing accounts lose their user_id; inactivity keys ('<student id>:<last practice>') of departing accounts
+-- or deleted students lose the student id: it becomes 'deleted-<the row''s own id>', which links to nothing and stays
+-- unique, so unique (user_id, kind, period_key) holds. Returns how many rows it de-identifies (or would).
+create function public.data_request_deidentify_email_deliveries(p_students uuid[], p_users uuid[], p_apply boolean)
+returns integer language plpgsql security definer set search_path = '' as $$
+declare n integer;
+begin
+  if not p_apply then
+    select count(*) into n from public.parent_email_deliveries d
+    where d.user_id = any (p_users)
+       or (d.kind = 'inactivity' and split_part(d.period_key, ':', 1) = any (array(select unnest(p_students)::text)));
+    return n;
+  end if;
+  update public.parent_email_deliveries d
+  set user_id = case when d.user_id = any (p_users) then null else d.user_id end,
+      period_key = case when d.kind = 'inactivity' and split_part(d.period_key, ':', 1) <> '' and split_part(d.period_key, ':', 1) not like 'deleted-%'
+          then 'deleted-' || replace(d.id::text, '-', '') || substr(d.period_key, position(':' in d.period_key))
+        else d.period_key end
+  where d.user_id = any (p_users)
+     or (d.kind = 'inactivity' and split_part(d.period_key, ':', 1) = any (array(select unnest(p_students)::text)));
+  get diagnostics n = row_count;
+  return n;
+end $$;
+
 -- Deletes one student (p_apply) or reports what would go. Returns removed and kept counts and the auth users the
 -- runbook deletes through the admin API.
-create function public.data_request_delete_student_internal(p_student uuid, p_apply boolean, p_log uuid) returns jsonb
+create function public.data_request_delete_student_internal(p_student uuid, p_apply boolean, p_log uuid,
+  p_emails boolean default true) returns jsonb
 language plpgsql security definer set search_path = '' as $$
 declare v_s public.students; v_auth uuid[] := '{}'; v_removed jsonb; v_kept jsonb;
 begin
@@ -419,10 +468,20 @@ begin
     'household_members', (select count(*) from public.household_members m
       where m.user_id = v_s.linked_user_id and m.household_id = v_s.household_id),
     'profiles', (select count(*) from public.profiles p where p.id = any (v_auth)),
-    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_auth)));
+    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_auth)),
+    'notification_devices', (select count(*) from public.notification_devices d where d.user_id = any (v_auth)),
+    'student_setup_progress', (select count(*) from public.student_setup_progress x where x.student_id = p_student),
+    'practice_reminder_settings', (select count(*) from public.practice_reminder_settings x where x.student_id = p_student),
+    'practice_reminder_changes', (select count(*) from public.practice_reminder_changes x where x.student_id = p_student),
+    'practice_reminder_deliveries', (select count(*) from public.practice_reminder_deliveries x where x.student_id = p_student));
   v_kept := jsonb_build_object('retained_email_records', (select count(*) from public.household_invitations i
     where i.student_id = p_student and i.recipient_email is not null and i.email_send_count > 0
       and i.last_emailed_at > now() - interval '13 months'));
+  -- From a household deletion, the household de-identifies parent emails once for all its students and accounts.
+  if p_emails then
+    v_kept := v_kept || jsonb_build_object('parent_email_deliveries',
+      public.data_request_deidentify_email_deliveries(array[p_student], v_auth, false));
+  end if;
   if p_apply then
     insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until, data_request_id)
     select 'household_invitation', i.recipient_email, i.email_send_count, i.last_emailed_at,
@@ -433,6 +492,10 @@ begin
     delete from public.household_members m where m.user_id = v_s.linked_user_id and m.household_id = v_s.household_id;
     delete from public.profiles p where p.id = any (v_auth);
     delete from public.invitation_code_attempts a where a.user_id = any (v_auth);
+    delete from public.notification_devices d where d.user_id = any (v_auth);
+    if p_emails then
+      perform public.data_request_deidentify_email_deliveries(array[p_student], v_auth, true);
+    end if;
     -- Every per-student table references students(id) on delete cascade.
     delete from public.students s where s.id = p_student;
     if exists (select 1 from public.practice_attempts where student_id = p_student)
@@ -448,7 +511,7 @@ end $$;
 create function public.data_request_delete_household_internal(p_household uuid, p_apply boolean, p_log uuid) returns jsonb
 language plpgsql security definer set search_path = '' as $$
 declare v_removed jsonb := '{}'::jsonb; v_kept jsonb := '{}'::jsonb; v_auth uuid[] := '{}'; v_accounts uuid[];
-  v_links uuid[]; v_billing jsonb; v_events bigint[]; r jsonb; s uuid;
+  v_links uuid[]; v_billing jsonb; v_events bigint[]; v_students uuid[]; r jsonb; s uuid;
 begin
   perform 1 from public.households h where h.id = p_household for update;
   if not found then raise exception 'No household %', p_household using errcode = 'P0002'; end if;
@@ -468,8 +531,9 @@ begin
   v_billing := public.data_request_household_billing(p_household, v_accounts);
   v_events := array(select jsonb_array_elements_text(v_billing->'event_ids')::bigint);
 
+  select coalesce(array_agg(x.id), '{}') into v_students from public.students x where x.household_id = p_household;
   for s in select x.id from public.students x where x.household_id = p_household order by x.created_at, x.id loop
-    r := public.data_request_delete_student_internal(s, p_apply, p_log);
+    r := public.data_request_delete_student_internal(s, p_apply, p_log, false);
     v_removed := public.data_request_add_counts(v_removed, r->'removed');
     v_kept := public.data_request_add_counts(v_kept, r->'kept');
     v_auth := v_auth || array(select jsonb_array_elements_text(r->'auth_users_to_delete')::uuid);
@@ -486,12 +550,14 @@ begin
     'subscriptions', (select count(*) from public.subscriptions x where x.household_id = p_household
       or (x.household_id is null and x.owner_user_id = any (v_accounts))),
     'profiles', (select count(*) from public.profiles p where p.id = any (v_accounts)),
-    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_accounts))));
+    'invitation_code_attempts', (select count(*) from public.invitation_code_attempts a where a.user_id = any (v_accounts)),
+    'notification_devices', (select count(*) from public.notification_devices d where d.user_id = any (v_accounts))));
   v_kept := public.data_request_add_counts(v_kept, jsonb_build_object(
     'retained_email_records', (select count(*) from public.household_invitations i
       where i.household_id = p_household and i.student_id is null and i.recipient_email is not null
         and i.email_send_count > 0 and i.last_emailed_at > now() - interval '13 months'),
-    'billing_events', cardinality(v_events)));
+    'billing_events', cardinality(v_events),
+    'parent_email_deliveries', public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, false)));
   -- Provider references, so the invoices the provider holds can still be found for tax, and so later events about
   -- them are de-identified on arrival (record_billing_event, admin_rescrub_billing_events).
   v_kept := v_kept || jsonb_build_object('billing_event_ids', to_jsonb(v_events), 'billing_refs',
@@ -516,6 +582,8 @@ begin
       or (x.household_id is null and x.owner_user_id = any (v_accounts));
     delete from public.profiles p where p.id = any (v_accounts);
     delete from public.invitation_code_attempts a where a.user_id = any (v_accounts);
+    delete from public.notification_devices d where d.user_id = any (v_accounts);
+    perform public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, true);
     -- Cascades household_members, household_invitations, household_saved_schools and billing_customers.
     delete from public.households h where h.id = p_household;
   end if;
@@ -625,13 +693,19 @@ begin
   return n;
 end $$;
 
-create function public.admin_purge_expired_retention() returns integer
+-- Email-sent records are kept 13 months (DECISIONS.md #5): the retained invitation records, and every parent-email
+-- delivery record (CR-22/27), whoever it belongs to. Accepted consequence (owner, 2026-11-03): an inactivity alert's
+-- record is its "already sent for this stretch" marker, so a guardian whose student stays inactive for more than 13
+-- months in a row can get that alert once more after the purge.
+create function public.admin_purge_expired_retention() returns jsonb
 language plpgsql security definer set search_path = '' as $$
-declare n integer;
+declare n_retained integer; n_parent integer;
 begin
   delete from public.retained_email_records r where r.retain_until <= now();
-  get diagnostics n = row_count;
-  return n;
+  get diagnostics n_retained = row_count;
+  delete from public.parent_email_deliveries d where d.sent_at <= now() - interval '13 months';
+  get diagnostics n_parent = row_count;
+  return jsonb_build_object('retained_email_records', n_retained, 'parent_email_deliveries', n_parent);
 end $$;
 
 -- The Stripe webhook's insert (supabase/functions/stripe-webhook): exactly once per provider event, and stored

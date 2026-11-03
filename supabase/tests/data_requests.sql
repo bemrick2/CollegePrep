@@ -32,8 +32,10 @@ insert into dr_decisions values
  ('public.student_test_scores', 'personal'), ('public.student_exam_plan', 'personal'),
  ('public.student_planning_preferences', 'personal'), ('public.student_academic_interests', 'personal'),
  ('public.alert_preferences', 'personal'), ('public.subscriptions', 'personal'), ('public.billing_customers', 'personal'),
- ('public.billing_events', 'retained'),
- ('public.invitation_code_attempts', 'security'),
+ ('public.student_setup_progress', 'personal'), ('public.practice_reminder_settings', 'personal'),
+ ('public.practice_reminder_changes', 'personal'), ('public.practice_reminder_deliveries', 'personal'),
+ ('public.billing_events', 'retained'), ('public.parent_email_deliveries', 'retained'),
+ ('public.invitation_code_attempts', 'security'), ('public.notification_devices', 'security'),
  ('public.data_request_log', 'request_log'), ('public.data_request_billing_refs', 'request_log'),
  ('public.retained_email_records', 'request_log'),
  ('public.academic_programs', 'reference'), ('public.admissions_metrics', 'reference'), ('public.app_settings', 'reference'),
@@ -52,6 +54,43 @@ insert into dr_decisions values
  ('public.state_policies', 'reference'), ('public.transfer_policies', 'reference'), ('public.trap_types', 'reference'),
  ('ingestion.reference_records', 'reference'), ('ingestion.reference_revisions', 'reference');
 grant select on dr_decisions to anon, authenticated, service_role;
+
+-- The decision for every COLUMN of every personal, retained and security table, as the household export shows it:
+-- 'export' columns appear in every exported row, 'omit' columns in none (secrets, provider ids, device keys, raw
+-- payloads). A new column on these tables fails the completeness check until it is listed here.
+create temp table dr_columns(tbl text not null, col text not null, decision text not null check (decision in ('export', 'omit')),
+  primary key (tbl, col));
+insert into dr_columns select t, c, d from (values
+  ('public.households', array['id', 'name', 'created_by', 'time_zone', 'created_at'], array['export', 'export', 'export', 'export', 'export']),
+  ('public.household_members', array['household_id', 'user_id', 'role', 'can_manage_students', 'can_set_goals', 'can_view_progress', 'can_manage_members', 'can_manage_billing', 'created_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.household_invitations', array['id', 'household_id', 'role', 'student_id', 'permissions', 'code_hash', 'created_by', 'created_at', 'expires_at', 'accepted_by', 'accepted_at', 'short_code_hash', 'recipient_email', 'revoked_at', 'revoked_by', 'email_send_count', 'last_emailed_at'], array['export', 'export', 'export', 'export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export']),
+  ('public.household_saved_schools', array['household_id', 'institution_key', 'added_by', 'added_at', 'is_primary'], array['export', 'export', 'export', 'export', 'export']),
+  ('public.profiles', array['id', 'display_name', 'created_at'], array['export', 'export', 'export']),
+  ('public.students', array['id', 'household_id', 'display_name', 'graduation_year', 'grade_level', 'account_mode', 'is_independent', 'linked_user_id', 'time_zone', 'created_at', 'archived_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.weekly_practice_goals', array['id', 'student_id', 'week_start', 'target_questions', 'target_minutes', 'subject', 'goal_mode', 'set_by', 'created_at', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_sessions', array['id', 'student_id', 'target_minutes', 'started_at', 'ended_at', 'goal_id'], array['export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_session_items', array['session_id', 'position', 'question_id', 'reason'], array['export', 'export', 'export', 'export']),
+  ('public.practice_attempts', array['id', 'session_id', 'student_id', 'question_id', 'presented_at', 'first_interaction_ms', 'submitted_at', 'elapsed_ms', 'active_ms', 'selected_answer', 'is_correct', 'skipped', 'confidence', 'hint_count', 'ai_help_used', 'strategy_used_id', 'attempt_number', 'benchmark_id'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_attempt_events', array['id', 'attempt_id', 'student_id', 'kind', 'occurred_at', 'answer', 'detail'], array['export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.ai_help_requests', array['id', 'attempt_id', 'student_id', 'requested_by', 'requested_at', 'mode', 'status', 'response', 'provider', 'model', 'tokens'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_benchmarks', array['id', 'student_id', 'kind', 'exam_version_id', 'started_at', 'completed_at', 'metrics', 'items_assigned_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_benchmark_items', array['benchmark_id', 'student_id', 'exam_version_id', 'question_id', 'section', 'position', 'seen_before', 'last_seen', 'assigned_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.student_test_scores', array['id', 'student_id', 'exam_version_id', 'test_date', 'composite', 'section_scores', 'score_source', 'entered_by', 'created_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.student_exam_plan', array['student_id', 'exam_key', 'score', 'taken_on', 'set_by', 'created_at', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.student_planning_preferences', array['student_id', 'exam_family', 'target_score', 'goals', 'daily_minutes', 'set_by', 'created_at', 'updated_at', 'exam_intent', 'planned_test_date', 'study_days'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.student_academic_interests', array['student_id', 'certainty', 'interests', 'set_by', 'created_at', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.alert_preferences', array['user_id', 'student_id', 'channel', 'inactivity_days', 'enabled', 'created_at', 'weekly_digest'], array['export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.subscriptions', array['id', 'owner_user_id', 'household_id', 'plan_key', 'status', 'provider', 'provider_customer_id', 'provider_subscription_id', 'current_period_end', 'created_at', 'current_period_start', 'cancel_at_period_end', 'environment', 'last_event_at', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'omit', 'omit', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.billing_customers', array['household_id', 'provider', 'provider_customer_id', 'created_by', 'created_at', 'environment'], array['export', 'export', 'omit', 'export', 'export', 'export']),
+  ('public.student_setup_progress', array['student_id', 'setup_completed_at', 'starting_point_answered_at', 'benchmark_scheduled_for', 'updated_by', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_reminder_settings', array['student_id', 'enabled', 'times', 'days', 'quiet_start', 'quiet_end', 'school_days', 'school_start', 'school_end', 'max_per_day', 'max_per_week', 'snoozed_until', 'updated_by', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_reminder_changes', array['id', 'student_id', 'household_id', 'enabled', 'changed_by', 'changed_by_role', 'changed_at', 'notify_guardians'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.practice_reminder_deliveries', array['id', 'student_id', 'device_id', 'slot', 'reminder_key', 'channel', 'status', 'sent_at', 'claimed_at', 'opened_at', 'snoozed_at', 'failure_reason'], array['export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.billing_events', array['id', 'provider', 'event_id', 'event_type', 'household_id', 'provider_subscription_id', 'payload', 'received_at', 'processed_at', 'error', 'deidentified_at'], array['export', 'export', 'omit', 'export', 'omit', 'omit', 'omit', 'export', 'export', 'omit', 'omit']),
+  ('public.parent_email_deliveries', array['id', 'user_id', 'kind', 'period_key', 'sent_at'], array['export', 'export', 'export', 'export', 'export']),
+  ('public.invitation_code_attempts', array['user_id', 'attempted_at'], array['omit', 'omit']),
+  ('public.notification_devices', array['id', 'user_id', 'permission', 'platform', 'channel', 'push_token', 'endpoint', 'p256dh', 'auth_secret', 'checked_at', 'gone_at', 'created_at', 'handle'], array['omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit', 'omit'])) v(t, cs, ds), unnest(cs, ds) u(c, d);
+grant select on dr_columns to anon, authenticated, service_role;
 
 -- 1. Completeness: every base table outside the platform schemas has a decision, and every decision names a table.
 do $$
@@ -81,6 +120,18 @@ begin
   join dr_decisions d on d.tbl = c.table_schema || '.' || c.table_name
   where d.decision = 'reference' and c.column_name in ('student_id', 'household_id', 'user_id', 'owner_user_id', 'linked_user_id');
   if v_missing is not null then raise exception 'Reference tables carry person columns: %', v_missing; end if;
+  -- Every column of every personal, retained and security table has a decision, and every decision names a column.
+  select string_agg(c.table_schema || '.' || c.table_name || '.' || c.column_name, ', ') into v_missing
+  from information_schema.columns c join dr_decisions d on d.tbl = c.table_schema || '.' || c.table_name
+  where d.decision in ('personal', 'retained', 'security')
+    and not exists (select 1 from dr_columns k where k.tbl = d.tbl and k.col = c.column_name);
+  if v_missing is not null then
+    raise exception 'Columns with no data-request decision (add to dr_columns in supabase/tests/data_requests.sql and, if exported, check the export functions): %', v_missing;
+  end if;
+  select string_agg(k.tbl || '.' || k.col, ', ') into v_stale from dr_columns k
+  where not exists (select 1 from information_schema.columns c where c.table_schema || '.' || c.table_name = k.tbl and c.column_name = k.col)
+     or k.tbl not in (select tbl from dr_decisions where decision in ('personal', 'retained', 'security'));
+  if v_stale is not null then raise exception 'Column decisions name columns that do not exist: %', v_stale; end if;
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -144,6 +195,12 @@ insert into public.profiles(id, display_name) values
 insert into public.invitation_code_attempts(user_id) values
  ('20000000-0000-0000-0000-0000000000a1'), ('20000000-0000-0000-0000-0000000000a2'), ('20000000-0000-0000-0000-000000000051'),
  ('20000000-0000-0000-0000-0000000000b1'), ('20000000-0000-0000-0000-000000000052');
+-- Push devices (security records: endpoint, keys): g1, g2, gb, S1's login and I's login.
+insert into public.notification_devices(id, user_id, permission, platform, channel, endpoint, p256dh, auth_secret)
+select ('60000000-0000-0000-0000-0000000000' || right(u::text, 2))::uuid, u, 'granted', 'desktop', 'webpush',
+  'https://push.example/ep-' || right(u::text, 2), 'p256-' || right(u::text, 2), 'secret-' || right(u::text, 2)
+from unnest(array['20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000a2',
+  '20000000-0000-0000-0000-0000000000b1', '20000000-0000-0000-0000-000000000051', '20000000-0000-0000-0000-000000000052']::uuid[]) u;
 
 -- Rows in every per-student table.
 create function dr_test.seed_student(p_student uuid, p_guardian uuid, p_tag text) returns void language plpgsql as $$
@@ -171,8 +228,17 @@ begin
   insert into public.student_academic_interests(student_id, certainty, interests, set_by)
   values (p_student, 'few', jsonb_build_array(jsonb_build_object('kind', 'area', 'key', 'tag-' || p_tag)), p_guardian);
   if p_guardian is not null then
-    insert into public.alert_preferences(user_id, student_id, channel, inactivity_days) values (p_guardian, p_student, 'email', 3);
+    insert into public.alert_preferences(user_id, student_id, channel, inactivity_days, weekly_digest) values (p_guardian, p_student, 'email', 3, true);
   end if;
+  update public.student_planning_preferences set exam_intent = 'sat', planned_test_date = '2027-03-13', study_days = '{1,3,5}'
+  where student_id = p_student;
+  insert into public.student_setup_progress(student_id, setup_completed_at, updated_by) values (p_student, now(), p_guardian);
+  insert into public.practice_reminder_settings(student_id, enabled, updated_by) values (p_student, true, p_guardian);
+  insert into public.practice_reminder_changes(student_id, household_id, enabled, changed_by, changed_by_role)
+  select p_student, x.household_id, false, p_guardian, case when p_guardian is null then 'student' else 'guardian' end
+  from public.students x where x.id = p_student;
+  insert into public.practice_reminder_deliveries(student_id, device_id, slot, reminder_key, channel, status)
+  values (p_student, (select d.id from public.notification_devices d where d.user_id = p_guardian), '16:30', '2026-11-02/16:30', 'webpush', 'sent');
 end $$;
 
 -- Realistic Stripe event payloads (API 2025 shapes), with every kind of personal field Stripe sends.
@@ -248,6 +314,19 @@ $$;
 create function dr_test.has_pii(p jsonb) returns text language sql as $$
   select string_agg(s, ', ') from unnest(dr_test.billing_pii()) s where position(s in p::text) > 0
 $$;
+-- Every personal, retained and security table that still holds anything of household A (ids, names, emails, address).
+create function dr_test.residue() returns text language plpgsql as $$
+declare t text; v text; out text; needles text[] := array[current_setting('t.ha'), current_setting('t.s1'), current_setting('t.s2'),
+  '20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-000000000051', 'g1@example.com', 'Alpha Guardian',
+  'Alpha Kid', 'Alpha Home', '1 Alpha St', 'secret-a1', 'secret-51'];
+begin
+  for t in select tbl from dr_decisions where decision in ('personal', 'retained', 'security') order by tbl loop
+    execute format('select string_agg(n, %L) from unnest($1) n where exists (select 1 from %s x where position(n in x::text) > 0)', '|', t)
+      into v using needles;
+    if v is not null then out := coalesce(out || '; ', '') || t || ': ' || v; end if;
+  end loop;
+  return out;
+end $$;
 
 do $$
 declare ha uuid; hb uuid; s1 uuid; s2 uuid; s3 uuid; si uuid; c text;
@@ -311,6 +390,20 @@ begin
    ('stripe', 'evt_A4', 'checkout.session.completed', ha, 'sub_ALPHA', dr_test.checkout_completed('evt_A4', 'cus_ALPHA', 'sub_ALPHA', ha)),
    ('stripe', 'evt_P1', 'invoice.paid', null, 'sub_PERSONAL', dr_test.invoice_paid('evt_P1', 'cus_PERSONAL', 'sub_PERSONAL', ha)),
    ('stripe', 'evt_B1', 'invoice.paid', hb, 'sub_BRAVO', '{"id":"evt_B1","data":{"object":{"customer":"cus_BRAVO","customer_email":"gb@example.com","amount_paid":4900}}}');
+  -- Parent emails (CR-22/27). Inactivity keys are '<student id>:<last practice>'; g1 and g2 each had alerts for S1
+  -- and S2 at the same moment, so the rewritten keys must stay unique. g2 also had one about B's S3, a digest that
+  -- covers B too, and a digest from 14 months ago (purged).
+  insert into public.parent_email_deliveries(user_id, kind, period_key, sent_at) values
+   ('20000000-0000-0000-0000-0000000000a1', 'weekly_digest', '2026-10-26', now()),
+   ('20000000-0000-0000-0000-0000000000a1', 'inactivity', public.inactivity_period_key(s1, '2026-10-01T00:00:00Z'), now()),
+   ('20000000-0000-0000-0000-0000000000a1', 'inactivity', public.inactivity_period_key(s2, '2026-10-01T00:00:00Z'), now()),
+   ('20000000-0000-0000-0000-0000000000a2', 'inactivity', public.inactivity_period_key(s1, '2026-10-01T00:00:00Z'), now()),
+   ('20000000-0000-0000-0000-0000000000a2', 'inactivity', public.inactivity_period_key(s2, '2026-10-01T00:00:00Z'), now()),
+   ('20000000-0000-0000-0000-0000000000a2', 'inactivity', public.inactivity_period_key(s3, null), now()),
+   ('20000000-0000-0000-0000-0000000000a2', 'weekly_digest', '2026-10-26', now()),
+   ('20000000-0000-0000-0000-0000000000a2', 'weekly_digest', '2025-08-25', now() - interval '14 months'),
+   ('20000000-0000-0000-0000-0000000000b1', 'weekly_digest', '2026-10-26', now()),
+   ('20000000-0000-0000-0000-0000000000a1', 'reminders_off', (select c.id::text from public.practice_reminder_changes c where c.student_id = s1), now());
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -378,6 +471,18 @@ begin
   select string_agg(x, ', ') into v_bad from jsonb_object_keys(a->'tables') x
   where 'public.' || x not in (select tbl from dr_decisions where decision in ('personal', 'retained'));
   perform hp_test.check(v_bad is null, 'export keys are decided tables: ' || coalesce(v_bad, ''));
+  -- Column by column: every 'export' column is in every row of its table, every 'omit' column in none, in the
+  -- household and the student exports alike.
+  for e in select k, doc from dr_exports loop
+    select string_agg(distinct k.tbl || '.' || k.col || ' (' || k.decision || ')', ', ') into v_bad
+    from dr_columns k cross join jsonb_array_elements(coalesce(e.doc->'tables'->split_part(k.tbl, '.', 2), '[]')) r
+    where (k.decision = 'export' and e.k like 'household%' and not r ? k.col) or (k.decision = 'omit' and r ? k.col);
+    perform hp_test.check(v_bad is null, e.k || ' export columns: ' || coalesce(v_bad, ''));
+  end loop;
+  perform hp_test.eq(jsonb_array_length(a->'tables'->'parent_email_deliveries'), 6, 'A parent emails: g1 digest, four alerts on A students, reminders-off');
+  perform hp_test.eq(jsonb_array_length(b->'tables'->'parent_email_deliveries'), 2, 'B parent emails: gb digest, g2 alert on S3 (not g2''s digest)');
+  perform hp_test.check(a->'tables'->'students'->0 ? 'id' and a->'tables'->'student_planning_preferences'->0->>'exam_intent' = 'sat'
+    and a->'tables'->'alert_preferences'->0->>'weekly_digest' = 'true', 'new #298 columns exported');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'students'), 2, 'A has two students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_attempts'), 2, 'A attempts from both students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_session_items'), 4, 'A session items');
@@ -413,7 +518,7 @@ begin
   for e in select k, doc from dr_exports loop
     foreach secret in array array['code_hash', 'short_code_hash', 'pepper', 'accepted_answers', 'teaching_explanation',
       'Question 1', 'First hint', 'cus_ALPHA', 'cus_BRAVO', 'cus_PERSONAL', 'sub_ALPHA', 'sub_BRAVO', 'sub_PERSONAL',
-      'payload', '1 Alpha St', 'customer_email', 'evt_'] loop
+      'payload', '1 Alpha St', 'customer_email', 'evt_', 'secret-', 'p256-', 'push.example', '60000000-0000-0000-0000-0000000000'] loop
       perform hp_test.check(position(secret in e.doc::text) = 0, e.k || ' export contains ' || secret);
     end loop;
     foreach secret in array (select array_agg(code_hash) || array_agg(short_code_hash) filter (where short_code_hash is not null)
@@ -559,6 +664,11 @@ begin
   perform hp_test.eq((l.kept->>'retained_email_records')::int, 1, 'audit kept email record');
   perform hp_test.check(position('Alpha Kid Two' in to_jsonb(l)::text) = 0, 'audit row holds no name');
   perform hp_test.check((select data_request_id from public.retained_email_records where recipient_email = 'alpha.kid.two@example.com') = l.id, 'retained row points at the request');
+  -- Parent emails about S2: kept, still the guardians', but the key no longer holds S2's id.
+  perform hp_test.eq((l.kept->>'parent_email_deliveries')::int, 2, 'two alerts about S2 de-identified');
+  perform hp_test.check(not exists (select 1 from public.parent_email_deliveries where position(s2::text in period_key) > 0), 'no key holds S2');
+  perform hp_test.eq((select count(*) from public.parent_email_deliveries where kind = 'inactivity' and period_key like 'deleted-%:2026-10-01T00:00:00.000000Z'
+    and user_id in ('20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-0000000000a2')), 2::bigint, 'keys rewritten, recipients kept');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -639,6 +749,23 @@ begin
   perform hp_test.eq(l.auth_users_to_delete, array['20000000-0000-0000-0000-000000000051', '20000000-0000-0000-0000-0000000000a1']::uuid[], 'audit auth list');
   perform hp_test.check(l.auth_users_deleted_at is null, 'auth deletion not yet recorded');
   perform hp_test.check(position('Alpha' in to_jsonb(l)::text) = 0, 'audit row holds no names');
+  -- Parent emails: g1's records kept without g1; alerts about S1 keep their recipient (g2) but not S1's id; g2's two
+  -- alerts with the same moment for S1 and S2 stay distinct; B's records untouched.
+  perform hp_test.eq((l.kept->>'parent_email_deliveries')::int, 5, 'five parent emails de-identified');
+  perform hp_test.check(not exists (select 1 from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000a1'), 'g1 records unlinked');
+  perform hp_test.eq((select count(*) from public.parent_email_deliveries where user_id is null), 4::bigint, 'g1 four records kept unlinked');
+  perform hp_test.check(not exists (select 1 from public.parent_email_deliveries
+    where position(s1::text in period_key) > 0 or position(current_setting('t.s2') in period_key) > 0), 'no key holds S1 or S2');
+  perform hp_test.eq((select count(distinct period_key) from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000a2'
+    and kind = 'inactivity' and period_key like 'deleted-%:2026-10-01T00:00:00.000000Z'), 2::bigint, 'g2 keeps two distinct de-identified alerts');
+  perform hp_test.check(exists (select 1 from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000a2'
+    and period_key = current_setting('t.s3') || ':never'), 'g2 alert on S3 untouched');
+  perform hp_test.check(exists (select 1 from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000b1'), 'gb record untouched');
+  -- Devices: g1's and S1's login's push devices deleted; g2's kept.
+  perform hp_test.eq((r->'removed'->>'notification_devices')::int, 2, 'two devices removed');
+  perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_devices),
+    array['20000000-0000-0000-0000-000000000052', '20000000-0000-0000-0000-0000000000a2', '20000000-0000-0000-0000-0000000000b1']::uuid[], 'devices left');
+  perform hp_test.check(dr_test.residue() is null, 'nothing of A left: ' || coalesce(dr_test.residue(), ''));
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -672,11 +799,19 @@ begin
     from public.billing_events where event_id = 'evt_B2'), 'B event stored as sent');
   perform hp_test.check((select deidentified_at is not null and dr_test.has_pii(payload) is null
     from public.billing_events where event_id = 'evt_U1'), 'unknown household event de-identified');
+  -- Late events through the webhook restore nothing of A, before any re-scrub, and recreate no account rows.
+  perform hp_test.check(dr_test.residue() is null, 'late webhook events restore nothing: ' || coalesce(dr_test.residue(), ''));
+  perform hp_test.check(not exists (select 1 from public.subscriptions where provider_subscription_id = 'sub_ALPHA')
+    and not exists (select 1 from public.billing_customers where provider_customer_id = 'cus_ALPHA'), 'no billing rows recreated');
   -- A raw copy stored by an older webhook (or before the refs existed): the re-scrub catches it, once.
   insert into public.billing_events(provider, event_id, event_type, household_id, provider_subscription_id, payload) values
    ('stripe', 'evt_L3', 'invoice.payment_failed', current_setting('t.ha')::uuid, null,
     dr_test.invoice_paid('evt_L3', 'cus_ALPHA', 'sub_ALPHA', current_setting('t.ha')::uuid)),
    ('stripe', 'evt_L4', 'charge.refunded', null, null, dr_test.charge_succeeded('evt_L4', 'cus_PERSONAL'));
+  perform set_config('role', 'service_role', true);
+  perform set_config('role', 'none', true);
+  perform hp_test.eq(dr_test.residue(), 'public.billing_events: ' || current_setting('t.ha') || '|20000000-0000-0000-0000-0000000000a1|g1@example.com|Alpha Guardian|Alpha Kid|1 Alpha St',
+    'a raw late event is the only residue before the re-scrub');
   perform set_config('role', 'service_role', true);
   perform hp_test.eq(public.admin_rescrub_billing_events(req), 2, 're-scrub fixes the two raw late events');
   perform hp_test.eq(public.admin_rescrub_billing_events(req), 0, 're-scrub is idempotent');
@@ -686,6 +821,7 @@ begin
     where event_id in ('evt_L3', 'evt_L4')), 're-scrubbed events clean');
   perform hp_test.check((select billing_rescrubbed_at is not null from public.data_request_log where id = req), 're-scrub recorded');
   perform hp_test.check((select position('gb@example.com' in payload::text) > 0 from public.billing_events where event_id = 'evt_B1'), 'B untouched by re-scrub');
+  perform hp_test.check(dr_test.residue() is null, 'nothing of A after the re-scrub: ' || coalesce(dr_test.residue(), ''));
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -700,6 +836,7 @@ begin
   perform set_config('role', 'none', true);
   perform hp_test.eq(r->'auth_users_to_delete', '["20000000-0000-0000-0000-000000000052"]'::jsonb, 'independent login listed');
   perform hp_test.check(not exists (select 1 from public.profiles where id = '20000000-0000-0000-0000-000000000052'), 'independent profile deleted');
+  perform hp_test.check(not exists (select 1 from public.notification_devices where user_id = '20000000-0000-0000-0000-000000000052'), 'independent device deleted');
   perform set_config('role', 'service_role', true);
   perform hp_test.expect_error(format('select public.admin_record_auth_deletion(%L)', r->>'request_id'), '55000', '%still exist%');
   perform set_config('role', 'none', true);
@@ -728,9 +865,14 @@ begin
   insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until)
   values ('household_invitation', 'expired@example.com', 1, now() - interval '14 months', now() - interval '1 month');
   perform set_config('role', 'service_role', true);
-  perform hp_test.eq(public.admin_purge_expired_retention(), 1, 'purge removes one expired record');
+  perform hp_test.eq(public.admin_purge_expired_retention(), '{"retained_email_records": 1, "parent_email_deliveries": 1}'::jsonb,
+    'purge removes the expired invitation record and g2''s 14-month-old digest record');
+  perform hp_test.eq(public.admin_purge_expired_retention(), '{"retained_email_records": 0, "parent_email_deliveries": 0}'::jsonb, 'purge is idempotent');
   perform set_config('role', 'none', true);
   perform hp_test.eq((select count(*) from public.retained_email_records), 1::bigint, 'current email record stays');
+  perform hp_test.check(not exists (select 1 from public.parent_email_deliveries where sent_at <= now() - interval '13 months'), 'no parent email older than 13 months');
+  perform hp_test.eq((select count(*) from public.parent_email_deliveries), 9::bigint, 'current parent email records stay');
+  perform hp_test.eq((select count(*) from public.notification_devices), 2::bigint, 'only g2 and gb devices remain');
   perform hp_test.eq((select count(*) from public.data_request_log where action = 'export'), 6::bigint, 'six exports logged');
   perform hp_test.eq((select count(*) from public.data_request_log where action = 'delete'), 3::bigint, 'three live deletions logged, no dry runs');
 end $$;
