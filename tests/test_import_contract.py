@@ -93,8 +93,28 @@ class ImportContractTests(unittest.TestCase):
         self.assertIn('requirement_group/v1', sql)  # structured plan travels intact into the batch
 
 
-if __name__ == '__main__':
-    unittest.main()
+class CostShapeTests(unittest.TestCase):
+    """#218 C3: components and living_arrangements keep the shape institution_costs stores verbatim."""
+    def errors(self, **fields):
+        from scripts.validate_data import cost_shape_errors
+        return cost_shape_errors(fields)
+
+    def test_printed_shapes_pass(self):
+        self.assertEqual(self.errors(components={'Enrollment Fees': 9874, 'Books': 1200.5}, living_arrangements=[
+            {'arrangement': 'on_campus', 'column_header': 'On Campus', 'total_cost_of_attendance': 30000,
+             'components': {'Housing': 11000}},
+            {'arrangement': 'with_parents_or_family', 'total_cost_of_attendance': None, 'housing': None, 'source': 'p. 2'}]), [])
+        self.assertEqual(self.errors(components=None, living_arrangements=None), [])
+
+    def test_bad_shapes_fail(self):
+        self.assertTrue(self.errors(components=[1, 2]))
+        self.assertTrue(self.errors(components={'Tuition': '9,874'}))
+        self.assertTrue(self.errors(components={'Tuition': True}))
+        self.assertTrue(self.errors(components={'Tuition': -1}))
+        self.assertTrue(self.errors(living_arrangements={'on_campus': 1}))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'dorm'}]))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'on_campus', 'total': 1}]))
+        self.assertTrue(self.errors(living_arrangements=[{'arrangement': 'on_campus', 'components': {'Housing': 'x'}}]))
 
 
 class LiveImportWorkflowTests(unittest.TestCase):
@@ -123,3 +143,7 @@ class LiveImportWorkflowTests(unittest.TestCase):
         self.assertIn('cancel-in-progress: false', wf)
         self.assertIn('branches: [main]', wf)
         self.assertNotIn('pull_request', wf)  # PR code never receives the database secret
+
+
+if __name__ == '__main__':
+    unittest.main()

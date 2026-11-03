@@ -40,6 +40,15 @@ export const HANDLED_EVENTS = new Set([
   'invoice.payment_action_required',
 ])
 
+/**
+ * Whether the webhook may keep an event's full payload (A4, docs/operations/DATA_REQUESTS.md). Only the handled
+ * events, which always name a customer or subscription a household deletion can find. Anything else (disputes,
+ * reviews, Radar, …) can name a person without naming either, so it is stored already de-identified.
+ */
+export function storeRawBillingEvent(eventType: string): boolean {
+  return HANDLED_EVENTS.has(eventType)
+}
+
 type Obj = Record<string, unknown>
 const obj = (v: unknown): Obj => (v && typeof v === 'object' ? (v as Obj) : {})
 const str = (v: unknown): string | null => (typeof v === 'string' && v ? v : v && typeof v === 'object' && typeof (v as Obj).id === 'string' ? ((v as Obj).id as string) : null)

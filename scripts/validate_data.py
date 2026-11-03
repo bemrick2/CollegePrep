@@ -100,6 +100,44 @@ def requirement_group_errors(record):
         errors.append('elective_pool groups need course_rules or courses')
     return errors
 
+# #218 C3: printed cost lines reach institution_costs.components (jsonb object) and .living_arrangements (jsonb
+# array) verbatim; scripts/import_supabase.py copies them, compare_institutions serves them, nothing sums them.
+ARRANGEMENTS={'with_parents_or_family','off_campus_not_with_family','on_campus','other','unlabeled'}
+ARRANGEMENT_AMOUNTS={'total_cost_of_attendance','housing','food','books_supplies','transportation','other_expenses'}
+ARRANGEMENT_TEXT={'arrangement','column_header','source','food_source','notes'}
+
+def _amount(value):
+    return not isinstance(value,bool) and isinstance(value,(int,float)) and value>=0
+
+def printed_lines_errors(lines, where):
+    if not isinstance(lines,dict):
+        return [f'{where} must be an object of printed line -> amount']
+    return [f'{where}[{label!r}] must be a non-negative number' for label,value in lines.items()
+            if not isinstance(label,str) or not label.strip() or not _amount(value)]
+
+def cost_shape_errors(record):
+    errors=[]
+    if record.get('components') is not None:
+        errors.extend(printed_lines_errors(record['components'],'components'))
+    arrangements=record.get('living_arrangements')
+    if arrangements is None:
+        return errors
+    if not isinstance(arrangements,list):
+        return errors+['living_arrangements must be an array']
+    for i,a in enumerate(arrangements):
+        where=f'living_arrangements[{i}]'
+        if not isinstance(a,dict):
+            errors.append(f'{where} must be an object'); continue
+        unknown=set(a)-ARRANGEMENT_AMOUNTS-ARRANGEMENT_TEXT-{'components'}
+        if unknown: errors.append(f'{where} has unknown fields {sorted(unknown)}')
+        if a.get('arrangement') not in ARRANGEMENTS: errors.append(f'{where}.arrangement is invalid')
+        errors.extend(f'{where}.{k} must be text' for k in ARRANGEMENT_TEXT if a.get(k) is not None and not isinstance(a[k],str))
+        errors.extend(f'{where}.{k} must be a non-negative number or null' for k in ARRANGEMENT_AMOUNTS
+                      if a.get(k) is not None and not _amount(a[k]))
+        if a.get('components') is not None:
+            errors.extend(printed_lines_errors(a['components'],f'{where}.components'))
+    return errors
+
 def validate_record(path: Path, record: dict, index: int, domain=None):
     errors = []
     status = record.get("verification_status")
@@ -147,6 +185,8 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
                 errors.append('invalid '+field)
         if 'active' in record and record['active'] is not None and not isinstance(record['active'],bool):
             errors.append('active must be boolean or null')
+    if domain=='costs':
+        errors.extend(cost_shape_errors(record))
     from backend.program_fields import field_errors  # CR-14 program-depth fields
     errors.extend(field_errors(domain,record))
     try: label=path.relative_to(ROOT)
