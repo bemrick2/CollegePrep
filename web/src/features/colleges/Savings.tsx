@@ -562,6 +562,7 @@ function tierSummary(t: DegreeCreditResult) {
     n('partly') ? `${n('partly')} partly` : null,
     n('elective_only') ? `${n('elective_only')} elective only` : null,
     n('not_in_plan') ? `${n('not_in_plan')} not used by the plan` : null,
+    n('printed_alternative') ? `${n('printed_alternative')} named among alternatives, not placed automatically` : null,
     n('school_assigns') ? `${n('school_assigns')} depend on the course assigned` : null,
   ].filter(Boolean)
   return parts.length ? `${parts.join('; ')}.` : 'No accepted exam credit to check.'

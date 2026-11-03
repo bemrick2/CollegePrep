@@ -294,7 +294,7 @@ const LISTED_ALTERNATIVE = new RegExp(`(?:,|\\bOR)\\s*(${TITLE_CODE})\\s*:`, 'g'
 const PAREN_ALTERNATIVE = /\(OR\s+([^()]*)\)/g
 /** Wording that makes a printed course something other than a plain alternative: a prerequisite, a condition, a
  *  combination, advice. Such titles add nothing (the item stays its own code), so credit is never over-applied. */
-const NOT_AN_ALTERNATIVE = /\b(pre-?req|co-?req|only|if|not|instead|recommended|encouraged|substitut|either)\b/i
+const NOT_AN_ALTERNATIVE = /\b(pre-?req|co-?req|only|if|not|instead|recommended|encouraged|substitut|either|except|exclud\w*)\b/i
 const PAREN_COMBINATION = /\band\b/i
 
 /**
@@ -326,20 +326,52 @@ export function entryCodes(e: PlanEntry): string[] {
 }
 
 /**
+ * Free text whose courses exist only as printed wording, with no reviewed structure saying which one satisfies it:
+ * "A or B", "ENGL 221/MODL 221", "ART 3700 level or higher", a comma list ("two courses from: CHEM 3353, CHEM 3363,
+ * and CHEM 4333"), or several codes not joined as a plain combination. Only a single code, or a plain combination
+ * ("BIOL 1113& BIOL 1111", "ENGL 1010 and ENGL 1020"), is read from free text.
+ */
+function printedAlternativeText(text: string): boolean {
+  if (/\bor\b|(?<=\d[A-Z]?)or\b|\//i.test(text)) return true
+  const n = codesInText(text).length
+  return n > 1 && (/[,;]/.test(text) || !/[+&]|\band\b/i.test(text))
+}
+
+/**
  * A row whose alternatives exist only in its printed wording ("MATH 1710 or MATH 1730", "Elective (ENGL 1010 or
- * 1011)*", "ART 3700 level or higher Art History Elective", "WR 122Zor WR 123"): no reviewed structure (a course
- * code, an option list or any_of) says which courses satisfy it, or under what condition. It is shown as printed and
- * is never filled by credit automatically (degreeCredit), so it can't make a requirement, a term, coverage or a
- * saving look met. Courses parsed out of free text are a guess; a wrong guess would over-report credit.
+ * 1011)*", "ART 3700 level or higher Art History Elective", "WR 122Zor WR 123", a comma list): no reviewed structure
+ * (a course code, an option list or any_of) says which courses satisfy it, or under what condition. It is shown as
+ * printed and is never filled by credit automatically (degreeCredit), so it can't make a requirement, a term,
+ * coverage or a saving look met. Courses parsed out of free text are a guess; a wrong guess would over-report credit.
  */
 export function unresolvedAlternatives(e: PlanEntry): boolean {
-  return !e.code && !e.choices.length && isRequirement(e) && /\bor\b|(?<=\d[A-Z]?)or\b|\//i.test(e.text)
+  return !e.code && !e.choices.length && isRequirement(e) && printedAlternativeText(e.text)
+}
+
+/**
+ * The codes a reviewed structure records for an entry, the only ones credit may fill: its own code (never the
+ * alternatives printed in its title), each option's reviewed codes, or free text that is a single code or a plain
+ * combination. Alternatives that exist only in wording are left out (printedAlternatives).
+ */
+export function reviewedCodes(e: PlanEntry): string[] {
+  if (e.code) return [e.code]
+  if (e.choices.length) return [...new Set(e.choices.flatMap(reviewedCodes))]
+  return printedAlternativeText(e.text) ? [] : codesInText(e.text)
+}
+
+/** Codes an entry names only in printed wording: shown and reported, never filled. */
+export function printedAlternatives(e: PlanEntry): string[] {
+  const reviewed = new Set(reviewedCodes(e))
+  return entryCodes(e).filter((c) => !reviewed.has(c))
 }
 
 /** Footnote marks printed in a row: runs of these symbols (digits count only when listed on the row itself). */
 // A mark is attached to the text before it ("1011)*", "Journalism*", "2000**+"); a symbol standing alone between
 // spaces ("Design + 2D Drawing") is part of the wording.
-const MARK_RUN = /(?<=\S)[*+\u2020\u2021\u00a7#^]+(?=\s|$|[),.;:])/g
+const MARK_RUN = /(?<=[^\s*+\u2020\u2021\u00a7#^])[*+\u2020\u2021\u00a7#^]+(?=\s|$|[),.;:])/g
+// A mark set off by a space ("… courses) **", "Survey … * or CS 251") is read only at the end of the row or before
+// "or"/"and", and only when it is wholly the plan's markers; elsewhere a spaced symbol is wording.
+const SPACED_MARK_RUN = /(?<=\s)[*+\u2020\u2021\u00a7#^]+(?=\s*$|\s+(?:or|and)\b)/gi
 
 /**
  * The footnotes a row cites. `markers` are the plan's footnote markers. A combined run ("**+") cites each note it
@@ -354,9 +386,28 @@ export function rowMarks(e: PlanEntry, markers: string[]): { cited: string[]; un
   const known = [...new Set(markers)].sort((a, b) => b.length - a.length)
   const cited: string[] = []
   const unexplained: string[] = []
-  for (const m of e.footnotes) (known.includes(m) ? cited : unexplained).push(m)
+  // Footnotes recorded on the row itself or on one of its options.
+  for (const m of [e.footnotes, ...e.choices.map((c) => c.footnotes)].flat()) (known.includes(m) ? cited : unexplained).push(m)
   if (!known.length) return { cited: [...new Set(cited)], unexplained: [...new Set(unexplained)] }
   const texts = [e.text, ...e.choices.map((c) => c.text)]
+  const whole = (run: string): string[] | null => {
+    const parts: string[] = []
+    let rest = run
+    while (rest) {
+      const k = known.find((x) => rest.startsWith(x))
+      if (!k || parts.includes(k)) return null
+      parts.push(k)
+      rest = rest.slice(k.length)
+    }
+    return parts
+  }
+  for (const t of texts)
+    for (const m of t.matchAll(SPACED_MARK_RUN)) {
+      const parts = whole(m[0])
+      // At the very end of the row a spaced run is a mark; one with no note on file is reported, not hidden.
+      if (parts) cited.push(...parts)
+      else if (!t.slice(m.index! + m[0].length).trim()) unexplained.push(m[0])
+    }
   for (const t of texts)
     for (const m of t.matchAll(MARK_RUN)) {
       const run = m[0]

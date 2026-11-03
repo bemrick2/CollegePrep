@@ -123,6 +123,8 @@ export interface PlanCourseRow {
   unexplainedMarks: string[]
   /** The row names courses among alternatives that exist only in its printed wording: never filled by credit automatically. */
   unresolved: boolean
+  /** Courses a coded or choice row prints as alternatives only in its wording: never placed in this row. */
+  alsoPrinted: string[]
 }
 
 /** Everything a plan prints outside its grid, verbatim (Clear Path and plangrid readers). */

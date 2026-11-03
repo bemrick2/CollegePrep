@@ -350,8 +350,8 @@ function PrintedNotes({ printed, cited }: { printed: PlanPrintedNotes; cited: Se
     <div className="mt-4 rounded-xl border border-line p-3 text-sm text-ink-2">
       <h3 className="text-sm font-bold text-ink">Printed with this plan</h3>
       <ul className="mt-2 grid gap-1">
-        {loose.map((f) => (
-          <li key={`f-${f.marker}`}>
+        {loose.map((f, i) => (
+          <li key={`f-${i}`}>
             <span className="font-semibold">Note ({f.marker}):</span> {f.text}
           </li>
         ))}
@@ -426,8 +426,8 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                           {x.options.length > 0 && <span className="block text-ink-3">{x.choose > 1 ? `Choose ${x.choose} of` : 'Any one of'}: {x.options.join('; ')}</span>}
                           {x.milestone && <span className="block text-ink-3">Milestone: {x.milestone}</span>}
                           {x.note && <span className="block text-ink-3">Note: {x.note}</span>}
-                          {x.notes.map((n) => (
-                            <span key={n.marker} className="mt-0.5 block text-ink-2">
+                          {x.notes.map((n, j) => (
+                            <span key={`${n.marker}-${j}`} className="mt-0.5 block text-ink-2">
                               <span className="font-semibold">Note ({n.marker}):</span> {n.text}
                             </span>
                           ))}
@@ -437,6 +437,11 @@ function PlanTerms({ terms }: { terms: TermCoverage[] }) {
                             </span>
                           ))}
                           {x.unresolved && <span className="mt-0.5 block text-ink-3">As printed. Credit you bring isn’t matched to this row automatically.</span>}
+                          {x.alsoPrinted.length > 0 && (
+                            <span className="mt-0.5 block text-ink-3">
+                              Credit for {x.alsoPrinted.join(', ')}, printed here as {x.alsoPrinted.length > 1 ? 'alternatives' : 'an alternative'}, isn’t matched to this row automatically.
+                            </span>
+                          )}
                         </span>
                         {x.credits != null && <span className="shrink-0 tabular-nums">{String(x.credits)}</span>}
                       </li>

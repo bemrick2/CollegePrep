@@ -133,6 +133,21 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(structured.coverage.value).toEqual({ termsCovered: 1, termsInPlan: 1 })
   })
 
+  it('UTC Economics B.A., all verified: MATH 1950, printed only as an alternative in the MATH 1130 row\'s title, is never placed; MATH 1130 itself is (#302 review)', () => {
+    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
+    const run = (exams: PlannedExam[]) => buildRoadmap({ comparison: c, programKey: 'economics-b-a', profile: { ...persona, exams }, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
+    const calc = run([ap('AP Calculus AB', 4)])
+    expect(calc.credit[0]).toMatchObject({ fit: 'printed_alternative', rows: [] })
+    const row = calc.plan.value!.terms[0]!.rows.find((x) => x.code === 'MATH 1130')!
+    expect(row).toMatchObject({ unresolved: false, alsoPrinted: ['MATH 1830', 'MATH 1950'] })
+    expect(calc.plan.value!.terms.some((t) => t.covered)).toBe(false)
+    expect(calc.coverage.value).toBeNull()
+    expect(calc.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/awards MATH 1950 for AP Calculus AB\. This major's plan names it only in a row printed with alternatives/)]))
+    // Control: the row's own code is a reviewed structure, so credit for it is placed there.
+    const alg = run([{ family: 'CLEP', key: examKey('CLEP', 'College Algebra'), name: 'CLEP College Algebra', score: 60 } as PlannedExam])
+    expect(alg.credit[0]).toMatchObject({ fit: 'applies', rows: [expect.objectContaining({ term: 1 })] })
+  })
+
   // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
   it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 6 hours fill named rows, English only partly (its conditional elective row is never filled), two exams accepted but not in plan, no timeline', () => {
     const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])

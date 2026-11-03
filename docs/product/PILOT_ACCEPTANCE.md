@@ -25,21 +25,30 @@ as "no credit".
 - **Owner: Research (#191).** Either verify UTC's AP and CLEP tables, or explicitly exclude the mappings that can't be
   supported. Whatever #191 decides, the engine already enforces two rules:
   - only verified rows are used;
-  - an awarded course fills a plan row only when the row names that course in a reviewed structure: a course code,
-    an option list, or `any_of` (section 4).
+  - an awarded course fills a plan row only when a reviewed structure records that course for the row: the row's own
+    course code, a choice option's own code, or `any_of`. Courses that appear only in printed wording never fill a row:
+    free text ("A or B", "A/B", comma lists), alternatives printed in a course's title ("MATH 1130 College Algebra,
+    MATH 1830: …, or MATH 1950: …"), and free-text choice options (section 4).
 - **What changes once #191 verifies UTC's tables**, from the tested scenario in `web/scripts/roadmap.pilot.test.ts`:
   - **Microeconomics and Macroeconomics** fill their plan rows, 6 hours in all.
   - **English Language** is **partly** placed. ENGL 1020 fills its row. ENGL 1010 isn't placed, because Management
     names it only in "Elective (ENGL 1010 or 1011)*", which has a placement condition (section 3).
-  - **Calculus AB and Statistics** are accepted but not in the plan; the page says the substitution isn't published.
+  - **Calculus AB and Statistics** are accepted but not in Management's plan; the page says the substitution isn't
+    published.
+  - **Other pilot plans differ.** In Economics B.A., UTC awards MATH 1950 for Calculus AB, and the plan prints MATH 1950
+    only as an alternative in its MATH 1130 row's title. That credit is reported as "Named among alternatives: not
+    placed automatically" and counts toward no row, term, coverage or saving (tested in `roadmap.pilot.test.ts`).
   - **Coverage and savings:** no whole term is covered, so neither is shown.
 
 ## 3. Displayed placement conditions
 
-A plan's printed notes are shown verbatim, under the row they qualify.
-- **The page never shows a bare mark.** A row whose mark has no note on file says "The plan prints “*” here, but no
-  note for it is on file."
-- **Today's pilot plans have no such row:** all 12 verified UTC plans, 0 unexplained marks.
+A plan's printed notes are shown verbatim, under the row they qualify. A mark with no note on file is said to be
+one: "The plan prints “*” here, but no note for it is on file."
+- **Pilot plans:** all 12 verified UTC plans cite every mark they print; 0 unexplained marks, 0 bare marks.
+- **Elsewhere (not in the pilot):** across 3,100 verified plans, 1 row has an unexplained mark. In plans that print no
+  footnotes at all, symbols aren't read as marks, so a few rows still show a symbol as printed with no note (8 found by
+  a narrow scan; the 2026-11-03 review's broader count, before the spaced-mark fix, was 176 rows in 15 plans). Not a
+  pilot blocker; on the reader backlog.
 
 **The placement condition in 10 of the 12 UTC plans** (all except Economics B.A. and Economics, International
 Public Policy), shown under "Elective (ENGL 1010 or 1011)*":
@@ -58,38 +67,61 @@ Public Policy), shown under "Elective (ENGL 1010 or 1011)*":
   - the degree checklist, as printed (degree requirements and graduation requirements, e.g. "50% of Business Hours at
     UTC").
 
-## 4. Unresolved "or" rows (regression-tested)
+## 4. Unresolved "or" rows and other printed alternatives (regression-tested)
 
-A row whose alternatives exist only in its printed wording is never filled automatically. Examples:
-"MATH 1710 or MATH 1730", "Elective (ENGL 1010 or 1011)*", "INM 101or VOK 101", "ENGL 221/MODL 221",
-"ART 3700 level or higher …".
+Courses that exist only in a row's printed wording are never filled automatically. Three places they occur:
+- **Free-text rows:** "MATH 1710 or MATH 1730", "Elective (ENGL 1010 or 1011)*", "INM 101or VOK 101",
+  "ENGL 221/MODL 221", "ART 3700 level or higher …", and comma lists with no "or" ("two courses from: CHEM 3353,
+  CHEM 3363, and CHEM 4333"). Only a single code, or a plain combination ("BIOL 1113& BIOL 1111"), is read from
+  free text; a combination counts only when every course is awarded.
+- **Alternatives printed in a course's title** (UTC Clear Path): "MATH 1130 College Algebra or MATH 1830: …". Only
+  the row's own code (MATH 1130) fills it; the page adds "Credit for MATH 1830, printed here as an alternative, isn’t
+  matched to this row automatically." Excluded courses ("or higher, excluding MS 204", "except 1493") are never read
+  as alternatives.
+- **Free-text choice options:** an option printed as "ENGL 103 or ENGL 104" is never completed; options with their
+  own codes, or stored as `any_of`, are.
 
 | What is enforced | Where it is tested |
 |---|---|
-| No credit is placed into such a row, for any of the seven printed shapes on file | `web/src/lib/engine/unresolvedOrRows.test.ts` |
+| No credit is placed into such a row, for each of the ten printed free-text shapes on file | `web/src/lib/engine/unresolvedOrRows.test.ts` |
+| A coded row's title alternatives, and free-text choice options, are never filled; the row's own code and coded options are (controls) | same file; `planFormats.test.ts`; `storedPlans.test.ts` (UTC General Biology) |
 | An exam whose course appears only in such a row is reported as "Named among alternatives: not placed automatically", never "applies" and never "not a course this plan lists" | same file, and `planFormats.test.ts` |
 | No requirement, whole term, coverage or applicable hours follow from it | same file |
 | On UTC Management with every record verified: the row isn't filled, and coverage and savings are null. The control (the same courses as `any_of`) is filled and covers the term | `web/scripts/roadmap.pilot.test.ts` |
-| The page shows the row as printed, with its note and the "isn’t matched automatically" line | `web/src/features/planning/CollegePlan.test.tsx` |
+| On UTC Economics B.A. with every record verified: AP Calculus AB (MATH 1950, a title alternative) isn't placed and covers nothing; CLEP College Algebra (MATH 1130, the row's own code) is placed | same file |
+| The page shows the row as printed, with its note and the "isn’t matched automatically" line; a course row names its printed alternatives | `web/src/features/planning/CollegePlan.test.tsx` |
 
-**Scale:**
-- **Across all verified plans:** in 1,437 of the 3,100, 4,786 rows name courses only in printed alternatives. Before
-  this change their wording was parsed into alternatives and could be filled. Now they're never filled, and they
-  carry the "isn’t matched automatically" line.
+**Scale (2026-11-03 scan of 3,100 verified plans):**
+- **Free-text rows that name courses:** 4,983 rows in the plans of 1,252 programs. Before this change their wording
+  was parsed into alternatives and could be filled; now they're never filled and carry the "isn’t matched
+  automatically" line. The count is an upper bound: it includes cross-listings ("CHEM 3210/3210L") and a few
+  mis-read codes, which are left unfilled (the safe direction).
+- **Course and choice rows with printed alternatives:** 306 rows in the plans of 207 programs.
 - **Rows that name no course** ("Humanities and Fine Arts or Elective") were never fillable and carry no extra line.
-- **In the 12 UTC pilot plans:** 14 labelled rows, including the 10 "Elective (ENGL 1010 or 1011)*" rows.
+- **In the 12 UTC pilot plans:** 14 labelled free-text rows (including the 10 "Elective (ENGL 1010 or 1011)*" rows)
+  and 30 course rows with printed alternatives.
 
-**Deep Dive's 54 held "or" plans stay held.** This protection is necessary for promoting them, but not sufficient:
+**Deep Dive's held "or" plans stay held** (54 by Deep Dive's count in #218; not separately sourced in the repo). This protection is necessary for promoting them, but not sufficient:
 plan-level promotion also needs confirmed completeness.
 
 ## 5. Known exclusions
 
 - **Plans held, not shown** (Deep Dive): UTC Geology, Hydrogeology, Political Science and 4 plans with uncited
-  course notes; the 54 "or" plans; 10 EOU/PDX plans downgraded in #297. None is in the pilot.
-- **Data defect in a pilot plan** (Deep Dive): UTC Economics, International Public Policy stores Term 1's row as
-  "Writing and Communication (ENGL 1010 or 101". The stored source evidence reads "…(ENGL 1010 or 1011)".
-  - Effect: display only. The row is unresolved, so it's never filled, and its credits ("3-4") are as printed.
-  - **Must be corrected, or the plan excluded, before acceptance.**
+  course notes; the held "or" plans; 10 EOU/PDX plans downgraded in #297. None is in the pilot.
+- **Truncated rows in two pilot plans** (Deep Dive): rows cut off mid-word or missing their closing parenthesis.
+  - UTC Economics, International Public Policy: "Writing and Communication (ENGL 1010 or 101", "Natural Science
+    without La", "ENGL 1020:Rhetoric and Composition 2 (Writing and Communication", the Microeconomics, Macroeconomics
+    and Comparative Government titles, and the "Approved … Elective (3000-4000 level" rows.
+  - UTC Entrepreneurship: "Natural Science without La", "ENGL 1020:Rhetoric and Composition 2 (Writing and
+    Communication", the Microeconomics, Macroeconomics and Public Speaking titles, and "Approved Program Elective
+    (3000-4000 Level".
+  - Evidence: the repo's evidence entry for the IPP plan holds only term summaries, and its page file isn't in the
+    repo, so the full wording can't be checked from the repo. (The wording "…(ENGL 1010 or 1011)" appears in the
+    evidence for a different UTC plan, CS Data Science & AI; an earlier draft of this package misattributed it.)
+  - Effect on matching: none found. The truncated free-text rows either name no course or name a single course
+    (ENGL 1020) that is filled correctly; "(ENGL 1010 or 101" is unresolved and never filled. The defect is in what
+    families read.
+  - **Each must be corrected from the source page, or the plan excluded, before acceptance.**
 - **EOU page debris stored as course rows** (Deep Dive): EOU is not a pilot school, so the pilot page is unaffected.
   It stays documented cleanup unless Deep Dive finds it affects matching.
 - **Not built for the pilot:** prerequisites, course availability and sequencing (so time and money saved are
@@ -104,6 +136,7 @@ plan-level promotion also needs confirmed completeness.
 | A row's printed note | "Note (\<mark\>): \<note as printed\>" |
 | A mark with no note on file | "The plan prints “\<mark\>” here, but no note for it is on file." |
 | An unresolved "or" row | "As printed. Credit you bring isn’t matched to this row automatically." |
+| A course row with printed alternatives | "Credit for \<courses\>, printed here as an alternative (or alternatives), isn’t matched to this row automatically." |
 | Credit status for such a row | "Named among alternatives: not placed automatically" |
 | What's missing, for such a row | "\<School\> awards \<course\> for \<exam\>. This major's plan names it only in a row printed with alternatives (“\<row\>”), so that credit isn't placed there automatically, and no term, coverage or saving counts it. The school decides how it applies." |
 | Below the plan | "Printed with this plan"; "Degree checklist, as printed" |
@@ -128,9 +161,9 @@ The pilot uses inputs the privacy draft (`docs/legal/PRIVACY_POLICY_DRAFT.md`) d
 | # | Item | Owner | State |
 |---|---|---|---|
 | 1 | Plan notes and footnotes shown with their rows; no unexplained mark in a pilot plan | Design | done on this branch (tests above) |
-| 2 | Unresolved "or" rows can't receive credit, coverage or savings | Design | done on this branch (tests above) |
+| 2 | Courses that appear only in printed wording (free-text rows, title alternatives, free-text options) can't receive credit, coverage or savings | Design | done on this branch (tests above) |
 | 3 | #297's pilot tests and fixture reviewed | Design | done (see the #218 note) |
 | 4 | UTC AP/CLEP: verified, or unsupported mappings explicitly excluded (#191) | Research | open |
-| 5 | UTC Economics, International Public Policy, Term 1 row corrected or plan excluded | Deep Dive | open |
+| 5 | Truncated rows in UTC Economics, International Public Policy and UTC Entrepreneurship corrected, or those plans excluded | Deep Dive | open |
 | 6 | Privacy policy rows for the pilot's fields approved | Owner + counsel | open (section 7) |
 | 7 | Pilot shown to families: hosted restore, import of the verified records, flag on | Owner → Research | held |

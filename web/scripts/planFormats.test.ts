@@ -235,10 +235,17 @@ describe('review findings on stored plans (#242)', () => {
   it('choice options keep their alternatives; a school-assigned group fits a one-of row; a count written in the text counts', () => {
     const exam = (course: string) => ({ status: 'qualifies', exam: { name: course }, earned: [{ course, credits: 3, minimumText: '3' }] }) as never
     const term = (items: unknown[]): PlanTermLike => ({ term_index: 1, label: 'Fall', credit_hours: '15', items: items as never })
-    // Cross-listed and "or" options: either course satisfies the option.
+    // Options whose alternatives exist only in their wording are never completed (#302 review); the same courses
+    // stored as any_of are.
     const cross = [term([{ text: 'Complete one of the following:', options: [{ text: 'ENGL 221/MODL 221' }, { text: 'BA F454 or F421' }] }])]
-    expect(degreeCredit([exam('MODL 221')], cross).coveredTerms).toHaveLength(1)
-    expect(degreeCredit([exam('BA F421')], cross).coveredTerms).toHaveLength(1)
+    for (const c of ['MODL 221', 'BA F421']) {
+      const r = degreeCredit([exam(c)], cross)
+      expect(r.coveredTerms).toEqual([])
+      expect(r.accepted[0]).toMatchObject({ status: 'printed_alternative', matched: [] })
+    }
+    const structured = [term([{ text: 'Complete one of the following:', options: [{ any_of: [{ code: 'ENGL 221' }, { code: 'MODL 221' }] }, { any_of: [{ code: 'BA F454' }, { code: 'BA F421' }] }] }])]
+    expect(degreeCredit([exam('MODL 221')], structured).coveredTerms).toHaveLength(1)
+    expect(degreeCredit([exam('BA F421')], structured).coveredTerms).toHaveLength(1)
     // Nested any_of option.
     const nested = [term([{ any_of: [{ any_of: [{ code: 'ECON 3501' }, { code: 'ECON 3701' }] }, { code: 'FIN 3101' }] }])]
     expect(degreeCredit([exam('ECON 3701')], nested).coveredTerms).toHaveLength(1)

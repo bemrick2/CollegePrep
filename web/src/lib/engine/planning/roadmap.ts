@@ -13,7 +13,7 @@ import { FAMILY_LABEL, examOptions, matchExam, policyKindOf, type CreditPolicy, 
 import { termsSaving, type FamilyAid } from '../costProjection'
 import { gatedSaving, withheldReason, type CompletionEvidence } from '../earlyCompletion'
 import { pickCost } from '../residency'
-import { entryCodes, planTerms, rowMarks, unresolvedAlternatives, type PlanTermLike } from '../planItems'
+import { entryCodes, planTerms, printedAlternatives, rowMarks, unresolvedAlternatives, type PlanTermLike } from '../planItems'
 import type { CostByArrangement, CreditFit, CreditLine, DualEnrollmentFacts, Evidence, ExamOption, LivingArrangement, PlanCourseRow, PlanPrintedNotes, PlanRow, PlanningProfile, Roadmap, Unknown } from './types'
 
 type Rec = Record<string, unknown>
@@ -249,7 +249,9 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
 
   // Everything the plan prints outside its grid, verbatim, and which footnotes each row cites.
   const printed = printedNotes(planDetails)
-  const noteFor = new Map(printed.footnotes.map((f) => [f.marker, f.text]))
+  // A marker printed twice with different notes keeps both.
+  const noteFor = new Map<string, string[]>()
+  for (const f of printed.footnotes) noteFor.set(f.marker, [...(noteFor.get(f.marker) ?? []), f.text])
   // Timeline and savings: whole plan terms only.
   const termList = termViews.map((t) => ({
     term: t.number,
@@ -269,10 +271,12 @@ export function buildRoadmap({ comparison: c, programKey, planKey = null, comple
           milestone: e.milestone,
           options: e.choices.map((x) => x.text),
           choose: e.choose,
-          notes: marks.cited.map((m) => ({ marker: m, text: noteFor.get(m)! })),
+          notes: marks.cited.flatMap((m) => noteFor.get(m)!.map((text) => ({ marker: m, text }))),
           unexplainedMarks: marks.unexplained,
           // Labelled only when the row names a course a reader might expect credit to fill.
           unresolved: unresolvedAlternatives(e) && entryCodes(e).length > 0,
+          // A course or choice row that also prints alternatives in its wording: those courses are never placed here.
+          alsoPrinted: e.code || e.choices.length ? printedAlternatives(e) : [],
         }
       },
     ),
