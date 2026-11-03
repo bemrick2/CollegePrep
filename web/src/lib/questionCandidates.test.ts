@@ -1,27 +1,33 @@
 import { describe, expect, it } from 'vitest'
 import { QUESTIONS } from './data/demo/fixtures'
 import type { Ledger, SignOff } from './data/demo/editorialLedger'
-import { IMPORT_CONTRACT, questionKey, type ImportedQuestion } from './questionImport'
+import { IMPORT_CONTRACT, IMPORT_CONTRACT_V2, questionKey, type ImportedQuestion } from './questionImport'
 import * as QC from './questionCandidates'
 import { emptyRegistry, intake, latest, rightsHash, type Registry, type Track } from './questionCandidates'
-import { testId, testReviewers } from './data/demo/testReviewers'
+import { testId, testIdentities, testIdentityId, testReviewers } from './data/demo/testReviewers'
 import { registryProblems } from './data/demo/reviewerRegistry'
 
 // TEST ONLY reviewers (testReviewers.ts). Tests name people by display name; the wrappers pass their stable test ids.
 const R = testReviewers()
+const TI = testIdentities()
 const rid = (who: string) => (who.startsWith('rv-') ? who : testId(who))
-const setTrack = (reg: Registry, id: string, t: Track, who: string, reason: string, at: string, exposed: Set<string>) => QC.setTrack(reg, id, t, rid(who), reason, at, exposed, R)
+const setTrack = (reg: Registry, id: string, t: Track, who: string, reason: string, at: string, exposed: Set<string>) => QC.setTrack(reg, id, t, rid(who), reason, at, exposed, R, TI)
 const retire = (reg: Registry, id: string, who: string, reason: string, at: string, dup?: string) => QC.retire(reg, id, rid(who), reason, at, dup, R)
-const eligibility = (c: QC.Candidate, l?: Ledger) => QC.eligibility(c, l, R)
-const eligibleFor = (reg: Registry, t: Track, l?: Ledger) => QC.eligibleFor(reg, t, l, R)
-const answerKeyFor = (c: QC.Candidate, h: string, l?: Ledger) => QC.answerKeyFor(c, h, l, R)
-const summary = (reg: Registry, l?: Ledger) => QC.summary(reg, l, R)
+const eligibility = (c: QC.Candidate, l?: Ledger) => QC.eligibility(c, l, R, TI)
+const eligibleFor = (reg: Registry, t: Track, l?: Ledger) => QC.eligibleFor(reg, t, l, R, TI)
+const answerKeyFor = (c: QC.Candidate, h: string, l?: Ledger) => QC.answerKeyFor(c, h, l, R, TI)
+const summary = (reg: Registry, l?: Ledger) => QC.summary(reg, l, R, TI)
 /** A sign-off by the TEST reviewer with this display name. */
 const sig = (stage: SignOff['stage'], by: string, hash: string, extra: Partial<SignOff> = {}): SignOff => ({ stage, reviewer_id: testId(by), by, date: '2026-10-23', result: 'pass', hash, ...extra })
 
 function imp(i = 0, extra: Partial<ImportedQuestion> = {}): ImportedQuestion {
   const { id, ...q } = QUESTIONS[i]!
   return { ...q, contract: IMPORT_CONTRACT, import_id: `wk-${id}`.toLowerCase(), origin: 'ai_drafted', author: 'ai:example-model', license: 'original-owned', source_attribution: null, source_url: null, requested_pool: 'practice', ...extra }
+}
+/** A v2 line by a person, with the TEST identity for that author's name. */
+function person(i = 0, extra: Partial<ImportedQuestion> = {}): ImportedQuestion {
+  const author = extra.author ?? 'Jo Writer'
+  return imp(i, { contract: IMPORT_CONTRACT_V2, origin: 'human_original', author, author_identity: { kind: 'person', identity_id: testIdentityId(author) }, ...extra })
 }
 const AT = '2026-10-23'
 const NOBANK = new Map<string, string>()
@@ -56,7 +62,7 @@ describe('question candidates: tracks', () => {
   })
 
   it('only an active content lead, by reviewer id, who did not write the item sets a track, with a reason', () => {
-    const reg = reg0([imp(0, { origin: 'human_original', author: 'Jo Writer' })])
+    const reg = reg0([person(0, { author: 'Jo Writer' })])
     const id = imp(0).import_id
     expect(() => setTrack(reg, id, 'assessment_candidate', 'AI (Claude)', 'r', AT, NONE)).toThrow(/not an active content lead/)
     expect(() => setTrack(reg, id, 'assessment_candidate', 'Ana Solver', 'r', AT, NONE)).toThrow(/not an active content lead/) // registered, wrong role
@@ -195,7 +201,7 @@ describe('question candidates: versions and answer keys', () => {
 
 describe('question candidates: publication eligibility is per item and never weaker than the ledger', () => {
   const id = imp(0).import_id
-  const confirmed = () => setTrack(reg0([imp(0, { origin: 'human_original', author: 'Jo Writer' })]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+  const confirmed = () => setTrack(reg0([person(0, { author: 'Jo Writer' })]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
 
   it('today, with an empty ledger, nothing is eligible even with every track confirmed', () => {
     let reg = reg0(QUESTIONS.map((_, i) => imp(i)))
@@ -220,7 +226,7 @@ describe('question candidates: publication eligibility is per item and never wea
 
   it('a blind solve by any version’s author does not verify the key', () => {
     let reg = confirmed()
-    reg = intake(reg, [imp(0, { origin: 'human_original', author: 'Ed Editor', stem: QUESTIONS[0]!.stem + ' (edited)' })], 'rev.jsonl', AT, NOBANK).registry
+    reg = intake(reg, [person(0, { author: 'Ed Editor', stem: QUESTIONS[0]!.stem + ' (edited)' })], 'rev.jsonl', AT, NOBANK).registry
     const c = reg.candidates[id]!
     const l = fullReview(reg, id)
     const key = latest(c).item.accepted_answers[0]!
@@ -233,7 +239,7 @@ describe('question candidates: publication eligibility is per item and never wea
 
   it('an author of an earlier version is not an independent solver or approver', () => {
     let reg = confirmed()
-    reg = intake(reg, [imp(0, { origin: 'human_original', author: 'Ed Editor', stem: QUESTIONS[0]!.stem + ' (edited)' })], 'rev.jsonl', AT, NOBANK).registry
+    reg = intake(reg, [person(0, { author: 'Ed Editor', stem: QUESTIONS[0]!.stem + ' (edited)' })], 'rev.jsonl', AT, NOBANK).registry
     const l = fullReview(reg, id, { 6: { by: 'Jo Writer' } })
     l.items[id]!.author = 'Ed Editor'
     const e = eligibility(reg.candidates[id]!, l)
@@ -259,7 +265,7 @@ describe('question candidates: publication eligibility is per item and never wea
 
 describe('question candidates: review findings (names, reverts, duplicates, history)', () => {
   const id = imp(0).import_id
-  const human = (extra: Partial<ImportedQuestion> = {}) => imp(0, { origin: 'human_original', author: 'Jo Writer', ...extra })
+  const human = (extra: Partial<ImportedQuestion> = {}) => person(0, { author: 'Jo Writer', ...extra })
   const confirmedHuman = () => setTrack(reg0([human()]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
 
   it('a revision may not return to an earlier version (that would revive its review)', () => {
@@ -401,12 +407,14 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
       const reviewers = testReviewers({ [who]: patch })
       delete reviewers.reviewers[testId('Jo Writer')]
       expect(registryProblems(reviewers), JSON.stringify(patch)).toEqual([])
-      const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), reviewers)
+      // Jo's identity is recorded but not linked to a reviewer, so only the (fail-closed) name match can block.
+      const ids = testIdentities({ [testIdentityId('Jo Writer')]: { reviewer_id: undefined } })
+      const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), reviewers, ids)
       expect(e.eligible, JSON.stringify(patch)).toBe(false)
       expect(e.problems, JSON.stringify(patch)).toContain('needs 1 more blind solve(s) by an authorized solver other than the author')
     }
     // Accents too.
-    const acc = QC.setTrack(reg0([human({ author: 'Jose Writer' })]), id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R)
+    const acc = QC.setTrack(reg0([human({ author: 'Jose Writer' })]), id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R, TI)
     expect(eligibility(acc.candidates[id]!, fullReview(acc, id, { 8: { by: 'José Writer' } })).eligible).toBe(false)
   })
 
@@ -421,7 +429,7 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
   })
 
   it('a display name is never a reason to refuse: registered reviewers named Claude Debussy or Ai Nguyen count', () => {
-    const reg = QC.setTrack(reg0([human()]), id, 'practice_candidate', testId('Claude Debussy'), 'reserve later', AT, NONE, R)
+    const reg = QC.setTrack(reg0([human()]), id, 'practice_candidate', testId('Claude Debussy'), 'reserve later', AT, NONE, R, TI)
     expect(reg.candidates[id]!.track_confirmed_by).toBe(testId('Claude Debussy'))
     const l = fullReview(reg, id, { 8: { by: 'Claude Debussy' } })
     l.items[id]!.signoffs = l.items[id]!.signoffs.map((s) => (s.stage === 4 && s.by === 'Ana Solver' ? { ...s, by: 'Ai Nguyen', reviewer_id: testId('Ai Nguyen') } : s))
@@ -437,7 +445,7 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
   it('a revoked content lead’s track confirmation stops counting', () => {
     const reg = confirmedHuman()
     const revoked = testReviewers({ [testId('Pat Lead')]: { revoked: { on: '2026-10-24', by: 'owner', reason: 'stepped down' } } })
-    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), revoked).problems).toContain(`track confirmed by ${testId('Pat Lead')}, who is not an active content lead`)
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), revoked, TI).problems).toContain(`track confirmed by ${testId('Pat Lead')}, who is not an active content lead`)
   })
 
   it('a revision back to earlier rights claims never revives the earlier rights pass, and needs its own check', () => {
@@ -474,8 +482,8 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     const reg = confirmedHuman()
     const c = reg.candidates[id]!
     const twin = testReviewers({ [testId('Ana Solver')]: { aliases: ['Sam Solver'] } })
-    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), twin).verified).toBe(false)
-    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R).verified).toBe(true)
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), twin, TI).verified).toBe(false)
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R, TI).verified).toBe(true)
   })
 
   it('a stage-3 fail is not cleared by a resubmission that changes nothing about the claims', () => {
@@ -496,6 +504,71 @@ describe('question candidates: review findings (names, reverts, duplicates, hist
     const c3 = reg.candidates[id]!
     l.items[id]!.signoffs.push(sig(3, 'Lee Rights', latest(c3).content_hash, { license: 'original', rights_hash: rightsHash(latest(c3)) }))
     expect(eligibility(c3, l).eligible).toBe(true)
+  })
+
+  it('author identity (v2): legacy human names are unresolved and ineligible; AI authorship is explicit; a linked reviewer is excluded by id', () => {
+    // A v1 line by a human, known only by name: complete review, still ineligible.
+    let legacy = reg0([imp(0, { origin: 'human_original', author: 'Jo Writer' })])
+    legacy = setTrack(legacy, id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+    const le = eligibility(legacy.candidates[id]!, fullReview(legacy, id))
+    expect(le.eligible).toBe(false)
+    expect(le.problems.join(' ')).toMatch(/a name only, with no recorded identity/)
+    // A v1 AI draft ("ai:<model>", ai_drafted) is explicit AI authorship: resolved.
+    const ai1 = setTrack(reg0([imp(0)]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+    expect(eligibility(ai1.candidates[id]!, fullReview(ai1, id)).eligible).toBe(true)
+    // "ai:" alone isn't AI authorship unless the origin says so too (the validator refuses the mix; intake doesn't re-check).
+    expect(QC.authorshipOf(reg0([imp(0, { origin: 'human_original' })]).candidates[id]!, TI, R).resolved).toBe(false)
+    // A v2 AI draft: the same.
+    const ai2 = setTrack(reg0([imp(0, { contract: IMPORT_CONTRACT_V2, author_identity: { kind: 'ai', model: 'example-model' } })]), id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+    expect(eligibility(ai2.candidates[id]!, fullReview(ai2, id)).eligible).toBe(true)
+    // An identity linked to a reviewer under an unrelated name: that reviewer is excluded by id.
+    const linked = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId('Pat Lead') } })
+    delete linked.identities[testIdentityId('Pat Lead')] // one person, one identity
+    let reg = reg0([person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' } })])
+    reg = QC.setTrack(reg, id, 'practice_candidate', testId('Claude Debussy'), 'r', AT, NONE, R, linked)
+    const e = QC.eligibility(reg.candidates[id]!, fullReview(reg, id), R, linked)
+    expect(e.eligible).toBe(false)
+    expect(e.problems).toContain('needs approval by an authorized approver who is not the author')
+    expect(() => QC.setTrack(reg, id, 'assessment_candidate', testId('Pat Lead'), 'r', AT, NONE, R, linked)).toThrow(/wrote this item/)
+    // Any version by an unresolved author keeps the item ineligible, even after a v2 revision.
+    let mixed = reg0([imp(0, { origin: 'human_original', author: 'Jo Writer' })])
+    mixed = intake(mixed, [person(0, { stem: QUESTIONS[0]!.stem + ' (v2)' })], 'v2.jsonl', AT, NOBANK).registry
+    mixed = setTrack(mixed, id, 'practice_candidate', 'Pat Lead', 'r', AT, NONE)
+    expect(eligibility(mixed.candidates[id]!, fullReview(mixed, id)).eligible).toBe(false)
+  })
+
+  it('(#290 review) identity links are re-checked wherever authorship matters: track confirmation, blind solves, rights', () => {
+    const jordan = (extra = {}) => person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' }, ...extra })
+    const unlinked = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' } })
+    const linkTo = (who: string) => {
+      const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', reviewer_id: testId(who) } })
+      delete ids.identities[testIdentityId(who)]
+      return ids
+    }
+    // Track confirmed by Pat while no link was recorded; once the link is recorded, the confirmation stops counting.
+    let reg = reg0([jordan()])
+    reg = QC.setTrack(reg, id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R, unlinked)
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), R, unlinked).eligible).toBe(true)
+    expect(QC.eligibility(reg.candidates[id]!, fullReview(reg, id, { 8: { by: 'Claude Debussy' } }), R, linkTo('Pat Lead')).problems.join(' ')).toMatch(/track confirmed by .* who wrote a version of this item/)
+    // A blind solve by the linked reviewer never confirms the key.
+    const c = reg.candidates[id]!
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R, unlinked).verified).toBe(true)
+    expect(QC.answerKeyFor(c, latest(c).content_hash, fullReview(reg, id), R, linkTo('Sam Solver')).verified).toBe(false)
+    // The identity is part of the rights claims: changing only it is a rights change.
+    const other = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith' }, 'au-test-jordan-2': { display_name: 'Jordan Smith', distinct_from: [] } })
+    const next = intake(reg, [jordan({ author_identity: { kind: 'person', identity_id: 'au-test-jordan-2' } })], 'v2.jsonl', AT, NOBANK).registry
+    expect(next.candidates[id]!.versions).toHaveLength(2)
+    expect(JSON.stringify(next.candidates[id]!.history)).toMatch(/"rights_changed":true/)
+    expect(QC.authorshipOf(next.candidates[id]!, other, R).resolved).toBe(true)
+  })
+
+  it('(#290 review) a reviewer matching an author identity by name is excluded, fail-closed, even when recorded as a different person', () => {
+    // Jordan's identity has the alias "Pat Lead"; the reviewer Pat Lead is recorded as someone else. The name still blocks.
+    const ids = testIdentities({ 'au-test-jordan': { display_name: 'Jordan Smith', aliases: ['Pat Lead'], distinct_from: [testId('Pat Lead')] } })
+    const reg = reg0([person(0, { author: 'Jordan Smith', author_identity: { kind: 'person', identity_id: 'au-test-jordan' } })])
+    expect(() => QC.setTrack(reg, id, 'practice_candidate', testId('Pat Lead'), 'r', AT, NONE, R, ids)).toThrow(/wrote this item/)
+    const confirmed = QC.setTrack(reg, id, 'practice_candidate', testId('Claude Debussy'), 'r', AT, NONE, R, ids)
+    expect(QC.eligibility(confirmed.candidates[id]!, fullReview(confirmed, id), R, ids).problems).toContain('needs approval by an authorized approver who is not the author')
   })
 })
 
