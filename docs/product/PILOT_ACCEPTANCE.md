@@ -12,26 +12,32 @@ release of the wider app. Deep Dive's completion is not release approval.
 
 | School | Programs | Degree plans shown | Credit tables | Cost |
 |---|---|---|---|---|
-| UTC | 13 business programs | **12 verified eight-term plans** (Accounting; Business Analytics; Economics B.A.; Economics, Financial Economics; Economics, International Public Policy; Entrepreneurship; Finance, Business Finance; Finance, Investments; Management; Management, Healthcare Management; Marketing; Marketing, Professional Sales). No plan for HR. | AP, CLEP, IB, dual enrollment: all **partially verified** | 2026-27 cost of attendance, verified, by living arrangement |
+| UTC | 13 business programs | **10 verified eight-term plans** (Accounting; Business Analytics; Economics B.A.; Economics, Financial Economics; Finance, Business Finance; Finance, Investments; Management; Management, Healthcare Management; Marketing; Marketing, Professional Sales). **Excluded:** Economics, International Public Policy and Entrepreneurship. Both are on file but partially verified, because their source PDF prints truncated rows (section 5); the page says "on file but not yet verified" and shows no terms. No plan for HR. | AP, CLEP, IB, dual enrollment: all **partially verified** | 2026-27 cost of attendance, verified, by living arrangement |
 | UTK | 9 B.S.B.A. majors (listing not verified) | none on file | AP, CLEP, IB, Cambridge, Statewide Dual Credit, industry: partially verified (academic year unconfirmed); dual enrollment verified | verified |
 | MTSU | business majors | none on file | AP, CLEP, dual enrollment: partially verified | none on file |
 
 ### Degree plans (Deep Dive): ready
 
-The pilot fixture (`web/src/features/planning/pilotFixture.json`, rebuilt from `data/institutions`) holds the 12 UTC
-plans, all `verified` as of #297 (main `6b81928934`). Each stores what its Clear Path PDF prints, verbatim: the term
-rows; the notice above the plan; the footnotes, with their marks; and the "Completed:" checklist (`degree_summary`).
-An independent reviewer checked all of it (#297). Two plans have truncated rows to fix (section 5).
+The pilot fixture (`web/src/features/planning/pilotFixture.json`, rebuilt from `data/institutions`) holds 12 UTC
+plans.
+- **10 are `verified`** (#297, main `6b81928934`). Each stores what its Clear Path PDF prints, verbatim:
+  - the term rows;
+  - the notice above the plan;
+  - the footnotes, with their marks;
+  - the "Completed:" checklist (`degree_summary`).
+
+  An independent reviewer checked all of it (#297).
+- **Excluded: Economics, International Public Policy and Entrepreneurship.** Both are `partially_verified` as of 2026-11-03, with corrections entries. UTC's own PDFs print those rows cut off (section 5), so a complete record can't be built from the source. The page shows them as "on file but not yet verified", with no terms.
 
 **Printed conditions on the pilot plans** (each now shown under the row that prints its mark, section 3):
 
 | Plans | Mark | Printed text (verbatim) | Rows it qualifies |
 |---|---|---|---|
-| Management; Accounting; Business Analytics; Entrepreneurship; Finance: Business Finance; Finance: Investments; Management: Healthcare Management; Marketing; Marketing: Professional Sales; Economics: Financial Economics | `*` | "If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required." | Term 1: "Elective (ENGL 1010 or 1011)*" |
+| Management; Accounting; Business Analytics; Finance: Business Finance; Finance: Investments; Management: Healthcare Management; Marketing; Marketing: Professional Sales; Economics: Financial Economics | `*` | "If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required." | Term 1: "Elective (ENGL 1010 or 1011)*" |
 | Economics, B.A. | `*` | "Foreign language sequence may satisfy up to 4 General Education courses, depending on language. Consult catalog for more detail." | Terms 1–4: "Foreign Language 1–4 (…)*" |
-| Economics: International Public Policy, B.A. | `*` | "Foreign language sequence may satisfy up to 4 general education courses, depending on language. Consult catalog for more detail." | Term 1: "Foreign Language 1 (Humanities and Fine Arts)*", "Humanities and Fine Arts or Elective*" |
-| Economics: International Public Policy, B.A. | `**` | "Consult with advisor about General Education Requirements" | Term 7: the "History of Economic Thought, PSPS 3052 …, or PSPS 3053 …**" row |
-| Economics: International Public Policy, B.A. | `***` | "If 2000-level Program Electives are taken, additional 3000-4000 level General Electives must be completed" | Term 6: "Approved Program Elective (3000-4000 level)***" |
+| Economics: International Public Policy, B.A. (excluded; not shown) | `*` | "Foreign language sequence may satisfy up to 4 general education courses, depending on language. Consult catalog for more detail." | Term 1: "Foreign Language 1 (Humanities and Fine Arts)*", "Humanities and Fine Arts or Elective*" |
+| Economics: International Public Policy, B.A. (excluded; not shown) | `**` | "Consult with advisor about General Education Requirements" | Term 7: the "History of Economic Thought, PSPS 3052 …, or PSPS 3053 …**" row |
+| Economics: International Public Policy, B.A. (excluded; not shown) | `***` | "If 2000-level Program Electives are taken, additional 3000-4000 level General Electives must be completed" | Term 6: "Approved Program Elective (3000-4000 level)***" |
 
 The checklist and the notice are display only; nothing is computed from them.
 
@@ -65,14 +71,13 @@ as "no credit".
 
 A plan's printed notes are shown verbatim, under the row they qualify. A mark with no note on file is said to be
 one: "The plan prints “*” here, but no note for it is on file."
-- **Pilot plans:** all 12 verified UTC plans cite every mark they print; 0 unexplained marks, 0 bare marks.
-- **Elsewhere (not in the pilot):** across 3,099 verified plans, 1 row has an unexplained mark. In plans that print no
+- **Pilot plans:** all 10 verified UTC plans cite every mark they print; 0 unexplained marks, 0 bare marks.
+- **Elsewhere (not in the pilot):** across 3,095 verified plans, 1 row has an unexplained mark. In plans that print no
   footnotes at all, symbols aren't read as marks, so a few rows still show a symbol as printed with no note (8 found by
   a narrow scan; the 2026-11-03 review's broader count, before the spaced-mark fix, was 176 rows in 15 plans). Not a
   pilot blocker; on the reader backlog.
 
-**The placement condition in 10 of the 12 UTC plans** (all except Economics B.A. and Economics, International
-Public Policy), shown under "Elective (ENGL 1010 or 1011)*":
+**The placement condition in 9 of the 10 verified UTC pilot plans** (all except Economics B.A.), shown under "Elective (ENGL 1010 or 1011)*":
 
 > **Note (\*):** If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010
 > or 1011 is required.
@@ -130,23 +135,16 @@ plan-level promotion also needs confirmed completeness.
 
 - **Plans held, not shown** (Deep Dive): UTC Geology, Hydrogeology, Political Science and 4 plans with uncited
   course notes; the held "or" plans; 10 EOU/PDX plans downgraded in #297. None is in the pilot.
-- **Truncated rows in two pilot plans** (Deep Dive): rows cut off mid-word or missing their closing parenthesis.
-  - UTC Economics, International Public Policy: "Writing and Communication (ENGL 1010 or 101", "Natural Science
-    without La", "ENGL 1020:Rhetoric and Composition 2 (Writing and Communication", the Microeconomics, Macroeconomics
-    and Comparative Government titles, and the "Approved … Elective (3000-4000 level" rows.
-  - UTC Entrepreneurship: "Natural Science without La", "ENGL 1020:Rhetoric and Composition 2 (Writing and
-    Communication", the Microeconomics, Macroeconomics and Public Speaking titles, and "Approved Program Elective
-    (3000-4000 Level".
-  - Evidence: the repo's evidence entry for the IPP plan holds only term summaries, and its page file isn't in the
-    repo, so the full wording can't be checked from the repo. (The wording "…(ENGL 1010 or 1011)" appears in the
-    evidence for a different UTC plan, CS Data Science & AI; an earlier draft of this package misattributed it.)
-  - Effect on matching: none found. The truncated free-text rows either name no course or name a single course
-    (ENGL 1020) that is filled correctly; "(ENGL 1010 or 101" is unresolved and never filled. The defect is in what
-    families read.
-  - **Each must be corrected from the source page, or the plan excluded, before acceptance.**
+- **Two pilot plans excluded for truncated source rows** (Deep Dive, 2026-11-03): UTC Economics, International Public Policy and UTC Entrepreneurship.
+  - **The defect is in UTC's PDFs themselves.** Their word positions end mid-word or before a closing parenthesis, e.g. "Writing and Communication (ENGL 1010 or 101", "Natural Science without La", "PSPS 1030: Controversies in Public Polic", "Individual and Global Citizenshi". The stored records transcribe the rows exactly as printed.
+  - **A complete record can't be built from the source.** The PDF can't be re-fetched from the review workspace: utc.edu is outside its network allowlist, and its robots.txt disallows the web reader. Neither restriction is worked around.
+  - **Both plans are now `partially_verified`.** Each has a corrections entry, and `source_rows_truncated: true` is set on the record. The #297 footnotes and checklist are kept.
+  - **What the page shows:** "on file but not yet verified", with no terms.
+  - **Way back to verified:** UTC publishes complete rows; Research captures them through the pipeline; the result passes independent review, recorded with `replaces_correction`.
+  - **Same defect, not in the pilot:** two more verified UTC plans have it and were downgraded the same way. They are Middle Grades Education: English ("ENGL Literature Elective for Diversit") and Physics: STEM Education ("PHYS 4110: Introduction to Quantum Mechanic"). Verified plans nationwide: 3,099 → 3,095.
 - **EOU page debris stored as course rows** (Deep Dive): EOU is not a pilot school, so the pilot page is unaffected.
   It stays documented cleanup unless Deep Dive finds it affects matching.
-- **Plans held as partially verified nationwide** (528, Deep Dive): not shown; the page says "on file but not yet
+- **Plans held as partially verified nationwide** (532, Deep Dive): not shown; the page says "on file but not yet
   verified".
 - **Dual-enrollment course equivalencies** (Research): none on file; policy only.
 - **Out of Slice 1:** comparison across schools, high-school course advice, account storage of plan choices.
@@ -191,7 +189,7 @@ The pilot uses inputs the privacy draft (`docs/legal/PRIVACY_POLICY_DRAFT.md`) d
 | 2 | Courses that appear only in printed wording (free-text rows, title alternatives, free-text options) can't receive credit, coverage or savings | Design | done on this branch (tests above) |
 | 3 | #297's pilot tests and fixture reviewed | Design | done (see the #218 note) |
 | 4 | UTC AP/CLEP: verified, or unsupported mappings explicitly excluded (#191) | Research | open |
-| 5 | Truncated rows in UTC Economics, International Public Policy and UTC Entrepreneurship corrected, or those plans excluded | Deep Dive | open |
+| 5 | Truncated rows in UTC Economics, International Public Policy and UTC Entrepreneurship corrected, or those plans excluded | Deep Dive | done: both excluded (partially verified; the source itself is truncated), section 5 |
 | 6 | Privacy policy rows for the pilot's fields approved | Owner + counsel | open (section 7) |
 | 7 | Mobile pass at 390 px | Design | open |
 | 8 | Pilot shown to families: hosted restore, import of the verified records, flag on, owner sign-off | Owner → Research | held |

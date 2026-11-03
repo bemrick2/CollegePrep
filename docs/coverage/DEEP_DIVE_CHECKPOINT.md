@@ -2,7 +2,7 @@
 
 This file is how a new Deep Dive session picks up degree-requirement, roadmap and specialised-reader work without redoing finished work. It is updated with every Deep Dive PR. Research keeps its own file, `docs/coverage/RESEARCH_CHECKPOINT.md`.
 
-- **Main at the last refresh:** `22040b8f26`. #297 (`programs/utc-clearpath-notes`) merged at `6b81928934` with all 12 required checks green; the owner accepted it as complete on 2026-11-03. This PR (`programs/release-backlog`) is on top of main.
+- **Main at the last refresh:** `c8bbce6cac` (merge of Design #302). #297 and #300 are accepted as complete by the owner (2026-11-03); the count reconciliation is resolved. This PR (`programs/utc-truncated-rows`) is on top of main.
 - **Deep Dive's initial-release workstream is complete** (owner, 2026-11-03). That isn't overall release approval: hosted holds stay, deployed flags stay off, and question generation stays paused.
 - **Ownership (owner, 2026-11-02):**
   - **Deep Dive:** programs, degree requirements and term-by-term plans, and the catalog readers behind them.
@@ -14,13 +14,13 @@ This file is how a new Deep Dive session picks up degree-requirement, roadmap an
 
 Counted from `data/institutions/*`. Plans are `program_plan` records; groups are every other `degree_requirements` record.
 
-| | main `b2c83c4` (#261) | main `2e386c2` (#281) | main `43d4c72` (before #297) | main `6b81928` (#297) | with this PR |
-|---|---|---|---|---|---|
-| Verified plans | 3,502 at 68 schools | 3,117 at 65 | 3,047 at 64 | 3,100 at 63 | 3,099 at 63 |
-| Partially verified plans | 119 | 510 | 580 | 527 | 528 |
-| Verified requirement groups | 15,307 | 15,545 | 15,545 | 15,545 | 15,545 |
-| Partially verified groups | 51 | 89 | 89 | 89 | 89 |
-| Covered schools (STATUS.json) | 73 of 2,119 | 73 | 73 | 73 | 73 |
+| | main `b2c83c4` (#261) | main `2e386c2` (#281) | main `43d4c72` (before #297) | main `6b81928` (#297) | main `e3b6beb` (#300) | with this PR |
+|---|---|---|---|---|---|---|
+| Verified plans | 3,502 at 68 schools | 3,117 at 65 | 3,047 at 64 | 3,100 at 63 | 3,099 at 63 | 3,095 at 63 |
+| Partially verified plans | 119 | 510 | 580 | 527 | 528 | 532 |
+| Verified requirement groups | 15,307 | 15,545 | 15,545 | 15,545 | 15,545 | 15,545 |
+| Partially verified groups | 51 | 89 | 89 | 89 | 89 | 89 |
+| Covered schools (STATUS.json) | 73 of 2,119 | 73 | 73 | 73 | 73 | 73 |
 
 **#297 reconciliation** (every plan record at `43d4c72` vs `6b81928`; 3,627 records at both):
 
@@ -105,7 +105,19 @@ The other 16 verified EOU plans were audited line by line and stayed verified. O
 
 **Pilot app (web).** The fixture was rebuilt. `CollegePlan.test.tsx` and `roadmap.pilot.test.ts` now describe today's data: Management is verified and shows "Partly on file", because the AP table is still unverified. The unverified-plan wording stays tested by patching the record. Design to review on #218.
 
-## This PR (`programs/release-backlog`)
+## This PR (`programs/utc-truncated-rows`): the two truncated pilot plans
+
+- **The finding (Design, #302):** truncated rows in UTC Economics, International Public Policy and Entrepreneurship.
+- **The cause:** UTC's Clear Path PDFs print those rows cut off. The PDFs' own word positions end at "(ENGL 1010 or 101", "Natural Science without La", "Controversies in Public Polic" and "Individual and Global Citizenshi". The records transcribe them exactly.
+- **Why the source can't be completed:** the review workspace can't re-fetch the PDFs. utc.edu is outside its network allowlist, and robots.txt disallows the web reader. Neither is worked around.
+- **Both plans are excluded from the pilot.** They are now `partially_verified`, with corrections entries (owner, 2026-11-03: exclude a pilot plan whose source can't support a complete record) and `source_rows_truncated: true`.
+- **Same defect outside the pilot.** A scan of every UTC plan for rows ending in a cut-off word found two more verified plans: Middle Grades Education: English and Physics: STEM Education. Both are downgraded the same way, under the 2026-10-23 instruction.
+- **Unchanged:** the #297 footnotes and checklists, and the correction history.
+- **Way back to verified:** a complete official copy, captured by Research's pipeline and independently reviewed, recorded with `replaces_correction`.
+- **Engine behaviour on current main (#302 supersedes Deep Dive's earlier note).** `degreeCredit.ts` fills a row only from a structured course code, or from free text that is a single reviewed code or a plain combination. Alternatives that exist only in printed wording are reported and never filled: "A or B", "Elective (ENGL 1010 or 1011)*", alternatives in a title, free-text options, comma lists. `unresolvedOrRows.test.ts` (22 tests) passes on main. This protects matching; it doesn't approve the 54 held 'or' plans.
+- **Pilot after this PR:** 10 verified UTC plans and 2 excluded. `PILOT_ACCEPTANCE.md` sections 1, 3 and 5 and checklist row 5 are updated.
+
+## #300 (merged, `e3b6bebbed`)
 
 - **EOU Business Administration downgraded (new evidence, 2026-11-03).** All 12 terms are labelled "TYPICAL FIRST YEAR CURRICULUM", and the page's Second/Third/Fourth Year headings are stored as items. The 2026-11-02 audit compared lines and missed the labels. The Savings view shows covered-term labels, so the wrong years would be displayed. It now has a corrections entry, and verified plans go to 3,099. A nationwide scan of verified plans for year labels that repeat beyond one year found no other case; the scan's hits on "First/Second Semester" labels are expected.
 - **EOU page debris: documented cleanup, not a pilot blocker.** Every EOU plan stores code-less, credit-less rows: "Updated <month year>", "|". Some also store notes as rows: Art admission, History "NOTE: …", Theatre minor recommendations, the Multidisciplinary UD list. They affect:
@@ -123,7 +135,7 @@ The 54 plans held only because an 'or' row is kept as the exact printed string s
 - Plan-level promotion needs confirmed completeness and a tested guarantee that no unsupported automated matching happens. Design writes that regression test (`PILOT_ACCEPTANCE.md` §4).
 - Displaying the wording verbatim is not enough.
 
-Note that `degreeCredit.ts` scans free-text rows for course codes ("A or B" reads as any one). One such row is in a verified pilot plan: UTC Economics: International Public Policy, term 7.
+Since #302, printed-wording alternatives are never filled automatically (see above). That protection is necessary for promotion, but not enough on its own. Promoting the 54 plans needs reviewed completeness and an explicit distinction, in the record, between the source wording and the structured requirement.
 
 ## Backlog after release (prioritized; none of it blocks the initial release)
 
@@ -133,6 +145,7 @@ Note that `degreeCredit.ts` scans free-text rows for course codes ("A or B" read
 2. **P2: recover held plans with known fixes.**
    - CourseLeaf re-reads: 28 note-only with findings (UNO disclaimer joined to the last footnote, Kingsville Course List notes, WIT 'ENGL/HSS Note', NCSU career text and GPA heading, UNH outcomes, DYU). Then 111 structural, 43 of them flat choice blocks.
    - UTC Clear Path checklists over a page break (Geology, Hydrogeology).
+   - UTC plans with truncated source rows (Economics: International Public Policy, Entrepreneurship, Middle Grades Education: English, Physics: STEM Education). These need a complete official copy, which only Research's pipeline can fetch.
    - #229 remainder: 49 plans and 51 groups (multi-row 'or', YSU separators, LMU sessions, spanning subtotals).
 3. **P3: readers to extend.**
    - Acalog plan notes and term structure (EOU: the four downgraded plans, Business Administration, the debris rows).
