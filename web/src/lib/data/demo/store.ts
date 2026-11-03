@@ -43,6 +43,8 @@ export interface DemoAttempt extends EngineAttempt {
   selected_answer: string | null
   attempt_number: number
   last_answer: string | null
+  /** The progress check this attempt belongs to, if any (as practice_attempts.benchmark_id). */
+  benchmark_id?: string | null
 }
 
 export interface DemoEvent extends EngineEvent {
@@ -74,6 +76,19 @@ export interface DemoStore {
   devices?: { id: string; user_id: string; permission: import('../source').DevicePermission; platform: import('../source').DevicePlatform | null; subscribed: boolean; checked_at: string }[]
   /** #263 mirror: studentId → reserved item → when it was last assigned to a check (counts as seen). Optional so older saved demos still load. */
   checkExposure?: Record<string, Record<string, string>>
+  /** #263/#279 mirror: every progress check started (kept after it closes, like the server's rows), with its assignment. */
+  checks?: Record<string, DemoCheck>
+}
+
+export interface DemoCheck {
+  studentId: string
+  exam: import('../types').ExamFamily
+  kind: 'initial' | 'mini' | 'full'
+  startedAt: string
+  assigned: { id: string; seen: boolean }[]
+  /** Items with an attempt in this check (answered or skipped). */
+  used: string[]
+  completed?: boolean
 }
 
 const KEY = 'pp-demo-v1'
