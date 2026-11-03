@@ -33,3 +33,29 @@ export function testReviewers(extra: Partial<Record<string, Partial<Reviewer>>> 
   }
   return { contract: 'reviewer_registry/v1', reviewers }
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
+// TEST ONLY: fictional author identities (question_import/v2). Nobody's identity is recorded by this file; the real
+// registry is identities.json, which ships empty.
+
+import type { Identity, IdentityRegistry } from './authorIdentity'
+
+/** Authors who are not reviewers in the test registry. */
+const AUTHOR_ONLY = ['Ed Editor', 'Someone Else']
+
+export const testIdentityId = (name: string) => `au-test-${testId(name).slice('rv-test-'.length)}`
+
+/** Every test person gets an identity linked to their test reviewer id; author-only people get one with no link. */
+export function testIdentities(extra: Record<string, Partial<Identity>> = {}): IdentityRegistry {
+  const identities: Record<string, Identity> = {}
+  for (const [name] of PEOPLE) {
+    const id = testIdentityId(name)
+    identities[id] = { id, display_name: name, aliases: [], reviewer_id: testId(name), recorded_by: 'owner', recorded_on: '2026-10-26', ...(extra[id] ?? {}) }
+  }
+  for (const name of AUTHOR_ONLY) {
+    const id = testIdentityId(name)
+    identities[id] = { id, display_name: name, aliases: [], recorded_by: 'owner', recorded_on: '2026-10-26', ...(extra[id] ?? {}) }
+  }
+  for (const [id, x] of Object.entries(extra)) if (!identities[id]) identities[id] = { id, display_name: id, aliases: [], recorded_by: 'owner', recorded_on: '2026-10-26', ...x } as Identity
+  return { contract: 'author_identity_registry/v1', identities }
+}
