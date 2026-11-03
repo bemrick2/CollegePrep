@@ -83,9 +83,10 @@ describe('the two modules that read plans', () => {
     const calc = r.accepted.find((a) => a.examName.includes('Calculus'))!
     expect(calc).toMatchObject({ status: 'applies', course: 'MATH F251X' })
     expect(calc.matched[0]).toMatchObject({ code: 'MATH F251X', term: 1, label: 'First Year Fall', credits: 4 })
+    // "WRTG F211X, F212X, F213X, or F214X" is printed as one string: named, but never filled automatically.
     const wrtg = r.accepted.find((a) => a.examName.includes('English'))!
-    expect(wrtg.status).toBe('applies')
-    expect(wrtg.matched[0]).toMatchObject({ code: 'WRTG F212X', term: 2, credits: 3 })
+    expect(wrtg).toMatchObject({ status: 'printed_alternative', matched: [] })
+    expect(wrtg.named![0]).toMatchObject({ code: 'WRTG F212X', term: 2, item: 'WRTG F211X, F212X, F213X, or F214X' })
   })
 
   it('program fit finds first-year courses shared by UAF engineering roadmaps', () => {

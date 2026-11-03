@@ -27,18 +27,19 @@ describe('accepted vs applies to the major vs removes a term (UTK Computer Scien
     expect(r.accepted).toEqual([expect.objectContaining({ course: 'COSC 101', status: 'not_in_plan' })])
   })
 
-  it('calculus and English place into plan courses, but the table publishes no hours for them', () => {
+  it('English places into its plan course; calculus is named only in printed "or" rows, so it is not placed', () => {
     const r = check([ap('AP Calculus BC', 5), ap('AP English Language & Composition', 4)])
+    // MATH 147/148 appear only in "MATH 132 or MATH 141 or MATH 147" and "MATH 142 or MATH 148": unresolved rows.
     const calc = r.accepted.find((a) => a.examName === 'AP Calculus BC')!
-    expect(calc.status).toBe('applies')
-    expect(calc.matched.map((m) => [m.code, m.term])).toEqual([
-      ['MATH 147', 1],
-      ['MATH 148', 2],
+    expect(calc).toMatchObject({ status: 'printed_alternative', matched: [] })
+    expect(calc.named!.map((m) => [m.code, m.term, m.item])).toEqual([
+      ['MATH 147', 1, 'MATH 132 or MATH 141 or MATH 147'],
+      ['MATH 148', 2, 'MATH 142 or MATH 148'],
     ])
     expect(r.accepted.find((a) => a.examName.startsWith('AP English'))!.matched[0]).toMatchObject({ code: 'ENGL 101', term: 1 })
-    // Applies, but no hours are published, so nothing can be counted in dollars.
+    // English applies, but no hours are published, so nothing can be counted in dollars.
     expect(r.applicableHours).toBe(0)
-    expect(r.applicableWithoutHours).toBe(2)
+    expect(r.applicableWithoutHours).toBe(1)
   })
 
   it('elective-only credit is accepted with hours but is not shown to apply to the major', () => {
@@ -55,7 +56,7 @@ describe('accepted vs applies to the major vs removes a term (UTK Computer Scien
 
   it('a whole covered term is reported (synthetic plan)', () => {
     const terms: PlanTerm[] = [
-      { term_index: 1, label: 'Term 1', credit_hours: '15', items: ['MATH 147', 'ENGL 101 or ENGL 131'] },
+      { term_index: 1, label: 'Term 1', credit_hours: '15', items: ['MATH 147', { any_of: [{ code: 'ENGL 101' }, { code: 'ENGL 131' }] }] },
       { term_index: 2, label: 'Term 2', credit_hours: '15', items: ['MATH 148', 'COSC 202'] },
     ]
     const r = degreeCredit(summarizeSchool(policies, [ap('AP Calculus BC', 5), ap('AP English Language & Composition', 5)]).matches, terms)

@@ -419,6 +419,7 @@ const APPLIES_LABEL: Record<ExamApplicability['status'], string> = {
   partly: 'partly in the plan',
   elective_only: 'elective credit only',
   not_in_plan: 'not a course this plan uses',
+  printed_alternative: 'named among alternatives in the plan; not placed automatically',
   school_assigns: 'depends on which course the school assigns',
   no_course: 'no course listed',
 }
@@ -553,7 +554,7 @@ function CreditSteps({ row, credit, examSummary, aid, name }: { row: ProjectionR
   )
 }
 
-function tierSummary(t: DegreeCreditResult) {
+export function tierSummary(t: DegreeCreditResult) {
   const n = (st: ExamApplicability['status']) => t.accepted.filter((a) => a.status === st).length
   const applies = n('applies')
   const parts = [
@@ -561,6 +562,7 @@ function tierSummary(t: DegreeCreditResult) {
     n('partly') ? `${n('partly')} partly` : null,
     n('elective_only') ? `${n('elective_only')} elective only` : null,
     n('not_in_plan') ? `${n('not_in_plan')} not used by the plan` : null,
+    n('printed_alternative') ? `${n('printed_alternative')} named among alternatives, not placed automatically` : null,
     n('school_assigns') ? `${n('school_assigns')} depend on the course assigned` : null,
   ].filter(Boolean)
   return parts.length ? `${parts.join('; ')}.` : 'No accepted exam credit to check.'
