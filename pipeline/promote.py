@@ -136,14 +136,17 @@ def merge_evidence(prior, new):
 
 
 # Fields a reviewed override never sets: identity and key fields, status and provenance belong to the reader and promote.
-SET_FIELDS_PROTECTED = frozenset({'institution_key', 'state', 'academic_year', 'academic_year_basis', 'residency', 'verification_status',
-                                  'last_verified_at', 'notes', 'source_url', 'currency', 'components', 'living_arrangements'})
+# The only fields a reviewed override may set (#296 final review): descriptive labels of who the budget is for and where
+# the student lives, read from a printed line the reader did not tie to the table. Nothing else qualifies: prices, totals,
+# periods, components and arrangement budgets are numbers or structure the reader must copy from the table itself, and
+# identity, key, status and provenance fields belong to the reader and promote.
+SET_FIELDS_ALLOWED = frozenset({'student_population', 'living_arrangement'})
 
 
 def set_fields(decision, record):
     """A decision's reviewed override (#296 review): {"set_fields": {field: value}, "set_fields_evidence": {field: quote}}.
     Each field needs the printed quote that supports it. Only a field the reader left empty is filled (a printed value is
-    never replaced), and protected fields are never set. Returns the new record and the note that records the override."""
+    never replaced), and only SET_FIELDS_ALLOWED fields are set. Returns the new record and the note that records the override."""
     fields = decision.get('set_fields')
     if not fields: return record, ''
     quotes = decision.get('set_fields_evidence') or {}
@@ -152,7 +155,8 @@ def set_fields(decision, record):
     for k, v in sorted(fields.items()):
         q = quotes.get(k)
         if not (isinstance(q, str) and q.strip()): raise ValueError(f'set_fields.{k} needs a set_fields_evidence quote')
-        if k in SET_FIELDS_PROTECTED: raise ValueError(f'set_fields cannot set {k}')
+        if k not in SET_FIELDS_ALLOWED: raise ValueError(f'set_fields cannot set {k} (allowed: {", ".join(sorted(SET_FIELDS_ALLOWED))})')
+        if not (isinstance(v, str) and v.strip()): raise ValueError(f'set_fields.{k} must be a nonempty label')
         if out.get(k) is not None and out.get(k) != v: raise ValueError(f'set_fields.{k} would replace the read value {out[k]!r}')
         out[k] = v
         notes.append(f'{k} {v!r} ("{q.strip()}")')

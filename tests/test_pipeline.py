@@ -1820,6 +1820,28 @@ do not guarantee admission there. These Transfer Pathways have been effective be
             with self.assertRaises(ValueError, msg=bad):
                 run_with(bad)
 
+    def test_set_fields_is_an_allow_list(self):
+        """#296 final review: only student_population and living_arrangement are settable; prices, totals, periods and
+        structure never are, even when the reader left them empty."""
+        self.assertEqual(P.SET_FIELDS_ALLOWED, {'student_population', 'living_arrangement'})
+        empty = {'institution_key': 'ipeds-1', 'academic_year': '2026-27', 'residency': 'not_applicable', 'source_url': 'https://u.edu'}
+        ev = lambda k: {'set_fields_evidence': {k: 'printed line'}}
+        rec, note = P.set_fields({'set_fields': {'living_arrangement': 'on_campus'}, **ev('living_arrangement')}, empty)
+        self.assertEqual(rec['living_arrangement'], 'on_campus')
+        self.assertIn('printed line', note)
+        refused = ['tuition', 'cost_period', 'components', 'living_arrangements', 'mandatory_fees', 'tuition_and_mandatory_fees',
+                   'total_cost_of_attendance', 'total_direct_cost', 'books_supplies', 'on_campus_food_housing', 'room', 'board',
+                   'currency', 'residency', 'academic_year', 'academic_year_basis', 'verification_status', 'notes', 'source_url']
+        for k, v in [(k, 'semester' if k == 'cost_period' else {'x': 1} if k == 'components' else [{}] if k == 'living_arrangements' else 1)
+                     for k in refused]:
+            with self.assertRaises(ValueError, msg=k):
+                P.set_fields({'set_fields': {k: v}, **ev(k)}, empty)
+        with self.assertRaises(ValueError):  # an allowed field still never replaces what the reader read
+            P.set_fields({'set_fields': {'living_arrangement': 'on_campus'}, **ev('living_arrangement')},
+                         {**empty, 'living_arrangement': 'off_campus_not_with_family'})
+        with self.assertRaises(ValueError):  # labels only
+            P.set_fields({'set_fields': {'student_population': 1}, **ev('student_population')}, empty)
+
     def test_superseding_a_verified_record_on_main_needs_the_owner(self):
         old = {'source_url': 'https://u.edu/a', 'notes': 'Evidence: sources/pipeline/AL/r/evidence.json#x.', 'verification_status': 'verified'}
         rec = {'source_url': 'https://u.edu/a'}
