@@ -21,11 +21,16 @@ Deno.serve(async (req) => {
 
   const db = admin()
   const subId = subscriptionIdFromEvent(event)
-  const { data: inserted } = await db
-    .from('billing_events')
-    .upsert({ provider: 'stripe', event_id: event.id, event_type: event.type, provider_subscription_id: subId, payload: event }, { onConflict: 'provider,event_id', ignoreDuplicates: true })
-    .select('id')
-  if (!inserted?.length) {
+  // Exactly once per event id. An event about a deleted household's customer or subscription is stored already
+  // de-identified (A4, docs/operations/DATA_REQUESTS.md); the row id is null when the event was already recorded.
+  const { data: insertedId, error: recordError } = await db.rpc('record_billing_event', {
+    p_provider: 'stripe', p_event_id: event.id, p_event_type: event.type, p_subscription_id: subId, p_payload: event,
+  })
+  if (recordError) {
+    console.error(recordError)
+    return new Response('Retry later', { status: 500 })
+  }
+  if (insertedId == null) {
     const { data: prior } = await db.from('billing_events').select('processed_at').eq('provider', 'stripe').eq('event_id', event.id).single()
     if (prior?.processed_at) return ok({ received: true, duplicate: true })
   }
@@ -46,7 +51,10 @@ Deno.serve(async (req) => {
     }
     const { data: hh } = await db.from('households').select('id').eq('id', row.household_id).maybeSingle()
     if (!hh) {
-      await done({ household_id: row.household_id, error: 'Unknown household' })
+      // Deleted (A4) or never ours: keep the event for the tax record, de-identified and unlinked.
+      const { error: scrubError } = await db.rpc('deidentify_billing_event', { p_provider: 'stripe', p_event_id: event.id })
+      if (scrubError) throw scrubError
+      await done({ household_id: null, error: 'Unknown or deleted household' })
       return ok({ received: true, ignored: true })
     }
     const { data: existing } = await db.from('subscriptions').select('last_event_at').eq('provider_subscription_id', row.provider_subscription_id).maybeSingle()

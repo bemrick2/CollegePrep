@@ -1,7 +1,9 @@
 -- A4 (#218 B8): data export and deletion by service role (docs/operations/DATA_REQUESTS.md).
--- Completeness (every table has a decision), no cross-household leaks, no secrets or answer keys, retention, the audit
--- row, the dry-run and scope safeguards, and no client access. Everything is rolled back.
--- Run with psql -v ON_ERROR_STOP=1.
+-- Completeness (every table has a decision), no cross-household leaks, no secrets or answer keys, retention and
+-- payment-event de-identification (realistic Stripe payloads), late webhooks, the audit row, the dry-run and scope
+-- safeguards, and exact privileges (no client access; service_role only on the entry points). Everything is rolled back.
+-- Run with psql -v ON_ERROR_STOP=1. CI runs it twice: on plain PostgreSQL, and on a database created with Supabase's
+-- default privileges (new tables and functions granted to anon, authenticated and service_role), as hosted is.
 \set QUIET on
 \o /dev/null
 begin;
@@ -15,7 +17,7 @@ grant execute on all functions in schema hp_test to service_role;
 --   personal      exported, and deleted with the student or household
 --   retained      exported in summary, kept de-identified on deletion (billing records, tax law)
 --   security      deleted with the account, not exported (rate-limit log)
---   request_log   written by this procedure (audit and retained email-sent records)
+--   request_log   written by this procedure (audit, provider references, retained email-sent records)
 --   reference     not personal data (reference catalog, question content, server settings and secrets)
 -- ---------------------------------------------------------------------------------------------------------------
 create temp table dr_decisions(tbl text primary key, decision text not null
@@ -32,7 +34,8 @@ insert into dr_decisions values
  ('public.alert_preferences', 'personal'), ('public.subscriptions', 'personal'), ('public.billing_customers', 'personal'),
  ('public.billing_events', 'retained'),
  ('public.invitation_code_attempts', 'security'),
- ('public.data_request_log', 'request_log'), ('public.retained_email_records', 'request_log'),
+ ('public.data_request_log', 'request_log'), ('public.data_request_billing_refs', 'request_log'),
+ ('public.retained_email_records', 'request_log'),
  ('public.academic_programs', 'reference'), ('public.admissions_metrics', 'reference'), ('public.app_settings', 'reference'),
  ('public.appeal_policies', 'reference'), ('public.credit_equivalencies', 'reference'), ('public.credit_policies', 'reference'),
  ('public.data_verification_runs', 'reference'), ('public.degree_requirements', 'reference'),
@@ -78,6 +81,50 @@ begin
   join dr_decisions d on d.tbl = c.table_schema || '.' || c.table_name
   where d.decision = 'reference' and c.column_name in ('student_id', 'household_id', 'user_id', 'owner_user_id', 'linked_user_id');
   if v_missing is not null then raise exception 'Reference tables carry person columns: %', v_missing; end if;
+end $$;
+
+-- ---------------------------------------------------------------------------------------------------------------
+-- 2. Exact privileges, checked from the ACLs themselves (so they hold under Supabase's default privileges too):
+-- entry points EXECUTE for service_role only; internals for nobody but the owner; request tables SELECT for
+-- service_role only. Then every client role, and service_role on what it must not touch, is refused.
+-- ---------------------------------------------------------------------------------------------------------------
+do $$
+declare v_bad text;
+begin
+  -- On the Supabase-defaults run, show that the defaults really are in force (else the run proves nothing).
+  if current_setting('dr.expect_supabase_defaults', true) = 'on' then
+    perform hp_test.check(exists (select 1 from pg_default_acl d cross join aclexplode(d.defaclacl) a
+      where d.defaclobjtype = 'f' and a.grantee = 'service_role'::regrole and a.privilege_type = 'EXECUTE'),
+      'Supabase default privileges grant functions to service_role');
+    perform hp_test.check(exists (select 1 from pg_default_acl d cross join aclexplode(d.defaclacl) a
+      where d.defaclobjtype = 'r' and a.grantee = 'service_role'::regrole and a.privilege_type = 'INSERT'),
+      'Supabase default privileges grant tables to service_role');
+  end if;
+  select string_agg(format('%s: %s', f, got), '; ') into v_bad from (
+    select p.oid::regprocedure::text f,
+      coalesce((select string_agg(case when a.grantee = 0 then 'public' else pg_get_userbyid(a.grantee) end, ',' order by 1)
+        from aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
+        where a.privilege_type = 'EXECUTE' and a.grantee <> p.proowner), '') got,
+      case when p.proname like 'admin\_%' or p.proname in ('record_billing_event', 'deidentify_billing_event')
+        then 'service_role' else '' end want
+    from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'public' and (p.proname like 'admin\_%' or p.proname like 'data\_request\_%'
+      or p.proname in ('record_billing_event', 'deidentify_billing_event'))) x
+  where got <> want;
+  perform hp_test.check(v_bad is null, 'function EXECUTE grants: ' || coalesce(v_bad, ''));
+  perform hp_test.eq((select count(*) from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'public' and (p.proname like 'admin\_%' or p.proname in ('record_billing_event', 'deidentify_billing_event'))), 9::bigint,
+    'nine service entry points');
+  select string_agg(format('%s: %s', t, got), '; ') into v_bad from (
+    select c.oid::regclass::text t,
+      coalesce((select string_agg(pg_get_userbyid(a.grantee) || '=' || a.privilege_type, ',' order by 1)
+        from aclexplode(coalesce(c.relacl, acldefault('r', c.relowner))) a where a.grantee <> c.relowner), '') got
+    from pg_class c where c.oid in ('public.data_request_log'::regclass, 'public.data_request_billing_refs'::regclass,
+      'public.retained_email_records'::regclass)) x
+  where got <> 'service_role=SELECT';
+  perform hp_test.check(v_bad is null, 'request table grants: ' || coalesce(v_bad, ''));
+  perform hp_test.check((select bool_and(relrowsecurity) from pg_class where oid in ('public.data_request_log'::regclass,
+    'public.data_request_billing_refs'::regclass, 'public.retained_email_records'::regclass)), 'RLS on the request tables');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -128,6 +175,80 @@ begin
   end if;
 end $$;
 
+-- Realistic Stripe event payloads (API 2025 shapes), with every kind of personal field Stripe sends.
+create function dr_test.invoice_paid(p_event text, p_customer text, p_sub text, p_household uuid) returns jsonb language sql as $$
+  select jsonb_build_object('id', p_event, 'object', 'event', 'api_version', '2025-03-31.basil', 'created', 1790000000,
+    'livemode', true, 'pending_webhooks', 1, 'type', 'invoice.paid',
+    'request', jsonb_build_object('id', null, 'idempotency_key', 'idem-' || p_household),
+    'data', jsonb_build_object('object', jsonb_build_object(
+      'id', 'in_' || p_event, 'object', 'invoice', 'account_country', 'US', 'account_name', 'Prep & Price',
+      'amount_due', 4900, 'amount_paid', 4900, 'amount_remaining', 0, 'attempt_count', 1, 'attempted', true,
+      'billing_reason', 'subscription_cycle', 'collection_method', 'charge_automatically', 'created', 1790000000,
+      'currency', 'usd', 'customer', p_customer,
+      'customer_address', jsonb_build_object('city', 'Franklin', 'country', 'US', 'line1', '1 Alpha St', 'postal_code', '37064', 'state', 'TN'),
+      'customer_email', 'g1@example.com', 'customer_name', 'Alpha Guardian One', 'customer_phone', '+16155550100',
+      'customer_shipping', jsonb_build_object('name', 'Alpha Guardian One', 'address', jsonb_build_object('line1', '1 Alpha St')),
+      'customer_tax_ids', jsonb_build_array(jsonb_build_object('type', 'us_ein', 'value', '12-3456789')),
+      'hosted_invoice_url', 'https://invoice.stripe.com/i/acct_X/live_SECRETTOKEN',
+      'invoice_pdf', 'https://pay.stripe.com/invoice/acct_X/live_SECRETTOKEN/pdf',
+      'number', 'PP-0001', 'receipt_number', '2345-6789', 'status', 'paid', 'subtotal', 4600, 'tax', 300, 'total', 4900,
+      'total_tax_amounts', jsonb_build_array(jsonb_build_object('amount', 300, 'inclusive', false, 'tax_rate', 'txr_1')),
+      'period_start', 1787000000, 'period_end', 1790000000,
+      'status_transitions', jsonb_build_object('paid_at', 1790000100, 'finalized_at', 1790000000),
+      'metadata', jsonb_build_object('household_id', p_household),
+      'parent', jsonb_build_object('type', 'subscription_details', 'subscription_details', jsonb_build_object(
+        'subscription', p_sub, 'metadata', jsonb_build_object('household_id', p_household, 'owner_user_id', '20000000-0000-0000-0000-0000000000a1'))),
+      'lines', jsonb_build_object('object', 'list', 'has_more', false, 'url', '/v1/invoices/in_' || p_event || '/lines',
+        'data', jsonb_build_array(jsonb_build_object('id', 'il_1', 'object', 'line_item', 'amount', 4600, 'currency', 'usd',
+          'description', '1 × Prep & Price Family (at $46.00 / year)', 'quantity', 1,
+          'period', jsonb_build_object('start', 1787000000, 'end', 1790000000),
+          'pricing', jsonb_build_object('type', 'price_details', 'unit_amount_decimal', '4600',
+            'price_details', jsonb_build_object('price', 'price_1', 'product', 'prod_1')),
+          'metadata', jsonb_build_object('student', 'Alpha Kid One')))),
+      'custom_fields', jsonb_build_array(jsonb_build_object('name', 'Student', 'value', 'Alpha Kid One')),
+      'footer', 'Alpha household', 'description', 'Alpha family plan')))
+$$;
+create function dr_test.checkout_completed(p_event text, p_customer text, p_sub text, p_household uuid) returns jsonb language sql as $$
+  select jsonb_build_object('id', p_event, 'object', 'event', 'created', 1789990000, 'livemode', true,
+    'type', 'checkout.session.completed', 'data', jsonb_build_object('object', jsonb_build_object(
+      'id', 'cs_' || p_event, 'object', 'checkout.session', 'amount_subtotal', 4600, 'amount_total', 4900, 'currency', 'usd',
+      'customer', p_customer, 'customer_email', 'g1@example.com', 'client_reference_id', p_household::text,
+      'customer_details', jsonb_build_object('email', 'g1@example.com', 'name', 'Alpha Guardian One', 'phone', '+16155550100',
+        'address', jsonb_build_object('line1', '1 Alpha St', 'postal_code', '37064', 'city', 'Franklin'),
+        'tax_exempt', 'none', 'tax_ids', jsonb_build_array()),
+      'collected_information', jsonb_build_object('individual_name', 'Alpha Guardian One', 'business_name', 'Alpha LLC',
+        'shipping_details', jsonb_build_object('name', 'Alpha Guardian One', 'address', jsonb_build_object('line1', '1 Alpha St'))),
+      'shipping_details', jsonb_build_object('name', 'Alpha Guardian One', 'address', jsonb_build_object('line1', '1 Alpha St')),
+      'metadata', jsonb_build_object('household_id', p_household), 'mode', 'subscription', 'payment_status', 'paid',
+      'status', 'complete', 'subscription', p_sub, 'invoice', 'in_1',
+      'success_url', 'https://app.example/billing?hh=' || p_household, 'url', null,
+      'custom_fields', jsonb_build_array(jsonb_build_object('key', 'student', 'text', jsonb_build_object('value', 'Alpha Kid One'))),
+      'total_details', jsonb_build_object('amount_discount', 0, 'amount_shipping', 0, 'amount_tax', 300),
+      'created', 1789990000, 'expires_at', 1790076400)))
+$$;
+create function dr_test.charge_succeeded(p_event text, p_customer text) returns jsonb language sql as $$
+  select jsonb_build_object('id', p_event, 'object', 'event', 'created', 1790000050, 'livemode', true, 'type', 'charge.succeeded',
+    'data', jsonb_build_object('object', jsonb_build_object('id', 'ch_' || p_event, 'object', 'charge', 'amount', 4900,
+      'currency', 'usd', 'customer', p_customer, 'invoice', 'in_1', 'paid', true, 'status', 'succeeded', 'created', 1790000050,
+      'receipt_email', 'g1@example.com', 'receipt_number', '2345-6789', 'receipt_url', 'https://pay.stripe.com/receipts/SECRETTOKEN',
+      'billing_details', jsonb_build_object('email', 'g1@example.com', 'name', 'Alpha Guardian One', 'phone', null,
+        'address', jsonb_build_object('line1', '1 Alpha St', 'postal_code', '37064')),
+      'payment_method_details', jsonb_build_object('type', 'card', 'card', jsonb_build_object('brand', 'visa', 'last4', '4242',
+        'exp_month', 12, 'exp_year', 2030, 'fingerprint', 'FPRINTxyz', 'country', 'US')))))
+$$;
+-- Every personal value the fixtures put in a payment payload.
+create function dr_test.billing_pii() returns text[] language sql as $$
+  select array['g1@example.com', 'Alpha Guardian', 'Alpha Kid', 'Alpha LLC', 'Alpha household', 'Alpha family', '1 Alpha St',
+    '37064', 'Franklin', '+1615', '12-3456789', 'SECRETTOKEN', '4242', 'FPRINT', 'exp_month', 'exp_year', '2345-6789',
+    'hosted_invoice_url', 'invoice_pdf', 'receipt_url', 'receipt_number', 'receipt_email', 'payment_method_details',
+    'billing_details', 'customer_details', 'collected_information', 'shipping_details', 'customer_shipping', 'metadata',
+    'custom_fields', 'description', 'success_url', 'idem-', '/v1/invoices', 'Prep & Price',
+    '20000000-0000-0000-0000-0000000000a1', current_setting('t.ha')]
+$$;
+create function dr_test.has_pii(p jsonb) returns text language sql as $$
+  select string_agg(s, ', ') from unnest(dr_test.billing_pii()) s where position(s in p::text) > 0
+$$;
+
 do $$
 declare ha uuid; hb uuid; s1 uuid; s2 uuid; s3 uuid; si uuid; c text;
 begin
@@ -158,6 +279,9 @@ begin
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   si := public.create_self_student_profile('Indy Kid');
   perform hp_test.as_owner();
+  perform set_config('t.ha', ha::text, true); perform set_config('t.hb', hb::text, true);
+  perform set_config('t.s1', s1::text, true); perform set_config('t.s2', s2::text, true);
+  perform set_config('t.s3', s3::text, true); perform set_config('t.si', si::text, true);
 
   update public.household_invitations set recipient_email = 'alpha.kid.two@example.com', email_send_count = 2, last_emailed_at = now() - interval '1 day'
   where household_id = ha and student_id = s2;
@@ -172,70 +296,74 @@ begin
   perform dr_test.seed_student(si, null, 'indy');
   insert into public.household_saved_schools(household_id, institution_key, added_by) values
    (ha, 'dr-school', '20000000-0000-0000-0000-0000000000a1'), (hb, 'dr-school', '20000000-0000-0000-0000-0000000000b1');
+  -- A: a Stripe subscription, a complimentary one, and g1's personal (no-household) past subscription. B: one live.
   insert into public.subscriptions(owner_user_id, household_id, plan_key, status, provider, provider_customer_id, provider_subscription_id) values
    ('20000000-0000-0000-0000-0000000000a1', ha, 'family_annual', 'active', 'stripe', 'cus_ALPHA', 'sub_ALPHA'),
+   ('20000000-0000-0000-0000-0000000000a1', ha, 'family', 'active', 'comp', null, null),
+   ('20000000-0000-0000-0000-0000000000a1', null, 'family_monthly', 'canceled', 'stripe', 'cus_PERSONAL', 'sub_PERSONAL'),
    ('20000000-0000-0000-0000-0000000000b1', hb, 'family_annual', 'active', 'stripe', 'cus_BRAVO', 'sub_BRAVO');
   insert into public.billing_customers(household_id, provider, provider_customer_id, created_by) values
    (ha, 'stripe', 'cus_ALPHA', '20000000-0000-0000-0000-0000000000a1'), (hb, 'stripe', 'cus_BRAVO', '20000000-0000-0000-0000-0000000000b1');
   insert into public.billing_events(provider, event_id, event_type, household_id, provider_subscription_id, payload) values
-   ('stripe', 'evt_A1', 'invoice.paid', ha, 'sub_ALPHA', jsonb_build_object('id', 'evt_A1', 'data', jsonb_build_object('object',
-     jsonb_build_object('id', 'in_A1', 'customer', 'cus_ALPHA', 'customer_email', 'g1@example.com', 'customer_name', 'Alpha Guardian One',
-       'amount_paid', 4900, 'tax', 300, 'metadata', jsonb_build_object('household_id', ha),
-       'customer_address', jsonb_build_object('line1', '1 Alpha St'),
-       'lines', jsonb_build_array(jsonb_build_object('amount', 4900, 'description', 'Alpha family plan')))))),
+   ('stripe', 'evt_A1', 'invoice.paid', ha, 'sub_ALPHA', dr_test.invoice_paid('evt_A1', 'cus_ALPHA', 'sub_ALPHA', ha)),
    ('stripe', 'evt_A2', 'customer.subscription.updated', null, 'sub_ALPHA', '{"id":"evt_A2","data":{"object":{"id":"sub_ALPHA","customer":"cus_ALPHA"}}}'),
-   ('stripe', 'evt_B1', 'invoice.paid', hb, 'sub_BRAVO', '{"id":"evt_B1","data":{"object":{"customer_email":"gb@example.com","amount_paid":4900}}}');
-  perform set_config('t.ha', ha::text, true); perform set_config('t.hb', hb::text, true);
-  perform set_config('t.s1', s1::text, true); perform set_config('t.s2', s2::text, true);
-  perform set_config('t.s3', s3::text, true); perform set_config('t.si', si::text, true);
+   ('stripe', 'evt_A3', 'charge.succeeded', null, null, dr_test.charge_succeeded('evt_A3', 'cus_ALPHA')),
+   ('stripe', 'evt_A4', 'checkout.session.completed', ha, 'sub_ALPHA', dr_test.checkout_completed('evt_A4', 'cus_ALPHA', 'sub_ALPHA', ha)),
+   ('stripe', 'evt_P1', 'invoice.paid', null, 'sub_PERSONAL', dr_test.invoice_paid('evt_P1', 'cus_PERSONAL', 'sub_PERSONAL', ha)),
+   ('stripe', 'evt_B1', 'invoice.paid', hb, 'sub_BRAVO', '{"id":"evt_B1","data":{"object":{"customer":"cus_BRAVO","customer_email":"gb@example.com","amount_paid":4900}}}');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 2. Clients can't call any of it, or read the request tables. (Before any request runs.)
+-- 3. Nobody but service_role reaches the entry points, and nobody reaches the internals or writes the request tables.
 -- ---------------------------------------------------------------------------------------------------------------
 do $$
-declare u uuid; f text;
+declare u text; f text; v_internal text[]; v_entry text[];
 begin
-  foreach u in array array[null, '20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-000000000051']::uuid[] loop
-    if u is null then perform hp_test.as_anon(); else perform hp_test.as_user(u); end if;
-    foreach f in array array[
-      format('select public.admin_export_student(%L, %L, ''x'')', current_setting('t.s1'), current_setting('t.ha')),
-      format('select public.admin_export_household(%L, ''x'')', current_setting('t.ha')),
-      format('select public.admin_delete_student(%L, ''r'', %L, ''x'')', current_setting('t.s1'), current_setting('t.ha')),
-      format('select public.admin_delete_household(%L, ''r'', ''x'')', current_setting('t.ha')),
-      'select public.admin_record_auth_deletion(gen_random_uuid())',
-      'select public.admin_purge_expired_retention()',
-      format('select public.data_request_student_tables(%L, true)', current_setting('t.s1')),
-      format('select public.data_request_household_tables(%L)', current_setting('t.ha')),
-      format('select public.data_request_delete_student_internal(%L, true, null)', current_setting('t.s1')),
-      format('select public.data_request_delete_household_internal(%L, true, null)', current_setting('t.ha')),
-      'select * from public.data_request_log', 'select * from public.retained_email_records',
-      'insert into public.data_request_log(action, subject_kind, subject_id, requested_by, channel, requested_at, performed_by) values (''export'', ''student'', gen_random_uuid(), ''x'', ''email'', now(), ''x'')'] loop
+  v_entry := array[
+    format('select public.admin_export_student(%L, %L, ''x'', ''op'')', current_setting('t.s1'), current_setting('t.ha')),
+    format('select public.admin_export_household(%L, ''x'', ''op'')', current_setting('t.ha')),
+    format('select public.admin_delete_student(%L, ''r'', %L, ''x'')', current_setting('t.s1'), current_setting('t.ha')),
+    format('select public.admin_delete_household(%L, ''r'', ''x'')', current_setting('t.ha')),
+    'select public.admin_record_auth_deletion(gen_random_uuid())',
+    'select public.admin_rescrub_billing_events(gen_random_uuid())',
+    'select public.admin_purge_expired_retention()',
+    'select public.record_billing_event(''stripe'', ''evt_x'', ''x'', null, ''{}'')',
+    'select public.deidentify_billing_event(''stripe'', ''evt_x'')'];
+  v_internal := array[
+    format('select public.data_request_student_tables(%L, true)', current_setting('t.s1')),
+    format('select public.data_request_household_tables(%L)', current_setting('t.ha')),
+    format('select public.data_request_household_billing(%L, ''{}'')', current_setting('t.ha')),
+    format('select public.data_request_delete_student_internal(%L, true, null)', current_setting('t.s1')),
+    format('select public.data_request_delete_household_internal(%L, true, null)', current_setting('t.ha')),
+    'select public.data_request_scrub_billing_payload(''{}'')',
+    'insert into public.data_request_log(action, subject_kind, subject_id, requested_by, channel, requested_at, operator, performed_by) values (''export'', ''student'', gen_random_uuid(), ''x'', ''email'', now(), ''x'', ''x'')',
+    'insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until) values (''household_invitation'', ''a@b.c'', 1, now(), now())',
+    'insert into public.data_request_billing_refs(request_id, provider, kind, ref) values (gen_random_uuid(), ''stripe'', ''customer'', ''cus_x'')',
+    'update public.data_request_log set operator = ''x''', 'delete from public.data_request_log'];
+  foreach u in array array['anon', '20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-000000000051'] loop
+    if u = 'anon' then perform hp_test.as_anon(); else perform hp_test.as_user(u::uuid); end if;
+    foreach f in array v_entry || v_internal || array['select * from public.data_request_log',
+      'select * from public.retained_email_records', 'select * from public.data_request_billing_refs'] loop
       perform hp_test.expect_error(f, '42501');
     end loop;
   end loop;
+  perform set_config('role', 'service_role', true);
+  foreach f in array v_internal loop
+    perform hp_test.expect_error(f, '42501');
+  end loop;
+  perform count(*) from public.data_request_log;  -- service_role may read
   perform hp_test.as_owner();
-  -- The grants say the same: no client role holds EXECUTE on any admin_ or data_request_ function.
-  perform hp_test.eq((select count(*) from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-    cross join (values ('anon'), ('authenticated'), ('public')) r(role)
-    where n.nspname = 'public' and (p.proname like 'admin\_%' or p.proname like 'data\_request\_%')
-      and case when r.role = 'public' then exists (select 1 from aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a where a.grantee = 0 and a.privilege_type = 'EXECUTE')
-               else has_function_privilege(r.role, p.oid, 'EXECUTE') end), 0::bigint, 'no client EXECUTE on data-request functions');
-  perform hp_test.check(has_function_privilege('service_role', 'public.admin_delete_household(uuid, text, text, boolean, uuid, text, timestamptz)', 'EXECUTE'), 'service_role may delete');
-  perform hp_test.check(not has_function_privilege('service_role', 'public.data_request_delete_household_internal(uuid, boolean, uuid)', 'EXECUTE'), 'internals are not service API');
-  perform hp_test.check((select relrowsecurity from pg_class where oid = 'public.data_request_log'::regclass), 'RLS on data_request_log');
-  perform hp_test.check((select relrowsecurity from pg_class where oid = 'public.retained_email_records'::regclass), 'RLS on retained_email_records');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 3. Exports: complete, no other household's rows, no other person's ids in a student export, no secrets or keys.
+-- 4. Exports: complete, no other household's rows, no other person's ids in a student export, no secrets or keys.
 -- ---------------------------------------------------------------------------------------------------------------
 set local role service_role;
 create temp table dr_exports as
-select 'household_a'::text k, public.admin_export_household(current_setting('t.ha')::uuid, 'g1@example.com') doc
-union all select 'household_b', public.admin_export_household(current_setting('t.hb')::uuid, 'gb@example.com')
-union all select 's1', public.admin_export_student(current_setting('t.s1')::uuid, current_setting('t.ha')::uuid, 'g1@example.com')
-union all select 'indy', public.admin_export_student(current_setting('t.si')::uuid, null, 'indy@example.com');
+select 'household_a'::text k, public.admin_export_household(current_setting('t.ha')::uuid, 'g1@example.com', 'ops@example.com') doc
+union all select 'household_b', public.admin_export_household(current_setting('t.hb')::uuid, 'gb@example.com', 'ops@example.com')
+union all select 's1', public.admin_export_student(current_setting('t.s1')::uuid, current_setting('t.ha')::uuid, 'g1@example.com', 'ops@example.com')
+union all select 'indy', public.admin_export_student(current_setting('t.si')::uuid, null, 'indy@example.com', 'ops@example.com');
 reset role;
 
 do $$
@@ -247,17 +375,19 @@ begin
     perform hp_test.check(a->'tables' ? t, 'household export has table ' || t);
     perform hp_test.check(jsonb_array_length(a->'tables'->t) > 0, 'household export has rows for ' || t);
   end loop;
-  -- And no key that is not a decided table.
   select string_agg(x, ', ') into v_bad from jsonb_object_keys(a->'tables') x
   where 'public.' || x not in (select tbl from dr_decisions where decision in ('personal', 'retained'));
   perform hp_test.check(v_bad is null, 'export keys are decided tables: ' || coalesce(v_bad, ''));
-  -- Exact row counts against the tables.
   perform hp_test.eq(jsonb_array_length(a->'tables'->'students'), 2, 'A has two students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_attempts'), 2, 'A attempts from both students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_session_items'), 4, 'A session items');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'household_members'), 3, 'A members: g1, g2, S1 login');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'household_invitations'), 4, 'A invitations');
-  perform hp_test.eq(jsonb_array_length(a->'tables'->'billing_events'), 1, 'A billing event (summary)');
+  perform hp_test.eq(jsonb_array_length(a->'tables'->'subscriptions'), 3, 'A subscriptions: Stripe, comp, g1 personal');
+  -- Billing events: linked to A, to A's or g1's personal subscription, or naming A's customer (the charge).
+  perform hp_test.eq((select array_agg(x->>'event_type' order by x->>'event_type') from jsonb_array_elements(a->'tables'->'billing_events') x),
+    array['charge.succeeded', 'checkout.session.completed', 'customer.subscription.updated', 'invoice.paid', 'invoice.paid'], 'A billing events (summary)');
+  perform hp_test.eq(jsonb_array_length(b->'tables'->'billing_events'), 1, 'B billing event');
 
   -- No cross-household leak: nothing of B (ids, names, emails, provider refs) in A, and the reverse.
   foreach secret in array array[current_setting('t.hb'), current_setting('t.s3'), '20000000-0000-0000-0000-0000000000b1',
@@ -282,7 +412,8 @@ begin
   -- No secrets, question content or answer keys, and no provider identifiers or raw payloads, anywhere.
   for e in select k, doc from dr_exports loop
     foreach secret in array array['code_hash', 'short_code_hash', 'pepper', 'accepted_answers', 'teaching_explanation',
-      'Question 1', 'First hint', 'cus_ALPHA', 'cus_BRAVO', 'sub_ALPHA', 'sub_BRAVO', 'payload', '1 Alpha St', 'customer_email'] loop
+      'Question 1', 'First hint', 'cus_ALPHA', 'cus_BRAVO', 'cus_PERSONAL', 'sub_ALPHA', 'sub_BRAVO', 'sub_PERSONAL',
+      'payload', '1 Alpha St', 'customer_email', 'evt_'] loop
       perform hp_test.check(position(secret in e.doc::text) = 0, e.k || ' export contains ' || secret);
     end loop;
     foreach secret in array (select array_agg(code_hash) || array_agg(short_code_hash) filter (where short_code_hash is not null)
@@ -290,32 +421,47 @@ begin
       perform hp_test.check(position(secret in e.doc::text) = 0, e.k || ' export contains an invitation digest');
     end loop;
   end loop;
-  -- Exports are logged, with counts only.
+  -- Exports are logged, with counts only, the operator and the role they ran as.
   perform hp_test.eq((select count(*) from public.data_request_log where action = 'export'), 4::bigint, 'four export rows');
   perform hp_test.eq((select (exported->>'practice_attempts')::int from public.data_request_log
     where action = 'export' and subject_id = current_setting('t.ha')::uuid), 2, 'export row counts');
-  perform hp_test.check((select requested_by from public.data_request_log where subject_id = current_setting('t.ha')::uuid) = 'g1@example.com', 'export requester');
+  perform hp_test.check((select requested_by = 'g1@example.com' and operator = 'ops@example.com'
+    and performed_by like 'jwt_role=%; session_user=%' from public.data_request_log where subject_id = current_setting('t.ha')::uuid),
+    'export requester, operator, role');
+end $$;
+
+-- performed_by reads the API's JWT claims (request.jwt.claims), then the older single claim, with the session user.
+do $$
+begin
+  perform set_config('request.jwt.claims', '{"role":"service_role","sub":""}', true);
+  perform hp_test.eq(public.data_request_performed_by(), 'jwt_role=service_role; session_user=' || session_user, 'role from request.jwt.claims');
+  perform set_config('request.jwt.claims', '', true);
+  perform set_config('request.jwt.claim.role', 'service_role', true);
+  perform hp_test.eq(public.data_request_performed_by(), 'jwt_role=service_role; session_user=' || session_user, 'role from the older claim');
+  perform set_config('request.jwt.claim.role', '', true);
+  perform hp_test.eq(public.data_request_performed_by(), 'jwt_role=(none); session_user=' || session_user, 'SQL editor / psql');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 4. Safeguards: scope, dry run by default, explicit confirmation for a live run, live subscription.
+-- 5. Safeguards: scope, dry run by default, explicit confirmation and operator for a live run, live subscriptions.
+-- A dry run must leave every personal, retained, security and request table byte-for-byte unchanged.
 -- ---------------------------------------------------------------------------------------------------------------
-create temp table dr_snapshot(tbl text primary key, n bigint);
+create temp table dr_snapshot(tbl text primary key, digest text);
 create function dr_test.snapshot() returns void language plpgsql as $$
-declare t text; n bigint;
+declare t text; d text;
 begin
   delete from dr_snapshot;
   for t in select tbl from dr_decisions where decision <> 'reference' loop
-    execute format('select count(*) from %s', t) into n;
-    insert into dr_snapshot values (t, n);
+    execute format('select md5(coalesce(string_agg(x::text, %L order by x::text), %L)) from %s x', E'\n', '', t) into d;
+    insert into dr_snapshot values (t, d);
   end loop;
 end $$;
 create function dr_test.unchanged(p_msg text) returns void language plpgsql as $$
-declare t text; n bigint; want bigint;
+declare t text; d text; want text;
 begin
-  for t, want in select tbl, s.n from dr_snapshot s loop
-    execute format('select count(*) from %s', t) into n;
-    perform hp_test.eq(n, want, p_msg || ': ' || t);
+  for t, want in select tbl, s.digest from dr_snapshot s loop
+    execute format('select md5(coalesce(string_agg(x::text, %L order by x::text), %L)) from %s x', E'\n', '', t) into d;
+    perform hp_test.eq(d, want, p_msg || ': ' || t);
   end loop;
 end $$;
 grant all on dr_snapshot to service_role;
@@ -323,52 +469,70 @@ grant execute on all functions in schema dr_test to service_role;
 
 do $$
 declare r jsonb; ha uuid := current_setting('t.ha'); hb uuid := current_setting('t.hb'); s1 uuid := current_setting('t.s1');
-  s3 uuid := current_setting('t.s3'); si uuid := current_setting('t.si');
+  s3 uuid := current_setting('t.s3'); si uuid := current_setting('t.si'); st text;
 begin
-  perform dr_test.snapshot();
   perform set_config('role', 'service_role', true);
   -- A student of another household (or none) is refused, for export and delete.
-  perform hp_test.expect_error(format('select public.admin_export_student(%L, %L, ''g1@example.com'')', s3, ha), '42501', '%not in household%');
+  perform hp_test.expect_error(format('select public.admin_export_student(%L, %L, ''g1@example.com'', ''ops'')', s3, ha), '42501', '%not in household%');
   perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', %L, ''g1@example.com'')', s3, ha), '42501', '%not in household%');
   perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', %L, ''g1@example.com'')', si, ha), '42501');
   perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', null, ''g1@example.com'')', s1), '42501');
-  -- Requester and reason are required.
+  -- Requester, reason and operator are required.
   perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', '' '')', ha), '22023');
   perform hp_test.expect_error(format('select public.admin_delete_household(%L, null, ''g1@example.com'')', ha), '22023');
-  -- A live run needs p_dry_run => false AND p_confirm => the same id.
+  perform hp_test.expect_error(format('select public.admin_export_household(%L, ''g1@example.com'', null)', ha), '22023', '%p_operator%');
+  perform hp_test.expect_error(format('select public.admin_export_student(%L, %L, ''g1@example.com'', '' '')', s1, ha), '22023', '%p_operator%');
+  -- A live run needs p_dry_run => false, p_confirm => the same id, and p_operator.
   perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'', p_dry_run => false)', ha), '22023', '%p_confirm%');
-  perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'', p_dry_run => false, p_confirm => %L)', ha, hb), '22023', '%p_confirm%');
-  perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', %L, ''g1@example.com'', p_dry_run => false, p_confirm => %L)', s1, ha, ha), '22023');
+  perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'', p_dry_run => false, p_confirm => %L, p_operator => ''ops'')', ha, hb), '22023', '%p_confirm%');
+  perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'', p_dry_run => false, p_confirm => %L)', ha, ha), '22023', '%p_operator%');
+  perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', %L, ''g1@example.com'', p_dry_run => false, p_confirm => %L, p_operator => ''ops'')', s1, ha, ha), '22023');
+  perform hp_test.expect_error(format('select public.admin_delete_student(%L, ''request'', %L, ''g1@example.com'', p_dry_run => false, p_confirm => %L)', s1, ha, s1), '22023', '%p_operator%');
   perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'', p_dry_run => null)', ha), '22023');
-  -- A live subscription is refused, even in a dry run.
-  perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'')', ha), '55000', '%cancel%');
+  -- Every billing or access status of a paid subscription refuses, even in a dry run; a comp subscription does not.
   perform set_config('role', 'none', true);
+  foreach st in array array['trialing', 'active', 'past_due', 'unpaid', 'paused', 'incomplete', 'grace', 'billing_retry'] loop
+    update public.subscriptions set status = st where provider_subscription_id = 'sub_ALPHA';
+    perform set_config('role', 'service_role', true);
+    perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'')', ha), '55000', '%cancel%');
+    perform set_config('role', 'none', true);
+  end loop;
   update public.subscriptions set status = 'canceled' where provider_subscription_id = 'sub_ALPHA';
+  -- g1's personal subscription live again: refused too (g1's account would be deleted).
+  update public.subscriptions set status = 'active' where provider_subscription_id = 'sub_PERSONAL';
+  perform set_config('role', 'service_role', true);
+  perform hp_test.expect_error(format('select public.admin_delete_household(%L, ''request'', ''g1@example.com'')', ha), '55000', '%member account%');
+  perform set_config('role', 'none', true);
+  update public.subscriptions set status = 'canceled' where provider_subscription_id = 'sub_PERSONAL';
+  perform hp_test.check(exists (select 1 from public.subscriptions where household_id = ha and provider = 'comp' and status = 'active'), 'comp still active');
+
   perform dr_test.snapshot();
-  -- A dry run (the default) reports and changes nothing, and writes no log row.
+  -- A dry run (the default) reports, changes no row's content, and writes no log row.
   perform set_config('role', 'service_role', true);
   r := public.admin_delete_household(ha, 'request', 'g1@example.com');
   perform set_config('role', 'none', true);
   perform hp_test.check((r->>'dry_run')::boolean, 'dry run is the default');
   perform hp_test.eq((r->'removed'->>'practice_attempts')::int, 2, 'dry run counts attempts');
   perform hp_test.eq((r->'removed'->>'students')::int, 2, 'dry run counts students');
+  perform hp_test.eq((r->'kept'->>'billing_events')::int, 5, 'dry run counts kept billing events');
   perform hp_test.check(r->'auth_users_to_delete' @> '["20000000-0000-0000-0000-0000000000a1","20000000-0000-0000-0000-000000000051"]'
     and not r->'auth_users_to_delete' @> '["20000000-0000-0000-0000-0000000000a2"]', 'dry run auth list ' || (r->'auth_users_to_delete')::text);
   perform set_config('role', 'service_role', true);
   r := public.admin_delete_student(s1, 'request', ha, 'g1@example.com', p_dry_run => true);
+  r := public.admin_delete_student(si, 'request', null, 'indy@example.com');
   perform set_config('role', 'none', true);
   perform dr_test.unchanged('dry runs change nothing');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 5. Delete one guardian-managed student (S2): their rows go, the household and sibling stay, email record kept.
+-- 6. Delete one guardian-managed student (S2): their rows go, the household and sibling stay, email record kept.
 -- ---------------------------------------------------------------------------------------------------------------
 do $$
 declare r jsonb; ha uuid := current_setting('t.ha'); s1 uuid := current_setting('t.s1'); s2 uuid := current_setting('t.s2'); l public.data_request_log;
 begin
   perform set_config('role', 'service_role', true);
   r := public.admin_delete_student(s2, 'Parent asked by email to delete one student profile', ha, 'g1@example.com',
-    p_dry_run => false, p_confirm => s2, p_requested_at => now() - interval '2 days');
+    p_dry_run => false, p_confirm => s2, p_operator => 'ops@example.com', p_requested_at => now() - interval '2 days');
   perform set_config('role', 'none', true);
   perform hp_test.check(not (r->>'dry_run')::boolean, 'live run');
   perform hp_test.eq(jsonb_array_length(r->'auth_users_to_delete'), 0, 'guardian-managed student has no login to delete');
@@ -386,6 +550,8 @@ begin
   perform hp_test.eq(l.action, 'delete', 'audit action'); perform hp_test.eq(l.subject_kind, 'student', 'audit kind');
   perform hp_test.eq(l.subject_id, s2, 'audit subject'); perform hp_test.eq(l.household_id, ha, 'audit household');
   perform hp_test.eq(l.requested_by, 'g1@example.com', 'audit requester'); perform hp_test.eq(l.channel, 'email', 'audit channel');
+  perform hp_test.eq(l.operator, 'ops@example.com', 'audit operator');
+  perform hp_test.check(l.performed_by like 'jwt_role=%; session_user=%', 'audit role and session');
   perform hp_test.check(l.reason like 'Parent asked%', 'audit reason');
   perform hp_test.check(l.requested_at < l.performed_at - interval '1 day', 'audit keeps when it was requested');
   perform hp_test.eq((l.removed->>'practice_attempts')::int, 1, 'audit removed attempts');
@@ -396,25 +562,34 @@ begin
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 6. Delete household A: everything personal goes, B and g2's B membership stay, billing kept de-identified.
+-- 7. Delete household A: everything personal goes, B and g2's B membership stay, billing kept de-identified with
+-- exactly the events the export listed.
 -- ---------------------------------------------------------------------------------------------------------------
 do $$
 declare r jsonb; x jsonb; ha uuid := current_setting('t.ha'); s1 uuid := current_setting('t.s1'); t text; l public.data_request_log;
+  e record; o jsonb;
 begin
   perform set_config('role', 'service_role', true);
-  x := public.admin_export_household(ha, 'g1@example.com');
+  x := public.admin_export_household(ha, 'g1@example.com', 'ops@example.com');
   r := public.admin_delete_household(ha, 'Account holder asked by email to delete the household', 'g1@example.com',
-    p_dry_run => false, p_confirm => ha);
+    p_dry_run => false, p_confirm => ha, p_operator => 'ops@example.com');
   perform set_config('role', 'none', true);
+  perform set_config('t.req_a', r->>'request_id', true);
   -- Removed counts match what the export held, table by table (g2's profile stays: g2 is still in household B).
   for t in select split_part(tbl, '.', 2) from dr_decisions where decision = 'personal' loop
     perform hp_test.eq(coalesce((r->'removed'->>t)::int, 0), jsonb_array_length(x->'tables'->t) - case when t = 'profiles' then 1 else 0 end,
       'removed matches export for ' || t);
   end loop;
+  -- Export and delete cover the same payment events.
+  perform hp_test.eq((select array_agg((v->>'id')::bigint order by (v->>'id')::bigint) from jsonb_array_elements(x->'tables'->'billing_events') v),
+    (select array_agg(v::bigint order by v::bigint) from jsonb_array_elements_text(r->'kept'->'billing_event_ids') v), 'export and delete event ids');
+  perform hp_test.eq((select array_agg(event_id order by event_id) from public.billing_events
+    where id in (select v::bigint from jsonb_array_elements_text(r->'kept'->'billing_event_ids') v)),
+    array['evt_A1', 'evt_A2', 'evt_A3', 'evt_A4', 'evt_P1'], 'kept events: household, subscription, customer, personal');
   perform hp_test.check(not exists (select 1 from public.households where id = ha), 'household deleted');
   perform hp_test.check(not exists (select 1 from public.students where id = s1), 'S1 deleted');
   perform hp_test.check(not exists (select 1 from public.household_members where household_id = ha), 'memberships deleted');
-  perform hp_test.check(not exists (select 1 from public.subscriptions where provider_subscription_id = 'sub_ALPHA'), 'subscription state deleted');
+  perform hp_test.check(not exists (select 1 from public.subscriptions where owner_user_id = '20000000-0000-0000-0000-0000000000a1'), 'subscription state deleted (Stripe, comp, personal)');
   perform hp_test.check(not exists (select 1 from public.billing_customers where provider_customer_id = 'cus_ALPHA'), 'customer map deleted');
   -- Accounts: g1 and S1's login are listed for the admin API, g2 (in B) is not; their profiles and rate-limit rows are gone.
   perform hp_test.check(r->'auth_users_to_delete' @> '["20000000-0000-0000-0000-0000000000a1","20000000-0000-0000-0000-000000000051"]'
@@ -425,38 +600,106 @@ begin
   perform hp_test.check(exists (select 1 from public.invitation_code_attempts where user_id = '20000000-0000-0000-0000-0000000000a2'), 'g2 rate-limit kept');
   perform hp_test.check(exists (select 1 from public.household_members where household_id = current_setting('t.hb')::uuid
     and user_id = '20000000-0000-0000-0000-0000000000a2'), 'g2 keeps B membership');
-  -- Billing records kept, de-identified: no household link, no name/email/address/metadata, amounts and ids intact.
-  perform hp_test.eq((select count(*) from public.billing_events where event_id in ('evt_A1', 'evt_A2') and household_id is null and deidentified_at is not null), 2::bigint, 'A billing events kept de-identified');
-  perform hp_test.check((select payload::text from public.billing_events where event_id = 'evt_A1') not similar to '%(g1@example.com|Alpha Guardian|1 Alpha St|Alpha family plan|metadata|' || ha || ')%', 'A payload scrubbed');
-  perform hp_test.eq((select payload->'data'->'object'->>'amount_paid' from public.billing_events where event_id = 'evt_A1'), '4900', 'amount kept');
-  perform hp_test.eq((select payload->'data'->'object'->>'tax' from public.billing_events where event_id = 'evt_A1'), '300', 'tax kept');
-  perform hp_test.eq((select payload->'data'->'object'->>'customer' from public.billing_events where event_id = 'evt_A1'), 'cus_ALPHA', 'provider ref kept');
+  -- Billing records kept, de-identified: no household link and no personal value left, in any of the payloads.
+  for e in select event_id, household_id, deidentified_at, payload from public.billing_events
+           where event_id in ('evt_A1', 'evt_A2', 'evt_A3', 'evt_A4', 'evt_P1') loop
+    perform hp_test.check(e.household_id is null and e.deidentified_at is not null, e.event_id || ' unlinked and marked');
+    perform hp_test.check(dr_test.has_pii(e.payload) is null, e.event_id || ' still holds ' || coalesce(dr_test.has_pii(e.payload), ''));
+  end loop;
+  -- What is kept, exactly: invoice.paid.
+  select payload->'data'->'object' into o from public.billing_events where event_id = 'evt_A1';
+  perform hp_test.eq((select array_agg(k order by k) from jsonb_object_keys(o) k),
+    array['amount_due', 'amount_paid', 'amount_remaining', 'attempt_count', 'attempted', 'billing_reason', 'collection_method',
+      'created', 'currency', 'customer', 'id', 'lines', 'number', 'object', 'parent', 'period_end', 'period_start', 'status',
+      'status_transitions', 'subtotal', 'tax', 'total', 'total_tax_amounts'], 'invoice keys kept');
+  perform hp_test.eq(o->>'amount_paid', '4900', 'amount kept'); perform hp_test.eq(o->>'tax', '300', 'tax kept');
+  perform hp_test.eq(o->>'number', 'PP-0001', 'invoice number kept'); perform hp_test.eq(o->>'customer', 'cus_ALPHA', 'customer ref kept');
+  perform hp_test.eq(o->'total_tax_amounts'->0, '{"amount": 300, "inclusive": false, "tax_rate": "txr_1"}'::jsonb, 'tax lines kept');
+  perform hp_test.eq(o->'lines'->'data'->0, '{"id": "il_1", "amount": 4600, "object": "line_item", "period": {"end": 1790000000, "start": 1787000000}, "pricing": {"type": "price_details", "price_details": {"price": "price_1", "product": "prod_1"}, "unit_amount_decimal": "4600"}, "currency": "usd", "quantity": 1}'::jsonb, 'line kept without description or metadata');
+  perform hp_test.eq(o->'parent', '{"type": "subscription_details", "subscription_details": {"subscription": "sub_ALPHA"}}'::jsonb, 'parent kept without metadata');
+  perform hp_test.eq((select payload - 'data' from public.billing_events where event_id = 'evt_A1'),
+    '{"id": "evt_A1", "type": "invoice.paid", "object": "event", "created": 1790000000, "request": {"id": null}, "livemode": true, "api_version": "2025-03-31.basil", "pending_webhooks": 1}'::jsonb, 'event envelope kept');
+  -- checkout.session.completed.
+  select payload->'data'->'object' into o from public.billing_events where event_id = 'evt_A4';
+  perform hp_test.eq(o, '{"id": "cs_evt_A4", "url": null, "mode": "subscription", "object": "checkout.session", "status": "complete", "created": 1789990000, "invoice": "in_1", "currency": "usd", "customer": "cus_ALPHA", "expires_at": 1790076400, "amount_total": 4900, "subscription": "sub_ALPHA", "total_details": {"amount_tax": 300, "amount_discount": 0, "amount_shipping": 0}, "payment_status": "paid", "amount_subtotal": 4600}'::jsonb - 'url', 'checkout kept exactly');
+  -- charge.succeeded: no card or billing details.
+  select payload->'data'->'object' into o from public.billing_events where event_id = 'evt_A3';
+  perform hp_test.eq(o, '{"id": "ch_evt_A3", "paid": true, "amount": 4900, "object": "charge", "status": "succeeded", "created": 1790000050, "invoice": "in_1", "currency": "usd", "customer": "cus_ALPHA"}'::jsonb, 'charge kept exactly');
   perform hp_test.eq((select payload->'data'->'object'->>'customer_email' from public.billing_events where event_id = 'evt_B1'), 'gb@example.com', 'B billing untouched');
   perform hp_test.eq((select household_id from public.billing_events where event_id = 'evt_B1'), current_setting('t.hb')::uuid, 'B billing linked');
   -- Email-sent records: the 14-month-old one is past its 13 months and not kept.
   perform hp_test.eq((select count(*) from public.retained_email_records where recipient_email = 'old.guardian@example.com'), 0::bigint, 'expired email record not kept');
-  -- The audit row.
+  -- The audit row and the provider references.
   select * into l from public.data_request_log where id = (r->>'request_id')::uuid;
   perform hp_test.eq(l.subject_kind, 'household', 'household audit kind');
-  perform hp_test.eq((l.kept->>'billing_events')::int, 2, 'audit kept billing events');
-  perform hp_test.eq(l.kept->'billing_customer_refs'->0->>'provider_customer_id', 'cus_ALPHA', 'audit keeps the provider customer ref');
+  perform hp_test.eq((l.kept->>'billing_events')::int, 5, 'audit kept billing events');
+  perform hp_test.eq(l.kept->'billing_refs', '{"customers": ["cus_ALPHA", "cus_PERSONAL"], "subscriptions": ["sub_ALPHA", "sub_PERSONAL"]}'::jsonb, 'audit billing refs');
+  perform hp_test.eq((select array_agg(kind || ':' || ref order by kind, ref) from public.data_request_billing_refs where request_id = l.id),
+    array['customer:cus_ALPHA', 'customer:cus_PERSONAL', 'subscription:sub_ALPHA', 'subscription:sub_PERSONAL'], 'refs stored for late events');
   perform hp_test.eq(l.auth_users_to_delete, array['20000000-0000-0000-0000-000000000051', '20000000-0000-0000-0000-0000000000a1']::uuid[], 'audit auth list');
   perform hp_test.check(l.auth_users_deleted_at is null, 'auth deletion not yet recorded');
   perform hp_test.check(position('Alpha' in to_jsonb(l)::text) = 0, 'audit row holds no names');
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 7. Independent student (no household): their login is listed; recording the auth deletion waits for the admin API.
+-- 8. Late webhooks: events about a deleted household arrive de-identified; an unknown household's event is
+-- de-identified by the webhook's second call; anything stored raw is caught by the re-scrub after the retry window.
 -- ---------------------------------------------------------------------------------------------------------------
 do $$
-declare r jsonb; si uuid := current_setting('t.si'); v uuid; rec jsonb;
+declare v bigint; req uuid := current_setting('t.req_a');
 begin
   perform set_config('role', 'service_role', true);
-  r := public.admin_delete_student(si, 'Student (18+) asked by email', null, 'indy@example.com', p_dry_run => false, p_confirm => si);
+  -- Stripe retries an invoice for the deleted subscription; a customer.updated names the deleted customer only.
+  v := public.record_billing_event('stripe', 'evt_L1', 'invoice.paid', 'sub_ALPHA',
+    dr_test.invoice_paid('evt_L1', 'cus_ALPHA', 'sub_ALPHA', current_setting('t.ha')::uuid));
+  perform hp_test.check(v is not null, 'late event recorded');
+  perform hp_test.check(public.record_billing_event('stripe', 'evt_L1', 'invoice.paid', 'sub_ALPHA', '{}') is null, 'duplicate event returns null');
+  v := public.record_billing_event('stripe', 'evt_L2', 'customer.updated', null,
+    '{"id":"evt_L2","type":"customer.updated","data":{"object":{"id":"cus_ALPHA","object":"customer","email":"g1@example.com","name":"Alpha Guardian One"},"previous_attributes":{"email":"old@example.com"}}}');
+  -- B's events and never-seen customers are stored as sent.
+  v := public.record_billing_event('stripe', 'evt_B2', 'invoice.paid', 'sub_BRAVO', '{"data":{"object":{"customer":"cus_BRAVO","customer_email":"gb@example.com"}}}');
+  v := public.record_billing_event('stripe', 'evt_U1', 'invoice.paid', 'sub_UNKNOWN',
+    dr_test.invoice_paid('evt_U1', 'cus_UNKNOWN', 'sub_UNKNOWN', gen_random_uuid()));
+  perform hp_test.check(public.deidentify_billing_event('stripe', 'evt_U1'), 'webhook de-identifies an unknown household event');
+  perform hp_test.check(not public.deidentify_billing_event('stripe', 'evt_missing'), 'no such event');
+  perform set_config('role', 'none', true);
+  perform hp_test.check((select deidentified_at is not null and household_id is null and dr_test.has_pii(payload) is null
+    from public.billing_events where event_id = 'evt_L1'), 'late invoice stored de-identified');
+  perform hp_test.check((select deidentified_at is not null and position('g1@example.com' in payload::text) = 0
+    and position('old@example.com' in payload::text) = 0 and payload->'data'->'object'->>'id' = 'cus_ALPHA'
+    from public.billing_events where event_id = 'evt_L2'), 'late customer event stored de-identified');
+  perform hp_test.check((select deidentified_at is null and position('gb@example.com' in payload::text) > 0
+    from public.billing_events where event_id = 'evt_B2'), 'B event stored as sent');
+  perform hp_test.check((select deidentified_at is not null and dr_test.has_pii(payload) is null
+    from public.billing_events where event_id = 'evt_U1'), 'unknown household event de-identified');
+  -- A raw copy stored by an older webhook (or before the refs existed): the re-scrub catches it, once.
+  insert into public.billing_events(provider, event_id, event_type, household_id, provider_subscription_id, payload) values
+   ('stripe', 'evt_L3', 'invoice.payment_failed', current_setting('t.ha')::uuid, null,
+    dr_test.invoice_paid('evt_L3', 'cus_ALPHA', 'sub_ALPHA', current_setting('t.ha')::uuid)),
+   ('stripe', 'evt_L4', 'charge.refunded', null, null, dr_test.charge_succeeded('evt_L4', 'cus_PERSONAL'));
+  perform set_config('role', 'service_role', true);
+  perform hp_test.eq(public.admin_rescrub_billing_events(req), 2, 're-scrub fixes the two raw late events');
+  perform hp_test.eq(public.admin_rescrub_billing_events(req), 0, 're-scrub is idempotent');
+  perform hp_test.expect_error(format('select public.admin_rescrub_billing_events(%L)', gen_random_uuid()), 'P0002');
+  perform set_config('role', 'none', true);
+  perform hp_test.check((select bool_and(household_id is null and dr_test.has_pii(payload) is null) from public.billing_events
+    where event_id in ('evt_L3', 'evt_L4')), 're-scrubbed events clean');
+  perform hp_test.check((select billing_rescrubbed_at is not null from public.data_request_log where id = req), 're-scrub recorded');
+  perform hp_test.check((select position('gb@example.com' in payload::text) > 0 from public.billing_events where event_id = 'evt_B1'), 'B untouched by re-scrub');
+end $$;
+
+-- ---------------------------------------------------------------------------------------------------------------
+-- 9. Independent student (no household): their login is listed; recording the auth deletion waits for the admin API.
+-- ---------------------------------------------------------------------------------------------------------------
+do $$
+declare r jsonb; si uuid := current_setting('t.si'); rec jsonb;
+begin
+  perform set_config('role', 'service_role', true);
+  r := public.admin_delete_student(si, 'Student (18+) asked by email', null, 'indy@example.com', p_dry_run => false,
+    p_confirm => si, p_operator => 'ops@example.com');
   perform set_config('role', 'none', true);
   perform hp_test.eq(r->'auth_users_to_delete', '["20000000-0000-0000-0000-000000000052"]'::jsonb, 'independent login listed');
   perform hp_test.check(not exists (select 1 from public.profiles where id = '20000000-0000-0000-0000-000000000052'), 'independent profile deleted');
-  -- Record the auth deletion: refused while the auth users exist.
   perform set_config('role', 'service_role', true);
   perform hp_test.expect_error(format('select public.admin_record_auth_deletion(%L)', r->>'request_id'), '55000', '%still exist%');
   perform set_config('role', 'none', true);
@@ -468,13 +711,13 @@ begin
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
--- 8. After every deletion, each personal table holds exactly household B's rows: nothing of A or I is left.
+-- 10. After every deletion, each personal table holds exactly household B's rows: nothing of A or I is left.
 -- ---------------------------------------------------------------------------------------------------------------
 do $$
 declare b jsonb; t text; n bigint;
 begin
   perform set_config('role', 'service_role', true);
-  b := public.admin_export_household(current_setting('t.hb')::uuid, 'gb@example.com');
+  b := public.admin_export_household(current_setting('t.hb')::uuid, 'gb@example.com', 'ops@example.com');
   perform set_config('role', 'none', true);
   for t in select split_part(tbl, '.', 2) from dr_decisions where decision = 'personal' loop
     execute format('select count(*) from public.%I', t) into n;
