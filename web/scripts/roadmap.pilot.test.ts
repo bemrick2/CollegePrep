@@ -103,18 +103,78 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     }
   })
 
+  // Regression (2026-11-03): an unresolved "or" row can't imply a met requirement, a covered term, coverage or savings,
+  // even with every record verified and credit for the named course. Control: the same courses stored as any_of.
+  it('UTC Management, all verified: the conditional row "Elective (ENGL 1010 or 1011)*" is shown with its note and never filled', () => {
+    const base = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
+    const withTerm = (row: unknown) => {
+      const reqs = (base.domains.degree_requirements as Rec[]).map((r) =>
+        r.program_key === 'management-b-s-b-a' && r.requirement_kind === 'program_plan'
+          ? { ...r, rule_details: { ...(r.rule_details as Rec), terms: [{ term_index: 1, label: 'Fall Semester', credit_hours: '15', items: [{ code: 'ENGL 1020', credits: 3 }, row] }] } }
+          : r,
+      )
+      const c = { ...base, domains: { ...base.domains, degree_requirements: reqs } as never }
+      return buildRoadmap({ comparison: c, programKey: 'management-b-s-b-a', profile: { ...persona, exams: [ap('AP English Language and Composition', 4)] }, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
+    }
+    const printed = withTerm({ text: 'Elective (ENGL 1010 or 1011)*', credits: '1-4' })
+    const row = printed.plan.value!.terms[0]!.rows[1]!
+    expect(row).toMatchObject({ text: 'Elective (ENGL 1010 or 1011)*', unresolved: true, unexplainedMarks: [] })
+    expect(row.notes).toEqual([{ marker: '*', text: 'If a student does not place into ENGL 1020 (30+ on ACT English or 670+ on SAT Read/Write), ENGL 1010 or 1011 is required.' }])
+    const english = printed.credit[0]!
+    expect(english).toMatchObject({ fit: 'partly', rows: [expect.objectContaining({ item: expect.stringMatching(/^ENGL 1020/) })] })
+    expect(printed.plan.value!.terms[0]!.covered).toBe(false)
+    expect(printed.coverage.value).toBeNull()
+    expect(printed.savings.value).toBeNull()
+    expect(printed.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/names it only in a row printed with alternatives/)]))
+    // Control: stored as a reviewed any_of, the same credit fills the row and the whole term counts as covered.
+    const structured = withTerm({ any_of: [{ code: 'ENGL 1010' }, { code: 'ENGL 1011' }], credits: '1-4' })
+    expect(structured.credit[0]!.fit).toBe('applies')
+    expect(structured.plan.value!.terms[0]!.covered).toBe(true)
+    expect(structured.coverage.value).toEqual({ termsCovered: 1, termsInPlan: 1 })
+  })
+
+  it('UTC Economics B.A., all verified: MATH 1950, printed only as an alternative in the MATH 1130 row\'s title, is never placed; MATH 1130 itself is (#302 review)', () => {
+    const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
+    const run = (exams: PlannedExam[]) => buildRoadmap({ comparison: c, programKey: 'economics-b-a', profile: { ...persona, exams }, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
+    const calc = run([ap('AP Calculus AB', 4)])
+    expect(calc.credit[0]).toMatchObject({ fit: 'printed_alternative', rows: [] })
+    const row = calc.plan.value!.terms[0]!.rows.find((x) => x.code === 'MATH 1130')!
+    expect(row).toMatchObject({ unresolved: false, alsoPrinted: ['MATH 1830', 'MATH 1950'] })
+    expect(calc.plan.value!.terms.some((t) => t.covered)).toBe(false)
+    expect(calc.coverage.value).toBeNull()
+    expect(calc.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/awards MATH 1950 for AP Calculus AB\. This major's plan names it only in a row printed with alternatives/)]))
+    // Control: the row's own code is a reviewed structure, so credit for it is placed there.
+    const alg = run([{ family: 'CLEP', key: examKey('CLEP', 'College Algebra'), name: 'CLEP College Algebra', score: 60 } as PlannedExam])
+    expect(alg.credit[0]).toMatchObject({ fit: 'applies', rows: [expect.objectContaining({ term: 1 })] })
+  })
+
+  it('a marker printed twice with different notes keeps both notes under the row (#302 confirm review)', () => {
+    const base = comparison('utc', '221740')
+    const reqs = (base.domains.degree_requirements as Rec[]).map((r) => {
+      if (r.program_key !== 'management-b-s-b-a' || r.requirement_kind !== 'program_plan') return r
+      const rd = r.rule_details as Rec
+      return { ...r, rule_details: { ...rd, footnotes: [...(rd.footnotes as Rec[]), { marker: '*', text: 'A second note printed with the same mark.' }] } }
+    })
+    const r = buildRoadmap({ comparison: { ...base, domains: { ...base.domains, degree_requirements: reqs } as never }, programKey: 'management-b-s-b-a', profile: persona })
+    const row = r.plan.value!.terms.flatMap((t) => t.rows).find((x) => x.text === 'Elective (ENGL 1010 or 1011)*')!
+    expect(row.notes.map((n) => n.text)).toEqual([expect.stringMatching(/^If a student does not place/), 'A second note printed with the same mark.'])
+  })
+
   // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
-  it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 12 hours fill named rows, two exams accepted but not in plan, no timeline', () => {
+  it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 6 hours fill named rows, English only partly (its conditional elective row is never filled), two exams accepted but not in plan, no timeline', () => {
     const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
     const r = buildRoadmap({ comparison: c, programKey: 'management-b-s-b-a', profile: persona, projection: projectRow(c, '2026-27', { residency: 'in_state', cost_basis: 'cost_of_attendance' }) })
     expect(r.status).toBe('ready')
     const by = Object.fromEntries(r.credit.map((x) => [x.exam.name, x]))
     expect(by['AP Microeconomics']).toMatchObject({ fit: 'applies', rows: [expect.objectContaining({ term: 3 })] })
     expect(by['AP Macroeconomics']).toMatchObject({ fit: 'applies', rows: [expect.objectContaining({ term: 4 })] })
-    expect(by['AP English Language and Composition']!.rows.map((x) => x.term)).toEqual([1, 2])
+    // ENGL 1010 is named only in "Elective (ENGL 1010 or 1011)*", a row printed with alternatives and a placement
+    // condition (footnote *): never filled automatically. ENGL 1020 fills its own row, so English is "partly".
+    expect(by['AP English Language and Composition']).toMatchObject({ fit: 'partly', rows: [expect.objectContaining({ term: 2 })] })
     expect(by['AP Calculus AB']).toMatchObject({ fit: 'accepted_not_in_plan', hours: { value: 4 } })
     expect(by['AP Statistics']!.fit).toBe('accepted_not_in_plan')
-    expect(r.credit.filter((x) => x.fit === 'applies').reduce((s, x) => s + (x.hours.value ?? 0), 0)).toBe(12)
+    expect(r.credit.filter((x) => x.fit === 'applies').reduce((s, x) => s + (x.hours.value ?? 0), 0)).toBe(6)
+    expect(r.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/awards ENGL 1010 for AP English Language and Composition\. This major's plan names it only in a row printed with alternatives \(“Elective \(ENGL 1010 or 1011\)\*”\)/)]))
     expect(r.unknowns.map((u) => u.text)).toEqual(expect.arrayContaining([expect.stringMatching(/awards MATH 1950 for AP Calculus AB, but this major's plan lists other courses/)]))
     // Coverage and savings: no whole term covered, so none shown.
     expect(r.coverage.value).toBeNull()
