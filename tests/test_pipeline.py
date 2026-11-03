@@ -2581,6 +2581,16 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(len(r['award_tiers']), 9)
         self.assertEqual(r['award_tiers'][0], {'gpa': '4.00+', 'test': 'ACT 32+ / SAT 1420+', 'amount_text': '$4,000'})
         self.assertEqual(r['award_tiers'][2]['test'], 'No test score or lower than 28 ACT or 1300 SAT')  # stands alone
+        self.assertEqual(r['test_requirement'], 'Tiers by GPA and ACT 32+ / SAT 1420+, ACT 28 / SAT 1300, No test score or lower than 28 ACT or 1300 SAT')
+        lead = sd.replace('<h2>Eligibility</h2>', '<h2>Eligibility</h2><p>The grid below shows guaranteed award amounts for first-time students enrolling in fall 2026, '
+                          'spring 2027, summer 2027, fall 2027 and spring 2028. No scholarship application is required to receive the guarantee.</p>')
+        lead = lead.replace('</table>', '</table><p>Then look for the 2027-2028 Incoming First-Time Student Scholarship Application.</p>')
+        c = self.got(lead)['First-Time Student Scholarships']  # the application's year label never dates the guaranteed grid
+        self.assertEqual((c['academic_year'], c['issues']), ('2027-28', ['conflicting_year_statement:2026-27', 'year_label_only_in_other_aid:2027-28']))
+        dc = lead.replace(' No scholarship application is required to receive the guarantee.', '')  # KS (Dodge City): the application is for these awards
+        self.assertEqual(self.got(dc)['First-Time Student Scholarships']['issues'], [])
+        one = lead.replace('fall 2026, spring 2027, summer 2027, fall 2027 and spring 2028', 'fall 2027 and spring 2028')
+        self.assertEqual(self.got(one)['First-Time Student Scholarships']['issues'], [])  # one entering year in the grid's own lead dates it
         # an ACT band with no SAT partner that is itself a score: which SAT band goes with which ACT band is not printed
         self.assertEqual(self.got(sd.replace('No test score or lower than 28 ACT or 1300 SAT', '26')), {})
         self.assertEqual(self.got(sd.replace('<tr><td>3.90</td>', '<tr><td>3.90</td><td>$1</td>')), {})  # a row that does not fit
@@ -2626,7 +2636,9 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>Off-Campus Award Amount</td><td>$8,000</td><td>$9,000</td><td>$11,000</td></tr></table>"""
         r = self.got(uu)["Dean's Scholarship"]['record']
         self.assertEqual((r['gpa_requirement'], r['test_requirement'], r['award_min'], r['award_max'], r['thresholds']),
-                         ('Minimum GPA: 2.5', 'MinimumACT / SAT / CLT: 21 / 1060 / 67', 9000, 12000, {'gpa_min': 2.5}))
+                         ('Minimum GPA: 2.5', 'MinimumACT / SAT / CLT: 21 / 1060 / 67', 9000, 12000, {'gpa_min': 2.5, 'act_min': 21, 'sat_min': 1060}))
+        two = uu.replace('<td>21 / 1060 / 67</td>', '<td>21 / 1060</td>')  # a cell that does not print one number per named test
+        self.assertEqual(self.got(two)["Dean's Scholarship"]['record']['thresholds'], {'gpa_min': 2.5})
         self.assertEqual(r['award_amount_text'], 'On-Campus Award Amount: $12,000; Off-Campus Award Amount: $9,000')
         acc = """<title>Scholarships</title><h2>Placement Scholarships</h2><table><tr><th>Scholarship</th><th>Shawnee Achievement</th><th>Shawnee Excellence</th></tr>
 <tr><td>GPA</td><td>3.9+</td><td>3.6+</td></tr><tr><td>Scores</td><td>AAF 276+WP 7+READ 241+</td><td>AAF 263+WP 5+READ 241+</td></tr>
@@ -2667,6 +2679,7 @@ class MeritGridTests(unittest.TestCase):
 <tr><td>3.70 - 3.89 GPA</td><td>$11,000 $2,750 / year for a maximum of 4 years</td></tr><tr><td>3.50 - 3.69 GPA</td><td>$1,500 non-renewable</td></tr></table>"""
         c = self.got(und)['Automatic Academic Scholarships']
         self.assertEqual((len(c['record']['award_tiers']), c['issues'], 'award_max' in c['record']), (3, ['alternative_criteria_in_tier'], False))
+        self.assertEqual(c['record']['test_requirement'], '30+ ACT (1370+ SAT) with 3.00+ GPA*')  # the printed test-score path
         one = und.replace(' / year for a maximum of 4 years', '/yrfor a max of 4 years')  # the four-year total is never the annual award
         self.assertNotIn('award_max', self.got(one)['Automatic Academic Scholarships']['record'])
         umt = """<title>Admissions Scholarship</title><h2>Montana Admissions Scholarship Amounts</h2><table><tr><th>High School GPA</th><th>Amount</th></tr>
@@ -2684,7 +2697,7 @@ class MeritGridTests(unittest.TestCase):
         self.assertEqual(sorted(got), ['Presidential', 'Trustee'])
         c = got['Trustee']
         self.assertEqual((c['record']['gpa_requirement'], c['record']['award_amount_text'], c['issues']),
-                         ('4.00 GPA', 'Colorado Resident: $4,500/yr; Non-Resident: $7,500/yr', ['amount_by_residency']))
+                         ('4.00 GPA (Weighted GPA)', 'Colorado Resident: $4,500/yr; Non-Resident: $7,500/yr', ['amount_by_residency']))
 
     def test_undergraduate_headings_and_amount_first_columns(self):
         """MI (Cleary), KY (Spalding): "Undergraduate" is not a graduate table; NE (Concordia): a "First-year ... Scholarship" column
