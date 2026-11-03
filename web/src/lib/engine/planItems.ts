@@ -328,11 +328,17 @@ export function entryCodes(e: PlanEntry): string[] {
 /**
  * Free text whose courses exist only as printed wording, with no reviewed structure saying which one satisfies it:
  * "A or B", "ENGL 221/MODL 221", "ART 3700 level or higher", a comma list ("two courses from: CHEM 3353, CHEM 3363,
- * and CHEM 4333"), or several codes not joined as a plain combination. Only a single code, or a plain combination
+ * and CHEM 4333"), several codes not joined as a plain combination, or a code qualified by an exclusion, a note or a
+ * level ("excluding MUS 156", "May not use COMM 200S", "COMM 400-Level"). Only a single code, or a plain combination
  * ("BIOL 1113& BIOL 1111", "ENGL 1010 and ENGL 1020"), is read from free text.
  */
+// Wording that makes a printed code something other than the course the row asks for: an exclusion, a note, advice,
+// a level or other placeholder ("excluding MUS 156", "May not use COMM 200S", "COMM 400-Level", "ABOVE 3000").
+const NOT_THE_COURSE = /\b(not|cannot|exclud\w*|except|level|above|higher|note|recommended|encouraged|should|instead|substitut\w*|any)\b/i
+
 function printedAlternativeText(text: string): boolean {
   if (/\bor\b|(?<=\d[A-Z]?)or\b|\//i.test(text)) return true
+  if (NOT_THE_COURSE.test(text) && codesInText(text).length > 0) return true
   const n = codesInText(text).length
   return n > 1 && (/[,;]/.test(text) || !/[+&]|\band\b/i.test(text))
 }

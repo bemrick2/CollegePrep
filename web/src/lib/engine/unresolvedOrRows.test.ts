@@ -24,6 +24,10 @@ const UNRESOLVED: [string, string, string[]][] = [
   ['a "two from" comma list (OK State)', 'Students should complete two courses from: CHEM 3353, CHEM 3363, and CHEM 4333', ['CHEM 3353']],
   ['a timing note (OK State)', 'SC 2183, MC 2003, and MC 2023 can be taken as late as junior fall.', ['SC 2183']],
   ['a survey list (UO)', 'One major survey course (JPN 305, 306, 307, 315)', ['JPN 306']],
+  // A code the wording excludes, or a placeholder level (#302 confirm review).
+  ['an exclusion (UIC)', 'Select any ensemble, excluding MUS 156', ['MUS 156']],
+  ['"may not use" (ODU)', 'Human Behavior (May not use COMM 200S)', ['COMM 200S']],
+  ['a level placeholder', 'COMM 400-Level', ['COMM 400']],
 ]
 
 describe('unresolved "or" rows are never filled by credit', () => {
@@ -100,6 +104,7 @@ describe('unresolved "or" rows are never filled by credit', () => {
 
   it('rows that are not unresolved alternatives are unaffected: a single code, a combination, a heading', () => {
     expect(unresolvedAlternatives(readPlanItem('ENGL 1020')!)).toBe(false)
+    expect(unresolvedAlternatives(readPlanItem('ENGL 3830:Writing Beyond the Academy')!)).toBe(false)
     expect(unresolvedAlternatives(readPlanItem('BIOL 1113& BIOL 1111')!)).toBe(false)
     expect(unresolvedAlternatives(readPlanItem('Semester Two')!)).toBe(false)
   })

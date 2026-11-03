@@ -554,7 +554,7 @@ function CreditSteps({ row, credit, examSummary, aid, name }: { row: ProjectionR
   )
 }
 
-function tierSummary(t: DegreeCreditResult) {
+export function tierSummary(t: DegreeCreditResult) {
   const n = (st: ExamApplicability['status']) => t.accepted.filter((a) => a.status === st).length
   const applies = n('applies')
   const parts = [

@@ -148,6 +148,18 @@ describe.skipIf(!have)('planning roadmap on the stored Tennessee pilot records (
     expect(alg.credit[0]).toMatchObject({ fit: 'applies', rows: [expect.objectContaining({ term: 1 })] })
   })
 
+  it('a marker printed twice with different notes keeps both notes under the row (#302 confirm review)', () => {
+    const base = comparison('utc', '221740')
+    const reqs = (base.domains.degree_requirements as Rec[]).map((r) => {
+      if (r.program_key !== 'management-b-s-b-a' || r.requirement_kind !== 'program_plan') return r
+      const rd = r.rule_details as Rec
+      return { ...r, rule_details: { ...rd, footnotes: [...(rd.footnotes as Rec[]), { marker: '*', text: 'A second note printed with the same mark.' }] } }
+    })
+    const r = buildRoadmap({ comparison: { ...base, domains: { ...base.domains, degree_requirements: reqs } as never }, programKey: 'management-b-s-b-a', profile: persona })
+    const row = r.plan.value!.terms.flatMap((t) => t.rows).find((x) => x.text === 'Elective (ENGL 1010 or 1011)*')!
+    expect(row.notes.map((n) => n.text)).toEqual([expect.stringMatching(/^If a student does not place/), 'A second note printed with the same mark.'])
+  })
+
   // Scenario, not today's data: the plan's note captured and its replacement reviewed (#218), and #191's tables verified.
   it('UTC Management once its plan note is captured and reviewed and #191 verifies the tables and cost: 6 hours fill named rows, English only partly (its conditional elective row is never filled), two exams accepted but not in plan, no timeline', () => {
     const c = asIfVerified(comparison('utc', '221740'), ['credit_policies', 'costs', 'degree_requirements'])
