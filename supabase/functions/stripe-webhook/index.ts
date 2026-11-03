@@ -2,7 +2,7 @@
 // row from the subscription's CURRENT state in Stripe (retrieved fresh), so duplicate, delayed or out-of-order
 // deliveries all converge on the same result. Deploy with JWT verification off (Stripe signs instead).
 import Stripe from 'npm:stripe@17'
-import { HANDLED_EVENTS, subscriptionIdFromEvent, subscriptionRow } from '../_shared/billing.ts'
+import { HANDLED_EVENTS, storeRawBillingEvent, subscriptionIdFromEvent, subscriptionRow } from '../_shared/billing.ts'
 import { admin, env, stripe } from '../_shared/runtime.ts'
 
 const ok = (body: unknown = { received: true }) => new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } })
@@ -21,10 +21,12 @@ Deno.serve(async (req) => {
 
   const db = admin()
   const subId = subscriptionIdFromEvent(event)
-  // Exactly once per event id. An event about a deleted household's customer or subscription is stored already
-  // de-identified (A4, docs/operations/DATA_REQUESTS.md); the row id is null when the event was already recorded.
+  // Exactly once per event id. Stored already de-identified when it is about a deleted household's customer or
+  // subscription, or is a type we don't act on (A4, docs/operations/DATA_REQUESTS.md). The call waits for any household
+  // deletion in progress. The row id is null when the event was already recorded.
   const { data: insertedId, error: recordError } = await db.rpc('record_billing_event', {
     p_provider: 'stripe', p_event_id: event.id, p_event_type: event.type, p_subscription_id: subId, p_payload: event,
+    p_store_raw: storeRawBillingEvent(event.type),
   })
   if (recordError) {
     console.error(recordError)
@@ -49,7 +51,9 @@ Deno.serve(async (req) => {
       await done({ error: 'Subscription lacks household or owner metadata, or a Prep & Price price lookup key' })
       return ok({ received: true, ignored: true })
     }
-    const { data: hh } = await db.from('households').select('id').eq('id', row.household_id).maybeSingle()
+    const { data: hh, error: hhError } = await db.from('households').select('id').eq('id', row.household_id).maybeSingle()
+    // A failed lookup is not a missing household: never de-identify a live household's event on a transient error.
+    if (hhError) throw hhError
     if (!hh) {
       // Deleted (A4) or never ours: keep the event for the tax record, de-identified and unlinked.
       const { error: scrubError } = await db.rpc('deidentify_billing_event', { p_provider: 'stripe', p_event_id: event.id })

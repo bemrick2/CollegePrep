@@ -340,6 +340,7 @@ begin
   ha := public.create_household('Alpha Home', 'America/Chicago');
   s1 := public.add_student(ha, 'Alpha Kid One');
   s2 := public.add_student(ha, 'Alpha Kid Two');
+  perform set_config('t.s4', public.add_student(ha, 'Moved Kid')::text, true);
   c := public.create_household_invitation(ha, 'student', s1);
   perform set_config('t.inv_s1', c, true);
   perform set_config('t.inv_g2', public.create_household_invitation(ha, 'guardian', null, 72, array['view_progress']), true);
@@ -378,6 +379,9 @@ begin
   perform dr_test.seed_student(s2, '20000000-0000-0000-0000-0000000000a2', 'alpha-two');
   perform dr_test.seed_student(s3, '20000000-0000-0000-0000-0000000000b1', 'bravo');
   perform dr_test.seed_student(si, null, 'indy');
+  -- S4 practised in A (goals, scores, reminder changes and alerts set by g1, with A as the household), then moved to B.
+  perform dr_test.seed_student(current_setting('t.s4')::uuid, '20000000-0000-0000-0000-0000000000a1', 'moved');
+  update public.students set household_id = hb where id = current_setting('t.s4')::uuid;
   insert into public.household_saved_schools(household_id, institution_key, added_by) values
    (ha, 'dr-school', '20000000-0000-0000-0000-0000000000a1'), (hb, 'dr-school', '20000000-0000-0000-0000-0000000000b1');
   -- A: a Stripe subscription, a complimentary one, and g1's personal (no-household) past subscription. B: one live.
@@ -442,7 +446,7 @@ begin
     'select public.admin_record_auth_deletion(gen_random_uuid())',
     'select public.admin_rescrub_billing_events(gen_random_uuid())',
     'select public.admin_purge_expired_retention()',
-    'select public.record_billing_event(''stripe'', ''evt_x'', ''x'', null, ''{}'')',
+    'select public.record_billing_event(''stripe'', ''evt_x'', ''x'', null, ''{}'', true)',
     'select public.deidentify_billing_event(''stripe'', ''evt_x'')'];
   v_internal := array[
     format('select public.data_request_student_tables(%L, true)', current_setting('t.s1')),
@@ -516,6 +520,18 @@ begin
   perform hp_test.check((select bool_and((r->>'reporter_user_id' is null) = (r->>'note' is null)) from jsonb_array_elements(s1->'tables'->'question_reports') r),
     'student export hides the guardian reporter with the note');
   perform hp_test.eq(jsonb_array_length(b->'tables'->'question_reports'), 3, 'B reports on S3');
+  -- The student who moved from A to B: B's export shows their history without A's household id or A's people.
+  perform hp_test.check((select bool_and(r->>'household_id' is null and r->>'changed_by' is null) from jsonb_array_elements(b->'tables'->'practice_reminder_changes') r
+      where r->>'student_id' = current_setting('t.s4'))
+    and (select bool_and(r->>'set_by' is null) from jsonb_array_elements(b->'tables'->'weekly_practice_goals') r where r->>'student_id' = current_setting('t.s4'))
+    and (select bool_and(r->>'entered_by' is null) from jsonb_array_elements(b->'tables'->'student_test_scores') r where r->>'student_id' = current_setting('t.s4'))
+    and (select bool_and(r->>'requested_by' is null) from jsonb_array_elements(b->'tables'->'ai_help_requests') r where r->>'student_id' = current_setting('t.s4'))
+    and (select bool_and(r->>'user_id' is null) from jsonb_array_elements(b->'tables'->'alert_preferences') r where r->>'student_id' = current_setting('t.s4'))
+    and (select bool_and(r->>'updated_by' is null) from jsonb_array_elements(b->'tables'->'practice_reminder_settings') r where r->>'student_id' = current_setting('t.s4')),
+    'moved student: A''s household and people masked in B''s export');
+  perform hp_test.check((select bool_and(r->>'household_id' = current_setting('t.hb') and r->>'changed_by' = '20000000-0000-0000-0000-0000000000b1')
+      from jsonb_array_elements(b->'tables'->'practice_reminder_changes') r where r->>'student_id' = current_setting('t.s3')),
+    'B''s own student keeps B''s ids');
   perform hp_test.eq((select count(*) from jsonb_array_elements(b->'tables'->'question_reports') r where r->>'reporter_user_id' is null and r->>'note' is null), 2::bigint,
     'B export: g1 (not a B member) shown without id or note');
   perform hp_test.check(jsonb_array_length(a->'derived'->'skill_estimates') > 0 and jsonb_array_length(s1->'derived'->'skill_estimates') > 0
@@ -818,6 +834,13 @@ begin
   perform hp_test.eq((r->'removed'->>'notification_devices')::int, 2, 'two devices removed');
   perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_devices),
     array['20000000-0000-0000-0000-000000000052', '20000000-0000-0000-0000-0000000000a2', '20000000-0000-0000-0000-0000000000b1']::uuid[], 'devices left');
+  -- The runbook's next step, straight away: the listed accounts are deleted through the admin API (here: the stub's
+  -- auth.users), which also clears what other households' rows still say about them (e.g. the moved student's
+  -- set_by). Then nothing of A is left anywhere.
+  delete from auth.users where id in ('20000000-0000-0000-0000-0000000000a1', '20000000-0000-0000-0000-000000000051');
+  perform set_config('role', 'service_role', true);
+  perform public.admin_record_auth_deletion((r->>'request_id')::uuid);
+  perform set_config('role', 'none', true);
   perform hp_test.check(dr_test.residue() is null, 'nothing of A left: ' || coalesce(dr_test.residue(), ''));
 end $$;
 
@@ -831,15 +854,20 @@ begin
   perform set_config('role', 'service_role', true);
   -- Stripe retries an invoice for the deleted subscription; a customer.updated names the deleted customer only.
   v := public.record_billing_event('stripe', 'evt_L1', 'invoice.paid', 'sub_ALPHA',
-    dr_test.invoice_paid('evt_L1', 'cus_ALPHA', 'sub_ALPHA', current_setting('t.ha')::uuid));
+    dr_test.invoice_paid('evt_L1', 'cus_ALPHA', 'sub_ALPHA', current_setting('t.ha')::uuid), true);
   perform hp_test.check(v is not null, 'late event recorded');
-  perform hp_test.check(public.record_billing_event('stripe', 'evt_L1', 'invoice.paid', 'sub_ALPHA', '{}') is null, 'duplicate event returns null');
+  perform hp_test.check(public.record_billing_event('stripe', 'evt_L1', 'invoice.paid', 'sub_ALPHA', '{}', true) is null, 'duplicate event returns null');
   v := public.record_billing_event('stripe', 'evt_L2', 'customer.updated', null,
-    '{"id":"evt_L2","type":"customer.updated","data":{"object":{"id":"cus_ALPHA","object":"customer","email":"g1@example.com","name":"Alpha Guardian One"},"previous_attributes":{"email":"old@example.com"}}}');
+    '{"id":"evt_L2","type":"customer.updated","data":{"object":{"id":"cus_ALPHA","object":"customer","email":"g1@example.com","name":"Alpha Guardian One"},"previous_attributes":{"email":"old@example.com"}}}', true);
   -- B's events and never-seen customers are stored as sent.
-  v := public.record_billing_event('stripe', 'evt_B2', 'invoice.paid', 'sub_BRAVO', '{"data":{"object":{"customer":"cus_BRAVO","customer_email":"gb@example.com"}}}');
+  v := public.record_billing_event('stripe', 'evt_B2', 'invoice.paid', 'sub_BRAVO', '{"data":{"object":{"customer":"cus_BRAVO","customer_email":"gb@example.com"}}}', true);
+  -- An event type the webhook does not act on (a dispute names the cardholder, not the customer or subscription):
+  -- the webhook passes p_store_raw false, so it is stored de-identified even for a live household.
+  v := public.record_billing_event('stripe', 'evt_D1', 'charge.dispute.created', null,
+    '{"id":"evt_D1","type":"charge.dispute.created","data":{"object":{"id":"dp_1","object":"dispute","amount":4900,"currency":"usd","charge":"ch_9","status":"needs_response","evidence":{"customer_name":"Bravo Guardian","customer_email_address":"gb@example.com","billing_address":"9 Bravo Rd"}}}}', false);
+  perform hp_test.expect_error($q$select public.record_billing_event('stripe', 'evt_D2', 'x', null, '{}', null)$q$, '22023');
   v := public.record_billing_event('stripe', 'evt_U1', 'invoice.paid', 'sub_UNKNOWN',
-    dr_test.invoice_paid('evt_U1', 'cus_UNKNOWN', 'sub_UNKNOWN', gen_random_uuid()));
+    dr_test.invoice_paid('evt_U1', 'cus_UNKNOWN', 'sub_UNKNOWN', gen_random_uuid()), true);
   perform hp_test.check(public.deidentify_billing_event('stripe', 'evt_U1'), 'webhook de-identifies an unknown household event');
   perform hp_test.check(not public.deidentify_billing_event('stripe', 'evt_missing'), 'no such event');
   perform set_config('role', 'none', true);
@@ -850,6 +878,8 @@ begin
     from public.billing_events where event_id = 'evt_L2'), 'late customer event stored de-identified');
   perform hp_test.check((select deidentified_at is null and position('gb@example.com' in payload::text) > 0
     from public.billing_events where event_id = 'evt_B2'), 'B event stored as sent');
+  perform hp_test.check((select deidentified_at is not null and payload->'data'->'object' = '{"id": "dp_1", "amount": 4900, "charge": "ch_9", "object": "dispute", "status": "needs_response", "currency": "usd"}'::jsonb
+    from public.billing_events where event_id = 'evt_D1'), 'unhandled event type stored de-identified');
   perform hp_test.check((select deidentified_at is not null and dr_test.has_pii(payload) is null
     from public.billing_events where event_id = 'evt_U1'), 'unknown household event de-identified');
   -- Late events through the webhook restore nothing of A, before any re-scrub, and recreate no account rows.

@@ -146,6 +146,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/household_home_state.sql
       - name: Data export and deletion requests; every table has a data-request decision (A4)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/data_requests.sql
+      - name: A webhook event racing a household deletion is still de-identified (A4)
+        run: python scripts/test_data_request_concurrency.py
       - name: Data requests again under Supabase's default privileges, as on hosted (A4)
         # Hosted grants every new table and function to anon, authenticated and service_role by default; the
         # migration must revoke what it does not mean to grant. A separate database, so other tests are unaffected.

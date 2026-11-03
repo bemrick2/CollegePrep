@@ -114,6 +114,7 @@ What the export contains:
   - the question reports about each student. A reporter's id and note are shown only when the reporter is a member of the household; the editor's name, resolution note and whether the item is reserved never are;
   - the parent emails sent to the household's guardians: alerts about its students, reminders-off notices, and the weekly digests of accounts that belong to no other household.
 - Both exports carry a `derived.skill_estimates` section: the per-skill estimates the app computes from the attempts, including CR-23's first-answer count and accuracy. They are not stored, so there is nothing to delete beyond the attempts.
+- A student who moved from another household brings rows that name that household and its people. In a household export, `household_id` and the actor ids (`set_by`, `entered_by`, `requested_by`, `changed_by`, `updated_by`, `user_id`) are cleared unless they are this household or its members (`data_request_mask_foreign`).
 - A student export leaves out guardians' alert settings and other accounts' ids. It shows the student's own question reports in full, and guardians' reports about the student without the reporter or the note.
 - No export includes:
   - invitation code digests;
@@ -339,3 +340,25 @@ select public.admin_rescrub_billing_events('<request id>');   -- ~3 days after a
 select public.admin_purge_expired_retention();                -- monthly
 select public.expire_practice_reminder_claims();              -- only if the reminder sender is running
 ```
+
+## 8. Concurrency and webhook safeguards
+
+**The window.** A household deletion de-identifies the household's payment events and records its Stripe customer and subscription ids in `data_request_billing_refs`. The webhook stores an event about those ids already de-identified. Without coordination, the two could interleave:
+- **An event recorded while the deletion is in progress.** The deletion would not see the event, because it was not yet committed when the deletion collected events. The webhook would not see the references, because they were not yet committed either. The event would stay raw, with the payer's name and email, and the 3-day re-scrub only catches events that name the references after they exist.
+- **An event recorded just before the deletion.** It was uncommitted while the deletion collected events.
+
+**The fix.** One transaction-scoped advisory lock (`data_request_billing_lock_key()`):
+- A live household deletion takes it exclusively before it collects events.
+- `record_billing_event` takes it shared before it checks the references.
+- An event that arrives during a deletion therefore waits for the deletion to commit, sees its references, and is stored de-identified. A deletion that starts while an event is being recorded waits for that event, then collects and de-identifies it.
+- Webhook calls never block each other (shared mode). Deletions are rare and short.
+- `scripts/test_data_request_concurrency.py` races both orders on two real connections in CI. Without the lock, the event recorded during the deletion stays raw and the test fails.
+
+What remains after the lock is a webhook that read a live household just before the deletion committed. Its later steps then fail: the subscription upsert hits the deleted household's foreign key, the webhook returns 500, and Stripe retries. The retry finds the household gone and de-identifies the event. The 3-day re-scrub (section 2, step 5) catches anything else, including an event whose processing set the deleted household's id back.
+
+**Webhook rules** (`supabase/functions/stripe-webhook`, `docs/product/STRIPE_BILLING.md`):
+- The Stripe endpoint stays subscribed to **the handled events only**. `tests/test_stripe_webhook_events.py` checks that `scripts/stripe/setup_billing.mjs` asks for exactly `HANDLED_EVENTS`.
+- Disputes, reviews and Radar warnings can name the cardholder without naming the customer or the subscription, so no deletion could find them. Any event of an unhandled type that arrives anyway is stored **already de-identified** (`p_store_raw => false`). Storing it this way, rather than dropping it, keeps exactly-once delivery and a record that Stripe sent something, with nothing personal in it.
+- A failed household lookup returns 500 (Stripe retries). A database error is never taken to mean a missing household, so it cannot de-identify a live household's event.
+
+**Deleting accounts that set a student's plans.** The audit triggers on weekly goals, planning preferences, the exam plan and academic interests used to put `set_by` back when the foreign key cleared it. So deleting an account that had set one of these for a student who still exists failed, through the admin API too. One example is the old guardian of a student who has since moved. This migration keeps that null. The test deletes such an account and then finds nothing of the deleted household anywhere.

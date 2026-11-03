@@ -142,6 +142,14 @@ begin
   return p;
 end $$;
 
+-- One advisory lock serialises payment-event writes with household deletions. A live deletion takes it exclusively
+-- (transaction-scoped) before it collects the household's events and writes its provider references;
+-- record_billing_event takes it shared before it checks those references. So an event recorded while a deletion is
+-- in progress waits for the deletion to commit and then sees its references (and is stored de-identified), and an
+-- event recorded just before is committed before the deletion collects events (and is de-identified by it).
+create function public.data_request_billing_lock_key() returns bigint
+language sql immutable set search_path = '' as $$ select hashtextextended('collegeprep:billing_events:data_requests', 0) $$;
+
 -- Every string value in a payload, at any depth (customer and subscription ids appear in many shapes).
 create function public.data_request_payload_strings(p jsonb) returns text[]
 language sql immutable set search_path = '' as $$
@@ -205,6 +213,20 @@ end $$;
 -- (set_by, entered_by, requested_by, invitation actors) and no guardian alert settings. Household view: actor ids kept,
 -- guardians' alert settings for this student included, and the account and invitation rows left to the household
 -- level. Never: invitation code digests, question content or answer keys (attempts carry question ids only).
+-- Household view of a row about one of its students: a student who moved here from another household brings rows
+-- that name the old household and its people. Clears household_id unless it is this household, and actor ids
+-- (set_by, entered_by, requested_by, changed_by, updated_by, user_id) unless they are this household's members.
+create function public.data_request_mask_foreign(p jsonb, p_household uuid, p_members uuid[]) returns jsonb
+language sql immutable set search_path = '' as $$
+  select coalesce(jsonb_object_agg(e.key, case
+      when jsonb_typeof(e.value) <> 'string' then e.value
+      when e.key = 'household_id' and (e.value #>> '{}')::uuid is distinct from p_household then 'null'::jsonb
+      when e.key in ('set_by', 'entered_by', 'requested_by', 'changed_by', 'updated_by', 'user_id')
+        and (e.value #>> '{}')::uuid <> all (coalesce(p_members, '{}')) then 'null'::jsonb
+      else e.value end), '{}'::jsonb)
+  from jsonb_each(p) e
+$$;
+
 create function public.data_request_student_tables(p_student uuid, p_household_view boolean) returns jsonb
 language plpgsql stable security definer set search_path = '' as $$
 declare v_link uuid; v_household uuid; v jsonb; actors text[] := case when p_household_view then '{}'::text[]
@@ -266,6 +288,11 @@ begin
     v := v || jsonb_build_object(
       'alert_preferences', coalesce((select jsonb_agg(to_jsonb(a) order by a.created_at, a.user_id)
         from public.alert_preferences a where a.student_id = p_student), '[]'::jsonb));
+    -- Rows from before a move keep nothing of the old household (question reports are masked above).
+    select coalesce(jsonb_object_agg(t.key, coalesce((select jsonb_agg(public.data_request_mask_foreign(r, v_household,
+        array(select m.user_id from public.household_members m where m.household_id = v_household)) order by ord)
+      from jsonb_array_elements(t.value) with ordinality x(r, ord)), '[]'::jsonb)), '{}'::jsonb)
+    into v from jsonb_each(v) t;
   else
     v := v || jsonb_build_object(
       'household_invitations', coalesce((select jsonb_agg(to_jsonb(i) - 'code_hash' - 'short_code_hash' - actors
@@ -455,6 +482,41 @@ begin
   return new;
 end $$;
 
+-- Deleting an auth account must be able to clear set_by. The audit triggers below (from 20261002183112,
+-- 20261003120100, 20261006180300 and 20261006180400) set new.set_by := coalesce(auth.uid(), old.set_by). That undid
+-- the foreign key's ON DELETE SET NULL, so deleting any account that had set a goal, plan, exam plan or interest for a
+-- student who still exists failed with a foreign-key error (through the Supabase admin API too). Clients cannot write
+-- set_by (no column grant), so a NEW null over an OLD value only comes from that FK action or the server: keep it.
+-- Otherwise unchanged.
+create or replace function public.set_weekly_goal_audit() returns trigger
+language plpgsql set search_path = '' as $$
+begin
+  new.updated_at := now();
+  new.set_by := case when new.set_by is null and old.set_by is not null then null else coalesce(auth.uid(), old.set_by) end;
+  return new;
+end $$;
+
+create or replace function public.check_student_exam_plan() returns trigger
+language plpgsql security definer set search_path = '' as $$
+declare v_family text;
+begin
+  select c.family into v_family from public.exam_catalog c where c.exam_key = new.exam_key;
+  if new.score is not null and not (
+       (v_family = 'ap' and new.score between 1 and 5) or (v_family = 'clep' and new.score between 20 and 80)) then
+    raise exception 'score is outside the % scale', v_family using errcode = '23514';
+  end if;
+  if tg_op = 'INSERT' then
+    perform 1 from public.students s where s.id = new.student_id for update;
+    if (select count(*) from public.student_exam_plan p where p.student_id = new.student_id) >= 20 then
+      raise exception 'A student''s exam plan holds up to 20 exams' using errcode = '22023';
+    end if;
+  else
+    new.updated_at := now();
+    new.set_by := case when new.set_by is null and old.set_by is not null then null else coalesce(auth.uid(), old.set_by) end;
+  end if;
+  return new;
+end $$;
+
 -- Question reports (CR-25) filed by departing accounts about students who stay: kept for the editors, with no
 -- reporter and no note. Reports about deleted students go with the student (on delete cascade).
 create function public.data_request_deidentify_reports(p_students uuid[], p_users uuid[], p_apply boolean)
@@ -598,6 +660,9 @@ begin
              and public.data_request_live_subscription(x.provider, x.status)) then
     raise exception 'A member account of household % owns a live subscription: cancel it first', p_household
       using errcode = '55000';
+  end if;
+  if p_apply then
+    perform pg_advisory_xact_lock(public.data_request_billing_lock_key());
   end if;
   v_billing := public.data_request_household_billing(p_household, v_accounts);
   v_events := array(select jsonb_array_elements_text(v_billing->'event_ids')::bigint);
@@ -781,18 +846,24 @@ begin
   return jsonb_build_object('retained_email_records', n_retained, 'parent_email_deliveries', n_parent);
 end $$;
 
--- The Stripe webhook's insert (supabase/functions/stripe-webhook): exactly once per provider event, and stored
--- already de-identified when it refers to a deleted household's customer or subscription. Returns the new row id,
--- or null when the event was already recorded.
+-- The Stripe webhook's insert (supabase/functions/stripe-webhook): exactly once per provider event. Stored already
+-- de-identified when it refers to a deleted household's customer or subscription, or when the webhook does not act
+-- on its type (p_store_raw false: disputes, reviews, Radar and anything else outside HANDLED_EVENTS can name a person
+-- without naming a customer or subscription, so no deletion could find them later). Returns the new row id, or null
+-- when the event was already recorded. Waits for any household deletion in progress (data_request_billing_lock_key).
 create function public.record_billing_event(p_provider text, p_event_id text, p_event_type text,
-  p_subscription_id text, p_payload jsonb) returns bigint
+  p_subscription_id text, p_payload jsonb, p_store_raw boolean) returns bigint
 language plpgsql security definer set search_path = '' as $$
-declare v_deleted boolean := public.data_request_event_is_deleted(p_payload, p_subscription_id); v_id bigint;
+declare v_scrub boolean; v_id bigint;
 begin
+  if p_store_raw is null then raise exception 'p_store_raw is required' using errcode = '22023'; end if;
+  perform pg_advisory_xact_lock_shared(public.data_request_billing_lock_key());
+  -- A new statement, so a fresh snapshot: references committed by a deletion we waited for are visible here.
+  v_scrub := not p_store_raw or public.data_request_event_is_deleted(p_payload, p_subscription_id);
   insert into public.billing_events(provider, event_id, event_type, provider_subscription_id, payload, deidentified_at)
   values (p_provider, p_event_id, p_event_type, p_subscription_id,
-    case when v_deleted then public.data_request_scrub_billing_payload(p_payload) else p_payload end,
-    case when v_deleted then now() end)
+    case when v_scrub then public.data_request_scrub_billing_payload(p_payload) else p_payload end,
+    case when v_scrub then now() end)
   on conflict (provider, event_id) do nothing
   returning id into v_id;
   return v_id;
@@ -825,5 +896,5 @@ grant execute on function public.admin_delete_household(uuid, text, text, boolea
 grant execute on function public.admin_record_auth_deletion(uuid) to service_role;
 grant execute on function public.admin_rescrub_billing_events(uuid) to service_role;
 grant execute on function public.admin_purge_expired_retention() to service_role;
-grant execute on function public.record_billing_event(text, text, text, text, jsonb) to service_role;
+grant execute on function public.record_billing_event(text, text, text, text, jsonb, boolean) to service_role;
 grant execute on function public.deidentify_billing_event(text, text) to service_role;
