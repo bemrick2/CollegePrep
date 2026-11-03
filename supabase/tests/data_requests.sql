@@ -34,6 +34,7 @@ insert into dr_decisions values
  ('public.alert_preferences', 'personal'), ('public.subscriptions', 'personal'), ('public.billing_customers', 'personal'),
  ('public.student_setup_progress', 'personal'), ('public.practice_reminder_settings', 'personal'),
  ('public.practice_reminder_changes', 'personal'), ('public.practice_reminder_deliveries', 'personal'),
+ ('public.question_reports', 'personal'),
  ('public.billing_events', 'retained'), ('public.parent_email_deliveries', 'retained'),
  ('public.invitation_code_attempts', 'security'), ('public.notification_devices', 'security'),
  ('public.data_request_log', 'request_log'), ('public.data_request_billing_refs', 'request_log'),
@@ -61,15 +62,19 @@ grant select on dr_decisions to anon, authenticated, service_role;
 create temp table dr_columns(tbl text not null, col text not null, decision text not null check (decision in ('export', 'omit')),
   primary key (tbl, col));
 insert into dr_columns select t, c, d from (values
-  ('public.households', array['id', 'name', 'created_by', 'time_zone', 'created_at'], array['export', 'export', 'export', 'export', 'export']),
+  ('public.households', array['id', 'name', 'created_by', 'time_zone', 'created_at', 'home_state'], array['export', 'export', 'export', 'export', 'export', 'export']),
   ('public.household_members', array['household_id', 'user_id', 'role', 'can_manage_students', 'can_set_goals', 'can_view_progress', 'can_manage_members', 'can_manage_billing', 'created_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
   ('public.household_invitations', array['id', 'household_id', 'role', 'student_id', 'permissions', 'code_hash', 'created_by', 'created_at', 'expires_at', 'accepted_by', 'accepted_at', 'short_code_hash', 'recipient_email', 'revoked_at', 'revoked_by', 'email_send_count', 'last_emailed_at'], array['export', 'export', 'export', 'export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export']),
   ('public.household_saved_schools', array['household_id', 'institution_key', 'added_by', 'added_at', 'is_primary'], array['export', 'export', 'export', 'export', 'export']),
   ('public.profiles', array['id', 'display_name', 'created_at'], array['export', 'export', 'export']),
-  ('public.students', array['id', 'household_id', 'display_name', 'graduation_year', 'grade_level', 'account_mode', 'is_independent', 'linked_user_id', 'time_zone', 'created_at', 'archived_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.students', array['id', 'household_id', 'display_name', 'graduation_year', 'grade_level', 'account_mode', 'is_independent', 'linked_user_id', 'time_zone', 'created_at', 'archived_at', 'home_state'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
   ('public.weekly_practice_goals', array['id', 'student_id', 'week_start', 'target_questions', 'target_minutes', 'subject', 'goal_mode', 'set_by', 'created_at', 'updated_at'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
   ('public.practice_sessions', array['id', 'student_id', 'target_minutes', 'started_at', 'ended_at', 'goal_id'], array['export', 'export', 'export', 'export', 'export', 'export']),
-  ('public.practice_session_items', array['session_id', 'position', 'question_id', 'reason'], array['export', 'export', 'export', 'export']),
+  ('public.practice_session_items', array['session_id', 'position', 'question_id', 'reason', 'seen_before', 'last_seen'], array['export', 'export', 'export', 'export', 'export', 'export']),
+  ('public.question_reports', array['id', 'question_id', 'content_hash', 'question_pool', 'attempt_id', 'student_id', 'reporter_user_id',
+     'reporter_role', 'reason', 'note', 'status', 'created_at', 'updated_at', 'revision', 'reviewed_at', 'reviewed_by', 'resolution_note'],
+   array['export', 'export', 'export', 'omit', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export',
+     'export', 'export', 'omit', 'omit']),
   ('public.practice_attempts', array['id', 'session_id', 'student_id', 'question_id', 'presented_at', 'first_interaction_ms', 'submitted_at', 'elapsed_ms', 'active_ms', 'selected_answer', 'is_correct', 'skipped', 'confidence', 'hint_count', 'ai_help_used', 'strategy_used_id', 'attempt_number', 'benchmark_id'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
   ('public.practice_attempt_events', array['id', 'attempt_id', 'student_id', 'kind', 'occurred_at', 'answer', 'detail'], array['export', 'export', 'export', 'export', 'export', 'export', 'export']),
   ('public.ai_help_requests', array['id', 'attempt_id', 'student_id', 'requested_by', 'requested_at', 'mode', 'status', 'response', 'provider', 'model', 'tokens'], array['export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export', 'export']),
@@ -404,6 +409,23 @@ begin
    ('20000000-0000-0000-0000-0000000000a2', 'weekly_digest', '2025-08-25', now() - interval '14 months'),
    ('20000000-0000-0000-0000-0000000000b1', 'weekly_digest', '2026-10-26', now()),
    ('20000000-0000-0000-0000-0000000000a1', 'reminders_off', (select c.id::text from public.practice_reminder_changes c where c.student_id = s1), now());
+  -- Home state (CR-15).
+  update public.households set home_state = case when id = ha then 'TN' else 'NY' end where id in (ha, hb);
+  update public.students set home_state = case when household_id = ha then 'TN' else 'NY' end where household_id in (ha, hb);
+  -- Question reports (CR-25): S1's own (open), g1's on S1 (closed, reviewed), and g1's two on B's S3 (one closed):
+  -- S3 stays when A is deleted, so those two keep no reporter and no note. gb's on S3 is untouched.
+  insert into public.question_reports(question_id, content_hash, question_pool, attempt_id, student_id, reporter_user_id,
+    reporter_role, reason, note, status, reviewed_at, reviewed_by, resolution_note) values
+   ('30000000-0000-0000-0000-000000000001', repeat('a', 64), 'practice', (select a.id from public.practice_attempts a where a.student_id = s1),
+    s1, '20000000-0000-0000-0000-000000000051', 'student', 'typo', 'S1 own note', 'open', null, null, null),
+   ('30000000-0000-0000-0000-000000000001', repeat('b', 64), 'practice', null, s1, '20000000-0000-0000-0000-0000000000a1',
+    'guardian', 'unclear', 'Alpha Guardian One thinks this is unclear', 'resolved', now(), 'Editor Ed', 'Key is B because of the sign'),
+   ('30000000-0000-0000-0000-000000000001', repeat('c', 64), 'practice', null, s3, '20000000-0000-0000-0000-0000000000a1',
+    'guardian', 'wrong_key', 'Alpha Guardian One on the Bravo question', 'resolved', now(), 'Editor Ed', 'Key is B because of the sign'),
+   ('30000000-0000-0000-0000-000000000003', repeat('d', 64), 'practice', null, s3, '20000000-0000-0000-0000-0000000000a1',
+    'guardian', 'other', 'Alpha Guardian open note', 'open', null, null, null),
+   ('30000000-0000-0000-0000-000000000001', repeat('e', 64), 'assessment', null, s3, '20000000-0000-0000-0000-0000000000b1',
+    'guardian', 'typo', 'Bravo guardian note', 'open', null, null, null);
 end $$;
 
 -- ---------------------------------------------------------------------------------------------------------------
@@ -483,6 +505,22 @@ begin
   perform hp_test.eq(jsonb_array_length(b->'tables'->'parent_email_deliveries'), 2, 'B parent emails: gb digest, g2 alert on S3 (not g2''s digest)');
   perform hp_test.check(a->'tables'->'students'->0 ? 'id' and a->'tables'->'student_planning_preferences'->0->>'exam_intent' = 'sat'
     and a->'tables'->'alert_preferences'->0->>'weekly_digest' = 'true', 'new #298 columns exported');
+  -- #295: home state, seen-before, question reports, and the derived first-answer metrics.
+  perform hp_test.check(a->'tables'->'households'->0->>'home_state' = 'TN' and a->'tables'->'students'->0->>'home_state' = 'TN'
+    and a->'tables'->'practice_session_items'->0 ? 'seen_before' and a->'tables'->'practice_session_items'->0 ? 'last_seen', '#295 columns exported');
+  perform hp_test.eq(jsonb_array_length(a->'tables'->'question_reports'), 2, 'A reports: S1 own and g1 on S1');
+  perform hp_test.check((select bool_and(r->>'note' is not null and r->>'reporter_user_id' is not null) from jsonb_array_elements(a->'tables'->'question_reports') r),
+    'household export shows its own members'' reports in full');
+  perform hp_test.eq((select array_agg(coalesce(r->>'note', '(none)') order by r->>'created_at', r->>'id') from jsonb_array_elements(s1->'tables'->'question_reports') r)
+    @> array['S1 own note', '(none)'], true, 'student export: own note shown, guardian''s note not');
+  perform hp_test.check((select bool_and((r->>'reporter_user_id' is null) = (r->>'note' is null)) from jsonb_array_elements(s1->'tables'->'question_reports') r),
+    'student export hides the guardian reporter with the note');
+  perform hp_test.eq(jsonb_array_length(b->'tables'->'question_reports'), 3, 'B reports on S3');
+  perform hp_test.eq((select count(*) from jsonb_array_elements(b->'tables'->'question_reports') r where r->>'reporter_user_id' is null and r->>'note' is null), 2::bigint,
+    'B export: g1 (not a B member) shown without id or note');
+  perform hp_test.check(jsonb_array_length(a->'derived'->'skill_estimates') > 0 and jsonb_array_length(s1->'derived'->'skill_estimates') > 0
+    and (select bool_and(z ? 'first_answers' and z ? 'first_answer_accuracy' and z ? 'student_id') from jsonb_array_elements(a->'derived'->'skill_estimates') z),
+    'derived skill estimates with first-answer metrics exported');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'students'), 2, 'A has two students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_attempts'), 2, 'A attempts from both students');
   perform hp_test.eq(jsonb_array_length(a->'tables'->'practice_session_items'), 4, 'A session items');
@@ -518,7 +556,7 @@ begin
   for e in select k, doc from dr_exports loop
     foreach secret in array array['code_hash', 'short_code_hash', 'pepper', 'accepted_answers', 'teaching_explanation',
       'Question 1', 'First hint', 'cus_ALPHA', 'cus_BRAVO', 'cus_PERSONAL', 'sub_ALPHA', 'sub_BRAVO', 'sub_PERSONAL',
-      'payload', '1 Alpha St', 'customer_email', 'evt_', 'secret-', 'p256-', 'push.example', '60000000-0000-0000-0000-0000000000'] loop
+      'payload', '1 Alpha St', 'customer_email', 'evt_', 'secret-', 'p256-', 'push.example', '60000000-0000-0000-0000-0000000000', 'Editor Ed', 'Key is B', 'assessment'] loop
       perform hp_test.check(position(secret in e.doc::text) = 0, e.k || ' export contains ' || secret);
     end loop;
     foreach secret in array (select array_agg(code_hash) || array_agg(short_code_hash) filter (where short_code_hash is not null)
@@ -761,6 +799,21 @@ begin
   perform hp_test.check(exists (select 1 from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000a2'
     and period_key = current_setting('t.s3') || ':never'), 'g2 alert on S3 untouched');
   perform hp_test.check(exists (select 1 from public.parent_email_deliveries where user_id = '20000000-0000-0000-0000-0000000000b1'), 'gb record untouched');
+  -- Question reports: S1's went with S1; g1's two on S3 stay for the editors without reporter or note, the closed one
+  -- through the guard's data-request exemption; reason, revision, review and status unchanged; gb's untouched.
+  perform hp_test.eq((r->'removed'->>'question_reports')::int, 2, 'S1 reports removed');
+  perform hp_test.eq((l.kept->>'question_reports')::int, 2, 'g1 reports on S3 de-identified');
+  perform hp_test.eq((select array_agg(status || '/' || reason || '/' || revision || '/' || coalesce(reviewed_by, '-') order by content_hash)
+    from public.question_reports where reporter_user_id is null and note is null), array['resolved/wrong_key/1/Editor Ed', 'open/other/1/-'], 'kept reports');
+  perform hp_test.check(exists (select 1 from public.question_reports where note = 'Bravo guardian note'
+    and reporter_user_id = '20000000-0000-0000-0000-0000000000b1'), 'gb report untouched');
+  perform hp_test.eq(coalesce(current_setting('collegeprep.data_request_deidentify', true), ''), '', 'exemption not left on');
+  -- The guard still holds outside the exemption, and the exemption allows only clearing the note.
+  perform hp_test.expect_error($q$update public.question_reports set note = 'x' where status = 'resolved'$q$, '22023', '%closed%');
+  perform set_config('collegeprep.data_request_deidentify', 'on', true);
+  perform hp_test.expect_error($q$update public.question_reports set reason = 'typo' where status = 'resolved'$q$, '22023', '%closed%');
+  perform hp_test.expect_error($q$update public.question_reports set note = 'x' where status = 'resolved'$q$, '22023', '%closed%');
+  perform set_config('collegeprep.data_request_deidentify', '', true);
   -- Devices: g1's and S1's login's push devices deleted; g2's kept.
   perform hp_test.eq((r->'removed'->>'notification_devices')::int, 2, 'two devices removed');
   perform hp_test.eq((select array_agg(user_id order by user_id) from public.notification_devices),

@@ -14,6 +14,8 @@
 --   data_request_log                                one row per export or deletion; RLS on, no client access
 --   data_request_billing_refs                       payment-provider customer and subscription ids of deleted households
 --   retained_email_records                          email-sent records kept 13 months after a deletion, unlinked
+--   question_reports_closed_guard (replaced)        one narrow exemption: a data request may clear a closed report's
+--                                                   note when its reporter's account is deleted (see below)
 --
 -- Every function here is service-role only (the admin_* entry points and the two webhook writes) or owner only (the
 -- data_request_* internals). Privileges are revoked from public, anon, authenticated AND service_role first and then
@@ -246,6 +248,17 @@ begin
     'practice_reminder_changes', coalesce((select jsonb_agg(case when p_household_view then to_jsonb(t)
         else to_jsonb(t) - 'changed_by' - 'household_id' end order by t.changed_at, t.id)
       from public.practice_reminder_changes t where t.student_id = p_student), '[]'::jsonb),
+    -- Question reports about the student. Never the editor's name or resolution note (which may discuss the answer),
+    -- nor whether the item is reserved. A reporter's id and note are shown only to that reporter's own household
+    -- (household view: when the reporter is a member of the student's household) or, in a student export, only for
+    -- the student's own reports.
+    'question_reports', coalesce((select jsonb_agg(
+        case when (p_household_view and r.reporter_user_id in (select m.user_id from public.household_members m
+                     where m.household_id = v_household))
+               or (not p_household_view and r.reporter_user_id = v_link)
+          then to_jsonb(r) else to_jsonb(r) || jsonb_build_object('reporter_user_id', null, 'note', null) end
+        - 'reviewed_by' - 'resolution_note' - 'question_pool' order by r.created_at, r.id)
+      from public.question_reports r where r.student_id = p_student), '[]'::jsonb),
     -- Never the device id: devices (push tokens and keys) are security records, not exported.
     'practice_reminder_deliveries', coalesce((select jsonb_agg(to_jsonb(t) - 'device_id' order by t.sent_at, t.id)
       from public.practice_reminder_deliveries t where t.student_id = p_student), '[]'::jsonb));
@@ -263,6 +276,18 @@ begin
   end if;
   return v;
 end $$;
+
+-- Derived, not stored: the skill estimates computed from the student's attempts (with CR-23's first-answer columns),
+-- exported under 'derived' so the family sees what the app concluded. Nothing to delete: they go with the attempts.
+create function public.data_request_student_derived(p_student uuid) returns jsonb
+language sql stable security definer set search_path = '' as $$
+  select coalesce(jsonb_agg(jsonb_build_object('student_id', p_student) || to_jsonb(e) || jsonb_build_object(
+      'first_answers', coalesce(f.first_answers, 0),
+      'first_answer_accuracy', case when f.first_answers > 0 then round(f.first_correct::numeric / f.first_answers, 4) end)
+    order by e.section, e.skill_key), '[]'::jsonb)
+  from public.skill_estimates_internal(p_student) e
+  left join public.first_answer_estimates_internal(p_student) f on f.skill_id = e.skill_id
+$$;
 
 create function public.data_request_household_tables(p_household uuid) returns jsonb
 language plpgsql stable security definer set search_path = '' as $$
@@ -381,7 +406,8 @@ begin
     'notes', jsonb_build_array(
       'Practice attempts list question ids and your answers; question text and answer keys are licensed content and are not included.',
       'Other household members'' account ids and guardians'' alert settings are not included in a student export.'),
-    'tables', v_tables);
+    'tables', v_tables,
+    'derived', jsonb_build_object('skill_estimates', public.data_request_student_derived(p_student)));
 end $$;
 
 create function public.admin_export_household(p_household uuid, p_requested_by text, p_operator text,
@@ -404,7 +430,48 @@ begin
     'notes', jsonb_build_array(
       'Practice attempts list question ids and answers given; question text and answer keys are licensed content and are not included.',
       'Payment-provider identifiers and raw payment events are not included; invoices and receipts are in the billing portal.'),
-    'tables', v_tables);
+    'tables', v_tables,
+    'derived', jsonb_build_object('skill_estimates', coalesce((select jsonb_agg(e order by x.created_at, x.id)
+      from public.students x cross join jsonb_array_elements(public.data_request_student_derived(x.id)) e
+      where x.household_id = p_household), '[]'::jsonb)));
+end $$;
+
+-- CR-25's guard keeps a closed question report's reason, note, revision and updated_at fixed, even for the service
+-- role. The one exception is de-identification by a data request: when the reporter's account is deleted but the report
+-- stays (it is about a student who is not being deleted), the report loses its reporter and its free-text note. The
+-- exemption is narrow: only while data_request_deidentify_reports has set collegeprep.data_request_deidentify for the
+-- current transaction, and only clearing the note; reason, revision and updated_at still may not change.
+create or replace function public.question_reports_closed_guard() returns trigger
+language plpgsql set search_path = '' as $$
+begin
+  if old.status <> 'open' and (new.reason, new.note, new.revision, new.updated_at)
+      is distinct from (old.reason, old.note, old.revision, old.updated_at) then
+    if coalesce(current_setting('collegeprep.data_request_deidentify', true), '') = 'on' and new.note is null
+       and (new.reason, new.revision, new.updated_at) is not distinct from (old.reason, old.revision, old.updated_at) then
+      return new;
+    end if;
+    raise exception 'This report is closed; its reason and note can''t change' using errcode = '22023';
+  end if;
+  return new;
+end $$;
+
+-- Question reports (CR-25) filed by departing accounts about students who stay: kept for the editors, with no
+-- reporter and no note. Reports about deleted students go with the student (on delete cascade).
+create function public.data_request_deidentify_reports(p_students uuid[], p_users uuid[], p_apply boolean)
+returns integer language plpgsql security definer set search_path = '' as $$
+declare n integer;
+begin
+  if not p_apply then
+    select count(*) into n from public.question_reports r
+    where r.reporter_user_id = any (p_users) and r.student_id <> all (p_students);
+    return n;
+  end if;
+  perform set_config('collegeprep.data_request_deidentify', 'on', true);
+  update public.question_reports r set reporter_user_id = null, note = null
+  where r.reporter_user_id = any (p_users) and r.student_id <> all (p_students);
+  get diagnostics n = row_count;
+  perform set_config('collegeprep.data_request_deidentify', '', true);
+  return n;
 end $$;
 
 -- Parent-email delivery records (CR-22/27) are email-sent records: kept 13 months (DECISIONS.md #5), de-identified.
@@ -435,7 +502,7 @@ end $$;
 -- Deletes one student (p_apply) or reports what would go. Returns removed and kept counts and the auth users the
 -- runbook deletes through the admin API.
 create function public.data_request_delete_student_internal(p_student uuid, p_apply boolean, p_log uuid,
-  p_emails boolean default true) returns jsonb
+  p_shared boolean default true) returns jsonb
 language plpgsql security definer set search_path = '' as $$
 declare v_s public.students; v_auth uuid[] := '{}'; v_removed jsonb; v_kept jsonb;
 begin
@@ -473,14 +540,17 @@ begin
     'student_setup_progress', (select count(*) from public.student_setup_progress x where x.student_id = p_student),
     'practice_reminder_settings', (select count(*) from public.practice_reminder_settings x where x.student_id = p_student),
     'practice_reminder_changes', (select count(*) from public.practice_reminder_changes x where x.student_id = p_student),
-    'practice_reminder_deliveries', (select count(*) from public.practice_reminder_deliveries x where x.student_id = p_student));
+    'practice_reminder_deliveries', (select count(*) from public.practice_reminder_deliveries x where x.student_id = p_student),
+    'question_reports', (select count(*) from public.question_reports x where x.student_id = p_student));
   v_kept := jsonb_build_object('retained_email_records', (select count(*) from public.household_invitations i
     where i.student_id = p_student and i.recipient_email is not null and i.email_send_count > 0
       and i.last_emailed_at > now() - interval '13 months'));
-  -- From a household deletion, the household de-identifies parent emails once for all its students and accounts.
-  if p_emails then
+  -- Shared records (parent emails, question reports): from a household deletion, the household de-identifies them once
+  -- for all its students and accounts.
+  if p_shared then
     v_kept := v_kept || jsonb_build_object('parent_email_deliveries',
-      public.data_request_deidentify_email_deliveries(array[p_student], v_auth, false));
+      public.data_request_deidentify_email_deliveries(array[p_student], v_auth, false),
+      'question_reports', public.data_request_deidentify_reports(array[p_student], v_auth, false));
   end if;
   if p_apply then
     insert into public.retained_email_records(kind, recipient_email, send_count, last_sent_at, retain_until, data_request_id)
@@ -493,8 +563,9 @@ begin
     delete from public.profiles p where p.id = any (v_auth);
     delete from public.invitation_code_attempts a where a.user_id = any (v_auth);
     delete from public.notification_devices d where d.user_id = any (v_auth);
-    if p_emails then
+    if p_shared then
       perform public.data_request_deidentify_email_deliveries(array[p_student], v_auth, true);
+      perform public.data_request_deidentify_reports(array[p_student], v_auth, true);
     end if;
     -- Every per-student table references students(id) on delete cascade.
     delete from public.students s where s.id = p_student;
@@ -557,7 +628,8 @@ begin
       where i.household_id = p_household and i.student_id is null and i.recipient_email is not null
         and i.email_send_count > 0 and i.last_emailed_at > now() - interval '13 months'),
     'billing_events', cardinality(v_events),
-    'parent_email_deliveries', public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, false)));
+    'parent_email_deliveries', public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, false),
+    'question_reports', public.data_request_deidentify_reports(v_students, v_auth || v_accounts, false)));
   -- Provider references, so the invoices the provider holds can still be found for tax, and so later events about
   -- them are de-identified on arrival (record_billing_event, admin_rescrub_billing_events).
   v_kept := v_kept || jsonb_build_object('billing_event_ids', to_jsonb(v_events), 'billing_refs',
@@ -584,6 +656,7 @@ begin
     delete from public.invitation_code_attempts a where a.user_id = any (v_accounts);
     delete from public.notification_devices d where d.user_id = any (v_accounts);
     perform public.data_request_deidentify_email_deliveries(v_students, v_auth || v_accounts, true);
+    perform public.data_request_deidentify_reports(v_students, v_auth || v_accounts, true);
     -- Cascades household_members, household_invitations, household_saved_schools and billing_customers.
     delete from public.households h where h.id = p_household;
   end if;

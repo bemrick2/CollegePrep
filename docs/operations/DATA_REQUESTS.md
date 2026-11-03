@@ -106,13 +106,15 @@ What the export contains:
 
 - One JSON document (`format: collegeprep-data-export/v1`). Under `tables` it holds every row about the student or household.
 - A household export holds:
-  - the household, its members, and the members' profiles;
+  - the household (including its home state), its members, and the members' profiles;
   - its invitations and saved schools;
   - subscription status and periods, including the personal subscriptions of member accounts that go with it;
   - a summary of every payment event the deletion would keep;
-  - every student's practice history, goals, plans (including exam intent, planned test date and study days), scores, setup progress, reminder settings, reminder changes and reminder deliveries (without the device), and alert settings (including the weekly-digest choice);
+  - every student's profile (including home state), practice history (including whether each served item had been seen before, and when), goals, plans (including exam intent, planned test date and study days), scores, setup progress, reminder settings, reminder changes and reminder deliveries (without the device), and alert settings (including the weekly-digest choice);
+  - the question reports about each student. A reporter's id and note are shown only when the reporter is a member of the household; the editor's name, resolution note and whether the item is reserved never are;
   - the parent emails sent to the household's guardians: alerts about its students, reminders-off notices, and the weekly digests of accounts that belong to no other household.
-- A student export leaves out guardians' alert settings and other accounts' ids.
+- Both exports carry a `derived.skill_estimates` section: the per-skill estimates the app computes from the attempts, including CR-23's first-answer count and accuracy. They are not stored, so there is nothing to delete beyond the attempts.
+- A student export leaves out guardians' alert settings and other accounts' ids. It shows the student's own question reports in full, and guardians' reports about the student without the reporter or the note.
 - No export includes:
   - invitation code digests;
   - question text or answer keys (attempts list question ids and the answers given);
@@ -215,7 +217,8 @@ Always offer the export first.
 
 | Data | On deletion | Why |
 |---|---|---|
-| Student profile, practice sessions, items, attempts, attempt events, AI-help requests, progress checks and their items, weekly goals, test scores, exam plan, planning preferences, academic interests, setup progress, reminder settings, reminder changes, reminder deliveries, guardians' alert settings for the student | **Deleted at once** (within the 30 days of decision #5) | Practice history rule |
+| Student profile, practice sessions, items, attempts, attempt events, AI-help requests, progress checks and their items, weekly goals, test scores, exam plan, planning preferences, academic interests, setup progress, reminder settings, reminder changes, reminder deliveries, question reports about the student, guardians' alert settings for the student | **Deleted at once** (within the 30 days of decision #5) | Practice history rule |
+| Question reports filed by a departing account about a student who stays (for example a student who has moved to another household) | **Kept** for the editors **without the reporter or the note**. Reason, status, review and revision are unchanged | The report is about the question, not the reporter. A closed report's guard (CR-25) refuses note changes even from the service role; the data-request functions use its one exemption (below) |
 | Household, memberships, invitations, saved schools, subscription state (Stripe, comp, and departing accounts' personal subscriptions), payment-customer map | **Deleted** | Personal data |
 | Account profiles, invitation-code rate-limit rows and push devices (`notification_devices`: endpoint, keys, token, handle) of the accounts listed for deletion | **Deleted**; never exported; the auth account itself through the admin API | Personal and security data |
 | Payment events (`billing_events`) linked to the household, to its or a departing account's subscriptions, or naming their customer or subscription ids | **Kept, de-identified** (see below) | Billing records are kept as tax law requires (decision #5); the period is **OPEN O6** |
@@ -298,6 +301,10 @@ It fails CI when a new table has no decision. When a migration adds a table that
 - add it to `data_request_student_tables` or `data_request_household_tables`, and to the matching delete function;
 - add it to the test's decision list;
 - add it to section 3 above.
+
+CR-25 (#295) `question_reports` is personal. Its closed-report guard (`question_reports_closed_guard`) has one exemption, which this migration adds. While `data_request_deidentify_reports` runs, it sets the transaction-local setting `collegeprep.data_request_deidentify`, and the guard then lets a closed report's **note be cleared**. Nothing else may change: reason, revision and updated_at stay fixed, and with the setting on, any other change is still refused. The function clears the setting before it returns. The test checks all of this.
+
+CR-15 and CR-23 (#295): `households.home_state`, `students.home_state` and `practice_session_items.seen_before`/`last_seen` are exported. The first-answer metrics are exported as derived data.
 
 CR-22, CR-26 and CR-27 (#298) are covered: setup progress and the reminder tables are personal; `parent_email_deliveries` is retained (13 months, de-identified); `notification_devices` is security (deleted, never exported).
 
