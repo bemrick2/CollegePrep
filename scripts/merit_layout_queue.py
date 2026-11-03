@@ -41,6 +41,7 @@ from pipeline.extractors import merit  # noqa: E402
 
 OUT = ROOT / 'docs/coverage/merit_layout_queue.csv'
 REVIEW = ROOT / 'docs/coverage/merit_layout_review.csv'
+SUMMARY = ROOT / 'docs/coverage/merit_layout_review_summary.csv'
 REVIEW_STATUS = {'verified', 'partially_verified', 'not_merit_grid', 'inaccessible', 'held', 'layout_unsupported'}
 SCORE = re.compile(r'\b(ACT|SAT|CLT)\b[^.|]{0,40}\b\d{2,4}\b|\b\d{2,4}\b[^.|]{0,20}\b(ACT|SAT|CLT)\b', re.I)
 GPA = re.compile(r'\b[1-4]\.\d{1,2}\b[^.|]{0,30}\bGPA\b|\bGPA\b[^.|]{0,30}\b[1-4]\.\d{1,2}\b', re.I)
@@ -152,6 +153,21 @@ def main():
         w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator='\n'); w.writeheader(); w.writerows(rows)
     print(f'{len(rows)} schools -> {OUT.relative_to(ROOT)}:', dict(Counter(r['layout_status'] for r in rows)))
     print('reviewed:', dict(Counter((r['layout_status'], r['review_status']) for r in rows if r['review_status'])))
+    # Every reviewed row is counted exactly once, by its one review_status; a school leaves the queue once a merit record is on file
+    # (verified or partially verified), so the queue alone never adds up to the review.
+    in_queue = {r['institution_key']: r['layout_status'] for r in rows}
+    order = ['verified', 'partially_verified', 'not_merit_grid', 'inaccessible', 'held', 'layout_unsupported']
+    summary = []
+    for st in order:
+        keys = [k for k, v in reviewed.items() if v['review_status'] == st]
+        summary.append({'review_status': st, 'rows': len(keys), 'still_in_queue': sum(k in in_queue for k in keys),
+                        'left_queue_record_on_file': sum(k not in in_queue for k in keys),
+                        'left_queue_schools': '; '.join(sorted(reviewed[k]['name'] for k in keys if k not in in_queue))})
+    summary.append({'review_status': 'total', 'rows': len(reviewed), 'still_in_queue': sum(k in in_queue for k in reviewed),
+                    'left_queue_record_on_file': sum(k not in in_queue for k in reviewed), 'left_queue_schools': ''})
+    with open(SUMMARY, 'w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=list(summary[0]), lineterminator='\n'); w.writeheader(); w.writerows(summary)
+    print('review summary:', [(x['review_status'], x['rows']) for x in summary])
 
 
 if __name__ == '__main__':

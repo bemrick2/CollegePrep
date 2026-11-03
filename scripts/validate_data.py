@@ -153,6 +153,37 @@ def validate_record(path: Path, record: dict, index: int, domain=None):
     except ValueError: label=path
     return [f"{label} record {index}: {e}" for e in errors]
 
+ACTIVE = ('verified', 'partially_verified')
+# Pairs already on main before this check (#299): UTK's per-row Volunteer records are verified and its tiered records partially
+# verified. Superseding either side changes a verified record, which needs the owner; listed so the check blocks every new pair.
+KNOWN_DOUBLE_AWARDS = {('utk', '2026-27', 'In-State Volunteer Scholarship'), ('utk', '2026-27', 'Out-of-State Volunteer Scholarship')}
+
+
+def superseded_award_errors(rows):
+    """#299 (AHU, UMT, OLLU): when a reviewed tiered award replaces the per-row records the list reader made from the same table
+    ("<table title>: <tier>"), the per-row records are superseded (unverified, kept as history). A school-year with an active
+    tiered award and an active per-row record of that award from the same site would count and offer the award twice."""
+    from collections import defaultdict
+    from urllib.parse import urlsplit
+    groups = defaultdict(list)
+    for path, domain, r in rows:
+        if domain == 'awards' and r.get('verification_status') in ACTIVE:
+            groups[(r.get('institution_key'), r.get('academic_year'))].append((path, r))
+    errors = []
+    for (inst, year), recs in groups.items():
+        for _, t in recs:
+            if not t.get('award_tiers'): continue
+            name, host = t.get('award_name') or '', urlsplit(t.get('source_url') or '').netloc
+            if (inst, year, name) in KNOWN_DOUBLE_AWARDS: continue
+            for path, r in recs:
+                rn = r.get('award_name') or ''
+                if r.get('award_tiers') or not rn.startswith(name) or ':' not in rn[len(name):] or not (r.get('gpa_requirement') or r.get('test_requirement')):
+                    continue
+                if urlsplit(r.get('source_url') or '').netloc == host:
+                    errors.append(f'{path}: per-row award {rn!r} is active beside its tiered award {name!r} ({inst} {year}); supersede one')
+    return errors
+
+
 def main() -> int:
     errors = []
     total = 0
@@ -182,6 +213,7 @@ def main() -> int:
         errors.append(str(exc))
     from backend.program_fields import cross_errors
     errors.extend(cross_errors(rows))
+    errors.extend(superseded_award_errors(rows))
     errors.extend(f'{path}: degree requirement without its program {key[2]!r} for {key[1]}' for path, key in requirements if key not in programs)
 
     if errors:

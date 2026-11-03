@@ -1980,6 +1980,20 @@ class ReviewAndPromoteTests(unittest.TestCase):
         self.assertEqual(len(out), 2)
         self.assertTrue(all(any(i.startswith('conflicting_sources') for i in c['issues']) for c in out))
 
+    def test_tiered_award_and_its_per_row_records_are_never_both_active(self):
+        """#299 (AHU, UMT, OLLU): a reviewed tiered award supersedes the per-row records the list reader made from the same table."""
+        from scripts.validate_data import superseded_award_errors
+        base = {'institution_key': 'ipeds-1', 'academic_year': '2026-27', 'source_url': 'https://www.example.edu/merit'}
+        tiered = {**base, 'award_name': 'Merit Scholarships', 'award_tiers': [{'gpa': '3.0 to 3.49'}], 'verification_status': 'partially_verified'}
+        row = {**base, 'award_name': 'Merit Scholarships: GPA 3.0 to 3.49', 'gpa_requirement': 'GPA: 3.0 to 3.49', 'verification_status': 'partially_verified'}
+        rows = lambda *rs: [(Path('x.json'), 'awards', r) for r in rs]
+        self.assertEqual(len(superseded_award_errors(rows(tiered, row))), 1)
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'verification_status': 'unverified'})), [])  # superseded: history
+        self.assertEqual(superseded_award_errors(rows({**tiered, 'verification_status': 'unverified'}, row)), [])
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'award_name': 'Merit Scholarships Plus'})), [])  # another award
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'academic_year': '2027-28'})), [])
+        self.assertEqual(superseded_award_errors(rows(tiered, {**row, 'source_url': 'https://other.example.org/merit'})), [])  # another site
+
     def test_identical_copies_keep_the_public_site(self):
         a = self.cand(); a['source']['url'] = 'https://www.example.edu/x'
         b = json.loads(json.dumps(a)); b['candidate_id'] = 'ffffffffffffffff'; b['source']['url'] = 'https://training-www.example.edu/x'
