@@ -1,6 +1,6 @@
 // Lives outside src/ because it uses Node APIs (crypto).
 //
-// CR-26 against the local disposable backend with the reference SQL: setup answers live on the account, so a
+// CR-26 against the local disposable backend with its migration: setup answers live on the account, so a
 // guardian's choices are what the student's own login reads, and finished setup is recorded once for every device.
 // Skipped unless LOCAL_BACKEND_URL is set (scripts/local/live_stack.sh test).
 import { createHmac } from 'node:crypto'

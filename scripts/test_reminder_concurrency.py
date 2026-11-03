@@ -6,15 +6,14 @@
 2. The guardian notice: the student's two devices turn reminders off at once. The second waits for the first (the
    per-student advisory lock) and sees reminders already off, so exactly one change is flagged and guardians get one
    notice each.
-3. A shared browser: one device id reported by two logins at once with the browser's one endpoint and each login's
-   own keys. The second waits for the first (the advisory lock on the device id), then takes the device over: one
-   row, the second login's, with the second login's keys only, never a mix. A second login presenting a different
-   endpoint for that id waits too, then takes nothing over.
-4. A shared phone: one FCM token reported by two logins at once under different device ids. The second waits (the
-   lock on the token), then the token is only on the second login's device.
-5. A shared browser under two device ids: one web endpoint reported by two logins at once. The second waits (the
-   lock on the endpoint), then the endpoint is only on the second login's device. Without that lock both rows would
-   keep the endpoint.
+3. Knowing a device is not enough (20261103010000_device_claims.sql): a login that registered a browser holds its
+   transaction open while another login reports the same device id and endpoint. The second waits (the advisory lock
+   on the device id), then sees the first login's row: it gets 'verification_pending' and nothing moves.
+4. The same for an FCM token reported under another device id (the lock on the token).
+5. The same for a web endpoint reported under another device id (the lock on the endpoint). Without that lock the
+   second report wouldn't see the first row and both logins would hold the endpoint.
+6. Two confirmations of one nonce at once: the first moves the device, the second waits (the claim row lock), then
+   gets 'invalid'. The device moves once.
 
 Committed fixtures need their own database, so this creates and drops <REMINDER_CONCURRENCY_DB, default
 reminder_concurrency> using the PG* environment.
@@ -107,42 +106,48 @@ def main():
         expect(psql('-At', '-c', 'set role service_role; select count(*) from public.reminder_opt_out_payload()').stdout.strip().splitlines()[-1] == '1',
                'one notice for the one guardian')
 
-        # 3. One device id reported first by two logins at once (the same browser, so the same endpoint).
+        # 3-5. Two logins report one browser or install at once: the second waits, then only makes a claim.
         rep = lambda dev, uid, ep, key: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{dev}', 'granted', "
                                          f"'{{\"endpoint\":\"https://fcm.googleapis.com/fcm/send/{ep}\",\"keys\":{{\"p256dh\":\"k-{key}\",\"auth\":\"a-{key}\"}}}}', 'android');")
-        row_of = lambda where: psql('-At', '-c', f"select count(*) || ' ' || string_agg(id || ' ' || user_id || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret, ';') "
+        fcm = lambda dev, uid, tok: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{dev}', 'granted', null, 'ios', 'fcm', '{tok}');")
+        row_of = lambda where: psql('-At', '-c', f"select count(*) || ' ' || coalesce(string_agg(id || ' ' || user_id || ' ' || coalesce(endpoint, push_token) || ' ' || coalesce(p256dh, '-'), ';'), '') "
                                                  f"from public.notification_devices where {where}").stdout.strip()
-        dev = '5f000000-0000-4000-a000-0000000000aa'
-        (ra, oa, ea), (rb, ob, eb), waited = race(rep(dev, STUDENT, 'shared', 'student'), rep(dev, OUTSIDER, 'shared', 'outsider'))
-        expect(ra == 0 and rb == 0, f'both reports succeed {ea.strip()} {eb.strip()[:200]}')
-        expect(waited >= 1.0, f'the second report waited for the first ({waited:.2f}s)')
-        row = row_of(f"id = '{dev}'")
-        expect(row == f'1 {dev} {OUTSIDER} https://fcm.googleapis.com/fcm/send/shared k-outsider a-outsider',
-               f'one row: the later login, with its own keys ({row})')
-        dev = '5f000000-0000-4000-a000-0000000000ab'
-        (ra, oa, ea), (rb, ob, eb), waited = race(rep(dev, STUDENT, 'mine', 'student'), rep(dev, OUTSIDER, 'other', 'outsider'))
-        expect(ra == 0 and rb == 0 and waited >= 1.0, f'a report with another endpoint waits, then returns ({waited:.2f}s) {eb.strip()[:200]}')
-        row = row_of(f"id = '{dev}'")
-        expect(row == f'1 {dev} {STUDENT} https://fcm.googleapis.com/fcm/send/mine k-student a-student',
-               f'without the device\'s endpoint, nothing is taken over ({row})')
+        statuses = lambda out: [l for l in out.splitlines() if l in ('registered', 'verification_pending', 'verification_limited', 'device_held', 'confirmed', 'invalid', 'expired', 'declined', 'locked')]
+        cases = [
+            ('same device id and endpoint', rep('5f000000-0000-4000-a000-0000000000aa', STUDENT, 'shared', 'student'),
+             rep('5f000000-0000-4000-a000-0000000000aa', OUTSIDER, 'shared', 'outsider'),
+             "endpoint = 'https://fcm.googleapis.com/fcm/send/shared'",
+             f'1 5f000000-0000-4000-a000-0000000000aa {STUDENT} https://fcm.googleapis.com/fcm/send/shared k-student'),
+            ('same FCM token, another device id', fcm('5f000000-0000-4000-a000-0000000000b1', STUDENT, 'fcm-registration-token-shared-0001'),
+             fcm('5f000000-0000-4000-a000-0000000000b2', OUTSIDER, 'fcm-registration-token-shared-0001'),
+             "push_token = 'fcm-registration-token-shared-0001'",
+             f'1 5f000000-0000-4000-a000-0000000000b1 {STUDENT} fcm-registration-token-shared-0001 -'),
+            ('same web endpoint, another device id', rep('5f000000-0000-4000-a000-0000000000c1', STUDENT, 'browser', 'student'),
+             rep('5f000000-0000-4000-a000-0000000000c2', OUTSIDER, 'browser', 'outsider'),
+             "endpoint = 'https://fcm.googleapis.com/fcm/send/browser'",
+             f'1 5f000000-0000-4000-a000-0000000000c1 {STUDENT} https://fcm.googleapis.com/fcm/send/browser k-student'),
+        ]
+        for name, first, second, where, want in cases:
+            (ra, oa, ea), (rb, ob, eb), waited = race(first, second)
+            expect(ra == 0 and rb == 0, f'{name}: both reports run {ea.strip()} {eb.strip()[:200]}')
+            expect(statuses(oa) == ['registered'] and statuses(ob) == ['verification_pending'],
+                   f'{name}: the first registers, the second only claims ({statuses(oa)}, {statuses(ob)})')
+            expect(waited >= 1.0, f'{name}: the second report waited for the first ({waited:.2f}s)')
+            row = row_of(where)
+            expect(row == want, f'{name}: one row, the first login\'s, its keys unchanged ({row})')
 
-        # 4. One FCM token reported by two logins at once, under different device ids.
-        tok = 'fcm-registration-token-shared-0001'
-        fcm = lambda uid, d: (f"select hp_test.as_user('{uid}');\nselect public.report_notification_device('{d}', 'granted', null, 'ios', 'fcm', '{tok}');")
-        (ra, oa, ea), (rb, ob, eb), waited = race(fcm(STUDENT, '5f000000-0000-4000-a000-0000000000b1'), fcm(OUTSIDER, '5f000000-0000-4000-a000-0000000000b2'))
-        expect(ra == 0 and rb == 0, f'both token reports succeed {ea.strip()} {eb.strip()[:200]}')
-        expect(waited >= 1.0, f'the second token report waited for the first ({waited:.2f}s)')
-        row = psql('-At', '-c', f"select count(*) || ' ' || string_agg(id || ' ' || user_id, ';') from public.notification_devices where push_token = '{tok}'").stdout.strip()
-        expect(row == f'1 5f000000-0000-4000-a000-0000000000b2 {OUTSIDER}', f'the token is on the later login\'s device only ({row})')
-
-        # 5. One web endpoint reported by two logins at once, under different device ids.
-        (ra, oa, ea), (rb, ob, eb), waited = race(rep('5f000000-0000-4000-a000-0000000000c1', STUDENT, 'browser', 'student'),
-                                                  rep('5f000000-0000-4000-a000-0000000000c2', OUTSIDER, 'browser', 'outsider'))
-        expect(ra == 0 and rb == 0, f'both endpoint reports succeed {ea.strip()} {eb.strip()[:200]}')
-        expect(waited >= 1.0, f'the second endpoint report waited for the first ({waited:.2f}s)')
-        row = row_of("endpoint = 'https://fcm.googleapis.com/fcm/send/browser'")
-        expect(row == f'1 5f000000-0000-4000-a000-0000000000c2 {OUTSIDER} https://fcm.googleapis.com/fcm/send/browser k-outsider a-outsider',
-               f'the endpoint is on the later login\'s device only ({row})')
+        # 6. Two confirmations of one nonce at once.
+        nonce = psql('-At', '-c', f"set role service_role; select p->>'nonce' from public.issue_device_claim_challenges('{OUTSIDER}') p "
+                                  f"where p->'device'->>'id' = '5f000000-0000-4000-a000-0000000000aa'").stdout.strip().splitlines()[-1]
+        expect(len(nonce) == 64, 'the sender gets the nonce once')
+        conf = f"select hp_test.as_user('{OUTSIDER}');\nselect public.confirm_device_claim('{nonce}');"
+        (ra, oa, ea), (rb, ob, eb), waited = race(conf, conf)
+        expect(ra == 0 and rb == 0, f'both confirmations run {ea.strip()} {eb.strip()[:200]}')
+        expect(statuses(oa) == ['confirmed'] and statuses(ob) == ['invalid'], f'one nonce moves the device once ({statuses(oa)}, {statuses(ob)})')
+        expect(waited >= 1.0, f'the second confirmation waited for the first ({waited:.2f}s)')
+        row = row_of("id = '5f000000-0000-4000-a000-0000000000aa'")
+        expect(row == f'1 5f000000-0000-4000-a000-0000000000aa {OUTSIDER} https://fcm.googleapis.com/fcm/send/shared k-outsider',
+               f'the device is the claimant\'s, with the claimant\'s keys ({row})')
     finally:
         psql('-c', f'drop database if exists {DB} with (force)', db='postgres', check=False)
     print('reminder concurrency test passed')

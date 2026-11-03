@@ -132,6 +132,8 @@ jobs:
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/parent_emails.sql
       - name: Practice reminders (CR-27)
         run: psql -v ON_ERROR_STOP=1 -f supabase/tests/practice_reminders.sql
+      - name: Device registrations move only with proof (device claims)
+        run: psql -v ON_ERROR_STOP=1 -f supabase/tests/device_claims.sql
       - name: Concurrent reminder claims, reminders-off saves and device reports (CR-27)
         run: python scripts/test_reminder_concurrency.py
       - name: Import every repository record twice into the disposable database

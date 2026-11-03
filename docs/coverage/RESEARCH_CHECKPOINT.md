@@ -41,7 +41,7 @@ Reader and rule changes (tests and mutants for each):
 Hosted stays held (`.operations/supabase-live-hold.json` `hold: true`); every migration below is merged or reviewed code only, unapplied on hosted.
 - **Merged:** #243 role rules (C1 exam plan/interests need the linked student or a set-goals guardian; C6 saved-school removal; C7 recipient emails by RPC), `20261022010000`. #246 C3 cost `components` / `living_arrangements` through import and `compare_institutions`, `20261022040000`. #245 CR-24 rights gate and the generated-question rule (a `generated` item needs a `human:` review to be served), `20261022030000`.
 - **Draft:** #248 CR-23 part 1 (reserved assessment pool, `benchmark_questions`, repeats/comparable), `20261022050000`. Reviewed; waiting for Design's client commits (LiveSource and seed) so `local-backend` passes.
-- **Next:** CR-23 part 2 (`seen_before` on practice items, first-answer estimates); A1–A3 (CR-26, CR-27, CR-22) from Design's reference SQL; B3 CR-25; deletion/export procedure.
+- **Next:** CR-23 part 2 (`seen_before` on practice items, first-answer estimates); A1–A3 (CR-26, CR-27, CR-22) are migrations since #298 (device proof follow-up in `20261103010000`); B3 CR-25; deletion/export procedure.
 
 ## Tennessee pilot
 

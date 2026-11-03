@@ -220,46 +220,33 @@ begin
   end loop;
   perform hp_test.err($q$select public.report_notification_device(null, 'granted')$q$, '22023');
   perform hp_test.err($q$select public.report_notification_device(gen_random_uuid(), 'granted', null, null, 'sms')$q$, '22023');
-  perform hp_test.err($q$select public.report_notification_device(gen_random_uuid(), 'maybe')$q$, '23514');
+  perform hp_test.err($q$select public.report_notification_device(gen_random_uuid(), 'maybe')$q$, '22023');
   -- A denied device is stored without keys, whatever the app sends.
   perform public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'denied',
     jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/denied', 'keys', keys), 'ios');
   perform hp_test.as_owner();
   perform hp_test.ok((select endpoint is null and p256dh is null from public.notification_devices where id = '5f000000-0000-4000-a000-000000000002'), 'denied: no keys kept');
-  -- Knowing a device id is not enough to take it over: another login's report with no endpoint ('denied'), or with a
-  -- different one, leaves the student's row as it was.
+  -- Knowing a device id, or even the device's endpoint, is not enough to take it over (20261103010000): every report by
+  -- another login leaves the student's row as it was, and at most makes a claim the device itself must confirm
+  -- (supabase/tests/device_claims.sql).
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform public.report_notification_device(d1, 'denied', null, 'desktop');
+  perform hp_test.is(public.report_notification_device(d1, 'denied', null, 'desktop'), 'verification_pending', 'a report of another login''s device only makes a claim');
   perform public.report_notification_device(d1, 'unsupported');
   perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/mine',
+    'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');
+  perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/abc',
     'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');
   perform public.report_notification_device(d1, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-guess-0001');
   perform hp_test.as_owner();
   perform hp_test.is((select user_id::text || ' ' || permission || ' ' || endpoint || ' ' || p256dh from public.notification_devices where id = d1),
-    '20000000-0000-0000-0000-000000000051 granted https://fcm.googleapis.com/fcm/send/abc BPUBLICKEYSECRET', 'without the device''s endpoint, no takeover');
-  -- A shared browser: another login presenting the device's own endpoint takes it over, with its own keys only.
-  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/abc',
-    'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');
-  perform hp_test.as_owner();
-  perform hp_test.is((select user_id::text || ' ' || endpoint || ' ' || p256dh || ' ' || auth_secret || ' ' || platform from public.notification_devices where id = d1),
-    '20000000-0000-0000-0000-0000000000a1 https://fcm.googleapis.com/fcm/send/abc PARENTKEY PARENTAUTH desktop', 'the device moved to the parent, with the parent''s keys');
-  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform hp_test.is((select count(*) from public.student_notification_devices(st) x where x.platform = 'android'), 0::bigint, 'it is no longer the student''s device');
-  -- A device row with no endpoint or token moves to whoever reports it (nothing to prove).
+    '20000000-0000-0000-0000-000000000051 granted https://fcm.googleapis.com/fcm/send/abc BPUBLICKEYSECRET', 'not even with the device''s own endpoint');
+  -- A row with no endpoint or token can't be verified, so it stays where it is too.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
-  perform public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'default', null, 'ios');
+  perform hp_test.is(public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'default', null, 'ios'), 'device_held',
+    'a device without push credentials is held, not moved');
   perform hp_test.as_owner();
   perform hp_test.is((select user_id from public.notification_devices where id = '5f000000-0000-4000-a000-000000000002'),
-    '20000000-0000-0000-0000-000000000099'::uuid, 'a device without push credentials moves freely');
-  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform public.report_notification_device('5f000000-0000-4000-a000-000000000002', 'denied', null, 'ios');
-  -- The student signs in on it again: it moves back.
-  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/abc', 'keys', keys), 'android');
-  perform hp_test.as_owner();
-  perform hp_test.is((select user_id::text || ' ' || endpoint from public.notification_devices where id = d1),
-    '20000000-0000-0000-0000-000000000051 https://fcm.googleapis.com/fcm/send/abc', 'and back to the student');
+    '20000000-0000-0000-0000-000000000051'::uuid, 'and stays the student''s');
   perform hp_test.as_anon();
   perform hp_test.err(format($q$select public.report_notification_device(%L, 'granted')$q$, gen_random_uuid()), '42501');
   -- What the family sees: a handle, never the device id (a viewer who knew the id could report it).
@@ -298,39 +285,24 @@ begin
     perform hp_test.as_user(v::uuid);
     perform hp_test.err(format('select * from public.student_notification_devices(%L)', st), '42501');
   end loop;
-  -- A native token moves to the latest login that reports it (a shared phone).
+  -- A native token or a web endpoint another login holds does not move on a report either.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
-  perform public.report_notification_device(d5, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001');
+  perform hp_test.is(public.report_notification_device(d5, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001'), 'registered', 'the student''s own install');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
-  perform public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001');
-  perform hp_test.as_owner();
-  perform hp_test.ok(not exists (select 1 from public.notification_devices where id = d5), 'the token left the student''s install');
-  -- The same browser subscription (endpoint) under another device id: one row, the latest login's.
+  perform hp_test.is(public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001'), 'verification_pending',
+    'a known token only makes a claim');
   perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
   perform public.report_notification_device('5f000000-0000-4000-a000-000000000007', 'granted',
     jsonb_build_object('endpoint', 'https://web.push.apple.com/shared-browser', 'keys', keys), 'desktop');
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000d1');
-  perform public.report_notification_device('5f000000-0000-4000-a000-000000000008', 'granted',
-    jsonb_build_object('endpoint', 'https://web.push.apple.com/shared-browser', 'keys', keys), 'desktop');
+  perform hp_test.is(public.report_notification_device('5f000000-0000-4000-a000-000000000008', 'granted',
+    jsonb_build_object('endpoint', 'https://web.push.apple.com/shared-browser', 'keys', keys), 'desktop'), 'verification_pending', 'a known endpoint only makes a claim');
   perform hp_test.as_owner();
-  perform hp_test.is((select string_agg(user_id::text, ',') from public.notification_devices where endpoint = 'https://web.push.apple.com/shared-browser'),
-    '20000000-0000-0000-0000-0000000000d1', 'a web endpoint moves to the latest login');
-  perform hp_test.is((select user_id from public.notification_devices where push_token = 'fcm-registration-token-000000001'),
-    '20000000-0000-0000-0000-000000000099'::uuid, 'and belongs to the latest login');
-  -- The same native install (device id) signed in by another login: with a different token, no takeover; with the
-  -- install's own token, the row moves.
-  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
-  perform public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000002');
-  perform hp_test.as_owner();
-  perform hp_test.is((select user_id::text || ' ' || push_token from public.notification_devices where id = d6),
-    '20000000-0000-0000-0000-000000000099 fcm-registration-token-000000001', 'a native device id needs its own token to move');
-  perform hp_test.as_user('20000000-0000-0000-0000-000000000052');
-  perform public.report_notification_device(d6, 'granted', null, 'ios', 'fcm', 'fcm-registration-token-000000001');
-  perform hp_test.as_owner();
-  perform hp_test.is((select user_id::text || ' ' || push_token from public.notification_devices where id = d6),
-    '20000000-0000-0000-0000-000000000052 fcm-registration-token-000000001', 'with it, the native device moves to the latest login');
-  perform hp_test.is((select count(*) from public.notification_devices where push_token = 'fcm-registration-token-000000001'), 1::bigint,
-    'one row holds the token');
+  perform hp_test.is((select string_agg(user_id::text || ' ' || id::text, ',') from public.notification_devices
+    where push_token = 'fcm-registration-token-000000001' or endpoint = 'https://web.push.apple.com/shared-browser'),
+    '20000000-0000-0000-0000-000000000051 5f000000-0000-4000-a000-000000000005,20000000-0000-0000-0000-000000000052 5f000000-0000-4000-a000-000000000007',
+    'the token and the endpoint stay with their logins');
+  perform hp_test.ok(not exists (select 1 from public.notification_devices where id in (d6, '5f000000-0000-4000-a000-000000000008')), 'no row for the claimants');
   -- At most 20 devices per login: the least recently seen go.
   perform hp_test.as_user('20000000-0000-0000-0000-000000000099');
   for n in 1..22 loop
@@ -364,7 +336,7 @@ begin
   perform public.set_practice_reminders(st, hp_test.reminders(true));
   perform hp_test.as_service();
   select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
-  perform hp_test.is(jsonb_array_length(c->'devices'), 4, 'the sender sees the student''s four receiving devices');
+  perform hp_test.is(jsonb_array_length(c->'devices'), 5, 'the sender sees the student''s five receiving devices (four browsers, one app)');
   perform hp_test.ok(c->'devices'->0 ? 'p256dh' and c->>'time_zone' = 'America/Chicago', 'with keys (service role only) and the time zone');
   perform hp_test.ok(not exists (select 1 from public.practice_reminder_candidates(now()) p where p->>'student_id' = current_setting('t.adult')),
     'a student with reminders off, or no device, is not a candidate');
@@ -443,14 +415,14 @@ begin
   update public.practice_reminder_settings set enabled = true where student_id = st;
   perform hp_test.as_service();
   perform hp_test.ok(public.snooze_practice_reminder_delivery('5e000000-0000-4000-a000-0000000000f1', 60) is not null, 'it works once reminders are on again');
-  -- A shared browser moving to another login takes the student's reminders off it: no longer a candidate device, and
-  -- the delivery history stays the student's without pointing at the device.
-  perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform public.report_notification_device(d1, 'granted', '{"endpoint":"https://fcm.googleapis.com/fcm/send/new","keys":{"p256dh":"pk","auth":"pa"}}');
+  -- Signing out on a shared browser unregisters it: no longer a candidate device at once, and the delivery history
+  -- stays the student's without pointing at the device.
+  perform hp_test.as_user('20000000-0000-0000-0000-000000000051');
+  perform hp_test.is(public.unregister_notification_device(d1), true, 'the student unregisters the browser on sign-out');
   perform hp_test.as_service();
   select p into c from public.practice_reminder_candidates(now()) p where p->>'student_id' = st::text;
-  perform hp_test.ok(not exists (select 1 from jsonb_array_elements(c->'devices') x where x->>'id' = d1::text), 'the moved device gets none of the student''s reminders');
-  perform hp_test.ok(c::text not like '%send/new%', 'that browser''s endpoint is not in the student''s candidates');
+  perform hp_test.ok(not exists (select 1 from jsonb_array_elements(c->'devices') x where x->>'id' = d1::text), 'the browser gets none of the student''s reminders');
+  perform hp_test.ok(c::text not like '%send/new%', 'its endpoint is not in the student''s candidates');
   perform hp_test.is((select count(*) from public.practice_reminder_deliveries where device_id = d1), 0::bigint, 'the student''s deliveries no longer point at it');
   perform hp_test.as_owner();
 end $$;

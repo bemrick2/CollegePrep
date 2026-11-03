@@ -468,6 +468,28 @@ Migration in the repo, unapplied on hosted: `supabase/migrations/20261102030000_
 - **One device per reminder:** the sender tries a single device, the one opened most recently (the native app wins a same-day tie), and falls back only if the push service rejects it.
 - **Native devices:** `notification_devices` gains `channel` (`webpush` | `fcm`) and `push_token`. `report_notification_device` takes `p_channel` and `p_token`, and a token moves to the latest login that reports it.
 
+**Update 2026-11-03: a device moves only with proof (`20261103010000_device_claims`, unapplied on hosted).** Owner requirement: moving a device registration needs authenticated proof that the caller controls the device. Knowing another person's device id, token or endpoint is not enough. This replaces "a token moves to the latest login that reports it".
+
+- **`report_notification_device` returns a status** (it returned nothing before):
+  - `registered`: recorded as before.
+  - `verification_pending`: the device id, token or endpoint is held by another login. Nothing moved.
+    - Call the `verify-notification-device` function with the user's session.
+    - It sends a silent push with a nonce to that device.
+  - `verification_limited`: too many claims (5 per login per hour, 3 pending per device). Try again later.
+  - `device_held`: the id is held by another login and has no push target to verify. Generate a new device id and report again.
+  - `22023` "Unsupported push service": the browser's push service isn't one the server accepts. Show "this device can't receive reminders"; it is not an error to retry.
+- **The verify push.**
+  - Web push payload: `{ "type": "verify-device", "nonce": "…", "claim": "…" }`.
+  - FCM: a data-only message with the same keys (background on iOS, no notification block).
+  - The app on the device returns the nonce with `confirm_device_claim(p_nonce)`, under whoever is signed in there. Statuses:
+    - `confirmed`: the device is now this login's.
+    - `verification_pending`: another held row still needs its own proof.
+    - `declined`: the device's owner is still signed in there, so it stays theirs.
+    - `expired` (claims last 10 minutes), `invalid`, or `locked` (5 invalid attempts an hour): nothing moves.
+  - Browsers require every push to show a notification (`userVisibleOnly`). The service worker should post the nonce to an open app window, or confirm it itself if it has the session, and show at most a quiet "Checking this device…" notification.
+- **Sign-out:** call `unregister_notification_device(p_device)` on sign-out and on account switch. It removes this login's registration at once, so a shared device stops getting the previous person's reminders. Then report on the next sign-in. The challenge applies only when the previous owner never signed out.
+- **Unchanged:** `student_notification_devices` returns `device_handle` (an opaque per-row handle, stable while the device keeps its owner), never the device id.
+
 ## Product decisions flagged (not contract requests)
 
 - **Benchmark counts as practice.** The benchmark's attempts count toward the streak and the weekly goal, because they are ordinary attempts. Students who finish onboarding with a benchmark see "Done for today".

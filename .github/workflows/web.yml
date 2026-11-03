@@ -34,7 +34,7 @@ jobs:
       - name: Production build (demo mode, no Supabase settings)
         run: npm run build
 
-  # The local end-to-end suite (web/scripts/local/*.local.test.ts): every migration plus Design's reference SQL on a
+  # The local end-to-end suite (web/scripts/local/*.local.test.ts): every repository migration on a
   # disposable PostgreSQL, PostgREST in front, edge functions under Deno against fake push, FCM and mail services.
   # Nothing here talks to the hosted project or sends anything real.
   local-backend:
@@ -64,7 +64,11 @@ jobs:
         with:
           deno-version: v2.x
       - name: Edge function unit tests (Deno)
-        run: deno test supabase/functions/_shared/
+        # --no-check: webpush.ts's Web Crypto byte types don't satisfy Deno 2's stricter lib types (it runs unchanged);
+        # the pure modules the tests cover are type-checked on their own.
+        run: |
+          deno check supabase/functions/_shared/reminders.ts supabase/functions/_shared/deviceVerify.ts
+          deno test --no-check supabase/functions/
       - name: PostgREST 12.2.3
         run: |
           curl -fsSL -o /tmp/pgrst.tar.xz https://github.com/PostgREST/postgrest/releases/download/v12.2.3/postgrest-v12.2.3-linux-static-x64.tar.xz

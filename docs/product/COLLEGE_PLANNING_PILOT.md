@@ -184,7 +184,7 @@ So the pilot labels each value with the year it was published. It never projects
 - **Account storage (later):**
   - CR-28: `student_hs_courses`, plus the CR-15 home state and an optional GPA band.
   - It uses the existing `can_view_student` / `can_edit_student_plans` permission model.
-  - Reference SQL goes in `scripts/local/proposals/` with local tests. Research owns the migration.
+  - Design may sketch reference SQL in the contract request, with local tests; Research owns the migration. (`live_stack.sh` runs migrations only since #298; there is no proposals folder.)
   - It's applied only after hosted reconciliation (A5).
 - **Isolation:** the pilot is separate code, behind a separate flag, with no launch dependency.
   - Launch checklist items A and B don't wait on it.

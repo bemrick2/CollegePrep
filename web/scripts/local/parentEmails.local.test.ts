@@ -1,7 +1,7 @@
 // Lives outside src/ because it uses Node APIs (crypto, process, child_process, http).
 //
 // End-to-end check of parent accountability emails: the real edge function (supabase/functions/send-weekly-digest)
-// running under Deno, against the local disposable backend with the CR-22 reference SQL, and a fake mail endpoint
+// running under Deno, against the local disposable backend with the CR-22 migration, and a fake mail endpoint
 // standing in for Resend. Skipped unless LOCAL_BACKEND_URL and DENO_BIN are set:
 //
 //   DENO_BIN=$(command -v deno) scripts/local/live_stack.sh test
