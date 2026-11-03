@@ -152,3 +152,59 @@ Deno.test('not configured: no nonce is issued (none would be wasted)', async () 
   eq([r.status, (await r.json()).reason], [200, 'not_configured'], 'reply')
   eq(h.issued, [], 'nothing issued')
 })
+
+// A browser's side of RFC 8291: decrypt with the subscription's private key and auth secret, or throw.
+async function browserDecrypt(body: Uint8Array, priv: CryptoKey, pub: Uint8Array, auth: Uint8Array): Promise<unknown> {
+  const te = new TextEncoder()
+  const hkdf = async (salt: Uint8Array, ikm: Uint8Array, info: Uint8Array, n: number) =>
+    new Uint8Array(await crypto.subtle.deriveBits({ name: 'HKDF', hash: 'SHA-256', salt, info }, await crypto.subtle.importKey('raw', ikm, 'HKDF', false, ['deriveBits']), n * 8))
+  const salt = body.slice(0, 16)
+  const n = body[20]!
+  const asPub = body.slice(21, 21 + n)
+  const shared = new Uint8Array(await crypto.subtle.deriveBits({ name: 'ECDH', public: await crypto.subtle.importKey('raw', asPub, { name: 'ECDH', namedCurve: 'P-256' }, false, []) }, priv, 256))
+  const ikm = await hkdf(auth, shared, Uint8Array.from([...te.encode('WebPush: info\0'), ...pub, ...asPub]), 32)
+  const cek = await hkdf(salt, ikm, te.encode('Content-Encoding: aes128gcm\0'), 16)
+  const iv = await hkdf(salt, ikm, te.encode('Content-Encoding: nonce\0'), 12)
+  const plain = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, await crypto.subtle.importKey('raw', cek, 'AES-GCM', false, ['decrypt']), body.slice(21 + n)))
+  return JSON.parse(new TextDecoder().decode(plain.slice(0, -1)))
+}
+
+async function browser() {
+  const k = (await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits'])) as CryptoKeyPair
+  const pub = new Uint8Array(await crypto.subtle.exportKey('raw', k.publicKey))
+  const auth = crypto.getRandomValues(new Uint8Array(16))
+  return { k, pub, auth, p256dh: bytesToB64url(pub), authB64: bytesToB64url(auth) }
+}
+
+async function canRead(body: Uint8Array, b: Awaited<ReturnType<typeof browser>>): Promise<boolean> {
+  try {
+    await browserDecrypt(body, b.k.privateKey, b.pub, b.auth)
+    return true
+  } catch {
+    return false
+  }
+}
+
+Deno.test("the challenge is readable only with the keys it was encrypted to: the claimant's real browser, never a squatter's", async () => {
+  const vk = (await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign'])) as CryptoKeyPair
+  const vapid: Vapid = { publicKey: bytesToB64url(new Uint8Array(await crypto.subtle.exportKey('raw', vk.publicKey))), privateKey: (await crypto.subtle.exportKey('jwk', vk.privateKey)).d!, subject: 'mailto:ops@local.test' }
+  const real = await browser() // the browser that really holds the endpoint's subscription, re-reporting it
+  const squatter = await browser() // keys someone else registered or presented for the same endpoint
+  const sent: { url: string; body: Uint8Array }[] = []
+  const fetchImpl = (async (url: string, init: RequestInit) => {
+    sent.push({ url, body: new Uint8Array(init.body as ArrayBuffer) })
+    return new Response(null, { status: 201 })
+  }) as unknown as typeof fetch
+  const deps: VerifyDeps = { sendWeb: (t, p) => sendPush(t, p, vapid, { fetchImpl }), sendFcm: () => Promise.resolve({ ok: true, status: 200 }), retire: () => Promise.resolve() }
+  // The database returns the held endpoint with the CLAIMANT's keys; the sender encrypts to exactly those.
+  const asIssued = (claimant: Awaited<ReturnType<typeof browser>>): DeviceChallenge => ({ ...web, device: { ...web.device, p256dh: claimant.p256dh, auth: claimant.authB64 } })
+  await sendVerifications([asIssued(real)], deps)
+  eq(sent[0]!.url, web.device.endpoint, 'sent to the held endpoint')
+  eq(await browserDecrypt(sent[0]!.body, real.k.privateKey, real.pub, real.auth), verifyWebPayload(web), 'the real browser reads its own claim')
+  ok(!(await canRead(sent[0]!.body, squatter)), "a squatter's keys cannot read the real browser's challenge")
+  // Turned around: an attacker presents its own keys for someone else's endpoint. The push is encrypted to the
+  // attacker's keys but delivered to that endpoint, i.e. to the real browser, which cannot decrypt it.
+  await sendVerifications([asIssued(squatter)], deps)
+  eq(sent[1]!.url, web.device.endpoint, 'still sent only to the held endpoint')
+  ok(!(await canRead(sent[1]!.body, real)), "the endpoint's real browser cannot read a challenge encrypted to someone else's keys")
+})

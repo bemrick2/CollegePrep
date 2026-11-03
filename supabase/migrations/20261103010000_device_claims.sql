@@ -11,32 +11,46 @@
 --     'verification_pending'  the device id, token or endpoint is held by another login: nothing moves; a pending
 --                             claim is recorded and a silent "verify device" push will go to that device;
 --     'verification_limited'  as above, but the caller made too many claims in the last hour (5), or the device
---                             already has 3 pending claims: nothing is recorded;
+--                             already has 3 pending claims from other logins: nothing is recorded;
 --     'device_held'           the device id is held by another login and that row has no live endpoint or token
 --                             (none, or the push service said it is gone), so no push can verify it: nothing moves;
 --                             the app should generate a new device id and report again.
 -- * notification_device_claims: one pending claim per (device held by another login, claimant). It keeps the
---   claimant's report, a hash of the nonce (never the nonce), and expires 10 minutes after it was made. No client
---   access.
+--   claimant's report, a hash of the nonce (never the nonce), and expires 10 minutes after it was made. A report while
+--   the caller's claim is pending and not yet challenged refreshes it; once challenged or expired, the newest report
+--   replaces it (status 'replaced'), so one login never holds more than one of a device's 3 pending slots. Once a
+--   claim is resolved, the claimant's endpoint, keys and token are cleared. No client access.
 -- * issue_device_claim_challenges(p_claimant) (service role only, for supabase/functions/verify-notification-device):
 --   for each pending, unexpired claim not yet challenged, makes a random nonce, stores only its SHA-256, and returns the
---   nonce with the HELD device's stored endpoint or token, once. The push goes to the device the other login holds, so
---   only someone who has that device can read the nonce.
+--   nonce once, with where to push it:
+--     - a web push target: the HELD row's endpoint, encrypted with the CLAIMANT's presented p256dh/auth. Only a
+--       browser that both receives that endpoint's pushes and holds the private key for those keys can read it, i.e.
+--       the real browser, re-reporting its own subscription. A squatter who registered the endpoint with fake keys
+--       can't block the real browser (its claim is encrypted to the real keys); an attacker who presents their own
+--       keys for someone else's endpoint can't read the push either (it goes to the endpoint, which only the real
+--       browser receives, and that browser can't decrypt it with its own key);
+--     - an FCM target: the HELD row's token (FCM delivers only to the install that holds it).
+--   A web push claim whose claimant presented no keys can't be verified: the report returns 'device_held'.
+--   At most 3 verify pushes per held device per hour, whoever claims; further claims wait (and may expire).
 -- * confirm_device_claim(p_nonce) (signed-in caller) returns:
 --     'confirmed'             the caller made the claim: the held row is removed and the caller's report is applied;
 --     'verification_pending'  confirmed, but the caller's report still conflicts with another login's device (each
 --                             held row needs its own proof);
 --     'declined'              the device's current owner received the push (they are still signed in there): the
 --                             claim is closed and nothing moves;
---     'expired'               the claim had expired: nothing moves;
---     'invalid'               unknown, used, closed or someone else's nonce: nothing moves, and the attempt counts;
---     'locked'                5 invalid attempts in the last hour: refused without looking at the nonce.
+--     'expired'               the claim had expired: nothing moves, and the attempt counts;
+--     'invalid'               unknown, used or closed nonce (the attempt counts), or another login's live claim
+--                             (not counted: nobody can build up a lockout from nonces they didn't guess);
+--     'locked'                5 counted attempts in the last hour: refused without looking at the nonce.
+--   A nonce that is not 64 lowercase hex characters is refused with 22023, uncounted.
 --   A wrong or expired nonce never moves anything; a view-only guardian (or anyone) who reports a student's device
 --   only creates a claim whose nonce goes to the student's device.
 -- * unregister_notification_device(p_device) (the device's owner): removes the registration at once, so a shared
 --   device stops getting this login's reminders. Client contract: call it on sign-out and on account switch, then
---   report on the next sign-in; the challenge applies only when the previous owner never signed out. Returns whether
---   a registration of the caller's was removed.
+--   report on the next sign-in; the challenge applies only when the previous owner never signed out. It also closes
+--   the caller's own pending claims made from that device id. Returns whether a registration of the caller's was removed.
+-- * purge_device_claims(p_now) (service role only; implemented, not scheduled): closes expired pending claims, deletes
+--   resolved claims older than 30 days and failure rows older than 1 day. Returns the counts.
 -- * Reports and confirmations of one device id, token or endpoint are serialised by the same transaction advisory
 --   locks as before (ids in sorted order, then token, then endpoint).
 -- Objects are altered or replaced in place. device_handle (student_notification_devices) is unchanged.
@@ -57,14 +71,17 @@ create table public.notification_device_claims (
   auth_secret text check (auth_secret is null or length(auth_secret) <= 100),
   -- SHA-256 of the nonce, set when the challenge is issued. The nonce itself is never stored.
   nonce_hash bytea check (nonce_hash is null or length(nonce_hash) = 32),
-  status text not null default 'pending' check (status in ('pending', 'confirmed', 'declined', 'expired')),
+  status text not null default 'pending' check (status in ('pending', 'confirmed', 'declined', 'expired', 'replaced', 'withdrawn')),
   created_at timestamptz not null default now(),
   expires_at timestamptz not null,
   issued_at timestamptz,
   resolved_at timestamptz,
   check (expires_at > created_at),
-  check ((status = 'pending') = (resolved_at is null))
+  check ((status = 'pending') = (resolved_at is null)),
+  -- A resolved claim keeps no push credentials of the claimant.
+  check (status = 'pending' or (push_token is null and endpoint is null and p256dh is null and auth_secret is null))
 );
+create index notification_device_claims_target_idx on public.notification_device_claims(target_device_id, issued_at desc);
 create unique index notification_device_claims_once on public.notification_device_claims(target_device_id, claimant_user_id)
   where status = 'pending';
 create unique index notification_device_claims_nonce on public.notification_device_claims(nonce_hash) where nonce_hash is not null;
@@ -74,6 +91,19 @@ revoke all on public.notification_device_claims from anon, authenticated;
 grant select, insert, update, delete on public.notification_device_claims to service_role;
 comment on table public.notification_device_claims is
   'Pending moves of a device registration held by another login; applied only after the device returns the nonce.';
+
+-- Resolving a claim clears the claimant's push credentials (the report is applied from the row first, when it is).
+create function public.device_claim_resolve_trigger() returns trigger
+language plpgsql set search_path = '' as $$
+begin
+  if new.status <> 'pending' then
+    new.push_token := null; new.endpoint := null; new.p256dh := null; new.auth_secret := null;
+    new.resolved_at := coalesce(new.resolved_at, now());
+  end if;
+  return new;
+end $$;
+create trigger notification_device_claims_resolve before update of status on public.notification_device_claims
+  for each row execute function public.device_claim_resolve_trigger();
 
 -- Invalid confirmations, for the attempt limit. No client access.
 create table public.notification_device_claim_failures (
@@ -179,16 +209,20 @@ begin
 
   for r in select * from public.notification_device_conflicts_internal(v_me, p_device, v_token, v_endpoint) loop
     v_conflicts := v_conflicts + 1;
-    if (r.endpoint is null and r.push_token is null) or r.gone_at is not null then
-      v_held := v_held + 1;  -- no live push target can verify it: it stays where it is
+    if (r.endpoint is null and r.push_token is null) or r.gone_at is not null
+       or (r.push_token is null and v_endpoint is null) then
+      -- No live push target, or a browser target and no keys of the caller's to encrypt the challenge to.
+      v_held := v_held + 1;
       continue;
     end if;
-    -- Already claimed by this caller: refresh the report it will apply, keep the nonce and expiry.
+    -- The caller's pending, not yet challenged claim on this device: refresh the report it will apply.
     update public.notification_device_claims c set device_id = p_device, permission = p_permission, platform = p_platform,
       channel = v_channel, push_token = v_token, endpoint = v_endpoint, p256dh = v_p256dh, auth_secret = v_auth
-    where c.target_device_id = r.id and c.claimant_user_id = v_me and c.status = 'pending' and c.expires_at > now();
+    where c.target_device_id = r.id and c.claimant_user_id = v_me and c.status = 'pending'
+      and c.nonce_hash is null and c.expires_at > now();
     if found then v_pending := v_pending + 1; continue; end if;
-    update public.notification_device_claims c set status = 'expired', resolved_at = now()
+    -- Otherwise the newest report replaces the caller's older pending claim (challenged or expired).
+    update public.notification_device_claims c set status = case when c.expires_at > now() then 'replaced' else 'expired' end
     where c.target_device_id = r.id and c.claimant_user_id = v_me and c.status = 'pending';
     if (select count(*) from public.notification_device_claims c
         where c.claimant_user_id = v_me and c.created_at > now() - interval '1 hour') >= 5
@@ -217,46 +251,50 @@ end $$;
 create function public.confirm_device_claim(p_nonce text) returns text
 language plpgsql volatile security definer set search_path = '' as $$
 declare v_me uuid := auth.uid(); c public.notification_device_claims; v_owner uuid; v_left integer;
+  v_device uuid; v_permission text; v_platform text; v_channel text; v_token text; v_endpoint text; v_p256dh text; v_auth text;
 begin
   if v_me is null then raise exception 'Sign in first' using errcode = '42501'; end if;
+  if p_nonce is null or p_nonce !~ '^[0-9a-f]{64}$' then
+    raise exception 'Not a verification code' using errcode = '22023';
+  end if;
   if (select count(*) from public.notification_device_claim_failures f
       where f.user_id = v_me and f.failed_at > now() - interval '1 hour') >= 5 then
     return 'locked';
   end if;
-  if p_nonce is not null and length(p_nonce) between 32 and 128 then
-    select * into c from public.notification_device_claims x where x.nonce_hash = public.device_nonce_hash(p_nonce) for update;
-  end if;
+  select * into c from public.notification_device_claims x where x.nonce_hash = public.device_nonce_hash(p_nonce) for update;
   if c.id is null or c.status <> 'pending' then
     insert into public.notification_device_claim_failures(user_id) values (v_me);
     return 'invalid';
   end if;
   if c.expires_at <= now() then
-    update public.notification_device_claims set status = 'expired', resolved_at = now() where id = c.id;
+    update public.notification_device_claims set status = 'expired' where id = c.id;
+    insert into public.notification_device_claim_failures(user_id) values (v_me);
     return 'expired';
   end if;
   perform public.notification_device_lock_internal(array[c.device_id, c.target_device_id], c.push_token, c.endpoint);
   select d.user_id into v_owner from public.notification_devices d where d.id = c.target_device_id;
   if v_owner is null then
     -- The held row is gone (its owner unregistered): close the claim; the claimant's next report registers.
-    update public.notification_device_claims set status = 'expired', resolved_at = now() where id = c.id;
+    update public.notification_device_claims set status = 'expired' where id = c.id;
     return 'expired';
   end if;
   if v_owner = v_me and c.claimant_user_id <> v_me then
     -- The push reached the device while its owner is still signed in there: the device stays theirs.
-    update public.notification_device_claims set status = 'declined', resolved_at = now() where id = c.id;
+    update public.notification_device_claims set status = 'declined' where id = c.id;
     return 'declined';
   end if;
   if c.claimant_user_id <> v_me then
-    insert into public.notification_device_claim_failures(user_id) values (v_me);
-    return 'invalid';
+    return 'invalid';  -- a live claim of another login: refused, not counted, and the claim stays for its claimant
   end if;
-  update public.notification_device_claims set status = 'confirmed', resolved_at = now() where id = c.id;
+  v_device := c.device_id; v_permission := c.permission; v_platform := c.platform; v_channel := c.channel;
+  v_token := c.push_token; v_endpoint := c.endpoint; v_p256dh := c.p256dh; v_auth := c.auth_secret;
+  update public.notification_device_claims set status = 'confirmed' where id = c.id;
   -- The held row goes (its delivery history stays with its student, unattributed); other claims on it go with it.
   delete from public.notification_devices d where d.id = c.target_device_id;
-  select count(*) into v_left from public.notification_device_conflicts_internal(v_me, c.device_id, c.push_token, c.endpoint);
+  select count(*) into v_left from public.notification_device_conflicts_internal(v_me, v_device, v_token, v_endpoint);
   if v_left > 0 then return 'verification_pending'; end if;
-  perform public.notification_device_register_internal(v_me, c.device_id, c.permission, c.platform, c.channel, c.push_token,
-    c.endpoint, c.p256dh, c.auth_secret);
+  perform public.notification_device_register_internal(v_me, v_device, v_permission, v_platform, v_channel, v_token,
+    v_endpoint, v_p256dh, v_auth);
   return 'confirmed';
 end $$;
 
@@ -267,6 +305,9 @@ begin
   if v_me is null then raise exception 'Sign in first' using errcode = '42501'; end if;
   if p_device is null then return false; end if;
   perform public.notification_device_lock_internal(array[p_device], null, null);
+  -- The caller's own pending claims made from this device end with the sign-out.
+  update public.notification_device_claims c set status = 'withdrawn'
+  where c.claimant_user_id = v_me and c.device_id = p_device and c.status = 'pending';
   delete from public.notification_devices d where d.id = p_device and d.user_id = v_me;
   return found;
 end $$;
@@ -281,25 +322,52 @@ create function public.issue_device_claim_challenges(p_claimant uuid default nul
 language plpgsql volatile security definer set search_path = '' as $$
 declare r record; v_nonce text;
 begin
-  update public.notification_device_claims c set status = 'expired', resolved_at = now()
+  update public.notification_device_claims c set status = 'expired'
   where c.status = 'pending' and c.expires_at <= now() and (p_claimant is null or c.claimant_user_id = p_claimant);
   for r in
-    select c.id, c.expires_at, d.id as target_id, d.channel, d.endpoint, d.p256dh, d.auth_secret, d.push_token
+    select c.id, c.expires_at, c.target_device_id, d.channel, d.endpoint, d.push_token,
+      c.p256dh as claimant_p256dh, c.auth_secret as claimant_auth
     from public.notification_device_claims c
     join public.notification_devices d on d.id = c.target_device_id
     where c.status = 'pending' and c.nonce_hash is null and c.expires_at > now()
       and (p_claimant is null or c.claimant_user_id = p_claimant)
-      and (d.endpoint is not null or d.push_token is not null) and d.gone_at is null
+      and d.gone_at is null
+      and ((d.channel = 'fcm' and d.push_token is not null)
+           or (d.channel = 'webpush' and d.endpoint is not null and c.p256dh is not null and c.auth_secret is not null))
     order by c.created_at
     for update of c skip locked
   loop
+    -- At most 3 verify pushes per device per hour, whoever claims (counted under the device's row lock).
+    perform 1 from public.notification_devices d where d.id = r.target_device_id for update;
+    continue when (select count(*) from public.notification_device_claims x
+                   where x.target_device_id = r.target_device_id and x.issued_at > now() - interval '1 hour') >= 3;
     v_nonce := pg_catalog.encode(pg_catalog.sha256(pg_catalog.convert_to(
       gen_random_uuid()::text || gen_random_uuid()::text || pg_catalog.clock_timestamp()::text, 'UTF8')), 'hex');
     update public.notification_device_claims set nonce_hash = public.device_nonce_hash(v_nonce), issued_at = now() where id = r.id;
+    -- Web push: to the held endpoint, encrypted to the claimant's keys. FCM: to the held token.
     return next jsonb_build_object('claim_id', r.id, 'nonce', v_nonce, 'expires_at', r.expires_at,
-      'device', jsonb_build_object('id', r.target_id, 'channel', r.channel, 'endpoint', r.endpoint, 'p256dh', r.p256dh,
-        'auth', r.auth_secret, 'token', r.push_token));
+      'device', jsonb_build_object('id', r.target_device_id, 'channel', r.channel,
+        'endpoint', case when r.channel = 'webpush' then r.endpoint end,
+        'p256dh', case when r.channel = 'webpush' then r.claimant_p256dh end,
+        'auth', case when r.channel = 'webpush' then r.claimant_auth end,
+        'token', case when r.channel = 'fcm' then r.push_token end));
   end loop;
+end $$;
+
+-- Retention (service role only; implemented, not scheduled): pending claims past expiry close, resolved claims older
+-- than 30 days and failure rows older than a day are deleted (the attempt limit looks back one hour).
+create function public.purge_device_claims(p_now timestamptz default now()) returns jsonb
+language plpgsql volatile security definer set search_path = '' as $$
+declare v_expired integer; v_claims integer; v_failures integer; v_at timestamptz := coalesce(p_now, now());
+begin
+  update public.notification_device_claims c set status = 'expired', resolved_at = v_at
+  where c.status = 'pending' and c.expires_at <= v_at;
+  get diagnostics v_expired = row_count;
+  delete from public.notification_device_claims c where c.status <> 'pending' and c.resolved_at < v_at - interval '30 days';
+  get diagnostics v_claims = row_count;
+  delete from public.notification_device_claim_failures f where f.failed_at < v_at - interval '1 day';
+  get diagnostics v_failures = row_count;
+  return jsonb_build_object('expired', v_expired, 'claims_deleted', v_claims, 'failures_deleted', v_failures);
 end $$;
 
 revoke all on function public.device_claim_ttl() from public, anon, authenticated;
@@ -314,6 +382,9 @@ grant execute on function public.report_notification_device(uuid, text, jsonb, t
 grant execute on function public.confirm_device_claim(text) to authenticated;
 grant execute on function public.unregister_notification_device(uuid) to authenticated;
 revoke all on function public.issue_device_claim_challenges(uuid) from public, anon, authenticated;
+revoke all on function public.purge_device_claims(timestamptz) from public, anon, authenticated;
+grant execute on function public.purge_device_claims(timestamptz) to service_role;
+revoke all on function public.device_claim_resolve_trigger() from public, anon, authenticated;
 grant execute on function public.issue_device_claim_challenges(uuid) to service_role;
 comment on function public.report_notification_device(uuid, text, jsonb, text, text, text) is
   'Record this login''s device. A device id, token or endpoint held by another login moves only after confirm_device_claim.';

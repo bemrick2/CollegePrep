@@ -230,7 +230,7 @@ begin
   -- another login leaves the student's row as it was, and at most makes a claim the device itself must confirm
   -- (supabase/tests/device_claims.sql).
   perform hp_test.as_user('20000000-0000-0000-0000-0000000000a1');
-  perform hp_test.is(public.report_notification_device(d1, 'denied', null, 'desktop'), 'verification_pending', 'a report of another login''s device only makes a claim');
+  perform hp_test.is(public.report_notification_device(d1, 'denied', null, 'desktop'), 'device_held', 'a report of another login''s browser without keys is held');
   perform public.report_notification_device(d1, 'unsupported');
   perform public.report_notification_device(d1, 'granted', jsonb_build_object('endpoint', 'https://fcm.googleapis.com/fcm/send/mine',
     'keys', '{"p256dh":"PARENTKEY","auth":"PARENTAUTH"}'::jsonb), 'desktop');

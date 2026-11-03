@@ -1,6 +1,9 @@
 // The silent "verify device" push (20261103010000_device_claims.sql). When a login reports a device another login
-// holds, the database records a claim; this push carries the claim's nonce to the HELD device's stored endpoint or
-// token. Only the app running on that device can read it and return it with confirm_device_claim(nonce).
+// holds, the database records a claim; this push carries the claim's nonce to the HELD device: an FCM message to the
+// held token, or a web push to the held endpoint ENCRYPTED TO THE CLAIMANT'S presented p256dh/auth. Only the browser
+// that both receives that endpoint's pushes and holds the private key for those keys (the real browser re-reporting
+// its own subscription) can read it and return it with confirm_device_claim(nonce). A squatter's fake keys or an
+// attacker's own keys yield a push that only the endpoint's real browser receives, and it can't decrypt it.
 //
 // Pure helpers plus the sending loop, with the network calls injected, so Deno tests run offline. No titles, bodies or
 // names: the push says nothing to anyone who sees it, and logs carry counts only, never nonces, endpoints or tokens.
@@ -10,6 +13,7 @@ export interface DeviceChallenge {
   claim_id: string
   nonce: string
   expires_at: string
+  /** endpoint/token: the held device's; p256dh/auth (web push): the claimant's presented keys. */
   device: { id: string; channel: 'webpush' | 'fcm'; endpoint: string | null; p256dh: string | null; auth: string | null; token: string | null }
 }
 
